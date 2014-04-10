@@ -696,8 +696,6 @@ var customCommands = {
 		}
 	},
 	
-},
-	
 	getbucks: 'getbucks',
 		getbucks: function(target, room, user) {
 			if (!this.canBroadcast()) return;

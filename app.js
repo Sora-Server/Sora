@@ -368,8 +368,6 @@ global.CommandParser = require('./command-parser.js');
 
 global.Simulator = require('./simulator.js');
 
-global.Tournaments = require('./tournaments/frontend.js');
-
 try {
 	global.Dnsbl = require('./dnsbl.js');
 } catch (e) {
@@ -466,6 +464,11 @@ try {
 	global.profile = require('./source/profile.js');
 } catch (e) {
 	console.log('Error loading profile.js: ' + e.stack);
+}
+try {	
+    global.tour = require('./source/tour.js').tour();
+} catch (e) {
+	console.log('Error loading tour.js: ' + e.stack);
 }
 try {
 	global.Utilities = require('./source/utilities.js').Utilities;

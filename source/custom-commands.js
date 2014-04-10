@@ -695,6 +695,88 @@ var customCommands = {
 			return user.send('|popup|You have not set made a transactions.log in the logs folder yet.\n\n ' + e.stack);
 		}
 	},
+	
+},
+	
+	getbucks: 'getbucks',
+		getbucks: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Please check out the Shop page in the link below to see methods of earning money:<br />' +
+				'- <a href="http://soraleague.weebly.com/shop.html">Shop</a><br />' +
+				'</div>');
+	},
+	
+	site: 'site',
+		site: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is The Sora League Website:<br />' +
+				'- <a href="http://soraleague.weebly.com/index.html">Sora League Site</a><br />' +
+				'</div>');
+	},
+	
+	incweather: 'incweather',
+		incweather: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a detailed explanation of the format Inclement Weather:<br />' +
+				'- <a href="http://soraleague.weebly.com/inclement-weather.html">Inclement Weather</a><br />' +
+				'</div>');
+	},
+	
+	events: 'events',
+		events: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a list of events held in The Sora League:<br />' +
+				'- <a href="http://soraleague.weebly.com/events.html">Sora League Events</a><br />' +
+				'</div>');
+	},
+	
+	gymtrainers: 'gym trainers',
+		gymtrainers: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a list of Sora League Gym Trainers:<br />' +
+				'- <a href="http://soraleague.weebly.com/gym-trainers.html">Sora League Gym Trainers</a><br />' +
+				'</div>');
+	},
+
+        gymleaders: 'gym leaders',
+		gymleaders: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a list of Sora League Gym Leaders:<br />' +
+				'- <a href="http://soraleague.weebly.com/gym-leaders.html">Sora League Gym Leaders</a><br />' +
+				'</div>');
+	},
+
+	elitefour: 'e4',
+		elitefour: function(target, room, user) {
+				if (!this.canBroadcast()) return;
+				this.sendReplyBox('Here is a list of Sora League Elite Four:<br />' +
+					'- <a href="http://soraleague.weebly.com/elite-four.html">Sora League Elite Four</a><br />' +
+					'</div>');
+	},
+
+	champions: 'champions',
+			champions: function(target, room, user) {
+					if (!this.canBroadcast()) return;
+					this.sendReplyBox('Here is a list of Sora League Champions:<br />' +
+						'- <a href="http://soraleague.weebly.com/champions.html">Sora League Champions</a><br />' +
+						'</div>');
+	},
+
+	frontiers: 'frontiers',
+			frontiers: function(target, room, user) {
+					if (!this.canBroadcast()) return;
+					this.sendReplyBox('Here is a list of Sora League Frontier Brains:<br />' +
+						'- <a href="http://soraleague.weebly.com/frontier.html">Sora League Frontier Brains</a><br />' +
+						'</div>');
+	},
+
+	sidemissions: 'sidemissions',
+			sidemissions: function(target, room, user) {
+					if (!this.canBroadcast()) return;
+					this.sendReplyBox('Here is a list of Sora League Side Missions:<br />' +
+						'- <a href="http://soraleague.weebly.com/side-missions.html">Sora League Side Missions</a><br />' +
+						'</div>');
+	},
 
 	afk: 'away',
 	away: function(target, room, user, connection) {

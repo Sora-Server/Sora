@@ -1,0 +1,12 @@
+     body {
+         
+        color: white;
+        font-size: 11pt;
+        font-family: Verdana,Helvetica,Arial,sans-serif;
+        background-image:url('http://thestartbutton89.files.wordpress.com/2013/08/fer_gon-d6hl7qe.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-color:#cccccc;
+        }

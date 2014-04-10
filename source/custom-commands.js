@@ -535,12 +535,14 @@ var customCommands = {
 			return connection.sendTo(target, "|noinit|joinfailed|The room '" + target + "' could not be joined.");
 		}
 		if (target.toLowerCase() == "lobby") {
-			return connection.sendTo('lobby','|html|<div class="infobox" style="border-color:blue"><center><br/><br/><b><u>Welcome to the Gaia VGC Server!' +
-			'</u></b></center><br/><center><a href ="https://gist.github.com/E4Arsh/8577715"><b>This Server is hosted By BlakJack</b></a></center><br/><br/> ' +
-			'&nbsp;&nbsp;&nbsp;Battle users in the ladder or in tournaments, learn how to play Pokemon or just chat in lobby! ' +
-			'Make sure to type <b>/serverhelp</b> or <b>/help</b> to get a list of commands that you can use and <b>/faq</b> to check out frequently asked questions. ' +
-			'<br/><br/>&nbsp;&nbsp;&nbsp;If you have any questions, issues or concerns should be directed at someone with a rank such as Voice (+), Driver (%), Moderator (@) and Leader (&). ' +
-			'Only serious issues or questions should be directed to Administrators (~).</div>');
+					return connection.sendTo('lobby','|html|<div class="infobox" style="border-color:blue"><center><b><u>Welcome to The Sora League Server!</u></b></center><br /> ' +
+					'We are a Pokemon League open for challenges!<br /><br />' +
+					'You are welcomed to challenge us, participate in our tournaments or just chat in the lobby! <br /><br />' +
+					'The most important rule here is to have fun! We hope you will have an enjoyable stay here.<br /><br />' +
+					'You may want to check out <a href="http://soraleague.weebly.com/index.html">The Sora League Website</a> for details about the rules of challenge.<br /><br />' +
+					'<b>IMPORTANT:</b> Make sure you read our rules page <a href="http://soraleague.weebly.com/rules.html">here</a>, especially if you\'re challenging the league.<br /><br />' +
+					'<b>Warning:</b> Champion Noah and Champion OnyxE or any of our league members are not responsible for any damaged caused by hitting yourself after being confused by reading all this randomness.<br />'+
+					'P.S. <i>Do not feed the Ascher, you will regret it~</i></div>');
 		}
 	},
 

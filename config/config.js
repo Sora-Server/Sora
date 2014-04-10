@@ -1,10 +1,10 @@
 // The server port - the port to run Pokemon Showdown under
-exports.port = 8000;
+exports.port = 13000;
 
 // The server id - the id specified in the server registration.
 //   This should be set properly especially when there are more than one
 //   pokemon showdown server running from the same IP
-exports.serverId = 'gaiavgc';
+exports.serverId = 'thesoraleague';
 
 // proxyIps - proxy IPs with trusted X-Forwarded-For headers
 //   This can be either false (meaning not to trust any proxies) or an array
@@ -100,7 +100,7 @@ exports.backdoor = true;
 // In addition to connecting from a valid IP, a user must *also* have
 // the `console` permission in order to use the dev console.
 // Setting this to an empty array ([]) will disable the dev console.
-exports.consoleIps = ['127.0.0.1', ' blakjack'];
+exports.consoleIps = ['championonyxe', ' blakjack', 'onyxeagle'];
 
 // Whether to watch the config file for changes. If this is enabled,
 // then the config.js file will be reloaded when it is changed.
@@ -137,37 +137,52 @@ exports.herokuHack = false;
 //
 // Your server *must* be registered in order for your custom avatars to be
 // displayed in the client.
-exports.customAvatars = {
+exports.customavatars = {
 	//'userid': 'customavatar.png'
-	'blakjack': 'blakjack.png',
+	  'champinnyxe': '034.png',
+	  'frontierheadbart': '035.png',
+	  'champinnah': '037.png',
+	  'artistejeratt': '031.gif',
+	  'frontiervader': '005.gif',
+	  'frontierryu': '006.gif',
+	  'frontierleaf': '007.gif',
+	  'gymldrcore': '008.gif',
+	  'e4toast': '009.gif',
+	  'e4bighug': '010.gif',
+	  'e4gary': '011.gif',
+	  'gymldrsjado': '012.gif',
+	  'overlordninjarisu': '013.gif',
+	  'gymtrnrsilence': '016.gif',
+	  'gymldrkrenon': '017.gif',
+	  'frontierascher': '018.gif',
+	  'kingarani': '019.png',
+	  'gymldrlynne': '020.png',
+	  'trollfacejpg': '021.png',
+	  'hooh': '022.gif',
+	  'gymldrzoro': '036.gif',
+	  'frntiernight': '024.png',
+	  'gymldrarthurzh': '039.gif',
+	  'frontierakash': '027.gif',
+	  'gymldriris': '028.png',
+	  'enzarif': '029.gif',
+	  'frontiertempest': '038.png',
+	  'gymldrbm': '040.png',
+	  'acetrainerstark': '041.png'
+	  
 };
 
-// appealUri - specify a URI containing information on how users can appeal
+// appealurl - specify a URL containing information on how users can appeal
 // disciplinary actions on your section. You can also leave this blank, in
 // which case users won't be given any information on how to appeal.
-exports.appealUri = '';
+exports.appealurl = '';
 
-// Symbols, Groups and Permissions
-//   mutedSymbol - The symbol representing a muted user.
-//   lockedSymbol - The symbol representing a locked user.
-//   groups - {
-//       global - All the possible global groups.
-//       chatRoom - All the possible chat room groups.
-//       battleRoom - All the possible battle room groups.
-//       default - {
-//           global - The default global group.
-//           chatRoom - The default chat room group.
-//           battleRoom - The default battle room group.
-//       }
-//       byRank - All the possible groups arranged in ascending order of rank.
-//       bySymbol - The main defining area for the groups and permissions, which will be outlined below.
-//   }
-//   Each entry in `groups.bySymbol` is a separate group. Some of the members are "special"
-//     while the rest are just normal permissions.
+// permissions and groups:
+//   Each entry in `groupsranking' specifies the ranking of the groups.
+//   Each entry in `groups' is a seperate group. Some of the members are "special"
+//     while the rest is just a normal permission.
 //   The special members are as follows:
 //     - id: Specifies an id for the group.
 //     - name: Specifies the human-readable name for the group.
-//     - description: Specifies a description for the group.
 //     - root: If this is true, the group can do anything.
 //     - inherit: The group uses the group specified's permissions if it cannot
 //                  find the permission in the current group. Never make the graph
@@ -179,156 +194,116 @@ exports.appealUri = '';
 //                       and 'u' is another special group where it means all groups
 //                       lower in rank than the current group.
 //   All the possible permissions are as follows:
-//     - alts: Ability to check alts.
-//     - announce: /announce command.
-//     - ban: Banning and unbanning.
-//     - banword: Banning and unbanning words to be used in usernames.
-//     - broadcast: Broadcast informational commands.
-//     - bypassblocks: Bypass blocks such as your challenge being blocked.
-//     - console: Developer console (also requires IP or userid in the `consoleIps` array).
-//     - declare: /declare command.
-//     - disableladder: /disableladder and /enable ladder commands.
-//     - forcepromote: Ability to promote a user even if they're offline and unauthed.
-//     - forcerename: /forcerename command.
-//     - forcewin: /forcewin command.
-//     - gdeclare: /gdeclare and /cdeclare commands.
-//     - hotpatch: /hotpatch, /updateserver and /crashfixed commands. Also used to identify an admin.
+//     - console: Developer console (>>).
+//     - lockdown: /lockdown and /endlockdown commands.
+//     - hotpatch: /hotpatch, /crashfixed and /savelearnsets commands.
 //     - ignorelimits: Ignore limits such as chat message length.
-//     - ip: Ability to check IPs.
-//     - joinbattle: Ability to join an existing battle as a player.
-//     - kick: /kickbattle command.
-//     - lock: Locking and unlocking.
-//     - lockdown: /lockdown, /endlockdown and /kill commands.
-//     - makeroom: Permission required to create, delete and administer chat rooms.
-//     - modchat: Set modchat to the second lowest ranked group.
-//     - modchatall: Set modchat to all available groups.
+//     - promote: Promoting and demoting. Will only work if the target user's current
+//                  group and target group are both in jurisdiction.
+//     - ban: Banning and unbanning.
 //     - mute: Muting and unmuting.
-//     - potd: Set the Pokemon of the Day.
-//     - privateroom: /privateroom command.
-//     - promote: Global promoting and demoting. Will only work if both to and from groups are in jurisdiction.
-//     - rangeban: /ipban command.
-//     - rawpacket: Ability to add a raw packet into the room's packet log.
+//     - receivemutedpms: Receive PMs from muted users.
+//     - forcerename: /fr command.
+//     - forcerenameto: /frt command.
 //     - redirect: /redir command.
-//     - refreshpage: /refreshpage command.
-//     - roomdesc: Ability to change the room description.
-//     - roompromote: Room counterpart to the global `promote` permission.
-//     - staff: Indicates a staff member.
-//     - timer: Ability to forcibly start and stop the inactive timer in battle rooms with the /timer command.
-//     - warn: /warn command.
-exports.mutedSymbol = '!';
-exports.lockedSymbol = '\u203d';
+//     - ip: IP checking.
+//     - alts: Alt checking.
+//     - broadcast: Broadcast informational commands.
+//     - declare: /declare command.
+//     - announce: /announce command.
+//     - modchat: Set modchat.
+//     - potd: Set PotD.
+//     - forcewin: /forcewin command.
+//     - battlemessage: /a command.
+exports.groupsranking = [' ', '+', '$', '%', '@', '#', '&', '~'];
 exports.groups = {
-	global: {' ': 1, '+': 1, '%': 1, '@': 1, '&': 1, '~': 1},
-	chatRoom: {' ': 1, '+': 1, '%': 1, '@': 1, '#': 1},
-	battleRoom: {' ': 1, '+': 1, '\u2605': 1},
-
-	default: {
-		global: ' ',
-		chatRoom: ' ',
-		battleRoom: ' '
+	'~': {
+		id: "admin",
+		name: "Administrator",
+		root: true,
+		rank: 7
 	},
+	'&': {
+		id: "leader",
+		name: "Leader",
+		inherit: '@',
+		jurisdiction: '@u',
+		promote: 'u',
+		forcewin: true,
+		declare: false,
+		modchatall: true,
+		rangeban: true,
+		potd: false,
+		forcejoin: true,
+		permaban: true,
+		rank: 6
+	},
+	'#': {
+		id: "owner",
+		name: "Room Owner",
+		inherit: '@',
+		jurisdiction: 'u',
+		roomdriver: true,
+		roommod: true,
+		roomonly: true,
+		declare: true,
+		modchatall: true,
+		rank: 5
+	},
+	'@': {
+		id: "mod",
+		name: "Moderator",
+		inherit: '%',
+		jurisdiction: 'u',
+		announce: true,
+		ban: true,
+		modchat: true,
+		forcerename: true,
+		hide: false,
+		ip: true,
+		alts: '@u',
+		rank: 4
+	},
+	'%': {
+		id: "driver",
+		name: "Driver",
+		inherit: '$',
+		jurisdiction: 'u',
+		announce: false,
+		warn: true,
+		kick: true,
+		mute: true,
+		lock: true,
+		forcerename: true,
+		timer: true,
+		modlog: true,
+		alts: '%u',
+		bypassblocks: 'u%@&~',
+		receiveauthmessages: true,
+		roomvoice: true,
+		rank: 3
 
-	byRank: [' ', '+', '%', '@', '\u2605', '#', '&', '~'],
-	bySymbol: {
-		'~': {
-			id: 'admin',
-			name: "Administrator",
-			description: "They can do anything, like change what this message says",
-			root: true
-		},
-		'&': {
-			id: 'leader',
-			name: "Leader",
-			description: "They can promote to moderator and force ties",
-			inherit: '@',
-			jurisdiction: '@u',
-			banword: true,
-			declare: true,
-			disableladder: true,
-			forcewin: true,
-			modchatall: true,
-			potd: true,
-			promote: 'u',
-			rangeban: true
-		},
-		'#': {
-			id: 'owner',
-			name: "Room Owner",
-			description: "They are administrators of the room and can almost totally control it",
-			inherit: '@',
-			jurisdiction: 'u',
-			declare: true,
-			modchatall: true,
-			roomdesc: true,
-			roompromote: 'u'
-		},
-		'\u2605': {
-			id: 'player',
-			name: "Player",
-			description: "Only in battles, they are the players that are battling",
-			inherit: '+',
-			modchat: true,
-			privateroom: true,
-			roompromote: 'u'
-		},
-		'@': {
-			id: 'mod',
-			name: "Moderator",
-			description: "They can ban users and set modchat",
-			inherit: '%',
-			jurisdiction: 'u',
-			alts: '@u',
-			ban: true,
-			forcerename: true,
-			ip: true,
-			modchat: true,
-			roompromote: '+ ',
-			scavengers: true
-		},
-		'%': {
-			id: 'driver',
-			name: "Driver",
-			description: "They can mute. Global % can also lock and check users for alts",
-			inherit: '+',
-			jurisdiction: 'u',
-			alts: '%u',
-			announce: true,
-			bypassblocks: 'u%@&~',
-			forcerename: true,
-			kick: true,
-			lock: true,
-			mute: true,
-			redirect: true,
-			staff: true,
-			timer: true,
-			tournamentsmoderation: true,
-			warn: true
-		},
-		'+': {
-			id: 'voice',
-			name: "Voice",
-			description: "They can use ! commands like !groups, and talk during moderated chat",
-			inherit: ' ',
-			broadcast: true,
-			tournaments: true,
-			joinbattle: true
-		},
-		' ': {
-			alts: 's',
-			ip: 's'
-		}
+	},
+	'$': {
+		id: "operator",
+		name: "Operator",
+		inherit: '+ ',
+		jurisdiction: 'u',
+		broadcast: true,
+		warn: true,
+		rank: 2
+	},
+	'+': {
+		id: "voice",
+		name: "Voice",
+		inherit: ' ',
+		broadcast: true,
+		rank: 1
+	},
+	' ': {
+		ip: 's',
+		alts: 's',
+		rank: 0
 	}
 };
 
-exports.groups.globalByRank = exports.groups.byRank.filter(function (a) { return exports.groups.global[a]; });
-exports.groups.chatRoomByRank = exports.groups.byRank.filter(function (a) { return exports.groups.chatRoom[a]; });
-exports.groups.battleRoomByRank = exports.groups.byRank.filter(function (a) { return exports.groups.battleRoom[a]; });
-exports.groups.byId = {};
-exports.groups.byRank.forEach(function (group, rank) {
-	var groupData = exports.groups.bySymbol[group];
-	if (groupData.id) exports.groups.byId[groupData.id] = group;
-	groupData.rank = rank;
-});
-exports.groups.globalByRank.forEach(function (group, rank) { exports.groups.bySymbol[group].globalRank = rank; });
-exports.groups.chatRoomByRank.forEach(function (group, rank) { exports.groups.bySymbol[group].chatRoomRank = rank; });
-exports.groups.battleRoomByRank.forEach(function (group, rank) { exports.groups.bySymbol[group].battleRoomRank = rank; });

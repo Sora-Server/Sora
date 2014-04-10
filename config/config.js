@@ -1,10 +1,10 @@
 // The server port - the port to run Pokemon Showdown under
-exports.port = 8000;
+exports.port = 13000;
 
 // The server id - the id specified in the server registration.
 //   This should be set properly especially when there are more than one
 //   pokemon showdown server running from the same IP
-exports.serverId = 'gaiavgc';
+exports.serverId = 'thesoraleague';
 
 // proxyIps - proxy IPs with trusted X-Forwarded-For headers
 //   This can be either false (meaning not to trust any proxies) or an array
@@ -139,7 +139,35 @@ exports.herokuHack = false;
 // displayed in the client.
 exports.customAvatars = {
 	//'userid': 'customavatar.png'
-	'blakjack': 'blakjack.png',
+	'champinnyxe': '034.png',
+	  'frontierheadbart': '035.png',
+	  'champinnah': '037.png',
+	  'artistejeratt': '031.gif',
+	  'frontiervader': '005.gif',
+	  'frontierryu': '006.gif',
+	  'frontierleaf': '007.gif',
+	  'gymldrcore': '008.gif',
+	  'e4toast': '009.gif',
+	  'e4bighug': '010.gif',
+	  'e4gary': '011.gif',
+	  'gymldrsjado': '012.gif',
+	  'overlordninjarisu': '013.gif',
+	  'gymtrnrsilence': '016.gif',
+	  'gymldrkrenon': '017.gif',
+	  'frontierascher': '018.gif',
+	  'kingarani': '019.png',
+	  'gymldrlynne': '020.png',
+	  'trollfacejpg': '021.png',
+	  'hooh': '022.gif',
+	  'gymldrzoro': '036.gif',
+	  'frntiernight': '024.png',
+	  'gymldrarthurzh': '039.gif',
+	  'frontierakash': '027.gif',
+	  'gymldriris': '028.png',
+	  'enzarif': '029.gif',
+	  'frontiertempest': '038.png',
+	  'gymldrbm': '040.png',
+	  'acetrainerstark': '041.png'
 };
 
 // appealUri - specify a URI containing information on how users can appeal

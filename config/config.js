@@ -246,8 +246,8 @@ exports.appealUri = '';
 exports.mutedSymbol = '!';
 exports.lockedSymbol = '\u203d';
 exports.groups = {
-	global: {' ': 1, '+': 1, '%': 1, '@': 1, '&': 1, '~': 1},
-	chatRoom: {' ': 1, '+': 1, '%': 1, '@': 1, '#': 1},
+	global: {' ': 1, '+': 1, '$': 1, '%': 1, '@': 1, '&': 1, '~': 1},
+	chatRoom: {' ': 1, '+': 1, '$': 1, '%': 1, '@': 1, '#': 1},
 	battleRoom: {' ': 1, '+': 1, '\u2605': 1},
 
 	default: {
@@ -256,7 +256,7 @@ exports.groups = {
 		battleRoom: ' '
 	},
 
-	byRank: [' ', '+', '%', '@', '\u2605', '#', '&', '~'],
+	byRank: [' ', '+', '$', '%', '@', '\u2605', '#', '&', '~'],
 	bySymbol: {
 		'~': {
 			id: 'admin',
@@ -332,7 +332,16 @@ exports.groups = {
 			tournamentsmoderation: true,
 			warn: true
 		},
-		'+': {
+		'$': {
+		id: "operator",
+		name: "Operator",
+		inherit: '+ ',
+		jurisdiction: 'u',
+		broadcast: true,
+		warn: true,
+		rank: 2
+	        },
+	        '+': {
 			id: 'voice',
 			name: "Voice",
 			description: "They can use ! commands like !groups, and talk during moderated chat",

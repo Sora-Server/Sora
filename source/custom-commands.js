@@ -568,6 +568,118 @@ var customCommands = {
 					'P.S. <i>Do not feed the Ascher, you will regret it~</i></div>');
 		}
 	},
+	
+	/*********************************************************
+	 * Misc Commands
+	 *********************************************************/
+	
+	getbucks: 'getbucks',
+		getbucks: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Please check out the Shop page in the link below to see methods of earning money:<br />' +
+				'- <a href="http://soraleague.weebly.com/shop.html">Shop</a><br />' +
+				'</div>');
+	},
+	
+	server: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('This is The Server of <b>The Sora League</b>. Hosted by <b>Champion Onyx</b><br />');
+	},
+	
+	tourhelp: function(target, room, user) {
+	    if (!this.canBroadcast()) return;
+	    this.sendReplyBox('<b>Tournament Commands:</b><br />' +
+	        'Only Voice (+) Users and Above can Start Tournaments. <br />'+
+	        '- <b>/tour [tier],[size / X minutes]</b> - Starts a tournament or sets a timer.<br />' +
+	        '- <b>/tourtime </b> - Adjusts the timer length.<br />' +
+	        '- <b>/forcejoin</b> - Forces a user to join the tournament.<br />' +
+	        '- <b>/forceleave </b> - Forces a user to leave the tournament.<br />' +
+	        '- <b>/replace </b> - Replaces a participant pre-tournament.<br />' +
+	        '- <b>!remind</b> - Reminds everyone of tournaments in their sign-up phase.<br />' +
+	        '- <b>!vr</b> - Shows the current round.<br />' +
+	        '- <b>/dq</b> - Disqualifies a participant.<br />' +
+	        '- <b>/endtour</b> - Cancels a tournament.<br />');
+        },
+
+	battlefrontier: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<b>Sora Battle Frontier</b><br />'+
+		 	'<i>"Welcome to the Sora Battle Frontier! Challenge us if you Dare."</i> <br />'+
+		 	'<b>Requirements:</b> 8 Badges<br />'+
+	 	    '<b>Rules:</b> The battle frontier may be challenged after collecting 8 gym badges and is needed to enter the Hall of Fame. You must beat 7 frontiers (Frontier Head needs to be the last Frontier battle and teams may be changed after each game to fit the next Battle Frontiers set of rules). You can not use Super Effective type pokemon against Mono-Type frontier brains. The same frontier may be challenged once every 24 hours.The Challenger must choose a partner Pokemon that must be present in all Frontier challenges.<br/>');
+        },
+	
+	site: 'site',
+		site: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is The Sora League Website:<br />' +
+				'- <a href="http://soraleague.weebly.com/index.html">Sora League Site</a><br />' +
+				'</div>');
+	},
+	
+	incweather: 'incweather',
+		incweather: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a detailed explanation of the format Inclement Weather:<br />' +
+				'- <a href="http://soraleague.weebly.com/inclement-weather.html">Inclement Weather</a><br />' +
+				'</div>');
+	},
+	
+	events: 'events',
+		events: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a list of events held in The Sora League:<br />' +
+				'- <a href="http://soraleague.weebly.com/events.html">Sora League Events</a><br />' +
+				'</div>');
+	},
+	
+	gymtrainers: 'gym trainers',
+		gymtrainers: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a list of Sora League Gym Trainers:<br />' +
+				'- <a href="http://soraleague.weebly.com/gym-trainers.html">Sora League Gym Trainers</a><br />' +
+				'</div>');
+	},
+
+        gymleaders: 'gym leaders',
+		gymleaders: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a list of Sora League Gym Leaders:<br />' +
+				'- <a href="http://soraleague.weebly.com/gym-leaders.html">Sora League Gym Leaders</a><br />' +
+				'</div>');
+	},
+
+	elitefour: 'e4',
+		elitefour: function(target, room, user) {
+				if (!this.canBroadcast()) return;
+				this.sendReplyBox('Here is a list of Sora League Elite Four:<br />' +
+					'- <a href="http://soraleague.weebly.com/elite-four.html">Sora League Elite Four</a><br />' +
+					'</div>');
+	},
+
+	champions: 'champions',
+			champions: function(target, room, user) {
+					if (!this.canBroadcast()) return;
+					this.sendReplyBox('Here is a list of Sora League Champions:<br />' +
+						'- <a href="http://soraleague.weebly.com/champions.html">Sora League Champions</a><br />' +
+						'</div>');
+	},
+
+	frontiers: 'frontiers',
+			frontiers: function(target, room, user) {
+					if (!this.canBroadcast()) return;
+					this.sendReplyBox('Here is a list of Sora League Frontier Brains:<br />' +
+						'- <a href="http://soraleague.weebly.com/frontier.html">Sora League Frontier Brains</a><br />' +
+						'</div>');
+	},
+
+	sidemissions: 'sidemissions',
+			sidemissions: function(target, room, user) {
+					if (!this.canBroadcast()) return;
+					this.sendReplyBox('Here is a list of Sora League Side Missions:<br />' +
+						'- <a href="http://soraleague.weebly.com/side-missions.html">Sora League Side Missions</a><br />' +
+						'</div>');
+	},
 
 	/*********************************************************
 	 * Staff commands
@@ -721,86 +833,6 @@ var customCommands = {
 		} catch (e) {
 			return user.send('|popup|You have not set made a transactions.log in the logs folder yet.\n\n ' + e.stack);
 		}
-	},
-	
-	getbucks: 'getbucks',
-		getbucks: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Please check out the Shop page in the link below to see methods of earning money:<br />' +
-				'- <a href="http://soraleague.weebly.com/shop.html">Shop</a><br />' +
-				'</div>');
-	},
-	
-	site: 'site',
-		site: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Here is The Sora League Website:<br />' +
-				'- <a href="http://soraleague.weebly.com/index.html">Sora League Site</a><br />' +
-				'</div>');
-	},
-	
-	incweather: 'incweather',
-		incweather: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Here is a detailed explanation of the format Inclement Weather:<br />' +
-				'- <a href="http://soraleague.weebly.com/inclement-weather.html">Inclement Weather</a><br />' +
-				'</div>');
-	},
-	
-	events: 'events',
-		events: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Here is a list of events held in The Sora League:<br />' +
-				'- <a href="http://soraleague.weebly.com/events.html">Sora League Events</a><br />' +
-				'</div>');
-	},
-	
-	gymtrainers: 'gym trainers',
-		gymtrainers: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Here is a list of Sora League Gym Trainers:<br />' +
-				'- <a href="http://soraleague.weebly.com/gym-trainers.html">Sora League Gym Trainers</a><br />' +
-				'</div>');
-	},
-
-        gymleaders: 'gym leaders',
-		gymleaders: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Here is a list of Sora League Gym Leaders:<br />' +
-				'- <a href="http://soraleague.weebly.com/gym-leaders.html">Sora League Gym Leaders</a><br />' +
-				'</div>');
-	},
-
-	elitefour: 'e4',
-		elitefour: function(target, room, user) {
-				if (!this.canBroadcast()) return;
-				this.sendReplyBox('Here is a list of Sora League Elite Four:<br />' +
-					'- <a href="http://soraleague.weebly.com/elite-four.html">Sora League Elite Four</a><br />' +
-					'</div>');
-	},
-
-	champions: 'champions',
-			champions: function(target, room, user) {
-					if (!this.canBroadcast()) return;
-					this.sendReplyBox('Here is a list of Sora League Champions:<br />' +
-						'- <a href="http://soraleague.weebly.com/champions.html">Sora League Champions</a><br />' +
-						'</div>');
-	},
-
-	frontiers: 'frontiers',
-			frontiers: function(target, room, user) {
-					if (!this.canBroadcast()) return;
-					this.sendReplyBox('Here is a list of Sora League Frontier Brains:<br />' +
-						'- <a href="http://soraleague.weebly.com/frontier.html">Sora League Frontier Brains</a><br />' +
-						'</div>');
-	},
-
-	sidemissions: 'sidemissions',
-			sidemissions: function(target, room, user) {
-					if (!this.canBroadcast()) return;
-					this.sendReplyBox('Here is a list of Sora League Side Missions:<br />' +
-						'- <a href="http://soraleague.weebly.com/side-missions.html">Sora League Side Missions</a><br />' +
-						'</div>');
 	},
 
 	afk: 'away',

@@ -468,6 +468,11 @@ try {
 	console.log('Error loading profile.js: ' + e.stack);
 }
 try {
+	global.tour = require('./source/poll.js').tour();
+} catch (e) {
+	console.log('Error loading poll.js: ' + e.stack);
+}
+try {
 	global.Utilities = require('./source/utilities.js').Utilities;
 } catch (e) {
 	console.log('Error loading utilities.js: ' + e.stack);

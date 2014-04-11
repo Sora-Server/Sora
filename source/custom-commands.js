@@ -702,6 +702,22 @@ var customCommands = {
 		user.updateIdentity();
 		return this.sendReply("You are now showing your authority!");
 	},
+	
+	restart: function(target, room, user) {
+                if (!this.can('lockdown')) return false;
+
+                if (!Rooms.global.lockdown) {
+                        return this.sendReply('For safety reasons, /restart can only be used during lockdown.');
+                }
+
+                if (CommandParser.updateServerLock) {
+                        return this.sendReply('Wait for /updateserver to finish before using /kill.');
+                }
+                this.logModCommand(user.name + ' used /restart');
+                var exec = require('child_process').exec;
+                exec('./source/restart.sh');
+                Rooms.global.send('|refresh|');
+        },
 
 	kick: function(target, room, user){
 		if (!this.can('lock')) return this.sendReply('/kick - Access Denied');

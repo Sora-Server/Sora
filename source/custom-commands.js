@@ -518,6 +518,29 @@ var customCommands = {
 		user.updateIdentity();
 		this.sendReply('Your symbol has been reset.');
 	},
+	
+	/*********************************************************
+	 * Tour commands
+	 *********************************************************/
+	j: function(target, room, user) {
+		return this.parse('/tour join');
+	},
+
+	l: function(target, room, user) {
+		return this.parse('/tour leave');
+	},
+
+	dq: function(target, room, user) {
+		return this.parse('/tour dq ' + target);
+	},
+	
+	tournew: function(target, room, user) {
+		return this.parse('/tour new ' + target + ', elimination');
+	},
+	
+	endtour: function(target, room, user) {
+		return this.parse('/tour end');
+	},
 
 	/*********************************************************
 	 * Override commands

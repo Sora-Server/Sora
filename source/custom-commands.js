@@ -850,7 +850,7 @@ var customCommands = {
 			var awayName = user.name + ' - Away';
 			delete Users.get(awayName);
 			user.forceRename(awayName, undefined, true);
-			this.add('|raw|-- <b><font color="#4F86F7">' + originalName +'</font color></b> is now away. '+ (target ? " (" + target + ")" : ""));
+			this.add('|raw|-- <b><font color="#000000">' + originalName +'</font color></b> is now away. '+ (target ? " (" + target + ")" : ""));
 			user.isAway = true;
 		}
 		else {

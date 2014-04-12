@@ -134,7 +134,7 @@ var trainerCards = {
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-OU Dualtype (2 Monotypes in a team) <br/>'+
 	 	      '-No force switching <br/>'+
-	 	      '-Max 1 Legendaries <br/>'+
+	 	      '-Max 1 Legendary <br/>'+
 	 	      '<img src="http://sprites.pokecheck.org/i/142.gif"> <img src="http://sprites.pokecheck.org/t/109.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Leaf_zps542b4e92.png">');
 	},
 

@@ -84,16 +84,15 @@ var trainerCards = {
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/ampharos-mega.gif"> <img src="http://sprites.pokecheck.org/t/136.gif">');
         },
 
-	bighug: function(target, room, user) {
+	zoro: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Big Hug</b><br />'+
-		      '<i>"BIG HUG, the big bug, will give your team a BIG BUG HUG!"</i> <br />'+
-		      '<b>Type:</b> Bug<br />'+
-		      '<b>Ace:</b> Galvantula <br />'+
-		      '<b>Note:</b> Hugs (not optional)<br />'+
-		      '<b>Optional Rule:</b> All Pokemon must have hug based nicknames for the duration of the challenge<br />'+
+		this.sendReplyBox('E4 <b>Zoro</b><br />'+
+		      '<i>"???"</i> <br />'+
+		      '<b>Type:</b> Steel<br />'+
+		      '<b>Ace:</b> ??? <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No Item Repetition <br/>');
+	 	      '-??? <br/>'+
+	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
 	},
 
 	ninjarisu: function(target, room, user) {
@@ -159,12 +158,12 @@ var trainerCards = {
 			'<b>Ace:</b> Victini<br />');
         },
         
-        bm: function(target, room, user) {
+        bug: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>B/m/</b><br />'+
-			'<i>"Even the smallest of us can hurt if aimed at the right spot."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			'<i>"???"</i> <br />'+
 			'<b>Type:</b> Bug<br />'+
-			'<b>Ace:</b> All<br />');
+			'<b>Ace:</b> ???<br />');
         },
         
         floatzel: function(target, room, user) {
@@ -354,13 +353,12 @@ var trainerCards = {
 	 	      '-? <br/>');
 	},
 
-	zoro: function(target, room, user) {
+	steel: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Zoro</b><br />'+
-			  '<i>"Your chances of winning is as rare as finding a blue mew....well, unless you hack in a shiny mew..."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Steel<br />'+
-			  '<b>Ace:</b> Scizor (Quagsire)<br />'+
-			  '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
+			  '<b>Ace:</b> ???<br />');
 	},
 
 	fighting: function(target, room, user) {

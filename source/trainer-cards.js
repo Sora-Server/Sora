@@ -128,12 +128,13 @@ var trainerCards = {
         leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Leaf</b><br />'+
-	              '<i>"???"</i> <br />'+
+	              '<i>"Leaf is love, Leaf is life."</i> <br />'+
 	              '<b>Symbol:</b> ???<br />'+
-	              '<b>Ace:</b> ???<br />'+
+	              '<b>Ace:</b> Cincinno/Floatzel<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-??? <br/>'+
-	 	      '-??? <br/>'+
+	 	      '-OU Dualtype (2 Monotypes in a team) <br/>'+
+	 	      '-No force switching <br/>'+
+	 	      '-Max 1 Legendaries <br/>'+
 	 	      '<img src="http://sprites.pokecheck.org/i/142.gif"> <img src="http://sprites.pokecheck.org/t/109.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Leaf_zps542b4e92.png">');
 	},
 

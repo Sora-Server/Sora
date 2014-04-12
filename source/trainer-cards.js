@@ -10,20 +10,18 @@ var trainerCards = {
 	battlefrontier: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<b>Sora Battle Frontier</b><br />'+
-		 	'<i>"Welcome to the Sora Battle Frontier! Challenge us if you Dare."</i> <br />'+
-		 	'<b>Requirements:</b> 8 Badges<br />'+
+		    '<i>"Welcome to the Sora Battle Frontier! Challenge us if you Dare."</i> <br />'+
+		    '<b>Requirements:</b> 8 Badges<br />'+
 	 	    '<b>Rules:</b> The battle frontier may be challenged after collecting 8 gym badges and is needed to enter the Hall of Fame. You must beat 7 frontiers (Frontier Head needs to be the last Frontier battle and teams may be changed after each game to fit the next Battle Frontiers set of rules). You can not use Super Effective type pokemon against Mono-Type frontier brains. The same frontier may be challenged once every 24 hours.The Challenger must choose a partner Pokemon that must be present in all Frontier challenges.<br/>');
         },
 
-	onyxe: function(target, room, user) {
+	onyxeagle: function(target, room, user) {
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Champion <b>OnyxE</b><br />'+
+	 	this.sendReplyBox('<b>OnyxEagle</b><br />'+
 	 	    '<i>"Heads or Tails? Heads, I Win; Tails, you Lose"</i> <br />'+
-	 	    '<b>Ace:</b> -<br />'+
-	 	    '<b>Battle Rules:</b> <br />'+
-	 	    '-OU Format<br />'+
-	 	    '-No Weather<br />'+
-	 	    '-No Entry Hazards<br />'+
+		    '<b>Skilled in:</b> Rock types/ Ubers, Random Battle and OU to a certain degree.<br />'+
+		    '<b>History:</b> 2nd Champion of New Sora. One of the 2 people who resurrected Sora from the rubbles. <br/>'+
+		    '<b>Notes:</b> Resident coder of Sora, still conducts tests and registrations, offers advice. <br/>'+
 	 	    '<img src="http://sprites.pokecheck.org/i/248.gif"> <img src="http://sprites.pokecheck.org/i/639.gif"> <img src="http://sprites.pokecheck.org/i/567.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/tyrantrum.gif"> <img src="http://sprites.pokecheck.org/t/099.gif">');
         },
         

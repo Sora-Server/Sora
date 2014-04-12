@@ -127,16 +127,16 @@ var trainerCards = {
 		 	    '<img src="http://sprites.pokecheck.org/i/601.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
         },
 
-        vader: function(target, room, user) {
+        leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Vader</b><br />'+
-	              '<i>"Laugh my friend, and the whole world laughs with you."</i> <br />'+
-	              '<b>Symbol:</b> Trust<br />'+
-	              '<b>Ace:</b> Hitmonlee<br />'+
+		this.sendReplyBox('Frontier <b>Leaf</b><br />'+
+	              '<i>"???"</i> <br />'+
+	              '<b>Symbol:</b> ???<br />'+
+	              '<b>Ace:</b> ???<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-UU Battle <br/>'+
-	 	      '-Under Construction <br/>'+
-	 	      '<img src="http://sprites.pokecheck.org/s/006.gif"> <img src="http://sprites.pokecheck.org/t/040.gif">');
+	 	      '-??? <br/>'+
+	 	      '-??? <br/>'+
+	 	      '<img src="http://sprites.pokecheck.org/i/142.gif"> <img src="http://sprites.pokecheck.org/t/109.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Leaf_zps542b4e92.png">');
 	},
 
 	ascher: function(target, room, user) {
@@ -237,12 +237,12 @@ var trainerCards = {
 			  '<img src="http://sprites.pokecheck.org/i/241.gif"> <img src="http://sprites.pokecheck.org/t/111.gif">');
         },
         
-        manifest: function(target, room, user) {
+        akkie: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
-			this.sendReplyBox('Gym Ldr <b>Manifest</b><br />'+
-			  '<i>"On a scale of one to America, how free are you tonight?"</i> <br />'+
+			this.sendReplyBox('Gym Ldr <b>Akkie</b><br />'+
+			  '<i>"The truth may be a light among the darkness, but is what you believe really true, or are you just stumbling around in the dark?"</i> <br />'+
 			  '<b>Type:</b> Dark<br />'+
-			  '<b>Ace:</b> All<br />');
+			  '<b>Ace:</b> Umbreon<br />');
         },
         
         srewop: function(target, room, user) {
@@ -273,13 +273,12 @@ var trainerCards = {
 			  '-Best of 3 Series<br />');
         },
         
-        leaf: function(target, room, user) {
+        nirvana: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		         '<i>"Altitude beats magnitude, you cant fight against mach 6 flight."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Nirvana</b><br />'+
+		         '<i>"???"</i> <br />'+
 	              	 '<b>Type:</b> Flying<br />'+
-			 '<b>Ace:</b> Aerodactyl<br />'+
-			 '<img src="http://sprites.pokecheck.org/i/142.gif"> <img src="http://sprites.pokecheck.org/t/109.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Leaf_zps542b4e92.png">');
+			 '<b>Ace:</b> ???<br />');
         },
         
         grass: function(target, room, user) {
@@ -365,12 +364,12 @@ var trainerCards = {
 			  '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
 	},
 
-	ncrypt: function(target, room, user) {
+	fighting: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>nCrypt</b><br />'+
-			  '<i>"Fighting is my passion and the only thing I trust is strength!"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Fighting<br />'+
-			  '<b>Ace:</b> Terrakion<br />');
+			  '<b>Ace:</b> ???<br />');
 	},
 
 	meows: function(target, room, user) {

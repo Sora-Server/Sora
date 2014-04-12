@@ -129,7 +129,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Leaf</b><br />'+
 	              '<i>"Leaf is love, Leaf is life."</i> <br />'+
-	              '<b>Symbol:</b> ???<br />'+
+	              '<b>Symbol:</b> Adaption<br />'+
 	              '<b>Ace:</b> Cincinno/Floatzel<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-OU Dualtype (2 Monotypes in a team) <br/>'+

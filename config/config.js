@@ -169,6 +169,7 @@ exports.customAvatars = {
 	  'gymldrbm': '040.png',
 	  'acetrainerstark': '041.png',
 	  'frontierlou': '042.gif'
+	  'e4apple': '043.gif'
 };
 
 // appealUri - specify a URI containing information on how users can appeal

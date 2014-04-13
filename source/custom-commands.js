@@ -83,20 +83,16 @@ var customCommands = {
 		var messages = [
 			"got spanked too hard by OnyxEagle!",
 			"fed the wild Ascher and is now paying the price!",
-			"was sold in a slave trade to a Chinese man!",
-			"was swallowed up by the Earth!",
-			"used Explosion!",
 			"was eaten by Vanilla!",
-			"was sucker punched by Absol!",
-			"has left the building.",
-			"got lost in the woods!",
-			"left for their lover!",
 			"couldn\'t handle the coldness of Jeratt!",
+			"was tricked by Bart!",
+			"was eaten by Vanilla!",
+			"was forced to give Noah an oil massage (boiling oil)!",
+			"got toasted by Toast!",
+			"was trolled by Zoro.",
+			"saw Zarif\'s face.",
+			"got eaten by Sharpedos!",
 			"was hit by Magikarp\'s Revenge!",
-			"used Explosion!",
-			"used Explosion!",
-			"used Explosion!",
-			"used Explosion!",
 		];
 
 		return function(target, room, user) {

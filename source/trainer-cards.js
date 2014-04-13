@@ -10,20 +10,18 @@ var trainerCards = {
 	battlefrontier: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<b>Sora Battle Frontier</b><br />'+
-		 	'<i>"Welcome to the Sora Battle Frontier! Challenge us if you Dare."</i> <br />'+
-		 	'<b>Requirements:</b> 8 Badges<br />'+
+		    '<i>"Welcome to the Sora Battle Frontier! Challenge us if you Dare."</i> <br />'+
+		    '<b>Requirements:</b> 8 Badges<br />'+
 	 	    '<b>Rules:</b> The battle frontier may be challenged after collecting 8 gym badges and is needed to enter the Hall of Fame. You must beat 7 frontiers (Frontier Head needs to be the last Frontier battle and teams may be changed after each game to fit the next Battle Frontiers set of rules). You can not use Super Effective type pokemon against Mono-Type frontier brains. The same frontier may be challenged once every 24 hours.The Challenger must choose a partner Pokemon that must be present in all Frontier challenges.<br/>');
         },
 
-	onyxe: function(target, room, user) {
+	onyxeagle: function(target, room, user) {
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Champion <b>OnyxE</b><br />'+
+	 	this.sendReplyBox('<b>OnyxEagle</b><br />'+
 	 	    '<i>"Heads or Tails? Heads, I Win; Tails, you Lose"</i> <br />'+
-	 	    '<b>Ace:</b> -<br />'+
-	 	    '<b>Battle Rules:</b> <br />'+
-	 	    '-OU Format<br />'+
-	 	    '-No Weather<br />'+
-	 	    '-No Entry Hazards<br />'+
+		    '<b>Skilled in:</b> Rock types/ Ubers, Random Battle and OU to a certain degree.<br />'+
+		    '<b>History:</b> 2nd Champion of New Sora. One of the 2 people who resurrected Sora from the rubbles. <br/>'+
+		    '<b>Notes:</b> Resident coder of Sora, still conducts tests and registrations, offers advice. <br/>'+
 	 	    '<img src="http://sprites.pokecheck.org/i/248.gif"> <img src="http://sprites.pokecheck.org/i/639.gif"> <img src="http://sprites.pokecheck.org/i/567.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/tyrantrum.gif"> <img src="http://sprites.pokecheck.org/t/099.gif">');
         },
         
@@ -86,16 +84,15 @@ var trainerCards = {
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/ampharos-mega.gif"> <img src="http://sprites.pokecheck.org/t/136.gif">');
         },
 
-	bighug: function(target, room, user) {
+	zoro: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Big Hug</b><br />'+
-		      '<i>"BIG HUG, the big bug, will give your team a BIG BUG HUG!"</i> <br />'+
-		      '<b>Type:</b> Bug<br />'+
-		      '<b>Ace:</b> Galvantula <br />'+
-		      '<b>Note:</b> Hugs (not optional)<br />'+
-		      '<b>Optional Rule:</b> All Pokemon must have hug based nicknames for the duration of the challenge<br />'+
+		this.sendReplyBox('E4 <b>Zoro</b><br />'+
+		      '<i>"???"</i> <br />'+
+		      '<b>Type:</b> Steel<br />'+
+		      '<b>Ace:</b> ??? <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No Item Repetition <br/>');
+	 	      '-??? <br/>'+
+	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
 	},
 
 	ninjarisu: function(target, room, user) {
@@ -127,16 +124,17 @@ var trainerCards = {
 		 	    '<img src="http://sprites.pokecheck.org/i/601.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
         },
 
-        vader: function(target, room, user) {
+        leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Vader</b><br />'+
-	              '<i>"Laugh my friend, and the whole world laughs with you."</i> <br />'+
-	              '<b>Symbol:</b> Trust<br />'+
-	              '<b>Ace:</b> Hitmonlee<br />'+
+		this.sendReplyBox('Frontier <b>Leaf</b><br />'+
+	              '<i>"Leaf is love, Leaf is life."</i> <br />'+
+	              '<b>Symbol:</b> Adaption<br />'+
+	              '<b>Ace:</b> Cincinno/Floatzel<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-UU Battle <br/>'+
-	 	      '-Under Construction <br/>'+
-	 	      '<img src="http://sprites.pokecheck.org/s/006.gif"> <img src="http://sprites.pokecheck.org/t/040.gif">');
+	 	      '-OU Dualtype (2 Monotypes in a team) <br/>'+
+	 	      '-No force switching <br/>'+
+	 	      '-Max 1 Legendary <br/>'+
+	 	      '<img src="http://sprites.pokecheck.org/i/142.gif"> <img src="http://sprites.pokecheck.org/t/109.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Leaf_zps542b4e92.png">');
 	},
 
 	ascher: function(target, room, user) {
@@ -160,12 +158,12 @@ var trainerCards = {
 			'<b>Ace:</b> Victini<br />');
         },
         
-        bm: function(target, room, user) {
+        bug: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>B/m/</b><br />'+
-			'<i>"Even the smallest of us can hurt if aimed at the right spot."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			'<i>"???"</i> <br />'+
 			'<b>Type:</b> Bug<br />'+
-			'<b>Ace:</b> All<br />');
+			'<b>Ace:</b> ???<br />');
         },
         
         floatzel: function(target, room, user) {
@@ -208,13 +206,12 @@ var trainerCards = {
 		 	  '-No Entry Hazards <br/>');
 	},
 
-        artist: function(target, room, user) {
+        normal: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Artist</b><br />'+
-			  '<i>"Warning: Some serious hax may occur, challenge with caution."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Normal<br />'+
-			  '<b>Ace:</b> Smeargle<br />'+
-			  '<img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Zeronew_zpsa8ff05c5.png">');
+			  '<b>Ace:</b> ???<br />');
         },
         
         rockwolf: function(target, room, user) {
@@ -237,12 +234,12 @@ var trainerCards = {
 			  '<img src="http://sprites.pokecheck.org/i/241.gif"> <img src="http://sprites.pokecheck.org/t/111.gif">');
         },
         
-        manifest: function(target, room, user) {
+        akkie: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
-			this.sendReplyBox('Gym Ldr <b>Manifest</b><br />'+
-			  '<i>"On a scale of one to America, how free are you tonight?"</i> <br />'+
+			this.sendReplyBox('Gym Ldr <b>Akkie</b><br />'+
+			  '<i>"The truth may be a light among the darkness, but is what you believe really true, or are you just stumbling around in the dark?"</i> <br />'+
 			  '<b>Type:</b> Dark<br />'+
-			  '<b>Ace:</b> All<br />');
+			  '<b>Ace:</b> Umbreon<br />');
         },
         
         srewop: function(target, room, user) {
@@ -273,13 +270,12 @@ var trainerCards = {
 			  '-Best of 3 Series<br />');
         },
         
-        leaf: function(target, room, user) {
+        nirvana: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		         '<i>"Altitude beats magnitude, you cant fight against mach 6 flight."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Nirvana</b><br />'+
+		         '<i>"???"</i> <br />'+
 	              	 '<b>Type:</b> Flying<br />'+
-			 '<b>Ace:</b> Aerodactyl<br />'+
-			 '<img src="http://sprites.pokecheck.org/i/142.gif"> <img src="http://sprites.pokecheck.org/t/109.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Leaf_zps542b4e92.png">');
+			 '<b>Ace:</b> ???<br />');
         },
         
         grass: function(target, room, user) {
@@ -287,6 +283,14 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Grass<br />'+
+			  '<b>Ace:</b> ???<br />');
+	},
+	
+	water: function(target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
+			  '<b>Type:</b> Water<br />'+
 			  '<b>Ace:</b> ???<br />');
 	},
 
@@ -320,20 +324,22 @@ var trainerCards = {
 			 '<b>Ace:</b> Aegislash<br />');
         },
 
-	apple: function(target, room, user) {
+	ground: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Apple</b><br />'+
-			  '<i>"Yo mama so fat, when she enters the field Gravity comes to play."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Ground<br />'+
-			  '<b>Ace:</b> Gliscor (SnipSnip)<br />');
+			  '<b>Ace:</b> ???<br />');
 	},
 
-	arthurzh: function(target, room, user) {
+	azh: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>ArthurZH</b><br />'+
 			  '<i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY!"</i> <br />'+
 			  '<b>Type:</b> Water<br />'+
 			  '<b>Ace:</b> Kabutops<br />'+
+			  '<b>Achievements:</b> <strike>Best</strike> Water Leader of Sora, Roulette Frontier of Sora. <br />'+
+			  '<b>Known for:</b> Sadistical Playing Skills, Being Evil. <br />'+
 			  '<img src="http://sprites.pokecheck.org/i/647-resolution.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://sprites.pokecheck.org/i/141.gif">');
 	},
 
@@ -345,32 +351,34 @@ var trainerCards = {
 			  '<b>Ace:</b> Victini<br />');
 	},
 
-	frontiervacant: function(target, room, user) {
+	arthurzh: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>?</b><br />'+
-	       	      '<i>"?"</i> <br />'+
-	       	      '<b>Symbol:</b> ?<br />'+
-		      '<b>Ace:</b> ?<br />'+
+		this.sendReplyBox('Frontier <b>ArthurZH</b><br />'+
+	       	      '<i>"What will be, will be."</i> <br />'+
+	       	      '<b>Symbol:</b> Randomosity<br />'+
+		      '<b>Ace:</b> None<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-? <br/>'+
-	 	      '-? <br/>');
+	 	      'Battle Roulette(One rule is picked from each of the following 4 sets): <br/>'+
+	 	      '-Set 1 (tier) : OU, Mono, Uber, UU <br/>'+
+	 	      '-Set 2 (clause) : Item Clause (no repeating items), Choice clause (max 1 choice pokemon), Status Clause (no status), Recovery clause (No recovery mvoes bar rest) <br/>'+
+	 	      '-Set 3 (Representative of Sora-ians): Noah (All tiers below must be represented including LC for UU, not including LC for OU and above), Bart (no stat beyond 130), OnyxE (No weather), Toast (No weather inducing moves) <br/>'+
+	 	      '-Set 4 (forced item on a pokemon of choice): Lagging Tail, Black Sludge, Eviolite, Razz Berry <br/>');
 	},
 
-	zoro: function(target, room, user) {
+	steel: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Zoro</b><br />'+
-			  '<i>"Your chances of winning is as rare as finding a blue mew....well, unless you hack in a shiny mew..."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Steel<br />'+
-			  '<b>Ace:</b> Scizor (Quagsire)<br />'+
-			  '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
+			  '<b>Ace:</b> ???<br />');
 	},
 
-	ncrypt: function(target, room, user) {
+	fighting: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>nCrypt</b><br />'+
-			  '<i>"Fighting is my passion and the only thing I trust is strength!"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Fighting<br />'+
-			  '<b>Ace:</b> Terrakion<br />');
+			  '<b>Ace:</b> ???<br />');
 	},
 
 	meows: function(target, room, user) {

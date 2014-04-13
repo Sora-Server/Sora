@@ -791,18 +791,19 @@ var commands = exports.commands = {
 	rules: function(target, room, user) {
 		if (!target) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox("Please follow the rules:<br />" +
-				(room.rulesLink ? "- <a href=\"" + sanitize(room.rulesLink) + "\">" + sanitize(room.title) + " room rules</a><br />" : "") +
-				"- <a href=\"http://pokemonshowdown.com/rules\">" + (room.rulesLink ? "Global rules" : "Rules") + "</a>");
+			this.sendReplyBox('Please follow the rules:<br />' +
+			(room.rulesLink ? '- <a href="' + sanitize(room.rulesLink) + '">' + sanitize(room.title) + ' room rules</a><br />' : '') +
+			'- <a href="http://soraleague.weebly.com/rules.html">'+(room.rulesLink?'Global rules':'Rules')+'</a><br />' +
+			'</div>');
 			return;
 		}
-		if (!this.can('roommod', room)) return;
+		if (!this.can('roommod', null, room)) return;
 		if (target.length > 80) {
-			return this.sendReply("Error: Room rules link is too long (must be under 80 characters). You can use a URL shortener to shorten the link.");
+			return this.sendReply('Error: Room rules link is too long (must be under 80 characters). You can use a URL shortener to shorten the link.');
 		}
 
 		room.rulesLink = target.trim();
-		this.sendReply("(The room rules link is now: " + target + ")");
+		this.sendReply('(The room rules link is now: '+target+')');
 
 		if (room.chatRoomData) {
 			room.chatRoomData.rulesLink = room.rulesLink;
@@ -1429,6 +1430,7 @@ var commands = exports.commands = {
 			this.sendReply("For details on all commands, use /help all");
 			if (user.group !== config.groups.default[roomType]) {
 				this.sendReply("DRIVER COMMANDS: /mute, /unmute, /announce, /modlog, /forcerename, /alts")
+				this.sendReply("OPERATOR COMMANDS: /warn");
 				this.sendReply("MODERATOR COMMANDS: /ban, /unban, /unbanall, /ip, /redirect, /kick");
 				this.sendReply("LEADER COMMANDS: /promote, /demote, /forcewin, /forcetie, /declare");
 				this.sendReply("For details on all moderator commands, use /help " + Users.getGroupsThatCan('staff', room)[0]);

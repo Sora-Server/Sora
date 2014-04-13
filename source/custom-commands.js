@@ -25,7 +25,7 @@ var customCommands = {
 			'/stafflist - Displays a popup showing the list of staff.<br/>'+
 			'/transferbucks <i>username</i> - Transfer bucks to other users.<br/>'+
 			'/ratingtier - Tells you about rating tiers. <br/>' +
-			'/earnbucks - Shows other ways to earn bucks. <br/>' +
+			'/getbucks - Shows other ways to earn bucks. <br/>' +
 			'/regdate <em>username</em> - Shows the registration date of the user<br/><br/>'+
 			'<b>For more commands or help:</b> Do /serverhelp with either of the following categories: <em>tour</em>, <em>profile</em>, <em>staff</em> Example - /serverhelp <em>tour</em><br/>');
         }
@@ -56,15 +56,6 @@ var customCommands = {
 		}
 
 		return this.sendReply('Could not find ' + target + '.');
-	},
-
-	earnmoney: 'earnbucks',
-	earnbucks: function(target, room, user) {
-		if (!this.canBroadcast()) return false;
-
-		return this.sendReplyBox('' +
-		'Follow <a href="https://github.com/CreaturePhil"><u><b>CreaturePhil</b></u></a> on Github for 5 bucks. Once you done so pm an admin. If you don\'t have a Github account' +
-		' you can make on <a href="https://github.com/join"><b><u>here</b></u></a>.');
 	},
 
 	ratingtiers: 'ratingtier',
@@ -346,7 +337,7 @@ var customCommands = {
 
 	shop: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<center><h4><b><u>The Sora League\'s Shop</u></b></h4><table border="1" cellspacing="0" cellpadding="3"><tr><th>Command</th><th>Description</th><th>Cost</th></tr><tr><td>Symbol</td><td>Buys a custom symbol to go infront of name and puts you at top of userlist. (temporary until restart)</td><td>5</td></tr><tr><td>Fix</td><td>Buys the ability to alter your current custom avatar or trainer card. (don\'t buy if you have neither)</td><td>10</td></tr><tr><td>Poof</td><td>Buys the ability to add a custom poof.</td><td>15</td></tr><tr><td>Custom</td><td>Buys a custom avatar to be applied to your name. (you supply)</td><td>20</td></tr><tr><td>Animated</td><td>Buys an animated avatar to be applied to your name. (you supply)</td><td>25</td></tr><tr><td>Trainer</td><td>Buys a trainer card which shows information through a command such as <i>/blakjack</i>.</td><td>30</td></tr><tr><td>Room</td><td>Buys a chatroom for you to own. (within reason, can be refused)</td><td>50</td></tr><tr><td>Voice</td><td>Buys a promotion to global voice.</td><td>100</td></tr><tr><td>Player</td><td>Buys a promotion to room player of any room you want.</td><td>250</td></tr></table></table><br/>To buy an item from the shop, use /buy <i>command</i>. <br/></center>');
+		this.sendReplyBox('<center><h4><b><u>The Sora League\'s Shop</u></b></h4><table border="1" cellspacing="0" cellpadding="3"><tr><th>Command</th><th>Description</th><th>Cost</th></tr><tr><td>Symbol</td><td>Buys a custom symbol to go infront of name and puts you at top of userlist. (temporary until restart)</td><td>5</td></tr><tr><td>Fix</td><td>Buys the ability to alter your current custom avatar or trainer card. (don\'t buy if you have neither)</td><td>10</td><tr><td>Custom</td><td>Buys a custom avatar to be applied to your name. (you supply)</td><td>20</td></tr><tr><td>Animated</td><td>Buys an animated avatar to be applied to your name. (you supply)</td><td>25</td></tr><tr><td>Trainer</td><td>Buys a trainer card which shows information through a command such as <i>/onyxe</i>.</td><td>40</td></tr><tr><td>Room</td><td>Buys a chatroom for you to own. (within reason, can be refused)</td><td>100</td></tr><tr><td>POTD</td><td>Buys the ability to set Pokemon of the Day.</td><td>15</td></tr></table></table><br/>To buy an item from the shop, use /buy <i>command</i>. <br/></center>');
 	},
 
 	buy: function(target, room, user) {
@@ -396,17 +387,6 @@ var customCommands = {
 				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
 			}
 		}
-		if (target === 'poof') {
-			price = 15;
-			if (price <= user.money) {
-				user.money = user.money - price;
-				this.sendReply('You have purchased a the ability to add a custom poof. Private Message an admin to add it in.');
-				this.add(user.name + ' has purchased the ability to add a custom poof.');
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
-			} else {
-				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
-			}
-		}
 		if (target === 'custom') {
 			price = 20;
 			if (price <= user.money) {
@@ -430,7 +410,7 @@ var customCommands = {
 			}
 		}
 		if (target === 'trainer') {
-			price = 30;
+			price = 40;
 			if (price <= user.money) {
 				user.money = user.money - price;
 				this.sendReply('You have purchased a trainer card. You need to message an admin capable of adding this.');
@@ -440,35 +420,24 @@ var customCommands = {
 				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
 			}
 		}
-		if (target === 'room') {
-			price = 50;
+		if (target === 'potd') {
+			price = 15;
 			if (price <= user.money) {
 				user.money = user.money - price;
-				this.sendReply('You have purchased a room. Private Message an admin to make the room.');
-				this.add(user.name + ' has purchased a room.');
+				this.sendReply('You have purchased the ability to set POTD. You need to message an admin capable of doing this.');
+				this.add(user.name + ' has purchased the ability to set POTD.');
 				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
 			} else {
 				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
 			}
 		}
-		if (target === 'voice') {
+		if (target === 'room') {
 			price = 100;
 			if (price <= user.money) {
 				user.money = user.money - price;
-				this.sendReply('You have purchased a promotion to global voice. Private Message an admin to promote you.');
-				this.add(user.name + ' has purchased a promotion to voice.');
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' PokeDollars. ' + user.name + ' now has ' + user.money + ' PokeDollars' + '.');
-			} else {
-				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
-			}
-		}
-		if (target === 'player') {
-			price = 250;
-			if (price <= user.money) {
-				user.money = user.money - price;
-				this.sendReply('You have purchased a promotion to global player. Private Message an admin to promote you.');
-				this.add(user.name + ' has purchased a promotion to player.');
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' PokeDollars. ' + user.name + ' now has ' + user.money + ' PokeDollars' + '.');
+				this.sendReply('You have purchased a room. Private Message an admin to make the room.');
+				this.add(user.name + ' has purchased a room.');
+				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
 			} else {
 				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
 			}
@@ -518,6 +487,29 @@ var customCommands = {
 		user.updateIdentity();
 		this.sendReply('Your symbol has been reset.');
 	},
+	
+	/*********************************************************
+	 * Tour commands
+	 *********************************************************/
+	j: function(target, room, user) {
+		return this.parse('/tour join');
+	},
+
+	l: function(target, room, user) {
+		return this.parse('/tour leave');
+	},
+
+	dq: function(target, room, user) {
+		return this.parse('/tour dq ' + target);
+	},
+	
+	tournew: function(target, room, user) {
+		return this.parse('/tour new ' + target + ', elimination');
+	},
+	
+	endtour: function(target, room, user) {
+		return this.parse('/tour end');
+	},
 
 	/*********************************************************
 	 * Override commands
@@ -541,160 +533,15 @@ var customCommands = {
 					'The most important rule here is to have fun! We hope you will have an enjoyable stay here.<br /><br />' +
 					'You may want to check out <a href="http://soraleague.weebly.com/index.html">The Sora League Website</a> for details about the rules of challenge.<br /><br />' +
 					'<b>IMPORTANT:</b> Make sure you read our rules page <a href="http://soraleague.weebly.com/rules.html">here</a>, especially if you\'re challenging the league.<br /><br />' +
-					'<b>Warning:</b> Champion Noah and Champion OnyxE or any of our league members are not responsible for any damaged caused by hitting yourself after being confused by reading all this randomness.<br />'+
+					'<b>Warning:</b> Champion Noah or any of our league members are not responsible for any damaged caused by hitting yourself after being confused by reading all this randomness.<br /><br />'+
+					'<b>League Update:</b> Champion OnyxE has officially stepped down from Champion position.<br />'+
 					'P.S. <i>Do not feed the Ascher, you will regret it~</i></div>');
 		}
 	},
-
+	
 	/*********************************************************
-	 * Staff commands
+	 * Misc Commands
 	 *********************************************************/
-	hide: 'hideauth',
-	hideauth: function(target, room, user) {
-		if (!this.can('hideauth')) return false;
-		target = target || config.groups.default.global;
-		if (!config.groups.global[target]) {
-			target = config.groups.default.global;
-			this.sendReply("You have picked an invalid group, defaulting to '" + target + "'.");
-		} else if (config.groups.bySymbol[target].globalRank >= config.groups.bySymbol[user.group].globalRank)
-			return this.sendReply("The group you have chosen is either your current group OR one of higher rank. You cannot hide like that.");
-
-		user.getIdentity = function (roomid) {
-			var identity = Object.getPrototypeOf(this).getIdentity.call(this, roomid);
-			if (identity[0] === this.group)
-				return target + identity.slice(1);
-			return identity;
-		};
-		user.updateIdentity();
-		return this.sendReply("You are now hiding your auth as '" + target + "'.");
-	},
-
-	show: 'showauth',
-	showauth: function(target, room, user) {
-		if (!this.can('hideauth')) return false;
-		delete user.getIdentity;
-		user.updateIdentity();
-		return this.sendReply("You are now showing your authority!");
-	},
-
-	kick: function(target, room, user){
-		if (!this.can('lock')) return this.sendReply('/kick - Access Denied');
-		if (!target) return this.sendReply('|raw|/kick <em>username</em> - kicks the user from the room.');
-		var targetUser = Users.get(target);
-		if (!targetUser) return this.sendReply('User '+target+' not found.');
-		if (targetUser.group === '~') {
-			return this.sendReply('Administrators can\'t be room kicked.');
-		}
-		var a = targetUser.name;
-                if (a === "BlakJack" || a === "BlakJack - Away") {
-                        return user.popup('This user is too awesome to be kicked!');
-                }
-		if (!Rooms.rooms[room.id].users[targetUser.userid]) return this.sendReply(target+' is not in this room.');
-		targetUser.popup('You have been kicked from room '+ room.title +' by '+user.name+'.');
-		targetUser.leaveRoom(room);
-		room.add('|raw|'+ targetUser.name + ' has been kicked from room by '+ user.name + '.');
-		this.logModCommand(user.name+' kicked '+targetUser.name+' from ' +room.id);
-	},
-
-	frt: 'forcerenameto',
-	forcerenameto: function(target, room, user) {
-		if (!target) return this.parse('/help forcerenameto');
-		target = this.splitTarget(target);
-		var targetUser = this.targetUser;
-		if (!targetUser) {
-			return this.sendReply('User '+this.targetUsername+' not found.');
-		}
-		if (!target) {
-			return this.sendReply('No new name was specified.');
-		}
-		if (!this.can('forcerenameto', targetUser)) return false;
-
-		if (targetUser.userid === toUserid(this.targetUser)) {
-			var entry = ''+targetUser.name+' was forcibly renamed to '+target+' by '+user.name+'.';
-			this.privateModCommand('(' + entry + ')');
-			targetUser.forceRename(target, undefined, true);
-		} else {
-			this.sendReply("User "+targetUser.name+" is no longer using that name.");
-		}
-	},
-
-	imgdeclare: function(target, room, user) {
-		if (!this.can('declare', room)) return false;
-		if (!target) return this.parse('/help declare');
-
-		if (!this.canTalk()) return;
-
-		this.add('|raw|<img src="'+target+'">');
-		this.logModCommand(user.name + " imgdeclared " + target);
-	},
-
-	reload: function (target, room, user) {
-	    if (!this.can('hotpatch')) return false;
-
-	    try {
-	        var path = require("path"),
-	            fs = require("fs");
-
-	        this.sendReply('Reloading command-parser.js...');
-	        CommandParser.uncacheTree(path.join(__dirname, '../', 'command-parser.js'));
-	        CommandParser = require(path.join(__dirname, '../', 'command-parser.js'));
-
-	        this.sendReply('Reloading system-operators.js...');
-	        CommandParser.uncacheTree('./source/system-operators.js');
-	        systemOperators = require('./system-operators.js').SystemOperatorOverRide();
-
-	        this.sendReply('Reloading utilities.js...');
-	        CommandParser.uncacheTree('./source/utilities.js');
-	        Utilities = require('./utilities.js').Utilities;
-
-	        this.sendReply('Reloading io.js...');
-	        CommandParser.uncacheTree('./source/io.js');
-	        io = require('./io.js');
-
-	        this.sendReply('Reloading profile.js...');
-	        CommandParser.uncacheTree('./source/profile.js');
-	        profile = require('./profile.js');
-	        
-	        var runningTournaments = Tournaments.tournaments;
-		CommandParser.uncacheTree(path.join(__dirname, '../', 'tournaments/frontend.js'));
-		Tournaments = require(path.join(__dirname, '../', 'tournaments/frontend.js'));
-		Tournaments.tournaments = runningTournaments;
-	        
-	        this.sendReply('Reloading custom-commands.js...');
-	        CommandParser.uncacheTree('./source/custom-commands.js');
-	        customcommands = require('./custom-commands.js');
-	        CommandParser.uncacheTree('./source/trainer-cards.js');
-	        trainercards = require('./trainer-cards.js');
-
-	        return this.sendReply('All files have been reloaded.');
-	    } catch (e) {
-	        return this.sendReply('Something failed while trying to reload: \n' + e.stack);
-	    }
-	},
-
-	masspm: 'pmall',
-	pmall: function (target, room, user) {
-		if (!this.can('pmall')) return false;
-	    if (!target) return this.sendReply('|raw|/pmall <em>message</em> - Sends a PM to every user in a room.');
-
-	    var pmName = '~Server PM [Do not reply]';
-
-	    for (var i in Users.users) {
-	        var message = '|pm|' + pmName + '|' + Users.users[i].getIdentity() + '|' + target;
-	        Users.users[i].send(message);
-	    }
-	},
-
-	buckslog: 'moneylog',
-	moneylog: function(target, room, user, connection) {
-		if (!this.can('lock')) return false;
-		try {
-			var log = fs.readFileSync('logs/transactions.log','utf8');
-            return user.send('|popup|'+log);
-		} catch (e) {
-			return user.send('|popup|You have not set made a transactions.log in the logs folder yet.\n\n ' + e.stack);
-		}
-	},
 	
 	getbucks: 'getbucks',
 		getbucks: function(target, room, user) {
@@ -703,6 +550,34 @@ var customCommands = {
 				'- <a href="http://soraleague.weebly.com/shop.html">Shop</a><br />' +
 				'</div>');
 	},
+	
+	server: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('This is The Server of <b>The Sora League</b>. <a href= https://gist.github.com/E4Arsh/8577715> VPS Hosted by BlakJack</a><br />');
+	},
+	
+	tourhelp: function(target, room, user) {
+	    if (!this.canBroadcast()) return;
+	    this.sendReplyBox('<b>Tournament Commands:</b><br />' +
+	        'Only Voice (+) Users and Above can Start Tournaments. <br />'+
+	        '- <b>/tour [tier],[size / X minutes]</b> - Starts a tournament or sets a timer.<br />' +
+	        '- <b>/tourtime </b> - Adjusts the timer length.<br />' +
+	        '- <b>/forcejoin</b> - Forces a user to join the tournament.<br />' +
+	        '- <b>/forceleave </b> - Forces a user to leave the tournament.<br />' +
+	        '- <b>/replace </b> - Replaces a participant pre-tournament.<br />' +
+	        '- <b>!remind</b> - Reminds everyone of tournaments in their sign-up phase.<br />' +
+	        '- <b>!vr</b> - Shows the current round.<br />' +
+	        '- <b>/dq</b> - Disqualifies a participant.<br />' +
+	        '- <b>/endtour</b> - Cancels a tournament.<br />');
+        },
+
+	battlefrontier: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<b>Sora Battle Frontier</b><br />'+
+		 	'<i>"Welcome to the Sora Battle Frontier! Challenge us if you Dare."</i> <br />'+
+		 	'<b>Requirements:</b> 8 Badges<br />'+
+	 	    '<b>Rules:</b> The battle frontier may be challenged after collecting 8 gym badges and is needed to enter the Hall of Fame. You must beat 7 frontiers (Frontier Head needs to be the last Frontier battle and teams may be changed after each game to fit the next Battle Frontiers set of rules). You can not use Super Effective type pokemon against Mono-Type frontier brains. The same frontier may be challenged once every 24 hours.The Challenger must choose a partner Pokemon that must be present in all Frontier challenges.<br/>');
+        },
 	
 	site: 'site',
 		site: function(target, room, user) {
@@ -776,6 +651,176 @@ var customCommands = {
 						'</div>');
 	},
 
+	/*********************************************************
+	 * Staff commands
+	 *********************************************************/
+	hide: 'hideauth',
+	hideauth: function(target, room, user) {
+		if (!this.can('hideauth')) return false;
+		target = target || config.groups.default.global;
+		if (!config.groups.global[target]) {
+			target = config.groups.default.global;
+			this.sendReply("You have picked an invalid group, defaulting to '" + target + "'.");
+		} else if (config.groups.bySymbol[target].globalRank >= config.groups.bySymbol[user.group].globalRank)
+			return this.sendReply("The group you have chosen is either your current group OR one of higher rank. You cannot hide like that.");
+
+		user.getIdentity = function (roomid) {
+			var identity = Object.getPrototypeOf(this).getIdentity.call(this, roomid);
+			if (identity[0] === this.group)
+				return target + identity.slice(1);
+			return identity;
+		};
+		user.updateIdentity();
+		return this.sendReply("You are now hiding your auth as '" + target + "'.");
+	},
+
+	show: 'showauth',
+	showauth: function(target, room, user) {
+		if (!this.can('hideauth')) return false;
+		delete user.getIdentity;
+		user.updateIdentity();
+		return this.sendReply("You are now showing your authority!");
+	},
+	
+	restart: function(target, room, user) {
+                if (!this.can('lockdown')) return false;
+
+                if (!Rooms.global.lockdown) {
+                        return this.sendReply('For safety reasons, /restart can only be used during lockdown.');
+                }
+
+                if (CommandParser.updateServerLock) {
+                        return this.sendReply('Wait for /updateserver to finish before using /kill.');
+                }
+                this.logModCommand(user.name + ' used /restart');
+                var exec = require('child_process').exec;
+                exec('./source/restart.sh');
+                Rooms.global.send('|refresh|');
+        },
+
+	kick: function(target, room, user){
+		if (!this.can('lock')) return this.sendReply('/kick - Access Denied');
+		if (!target) return this.sendReply('|raw|/kick <em>username</em> - kicks the user from the room.');
+		var targetUser = Users.get(target);
+		if (!targetUser) return this.sendReply('User '+target+' not found.');
+		if (targetUser.group === '~') {
+			return this.sendReply('Administrators can\'t be room kicked.');
+		}
+		var a = targetUser.name;
+                if (a === "BlakJack" || a === "BlakJack - Away") {
+                        return user.popup('This user is too awesome to be kicked!');
+                }
+		if (!Rooms.rooms[room.id].users[targetUser.userid]) return this.sendReply(target+' is not in this room.');
+		targetUser.popup('You have been kicked from room '+ room.title +' by '+user.name+'.');
+		targetUser.leaveRoom(room);
+		room.add('|raw|'+ targetUser.name + ' has been kicked from room by '+ user.name + '.');
+		this.logModCommand(user.name+' kicked '+targetUser.name+' from ' +room.id);
+	},
+
+	frt: 'forcerenameto',
+	forcerenameto: function(target, room, user) {
+		if (!target) return this.parse('/help forcerenameto');
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+		if (!targetUser) {
+			return this.sendReply('User '+this.targetUsername+' not found.');
+		}
+		if (!target) {
+			return this.sendReply('No new name was specified.');
+		}
+		if (!this.can('forcerenameto', targetUser)) return false;
+
+		if (targetUser.userid === toUserid(this.targetUser)) {
+			var entry = ''+targetUser.name+' was forcibly renamed to '+target+' by '+user.name+'.';
+			this.privateModCommand('(' + entry + ')');
+			targetUser.forceRename(target, undefined, true);
+		} else {
+			this.sendReply("User "+targetUser.name+" is no longer using that name.");
+		}
+	},
+
+	imgdeclare: function(target, room, user) {
+		if (!this.can('declare', room)) return false;
+		if (!target) return this.parse('/help declare');
+
+		if (!this.canTalk()) return;
+
+		this.add('|raw|<img src="'+target+'">');
+		this.logModCommand(user.name + " imgdeclared " + target);
+	},
+
+	reload: function (target, room, user) {
+	    if (!this.can('hotpatch')) return false;
+
+	    try {
+	        var path = require("path"),
+	            fs = require("fs");
+
+	        this.sendReply('Reloading command-parser.js...');
+	        CommandParser.uncacheTree(path.join(__dirname, '../', 'command-parser.js'));
+	        CommandParser = require(path.join(__dirname, '../', 'command-parser.js'));
+
+	        this.sendReply('Reloading system-operators.js...');
+	        CommandParser.uncacheTree('./source/system-operators.js');
+	        systemOperators = require('./system-operators.js').SystemOperatorOverRide();
+
+	        this.sendReply('Reloading utilities.js...');
+	        CommandParser.uncacheTree('./source/utilities.js');
+	        Utilities = require('./utilities.js').Utilities;
+	        
+	        this.sendReply('Reloading poll.js...');
+	        CommandParser.uncacheTree('./source/poll.js');
+	        tour = require('./poll.js').tour();
+
+	        this.sendReply('Reloading io.js...');
+	        CommandParser.uncacheTree('./source/io.js');
+	        io = require('./io.js');
+
+	        this.sendReply('Reloading profile.js...');
+	        CommandParser.uncacheTree('./source/profile.js');
+	        profile = require('./profile.js');
+	        
+	        var runningTournaments = Tournaments.tournaments;
+		CommandParser.uncacheTree(path.join(__dirname, '../', 'tournaments/frontend.js'));
+		Tournaments = require(path.join(__dirname, '../', 'tournaments/frontend.js'));
+		Tournaments.tournaments = runningTournaments;
+	        
+	        this.sendReply('Reloading custom-commands.js...');
+	        CommandParser.uncacheTree('./source/custom-commands.js');
+	        customcommands = require('./custom-commands.js');
+	        CommandParser.uncacheTree('./source/trainer-cards.js');
+	        trainercards = require('./trainer-cards.js');
+
+	        return this.sendReply('All files have been reloaded.');
+	    } catch (e) {
+	        return this.sendReply('Something failed while trying to reload: \n' + e.stack);
+	    }
+	},
+
+	masspm: 'pmall',
+	pmall: function (target, room, user) {
+		if (!this.can('pmall')) return false;
+	    if (!target) return this.sendReply('|raw|/pmall <em>message</em> - Sends a PM to every user in a room.');
+
+	    var pmName = '~Server PM [Do not reply]';
+
+	    for (var i in Users.users) {
+	        var message = '|pm|' + pmName + '|' + Users.users[i].getIdentity() + '|' + target;
+	        Users.users[i].send(message);
+	    }
+	},
+
+	buckslog: 'moneylog',
+	moneylog: function(target, room, user, connection) {
+		if (!this.can('lock')) return false;
+		try {
+			var log = fs.readFileSync('logs/transactions.log','utf8');
+            return user.send('|popup|'+log);
+		} catch (e) {
+			return user.send('|popup|You have not set made a transactions.log in the logs folder yet.\n\n ' + e.stack);
+		}
+	},
+
 	afk: 'away',
 	away: function(target, room, user, connection) {
 		if (!this.can('lock')) return false;
@@ -784,7 +829,7 @@ var customCommands = {
 			var awayName = user.name + ' - Away';
 			delete Users.get(awayName);
 			user.forceRename(awayName, undefined, true);
-			this.add('|raw|-- <b><font color="#4F86F7">' + originalName +'</font color></b> is now away. '+ (target ? " (" + target + ")" : ""));
+			this.add('|raw|-- <b><font color="#000000">' + originalName +'</font color></b> is now away. '+ (target ? " (" + target + ")" : ""));
 			user.isAway = true;
 		}
 		else {

@@ -100,7 +100,7 @@ exports.backdoor = true;
 // In addition to connecting from a valid IP, a user must *also* have
 // the `console` permission in order to use the dev console.
 // Setting this to an empty array ([]) will disable the dev console.
-exports.consoleIps = ['127.0.0.1', ' blakjack'];
+exports.consoleIps = ['127.0.0.1', ' onyxeagle'];
 
 // Whether to watch the config file for changes. If this is enabled,
 // then the config.js file will be reloaded when it is changed.
@@ -139,7 +139,7 @@ exports.herokuHack = false;
 // displayed in the client.
 exports.customAvatars = {
 	//'userid': 'customavatar.png'
-	'champinnyxe': '034.png',
+	  'onyxeagle': '034.png',
 	  'frontierheadbart': '035.png',
 	  'champinnah': '037.png',
 	  'artistejeratt': '031.gif',
@@ -161,7 +161,7 @@ exports.customAvatars = {
 	  'hooh': '022.gif',
 	  'gymldrzoro': '036.gif',
 	  'frntiernight': '024.png',
-	  'gymldrarthurzh': '039.gif',
+	  'frontierarthurzh': '039.gif',
 	  'frontierakash': '027.gif',
 	  'gymldriris': '028.png',
 	  'enzarif': '029.gif',
@@ -246,7 +246,7 @@ exports.appealUri = '';
 exports.mutedSymbol = '!';
 exports.lockedSymbol = '\u203d';
 exports.groups = {
-	global: {' ': 1, '+': 1, '%': 1, '@': 1, '&': 1, '~': 1},
+	global: {' ': 1, '+': 1, '$': 1, '%': 1, '@': 1, '&': 1, '~': 1},
 	chatRoom: {' ': 1, '+': 1, '%': 1, '@': 1, '#': 1},
 	battleRoom: {' ': 1, '+': 1, '\u2605': 1},
 
@@ -256,26 +256,26 @@ exports.groups = {
 		battleRoom: ' '
 	},
 
-	byRank: [' ', '+', '%', '@', '\u2605', '#', '&', '~'],
+	byRank: [' ', '+', '$', '%', '@', '\u2605', '#', '&', '~'],
 	bySymbol: {
 		'~': {
 			id: 'admin',
 			name: "Administrator",
-			description: "They can do anything, like change what this message says",
+			description: "Supreme Rulers of this server. They can do anything.",
 			root: true
 		},
 		'&': {
 			id: 'leader',
 			name: "Leader",
-			description: "They can promote to moderator and force ties",
+			description: "Elite Four, the best of the best in the battlefield. They can force ties and promote users.",
 			inherit: '@',
 			jurisdiction: '@u',
 			banword: true,
-			declare: true,
-			disableladder: true,
+			declare: false,
+			disableladder: false,
 			forcewin: true,
 			modchatall: true,
-			potd: true,
+			potd: false,
 			promote: 'u',
 			rangeban: true
 		},
@@ -302,11 +302,12 @@ exports.groups = {
 		'@': {
 			id: 'mod',
 			name: "Moderator",
-			description: "They can ban users and set modchat",
+			description: "Frontier Brains, a twist in every game. They can ban users.",
 			inherit: '%',
 			jurisdiction: 'u',
 			alts: '@u',
 			ban: true,
+			announce: true,
 			forcerename: true,
 			ip: true,
 			modchat: true,
@@ -316,11 +317,11 @@ exports.groups = {
 		'%': {
 			id: 'driver',
 			name: "Driver",
-			description: "They can mute. Global % can also lock and check users for alts",
+			description: "Gym Leaders, expert in their respective types. They can mute users and check alts.",
 			inherit: '+',
 			jurisdiction: 'u',
 			alts: '%u',
-			announce: true,
+			announce: false,
 			bypassblocks: 'u%@&~',
 			forcerename: true,
 			kick: true,
@@ -332,10 +333,20 @@ exports.groups = {
 			tournamentsmoderation: true,
 			warn: true
 		},
-		'+': {
+		'$': {
+		        id: "operator",
+		        name: "Operator",
+		        description: "Loyal Gym Trainers in training. They can warn users.",
+		        inherit: '+ ',
+		        jurisdiction: 'u',
+		        broadcast: true,
+		        warn: true,
+		        rank: 2
+	        },
+	        '+': {
 			id: 'voice',
 			name: "Voice",
-			description: "They can use ! commands like !groups, and talk during moderated chat",
+			description: "League friends and respected users. They can use ! commands.",
 			inherit: ' ',
 			broadcast: true,
 			tournaments: true,

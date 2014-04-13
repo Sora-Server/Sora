@@ -53,7 +53,7 @@ var trainerCards = {
 
 	gary: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Gary</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Gary</b><br />'+
 		      '<i>"The Mighty warrior of Sora."</i> <br />'+
 		      '<b>Type:</b> Dragon<br />'+
 		      '<b>Ace:</b> Goodra<br />'+
@@ -87,11 +87,11 @@ var trainerCards = {
 	zoro: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Zoro</b><br />'+
-		      '<i>"???"</i> <br />'+
-		      '<b>Type:</b> Steel<br />'+
-		      '<b>Ace:</b> ??? <br />'+
+		      '<i>"I am everywhere you are not."</i> <br />'+
+		      '<b>Type:</b> Psychic<br />'+
+		      '<b>Ace:</b> Gardevoir <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-??? <br/>'+
+	 	      '-None <br/>'+
 	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
 	},
 
@@ -234,6 +234,18 @@ var trainerCards = {
 			  '<img src="http://sprites.pokecheck.org/i/241.gif"> <img src="http://sprites.pokecheck.org/t/111.gif">');
         },
         
+        
+        Zarif: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+	        this.sendReplyBox('E4 <b>Zarif</b><br />'+
+			  '<i>" Ascher may be stupid,but he's also dumb"</i> <br />'+
+			  '<b>Type:</b> Fighting<br />'+
+			  '<b>Ace:</b> Terrakion<br />'+
+			  '<b>Battle Rules:</b><br />'+
+			  '-None<br />'+
+	
+        },
+			  
         akkie: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>Akkie</b><br />'+

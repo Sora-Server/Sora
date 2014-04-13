@@ -339,6 +339,7 @@ var trainerCards = {
 			  '<b>Type:</b> Water<br />'+
 			  '<b>Ace:</b> Kabutops<br />'+
 			  '<b>Achievements:</b> <strike>Best</strike> Water Leader of Sora, Roulette Frontier of Sora. <br />'+
+			  '<b>Known for:</b> Sadistical Playing Skills, Being Evil. <br />'+
 			  '<img src="http://sprites.pokecheck.org/i/647-resolution.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://sprites.pokecheck.org/i/141.gif">');
 	},
 

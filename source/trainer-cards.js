@@ -347,7 +347,7 @@ var trainerCards = {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>ArthurZH</b><br />'+
 			  '<i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY!"</i> <br />'+
-			  '<b>Type:</b> Water<br />'+
+			  '<b>Favoured Type:</b> Water<br />'+
 			  '<b>Ace:</b> Kabutops<br />'+
 			  '<b>Achievements:</b> <strike>Best</strike> Water Leader of Sora, Roulette Frontier of Sora. <br />'+
 			  '<b>Known for:</b> Sadistical Playing Skills, Being Evil. <br />'+

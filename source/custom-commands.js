@@ -81,18 +81,22 @@ var customCommands = {
 	cpoof: 'poof',
 	poof: (function () {
 		var messages = [
-			"has vanished into nothingness!",
+			"got spanked too hard by OnyxEagle!",
+			"fed the wild Ascher and is now paying the price!",
+			"was sold in a slave trade to a Chinese man!",
+			"was swallowed up by the Earth!",
 			"used Explosion!",
-			"fell into the void.",
-			"went into a cave without a repel!",
+			"was eaten by Vanilla!",
+			"was sucker punched by Absol!",
 			"has left the building.",
-			"was forced to give BlakJack's mom an oil massage!",
-			"was hit by Magikarp's Revenge!",
-			"ate a bomb!",
-			"is blasting off again!",
-			"(Quit: oh god how did this get here i am not good with computer)",
-			"was unfortunate and didn't get a cool message.",
-			"The Immortal accidently kicked {{user}} from the server!",
+			"got lost in the woods!",
+			"left for their lover!",
+			"couldn\'t handle the coldness of Jeratt!",
+			"was hit by Magikarp\'s Revenge!",
+			"used Explosion!",
+			"used Explosion!",
+			"used Explosion!",
+			"used Explosion!",
 		];
 
 		return function(target, room, user) {

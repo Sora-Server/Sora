@@ -242,7 +242,8 @@ var trainerCards = {
 			  '<b>Type:</b> Fighting<br />'+
 			  '<b>Ace:</b> Terrakion<br />'+
 			  '<b>Battle Rules:</b><br />'+
-			  '-None<br />');
+			  '-None<br />'+
+			  '<img src="http://i.imgur.com/OPScsYF.gif">');
         },
 			  
         akkie: function(target, room, user) {

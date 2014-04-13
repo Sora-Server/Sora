@@ -65,7 +65,7 @@ var trainerCards = {
 
 	toast: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('E4 <b>Toast</b><br />'+
+			this.sendReplyBox('Champion <b>Toast</b><br />'+
 			  '<i>"A Day without SunShine is like Night Time."</i> <br />'+
 			  '<b>Type:</b> Fire<br />'+
 			  '<b>Ace:</b> Charizard<br />'+

@@ -206,13 +206,12 @@ var trainerCards = {
 		 	  '-No Entry Hazards <br/>');
 	},
 
-        artist: function(target, room, user) {
+        normal: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Artist</b><br />'+
-			  '<i>"Warning: Some serious hax may occur, challenge with caution."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Normal<br />'+
-			  '<b>Ace:</b> Smeargle<br />'+
-			  '<img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Zeronew_zpsa8ff05c5.png">');
+			  '<b>Ace:</b> ???<br />');
         },
         
         rockwolf: function(target, room, user) {
@@ -286,6 +285,14 @@ var trainerCards = {
 			  '<b>Type:</b> Grass<br />'+
 			  '<b>Ace:</b> ???<br />');
 	},
+	
+	water: function(target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
+			  '<b>Type:</b> Water<br />'+
+			  '<b>Ace:</b> ???<br />');
+	},
 
 	night: function(target, room, user) {
 			if (!this.canBroadcast()) return;
@@ -317,20 +324,21 @@ var trainerCards = {
 			 '<b>Ace:</b> Aegislash<br />');
         },
 
-	apple: function(target, room, user) {
+	ground: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Apple</b><br />'+
-			  '<i>"Yo mama so fat, when she enters the field Gravity comes to play."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Ground<br />'+
-			  '<b>Ace:</b> Gliscor (SnipSnip)<br />');
+			  '<b>Ace:</b> ???<br />');
 	},
 
-	arthurzh: function(target, room, user) {
+	azh: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>ArthurZH</b><br />'+
 			  '<i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY!"</i> <br />'+
 			  '<b>Type:</b> Water<br />'+
 			  '<b>Ace:</b> Kabutops<br />'+
+			  '<b>Achievements:</b> <strike>Best</strike> Water Leader of Sora, Roulette Frontier of Sora. <br />'+
 			  '<img src="http://sprites.pokecheck.org/i/647-resolution.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://sprites.pokecheck.org/i/141.gif">');
 	},
 
@@ -342,15 +350,18 @@ var trainerCards = {
 			  '<b>Ace:</b> Victini<br />');
 	},
 
-	frontiervacant: function(target, room, user) {
+	arthurzh: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>?</b><br />'+
-	       	      '<i>"?"</i> <br />'+
-	       	      '<b>Symbol:</b> ?<br />'+
-		      '<b>Ace:</b> ?<br />'+
+		this.sendReplyBox('Frontier <b>ArthurZH</b><br />'+
+	       	      '<i>"What will be, will be."</i> <br />'+
+	       	      '<b>Symbol:</b> Randomosity<br />'+
+		      '<b>Ace:</b> None<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-? <br/>'+
-	 	      '-? <br/>');
+	 	      'Battle Roulette(One rule is picked from each of the following 4 sets): <br/>'+
+	 	      '-Set 1 (tier) : OU, Mono, Uber, UU <br/>'+
+	 	      '-Set 2 (clause) : Item Clause (no repeating items), Choice clause (max 1 choice pokemon), Status Clause (no status), Recovery clause (No recovery mvoes bar rest) <br/>'+
+	 	      '-Set 3 (Representative of Sora-ians): Noah (All tiers below must be represented including LC for UU, not including LC for OU and above), Bart (no stat beyond 130), OnyxE (No weather), Toast (No weather inducing moves) <br/>'+
+	 	      '-Set 4 (forced item on a pokemon of choice): Lagging Tail, Black Sludge, Eviolite, Razz Berry <br/>');
 	},
 
 	steel: function(target, room, user) {

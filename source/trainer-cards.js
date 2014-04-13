@@ -235,10 +235,10 @@ var trainerCards = {
         },
         
         
-        Zarif: function(target, room, user) {
+        zarif: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 	        this.sendReplyBox('E4 <b>Zarif</b><br />'+
-			  '<i>" Ascher may be stupid,but he's also dumb"</i> <br />'+
+			  '<i>" Ascher may be stupid,but he\'s also dumb"</i> <br />'+
 			  '<b>Type:</b> Fighting<br />'+
 			  '<b>Ace:</b> Terrakion<br />'+
 			  '<b>Battle Rules:</b><br />'+

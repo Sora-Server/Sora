@@ -387,17 +387,6 @@ var customCommands = {
 				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
 			}
 		}
-		if (target === 'poof') {
-			price = 15;
-			if (price <= user.money) {
-				user.money = user.money - price;
-				this.sendReply('You have purchased a the ability to add a custom poof. Private Message an admin to add it in.');
-				this.add(user.name + ' has purchased the ability to add a custom poof.');
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
-			} else {
-				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
-			}
-		}
 		if (target === 'custom') {
 			price = 20;
 			if (price <= user.money) {
@@ -421,7 +410,7 @@ var customCommands = {
 			}
 		}
 		if (target === 'trainer') {
-			price = 30;
+			price = 40;
 			if (price <= user.money) {
 				user.money = user.money - price;
 				this.sendReply('You have purchased a trainer card. You need to message an admin capable of adding this.');
@@ -431,35 +420,24 @@ var customCommands = {
 				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
 			}
 		}
-		if (target === 'room') {
-			price = 50;
+		if (target === 'potd') {
+			price = 15;
 			if (price <= user.money) {
 				user.money = user.money - price;
-				this.sendReply('You have purchased a room. Private Message an admin to make the room.');
-				this.add(user.name + ' has purchased a room.');
+				this.sendReply('You have purchased the ability to set POTD. You need to message an admin capable of doing this.');
+				this.add(user.name + ' has purchased the ability to set POTD.');
 				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
 			} else {
 				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
 			}
 		}
-		if (target === 'voice') {
+		if (target === 'room') {
 			price = 100;
 			if (price <= user.money) {
 				user.money = user.money - price;
-				this.sendReply('You have purchased a promotion to global voice. Private Message an admin to promote you.');
-				this.add(user.name + ' has purchased a promotion to voice.');
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' PokeDollars. ' + user.name + ' now has ' + user.money + ' PokeDollars' + '.');
-			} else {
-				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
-			}
-		}
-		if (target === 'player') {
-			price = 250;
-			if (price <= user.money) {
-				user.money = user.money - price;
-				this.sendReply('You have purchased a promotion to global player. Private Message an admin to promote you.');
-				this.add(user.name + ' has purchased a promotion to player.');
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' PokeDollars. ' + user.name + ' now has ' + user.money + ' PokeDollars' + '.');
+				this.sendReply('You have purchased a room. Private Message an admin to make the room.');
+				this.add(user.name + ' has purchased a room.');
+				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
 			} else {
 				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
 			}

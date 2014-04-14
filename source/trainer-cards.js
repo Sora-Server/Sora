@@ -92,6 +92,18 @@ var trainerCards = {
 	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
 	},
 
+
+        apple: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('E4 <b>Apple</b><br />'+
+		      '<i>"I\'ll mop the floor with you."</i> <br />'+
+		      '<b>Type:</b> Ground<br />'+
+		      '<b>Ace:</b> Gliscor <br />'+
+	 	      '<b>Battle Rules:</b> <br/>'+
+	 	      '-No weather inducing moves. <br/>'+
+	 	      '<img src="http://sprites.pokecheck.org/t/057.gif">');
+	},
+
 	ninjarisu: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Overlord <b>Ninjarisu</b><br />'+

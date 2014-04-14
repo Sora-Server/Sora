@@ -57,10 +57,7 @@ var trainerCards = {
 		      '<i>"The Mighty warrior of Sora."</i> <br />'+
 		      '<b>Type:</b> Dragon<br />'+
 		      '<b>Ace:</b> Goodra<br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No Hazards <br/>'+
-	 	      '-No Status <br/>'+
-	 	      '<img src="http://play.pokemonshowdown.com/sprites/bw/goodra.png"> <img src="http://sprites.pokecheck.org/t/137.gif">');
+	              '<img src="http://play.pokemonshowdown.com/sprites/bw/goodra.png"> <img src="http://sprites.pokecheck.org/t/137.gif">');
         },
 
 	toast: function(target, room, user) {
@@ -265,7 +262,7 @@ var trainerCards = {
         matt99: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-		      '<i>"Face the power of the dragons if you dare."</i> <br />'+
+		      '<i>"That wasn\'t an earthquake. It was you, shivering in fear"</i> <br />'+
 		      '<b>Type:</b> Dragon<br />'+
 		      '<b>Ace:</b> Latios<br />'+
 		      '<img src="http://sprites.pokecheck.org/i/381.gif"> <img src="http://sprites.pokecheck.org/t/138.gif">');
@@ -405,7 +402,8 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Artiste <b>Jeratt</b><br />'+
 			'<i>"Let the storm rage on. The cold never bothered me anyways."</i> <br />'+
-			'<b>Skilled in:</b> Dragon & Ice<br />'+
+			'<b>Highly skilled in:</b> Dragon & Ice<br />'+
+			'<b>Skilled in:</b>Making quotes, backgrounds for Sora and many Pokemon types.<br />'+ 
 		 	'<b>Note:</b> Close the Lobby and see what I can really do. <br/>'+
 		 	'<b>History:</b> Greatest Ice E4, <strike>undefeated</strike> Dragon E4. <br/>'+
 		 	'P.S. I\'m still Dragon you away with my coldness. <br/>'+

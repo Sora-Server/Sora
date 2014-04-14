@@ -167,12 +167,12 @@ var trainerCards = {
 			'<b>Ace:</b> Victini<br />');
         },
         
-        bug: function(target, room, user) {
+        Supernove: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Supernove</b><br />'+
 			'<i>"???"</i> <br />'+
-			'<b>Type:</b> Bug<br />'+
-			'<b>Ace:</b> ???<br />');
+			'<b>Type:</b> Psychic<br />'+
+			'<b>Ace:</b> Mega-Gardevoir<br />');
         },
         
         floatzel: function(target, room, user) {
@@ -367,8 +367,8 @@ var trainerCards = {
 	bean877: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bean877</b><br />'+
-			  '<i>"Control the mind of the beast to control it\'s strength."</i> <br />'+
-			  '<b>Type:</b> Psychic<br />'+
+			  '<i>"All my critters are waiting to sting you while you are unaware."</i> <br />'+
+			  '<b>Type:</b> Bug<br />'+
 			  '<b>Ace:</b> Victini<br />');
 	},
 

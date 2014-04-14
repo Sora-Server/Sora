@@ -254,6 +254,7 @@ var trainerCards = {
 			  '-None<br />'+
 			  '<img src="http://i.imgur.com/OPScsYF.gif"> <img src="http://i.imgur.com/gsq9hkO.png">');
        
+     
         },
 			  
         akkie: function(target, room, user) {

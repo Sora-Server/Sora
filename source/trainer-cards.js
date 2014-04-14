@@ -170,7 +170,7 @@ var trainerCards = {
         supernove: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Supernove</b><br />'+
-			'<i>"???"</i> <br />'+
+			'<i>"Pokemon is all about the mind games,I am the mind"</i> <br />'+
 			'<b>Type:</b> Psychic<br />'+
 			'<b>Ace:</b> Mega-Gardevoir<br />');
         },

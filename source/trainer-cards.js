@@ -75,10 +75,10 @@ var trainerCards = {
         lance: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Lance</b><br />'+
-			  '<i>"YOU WILL BE BLINDED FROM THE KAWAII-NESS OF THESE FAIRIES!"</i> <br />'+
-			  '<b>Type:</b> Fairy<br />'+
+			  '<i>"I\'m fairy sure this quote sucks."</i> <br />'+
+			  '<b>Type:</b> Steel<br />'+
 			  '<b>Ace:</b> Mega Mawile (Zoro\'s Boss)<br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/ampharos-mega.gif"> <img src="http://sprites.pokecheck.org/t/136.gif">');
+			  '<img src="http://sprites.pokecheck.org/t/134.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/mawile-mega.gif">');
         },
 
 	zoro: function(target, room, user) {
@@ -386,7 +386,7 @@ var trainerCards = {
 	 	      '-Set 4 (forced item on a pokemon of choice): Lagging Tail, Black Sludge, Eviolite, Razz Berry <br/>');
 	},
 
-	steel: function(target, room, user) {
+	fairy: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+

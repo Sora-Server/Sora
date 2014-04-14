@@ -167,7 +167,7 @@ var trainerCards = {
 			'<b>Ace:</b> Victini<br />');
         },
         
-        supernove: function(target, room, user) {
+        supernova: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Supernove</b><br />'+
 			'<i>"Pokemon is all about the mind games,I am the mind"</i> <br />'+

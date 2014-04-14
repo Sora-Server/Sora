@@ -167,7 +167,7 @@ var trainerCards = {
 			'<b>Ace:</b> Victini<br />');
         },
         
-        Supernove: function(target, room, user) {
+        supernove: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Supernove</b><br />'+
 			'<i>"???"</i> <br />'+

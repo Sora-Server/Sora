@@ -249,10 +249,11 @@ var trainerCards = {
 	        this.sendReplyBox('E4 <b>Zarif</b><br />'+
 			  '<i>" Ascher may be stupid,but he\'s also dumb"</i> <br />'+
 			  '<b>Type:</b> Fighting<br />'+
-			  '<b>Ace:</b> Terrakion<br />'+
+			  '<b>Ace:</b> Rhino man! (Terrakion)<br />'+
 			  '<b>Battle Rules:</b><br />'+
 			  '-None<br />'+
-			  '<img src="http://i.imgur.com/OPScsYF.gif">');
+			  '<img src="http://i.imgur.com/OPScsYF.gif"> <img src="http://i.imgur.com/gsq9hkO.png">');
+       
         },
 			  
         akkie: function(target, room, user) {

@@ -369,7 +369,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Bean877</b><br />'+
 			  '<i>"All my critters are waiting to sting you while you are unaware."</i> <br />'+
 			  '<b>Type:</b> Bug<br />'+
-			  '<b>Ace:</b> Victini<br />');
+			  '<b>Ace:</b> PinLikeaSir (Pinsir)<br />');
 	},
 
 	arthurzh: function(target, room, user) {

@@ -78,7 +78,7 @@ var trainerCards = {
 			  '<i>"I\'m fairy sure this quote sucks."</i> <br />'+
 			  '<b>Type:</b> Steel<br />'+
 			  '<b>Ace:</b> Mega Mawile (Zoro\'s Boss)<br />'+
-			  '<img src="http://sprites.pokecheck.org/t/134.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/mawile-mega.gif">');
+			  '<img src="http://sprites.pokecheck.org/t/134.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/mawile-mega.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/excadrill.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/lucario.gif">');
         },
 
 	zoro: function(target, room, user) {
@@ -89,7 +89,7 @@ var trainerCards = {
 		      '<b>Ace:</b> Gardevoir <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br/>'+
-	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/excadrill.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/lucario.gif">');
+	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
 	},
 
 

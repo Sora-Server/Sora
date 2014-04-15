@@ -34,7 +34,7 @@ var trainerCards = {
 	 	      '-Monotype <br/>'+
 	 	      '-All Tiers must be Represented (Except Ubers and LC) <br/>'+
 	 	      '-Tiershift<br />'+
-	 	      '<img src="http://sprites.pokecheck.org/s/034.gif"> <img src="http://www.pokemonreborn.com/custom/47366.png"> <img src="http://sprites.pokecheck.org/i/089.gif">');
+	 	      '<img src="http://sprites.pokecheck.org/s/034.gif"> <img src="http://www.pokemonreborn.com/custom/47366.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/toxicroak.gif">');
 	},
 
 	bart: function(target, room, user) {
@@ -64,12 +64,11 @@ var trainerCards = {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Champion <b>Toast</b><br />'+
 			  '<i>"A Day without SunShine is like Night Time."</i> <br />'+
-			  '<b>Type:</b> Fire<br />'+
 			  '<b>Ace:</b> Charizard<br />'+
 	 	          '<b>Battle Rules:</b> <br/>'+
 	 	          '-No Hazards <br/>'+
 	 	          '-No weather inducing moves <br/>'+
-	 	          '<img src="http://sprites.pokecheck.org/s/250.gif"> <img src="http://sprites.pokecheck.org/t/025.gif">');
+	 	          '<img src="http://sprites.pokecheck.org/s/250.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/charizard.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/volcarona.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/scizor.gif">');
         },
         
         lance: function(target, room, user) {

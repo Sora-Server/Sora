@@ -214,7 +214,7 @@ var trainerCards = {
 		 	  '-No Entry Hazards <br/>');
 	},
 
-        normal: function(target, room, user) {
+       razor: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Razor</b><br />'+
 			  '<i>"???"</i> <br />'+

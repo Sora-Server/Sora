@@ -89,7 +89,7 @@ var trainerCards = {
 		      '<b>Ace:</b> Gardevoir <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br/>'+
-	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
+	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/excadrill.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/lucario.gif">');
 	},
 
 

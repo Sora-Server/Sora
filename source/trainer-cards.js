@@ -216,7 +216,7 @@ var trainerCards = {
 
         normal: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Razor</b><br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Normal<br />'+
 			  '<b>Ace:</b> ???<br />');

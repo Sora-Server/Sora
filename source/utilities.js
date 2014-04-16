@@ -95,5 +95,17 @@
 		} else {
 			return 'Rank <b>' + (list.length-list.indexOf(arr[0])) + '</b> out of ' + list.length;
 		}
+	},
+	calcElo: function(winner, loser) {
+		var kFactor = 32;
+  		var ratingDifference = loser.elo - winner.elo;
+  		var expectedScoreWinner = 1 / ( 1 + Math.pow(10, ratingDifference/400) );
+
+  		var e = kFactor * (1 - expectedScoreWinner);
+ 		winner.elo = winner.elo + e;
+  		loser.elo = loser.elo - e;
+
+  		var arr = [winner.elo, loser.elo];
+  		return arr;
 	}
 };

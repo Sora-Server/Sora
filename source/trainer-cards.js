@@ -210,8 +210,8 @@ var trainerCards = {
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-Sky Battle (Only Flying or levitating Pokemon may be used) <br/>'+
 		 	  '-Ubers Format (Max 1 Uber) <br/>'+
-		 	  '-No Item Repetition <br/>'+
-		 	  '-No Entry Hazards <br/>');
+		 	  '-Item Clause (Max 1 of each item) <br/>'+
+		 	  '-No Stealth rocks <br/>');
 	},
 
        razor: function(target, room, user) {

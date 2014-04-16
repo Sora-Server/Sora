@@ -68,7 +68,8 @@ var trainerCards = {
 	 	          '<b>Battle Rules:</b> <br/>'+
 	 	          '-No Hazards <br/>'+
 	 	          '-No weather inducing moves <br/>'+
-	 	          '<img src="http://sprites.pokecheck.org/s/250.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/charizard.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/volcarona.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/scizor.gif">');
+	 	          '<img src="http://play.pokemonshowdown.com/sprites/xyani/hooh.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar-mega.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/volcarona.gif">');
+	 	          
         },
         
         lance: function(target, room, user) {

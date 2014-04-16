@@ -340,16 +340,23 @@ function canTalk(user, room, connection, message) {
 			user.lastMessage = message;
 			user.lastMessageTime = Date.now();
 
-			if (user.group === config.groups.default[roomType]) {
+			if (user.group === ' ') {
 				if (message.toLowerCase().indexOf('spoiler:') >= 0 || message.toLowerCase().indexOf('spoilers:') >= 0) {
 					connection.sendTo(room, "Due to spam, spoilers can't be sent to the lobby.");
 					return false;
 				}
 			}
 		}
+		if (message.toLowerCase().indexOf('.psim.us') > -1) {
+	if (message.toLowerCase().indexOf('thesoraleague.psim.us') > -1) {
+	return message;
+	}
+	connection.sendTo(room, '|html| <b><font color= "red">Advertising other servers is not allowed. Your post has not been sent.</b></font>');
+	return false;
+	}
 
-		if (config.chatFilter) {
-			return config.chatFilter(user, room, connection, message);
+		if (config.chatfilter) {
+			return config.chatfilter(user, room, connection, message);
 		}
 		return message;
 	}

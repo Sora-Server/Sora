@@ -4,7 +4,7 @@ var Profile = {
 	},
 
 	customAvatar: function (user, height) {
-	    return '<img src="http://192.184.93.98:8000/avatars/' + user.avatar + '" align="left" height="' + height + '"><br/>';
+	    return '<img src="http://192.184.93.98:13000/avatars/' + user.avatar + '" align="left" height="' + height + '"><br/>';
 	},
 
 	name: function (user) {
@@ -12,7 +12,7 @@ var Profile = {
 	},
 
 	unregisteredName: function (user) {
-	    return '<b><font size="2" color="' + Utilities.hashColor(user.name) + '">' + user.name + ' </b></font><font color="2">(Unregistered)</font><br/>';
+	    return '<b><font size="2" color="' + Utilities.hashColor(user.name) + '">' + user.name + ' </b></font><font color="2">(Unregistered)</font>';
 	},
 
 	rank: function (user) {

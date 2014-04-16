@@ -22,7 +22,7 @@ var trainerCards = {
 		    '<b>Skilled in:</b> Rock types/ Ubers, Random Battle and OU to a certain degree.<br />'+
 		    '<b>History:</b> 2nd Champion of New Sora. One of the 2 people who resurrected Sora from the rubbles. <br/>'+
 		    '<b>Notes:</b> Resident coder of Sora, still conducts tests and registrations, offers advice. <br/>'+
-	 	    '<img src="http://sprites.pokecheck.org/i/248.gif"> <img src="http://sprites.pokecheck.org/i/639.gif"> <img src="http://sprites.pokecheck.org/i/567.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/tyrantrum.gif"> <img src="http://sprites.pokecheck.org/t/099.gif">');
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/landorus.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/heracross-mega.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyrantrum.gif">');
         },
         
         noah: function(target, room, user) {
@@ -140,8 +140,8 @@ var trainerCards = {
 	              '<b>Symbol:</b> Adaption<br />'+
 	              '<b>Ace:</b> Cincinno/Floatzel<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-OU Dualtype (2 Monotypes in a team) <br/>'+
-	 	      '-No force switching <br/>'+
+	 	      '-Inverse Dualtype (2 Monotypes in a team played using the Inverse Battle tier.) <br/>'+
+	 	      '-No Dragon-types as a main typing <br/>'+
 	 	      '-Max 1 Legendary <br/>'+
 	 	      '<img src="http://sprites.pokecheck.org/i/142.gif"> <img src="http://sprites.pokecheck.org/t/109.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Leaf_zps542b4e92.png">');
 	},

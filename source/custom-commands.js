@@ -802,7 +802,7 @@ var customCommands = {
 		if (!this.can('pmall')) return false;
 	    if (!target) return this.sendReply('|raw|/pmall <em>message</em> - Sends a PM to every user in a room.');
 
-	    var pmName = '~Server PM [Do not reply]';
+	    var pmName = '~The Sora League PM [Do not reply]';
 
 	    for (var i in Users.users) {
 	        var message = '|pm|' + pmName + '|' + Users.users[i].getIdentity() + '|' + target;

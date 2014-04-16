@@ -19,7 +19,7 @@ var commands = exports.commands = {
 
 	version: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox("Server version: <strong>" + CommandParser.package.version + "</strong> <small>(<a href=\"http://pokemonshowdown.com/versions#" + CommandParser.serverVersion + "\">" + CommandParser.serverVersion.substr(0,10) + "</a>)</small>");
+		this.sendReplyBox("Server version: <b>" + CommandParser.package.version + "</b>");
 	},
 
 	me: function(target, room, user, connection) {
@@ -194,6 +194,25 @@ var commands = exports.commands = {
 		}
 	},
 
+	modjoin: function(target, room, user) {
+		if (!this.can('privateroom', room)) return;
+		if (target === 'off') {
+			delete room.modjoin;
+			this.addModCommand(user.name + " turned off modjoin.");
+			if (room.chatRoomData) {
+				delete room.chatRoomData.modjoin;
+				Rooms.global.writeChatRoomData();
+			}
+		} else {
+			room.modjoin = true;
+			this.addModCommand(user.name + " turned on modjoin.");
+			if (room.chatRoomData) {
+				room.chatRoomData.modjoin = true;
+				Rooms.global.writeChatRoomData();
+			}
+		}
+	},
+
 	officialchatroom: 'officialroom',
 	officialroom: function(target, room, user) {
 		if (!this.can('makeroom')) return;
@@ -311,8 +330,19 @@ var commands = exports.commands = {
 		if (!targetRoom) {
 			return connection.sendTo(target, "|noinit|nonexistent|The room '" + target + "' does not exist.");
 		}
-		if (targetRoom.isPrivate && !user.named) {
-			return connection.sendTo(target, "|noinit|namerequired|You must have a name in order to join the room '" + target + "'.");
+		if (targetRoom.isPrivate) {
+			if (targetRoom.modjoin) {
+				var userGroup = user.group;
+				if (targetRoom.auth) {
+					userGroup = targetRoom.auth[user.userid] || config.groups.default[room.type + 'Room'];
+				}
+				if (config.groups.bySymbol[userGroup].rank < config.groups.bySymbol[targetRoom.modchat].rank) {
+					return connection.sendTo(target, "|noinit|nonexistent|The room '" + target + "' does not exist.");
+				}
+			}
+			if (!user.named) {
+				return connection.sendTo(target, "|noinit|namerequired|You must have a name in order to join the room '" + target + "'.");
+			}
 		}
 		if (!user.joinRoom(targetRoom || room, connection)) {
 			return connection.sendTo(target, "|noinit|joinfailed|The room '" + target + "' could not be joined.");
@@ -805,6 +835,11 @@ var commands = exports.commands = {
 			this.add("|raw|<div class=\"broadcast-red\"><b>Moderated chat was set to " + modchat + "!</b><br />Only users of rank " + modchat + " and higher can talk.</div>");
 		}
 		this.logModCommand(user.name + " set modchat to " + room.modchat);
+
+		if (room.chatRoomData) {
+			room.chatRoomData.modchat = room.modchat;
+			Rooms.global.writeChatRoomData();
+		}
 	},
 
 	declare: function(target, room, user) {
@@ -867,28 +902,6 @@ var commands = exports.commands = {
 			Rooms.global.cancelSearch(targetUser);
 			targetUser.resetName();
 			targetUser.send("|nametaken||" + user.name + " has forced you to change your name. " + target);
-		} else {
-			this.sendReply("User " + targetUser.name + " is no longer using that name.");
-		}
-	},
-
-	frt: 'forcerenameto',
-	forcerenameto: function(target, room, user) {
-		if (!target) return this.parse('/help forcerenameto');
-		target = this.splitTarget(target);
-		var targetUser = this.targetUser;
-		if (!targetUser) {
-			return this.sendReply("User " + this.targetUsername + " not found.");
-		}
-		if (!target) {
-			return this.sendReply("No new name was specified.");
-		}
-		if (!this.can('forcerenameto', targetUser)) return false;
-
-		if (targetUser.userid === toUserid(this.targetUser)) {
-			var entry = targetUser.name + " was forcibly renamed to " + target + " by " + user.name + ".";
-			this.privateModCommand("(" + entry + ")");
-			targetUser.forceRename(target, null, true);
 		} else {
 			this.sendReply("User " + targetUser.name + " is no longer using that name.");
 		}
@@ -1006,7 +1019,7 @@ var commands = exports.commands = {
 				Tournaments = require('./tournaments/frontend.js');
 				Tournaments.tournaments = runningTournaments;
 
-				return this.sendReply('Chat commands have been hot-patched.');
+				return this.sendReply("Chat commands have been hot-patched.");
 			} catch (e) {
 				return this.sendReply("Something failed while trying to hotpatch chat: \n" + e.stack);
 			}
@@ -1020,7 +1033,7 @@ var commands = exports.commands = {
 				Tournaments.tournaments = runningTournaments;
 				return this.sendReply("Tournaments have been hot-patched.");
 			} catch (e) {
-				return this.sendReply('Something failed while trying to hotpatch tournaments: \n' + e.stack);
+				return this.sendReply("Something failed while trying to hotpatch tournaments: \n" + e.stack);
 			}
 
 		} else if (target === 'battles') {
@@ -1228,7 +1241,7 @@ var commands = exports.commands = {
 			if (error) {
 				if (error.code === 1) {
 					// The working directory or index have local changes.
-					cmd = 'git stash;' + cmd + ';git stash pop';
+					cmd = 'git stash && ' + cmd + ' && git stash pop';
 				} else {
 					// The most likely case here is that the user does not have
 					// `git` on the PATH (which would be error.code === 127).
@@ -1345,6 +1358,10 @@ var commands = exports.commands = {
 			p2: room.p2.name,
 			format: room.format
 		}, function(success) {
+			if (success && success.errorip) {
+				connection.popup("This server's request IP " + success.errorip + " is not a registered server.");
+				return;
+			}
 			connection.send('|queryresponse|savereplay|' + JSON.stringify({
 				log: data,
 				id: room.id.substr(7)

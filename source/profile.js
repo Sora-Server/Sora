@@ -20,12 +20,12 @@ var Profile = {
 	},
 
 	elo: function (user) {
- 		io.stdinNumber('db/elo.csv', user, 'elo');
- 		if (user.elo === 0 || isNaN(user.elo)) {
- 			user.elo = 1000;
-  		}
- 		return ' | Elo Ranking: ' + Math.round(user.elo) + '<br/>';
-  	},
+		io.stdinNumber('db/elo.csv', user, 'elo');
+		if (user.elo === 0) {
+			user.elo = 1000;
+		}
+		return ' | Elo Ranking: ' + Math.round(user.elo) + '<br/>';
+	},
 
 	views: function (user) {
 	    io.stdinNumber('db/views.csv', user, 'views');

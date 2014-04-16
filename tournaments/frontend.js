@@ -518,11 +518,26 @@ var Tournament = (function () {
 		var to = Users.get(room.p2);
 
 		var result = 'draw';
-		if (from === winner)
+		if (from === winner) {
 			result = 'win';
-		else if (to === winner)
+			var elo = Utilities.calcElo(from, to);
+			if (elo[0] === undefined) elo[0] = 1000;
+			if (elo[1] === undefined) elo[1] = 1000;
+			io.stdoutString('db/elo.csv', from, 'elo', elo[0]);
+			setTimeout(function() {
+				io.stdoutString('db/elo.csv', to, 'elo', elo[1]);
+			}, 1000);
+		} else if (to === winner) {
 			result = 'loss';
-
+			var elo = Utilities.calcElo(to, from);
+			if (elo[0] === undefined) elo[0] = 1000;
+			if (elo[1] === undefined) elo[1] = 1000;
+			io.stdoutString('db/elo.csv', to, 'elo', elo[0]);
+			setTimeout(function() {
+				io.stdoutString('db/elo.csv', from, 'elo', elo[1]);
+			}, 1000);
+		}
+		
 		if (result === 'draw' && !this.generator.isDrawingSupported) {
 			this.room.add('|tournament|battleend|' + from.name + '|' + to.name + '|' + result + '|' + room.battle.score.join(',') + '|fail');
 

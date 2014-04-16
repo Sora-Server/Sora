@@ -171,6 +171,7 @@ exports.customAvatars = {
 	  'frontierlou': '047.gif',
 	  'e4apple': '043.gif',
 	  'championtoast': '044.jpg',
+	  'gymldrsrewop': '048.jpeg'
 	  
 };
 

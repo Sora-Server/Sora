@@ -264,7 +264,7 @@ var GlobalRoom = (function() {
 		var self = this;
 		user.doWithMMR(formatid, function(mmr, error) {
 			if (error) {
-				user.popup("Connection to ladder server failed; please try again later");
+				user.popup("Connection to ladder server failed with error: "+error+"; please try again later");
 				return;
 			}
 			newSearch.rating = mmr;
@@ -611,6 +611,9 @@ var BattleRoom = (function() {
 						if (!Tools.getFormat(self.format).noLog) {
 							self.logBattle(p1score);
 						}
+						return;
+					} else if (data.errorip) {
+						self.addRaw("This server's request IP "+data.errorip+" is not a registered server.");
 						return;
 					} else {
 						try {
@@ -1192,7 +1195,7 @@ var ChatRoom = (function() {
 		this.destroyingLog = false;
 		this.bannedUsers = {};
 		this.bannedIps = {};
-		this.modchat = (config.modchat.chat || false);
+		this.modchat = (config.modchat.chat || this.modchat || false);
 
 		if (config.logChat) {
 			this.rollLogFile(true);
@@ -1208,11 +1211,11 @@ var ChatRoom = (function() {
 
 		if (config.reportJoinsPeriod) {
 			this.userList = this.getUserList();
+			this.reportJoinsQueue = [];
+			this.reportJoinsInterval = setInterval(
+				this.reportRecentJoins.bind(this), config.reportJoinsPeriod
+			);
 		}
-		this.reportJoinsQueue = [];
-		this.reportJoinsInterval = setInterval(
-			this.reportRecentJoins.bind(this), config.reportJoinsPeriod
-		);
 	}
 	ChatRoom.prototype.type = 'chat';
 

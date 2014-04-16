@@ -178,7 +178,7 @@ var trainerCards = {
         floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Floatzel</b><br />'+
-	              '<i>"Don\'t drop the Dedenne"</i> <br />'+
+	              '<i>"Don\'t drop that Dedenne"</i> <br />'+
 	              '<b>Type:</b> Fairy<br />'+
 	              '<b>Ace:</b> Mega Mawile<br />'+
 	 	      '<img src="http://sprites.pokecheck.org/s/385.gif"> <img src="http://sprites.pokecheck.org/t/139.gif">');

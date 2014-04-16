@@ -178,14 +178,9 @@ var trainerCards = {
         floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Floatzel</b><br />'+
-	              '<i>"When it comes down to it, I am still the strongest!"</i> <br />'+
-	              '<b>Symbol:</b> Balance<br />'+
-	              '<b>Ace:</b> Haxxi (Jirachi)<br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-Pokemon Alphabetlocke (OU tier) <br/>'+
-	 	      '-Challenger Picks 6 letters in the alphabet that must be in order, forward or backward. <br/>'+
-	 	      '-The team: The Pokemon\'s names\' first letters must be corresponding to the one\'s challenger chose earlier. <br/>'+
-	 	      '-Prankster is banned. <br/>'+
+	              '<i>"Don\'t drop the Dedenne"</i> <br />'+
+	              '<b>Type:</b> Fairy<br />'+
+	              '<b>Ace:</b> Mega Mawile<br />'+
 	 	      '<img src="http://sprites.pokecheck.org/s/385.gif"> <img src="http://sprites.pokecheck.org/t/139.gif">');
         },
         
@@ -386,7 +381,7 @@ var trainerCards = {
 	 	      '-Set 4 (forced item on a pokemon of choice): Lagging Tail, Black Sludge, Eviolite, Razz Berry <br/>');
 	},
 
-	fairy: function(target, room, user) {
+	sparetypeslot: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+

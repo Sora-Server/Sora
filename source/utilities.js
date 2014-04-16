@@ -2,18 +2,11 @@
  * Utilities.js
  *
  * This is where extraneous and important functions are stored.
+ * In addition to globals.
  *
  */
 
  var Utilities = exports.Utilities = {
- 	escapeHTML: function (target) {
-        if (!target) return false;
-        target = target.replace(/&(?!\w+;)/g, '&amp;');
-        target = target.replace(/</g, '&lt;');
-        target = target.replace(/>/g, '&gt;');
-        target = target.replace(/"/g, '&quot;');
-        return target;
-    },
     
 	HueToRgb: function (m1, m2, hue) {
 	    var v;
@@ -96,6 +89,7 @@
 			return 'Rank <b>' + (list.length-list.indexOf(arr[0])) + '</b> out of ' + list.length;
 		}
 	},
+
 	calcElo: function(winner, loser) {
 		var kFactor = 32;
   		var ratingDifference = loser.elo - winner.elo;
@@ -107,5 +101,18 @@
 
   		var arr = [winner.elo, loser.elo];
   		return arr;
+	},
+
+
+	toId: function(text) {
+		return text.toLowerCase().replace(/[^a-z0-9]/g, '');
 	}
+
 };
+
+// Global Variables
+
+// Shortcut for using Object.keys
+global.k = function(o) {
+	return Object.keys(o);
+}

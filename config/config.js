@@ -168,7 +168,7 @@ exports.customAvatars = {
 	  'frontiertempest': '038.png',
 	  'gymldrbm': '040.png',
 	  'acetrainerstark': '041.png',
-	  'frontierlou': '042.gif',
+	  'frontierlou': '047.gif',
 	  'e4apple': '043.gif',
 	  'championtoast': '044.jpg',
 	  

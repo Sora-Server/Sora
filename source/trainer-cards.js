@@ -29,12 +29,12 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Champion <b>Noah</b><br />'+
 		      '<i>"Need a Champion? I Noah guy."</i> <br />'+
-		      '<b>Ace:</b> Nidoqueen the Nidoking <br />'+
+		      '<b>Ace:</b> Liquidbones <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-Monotype <br/>'+
-	 	      '-All Tiers must be Represented (Except Ubers and LC) <br/>'+
-	 	      '-Tiershift<br />'+
-	 	      '<img src="http://sprites.pokecheck.org/s/034.gif"> <img src="http://www.pokemonreborn.com/custom/47366.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/toxicroak.gif">');
+	 	      '-Gen 5 Ubers (Maximum of 2 Ubers) <br/>'+
+	 	      '-No Hazards<br />'+
+	 	      '<img src="http://sprites.pokecheck.org/i/134.gif"> <img src="http://www.pokemonreborn.com/custom/47366.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif">');
 	},
 
 	bart: function(target, room, user) {

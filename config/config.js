@@ -142,7 +142,7 @@ exports.customAvatars = {
 	  'onyxeagle': '034.png',
 	  'frontierheadbart': '035.png',
 	  'champinnah': '037.png',
-	  'artistejeratt': '031.gif',
+	  'artistejeratt': '045.jpg',
 	  'frontiervader': '005.gif',
 	  'frontierryu': '006.gif',
 	  'frontierleaf': '007.gif',
@@ -171,6 +171,7 @@ exports.customAvatars = {
 	  'frontierlou': '042.gif',
 	  'e4apple': '043.gif',
 	  'championtoast': '044.jpg',
+	  
 };
 
 // appealUri - specify a URI containing information on how users can appeal

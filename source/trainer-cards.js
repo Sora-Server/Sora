@@ -269,7 +269,7 @@ var trainerCards = {
         matt99: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-		      '<i>"Come into my beautiful Garden were you will tremble in it\'s beautiful Awe"</i> <br />'+
+		      '<i>"Come into my beautiful Garden where you will tremble in it\'s beautiful Awe"</i> <br />'+
 		      '<b>Type:</b> Grass<br />'+
 		      '<b>Ace:</b> Mega Venusaur<br />'+
 		      '<img src="http://sprites.pokecheck.org/t/011.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/venusaur-mega.gif">');

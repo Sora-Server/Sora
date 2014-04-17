@@ -269,10 +269,10 @@ var trainerCards = {
         matt99: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-		      '<i>"That wasn\'t an earthquake. It was you, shivering in fear"</i> <br />'+
-		      '<b>Type:</b> Ground<br />'+
-		      '<b>Ace:</b> Excadrill<br />'+
-		      '<img src="http://www.pokemonelite2000.com/wp-content/uploads/2012/07/giovanni.gif"> <img src="http://sprites.pokecheck.org/i/530.gif">');
+		      '<i>"Come into my beautiful Garden were you will tremble in it\'s beautiful Awe"</i> <br />'+
+		      '<b>Type:</b> Grass<br />'+
+		      '<b>Ace:</b> Mega Venusaur<br />'+
+		      '<img src="http://sprites.pokecheck.org/t/011.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/venusaur-mega.gif">');
         },
         
         lou: function(target, room, user) {
@@ -294,11 +294,11 @@ var trainerCards = {
 			 '<b>Ace:</b> ???<br />');
         },
         
-        grass: function(target, room, user) {
+        ground: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> Grass<br />'+
+			  '<b>Type:</b> Ground<br />'+
 			  '<b>Ace:</b> ???<br />');
 	},
 	

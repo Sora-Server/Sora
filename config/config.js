@@ -172,7 +172,7 @@ exports.customAvatars = {
 	  'e4apple': '043.gif',
 	  'championtoast': '044.jpg',
 	  'gymldrsrewop': '048.jpg',
-	  
+	  'theone2500': '049.gif'
 };
 
 // appealUri - specify a URI containing information on how users can appeal

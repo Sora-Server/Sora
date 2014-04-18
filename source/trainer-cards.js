@@ -320,7 +320,7 @@ var trainerCards = {
 		 	  '-Race Battle - Only Pokemon with speed below 40 may be used <br/>'+
 		 	  '-No Hazards <br/>'+
 		 	  '-Speed has to be constant (it shouldn\'t be increased or decreased)<br />'+
-			  '<img src="http://sprites.pokecheck.org/i/123.gif">');
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/scyther.gif">');
 	},
 
 	zyphear: function(target, room, user) {

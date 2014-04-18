@@ -359,14 +359,9 @@ function canTalk(user, room, connection, message) {
 	return false;
 	}
 
-<<<<<<< HEAD
-		if (config.chatfilter) {
-			return config.chatfilter(user, room, connection, message);
-=======
-		if (Config.chatFilter) {
+       if (Config.chatFilter) {
 			return Config.chatFilter(user, room, connection, message);
->>>>>>> upstream/master
-		}
+          }
 		return message;
 	}
 

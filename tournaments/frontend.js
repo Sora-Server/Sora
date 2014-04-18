@@ -1,5 +1,7 @@
 require('es6-shim');
 
+const DEBUG = false;
+
 var TournamentGenerators = {
 	roundrobin: require('./generator-round-robin.js').RoundRobin,
 	elimination: require('./generator-elimination.js').Elimination
@@ -184,7 +186,7 @@ var Tournament = (function () {
 	};
 
 	Tournament.prototype.addUser = function (user, isAllowAlts, output) {
-		if (!isAllowAlts) {
+		if (!isAllowAlts && DEBUG === false) {
 			var users = {};
 			this.generator.getUsers().forEach(function (user) { users[user.name] = 1; });
 			var alts = user.getAlts();
@@ -540,7 +542,7 @@ var Tournament = (function () {
 				io.stdoutString('db/elo.csv', from, 'elo', elo[1]);
 			}, 1000);
 		}
-		
+
 		if (result === 'draw' && !this.generator.isDrawingSupported) {
 			this.room.add('|tournament|battleend|' + from.name + '|' + to.name + '|' + result + '|' + room.battle.score.join(',') + '|fail');
 
@@ -588,6 +590,11 @@ var Tournament = (function () {
 		} else {
 			winner = data;
 		}
+		tourSize = this.generator.users.size;
+		var amountPlayers = 4;
+		if (DEBUG === true) {
+			amountPlayers = 2;
+		} 
 		if (this.room.isOfficial && tourSize >= amountPlayers) {
 			firstMoney = Math.round(tourSize/5);
 			secondMoney = Math.round(firstMoney/4);

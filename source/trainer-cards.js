@@ -218,12 +218,13 @@ var trainerCards = {
 			  '<b>Ace:</b> ???<br />');
         },
         
-        rockwolf: function(target, room, user) {
+        core: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>RockWolf</b><br />'+
-			  '<i>" When it comes to willpower, my willpower is rock solid!"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Core</b><br />'+
+			  '<i>"True power can\'t easily be obtained, but can be awakened through guidance and passion."</i> <br />'+
 			  '<b>Type:</b> Rock<br />'+
-			  '<b>Ace:</b> Omastar<br />');
+			  '<b>Ace:</b> Terrakion<br />'+
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/terrakion.gif"> <img src="http://sprites.pokecheck.org/t/129.gif">');
         },
         
         vanilla: function(target, room, user) {

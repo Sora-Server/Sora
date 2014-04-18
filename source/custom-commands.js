@@ -71,11 +71,6 @@ var customCommands = {
 		'<font color="#FF851B"><b>Legend</b></font>: Over 100 Tournament Wins. (Top 0.1%)');
 	},
 
-	pr: 'pickrandom',
-	pickrandom: function(target, room, user) {
-		if (!this.canBroadcast()) return false;
-		return this.sendReply(target.split(',').map(function (s) { return s.trim(); }).randomize()[0]);
-	},
 
 	d: 'poof',
 	cpoof: 'poof',
@@ -96,7 +91,7 @@ var customCommands = {
 		];
 
 		return function(target, room, user) {
-			if (config.poofOff) return this.sendReply("Poof is currently disabled.");
+			if (Config.poofOff) return this.sendReply("Poof is currently disabled.");
 			if (target && !this.can('broadcast')) return false;
 			if (room.id !== 'lobby') return false;
 			var message = target || messages[Math.floor(Math.random() * messages.length)];
@@ -680,11 +675,11 @@ var customCommands = {
 	hide: 'hideauth',
 	hideauth: function(target, room, user) {
 		if (!this.can('hideauth')) return false;
-		target = target || config.groups.default.global;
-		if (!config.groups.global[target]) {
-			target = config.groups.default.global;
+		target = target || Config.groups.default.global;
+		if (!Config.groups.global[target]) {
+			target = Config.groups.default.global;
 			this.sendReply("You have picked an invalid group, defaulting to '" + target + "'.");
-		} else if (config.groups.bySymbol[target].globalRank >= config.groups.bySymbol[user.group].globalRank)
+		} else if (Config.groups.bySymbol[target].globalRank >= Config.groups.bySymbol[user.group].globalRank)
 			return this.sendReply("The group you have chosen is either your current group OR one of higher rank. You cannot hide like that.");
 
 		user.getIdentity = function (roomid) {
@@ -729,10 +724,6 @@ var customCommands = {
 		if (targetUser.group === '~') {
 			return this.sendReply('Administrators can\'t be room kicked.');
 		}
-		var a = targetUser.name;
-                if (a === "BlakJack" || a === "BlakJack - Away") {
-                        return user.popup('This user is too awesome to be kicked!');
-                }
 		if (!Rooms.rooms[room.id].users[targetUser.userid]) return this.sendReply(target+' is not in this room.');
 		targetUser.popup('You have been kicked from room '+ room.title +' by '+user.name+'.');
 		targetUser.leaveRoom(room);

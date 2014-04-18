@@ -452,10 +452,6 @@ var commands = exports.commands = {
 		if (room.isPrivate && room.auth) {
 			return this.sendReply("You can't warn here: This is a privately-owned room not subject to global rules.");
 		}
-		var a = targetUser.name;
-                if (a === "BlakJack" || a === "BlakJack - Away") {
-                        return user.popup('This user is too awesome to be warned!');
-                        }
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.sendReply("The reason is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
 		}
@@ -503,10 +499,6 @@ var commands = exports.commands = {
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.sendReply("The reason is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
 		}
-		var a = targetUser.name;
-                if (a === "BlakJack" || a === "BlakJack - Away") {
-                        return user.popup('This user is too awesome to be muted!');
-                        }
 		if (!this.can('mute', targetUser, room)) return false;
 		if (targetUser.mutedRooms[room.id] || targetUser.locked || !targetUser.connected) {
 			var problem = " but was already " + (!targetUser.connected ? "offline" : targetUser.locked ? "locked" : "muted");
@@ -537,10 +529,6 @@ var commands = exports.commands = {
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.sendReply("The reason is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
 		}
-		var a = targetUser.name;
-                if (a === "BlakJack" || a === "BlakJack - Away") {
-                        return user.popup('This user is too awesome to be muted!');
-                        }
 		if (!this.can('mute', targetUser, room)) return false;
 
 		if (((targetUser.mutedRooms[room.id] && (targetUser.muteDuration[room.id]||0) >= 50*60*1000) || targetUser.locked) && !target) {
@@ -588,10 +576,6 @@ var commands = exports.commands = {
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.sendReply("The reason is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
 		}
-		var a = targetUser.name;
-                if (a === "BlakJack" || a === "BlakJack - Away") {
-                        return user.popup('This user is too awesome to be locked!');
-                        }
 		if (!this.can('lock', targetUser)) return false;
 
 		if ((targetUser.locked || Users.checkBanned(targetUser.latestIp)) && !target) {
@@ -634,10 +618,6 @@ var commands = exports.commands = {
 		if (!targetUser) {
 			return this.sendReply("User " + this.targetUsername + " not found.");
 		}
-		var a = targetUser.name;
-                if (a === "BlakJack" || a === "BlakJack - Away") {
-                        return user.popup('This user is too awesome to be banned!');
-                        }
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.sendReply("The reason is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
 		}

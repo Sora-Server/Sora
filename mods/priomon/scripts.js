@@ -179,4 +179,5 @@ exports.BattleScripts = {
                 //Pokemon that can learn Mach Punch
                 this.modData('Learnsets', 'darumaka').learnset.machpunch = ['5M'];
                 this.modData('Learnsets', 'darmanitan').learnset.machpunch = ['5M'];
-                
+        }        
+};              

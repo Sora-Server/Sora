@@ -73,6 +73,9 @@ exports.BattleScripts = {
                 this.modData('Learnsets', 'gengar').learnset.kineticforce = ['5M'];
                 this.modData('Learnsets', 'misdreavus').learnset.kineticforce = ['5M'];
                 this.modData('Learnsets', 'mismagius').learnset.kineticforce = ['5M'];
+                this.modData('Learnsets', 'abra').learnset.kineticforce = ['5M'];
+                this.modData('Learnsets', 'kadabra').learnset.kineticforce = ['5M'];
+                this.modData('Learnsets', 'alakazam').learnset.kineticforce = ['5M'];
                 
                 //Pokemon that can learn Flame Shot
                 this.modData('Learnsets', 'charmander').learnset.flameshot = ['5M'];
@@ -119,6 +122,8 @@ exports.BattleScripts = {
                 this.modData('Learnsets', 'hydreigon').learnset.flameshot = ['5M'];
                 this.modData('Learnsets', 'remoraid').learnset.flameshot = ['5M'];
                 this.modData('Learnsets', 'octillery').learnset.flameshot = ['5M'];
+                this.modData('Learnsets', 'numel').learnset.flameshot = ['5M'];
+                this.modData('Learnsets', 'camerupt').learnset.flameshot = ['5M'];
                 
                 //Pokemon that can learn Sap Blast
                 this.modData('Learnsets', 'bulbasaur').learnset.sapblast = ['5M'];

@@ -590,11 +590,11 @@ var customCommands = {
 				'</div>');
 	},
 	
-	priomon: 'priomon',
+	priomons: 'priomons',
 		incweather: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Here is a detailed explanation of the format Priomon:<br />' +
-				'- <a href="http://soraleague.weebly.com/priomon.html">Priomon</a><br />' +
+			this.sendReplyBox('Here is a detailed explanation of the format Priomons:<br />' +
+				'- <a href="http://soraleague.weebly.com/priomon.html">Priomons</a><br />' +
 				'</div>');
 	},
 	

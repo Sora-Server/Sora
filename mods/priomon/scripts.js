@@ -32,7 +32,7 @@ exports.BattleScripts = {
                 //Pokemon that can learn Draco Crash
                 this.modData('Learnsets', 'dratini').learnset.dracocrash = ['5M'];
                 this.modData('Learnsets', 'dragonair').learnset.dracocrash = ['5M'];
-                this.modData('Learnsets', 'Dragonite').learnset.dracocrash = ['5M'];
+                this.modData('Learnsets', 'dragonite').learnset.dracocrash = ['5M'];
                 this.modData('Learnsets', 'flygon').learnset.dracocrash = ['5M'];
                 this.modData('Learnsets', 'garchomp').learnset.dracocrash = ['5M'];
                 this.modData('Learnsets', 'axew').learnset.dracocrash = ['5M'];

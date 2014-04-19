@@ -15,7 +15,7 @@ exports.Formats = [
 		banlist: ['Uber', 'Soul Dew', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Swagger']
 	},
 	{
-		name: "Priomon",
+		name: "Priomons",
 		section: "Sora Exclusive",
 
 		mod: 'priomon',

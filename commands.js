@@ -857,7 +857,7 @@ var commands = exports.commands = {
 		if (!target) return this.parse('/help '+cmd);
 		if (!this.can('gdeclare')) return false;
 		var staff = '';
-		staff = 'a ' + config.groups[user.group].name;
+		staff = 'a ' + Config.groups[user.group].name;
 		if (user.group == '~') staff = 'an Administrator';
 
 		//var roomName = (room.isPrivate)? 'a private room' : room.id;

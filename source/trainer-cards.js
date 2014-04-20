@@ -213,9 +213,9 @@ var trainerCards = {
        razor: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Razor</b><br />'+
-			  '<i>"???"</i> <br />'+
+			  '<i>"They say that normal is weak, battle me so I can prove them wrong"</i> <br />'+
 			  '<b>Type:</b> Normal<br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Meloetta<br />');
         },
         
         core: function(target, room, user) {

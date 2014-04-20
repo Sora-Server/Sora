@@ -79,13 +79,32 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Dragon"
 	      },
+	      "venomstrike": {
+		num: 2005,
+		accuracy: 100,
+		basePower: 30,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target.",
+		shortDesc: "Usually goes first, 30% chance to badly poison the target.",
+		id: "Venom Strike",
+		name: "Venom Strike",
+		pp: 30,
+		priority: 1,
+		isContact: true,
+		secondary: {
+			chance: 30,
+			status: 'tox'
+		},
+		target: "normal",
+		type: "Poison"
+	      },
 	      "fairywind": {
 		num: 584,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
 		desc: "Deals damage to one adjacent target.",
-		shortDesc: "No additional effect.",
+		shortDesc: "Usually goes first.",
 		id: "fairywind",
 		name: "Fairy Wind",
 		pp: 30,

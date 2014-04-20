@@ -59,6 +59,7 @@ exports.BattleMovedex = {
 		name: "Stone Spine",
 		pp: 30,
 		priority: 1,
+		isContact: true,
 		secondary: false,
 		target: "normal",
 		type: "Rock"
@@ -75,6 +76,7 @@ exports.BattleMovedex = {
 		name: "Draco Crash",
 		pp: 30,
 		priority: 2,
+		isContact: true,
 		secondary: false,
 		target: "normal",
 		type: "Dragon"

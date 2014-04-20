@@ -91,8 +91,16 @@ var trainerCards = {
 	 	      '-None <br/>'+
 	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
 	},
-
-
+	
+	bloodfist: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Coach <b>Bloodfist</b><br />'+
+		      '<i>The Master of Many Types</i> <br />'+
+		      '<i>"You listen to me, you go to the top! You don\'t, then your missteps will be noted by everyone!<i> <br />'+
+		      'Will help to train you in your chosen type, or team, and assist in what items are missing.<br />');
+	 	     
+},
+        
         apple: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Apple</b><br />'+

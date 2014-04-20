@@ -181,5 +181,53 @@ exports.BattleScripts = {
                 //Pokemon that can learn Mach Punch
                 this.modData('Learnsets', 'darumaka').learnset.machpunch = ['5M'];
                 this.modData('Learnsets', 'darmanitan').learnset.machpunch = ['5M'];
+                
+                //Pokemon that can learn Venom Strike
+                this.modData('Learnsets', 'croagunk').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'toxicroak').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'foongus').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'amoonguss').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'weedle').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'kakuna').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'beedrill').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'trubbish').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'garbodor').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'grimer').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'muk').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'seviper').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'stunky').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'skuntank').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'bellsprout').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'weepinbell').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'victreebel').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'weezing').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'koffing').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'skrelp').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'dragalge').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'bulbasaur').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'ivysaur').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'venusaur').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'zubat').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'golbat').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'crobat').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'nidoking').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'nidoqueen').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'roserade').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'tentacool').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'tentacruel').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'venipede').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'whirlipede').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'scolipede').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'gliscor').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'breloom').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'paras').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'parasect').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'tympole').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'palpitoad').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'seismitoad').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'ferroseed').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'ferrothorn').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'skorupi').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'drapion').learnset.venomstrike = ['5M'];
         }        
 };              

@@ -96,9 +96,9 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Coach <b>Bloodfist</b><br />'+
 		      '<i>The Master of Many Types</i> <br />'+
-		      '<i>"You listen to me, you go to the top! You don\'t, then your missteps will be noted by everyone!<i> <br />'+
-		      'Will help to train you in your chosen type, or team, and assist in what items are missing.<br />');
-	 	     
+		      '<i>"You listen to me, you go to the top! You don\'t, then your missteps will be noted by everyone!"<i> <br />'+
+		      '<b>Purpose:<b>Will help to train you in your chosen type, or team, and assist in what items are missing.<br />');
+	 	      '<b>See me online and need help? Message me.<b>'
 },
         
         apple: function(target, room, user) {

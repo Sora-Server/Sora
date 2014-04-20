@@ -822,14 +822,22 @@ var commands = exports.commands = {
 		}
 	},
 
-	declare: function(target, room, user) {
+	declarered: 'declare',
+	declaregreen: 'declare',
+	declare: function(target, room, user, connection, cmd) {
 		if (!target) return this.parse('/help declare');
-		if (!this.can('declare', room)) return false;
+		if (!this.can('declare', null, room)) return false;
 
-		if (!this.canTalk()) return;
-
-		this.add('|raw|<div class="broadcast-blue"><b>' + target + '</b></div>');
-		this.logModCommand(user.name + " declared " + target);
+		if (cmd === 'declare'){
+			this.add('|raw|<div class="broadcast-blue"><b>'+target+'</b></div>');
+		}
+		if (cmd === 'declarered'){
+			this.add('|raw|<div class="broadcast-red"><b>'+target+'</b></div>');
+		}
+		if (cmd === 'declaregreen'){
+			this.add('|raw|<div class="broadcast-green"><b>'+target+'</b></div>');
+		}
+		this.logModCommand(user.name+' declared '+target);
 	},
 
 	gdeclare: 'globaldeclare',
@@ -843,15 +851,33 @@ var commands = exports.commands = {
 		this.logModCommand(user.name + " globally declared " + target);
 	},
 
-	cdeclare: 'chatdeclare',
-	chatdeclare: function(target, room, user) {
-		if (!target) return this.parse('/help chatdeclare');
+	gdeclarered: 'gdeclare',
+	gdeclaregreen: 'gdeclare',
+	gdeclare: function(target, room, user, connection, cmd) {
+		if (!target) return this.parse('/help '+cmd);
 		if (!this.can('gdeclare')) return false;
+		var staff = '';
+		staff = 'a ' + Config.groups[user.group].name;
+		if (user.group == '~') staff = 'an Administrator';
 
-		for (var id in Rooms.rooms) {
-			if (id !== 'global') if (Rooms.rooms[id].type !== 'battle') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b>' + target + '</b></div>');
+		//var roomName = (room.isPrivate)? 'a private room' : room.id;
+
+		if (cmd === 'gdeclare'){
+			for (var id in Rooms.rooms) {
+				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b><font size=1><i>Global declare by '+staff+'<br /></i></font size>'+target+'</b></div>');
+			}
 		}
-		this.logModCommand(user.name + " globally declared (chat level) " + target);
+		if (cmd === 'gdeclarered'){
+			for (var id in Rooms.rooms) {
+				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-red"><b><font size=1><i>Global declare by '+staff+'<br /></i></font size>'+target+'</b></div>');
+			}
+		}
+		else if (cmd === 'gdeclaregreen'){
+			for (var id in Rooms.rooms) {
+				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-green"><b><font size=1><i>Global declare by '+staff+'<br /></i></font size>'+target+'</b></div>');
+			}
+		}
+		this.logModCommand(user.name+' globally declared '+target);
 	},
 
 	wall: 'announce',

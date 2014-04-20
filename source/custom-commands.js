@@ -590,6 +590,14 @@ var customCommands = {
 				'</div>');
 	},
 	
+	priomons: 'priomons',
+		priomons: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a detailed explanation of the format Priomons:<br />' +
+				'- <a href="http://soraleague.weebly.com/priomons.html">Priomons</a><br />' +
+				'</div>');
+	},
+	
 	events: 'events',
 		events: function(target, room, user) {
 			if (!this.canBroadcast()) return;
@@ -781,10 +789,6 @@ var customCommands = {
 	        this.sendReply('Reloading utilities.js...');
 	        CommandParser.uncacheTree('./source/utilities.js');
 	        Utilities = require('./utilities.js').Utilities;
-	        
-	        this.sendReply('Reloading poll.js...');
-	        CommandParser.uncacheTree('./source/poll.js');
-	        tour = require('./poll.js').tour();
 
 	        this.sendReply('Reloading io.js...');
 	        CommandParser.uncacheTree('./source/io.js');

@@ -227,5 +227,7 @@ exports.BattleScripts = {
                 this.modData('Learnsets', 'seismitoad').learnset.venomstrike = ['5M'];
                 this.modData('Learnsets', 'ferroseed').learnset.venomstrike = ['5M'];
                 this.modData('Learnsets', 'ferrothorn').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'skorupi').learnset.venomstrike = ['5M'];
+                this.modData('Learnsets', 'drapion').learnset.venomstrike = ['5M'];
         }        
 };              

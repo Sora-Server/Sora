@@ -180,7 +180,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Tevin</b><br />'+
 			'<i>"Prepare to fly, cuz you won\'t stay alive for long if you\'re on the ground..."</i> <br />'+
 			'<b>Type:</b> Ground<br />'+
-			'<b>Ace:</b>Landorus<br />');
+			'<b>Ace:</b> Landorus<br />');
         },
         
         

@@ -217,16 +217,7 @@ var trainerCards = {
 		 	  '-Item Clause (Max 1 of each item) <br/>'+
 		 	  '-No Stealth rocks <br/>');
 	},
-	
-	abraham: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Abraham</b><br />'+
-		      '<i>"Trololol"</i> <br />'+
-		      '<b>Symbol:</b> Moe Lester\'s Symbol<br />'+
-		      '<b>Ace:</b> Clefable <br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-OU Metronome Battle, all Pokemon must only know Metronome.<br/>');
-        },
+ 
 
        razor: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -255,25 +246,6 @@ var trainerCards = {
 			  '-No Focus Sash<br />'+
 			  '-No protecting moves<br />'+
 			  '<img src="http://sprites.pokecheck.org/i/241.gif"> <img src="http://sprites.pokecheck.org/t/111.gif">');
-        },
-        
-         
-        tevin function(target, room, user) {
-		if (!this.canBroadcast()) return;
-	        this.sendReplyBox('Gym Ldr <b>Tevin</b><br />'+
-			  '<i>""Prepare to fly, cuz you won\'t stay alive for long if you\'re on the ground..."</i> <br />'+
-			  '<b>Type:</b> Ground<br />'+
-			  '<b>Ace:</b>Landorus<br />');
-        },
-     
-        vacante4: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-	        this.sendReplyBox('E4 <b></b><br />'+
-			  '<i>" "</i> <br />'+
-			  '<b>Type:</b> ???<br />'+
-			  '<b>Ace:</b>???<br />'+
-			  '<b>Battle Rules:</b><br />'+
-			  '-???<br />');
 			  
         },
 			  

@@ -226,7 +226,7 @@ var trainerCards = {
 		      '<b>Ace:</b> Clefable <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-OU Metronome Battle, all Pokemon must only know Metronome.<br/>');
-},
+        },
 
        razor: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -265,6 +265,7 @@ var trainerCards = {
 			  '<b>Type:</b> Ground<br />'+
 			  '<b>Ace:</b>Landorus<br />');
         },
+     
         vacante4: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 	        this.sendReplyBox('E4 <b></b><br />'+

@@ -199,7 +199,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Supernova</b><br />'+
 			'<i>"Pokemon is all about the mind games,I am the mind"</i> <br />'+
 			'<b>Type:</b> Psychic<br />'+
-			'<b>Ace:</b> Mega-Gardevoir<br />');
+			'<b>Ace:</b> Latios<br />');
         },
         
         floatzel: function(target, room, user) {

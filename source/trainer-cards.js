@@ -385,7 +385,7 @@ var trainerCards = {
 			  '<b>Ace:</b> PinLikeaSir (Pinsir)<br />');
 	},
 
-	arthurzh: function(target, room, user) {
+	zachary: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>ArthurZH</b><br />'+
 	       	      '<i>"What will be, will be."</i> <br />'+

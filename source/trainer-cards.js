@@ -387,7 +387,7 @@ var trainerCards = {
 
 	zachary: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>ArthurZH</b><br />'+
+		this.sendReplyBox('Frontier <b>Zachary</b><br />'+
 	       	      '<i>"What will be, will be."</i> <br />'+
 	       	      '<b>Symbol:</b> Randomosity<br />'+
 		      '<b>Ace:</b> None<br />'+

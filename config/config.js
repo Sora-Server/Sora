@@ -173,7 +173,7 @@ exports.customAvatars = {
 	  'championtoast': '044.jpg',
 	  'gymldrsrewop': '048.jpg',
 	  'theone2500': '049.gif',
-	  'gymldrakkie': '050.png',
+	  'gymldrakkie': '054.png',
 	  'pokemanguysteve': '051.gif',
 	  'reirdkrmory': '052.gif',
 	  'frntier abraham': '053.gif',

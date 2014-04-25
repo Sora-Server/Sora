@@ -78,7 +78,7 @@ var trainerCards = {
 			  '<i>"Scales like diamonds, the brighter you shine, the hotter it burns"</i> <br />'+
 			  '<b>Type:</b> Dragon<br />'+
 			  '<b>Ace:</b> Mega Garchomp<br />'+
-			  '<img src="http://sprites.pokecheck.org/t/134.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/garchomp-mega.gif">');
+			  '<img src="http://sprites.pokecheck.org/t/138.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/garchomp-mega.gif">');
         },
 
 	zoro: function(target, room, user) {

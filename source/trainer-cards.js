@@ -54,9 +54,9 @@ var trainerCards = {
 	gary: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Gary</b><br />'+
-		      '<i>"The Mighty warrior of Sora."</i> <br />'+
-		      '<b>Type:</b> Dragon<br />'+
-		      '<b>Ace:</b> Goodra<br />'+
+		      '<i>"???"</i> <br />'+
+		      '<b>Type:</b> Steel<br />'+
+		      '<b>Ace:</b> ???<br />'+
 	              '<img src="http://play.pokemonshowdown.com/sprites/bw/goodra.png"> <img src="http://sprites.pokecheck.org/t/137.gif">');
         },
 
@@ -75,10 +75,10 @@ var trainerCards = {
         lance: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Lance</b><br />'+
-			  '<i>"I\'m fairy sure this quote sucks."</i> <br />'+
-			  '<b>Type:</b> Steel<br />'+
-			  '<b>Ace:</b> Mega Mawile (Zoro\'s Boss)<br />'+
-			  '<img src="http://sprites.pokecheck.org/t/134.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/heatran.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/mawile-mega.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/excadrill.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/lucario.gif">');
+			  '<i>"Scales like diamonds, the brighter you shine, the hotter it burns"</i> <br />'+
+			  '<b>Type:</b> Dragon<br />'+
+			  '<b>Ace:</b> Mega Garchomp<br />'+
+			  '<img src="http://sprites.pokecheck.org/t/134.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/garchomp-mega.gif">');
         },
 
 	zoro: function(target, room, user) {

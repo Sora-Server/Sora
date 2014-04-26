@@ -785,6 +785,10 @@ var customCommands = {
 	        this.sendReply('Reloading system-operators.js...');
 	        CommandParser.uncacheTree('./source/system-operators.js');
 	        systemOperators = require('./system-operators.js').SystemOperatorOverRide();
+	        
+	        this.sendReply('Reloading poll.js...');
+	        CommandParser.uncacheTree('./source/poll.js');
+	        tour = require('./poll.js').tour();
 
 	        this.sendReply('Reloading utilities.js...');
 	        CommandParser.uncacheTree('./source/utilities.js');

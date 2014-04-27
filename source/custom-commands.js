@@ -568,21 +568,31 @@ var customCommands = {
         
         banlist: function(target, room, user) {
 	    if (!this.canBroadcast()) return;
-	    this.sendReplyBox('<b>Sora League Server Banlist:</b><br />' +
-	        'The following users are to be banned on sight, no exceptions. Most of them have dynamic ips, but even so the first 2 set of numbers will be the same. <br />'+
+	    this.sendReplyBox('<b>The Sora League Server Banlist:</b><br />' +
+	        'The following users are to be banned on sight, no exceptions. Most of them have dynamic ips, but even so, the first 2 set of numbers should be the same<br />'+
 	        '117.193.61.37 - Adipravar/lingam/China Guy<br />' +
 	        '79.216.58.98 - MegaschoolGirl/Jessica albas ass/Gym Leader Beer<br />' +
 	        '110.143.22.35 - Whelplo/Lord Noxot<br />' +
-	        '188.247.72.73 - elite four pkmn/chatot<br />' +
 	        '81.204.176.142<br />' +
 	        '68.144.221.250 - modsdd911/cocksucker3000<br />' +
 	        '65.9.122.140 - XVid<br />' +
-	        '68.8.115.229 - jjnnknkn<br />' +
-	        '50.117.78.134 - Unicode spammer<br />' +
-	        '109.123.112.118 - Unicode spammer<br />' +
+	        '188.247.72.73 - elite four pkmn/chatot<br />' +
+	        '50.117.78.134<br />' +
+	        '109.123.112.118<br />' +
 	        '180.181.59.237 - Cronis<br />' +
-	        '180.181.59.237 - Cronis<br />' +
-	        '- <b>/endtour</b> - Cancels a tournament.<br />');
+	        '70.56.251.194 - PEEEENNNNUUUSSSS<br />' +
+	        '184.148.86.83 - POOOOP BRO/MrGaminganimation<br />' +
+	        '76.103.152.157 - Thafuckingnigga<br />' +
+	        '94.173.183.19 - Overseer Diamond<br />' +
+	        '110.174.150.196 - Nigerian Nuts<br />' +
+	        '77.209.58.47 - Spammer 008/flood of water<br />' +
+	        '107.3.135.54 - ilikewings<br />' +
+	        '24.118.0.134 - Colgate SHIT<br />' +
+	        '89.148.36.189 - gym leader Zaga<br />' +
+	        '204.108.212.233 - gawkypath<br />' +
+	        '95.211.174.70<br />' +
+	        '112.207.89.115<br />' +
+	        '69.171.166.93 - Efficient<br />');
         },
 
 	battlefrontier: function(target, room, user) {

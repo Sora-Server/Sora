@@ -144,7 +144,7 @@ var trainerCards = {
 
 	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>asch</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
 			'<i>"Brother Nature: the Rapist."</i> <br />'+
 			'<b>Type:</b> Grass<br />'+
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+

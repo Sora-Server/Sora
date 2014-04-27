@@ -222,12 +222,12 @@ var trainerCards = {
 	},
  
 
-       razor: function(target, room, user) {
+       normal: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Razor</b><br />'+
-			  '<i>"They say that normal is weak, battle me so I can prove them wrong"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Normal<br />'+
-			  '<b>Ace:</b> Meloetta<br />');
+			  '<b>Ace:</b> ???<br />');
         },
         
         core: function(target, room, user) {
@@ -316,12 +316,12 @@ var trainerCards = {
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/scyther.gif">');
 	},
 
-	zyphear: function(target, room, user) {
+	oz: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Zyphear</b><br />'+
-			  '<i>"Storm\'s coming."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Oz</b><br />'+
+			  '<i>"Warning, you will get shocked by the power of thunder."</i> <br />'+
 			  '<b>Type:</b> Electric<br />'+
-			  '<b>Ace:</b> Eelektross<br />');
+			  '<b>Ace:</b> Thundurus<br />');
 
 	},
 

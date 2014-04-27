@@ -141,30 +141,14 @@ var trainerCards = {
 		 	    '<img src="http://sprites.pokecheck.org/i/601.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
         },
 
-        leaf: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Leaf</b><br />'+
-	              '<i>"Leaf is love, Leaf is life."</i> <br />'+
-	              '<b>Symbol:</b> Adaption<br />'+
-	              '<b>Ace:</b> Cincinno/Floatzel<br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-Inverse Dualtype (2 Monotypes in a team played using the Inverse Battle tier.) <br/>'+
-	 	      '-No Dragon-types as a main typing <br/>'+
-	 	      '-Max 1 Legendary <br/>'+
-	 	      '<img src="http://sprites.pokecheck.org/i/142.gif"> <img src="http://sprites.pokecheck.org/t/109.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Leaf_zps542b4e92.png">');
-	},
 
-	ascher: function(target, room, user) {
+	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Ascher</b><br />'+
-	       	      '<i>"Strategy is key."</i> <br />'+
-	       	      '<b>Symbol:</b> True Knight<br />'+
-		      '<b>Ace:</b> Clefable<br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-Pokemon Chess - 1 OU, 2 UU, 1 RU, 1 NU, 1 Uber <br/>'+
-	 	      '-Ubers is King (Loss if the King Faints) <br/>'+
-	 	      '-No Mega-Evolutions <br/>'+
-	 	      '<img src="http://play.pokemonshowdown.com/sprites/trainers/54.png"> <img src="http://sprites.pokecheck.org/i/003f.gif">');
+		this.sendReplyBox('Gym Ldr <b>asch</b><br />'+
+			'<i>"Brother Nature: the Rapist."</i> <br />'+
+			'<b>Type:</b> Grass<br />'+
+			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/trainers/54.png"> <img src="http://sprites.pokecheck.org/i/003f.gif">');
 	},
 
 	blazer: function(target, room, user) {
@@ -283,16 +267,7 @@ var trainerCards = {
 			 '<b>Type:</b> Poison<br />'+
 			 '<b>Ace:</b> Venusaur<br />');
 	},
-        
-        matt99: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-		      '<i>"Come into my beautiful Garden where you will tremble in it\'s beautiful Awe"</i> <br />'+
-		      '<b>Type:</b> Grass<br />'+
-		      '<b>Ace:</b> Mega Venusaur<br />'+
-		      '<img src="http://sprites.pokecheck.org/t/011.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/venusaur-mega.gif">');
-        },
-        
+     
         lou: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 	        this.sendReplyBox('Frontier <b>Lou</b><br />'+

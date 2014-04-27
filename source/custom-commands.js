@@ -565,6 +565,25 @@ var customCommands = {
 	        '- <b>/dq</b> - Disqualifies a participant.<br />' +
 	        '- <b>/endtour</b> - Cancels a tournament.<br />');
         },
+        
+        banlist: function(target, room, user) {
+	    if (!this.canBroadcast()) return;
+	    this.sendReplyBox('<b>Sora League Server Banlist:</b><br />' +
+	        'The following users are to be banned on sight, no exceptions. Most of them have dynamic ips, but even so the first 2 set of numbers will be the same. <br />'+
+	        '117.193.61.37 - Adipravar/lingam/China Guy<br />' +
+	        '79.216.58.98 - MegaschoolGirl/Jessica albas ass/Gym Leader Beer<br />' +
+	        '110.143.22.35 - Whelplo/Lord Noxot<br />' +
+	        '188.247.72.73 - elite four pkmn/chatot<br />' +
+	        '81.204.176.142<br />' +
+	        '68.144.221.250 - modsdd911/cocksucker3000<br />' +
+	        '65.9.122.140 - XVid<br />' +
+	        '68.8.115.229 - jjnnknkn<br />' +
+	        '50.117.78.134 - Unicode spammer<br />' +
+	        '109.123.112.118 - Unicode spammer<br />' +
+	        '180.181.59.237 - Cronis<br />' +
+	        '180.181.59.237 - Cronis<br />' +
+	        '- <b>/endtour</b> - Cancels a tournament.<br />');
+        },
 
 	battlefrontier: function(target, room, user) {
 		if (!this.canBroadcast()) return;

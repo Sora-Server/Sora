@@ -548,7 +548,7 @@ var customCommands = {
 	
 	server: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('This is The Server of <b>The Sora League</b>. VPS paid by Champion Noah. <a href= https://gist.github.com/E4Arsh/8577715> VPS Hosted by BlakJack</a><br />');
+		this.sendReplyBox('This is The Server of <b>The Sora League</b>. <a href= https://gist.github.com/E4Arsh/8577715> VPS Hosted by BlakJack</a>  VPS paid by <b>Champion Noah</b>.<br />');
 	},
 	
 	tourhelp: function(target, room, user) {

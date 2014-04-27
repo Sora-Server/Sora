@@ -54,9 +54,9 @@ var trainerCards = {
 	gary: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Gary</b><br />'+
-		      '<i>"???"</i> <br />'+
-		      '<b>Type:</b> Steel<br />'+
-		      '<b>Ace:</b> ???<br />'+
+		      '<i>"I might be just a normal person but never underestimate me"</i> <br />'+
+		      '<b>Type:</b> Normal<br />'+
+		      '<b>Ace:</b> Slaking<br />'+
 	              '<img src="http://play.pokemonshowdown.com/sprites/bw/goodra.png"> <img src="http://sprites.pokecheck.org/t/137.gif">');
         },
 
@@ -222,12 +222,12 @@ var trainerCards = {
 	},
  
 
-       normal: function(target, room, user) {
+       lou: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> Normal<br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<i>"Guess I\'ll be <i>steeling</i> a win from you then."</i> <br />'+
+			  '<b>Type:</b> Steel<br />'+
+			  '<b>Ace:</b> Heatran (HOT MAMA)<br />');
         },
         
         core: function(target, room, user) {
@@ -267,17 +267,6 @@ var trainerCards = {
 			 '<b>Type:</b> Poison<br />'+
 			 '<b>Ace:</b> Venusaur<br />');
 	},
-     
-        lou: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-	        this.sendReplyBox('Frontier <b>Lou</b><br />'+
-			  '<i>"A wise warrior copies successful combat tactics to prevail in battle."</i> <br />'+
-			  '<b>Symbol:</b> Illusion<br />'+
-			  '<b>Ace:</b> Chansey<br />'+
-			  '<b>Battle Rules:</b> <br />'+
-			  '-VGC Doubles<br />'+
-			  '-Best of 3 Series<br />');
-        },
         
         nirvana: function(target, room, user) {
 		if (!this.canBroadcast()) return;

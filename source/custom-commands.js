@@ -566,6 +566,7 @@ var customCommands = {
 	        '- <b>/endtour</b> - Cancels a tournament.<br />');
         },
         
+        hallofshame: 'banlist',
         banlist: function(target, room, user) {
 	    if (!this.canBroadcast()) return;
 	    this.sendReplyBox('<b>The Sora League Server Banlist:</b><br />' +

@@ -224,7 +224,7 @@ var trainerCards = {
 
        lou: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Lou</b><br />'+
 			  '<i>"Guess I\'ll be <b>steeling</b> a win from you then."</i> <br />'+
 			  '<b>Type:</b> Steel<br />'+
 			  '<b>Ace:</b> Heatran (HOT MAMA)<br />');

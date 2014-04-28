@@ -98,8 +98,8 @@ var trainerCards = {
 		      '<i>The Master of Many Types</i> <br />'+
 		      '<i>"You listen to me, you go to the top! You don\'t, then your missteps will be noted by everyone!"</i> <br />'+
 		      '<b>Purpose:</b> Will help to train you in your chosen type, or team, and assist in what items are missing.<br />'+
-	 	      '<b>See me online and need help? Message me.<b>');
-},
+      	 	      '<b>See me online and need help? Message me.<b>');
+        },
         
         apple: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -178,12 +178,12 @@ var trainerCards = {
 	 	      '-OU Metronome Battle, all Pokemon must know Metronome and only Metronome <br/>');
         },
         
-        supernova: function(target, room, user) {
+        psychic: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Supernova</b><br />'+
-			'<i>"Pokemon is all about the mind games,I am the mind"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			'<i>"???"</i> <br />'+
 			'<b>Type:</b> Psychic<br />'+
-			'<b>Ace:</b> Latios<br />');
+			'<b>Ace:</b> ???<br />');
         },
         
         floatzel: function(target, room, user) {
@@ -222,7 +222,7 @@ var trainerCards = {
 	},
  
 
-       lou: function(target, room, user) {
+        lou: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Lou</b><br />'+
 			  '<i>"Guess I\'ll be <b>steeling</b> a win from you then."</i> <br />'+
@@ -303,6 +303,19 @@ var trainerCards = {
 		 	  '-No Hazards <br/>'+
 		 	  '-Speed has to be constant (it shouldn\'t be increased or decreased)<br />'+
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/scyther.gif">');
+	},
+	
+	nova: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Frontier <b>Nova</b><br />'+
+			  '<i>"Every Champion was once a contender that refused to give up,I will never give up no matter how hard you hit."</i> <br />'+
+			  '<b>Symbol:</b> Will of Steel<br />'+
+			  '<b>Ace:</b> Thundurus<br />'+
+			  '<b>Battle Rules:</b> <br/>'+
+		 	  '-Ubers tier <br/>'+
+		 	  '-2 Uber, 2 OU and 2 random pokemon must be used <br/>'+
+		 	  '-Random pokemon must be chosen using  /dice command on the Sora server<br />'+
+		 	  '-Players can use whatever pokemon from the evolution chain of the pokemon picked by random <br/>');
 	},
 
 	oz: function(target, room, user) {

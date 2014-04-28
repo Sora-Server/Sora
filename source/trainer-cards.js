@@ -314,12 +314,12 @@ var trainerCards = {
 
 	},
 
-	mayhem: function(target, room, user) {
+	anna: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Mayhem</b><br />'+
-			 '<i>"When the shadow strikes there is nowhere to hide."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Anna</b><br />'+
+			 '<i>"Careful love, prices aren\'t the only thing I can cut in half."</i> <br />'+
 		         '<b>Type:</b> Ghost<br />'+
-			 '<b>Ace:</b> Aegislash<br />');
+			 '<b>Ace:</b> Sableye<br />');
         },
 
 	ground: function(target, room, user) {

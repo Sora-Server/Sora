@@ -15,7 +15,7 @@ var crypto = require('crypto');
 var fs = require('fs');
 
 const MAX_REASON_LENGTH = 300;
-
+u
 var commands = exports.commands = {
 
 	version: function (target, room, user) {
@@ -1224,8 +1224,7 @@ var commands = exports.commands = {
 
 	updateserver: function (target, room, user, connection) {
 		if (!this.can('hotpatch')) return false;
-		}
-
+		
 		if (CommandParser.updateServerLock) {
 			return this.sendReply("/updateserver - Another update is already in progress.");
 		}

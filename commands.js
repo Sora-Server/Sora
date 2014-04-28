@@ -10,12 +10,12 @@
  *
  * @license MIT license
  */
-c
+
 var crypto = require('crypto');
 var fs = require('fs');
 
 const MAX_REASON_LENGTH = 300;
-u
+
 var commands = exports.commands = {
 
 	version: function (target, room, user) {

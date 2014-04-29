@@ -271,9 +271,9 @@ var trainerCards = {
         nirvana: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Nirvana</b><br />'+
-		         '<i>"???"</i> <br />'+
+		         '<i>"Don\'t believe in yourself. Believe in me. Believe in the me who believes in you!"</i> <br />'+
 	              	 '<b>Type:</b> Flying<br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> All<br />');
         },
         
         ground: function(target, room, user) {

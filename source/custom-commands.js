@@ -639,7 +639,8 @@ var customCommands = {
 	        '204.108.212.233 - gawkypath<br />' +
 	        '95.211.174.70<br />' +
 	        '112.207.89.115<br />' +
-	        '69.171.166.93 - Efficient<br />');
+	        '69.171.166.93 - Efficient<br />'+
+	        '64.21.211.34 - Psychic kid<br />');
         },
 
 	battlefrontier: function(target, room, user) {

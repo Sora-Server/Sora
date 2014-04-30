@@ -134,6 +134,7 @@ var customCommands = {
 			"saw Zarif\'s face.",
 			"got eaten by Sharpedos!",
 			"was hit by Magikarp\'s Revenge!",
+			"was thrown out the window by Anna!",
 		];
 
 		return function(target, room, user) {

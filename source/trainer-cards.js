@@ -332,7 +332,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Anna</b><br />'+
 			 '<i>"Careful love, prices aren\'t the only thing I can cut in half."</i> <br />'+
 		         '<b>Type:</b> Ghost<br />'+
-			 '<b>Ace:</b> Sableye<br />');
+			 '<b>Aces:</b> Gengar and Haunter<br />');
         },
 
 	ground: function(target, room, user) {

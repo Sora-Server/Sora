@@ -17,7 +17,7 @@ var trainerCards = {
 
 	onyxeagle: function(target, room, user) {
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('<a><font size= 3><center><b>OnyxEagle</b></center></a><br />'+
+	 	this.sendReplyBox('<a><font size= 4><center><b>∆OnyxEagle∆</b></center></a><br />'+
 	 	    '<center><i>"Heads or Tails? Heads, I Win; Tails, you Lose"</i></center> <br /><br />'+
 		    '<b>Skilled in:</b> Rock types/ Ubers, Random Battle and OU to a certain degree.<br />'+
 		    '<b>History:</b> 2nd Champion of New Sora. One of the 2 people who resurrected Sora from the rubbles. <br/>'+
@@ -27,8 +27,8 @@ var trainerCards = {
         
         noah: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Champion <b>Noah</b><br />'+
-		      '<i>"Need a Champion? I Noah guy."</i> <br />'+
+		this.sendReplyBox('<a><font size= 4><center><b>∆Champion Noah∆</b></center></a><br />'+
+		      '<center><i>"Need a Champion? I Noah guy."</i></center> <br /><br />'+
 		      '<b>Ace:</b> Liquidbones <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-Monotype <br/>'+

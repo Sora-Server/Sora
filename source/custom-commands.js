@@ -627,7 +627,6 @@ var customCommands = {
 	        '188.247.72.73 - elite four pkmn/chatot<br />' +
 	        '50.117.78.134<br />' +
 	        '109.123.112.118<br />' +
-	        '180.181.59.237 - Cronis<br />' +
 	        '70.56.251.194 - PEEEENNNNUUUSSSS<br />' +
 	        '184.148.86.83 - POOOOP BRO/MrGaminganimation<br />' +
 	        '76.103.152.157 - Thafuckingnigga<br />' +

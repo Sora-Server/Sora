@@ -198,7 +198,7 @@ var trainerCards = {
 	tempest: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Tempest</b><br />'+
-		          '<i>"Let Death herself approach; the show shall go on!"</i> <br />'+
+		          '<i>"Pokemon Battles aren\'t the only thing I role play ;)"</i> <br />'+
 		          '<b>Symbol:</b> Roleplay<br />'+
 			  '<b>Ace:</b> Mienshao<br />'+
 		 	  '<b>Battle Rules:</b> <br/>'+

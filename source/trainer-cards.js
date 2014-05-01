@@ -48,7 +48,7 @@ var trainerCards = {
 	 	     '-At least 2 must be OU or lower <br/>'+
 	 	     '-No Lowering opponents stats (Unless caused by attack) <br/>'+
 	 	     '-No Pokemon with a base stat over 130<br />'+
-	 	     '<img src="http://sprites.pokecheck.org/i/461.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Misc%20sprites/Bart_zps03ad3a7d.png">');
+	 	     '<center><img src="http://sprites.pokecheck.org/i/461.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Misc%20sprites/Bart_zps03ad3a7d.png"></center>');
         },
 
 	gary: function(target, room, user) {
@@ -68,7 +68,7 @@ var trainerCards = {
 	 	          '<b>Battle Rules:</b> <br/>'+
 	 	          '-No Hazards <br/>'+
 	 	          '-No weather inducing moves <br/>'+
-	 	          '<img src="http://play.pokemonshowdown.com/sprites/xyani/hooh.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar-mega.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/volcarona.gif">');
+	 	          '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/hooh.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar-mega.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/volcarona.gif"></center>');
 	 	          
         },
         

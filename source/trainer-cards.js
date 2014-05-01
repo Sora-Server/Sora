@@ -34,7 +34,7 @@ var trainerCards = {
 	 	      '-Monotype <br/>'+
 	 	      '-Gen 5 Ubers (Maximum of 2 Ubers) <br/>'+
 	 	      '-No Hazards<br />'+
-	 	      '<img src="http://sprites.pokecheck.org/i/134.gif"> <img src="http://www.pokemonreborn.com/custom/47366.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif">');
+	 	      '<center><img src="http://sprites.pokecheck.org/i/134.gif"> <img src="http://www.pokemonreborn.com/custom/47366.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"></center>');
 	},
 
 	bart: function(target, room, user) {

@@ -17,7 +17,7 @@ var trainerCards = {
 
 	onyxeagle: function(target, room, user) {
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('<a><font size= 4><center><b>∆OnyxEagle∆</b></center></a><br />'+
+	 	this.sendReplyBox('<a><font size= 5><center><b>OnyxEagle</b></center></a><br />'+
 	 	    '<center><i>"Heads or Tails? Heads, I Win; Tails, you Lose"</i></center> <br /><br />'+
 		    '<b>Skilled in:</b> Rock types/ Ubers, Random Battle and OU to a certain degree.<br />'+
 		    '<b>History:</b> 2nd Champion of New Sora. One of the 2 people who resurrected Sora from the rubbles. <br/>'+
@@ -27,8 +27,8 @@ var trainerCards = {
         
         noah: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b>∆Champion Noah∆</b></center></a><br />'+
-		      '<center><i>"Need a Champion? I Noah guy."</i></center> <br /><br />'+
+		this.sendReplyBox('Champion <b>Noah</b><br />'+
+		      '<i>"Need a Champion? I Noah guy."</i> <br />'+
 		      '<b>Ace:</b> Liquidbones <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-Monotype <br/>'+
@@ -204,7 +204,7 @@ var trainerCards = {
 		 	  '<b>Battle Rules:</b> <br/>'+
 		 	  '-PokéCosplay: You can only use a team consisting of an existing Pokémon trainer <br/>'+
 		 	  '-This includes trainers from the anime, manga, and games (except for the game\'s main character) <br/>'+
-		 	  '-Limited to OU (no Gold\'s Ho-oh, Silver\'s Lugia, etc)<br/>'+
+		 	  '-Limited to OU (Blaziken and Gennesect are Exceptions)<br/>'+
 		 	  '<img src="http://sprites.pokecheck.org/t/144.gif"> <img src="http://sprites.pokecheck.org/i/620.gif">');
 	},
 

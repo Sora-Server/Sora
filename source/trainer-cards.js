@@ -167,23 +167,12 @@ var trainerCards = {
 			'<b>Ace:</b> Landorus<br />');
         },
         
-        
-        abraham: function(target, room, user) {
+        abe: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Abraham</b><br />'+
-	       	      '<i>"Trololol"</i> <br />'+
-	       	      '<b>Symbol:</b> Moe Lester\'s<br />'+
-		      '<b>Ace:</b> Clefable<br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-OU Metronome Battle, all Pokemon must know Metronome and only Metronome <br/>');
-        },
-        
-        psychic: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			'<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Abe</b><br />'+
+			'<i>"I  have seen your future and it is...FABULOUS!!"</i> <br />'+
 			'<b>Type:</b> Psychic<br />'+
-			'<b>Ace:</b> ???<br />');
+			'<b>Ace:</b> Gardevoir<br />');
         },
         
         floatzel: function(target, room, user) {

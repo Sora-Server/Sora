@@ -642,7 +642,8 @@ var customCommands = {
 	        '112.207.89.115<br />' +
 	        '69.171.166.93 - Efficient<br />'+
 	        '64.21.211.34 - Psychic kid<br />'+
-	        '217.123.61.20 - Sjado<br />');
+	        '217.123.61.20 - Sjado<br />'+
+	        ' 96.255.1.236');
         },
 
 	battlefrontier: function(target, room, user) {

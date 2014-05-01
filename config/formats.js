@@ -55,6 +55,17 @@ exports.Formats = [
 			'Yveltal'
 		]
 	},
+	{
+	name: "Contrary Zone",
+		section: "Sora Exclusive",
+		ruleset: ['Pokemon', 'Standard', 'Team Preview', 'Contrary Zone Clause'],
+		banlist: ['Uber', 'Soul Dew', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'V-Create', 'Swagger'],
+		onBoost: function(boost) {
+	for (var i in boost) {
+				boost[i] *= -1;
+			}
+			}
+	},
 	
 	// XY Singles
 	///////////////////////////////////////////////////////////////////

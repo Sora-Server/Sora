@@ -176,7 +176,7 @@ exports.customAvatars = {
 	  'gymldrakkie': '054.png',
 	  'pokemanguysteve': '051.gif',
 	  'reirdkrmory': '052.gif',
-	  'frntier abraham': '053.gif',
+	  'gymldrabe': '056.gif',
 	  'gymldranna': '055.png'
 	
 };

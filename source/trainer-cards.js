@@ -28,7 +28,7 @@ var trainerCards = {
         noah: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<a><font size= 4><center><b>∆Champion Noah∆</b></center></a><br />'+
-		      '<i>"Need a Champion? I Noah guy."</i> <br />'+
+		      '<center><i>"Need a Champion? I Noah guy."</i></center> <br />'+
 		      '<b>Ace:</b> Liquidbones <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-Monotype <br/>'+
@@ -39,8 +39,8 @@ var trainerCards = {
 
 	bart: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier Head <b>Bart</b><br />'+
-		     '<i>"Patience? Nah.... Speed and power is what you need!"</i> <br />'+
+		this.sendReplyBox('<a><font size= 4><center><b>∆FrontierHead Bart∆</b></center></a><br />'+
+		     '<center><i>"Patience? Nah.... Speed and power is what you need!"</i></center> <br />'+
 		     '<b>Symbol:</b> Patience<br />'+
 		     '<b>Ace:</b> Weavile<br />'+
 	 	     '<b>Battle Rules:</b> <br/>'+
@@ -62,8 +62,8 @@ var trainerCards = {
 
 	toast: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Champion <b>Toast</b><br />'+
-			  '<i>"A Day without SunShine is like Night Time."</i> <br />'+
+			this.sendReplyBox('<a><font size= 4><center><b>∆Champion Toast∆</b></center></a><br />'+
+			  '<center><i>"A Day without SunShine is like Night Time."</i></center> <br />'+
 			  '<b>Ace:</b> Charizard<br />'+
 	 	          '<b>Battle Rules:</b> <br/>'+
 	 	          '-No Hazards <br/>'+
@@ -198,7 +198,7 @@ var trainerCards = {
 	tempest: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Tempest</b><br />'+
-		          '<i>"Pokemon Battles aren\'t the only thing I role play!"</i> <br />'+
+		          '<i>"Pokemon Battles aren\'t the only thing I role play ;)"</i> <br />'+
 		          '<b>Symbol:</b> Roleplay<br />'+
 			  '<b>Ace:</b> Mienshao<br />'+
 		 	  '<b>Battle Rules:</b> <br/>'+

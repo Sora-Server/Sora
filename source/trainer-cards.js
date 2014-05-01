@@ -204,7 +204,7 @@ var trainerCards = {
 		 	  '<b>Battle Rules:</b> <br/>'+
 		 	  '-PokéCosplay: You can only use a team consisting of an existing Pokémon trainer <br/>'+
 		 	  '-This includes trainers from the anime, manga, and games (except for the game\'s main character) <br/>'+
-		 	  '-Limited to OU (Blaziken and Gennesect are Exceptions)<br/>'+
+		 	  '-Limited to OU (Blaziken and Genesect are Exceptions)<br/>'+
 		 	  '<img src="http://sprites.pokecheck.org/t/144.gif"> <img src="http://sprites.pokecheck.org/i/620.gif">');
 	},
 

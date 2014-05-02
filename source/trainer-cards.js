@@ -172,7 +172,8 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Abe</b><br />'+
 			'<i>"I  have seen your future and it is...FABULOUS!!"</i> <br />'+
 			'<b>Type:</b> Psychic<br />'+
-			'<b>Ace:</b> Gardevoir<br />');
+			'<b>Ace:</b> Gardevoir<br />'+
+			'<img src="http://www.avatarsdb.com/avatars/spiderman_funny_dance.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/gardevoir-mega.gif">');
         },
         
         floatzel: function(target, room, user) {

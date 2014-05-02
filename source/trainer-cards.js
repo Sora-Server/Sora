@@ -313,7 +313,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Oz</b><br />'+
 			  '<i>"Warning, you will get shocked by the power of thunder."</i> <br />'+
 			  '<b>Type:</b> Electric<br />'+
-			  '<b>Ace:</b> Thundurus<br />');
+			  '<b>Ace:</b> Lanturn<br />');
 
 	},
 

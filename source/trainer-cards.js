@@ -54,9 +54,9 @@ var trainerCards = {
 	gary: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Gary</b><br />'+
-		      '<i>"I might be just a normal person but never underestimate me"</i> <br />'+
-		      '<b>Type:</b> Normal<br />'+
-		      '<b>Ace:</b> Slaking<br />'+
+		      '<i>"Dragons may not have survived the cold but let me make you experience their sheer power"</i> <br />'+
+		      '<b>Type:</b> Dragon<br />'+
+		      '<b>Ace:</b> Goodra<br />'+
 	              '<img src="http://play.pokemonshowdown.com/sprites/bw/goodra.png"> <img src="http://sprites.pokecheck.org/t/137.gif">');
         },
 

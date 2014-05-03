@@ -287,6 +287,7 @@ exports.groups = {
 			forcewin: true,
 			modchatall: true,
 			potd: false,
+			tell: false,
 			promote: 'u',
 			rangeban: true
 		},
@@ -322,6 +323,7 @@ exports.groups = {
 			forcerename: true,
 			ip: true,
 			modchat: true,
+			tell: false,
 			roompromote: '+ ',
 			scavengers: true
 		},
@@ -339,6 +341,7 @@ exports.groups = {
 			lock: true,
 			mute: true,
 			redirect: true,
+			tell: false,
 			staff: true,
 			timer: true,
 			tournamentsmoderation: true,
@@ -351,6 +354,7 @@ exports.groups = {
 		        inherit: '+ ',
 		        jurisdiction: 'u',
 		        broadcast: true,
+		        tell: false,
 		        warn: true,
 		        rank: 2
 	        },
@@ -361,6 +365,7 @@ exports.groups = {
 			inherit: ' ',
 			broadcast: true,
 			tournaments: true,
+			tell: false,
 			joinbattle: true
 		},
 		' ': {

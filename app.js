@@ -447,11 +447,6 @@ try {
 	console.log('Error loading custom-commands.js or trainer-cards.js: ' + e.stack);
 }
 try {
-	global.profile = require('./source/profile.js');
-} catch (e) {
-	console.log('Error loading profile.js: ' + e.stack);
-}
-try {
 	global.tour = require('./source/poll.js').tour();
 } catch (e) {
 	console.log('Error loading poll.js: ' + e.stack);

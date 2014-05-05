@@ -5,9 +5,8 @@
  * Commands Table of Contents:
  * General, Money, Override, Staff
  */
-
-var customCommands = {
 var fs = require('fs');	
+var customCommands = {
 	/*********************************************************
 	 * General commands
 	 *********************************************************/

@@ -26,7 +26,7 @@ function stdinNumber(file, user, property){
 	for (var i = row.length; i > -1; i--) {
 		if (!row[i]) continue;
 		var parts = row[i].split(",");
-		var userid = toUserid(parts[0]);
+		var userid = toId(parts[0]);
 		if (user.userid === userid) {
 			info = Number(parts[1]);
 			match = true;
@@ -55,7 +55,7 @@ function stdoutNumber(file, user, property, amount) {
 	for (var i = row.length; i > -1; i--) {
 		if (!row[i]) continue;
 		var parts = row[i].split(",");
-		var userid = toUserid(parts[0]);
+		var userid = toId(parts[0]);
 		if (user.userid === userid) {
 			info = Number(parts[1]);
 			match = true;
@@ -100,7 +100,7 @@ function stdinString(file, user, property) {
         for (var i = row.length; i > -1; i--) {
                 if (!row[i]) continue;
                 var parts = row[i].split(",");
-                var userid = toUserid(parts[0]);
+                var userid = toId(parts[0]);
                 if (user.userid == userid) {
                 	info = String(parts[1]);
                     match = true;
@@ -128,7 +128,7 @@ function stdoutString(file, user, property, info) {
 	for (var i = row.length; i > -1; i--) {
 		if (!row[i]) continue;
 		var parts = row[i].split(",");
-		var userid = toUserid(parts[0]);
+		var userid = toId(parts[0]);
 		if (user.userid == userid) {
 			match = true;
 			if (match === true) {

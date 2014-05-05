@@ -359,12 +359,12 @@ var User = (function () {
 		// database
 		this.money = 0;
 		this.tourWins = 0;
-		this.views = 0;
 		this.status = '';
 		this.statusTime = '';
 		this.canCustomSymbol = false;
 		this.hasCustomSymbol = false;
 		this.isAway = false;
+		this.lastOnline = 'Never';
 	}
 
 	User.prototype.isSysop = false;
@@ -903,6 +903,7 @@ var User = (function () {
 		this.lastConnected = Date.now();
 	};
 	User.prototype.onDisconnect = function (connection) {
+		io.stdoutString('db/lastOnline.csv', this, 'lastOnline', Date.now());
 		for (var i = 0; i < this.connections.length; i++) {
 			if (this.connections[i] === connection) {
 				// console.log('DISCONNECT: ' + this.userid);

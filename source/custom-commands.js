@@ -281,10 +281,10 @@ var customCommands = {
 		if (!message) return false;
 
 		if (!global.tells) global.tells = {};
-		if (!tells[toUserid(this.targetUsername)]) tells[toUserid(this.targetUsername)] = [];
-		if (tells[toUserid(this.targetUsername)].length > 5) return this.sendReply("User " + this.targetUsername + " has too many tells queued.");
+		if (!tells[toId(this.targetUsername)]) tells[toId(this.targetUsername)] = [];
+		if (tells[toId(this.targetUsername)].length > 5) return this.sendReply("User " + this.targetUsername + " has too many tells queued.");
 
-		tells[toUserid(this.targetUsername)].push(Date().toLocaleString() + " - " + user.getIdentity() + " said: " + message);
+		tells[toId(this.targetUsername)].push(Date().toLocaleString() + " - " + user.getIdentity() + " said: " + message);
 		return this.sendReply("Message \"" + message + "\" sent to " + this.targetUsername + ".");
 	},
 	atm: 'profile',
@@ -298,7 +298,7 @@ var customCommands = {
 	    var targetUser = this.targetUserOrSelf(target);
 	    var name = '';
 	    if (!targetUser) {
-	    	name = toUserid(target);
+	    	name = toId(target);
 	    } else {
 	    	name = targetUser.userid;
 	    }
@@ -549,7 +549,7 @@ var customCommands = {
 		for (var i = row.length; i > -1; i--) {
 			if (!row[i]) continue;
 			var parts = row[i].split(",");
-			var userid = toUserid(parts[0]);
+			var userid = toId(parts[0]);
 			if (user.userid == userid) {
 			var x = Number(parts[1]);
 			var money = x;

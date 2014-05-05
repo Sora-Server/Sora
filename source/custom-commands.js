@@ -1012,10 +1012,6 @@ var customCommands = {
 	        CommandParser.uncacheTree('./source/io.js');
 	        io = require('./io.js');
 
-	        this.sendReply('Reloading profile.js...');
-	        CommandParser.uncacheTree('./source/profile.js');
-	        profile = require('./profile.js');
-	        
 	        var runningTournaments = Tournaments.tournaments;
 		CommandParser.uncacheTree(path.join(__dirname, '../', 'tournaments/frontend.js'));
 		Tournaments = require(path.join(__dirname, '../', 'tournaments/frontend.js'));

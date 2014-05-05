@@ -15,7 +15,6 @@
  * file is the storage for the data, and user is an object having its property modified.
  * @return void
  */
- var fs = require('fs');	
 function stdinNumber(file, user, property){
 	var info = 0;
 	var match = false;

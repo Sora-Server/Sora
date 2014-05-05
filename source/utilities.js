@@ -106,7 +106,7 @@
 
 	toId: function(text) {
 		return text.toLowerCase().replace(/[^a-z0-9]/g, '');
-	}
+	},
 	
 	stdin: function(file, name) {
 		var info = " ";

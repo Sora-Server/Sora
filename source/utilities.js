@@ -5,7 +5,7 @@
  * In addition to globals.
  *
  */
-
+var fs = require('fs');
  var Utilities = exports.Utilities = {
     
 	HueToRgb: function (m1, m2, hue) {

@@ -1,5 +1,5 @@
 require('es6-shim');
-
+var fs = require('fs');
 const DEBUG = false;
 
 var TournamentGenerators = {

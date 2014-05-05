@@ -274,12 +274,12 @@ var trainerCards = {
 			  '<b>Ace:</b> ???<br />');
 	},
 	
-	water: function(target, room, user) {
+	ambriel: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Ambriel</b><br />'+
+			  '<i>"Eat this Hydro Pump!"</i> <br />'+
 			  '<b>Type:</b> Water<br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Cloyster<br />');
 	},
 
 	night: function(target, room, user) {

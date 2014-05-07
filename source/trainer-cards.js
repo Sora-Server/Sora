@@ -101,7 +101,7 @@ var trainerCards = {
 		      '<b>Type:</b> Steel<br />'+
 		      '<b>Ace:</b> Heatran (HOT MAMA) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No Fire moves <br/>');
+	 	      '-None <br/>');
 	},	
 	
 	bloodfist: function(target, room, user) {

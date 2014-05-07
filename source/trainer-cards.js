@@ -103,7 +103,7 @@ var trainerCards = {
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-No Fire moves <br/>'+
 	              '-No Ground moves <br/>'+
-                      '-No Fighting moves above 40 Base power <br/>'
+                      '-No Fighting moves above 40 Base power <br/>');
 	},	
 	
 	bloodfist: function(target, room, user) {

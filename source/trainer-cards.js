@@ -92,6 +92,20 @@ var trainerCards = {
 	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
 	},
 	
+	
+	
+	jam: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('E4 <b>Jam</b><br />'+
+		      '<i>"I\'ll steal be steeling wins from you, bruh."</i> <br />'+
+		      '<b>Type:</b> Steel<br />'+
+		      '<b>Ace:</b> Heatran (HOT MAMA) <br />'+
+	 	      '<b>Battle Rules:</b> <br/>'+
+	 	      '-No Fire moves <br/>'+
+	              '-No Ground moves <br/>'+
+                      '-No Fighting moves above 40 Base power <br/>'
+	},	
+	
 	bloodfist: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Coach <b>Bloodfist</b><br />'+
@@ -212,12 +226,12 @@ var trainerCards = {
 	},
  
 
-        lou: function(target, room, user) {
+        steel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Lou</b><br />'+
-			  '<i>"Guess I\'ll be <b>steeling</b> a win from you then."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Steel<br />'+
-			  '<b>Ace:</b> Heatran (HOT MAMA)<br />');
+			  '<b>Ace:</b>???<br />');
         },
         
         core: function(target, room, user) {

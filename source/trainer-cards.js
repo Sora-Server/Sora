@@ -122,7 +122,8 @@ var trainerCards = {
 	 	      '<b>Battle Rules:</b> <br />'+
 	 	      '-Mono Body type <br/>'+
 	 	      '-No using the same body type category as Frontier <br />'+
-	 	      '-Information on Body types: http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_body_style'+
+	 	      '-Information on Body types: http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_body_style <br />'+
+	 	      '-Max 1 uber including Uber items (Gengarite, Kangaskhanite) <br />'+
 	 	      '<img src="http://sprites.pokecheck.org/t/057.gif">');
 	
         },

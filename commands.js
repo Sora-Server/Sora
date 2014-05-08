@@ -878,7 +878,7 @@ var commands = exports.commands = {
 	announcered: 'announce',
 	announcegreen: 'announce',
 	wall: 'announce',
-	announce: function (target, room, user) {
+	announce: function (target, room, user, cmd) {
 		if (!target) return this.parse('/help announce');
 
 		if (!this.can('announce', room)) return false;
@@ -899,23 +899,6 @@ var commands = exports.commands = {
 		return '/announce ' + target;
 	},
 	
-	declarered: 'declare',
-	declaregreen: 'declare',
-	declare: function(target, room, user, connection, cmd) {
-  		if (!target) return this.parse('/help declare');
-		if (!this.can('declare', null, room)) return false;
- 		if (cmd === 'declare'){
- 			this.add('|raw|<div class="broadcast-blue"><b>'+target+'</b></div>');
- 		}
-         	if (cmd === 'declarered'){
- 			this.add('|raw|<div class="broadcast-red"><b>'+target+'</b></div>');
- 		}
- 		if (cmd === 'declaregreen'){
- 			this.add('|raw|<div class="broadcast-green"><b>'+target+'</b></div>');
- 		}
- 		this.logModCommand(user.name+' declared '+target);
-  	},
-
 	fr: 'forcerename',
 	forcerename: function (target, room, user) {
 		if (!target) return this.parse('/help forcerename');

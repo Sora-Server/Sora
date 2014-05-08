@@ -115,13 +115,27 @@ var trainerCards = {
         
         apple: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Apple</b><br />'+
+		this.sendReplyBox('Frontier <b>Apple</b><br />'+
 		      '<i>"I\'ll mop the floor with you."</i> <br />'+
-		      '<b>Type:</b> Ground<br />'+
-		      '<b>Ace:</b> Gliscor <br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No weather inducing moves. <br/>'+
+		      '<b>Symbol:</b> Ground<br />'+
+		      '<b>Ace:</b> Vaporeon (Gills)<br />'+
+	 	      '<b>Battle Rules:</b> <br />'+
+	 	      '-Mono Body type <br/>'+
+	 	      '-No using the same body type category as Frontier <br />'+
+	 	      '-Information on Body types: http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_body_style'+
 	 	      '<img src="http://sprites.pokecheck.org/t/057.gif">');
+	
+        },
+	
+	 cocoa: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('E4 <b>Cocoa</b><br />'+
+		      '<i>"Your defeat shall be nearly as sweet as Chocolate and Vanilla"</i> <br />'+
+		      '<b>Type:</b> Dark<br />'+
+		      '<b>Ace:</b> Umbreon <br />'+
+	 	      '<b>Battle Rules:</b> <br/>'+
+	 	      '-No direct status. <br/>');
+	
 	},
 
 	ninjarisu: function(target, room, user) {
@@ -254,12 +268,12 @@ var trainerCards = {
 			  
         },
 			  
-        akkie: function(target, room, user) {
+        dark: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
-			this.sendReplyBox('Gym Ldr <b>Akkie</b><br />'+
-			  '<i>"The truth may be a light among the darkness, but is what you believe really true, or are you just stumbling around in the dark?"</i> <br />'+
+			this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Dark<br />'+
-			  '<b>Ace:</b> Umbreon<br />');
+			  '<b>Ace:</b> ???<br />');
         },
         
         srewop: function(target, room, user) {

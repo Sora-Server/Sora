@@ -45,7 +45,7 @@ var trainerCards = {
 		     '<b>Ace:</b> Weavile<br />'+
 	 	     '<b>Battle Rules:</b> <br/>'+
 	 	     '-Ubers Battle <br/>'+
-	 	     '-At least 2 must be OU or lower <br/>'+
+	 	     '-At least 2 must be tiered lower than OU <br/>'+
 	 	     '-No Lowering opponents stats (Unless caused by attack) <br/>'+
 	 	     '-No Pokemon with a base stat over 130<br />'+
 	 	     '<center><img src="http://sprites.pokecheck.org/i/461.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Misc%20sprites/Bart_zps03ad3a7d.png"></center>');

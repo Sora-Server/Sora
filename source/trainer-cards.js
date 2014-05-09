@@ -239,12 +239,12 @@ var trainerCards = {
 	},
  
 
-        steel: function(target, room, user) {
+        myth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Myth</b><br />'+
+			  '<i>"No one\'s a winner."</i> <br />'+
 			  '<b>Type:</b> Steel<br />'+
-			  '<b>Ace:</b>???<br />');
+			  '<b>Ace:</b>Mega-Scizor (A Robot)<br />');
         },
         
         core: function(target, room, user) {

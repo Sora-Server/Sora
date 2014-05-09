@@ -179,6 +179,7 @@ exports.customAvatars = {
 	  'gymldrabe': '056.gif',
 	  'gymldranna': '055.png',
 	  'gymldrblazer': '058.gif',
+	  'siiilver': '059.png',
 	
 };
 

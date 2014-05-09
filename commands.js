@@ -875,18 +875,30 @@ var commands = exports.commands = {
   		}
  		this.logModCommand(user.name+' globally declared '+target);
   	},
+	announcered: 'announce',
+	announcegreen: 'announce',
 	wall: 'announce',
-	announce: function (target, room, user) {
+	announce: function (target, room, user, cmd) {
 		if (!target) return this.parse('/help announce');
 
 		if (!this.can('announce', room)) return false;
+		if (cmd === 'announce'){
+ 			this.add('|raw|<div class="broadcast-blue"><b>'+target+'</b></div>');
+ 		}
+         	if (cmd === 'announcered'){
+ 			this.add('|raw|<div class="broadcast-red"><b>'+target+'</b></div>');
+ 		}
+ 		if (cmd === 'announcegreen'){
+ 			this.add('|raw|<div class="broadcast-green"><b>'+target+'</b></div>');
+ 		}
+ 		this.logModCommand(user.name+' declared '+target);
 
 		target = this.canTalk(target);
 		if (!target) return;
 
 		return '/announce ' + target;
 	},
-
+	
 	fr: 'forcerename',
 	forcerename: function (target, room, user) {
 		if (!target) return this.parse('/help forcerename');

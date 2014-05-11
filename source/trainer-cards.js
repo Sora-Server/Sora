@@ -135,7 +135,8 @@ var trainerCards = {
 		      '<b>Type:</b> Dark<br />'+
 		      '<b>Ace:</b> Umbreon <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No direct status. <br/>');
+	 	      '-No direct status. <br/>'+
+	 	      '-No protecting moves. <br/>');
 	
 	},
 

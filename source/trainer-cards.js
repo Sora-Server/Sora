@@ -152,7 +152,7 @@ var trainerCards = {
 	 	    '-Max 2 second Evolutionary Stage Pokemon (Pokemon that have evolved twice) <br/>'+
 	 	    '<b>Prize for victory:</b> 20 bucks <br/>'+
 	 	    '<b>Link to PU Tier list:</b> http://partiallyused.weebly.com/ <br/>'+
-	 	    '<img src="http://sprites.pokecheck.org/s/417.gif"> <img src="http://sprites.pokecheck.org/t/138.gif">');
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif"> <img src="http://sprites.pokecheck.org/t/138.gif">');
         },
         
         silth: function(target, room, user) {

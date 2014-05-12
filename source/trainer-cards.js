@@ -428,6 +428,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Artiste <b>Jeratt</b><br />'+
 			'<i>"Let the storm rage on. The cold never bothered me anyways."</i> <br /> <img src="http://sprites.pokecheck.org/i/235.gif"> <img src="http://sprites.pokecheck.org/t/033.gif">'+
+			
 			'<b>Highly skilled in:</b> Dragon & Ice<br />'+
 			'<b>Skilled in:</b>Making quotes, backgrounds for Sora and many Pokemon types.<br />'+ 
 		 	'<b>Note:</b> Close the Lobby and see what I can really do. <br/>'+

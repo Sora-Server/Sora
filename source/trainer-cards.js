@@ -150,7 +150,7 @@ var trainerCards = {
 	 	    '-Max 1 Eviolite item <br/>'+
 	 	    '-No Hazards <br/>'+
 	 	    '-Max 2 second Evolutionary Stage Pokemon (Pokemon that have evolved twice) <br/>'+
-	 	    '<b>Prize for victory:</b> 20 bucks'+
+	 	    '<b>Prize for victory:</b> 20 bucks <br/>'+
 	 	    'Link to PU Tier list: http://partiallyused.weebly.com/ <br/>'+
 	 	    '<img src="http://sprites.pokecheck.org/s/417.gif"> <img src="http://sprites.pokecheck.org/t/138.gif">');
         },

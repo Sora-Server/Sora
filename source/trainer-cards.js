@@ -142,11 +142,16 @@ var trainerCards = {
 
 	ninjarisu: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Overlord <b>Ninjarisu</b><br />'+
-		    '<i>"Fear my pink sparkles of awesomeness!"</i> <br />'+
-		    '<b>Ace:</b> All<br />'+
-	 	    '<b>Note:</b> Nemesis of Guardian, him or me? Choose<br />'+
-	 	    '<b>Requirements:</b> 10 Gym Badges<br />'+
+		this.sendReplyBox('Delta <b>Ninjarisu</b><br />'+
+		    '<i>"While many regarded Risu as weak, I saw your Determination shine, and you proved to be a real bro. The legend of Ninjarisu will forever live on. ~Marriland"</i> <br />'+
+		    '<b>Ace:</b> Pachirisu<br />'+
+	 	    '<b>Requirements:</b> 8 Gym Badges<br />'+
+	 	    '<b>Rules:</b> PU Tier<br />'+
+	 	    '-Max 1 Eviolite item <br/>'+
+	 	    '-No Hazards <br/>'+
+	 	    '-Max 2 second Evolutionary Stage Pokemon (Pokemon that have evolved twice) <br/>'+
+	 	    '<b>Prize for victory:</b> 20 bucks'+
+	 	    'Link to PU Tier list: http://partiallyused.weebly.com/ <br/>'+
 	 	    '<img src="http://sprites.pokecheck.org/s/417.gif"> <img src="http://sprites.pokecheck.org/t/138.gif">');
         },
         
@@ -173,7 +178,7 @@ var trainerCards = {
 	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
-			'<i>"Brother Nature: the Rapist."</i> <br />'+
+			'<i>"Ignorance is Eviolite Blissey"</i> <br />'+
 			'<b>Type:</b> Grass<br />'+
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/trainers/54.png"> <img src="http://sprites.pokecheck.org/i/003f.gif">');
@@ -328,7 +333,7 @@ var trainerCards = {
 			this.sendReplyBox('Frontier <b>Nova</b><br />'+
 			  '<i>"Every Champion was once a contender that refused to give up,I will never give up no matter how hard you hit."</i> <br />'+
 			  '<b>Symbol:</b> Will of Steel<br />'+
-			  '<b>Ace:</b> Thundurus<br />'+
+			  '<b>Ace:</b> Mewtwo<br />'+
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-Ubers tier <br/>'+
 		 	  '-2 Uber, 2 OU and 2 random pokemon must be used <br/>'+

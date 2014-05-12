@@ -433,7 +433,7 @@ var trainerCards = {
 		 	'<b>Note:</b> Close the Lobby and see what I can really do. <br/>'+
 		 	'<b>History:</b> Greatest Ice E4, <strike>undefeated</strike> Dragon E4. <br/>'+
 		 	'P.S. I\'m still Dragon you away with my coldness. <br/>'+
-		 	 '<img src="http://sprites.pokecheck.org/s/473.gif"> <img src="http://sprites.pokecheck.org/i/378.gif"> <img src="http://sprites.pokecheck.org/i/483.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif" <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"');
+		 	 '<img src="http://sprites.pokecheck.org/s/473.gif"> <img src="http://sprites.pokecheck.org/i/378.gif"> <img src="http://sprites.pokecheck.org/i/483.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"');
         },
         
         gasp: function(target, room, user) {

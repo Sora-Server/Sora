@@ -130,7 +130,7 @@ var customCommands = {
 			"was forced to give Noah an oil massage (boiling oil)!",
 			"got toasted by Toast!",
 			"was trolled by Zoro.",
-			"saw Zarif\'s face.",
+			"saw Jam\'s face.",
 			"got eaten by Sharpedos!",
 			"was hit by Magikarp\'s Revenge!",
 			"was thrown out the window by Anna!",

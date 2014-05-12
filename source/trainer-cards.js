@@ -68,7 +68,7 @@ var trainerCards = {
 	 	          '<b>Battle Rules:</b> <br/>'+
 	 	          '-No Hazards <br/>'+
 	 	          '-No weather inducing moves <br/>'+
-	 	          '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/hooh.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar-mega.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/volcarona.gif"></center>');
+	 	          '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/hooh.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/volcarona.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar-mega.gif"> </center>');
 	 	          
         },
         

@@ -204,8 +204,8 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Abe</b><br />'+
 			'<i>"I  have seen your future and it is...FABULOUS!!"</i> <br />'+
-			'<b>Type:</b> Psychic<br />'+
-			'<b>Ace:</b> Gardevoir<br />'+
+			'<b>Type:</b> Fighting<br />'+
+			'<b>Ace:</b> ???<br />'+
 			'<img src="http://www.avatarsdb.com/avatars/spiderman_funny_dance.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/gardevoir-mega.gif">');
         },
         
@@ -408,12 +408,12 @@ var trainerCards = {
 			  '<b>Ace:</b> ???<br />');
 	},
 
-	fighting: function(target, room, user) {
+	khronos: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> Fighting<br />'+
-			  '<b>Ace:</b> ???<br />');
+		this.sendReplyBox('Gym Ldr <b>Khronos</b><br />'+
+			  '<i>"When you do what you fear most, then you can do anything."</i> <br />'+
+			  '<b>Type:</b> Psychic<br />'+
+			  '<b>Ace:</b> Mega-Medicham<br />');
 	},
 
 	meows: function(target, room, user) {
@@ -430,11 +430,12 @@ var trainerCards = {
 			'<i>"Let the storm rage on. The cold never bothered me anyways."</i><br />'+
 			'<img src="http://sprites.pokecheck.org/i/235.gif"> <img src="http://sprites.pokecheck.org/t/033.gif"><br />'+
 			'<b>Highly skilled in:</b> Dragon & Ice<br />'+
-			'<b>Skilled in:</b>Making quotes, backgrounds for Sora and many Pokemon types.<br />'+ 
+			'<b>Skilled in:</b> Making quotes, backgrounds for Sora and many Pokemon types.<br />'+ 
 		 	'<b>Note:</b> Close the Lobby and see what I can really do. <br/>'+
 		 	'<b>History:</b> Greatest Ice E4, <strike>undefeated</strike> Dragon E4. <br/>'+
 		 	'P.S. I\'m still Dragon you away with my coldness. <br/>'+
-		 	 '<img src="http://play.pokemonshowdown.com/sprites/xyani/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/regice.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"');
+		 	'P.P.S Use Scizor against me, and I\'ll get fired up and blast you! '
+		 	 '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/vanilluxe.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"');
         },
         
         gasp: function(target, room, user) {

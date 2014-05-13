@@ -434,7 +434,7 @@ var trainerCards = {
 		 	'<b>Note:</b> Close the Lobby and see what I can really do. <br/>'+
 		 	'<b>History:</b> Greatest Ice E4, <strike>undefeated</strike> Dragon E4. <br/>'+
 		 	'P.S. I\'m still Dragon you away with my coldness. <br/>'+
-		 	'P.P.S Use Scizor against me, and I\'ll get fired up and blast you!'+
+		 	'P.P.S Use Scizor against me, and I\'ll get fired up and blast you! <br/>'+
 		 	 '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/vanilluxe.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"');
         },
         

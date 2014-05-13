@@ -800,7 +800,9 @@ var customCommands = {
 	        '64.21.211.34 - Psychic kid<br />'+
 	        '217.123.61.20 - Sjado<br />'+
 	        '96.255.1.236<br />'+
-	        '12.204.68.50 - Denver Broncos');
+	        '12.204.68.50 - Denver Broncos<br />'+
+	        '173.8.74.161 - SawkTooOp<br />'+
+	        'Shame on them!');
         },
 
 	battlefrontier: function(target, room, user) {

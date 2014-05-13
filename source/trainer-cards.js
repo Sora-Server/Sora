@@ -209,13 +209,12 @@ var trainerCards = {
 			'<img src="http://www.avatarsdb.com/avatars/spiderman_funny_dance.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/gardevoir-mega.gif">');
         },
         
-        floatzel: function(target, room, user) {
+        fairy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Floatzel</b><br />'+
-	              '<i>"Don\'t drop that Dedenne"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+	              '<i>"???"</i> <br />'+
 	              '<b>Type:</b> Fairy<br />'+
-	              '<b>Ace:</b> Mega Mawile<br />'+
-	 	      '<img src="http://sprites.pokecheck.org/s/385.gif"> <img src="http://sprites.pokecheck.org/t/139.gif">');
+	              '<b>Ace:</b> ???<br />');
         },
         
 	tempest: function(target, room, user) {
@@ -419,9 +418,9 @@ var trainerCards = {
 	meows: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
-			'<i>"Ice will give you the cold shoulder and watch your blood chill as the temperature lowers so do your chances of survival."</i> <br />'+
-			'<b>Type:</b> Ice<br />'+
-			'<b>Ace:</b> Kyurem-Black<br />');
+			'<i>"Pixie Dust, Sparkles, and GAYYYYY"</i> <br />'+
+			'<b>Type:</b> Fairy<br />'+
+			'<b>Ace:</b> Whimsicott the great fluffball of annoyance<br />');
         },
 
 	jeratt: function(target, room, user) {

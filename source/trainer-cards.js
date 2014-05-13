@@ -203,10 +203,10 @@ var trainerCards = {
         abe: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Abe</b><br />'+
-			'<i>"I  have seen your future and it is...FABULOUS!!"</i> <br />'+
+			'<i>"I will hit you with a super dooper fabulous punch ;)"</i> <br />'+
 			'<b>Type:</b> Fighting<br />'+
-			'<b>Ace:</b> ???<br />'+
-			'<img src="http://www.avatarsdb.com/avatars/spiderman_funny_dance.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/gardevoir-mega.gif">');
+			'<b>Ace:</b> Heracross<br />'+
+			'<img src="http://www.avatarsdb.com/avatars/spiderman_funny_dance.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/heracross-mega.gif">');
         },
         
         fairy: function(target, room, user) {

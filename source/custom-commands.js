@@ -413,7 +413,7 @@ var customCommands = {
 	setstatus: 'status',
 	status: function(target, room, user){
 		if (!target) return this.sendReply('|raw|Set your status for profile. Usage: /status <i>status information</i>');
-		if (target.length > 30) return this.sendReply('Status is too long.');
+		if (target.length > 35) return this.sendReply('Status is too long.');
 		if (target.indexOf(',') >= 1) return this.sendReply('Unforunately, your status cannot contain a comma.');
 		var escapeHTML = sanitize(target, true);
 		io.stdoutString('db/status.csv', user, 'status', escapeHTML);

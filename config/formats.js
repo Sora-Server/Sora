@@ -71,7 +71,7 @@ exports.Formats = [
 		section: "Sora Exclusive",
 
 		ruleset: ['Pokemon', 'Team Preview', 'HP Percentage Mod'],
-		banlist: ['Uber', 'Zapdos', 'Moltres', 'Articuno', 'Mew', 'Celebi', 'Suicune', 'Raikou', 'Entei', 'Ho-oh', 'Lugia', 'Regirock', 'Regice', 'Registeel', 'Latios', 'Latias', 'Jirachi', 'Mesprit', 'Azelf', 'Uxie', 'Cresselia', 'Phione', 'Manaphy', 'Heatran','Victini', 'Terrakion', 'Cobalion', 'Virizion', 'Keldeo', 'Keldeo-Resolute', 'Landorus', 'Landorus-Therian', 'Thundurus', 'Thundurus-Therian', 'Tornadus', 'Tornadus-Therian', 'Kyurem', 'Kyurem-Black', 'Meloetta', 'Genesect']
+		banlist: ['Zapdos', 'Moltres', 'Articuno', 'Mew', 'Mewtwo', 'Celebi', 'Suicune', 'Raikou', 'Entei', 'Ho-oh', 'Lugia', 'Celebi', 'Regirock', 'Regice', 'Registeel', 'Rayquaza', 'Groudon', 'Kyogre', 'Latios', 'Latias', 'Jirachi', 'Deoxys', 'Deoxys-Attack', 'Deoxys-Defense', 'Deoxys-Speed', 'Mesprit', 'Azelf', 'Uxie', 'Giratina', 'Giratina-Origin', 'Dialga', 'Palkia', 'Darkrai', 'Cresselia', 'Arceus', 'Phione', 'Manaphy', 'Heatran', 'Regigigas', 'Shaymin', 'Shaymin Sky', 'Victini', 'Terrakion', 'Cobalion', 'Virizion', 'Keldeo', 'Keldeo-Resolute', 'Landorus', 'Landorus-Therian', 'Thundurus', 'Thundurus-Therian', 'Tornadus', 'Tornadus-Therian', 'Reshiram', 'Zekrom', 'Kyurem', 'Kyurem-White', 'Kyurem-Black', 'Meloetta', 'Genesect', 'Xerneas', 'Yveltal', 'Zygarde', 'Diancie']
 	},
 	
 	// XY Singles

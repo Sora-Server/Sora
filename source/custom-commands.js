@@ -840,7 +840,7 @@ var customCommands = {
 	championschallenge: 'championschallenge',
 		championschallenge: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Here is a detailed explanation of the format Priomons:<br />' +
+			this.sendReplyBox('Here is a detailed explanation of the format Champion\'s Challenge:<br />' +
 				'- <a href="http://soraleague.weebly.com/champions-challenge.html">Champion\'s Challenge</a><br />' +
 				'</div>');
 	},

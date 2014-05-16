@@ -837,6 +837,14 @@ var customCommands = {
 				'</div>');
 	},
 	
+	championschallenge: 'championschallenge',
+		championschallenge: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a detailed explanation of the format Priomons:<br />' +
+				'- <a href="http://soraleague.weebly.com/champions-challenge.html">Champion\'s Challenge</a><br />' +
+				'</div>');
+	},
+	
 	events: 'events',
 		events: function(target, room, user) {
 			if (!this.canBroadcast()) return;
@@ -1079,7 +1087,7 @@ var customCommands = {
 		if (!this.can('lock')) return false;
 		if (!user.isAway) {
 			var originalName = user.name;
-			var awayName = user.name + ' - Away';
+			var awayName = user.name + ' - ⒶⒻⓀ';
 			delete Users.get(awayName);
 			user.forceRename(awayName, undefined, true);
 			this.add('|raw|-- <b><font color="#000000">' + originalName +'</font color></b> is now away. '+ (target ? " (" + target + ")" : ""));

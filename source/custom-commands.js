@@ -1005,7 +1005,7 @@ var customCommands = {
 	        
 	        this.sendReply('Reloading poll.js...');
 	        CommandParser.uncacheTree('./source/poll.js');
-	        tour = require('./poll.js').tour();
+	        Poll = require('./poll.js').Poll();
 
 	        this.sendReply('Reloading utilities.js...');
 	        CommandParser.uncacheTree('./source/utilities.js');

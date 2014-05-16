@@ -70,7 +70,7 @@ exports.Formats = [
 		name: "Champion's Challenge",
 		section: "Sora Exclusive",
 
-		ruleset: ['Pokemon', 'Standard', 'Team Preview'],
+		ruleset: ['Pokemon', 'Team Preview'],
 		banlist: ['Uber', 'Soul Dew', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Swagger', 'Zapdos', 'Moltres', 'Articuno', 'Mew', 'Celebi', 'Suicune', 'Raikou', 'Entei', 'Ho-oh', 'Lugia', 'Regirock', 'Regice', 'Registeel', 'Latios', 'Latias', 'Jirachi', 'Mesprit', 'Azelf', 'Uxie', 'Cresselia', 'Phione', 'Manaphy', 'Heatran','Victini', 'Terrakion', 'Cobalion', 'Virizion', 'Keldeo', 'Keldeo-Resolute', 'Landorus', 'Landorus-Therian', 'Thundurus', 'Thundurus-Therian', 'Tornadus', 'Tornadus-Therian', 'Kyurem', 'Kyurem-Black', 'Meloetta', 'Genesect']
 	},
 	

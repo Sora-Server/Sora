@@ -367,13 +367,13 @@ var trainerCards = {
 
 	azh: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Gym Ldr <b>ArthurZH</b><br />'+
-			  '<i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY!"</i> <br />'+
+			this.sendReplyBox('<a><font size= 4><center><b>∆Gym Ldr ArthurZH∆</b></center></a><br />'+
+			  '<center><i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY!"</i></center> <br />'+
 			  '<b>Favoured Type:</b> Water<br />'+
 			  '<b>Ace:</b> Kabutops<br />'+
 			  '<b>Achievements:</b> <strike>Best</strike> Water Leader of Sora, Roulette Frontier of Sora. <br />'+
 			  '<b>Known for:</b> Sadistical Playing Skills, Being Evil. <br />'+
-			  '<img src="http://sprites.pokecheck.org/i/647-resolution.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://sprites.pokecheck.org/i/141.gif">');
+			  '<center><img src="http://sprites.pokecheck.org/i/647-resolution.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://sprites.pokecheck.org/i/141.gif"></center>');
 	},
 
 	bean877: function(target, room, user) {

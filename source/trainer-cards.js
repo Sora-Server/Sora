@@ -97,11 +97,12 @@ var trainerCards = {
 	jam: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Jam</b><br />'+
-		      '<i>"I\'ll steal be steeling wins from you, bruh."</i> <br />'+
-		      '<b>Type:</b> Steel<br />'+
-		      '<b>Ace:</b> Heatran (HOT MAMA) <br />'+
+		      '<i>"The sky is my field, but it isn\'t my limit."</i> <br />'+
+		      '<b>Type:</b> Flying<br />'+
+		      '<b>Ace:</b> Skarmory (Firebird) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-None <br/>');
+	 	      '-No Hazards <br/>'+
+	 	      '-No Multihit moves <br/>');
 	},	
 	
 	bloodfist: function(target, room, user) {
@@ -343,9 +344,9 @@ var trainerCards = {
 	oz: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Oz</b><br />'+
-			  '<i>"Warning, you will get shocked by the power of thunder."</i> <br />'+
-			  '<b>Type:</b> Electric<br />'+
-			  '<b>Ace:</b> Lanturn<br />');
+			  '<i>"Getting cool is not the best way to get attractive, be normal"</i> <br />'+
+			  '<b>Type:</b> Normal<br />'+
+			  '<b>Ace:</b> Porygon 2 (Ducky Momo)<br />');
 
 	},
 
@@ -357,11 +358,11 @@ var trainerCards = {
 			 '<b>Aces:</b> Gengar and Haunter<br />');
         },
 
-	ground: function(target, room, user) {
+	electric: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> Ground<br />'+
+			  '<b>Type:</b> electric<br />'+
 			  '<b>Ace:</b> ???<br />');
 	},
 

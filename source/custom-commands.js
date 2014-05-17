@@ -901,6 +901,14 @@ var customCommands = {
 						'</div>');
 	},
 	
+	quoteoftheday: 'qotd',
+		qotd: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('This command will display genius quotes until another quote tops it!<br />' +
+				'"I\'m better as an E4." - Matt 2014<br />' +
+				'</div>');
+	},
+	
 	flogout: 'forcelogout',
 	forcelogout: function(target, room, user) {
 		if(!user.can('hotpatch')) return;

@@ -904,7 +904,8 @@ var customCommands = {
 	quoteoftheday: 'qotd',
 		qotd: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('This command will display genius quotes until another quote tops it!<br />' +
+			this.sendReplyBox('<b>Quote of the Day:</b><br />' +
+			        'This command will display genius quotes until another quote tops it!<br />' +
 				'"I\'m better as an E4." - Matt 2014<br />' +
 				'</div>');
 	},

@@ -425,8 +425,8 @@ var trainerCards = {
 
 	jeratt: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Artiste <b>Jeratt</b><br />'+
-			'<i>"Let the storm rage on. The cold never bothered me anyways."</i><br />'+
+		this.sendReplyBox('<a><font size= 4><center><b>∆Artiste Jeratt∆</b></center></a><br />'+
+			'<center><i>"Let the storm rage on. The cold never bothered me anyways."</i></center><br />'+
 			'<img src="http://sprites.pokecheck.org/i/235.gif"> <img src="http://sprites.pokecheck.org/t/033.gif"><br />'+
 			'<b>Highly skilled in:</b> Dragon & Ice<br />'+
 			'<b>Skilled in:</b> Making quotes, backgrounds for Sora and many Pokemon types.<br />'+ 
@@ -434,7 +434,7 @@ var trainerCards = {
 		 	'<b>History:</b> Greatest Ice E4, <strike>undefeated</strike> Dragon E4. <br/>'+
 		 	'P.S. I\'m still Dragon you away with my coldness. <br/>'+
 		 	'P.P.S Use Scizor against me, and I\'ll get fired up and blast you! <br/>'+
-		 	 '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/vanilluxe.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"');
+		 	'<center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/vanilluxe.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"></center>');
         },
         
         gasp: function(target, room, user) {

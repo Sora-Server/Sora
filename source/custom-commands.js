@@ -1104,7 +1104,7 @@ var customCommands = {
 		if (!this.can('lock')) return false;
 		if (user.isAway) {
 			var name = user.name;
-			var newName = name.substr(0, name.length - 7);
+			var newName = name.substr(0, name.length - 6);
 			delete Users.get(newName);
 			user.forceRename(newName, undefined, true);
 			user.authenticated = true;

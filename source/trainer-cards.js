@@ -29,12 +29,12 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<a><font size= 4><center><b>∆Champion Noah∆</b></center></a><br />'+
 		      '<center><i>"Need a Champion? I Noah guy."</i></center> <br />'+
-		      '<b>Ace:</b> Liquidbones <br />'+
+		      '<b>Ace:</b> Liquidbones/GEGNARTHEWIZE (Gengar) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-Monotype <br/>'+
 	 	      '-Gen 5 Ubers (Maximum of 2 Ubers) <br/>'+
 	 	      '-No Hazards<br />'+
-	 	      '<center><img src="http://sprites.pokecheck.org/i/134.gif"> <img src="http://i.imgur.com/pFtOL9I.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"></center>');
+	 	      '<center><img src="http://sprites.pokecheck.org/i/134.gif"> <img src="http://i.imgur.com/pFtOL9I.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/gengar.gif"></center>');
 	},
 
 	bart: function(target, room, user) {

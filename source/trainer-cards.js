@@ -400,12 +400,12 @@ var trainerCards = {
 	 	      '-P.S. No ditching the item by using Switcheroo/Trick/Fling or in any other manner UNLESS the opponent steals it from you via Thief/Magician/Covet et cetera <br/>');
 	},
 
-	sparetypeslot: function(target, room, user) {
+	sparks: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> Steel<br />'+
-			  '<b>Ace:</b> ???<br />');
+		this.sendReplyBox('Gym Ldr <b>Sparks</b><br />'+
+			  '<i>" I may look weak, but I am SHOCKING!"</i> <br />'+
+			  '<b>Type:</b> Electric<br />'+
+			  '<b>Ace:</b> Electivire<br />');
 	},
 
 	khronos: function(target, room, user) {

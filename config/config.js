@@ -182,6 +182,7 @@ exports.customAvatars = {
 	  'siiilver': '059.png',
 	  'frontierlance': '061.gif',
 	  'e4zoro': '062.gif',
+	  'gymleadrsalty': '063.png',
 	
 };
 

@@ -29,7 +29,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<a><font size= 4><center><b>∆Champion Noah∆</b></center></a><br />'+
 		      '<center><i>"Need a Champion? I Noah guy."</i></center> <br />'+
-		      '<b>Ace:</b> Liquidbones/GEGNARTHEWIZE (Gengar) <br />'+
+		      '<b>Ace:</b> Liquidbones/Gegnarthewise (Gengar) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-Monotype <br/>'+
 	 	      '-Gen 5 Ubers (Maximum of 2 Ubers) <br/>'+

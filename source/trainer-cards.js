@@ -193,17 +193,17 @@ var trainerCards = {
 			'<b>Ace:</b> Victini<br />');
         },
         
-       	tevin: function(target, room, user) {
+       	ground: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Tevin</b><br />'+
-			'<i>"Prepare to fly, cuz you won\'t stay alive for long if you\'re on the ground..."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			'<i>"???"</i> <br />'+
 			'<b>Type:</b> Ground<br />'+
-			'<b>Ace:</b> Landorus<br />');
+			'<b>Ace:</b> ???<br />');
         },
         
-        abe: function(target, room, user) {
+        yusuke: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Abe</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Yusuke</b><br />'+
 			'<i>"I will hit you with a super dooper fabulous punch ;)"</i> <br />'+
 			'<b>Type:</b> Fighting<br />'+
 			'<b>Ace:</b> Heracross<br />'+

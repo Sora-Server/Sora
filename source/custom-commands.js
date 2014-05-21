@@ -772,7 +772,7 @@ var customCommands = {
         hos: 'banlist',
         hallofshame: 'banlist',
         banlist: function(target, room, user) {
-	    if (this.broadcasting()) return;
+	    if (this.broadcasting) return;
 	    this.sendReplyBox('<b>The Sora League Server Hall of Shame (Banlist):</b><br />' +
 	        'The following users are to be banned on sight, no exceptions. Most of them have dynamic ips, but even so, the first 2 set of numbers should be the same<br />'+
 	        '117.193.61.37 - Adipravar/lingam/China Guy<br />' +

@@ -185,12 +185,15 @@ var trainerCards = {
 			'<img src="http://play.pokemonshowdown.com/sprites/trainers/54.png"> <img src="http://sprites.pokecheck.org/i/003f.gif">');
 	},
 
-	blazer: function(target, room, user) {
+	blade: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Blazer</b><br />'+
-			'<i>"If i Blaze, you\'ll Blazer with me"</i> <br />'+
-			'<b>Type:</b> Fire<br />'+
-			'<b>Ace:</b> Victini<br />');
+		this.sendReplyBox('Frontier <b>Blade</b><br />'+
+			'<i>"Shift a burning flame into an ever burning flame!"</i> <br />'+
+			'<b>Symbol:</b> Yin and Yang<br />'+
+			'<b>Ace:</b> War Turtle (Torkoal)<br />'+
+			'<b>Battle Rules:</b>'+
+			'-No focus Sash/Band'+
+			'-No Item repitition');
         },
         
        	ground: function(target, room, user) {
@@ -201,13 +204,12 @@ var trainerCards = {
 			'<b>Ace:</b> ???<br />');
         },
         
-        yusuke: function(target, room, user) {
+        m3owth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Yusuke</b><br />'+
-			'<i>"I will hit you with a super dooper fabulous punch ;)"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>M3owth</b><br />'+
+			'<i>"???"</i> <br />'+
 			'<b>Type:</b> Fighting<br />'+
-			'<b>Ace:</b> Heracross<br />'+
-			'<img src="http://www.avatarsdb.com/avatars/spiderman_funny_dance.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/heracross-mega.gif">');
+			'<b>Ace:</b>???<br />');
         },
         
         fairy: function(target, room, user) {

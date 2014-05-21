@@ -191,7 +191,7 @@ var trainerCards = {
 			'<i>"Shift a burning flame into an ever burning flame!"</i> <br />'+
 			'<b>Symbol:</b> Yin and Yang<br />'+
 			'<b>Ace:</b> War Turtle (Torkoal)<br />'+
-			'<b>Battle Rules:</b>'+
+			'<b>Battle Rules:</b> <br />'+
 			'-Ability Shift Tier<br />'+
 			'-No focus Sash/Band<br />'+
 			'-No Item repitition<br />');

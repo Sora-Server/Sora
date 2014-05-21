@@ -192,7 +192,7 @@ var trainerCards = {
 			'<b>Symbol:</b> Yin and Yang<br />'+
 			'<b>Ace:</b> War Turtle (Torkoal)<br />'+
 			'<b>Battle Rules:</b>'+
-			'-No focus Sash/Band'+
+			'-No focus Sash/Band<br />'+
 			'-No Item repitition');
         },
         

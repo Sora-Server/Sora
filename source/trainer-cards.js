@@ -192,8 +192,10 @@ var trainerCards = {
 			'<b>Symbol:</b> Yin and Yang<br />'+
 			'<b>Ace:</b> War Turtle (Torkoal)<br />'+
 			'<b>Battle Rules:</b>'+
+			'-Ability Shift Tier<br />'+
 			'-No focus Sash/Band<br />'+
-			'-No Item repitition');
+			'-No Item repitition<br />');
+			
         },
         
        	ground: function(target, room, user) {

@@ -178,7 +178,7 @@ exports.customAvatars = {
 	  'reirdkrmory': '052.gif',
 	  'gymldrabe': '056.gif',
 	  'gymldranna': '055.png',
-	  'frntierblazer': '058.gif',
+	  'frntierblade': '058.gif',
 	  'siiilver': '059.png',
 	  'frontierlance': '061.gif',
 	  'e4zoro': '062.gif',

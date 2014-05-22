@@ -197,7 +197,8 @@ var trainerCards = {
 			'<b>Battle Rules:</b> <br />'+
 			'-Ability Shift Tier<br />'+
 			'-No focus Sash/Band<br />'+
-			'-No Item repitition<br />');
+			'-No Item repitition<br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif">');
 			
         },
         

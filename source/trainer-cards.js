@@ -74,10 +74,13 @@ var trainerCards = {
         
         lance: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Lance</b><br />'+
+		this.sendReplyBox('Frontier <b>Lance</b><br />'+
 			  '<i>"Scales like diamonds, the brighter you shine, the hotter it burns"</i> <br />'+
-			  '<b>Type:</b> Dragon<br />'+
+			  '<b>Symbol:</b> The Scale Symbol<br />'+
 			  '<b>Ace:</b> Mega Garchomp<br />'+
+			  '<b>Battle rules:</b> <br />'+
+			  '-No Healing Items <br />'+
+			  '-No Mega Evolution <br />'+
 			  '<img src="http://sprites.pokecheck.org/t/138.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/garchomp-mega.gif">');
         },
 

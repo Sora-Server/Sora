@@ -77,7 +77,7 @@ var trainerCards = {
 		this.sendReplyBox('Frontier <b>Lance</b><br />'+
 			  '<i>"Scales like diamonds, the brighter you shine, the hotter it burns"</i> <br />'+
 			  '<b>Symbol:</b> The Scale Symbol<br />'+
-			  '<b>Ace:</b>Garchomp<br />'+
+			  '<b>Ace:</b> Manaphy<br />'+
 			  '<b>Battle rules:</b> <br />'+
 			  '-No Healing Items <br />'+
 			  '-No Mega Evolution <br />'+

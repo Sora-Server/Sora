@@ -382,7 +382,7 @@ var trainerCards = {
 			  '<b>Ace:</b> Kabutops<br />'+
 			  '<b>Achievements:</b> <strike>Best</strike> Water Leader of Sora, Roulette Frontier of Sora. <br />'+
 			  '<b>Known for:</b> Sadistical Playing Skills, Being Evil. <br />'+
-			  '<center><img src="http://sprites.pokecheck.org/i/647-resolution.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://sprites.pokecheck.org/i/141.gif"></center>');
+			  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"></center>');
 	},
 
 	bean877: function(target, room, user) {

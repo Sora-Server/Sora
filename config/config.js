@@ -183,6 +183,7 @@ exports.customAvatars = {
 	  'frontierlance': '061.gif',
 	  'e4zoro': '062.gif',
 	  'elitefursalty': '063.png',
+	  'pkkaiser': '064.gif',
 	
 };
 

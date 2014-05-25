@@ -198,7 +198,7 @@ var trainerCards = {
 			'-Ability Shift Tier<br />'+
 			'-No focus Sash/Band<br />'+
 			'-No Item repitition<br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif">');
+			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/torkoal.gif">');
 			
         },
         
@@ -396,16 +396,13 @@ var trainerCards = {
 	zachary: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Zachary</b><br />'+
-	       	      '<i>"What will be, will be."</i> <br />'+
-	       	      '<b>Symbol:</b> Randomosity<br />'+
+	       	      '<i>"Let\'s try something... Different"</i> <br />'+
+	       	      '<b>Symbol:</b> The Difference Symbol<br />'+
 		      '<b>Ace:</b> None<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      'Battle Roulette(One rule is picked from each of the following 4 sets): <br/>'+
-	 	      '-Set 1 (tier) : OU, Mono, Uber, UU, RU <br/>'+
-	 	      '-Set 2 (clause) : Item Clause (no repeating items), Choice clause (max 1 choice pokemon), Status Clause (no status), Recovery clause (No recovery moves bar rest), No Clause (but those implemented by Smogon) <br/>'+
-	 	      '-Set 3 (Representative of Sora-ians): Noah (All tiers below must be represented including LC for UU, not including LC for OU and above), Bart (no stat beyond 130), OnyxE (No weather), Toast (No weather inducing moves), Lynne (Best in three) <br/>'+
-	 	      '-Set 4 (forced item on a Pokemon of choice): Lagging Tail, Black Sludge, Eviolite, Razz Berry, Flame Orb <br/>'+
-	 	      '-P.S. No ditching the item by using Switcheroo/Trick/Fling or in any other manner UNLESS the opponent steals it from you via Thief/Magician/Covet et cetera <br/>');
+	 	      '-Champion\'s challenge Format <br/>'+
+	 	      '-Move Clause: a move can only appear once on a team <br />'+
+	 	      '-No Hazards <br />');
 	},
 
 	sparks: function(target, room, user) {

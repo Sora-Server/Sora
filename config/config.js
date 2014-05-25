@@ -145,7 +145,7 @@ exports.customAvatars = {
 	  'artistejeratt': '045.jpg',
 	  'frontiervader': '005.gif',
 	  'frontierryu': '006.gif',
-	  'frontierleaf': '007.gif',
+	  'gymldrleaf': '065.gif',
 	  'gymldrcore': '008.gif',
 	  'e4toast': '009.gif',
 	  'e4bighug': '010.gif',
@@ -182,7 +182,7 @@ exports.customAvatars = {
 	  'siiilver': '059.png',
 	  'frontierlance': '061.gif',
 	  'e4zoro': '062.gif',
-	  'elitefursalty': '063.png',
+	  'gymtrnrsalty': '063.png',
 	  'pkkaiser': '064.gif',
 	
 };

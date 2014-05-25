@@ -184,6 +184,7 @@ exports.customAvatars = {
 	  'e4zoro': '062.gif',
 	  'gymtrnrsalty': '063.png',
 	  'pkkaiser': '064.gif',
+	  'gymldrbean877': '066.gif',
 	
 };
 

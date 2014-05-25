@@ -236,6 +236,7 @@ var trainerCards = {
 		 	  '-PokéCosplay: You can only use a team consisting of an existing Pokémon trainer <br/>'+
 		 	  '-This includes trainers from the anime, manga, and games (except for the game\'s main character) <br/>'+
 		 	  '-Limited to OU (Blaziken and Genesect are Exceptions)<br/>'+
+		 	  '-When in Champion\'s Challenge, Evasion is banned <br />'+
 		 	  '<img src="http://sprites.pokecheck.org/t/144.gif"> <img src="http://sprites.pokecheck.org/i/620.gif">');
 	},
 

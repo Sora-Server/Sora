@@ -29,12 +29,12 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<a><font size= 4><center><b>∆Champion Noah∆</b></center></a><br />'+
 		      '<center><i>"Need a Champion? I Noah guy."</i></center> <br />'+
-		      '<b>Ace:</b> Liquidbones <br />'+
+		      '<b>Ace:</b> Liquidbones/Gegnarthewise (Gengar) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-Monotype <br/>'+
 	 	      '-Gen 5 Ubers (Maximum of 2 Ubers) <br/>'+
 	 	      '-No Hazards<br />'+
-	 	      '<center><img src="http://sprites.pokecheck.org/i/134.gif"> <img src="http://i.imgur.com/pFtOL9I.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"></center>');
+	 	      '<center><img src="http://sprites.pokecheck.org/i/134.gif"> <img src="http://i.imgur.com/pFtOL9I.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/gengar.gif"></center>');
 	},
 
 	bart: function(target, room, user) {
@@ -74,11 +74,14 @@ var trainerCards = {
         
         lance: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Lance</b><br />'+
+		this.sendReplyBox('Frontier <b>Lance</b><br />'+
 			  '<i>"Scales like diamonds, the brighter you shine, the hotter it burns"</i> <br />'+
-			  '<b>Type:</b> Dragon<br />'+
-			  '<b>Ace:</b> Mega Garchomp<br />'+
-			  '<img src="http://sprites.pokecheck.org/t/138.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/garchomp-mega.gif">');
+			  '<b>Symbol:</b> The Scale Symbol<br />'+
+			  '<b>Ace:</b> Manaphy<br />'+
+			  '<b>Battle rules:</b> <br />'+
+			  '-No Healing Items <br />'+
+			  '-No Mega Evolution <br />'+
+			  '<img src="http://sprites.pokecheck.org/t/079.gif"> <img src="http://sprites.pokecheck.org/i/490.gif">');
         },
 
 	zoro: function(target, room, user) {
@@ -97,11 +100,12 @@ var trainerCards = {
 	jam: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Jam</b><br />'+
-		      '<i>"I\'ll steal be steeling wins from you, bruh."</i> <br />'+
-		      '<b>Type:</b> Steel<br />'+
-		      '<b>Ace:</b> Heatran (HOT MAMA) <br />'+
+		      '<i>"The sky is my field, but it isn\'t my limit."</i> <br />'+
+		      '<b>Type:</b> Flying<br />'+
+		      '<b>Ace:</b> Skarmory (Firebird) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-None <br/>');
+	 	      '-No Hazards <br/>'+
+	 	      '-No Multihit moves <br/>');
 	},	
 	
 	bloodfist: function(target, room, user) {
@@ -184,29 +188,33 @@ var trainerCards = {
 			'<img src="http://play.pokemonshowdown.com/sprites/trainers/54.png"> <img src="http://sprites.pokecheck.org/i/003f.gif">');
 	},
 
-	blazer: function(target, room, user) {
+	blade: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Blazer</b><br />'+
-			'<i>"If i Blaze, you\'ll Blazer with me"</i> <br />'+
-			'<b>Type:</b> Fire<br />'+
-			'<b>Ace:</b> Victini<br />');
+		this.sendReplyBox('Frontier <b>Blade</b><br />'+
+			'<i>"Shift a burning flame into an ever burning flame!"</i> <br />'+
+			'<b>Symbol:</b> Yin and Yang<br />'+
+			'<b>Ace:</b> War Turtle (Torkoal)<br />'+
+			'<b>Battle Rules:</b> <br />'+
+			'-Ability Shift Tier<br />'+
+			'-No focus Sash/Band<br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/torkoal.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/blaziken.gif">');
+			
         },
         
-       	tevin: function(target, room, user) {
+       	ground: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Tevin</b><br />'+
-			'<i>"Prepare to fly, cuz you won\'t stay alive for long if you\'re on the ground..."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			'<i>"???"</i> <br />'+
 			'<b>Type:</b> Ground<br />'+
-			'<b>Ace:</b> Landorus<br />');
+			'<b>Ace:</b> ???<br />');
         },
         
-        abe: function(target, room, user) {
+        m3owth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Abe</b><br />'+
-			'<i>"I will hit you with a super dooper fabulous punch ;)"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>M3owth</b><br />'+
+			'<i>"???"</i> <br />'+
 			'<b>Type:</b> Fighting<br />'+
-			'<b>Ace:</b> Heracross<br />'+
-			'<img src="http://www.avatarsdb.com/avatars/spiderman_funny_dance.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/heracross-mega.gif">');
+			'<b>Ace:</b>???<br />');
         },
         
         fairy: function(target, room, user) {
@@ -226,7 +234,7 @@ var trainerCards = {
 		 	  '<b>Battle Rules:</b> <br/>'+
 		 	  '-PokéCosplay: You can only use a team consisting of an existing Pokémon trainer <br/>'+
 		 	  '-This includes trainers from the anime, manga, and games (except for the game\'s main character) <br/>'+
-		 	  '-Limited to OU (Blaziken and Genesect are Exceptions)<br/>'+
+		 	  '-When in Champion\'s Challenge, Evasion is banned <br />'+
 		 	  '<img src="http://sprites.pokecheck.org/t/144.gif"> <img src="http://sprites.pokecheck.org/i/620.gif">');
 	},
 
@@ -343,9 +351,9 @@ var trainerCards = {
 	oz: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Oz</b><br />'+
-			  '<i>"Warning, you will get shocked by the power of thunder."</i> <br />'+
-			  '<b>Type:</b> Electric<br />'+
-			  '<b>Ace:</b> Lanturn<br />');
+			  '<i>"Getting cool is not the best way to get attractive, be normal"</i> <br />'+
+			  '<b>Type:</b> Normal<br />'+
+			  '<b>Ace:</b> Porygon 2 (Ducky Momo)<br />');
 
 	},
 
@@ -357,23 +365,23 @@ var trainerCards = {
 			 '<b>Aces:</b> Gengar and Haunter<br />');
         },
 
-	ground: function(target, room, user) {
+	electric: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> Ground<br />'+
+			  '<b>Type:</b> electric<br />'+
 			  '<b>Ace:</b> ???<br />');
 	},
 
 	azh: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Gym Ldr <b>ArthurZH</b><br />'+
-			  '<i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY!"</i> <br />'+
+			this.sendReplyBox('<a><font size= 4><center><b>∆Gym Ldr ArthurZH∆</b></center></a><br />'+
+			  '<center><i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY!"</i></center> <br />'+
 			  '<b>Favoured Type:</b> Water<br />'+
 			  '<b>Ace:</b> Kabutops<br />'+
 			  '<b>Achievements:</b> <strike>Best</strike> Water Leader of Sora, Roulette Frontier of Sora. <br />'+
 			  '<b>Known for:</b> Sadistical Playing Skills, Being Evil. <br />'+
-			  '<img src="http://sprites.pokecheck.org/i/647-resolution.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://sprites.pokecheck.org/i/141.gif">');
+			  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"></center>');
 	},
 
 	bean877: function(target, room, user) {
@@ -387,24 +395,21 @@ var trainerCards = {
 	zachary: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Zachary</b><br />'+
-	       	      '<i>"What will be, will be."</i> <br />'+
-	       	      '<b>Symbol:</b> Randomosity<br />'+
+	       	      '<i>"Let\'s try something... Different"</i> <br />'+
+	       	      '<b>Symbol:</b> The Difference Symbol<br />'+
 		      '<b>Ace:</b> None<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      'Battle Roulette(One rule is picked from each of the following 4 sets): <br/>'+
-	 	      '-Set 1 (tier) : OU, Mono, Uber, UU, RU <br/>'+
-	 	      '-Set 2 (clause) : Item Clause (no repeating items), Choice clause (max 1 choice pokemon), Status Clause (no status), Recovery clause (No recovery moves bar rest), No Clause (but those implemented by Smogon) <br/>'+
-	 	      '-Set 3 (Representative of Sora-ians): Noah (All tiers below must be represented including LC for UU, not including LC for OU and above), Bart (no stat beyond 130), OnyxE (No weather), Toast (No weather inducing moves), Lynne (Best in three) <br/>'+
-	 	      '-Set 4 (forced item on a Pokemon of choice): Lagging Tail, Black Sludge, Eviolite, Razz Berry, Flame Orb <br/>'+
-	 	      '-P.S. No ditching the item by using Switcheroo/Trick/Fling or in any other manner UNLESS the opponent steals it from you via Thief/Magician/Covet et cetera <br/>');
+	 	      '-Champion\'s challenge Format <br/>'+
+	 	      '-Move Clause: a move can only appear once on a team <br />'+
+	 	      '-No Hazards <br />');
 	},
 
-	sparetypeslot: function(target, room, user) {
+	sparks: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> Steel<br />'+
-			  '<b>Ace:</b> ???<br />');
+		this.sendReplyBox('Gym Ldr <b>Sparks</b><br />'+
+			  '<i>" I may look weak, but I am SHOCKING!"</i> <br />'+
+			  '<b>Type:</b> Electric<br />'+
+			  '<b>Ace:</b> Electivire<br />');
 	},
 
 	khronos: function(target, room, user) {
@@ -425,8 +430,8 @@ var trainerCards = {
 
 	jeratt: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Artiste <b>Jeratt</b><br />'+
-			'<i>"Let the storm rage on. The cold never bothered me anyways."</i><br />'+
+		this.sendReplyBox('<a><font size= 4><center><b>∆Artiste Jeratt∆</b></center></a><br />'+
+			'<center><i>"Let the storm rage on. The cold never bothered me anyways."</i></center><br />'+
 			'<img src="http://sprites.pokecheck.org/i/235.gif"> <img src="http://sprites.pokecheck.org/t/033.gif"><br />'+
 			'<b>Highly skilled in:</b> Dragon & Ice<br />'+
 			'<b>Skilled in:</b> Making quotes, backgrounds for Sora and many Pokemon types.<br />'+ 
@@ -434,7 +439,7 @@ var trainerCards = {
 		 	'<b>History:</b> Greatest Ice E4, <strike>undefeated</strike> Dragon E4. <br/>'+
 		 	'P.S. I\'m still Dragon you away with my coldness. <br/>'+
 		 	'P.P.S Use Scizor against me, and I\'ll get fired up and blast you! <br/>'+
-		 	 '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/vanilluxe.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"');
+		 	'<center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/vanilluxe.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"></center>');
         },
         
         gasp: function(target, room, user) {

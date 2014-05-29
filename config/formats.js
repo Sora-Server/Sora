@@ -70,8 +70,8 @@ exports.Formats = [
 		name: "Champion's Challenge",
 		section: "Sora Exclusive",
 
-		ruleset: ['Pokemon', 'Team Preview', 'HP Percentage Mod'],
-		banlist: ['Uber', 'Zapdos', 'Moltres', 'Articuno', 'Mew', 'Celebi', 'Suicune', 'Raikou', 'Entei', 'Ho-oh', 'Lugia', 'Regirock', 'Regice', 'Registeel', 'Latios', 'Latias', 'Jirachi', 'Mesprit', 'Azelf', 'Uxie', 'Cresselia', 'Phione', 'Manaphy', 'Heatran','Victini', 'Terrakion', 'Cobalion', 'Virizion', 'Keldeo', 'Keldeo-Resolute', 'Landorus', 'Landorus-Therian', 'Thundurus', 'Thundurus-Therian', 'Tornadus', 'Tornadus-Therian', 'Kyurem', 'Kyurem-Black', 'Meloetta', 'Genesect']
+		ruleset: ['Pokemon', 'Team Preview', 'Champion Challenge'],
+		banlist: ['Kangaskhanite', 'Swagger']
 	},
 	
 	// XY Singles

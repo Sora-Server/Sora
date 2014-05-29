@@ -772,7 +772,7 @@ var customCommands = {
         hos: 'banlist',
         hallofshame: 'banlist',
         banlist: function(target, room, user) {
-	    if (!this.canBroadcast()) return;
+	    if (this.broadcasting) return;
 	    this.sendReplyBox('<b>The Sora League Server Hall of Shame (Banlist):</b><br />' +
 	        'The following users are to be banned on sight, no exceptions. Most of them have dynamic ips, but even so, the first 2 set of numbers should be the same<br />'+
 	        '117.193.61.37 - Adipravar/lingam/China Guy<br />' +
@@ -837,6 +837,14 @@ var customCommands = {
 				'</div>');
 	},
 	
+	championschallenge: 'championschallenge',
+		championschallenge: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a detailed explanation of the format Champion\'s Challenge:<br />' +
+				'- <a href="http://soraleague.weebly.com/champions-challenge.html">Champion\'s Challenge</a><br />' +
+				'</div>');
+	},
+	
 	events: 'events',
 		events: function(target, room, user) {
 			if (!this.canBroadcast()) return;
@@ -891,6 +899,16 @@ var customCommands = {
 					this.sendReplyBox('Here is a list of Sora League Side Missions:<br />' +
 						'- <a href="http://soraleague.weebly.com/side-missions.html">Sora League Side Missions</a><br />' +
 						'</div>');
+	},
+	
+	quoteoftheday: 'qotd',
+		qotd: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('<b>Quote of the Day:</b><br />' +
+			        'This command will display genius quotes until another quote tops it!<br />' +
+				'"I\'m better as an E4." - Matt 2014<br />' +
+				'"and after this i\'ll show u a true flying e4 team." - Matt 2014 (proceeds to lose beautifully to the Flying E4)<br />' +
+				'</div>');
 	},
 	
 	flogout: 'forcelogout',
@@ -1079,7 +1097,7 @@ var customCommands = {
 		if (!this.can('lock')) return false;
 		if (!user.isAway) {
 			var originalName = user.name;
-			var awayName = user.name + ' - Away';
+			var awayName = user.name + ' - ⒶⒻⓀ';
 			delete Users.get(awayName);
 			user.forceRename(awayName, undefined, true);
 			this.add('|raw|-- <b><font color="#000000">' + originalName +'</font color></b> is now away. '+ (target ? " (" + target + ")" : ""));
@@ -1096,7 +1114,7 @@ var customCommands = {
 		if (!this.can('lock')) return false;
 		if (user.isAway) {
 			var name = user.name;
-			var newName = name.substr(0, name.length - 7);
+			var newName = name.substr(0, name.length - 6);
 			delete Users.get(newName);
 			user.forceRename(newName, undefined, true);
 			user.authenticated = true;

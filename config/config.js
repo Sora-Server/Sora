@@ -176,7 +176,7 @@ exports.customAvatars = {
 	  'e4cocoa': '054.png',
 	  'gymtrnrsteve': '051.gif',
 	  'reirdkrmory': '052.gif',
-	  'gymldrabe': '056.gif',
+	  'prophetabraham': '056.gif',
 	  'gymldranna': '055.png',
 	  'frntierblade': '058.gif',
 	  'siiilver': '059.png',

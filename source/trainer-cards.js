@@ -71,9 +71,9 @@ var trainerCards = {
 	 	          
         },
         
-        lance: function(target, room, user) {
+        quirix: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Lance</b><br />'+
+		this.sendReplyBox('Frontier <b>Quirix</b><br />'+
 			  '<i>"Scales like diamonds, the brighter you shine, the hotter it burns"</i> <br />'+
 			  '<b>Symbol:</b> The Scale Symbol<br />'+
 			  '<b>Ace:</b> Manaphy<br />'+

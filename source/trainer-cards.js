@@ -321,18 +321,6 @@ var trainerCards = {
 			  '<b>Ace:</b> Cloyster<br />');
 	},
 
-	night: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Frontier <b>Night</b><br />'+
-			  '<i>"Slow and steady wins the race."</i> <br />'+
-			  '<b>Symbol:</b> Limit<br />'+
-			  '<b>Ace:</b> Escavalier<br />'+
-			  '<b>Battle Rules:</b> <br/>'+
-		 	  '-Race Battle - Only Pokemon with speed below 40 may be used <br/>'+
-		 	  '-No Hazards <br/>'+
-		 	  '-Speed has to be constant (it shouldn\'t be increased or decreased)<br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/scyther.gif">');
-	},
 	
 	nova: function(target, room, user) {
 			if (!this.canBroadcast()) return;

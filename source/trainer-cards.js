@@ -31,7 +31,6 @@ var trainerCards = {
 		      '<center><i>"Need a Champion? I Noah guy."</i></center> <br />'+
 		      '<b>Ace:</b> Liquidbones/Gegnarthewise (Gengar) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-Monotype <br/>'+
 	 	      '-Gen 5 Ubers (Maximum of 2 Ubers) <br/>'+
 	 	      '-No Hazards<br />'+
 	 	      '<center><img src="http://sprites.pokecheck.org/i/134.gif"> <img src="http://i.imgur.com/pFtOL9I.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/gengar.gif"></center>');
@@ -67,7 +66,7 @@ var trainerCards = {
 			  '<b>Ace:</b> Charizard<br />'+
 	 	          '<b>Battle Rules:</b> <br/>'+
 	 	          '-No Hazards <br/>'+
-	 	          '-No weather inducing moves <br/>'+
+	 	          '-Ubers Monotype <br/>'+
 	 	          '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/hooh.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/volcarona.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar-mega.gif"> </center>');
 	 	          
         },

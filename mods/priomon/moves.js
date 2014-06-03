@@ -181,10 +181,7 @@ exports.BattleMovedex = {
 		pp: 16,
 		priority: 1,
 		multihit: [2, 2],
-		secondary: {
-			chance: 20,
-			status: 'psn'
-		},
+		secondary: false,
 		target: "normal",
 		type: "Bug"
 	      },

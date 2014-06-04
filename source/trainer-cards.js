@@ -438,12 +438,13 @@ var trainerCards = {
 		 	'<img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_front/302.gif"> <img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif">');
         },
         
-        arsh: 'blakjack',
-	arshmalik: 'blakjack',
-	blakjack: function (target, room, user) {
-	    if (!this.canBroadcast()) return;
-	    this.sendReplyBox('<center><img src="http://i.imgur.com/otDPUQU.png"><br><img src="http://i.imgur.com/Wdthjon.png"><img src="http://i.imgur.com/dck9vdP.png"><img src="http://i.imgur.com/5VqH7tF.png"><br><font color="brown"><blink>Ace: Swellow</blink><br><font color="brown">Let\'s Play A Game Of BlackJack');
-	},
+        arsh: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Arsh</b><br />'+
+			'<i>"Its not over until its over."</i> <br />'+
+			'<b>Type:</b> Ice<br />'+
+			'<b>Ace:</b> Mamoswine<br />');
+        },
 
 	getbucks: 'getbucks',
 		getbucks: function(target, room, user) {

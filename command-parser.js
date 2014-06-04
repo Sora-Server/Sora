@@ -254,10 +254,6 @@ var parse = exports.parse = function(message, room, user, connection, levelsDeep
 			}
 		});
 	}
-	user.numMsg++;
-	if (Utilities.spamProtection(user, room, connection, message) === false) {
-		return false;
-	}
 	return message;
 };
 

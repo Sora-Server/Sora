@@ -75,9 +75,10 @@ if (!Object.select) {
 
 // Make sure config.js exists, and copy it over from config-example.js
 // if it doesn't
-
-var fs = require('fs');
-
+global.fs = require('fs');
+if (!('existsSync' in fs)) {
+	fs.existsSync = require('path').existsSync;
+}
 // Synchronously, since it's needed before we can start the server
 if (!fs.existsSync('./config/config.js')) {
 	console.log("config.js doesn't exist - creating one with default settings...");

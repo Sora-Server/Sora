@@ -252,7 +252,7 @@ exports.BattleScripts = {
                 this.modData('Learnsets', 'jolteon').learnset.nervepulse = ['5M'];
                 this.modData('Learnsets', 'joltik').learnset.nervepulse = ['5M'];
                 this.modData('Learnsets', 'galvantula').learnset.nervepulse = ['5M'];
-                this.modData('Learnsets', 'elektrike').learnset.nervepulse = ['5M'];
+                this.modData('Learnsets', 'electrike').learnset.nervepulse = ['5M'];
                 this.modData('Learnsets', 'manectric').learnset.nervepulse = ['5M'];
                 this.modData('Learnsets', 'zekrom').learnset.nervepulse = ['5M'];
                 

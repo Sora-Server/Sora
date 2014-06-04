@@ -121,17 +121,43 @@ target.toLowerCase().replace(/ /g,'-');
 	poof: (function () {
 		var messages = [
 			"has vanished into nothingness!",
+			"visited kupo's bedroom and never returned!",
 			"used Explosion!",
 			"fell into the void.",
-			"went into a cave without a repel!",
+			"was squished by pandaw's large behind!",
+			"became EnerG's slave!",
+			"became kupo's love slave!",
 			"has left the building.",
-			"was forced to give BlakJack's mom an oil massage!",
+			"felt Thundurus's wrath!",
+			"died of a broken heart.",
+			"got lost in a maze!",
 			"was hit by Magikarp's Revenge!",
-			"ate a bomb!",
+			"was sucked into a whirlpool!",
+			"got scared and left the server!",
+			"fell off a cliff!",
+			"got eaten by a bunch of piranhas!",
 			"is blasting off again!",
-			"(Quit: oh god how did this get here i am not good with computer)",
+			"A large spider descended from the sky and picked up {{user}}.",
+			"tried to touch RisingPokeStar!",
+			"got their sausage smoked by Charmanderp!",
+			"fell into a meerkat hole!",
+			"took an arrow to the knee... and then one to the face.",
+			"peered through the hole on Shedinja's back",
+			"recieved judgment from the almighty Arceus!",
+			"used Final Gambit and missed!",
+			"pissed off a Gyarados!",
+			"screamed \"BSHAX IMO\"!",
+			"was actually a 12 year and was banned for COPPA.",
+			"got lost in the illusion of reality.",
 			"was unfortunate and didn't get a cool message.",
 			"The Immortal accidently kicked {{user}} from the server!",
+			"was knocked out cold by Fallacies!",
+			"died making love to an Excadrill!",
+			"was shoved in a Blendtec Blender with iPad!",
+			"was BLEGHED on by LightBlue!",
+			"was bitten by a rabid Wolfie!",
+			"was kicked from server! (lel clause)",
+			"was Pan Hammered!"
 		];
 
 		return function(target, room, user) {
@@ -149,10 +175,23 @@ target.toLowerCase().replace(/ /g,'-');
 				return (part < 0x10 ? '0' : '') + part.toString(16);
 			}).join('');
 
-			room.addRaw('<strong><font color="' + colour + '">~~ ' + sanitize(message) + ' ~~</font></strong>');
+			room.addRaw('<center><strong><font color="' + colour + '">~~ ' + Tools.escapeHTML(message) + ' ~~</font></strong></center>');
 			user.disconnectAll();
 		};
 	})(),
+	
+	poofoff: 'nopoof',
+	nopoof: function() {
+		if (!this.can('poofoff')) return false;
+		Config.poofOff = true;
+		return this.sendReply("Poof is now disabled.");
+	},
+
+	poofon: function() {
+		if (!this.can('poofoff')) return false;
+		Config.poofOff = false;
+		return this.sendReply("Poof is now enabled.");
+	},
 
 	regdate: function(target, room, user, connection) { 
 		if (!this.canBroadcast()) return;

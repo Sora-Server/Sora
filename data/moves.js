@@ -1811,7 +1811,7 @@ exports.BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "Lowers the target's Special Attack stat by 1.",
+		desc: "Lowers the target's Special Attack by 1 stage. Pokemon with the Ability Soundproof are immune.",
 		shortDesc: "Lowers the target's Sp. Atk by 1.",
 		id: "confide",
 		name: "Confide",
@@ -2629,7 +2629,7 @@ exports.BattleMovedex = {
 		accuracy: true,
 		basePower: 40,
 		category: "Special",
-		desc: "Deals damage to one adjacent target and does not check accuracy. Makes contact.",
+		desc: "Deals damage to one adjacent target. Pokemon with the Ability Soundproof are immune.",
 		shortDesc: "This move does not check accuracy.",
 		id: "disarmingvoice",
 		name: "Disarming Voice",
@@ -3839,7 +3839,7 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 30,
 		category: "Physical",
-		desc: "When the user knocks out a target with this move, the user's Attack stat rises sharply.",
+		desc: "When the user knocks out a target with this move, the user's Attack stat rises sharply. Makes contact.",
 		shortDesc: "Raises Attack by 2 if knocks out target.",
 		id: "fellstinger",
 		name: "Fell Stinger",
@@ -3892,7 +3892,7 @@ exports.BattleMovedex = {
 			return damage;
 		},
 		category: "Special",
-		desc: "Deals damage to one adjacent target equal to the user's current HP. If this move is successful, the user faints. Makes contact.",
+		desc: "Deals damage to one adjacent target equal to the user's current HP. If this move is successful, the user faints.",
 		shortDesc: "Does damage equal to the user's HP. User faints.",
 		id: "finalgambit",
 		name: "Final Gambit",
@@ -4410,7 +4410,7 @@ exports.BattleMovedex = {
 		accuracy: 95,
 		basePower: 80,
 		category: "Physical",
-		desc: "Both Fighting-type and Flying-type simultaneously.",
+		desc: "Both Fighting-type and Flying-type simultaneously. Makes contact.",
 		shortDesc: "Both Fighting-type and Flying-type simultaneously.",
 		id: "flyingpress",
 		name: "Flying Press",
@@ -8898,7 +8898,7 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		desc: "Lowers the target's Attack and Special Attack by 1 stage. Pokemon protected by Magic Coat or the Ability Magic Bounce are unaffected and instead use this move themselves.",
+		desc: "Lowers the target's Attack and Special Attack by 1 stage. Pokemon with the Ability Soundproof are immune.",
 		shortDesc: "Lowers target's Atk and SpAtk by 1.",
 		id: "nobleroar",
 		name: "Noble Roar",
@@ -9680,7 +9680,7 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
-		desc: "Hitting a target raises the Attack stat.",
+		desc: "Hitting a target raises Attack by 1 stage. Damage is boosted to 1.2x by the Ability Iron Fist.",
 		shortDesc: "Hitting a target raises Attack by 1",
 		id: "poweruppunch",
 		name: "Power-Up Punch",
@@ -10432,7 +10432,7 @@ exports.BattleMovedex = {
 		pp: 15,
 		priority: 0,
 		onHit: function (target, source) {
-			if (source.num === 493) return false;
+			if (source.template && source.template.num === 493) return false;
 			this.add('-start', source, 'typechange', target.getTypes(true).join('/'), '[from] move: Reflect Type', '[of] ' + target);
 			source.typesData = [];
 			for (var i = 0, l = target.typesData.length; i < l; i++) {

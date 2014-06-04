@@ -231,7 +231,7 @@ var parse = exports.parse = function(message, room, user, connection, levelsDeep
 			var groupId = Config.groups.bySymbol[g].id;
 			var isDemote = promoteCmd === 'de' + groupId || promoteCmd === 'un' + groupId;
 			if (promoteCmd === groupId || isDemote) {
-				return parse('/' + (isRoom ? 'room' : '') + (isDemote ? 'demote' : 'promote') + ' ' + toUserid(target) + (isDemote ? '' : ',' + g), room, user, connection)
+				return parse('/' + (isRoom ? 'room' : '') + (isDemote ? 'demote' : 'promote') + ' ' + toId(target) + (isDemote ? '' : ',' + g), room, user, connection)
 			}
 		}
 

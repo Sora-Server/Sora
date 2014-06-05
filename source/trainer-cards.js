@@ -205,7 +205,8 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
 			'<i>"You\'re out of your depth here, literally."</i> <br />'+
 			'<b>Type:</b> Water<br />'+
-			'<b>Ace:</b> Turbulence (Blastoise)<br />');
+			'<b>Ace:</b> Turbulence (Blastoise)<br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/blastoise-mega.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/manaphy.gif">'
         },
         
         m3owth: function(target, room, user) {
@@ -254,7 +255,7 @@ var trainerCards = {
         myth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Myth</b><br />'+
-			  '<i>"No one\'s a winner."</i> <br />'+
+			  '<i>"Steel is a hard type, get it?"</i> <br />'+
 			  '<b>Type:</b> Steel<br />'+
 			  '<b>Ace:</b>Mega-Scizor (A Robot)<br />');
         },

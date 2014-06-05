@@ -200,12 +200,12 @@ var trainerCards = {
 			
         },
         
-       	ground: function(target, room, user) {
+       	leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			'<i>"???"</i> <br />'+
-			'<b>Type:</b> Ground<br />'+
-			'<b>Ace:</b> ???<br />');
+		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
+			'<i>"You\'re out of your depth here, literally. "</i> <br />'+
+			'<b>Type:</b> Water<br />'+
+			'<b>Ace:</b> Turbulence (Blastoise)<br />');
         },
         
         m3owth: function(target, room, user) {
@@ -394,7 +394,7 @@ var trainerCards = {
 	terror: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Terror</b><br />'+
-			  '<i>" Get off the ground cuz it\'s gonna get rough!"</i> <br />'+
+			  '<i>"Get off the ground cuz it\'s gonna get rough!"</i> <br />'+
 			  '<b>Type:</b> Ground<br />'+
 			  '<b>Ace:</b> Garchomp<br />');
 	},

@@ -386,17 +386,17 @@ var trainerCards = {
 	       	      '<b>Symbol:</b> The Difference Symbol<br />'+
 		      '<b>Ace:</b> None<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-Champion\'s challenge Format <br/>'+
-	 	      '-Move Clause: a move can only appear once on a team <br />'+
-	 	      '-No Hazards <br />');
+	 	      '-Best of 3 game <br/>'+
+	 	      '-OU Monotype <br />'+
+	 	      '-The Frontier Brain must fight the Challenger using a type that is Super Effective, another which is neutral and one more which is not very effective.<br />');
 	},
 
-	sparks: function(target, room, user) {
+	terror: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Sparks</b><br />'+
-			  '<i>" I may look weak, but I am SHOCKING!"</i> <br />'+
-			  '<b>Type:</b> Electric<br />'+
-			  '<b>Ace:</b> Electivire<br />');
+		this.sendReplyBox('Gym Ldr <b>Terror</b><br />'+
+			  '<i>" Get off the ground cuz it\'s gonna get rough!"</i> <br />'+
+			  '<b>Type:</b> Ground<br />'+
+			  '<b>Ace:</b> Garchomp<br />');
 	},
 
 	khronos: function(target, room, user) {

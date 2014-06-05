@@ -203,7 +203,7 @@ var trainerCards = {
        	leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-			'<i>"You\'re out of your depth here, literally. "</i> <br />'+
+			'<i>"You\'re out of your depth here, literally."</i> <br />'+
 			'<b>Type:</b> Water<br />'+
 			'<b>Ace:</b> Turbulence (Blastoise)<br />');
         },

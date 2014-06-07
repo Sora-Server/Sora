@@ -347,12 +347,12 @@ var trainerCards = {
 			 '<b>Aces:</b> ???<br />');
         },
 
-	electric: function(target, room, user) {
+	valio: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> electric<br />'+
-			  '<b>Ace:</b> ???<br />');
+		this.sendReplyBox('Gym Ldr <b>Valio</b><br />'+
+			  '<i>"Reload, take aim, aaaand SPARK!"</i> <br />'+
+			  '<b>Type:</b> Electric<br />'+
+			  '<b>Ace:</b> Elektross<br />');
 	},
 
 	azh: function(target, room, user) {

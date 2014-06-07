@@ -314,13 +314,7 @@ var trainerCards = {
 			  '<b>Ace:</b> ???<br />');
 	},
 	
-	ambriel: function(target, room, user) {
-	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Ambriel</b><br />'+
-			  '<i>"Eat this Hydro Pump!"</i> <br />'+
-			  '<b>Type:</b> Water<br />'+
-			  '<b>Ace:</b> Cloyster<br />');
-	},
+
 
 	
 	nova: function(target, room, user) {
@@ -345,12 +339,12 @@ var trainerCards = {
 
 	},
 
-	anna: function(target, room, user) {
+	ghost: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Anna</b><br />'+
-			 '<i>"Careful love, prices aren\'t the only thing I can cut in half."</i> <br />'+
+			 '<i>"???"</i> <br />'+
 		         '<b>Type:</b> Ghost<br />'+
-			 '<b>Aces:</b> Gengar and Haunter<br />');
+			 '<b>Aces:</b> ???<br />');
         },
 
 	electric: function(target, room, user) {

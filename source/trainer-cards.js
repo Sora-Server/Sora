@@ -212,9 +212,9 @@ var trainerCards = {
         m3owth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>M3owth</b><br />'+
-			'<i>"???"</i> <br />'+
+			'<i>"In accordance with the dictates of reason."</i> <br />'+
 			'<b>Type:</b> Fighting<br />'+
-			'<b>Ace:</b>???<br />');
+			'<b>Ace:</b>Lucario<br />');
         },
         
         fairy: function(target, room, user) {

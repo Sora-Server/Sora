@@ -67,7 +67,7 @@ background: #cccccc;
 .acidrainweather,
 .contaminateweather
 {
-        background:  #a64ca6 url(//http://i44.tinypic.com/2w71ziv.jpg) no-repeat scroll left top;
+        background:  #a64ca6 url(http://i44.tinypic.com/2w71ziv.jpg) no-repeat scroll left top;
         color: #400040;
         text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
 }

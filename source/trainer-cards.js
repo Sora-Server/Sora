@@ -214,7 +214,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>M3owth</b><br />'+
 			'<i>"In accordance with the dictates of reason."</i> <br />'+
 			'<b>Type:</b> Fighting<br />'+
-			'<b>Ace:</b>Lucario<br />');
+			'<b>Ace:</b> Lucario<br />');
         },
         
         fairy: function(target, room, user) {

@@ -79,7 +79,7 @@ var customCommands = {
 		
 
     model: 'sprite',
-sprite: function(target, room, user) {
+    sprite: function(target, room, user) {
         if (!this.canBroadcast()) return;
 		var targets = target.split(',');
 			target = targets[0];
@@ -92,10 +92,10 @@ target.toLowerCase().replace(/ /g,'-');
         }
 		var numbers = ['1','2','3','4','5','6','7','8','9','0'];
 		for (var i = 0; i < numbers.length; i++) {
-		if (target.toLowerCase().indexOf(numbers) == -1 && target.toLowerCase() !== 'porygon2' && !target1) {
+		if (target.toLowerCase().indexOf(numbers) == -1 && target.toLowerCase() !== 'porygon2') {
         
         
-
+		
 		if (target && !target1) {
         return this.sendReply('|html|<img src = "http://www.pkparaiso.com/imagenes/xy/sprites/animados/'+target.toLowerCase().trim().replace(/ /g,'-')+'.gif">');
         }
@@ -110,6 +110,7 @@ target.toLowerCase().replace(/ /g,'-');
         return this.sendReply('|html|<img src = "http://www.pkparaiso.com/imagenes/xy/sprites/animados/'+target.toLowerCase().trim().replace(/ /g,'-')+'.gif">');
 	}
 	}
+	
 	} else {
 	return this.sendReply('Model not found.');
 	}

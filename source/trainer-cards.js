@@ -293,7 +293,7 @@ var trainerCards = {
         srewop: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Srewop</b><br />'+
-			 '<i>"My name backwards is what I\'m all about"</i> <br />'+
+			 '<i>"It\'s going down, I\'m yelling Timburr"</i> <br />'+
 			 '<b>Type:</b> Poison<br />'+
 			 '<b>Ace:</b> Venusaur<br />');
 	},

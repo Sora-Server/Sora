@@ -914,7 +914,7 @@ target.toLowerCase().replace(/ /g,'-');
 			this.sendReplyBox('<b>Quote of the Day:</b><br />' +
 			        'This command will display genius quotes until another quote tops it!<br />' +
 				'"I\'m better as an E4." - Matt 2014<br />' +
-				'"and after this i\'ll show u a true flying e4 team." - Matt 2014 (proceeds to lose beautifully to the Flying E4)<br />' +
+				'"Is Scrafty Ubers?" -Bamdee 11/6/14<br />' +
 				'</div>');
 	},
 	

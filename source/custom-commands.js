@@ -794,7 +794,6 @@ target.toLowerCase().replace(/ /g,'-');
 	        '70.56.251.194 - PEEEENNNNUUUSSSS<br />' +
 	        '184.148.86.83 - POOOOP BRO/MrGaminganimation<br />' +
 	        '76.103.152.157 - Thafuckingnigga<br />' +
-	        '94.173.183.19 - Overseer Diamond<br />' +
 	        '110.174.150.196 - Nigerian Nuts<br />' +
 	        '77.209.58.47 - Spammer 008/flood of water<br />' +
 	        '107.3.135.54 - ilikewings<br />' +

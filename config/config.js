@@ -180,7 +180,7 @@ exports.customAvatars = {
 	  'gymldranna': '055.png',
 	  'frntierblade': '058.gif',
 	  'siiilver': '059.png',
-	  'frontierlance': '061.gif',
+	  'frontierquirix': '061.gif',
 	  'e4zoro': '062.gif',
 	  'gymtrnrsalty': '063.png',
 	  'pkkaiser': '064.gif',

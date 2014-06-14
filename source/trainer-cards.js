@@ -71,17 +71,7 @@ var trainerCards = {
 	 	          
         },
         
-        quirix: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Quirix</b><br />'+
-			  '<i>"Scales like diamonds, the brighter you shine, the hotter it burns"</i> <br />'+
-			  '<b>Symbol:</b> The Scale Symbol<br />'+
-			  '<b>Ace:</b> Manaphy<br />'+
-			  '<b>Battle rules:</b> <br />'+
-			  '-No Healing Items <br />'+
-			  '-No Mega Evolution <br />'+
-			  '<img src="http://sprites.pokecheck.org/t/079.gif"> <img src="http://sprites.pokecheck.org/i/490.gif">');
-        },
+        
 
 	zoro: function(target, room, user) {
 		if (!this.canBroadcast()) return;

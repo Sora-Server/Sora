@@ -740,7 +740,6 @@ target.toLowerCase().replace(/ /g,'-');
 					'You may want to check out <a href="http://soraleague.weebly.com/index.html">The Sora League Website</a> for details about the rules of challenge.<br /><br />' +
 					'<b>IMPORTANT:</b> Make sure you read our rules page <a href="http://soraleague.weebly.com/rules.html">here</a>, especially if you\'re challenging the league.<br /><br />' +
 					'<b>Warning:</b> Champion Noah and Champion Toast or any of our league members are not responsible for any damaged caused by hitting yourself after being confused by reading all this randomness.<br /><br />'+
-					'<b>League Update:</b> Champion OnyxE has officially stepped down from Champion position, replaced by Champion Toast.<br />'+
 					'P.S. <i>Do not feed the Ascher, you will regret it~</i></div>');
 		}
 	},
@@ -917,6 +916,7 @@ target.toLowerCase().replace(/ /g,'-');
 			        'This command will display genius quotes until another quote tops it!<br />' +
 				'"I\'m better as an E4." - Matt 2014<br />' +
 				'"Is Scrafty Ubers?" -Bamdee 11/6/14<br />' +
+				'"We\'re the place the Asylum sends the people who\'re too fucked up for them"- ∆Champiön Nöah∆ 14/6/14<br />'+
 				'</div>');
 	},
 	

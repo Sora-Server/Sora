@@ -189,15 +189,7 @@ var trainerCards = {
 			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/torkoal.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/blaziken.gif">');
 			
         },
-        
-       	leaf: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-			'<i>"You\'re out of your depth here, literally."</i> <br />'+
-			'<b>Type:</b> Water<br />'+
-			'<b>Ace:</b> Turbulence (Blastoise)<br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/blastoise-mega.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/manaphy.gif">');
-        },
+     
         
         m3owth: function(target, room, user) {
 		if (!this.canBroadcast()) return;

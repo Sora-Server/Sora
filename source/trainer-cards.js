@@ -242,6 +242,15 @@ var trainerCards = {
 			  '<b>Ace:</b>Mega-Scizor (A Robot)<br />');
         },
         
+         arthurzh: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Arthurzh</b><br />'+
+			  '<i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY"</i> <br />'+
+			  '<b>Type:</b> Water<br />'+
+			  '<b>Ace:</b>Kabutops<br />');
+        },
+        
+        
         core: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Core</b><br />'+
@@ -356,17 +365,6 @@ var trainerCards = {
 			  '<b>Ace:</b> PinLikeaSir (Pinsir)<br />');
 	},
 
-	zachary: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Zachary</b><br />'+
-	       	      '<i>"Let\'s try something... Different"</i> <br />'+
-	       	      '<b>Symbol:</b> The Difference Symbol<br />'+
-		      '<b>Ace:</b> None<br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-Best of 3 game <br/>'+
-	 	      '-OU Monotype <br />'+
-	 	      '-The Frontier Brain must fight the Challenger using a type that is Super Effective, another which is neutral and one more which is not very effective.<br />');
-	},
 
 	terror: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
@@ -384,12 +382,12 @@ var trainerCards = {
 			  '<b>Ace:</b> Mega-Medicham<br />');
 	},
 
-	meows: function(target, room, user) {
+	iggy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
+		this.sendReplyBox('Frontier <b>Iggy</b><br />'+
 			'<i>"Pixie Dust, Sparkles, and GAYYYYY"</i> <br />'+
-			'<b>Type:</b> Fairy<br />'+
-			'<b>Ace:</b> Whimsicott the great fluffball of annoyance<br />');
+			'<b>Symbol:</b> <br />'+
+			'<b>Ace:</b> <br />');
         },
 
 	jeratt: function(target, room, user) {
@@ -415,13 +413,7 @@ var trainerCards = {
 		 	'<img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_front/302.gif"> <img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif">');
         },
         
-        arsh: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Arsh</b><br />'+
-			'<i>"Its not over until its over."</i> <br />'+
-			'<b>Type:</b> Ice<br />'+
-			'<b>Ace:</b> Mamoswine<br />');
-        },
+        
 
 	getbucks: 'getbucks',
 		getbucks: function(target, room, user) {

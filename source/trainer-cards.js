@@ -386,7 +386,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Iggy</b><br />'+
 			'<i>"Think of this as an obstacle you\'ll never overcome"</i> <br />'+
-			'<b>Symbol:Catch 22 Symbol</b> <br />'+
+			'<b>Symbol: Catch 22 Symbol</b> <br />'+
 			'<b>Ace:</b> HardHitter (Aggron/Gurdurr)<br />'+
 			'<b>Battle rules:</b> <br />'+
 			'-Chess Stabmons (Ubers) <br />'+

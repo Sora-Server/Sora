@@ -390,7 +390,7 @@ var trainerCards = {
 			'<b>Ace:</b> HardHitter (Aggron/Gurdurr)<br />'+
 			'<b>Battle rules:</b> <br />'+
 			'-Chess Stabmons (Ubers) <br />'+
-			'-Pick one Uber to be your King, if it faints you lose immediately.'
+			'-Pick one Uber to be your King, if it faints you lose immediately.');
         },
 
 	jeratt: function(target, room, user) {

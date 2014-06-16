@@ -321,12 +321,12 @@ var trainerCards = {
 
 	},
 
-	ghost: function(target, room, user) {
+	saltyy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Anna</b><br />'+
-			 '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Saltyy</b><br />'+
+			 '<i>"Don\'t worry, I will protect you my feeble turtle-duck."</i> <br />'+
 		         '<b>Type:</b> Ghost<br />'+
-			 '<b>Aces:</b> ???<br />');
+			 '<b>Aces:</b> Froslass<br />');
         },
 
 	valio: function(target, room, user) {

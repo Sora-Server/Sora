@@ -360,9 +360,9 @@ var trainerCards = {
 	bean877: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bean877</b><br />'+
-			  '<i>"All my critters are waiting to sting you while you are unaware."</i> <br />'+
+			  '<i>"My Bride and I can read your thoughts before you can make them"</i> <br />'+
 			  '<b>Type:</b> Psychic<br />'+
-			  '<b>Ace:</b> <br />');
+			  '<b>Ace:</b>Bride (Gradevoir) <br />');
 	},
 
 

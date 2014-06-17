@@ -362,7 +362,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Bean877</b><br />'+
 			  '<i>"My Bride and I can read your thoughts before you can make them"</i> <br />'+
 			  '<b>Type:</b> Psychic<br />'+
-			  '<b>Ace:</b>Bride (Gradevoir) <br />');
+			  '<b>Ace:</b> Bride (Gradevoir) <br />');
 	},
 
 

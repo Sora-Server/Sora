@@ -199,12 +199,12 @@ var trainerCards = {
 			'<b>Ace:</b> Lucario<br />');
         },
         
-        fairy: function(target, room, user) {
+        kezyrul: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-	              '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Kezyrul</b><br />'+
+	              '<i>"Hesitation is the seed of defeat"</i> <br />'+
 	              '<b>Type:</b> Fairy<br />'+
-	              '<b>Ace:</b> ???<br />');
+	              '<b>Ace:</b> Azumarill<br />');
         },
         
 	tempest: function(target, room, user) {
@@ -361,8 +361,8 @@ var trainerCards = {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bean877</b><br />'+
 			  '<i>"All my critters are waiting to sting you while you are unaware."</i> <br />'+
-			  '<b>Type:</b> Bug<br />'+
-			  '<b>Ace:</b> PinLikeaSir (Pinsir)<br />');
+			  '<b>Type:</b> Psychic<br />'+
+			  '<b>Ace:</b> <br />');
 	},
 
 

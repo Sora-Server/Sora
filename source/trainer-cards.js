@@ -387,10 +387,12 @@ var trainerCards = {
 		this.sendReplyBox('Frontier <b>Iggy</b><br />'+
 			'<i>"Think of this as an obstacle you\'ll never overcome"</i> <br />'+
 			'<b>Symbol: Catch 22 Symbol</b> <br />'+
-			'<b>Ace:</b> HardHitter (Aggron/Gurdurr)<br />'+
+			'<b>Ace:</b> HardHitter (Gurdurr)<br />'+
 			'<b>Battle rules:</b> <br />'+
-			'-Chess Stabmons (Ubers) <br />'+
-			'-Pick one Uber to be your King, if it faints you lose immediately.');
+			'-Middle cup tier <br />'+
+			'-Only Pokemon in the Middle of a 3 part evolutionary chain may take part <br />'+
+			'-All Pokemon must have their Level set to 50 <br />'+
+			'-The challenger must use pre-evolutions of his Gym Leader team that fulfils the requirement for participating. If there are Pokemon in the challenger\'s  team who does not have a pre-evolution, or whose pre-evolution does not fulfil the requirements for participating, then the challenger is free to replace the Pokemon with any other Pokemon who are eligible to participate in the Middle Cup <br />');
         },
 
 	jeratt: function(target, room, user) {

@@ -240,6 +240,16 @@ var trainerCards = {
 			  '<i>"Steel is a hard type, get it?"</i> <br />'+
 			  '<b>Type:</b> Steel<br />'+
 			  '<b>Ace:</b>Mega-Scizor (A Robot)<br />');
+	
+        },
+	
+	steve: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Steve</b><br />'+
+			  '<i>"Ill come u like bug go like an earthquake"</i> <br />'+
+			  '<b>Type:</b> Bug<br />'+
+			  '<b>Ace:</b> Pinsir <br />');
+        
         },
         
          arthurzh: function(target, room, user) {

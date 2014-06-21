@@ -161,7 +161,7 @@ exports.customAvatars = {
 	  'hooh': '022.gif',
 	  'gymldrzoro': '036.gif',
 	  'frntiernight': '024.png',
-	  'frontierzachary': '039.gif',
+	  'gymldrarthurzh': '039.gif',
 	  'frntirakash': '027.gif',
 	  'gymldriris': '028.png',
 	  'enzarif': '029.gif',

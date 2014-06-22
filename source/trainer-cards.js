@@ -110,7 +110,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Apple</b><br />'+
 		      '<i>"I\'ll mop the floor with you."</i> <br />'+
-		      '<b>Symbol:</b> Ground<br />'+
+		      '<b>Symbol:</b> Clear<br />'+
 		      '<b>Ace:</b> Vaporeon (Gills)<br />'+
 	 	      '<b>Battle Rules:</b> <br />'+
 	 	      '-Mono Body type <br/>'+
@@ -204,7 +204,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Kezyrul</b><br />'+
 	              '<i>"Hesitation is the seed of defeat"</i> <br />'+
 	              '<b>Type:</b> Fairy<br />'+
-	              '<b>Ace:</b> Azumarill<br />');
+	              '<b>Ace:</b> ?<br />');
         },
         
 	tempest: function(target, room, user) {
@@ -214,6 +214,7 @@ var trainerCards = {
 		          '<b>Symbol:</b> Roleplay<br />'+
 			  '<b>Ace:</b> Mienshao<br />'+
 		 	  '<b>Battle Rules:</b> <br/>'+
+		 	  '-Tier: OU <br/>'+
 		 	  '-PokéCosplay: You can only use a team consisting of an existing Pokémon trainer <br/>'+
 		 	  '-This includes trainers from the anime, manga, and games (except for the game\'s main character) <br/>'+
 		 	  '-When in Champion\'s Challenge, Evasion is banned <br />'+
@@ -362,8 +363,7 @@ var trainerCards = {
 			  '<center><i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY!"</i></center> <br />'+
 			  '<b>Favoured Type:</b> Water<br />'+
 			  '<b>Ace:</b> Kabutops<br />'+
-			  '<b>Achievements:</b> <strike>Best</strike> Water Leader of Sora, Roulette Frontier of Sora. <br />'+
-			  '<b>Known for:</b> Sadistical Playing Skills, Being Evil. <br />'+
+			  '<b>Achievements:</b> <strike>Best</strike> Water Leader of Sora, Ex Roulette/Champion\'s Challenge/Monotype Frontier of Sora. <br />'+
 			  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"></center>');
 	},
 

@@ -382,15 +382,17 @@ var trainerCards = {
 			  '<i>"Get off the ground cuz it\'s gonna get rough!"</i> <br />'+
 			  '<b>Type:</b> Ground<br />'+
 			  '<b>Ace:</b> Garchomp<br />');
+		
 	},
-
-	khronos: function(target, room, user) {
+	
+	falcon: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Khronos</b><br />'+
-			  '<i>"When you do what you fear most, then you can do anything."</i> <br />'+
-			  '<b>Type:</b> Psychic<br />'+
-			  '<b>Ace:</b> Mega-Medicham<br />');
-	},
+		this.sendReplyBox('Gym Ldr <b>Falcon</b><br />'+
+			  '<i>"Ice, Ice, Baby."</i> <br />'+
+			  '<b>Type:</b> Ice<br />'+
+			  '<b>Ace:</b> Weavile<br />');
+
+        },
 
 	iggy: function(target, room, user) {
 		if (!this.canBroadcast()) return;

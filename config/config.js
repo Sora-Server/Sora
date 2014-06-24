@@ -146,7 +146,7 @@ exports.customAvatars = {
 	  'frontiervader': '005.gif',
 	  'frontierryu': '006.gif',
 	  'gymldrleaf': '065.gif',
-	  'gymldrcore': '008.gif',
+	  'gymldrcore': '073.png',
 	  'e4toast': '009.gif',
 	  'e4bighug': '010.gif',
 	  'gymldrgary': '011.gif',
@@ -188,7 +188,7 @@ exports.customAvatars = {
 	  'stephan4ubers': '068.gif',
 	  'datslapzme': '069.gif',
 	  'amtesla': '070.gif',
-	  'gymldrterror': '072.gif',
+	  'gymldrterror': '072.gif', 
 	
 };
 

@@ -170,7 +170,7 @@ exports.customAvatars = {
 	  'acetrainerstark': '041.png',
 	  'frontierlou': '047.gif',
 	  'frntierpple': '067.gif',
-	  'chamiontost': '044.jpg',
+	  'chamiontst': '044.jpg',
 	  'gymldrsrewop': '048.jpg',
 	  'theone2500': '049.gif',
 	  'e4cocoa': '054.png',

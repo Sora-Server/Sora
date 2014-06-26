@@ -284,12 +284,12 @@ var trainerCards = {
 			  
         },
 			  
-        dark: function(target, room, user) {
+        fore: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
-			this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+			this.sendReplyBox('Gym Ldr <b>Fore</b><br />'+
+			  '<i>"The Dark is one with us."</i> <br />'+
 			  '<b>Type:</b> Dark<br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Greninja<br />');
         },
         
         srewop: function(target, room, user) {

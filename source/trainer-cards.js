@@ -205,6 +205,17 @@ var trainerCards = {
 	              '<i>"Hesitation is the seed of defeat"</i> <br />'+
 	              '<b>Type:</b> Fairy<br />'+
 	              '<b>Ace:</b> ?<br />');
+       
+        },
+        
+       
+        scorcher: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Scorcher</b><br />'+
+	              '<i>"Before You judge me, make sure that you\'re perfect"</i> <br />'+
+	              '<b>Type:</b> Fire<br />'+
+	              '<b>Ace:</b> Infernape<br />');
+        
         },
         
 	tempest: function(target, room, user) {

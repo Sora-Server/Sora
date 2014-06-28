@@ -392,7 +392,8 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Terror</b><br />'+
 			  '<i>"Get off the ground cuz it\'s gonna get rough!"</i> <br />'+
 			  '<b>Type:</b> Ground<br />'+
-			  '<b>Ace:</b> Garchomp<br />');
+			  '<b>Ace:</b> Garchomp<br />'+
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/garchomp.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/hippowdon.gif">');
 		
 	},
 	

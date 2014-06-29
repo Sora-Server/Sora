@@ -378,9 +378,9 @@ var trainerCards = {
 			  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"></center>');
 	},
 
-	bean877: function(target, room, user) {
+	gallade: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Bean877</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Gallade</b><br />'+
 			  '<i>"My Bride and I can read your thoughts before you can make them"</i> <br />'+
 			  '<b>Type:</b> Psychic<br />'+
 			  '<b>Ace:</b> Bride (Gardevoir) <br />');

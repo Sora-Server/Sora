@@ -183,7 +183,7 @@ exports.customAvatars = {
 	  'e4zoro': '062.gif',
 	  'gymldrsaltyy': '063.png',
 	  'pkkaiser': '064.gif',
-	  'gymldrbean877': '066.gif',
+	  'gymldrgallade': '066.gif',
 	  'stephan4ubers': '068.gif',
 	  'datslapzme': '069.gif',
 	  'amtesla': '070.gif',

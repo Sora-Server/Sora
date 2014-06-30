@@ -786,6 +786,7 @@ var commands = exports.commands = {
 
 	modchat: function (target, room, user) {
 		if (!target) return this.sendReply("Moderated chat is currently set to: " + room.modchat);
+		if (user.locked || user.mutedRooms[room.id]) return this.sendReply("You cannot do this while unable to talk.");
 		if (!this.can('modchat', room)) return false;
 
 		var roomType = room.auth ? room.type + 'Room' : 'global';
@@ -912,14 +913,22 @@ var commands = exports.commands = {
 	fr: 'forcerename',
 	forcerename: function (target, room, user) {
 		if (!target) return this.parse('/help forcerename');
-		target = this.splitTarget(target, true);
-		var targetUser = this.targetUser;
-		if (!targetUser) {
-			return this.sendReply("User '" + this.targetUsername + "' was not found or had already changed its name.");
+		if (user.locked || user.mutedRooms[room.id]) return this.sendReply("You cannot do this while unable to talk.");
+		var commaIndex = target.indexOf(',');
+		var targetUser, reason;
+		if (commaIndex !== -1) {
+			reason = target.substr(commaIndex + 1).trim();
+			target = target.substr(0, commaIndex);
 		}
+		targetUser = Users.get(target);
+		if (!targetUser) return this.sendReply("User '" + this.targetUsername + "' not found.");
 		if (!this.can('forcerename', targetUser)) return false;
 
-		var entry = targetUser.name + " was forced to choose a new name by " + user.name + (target ? ": " + target: "");
+		if (targetUser.userid !== toId(target)) {
+			return this.sendReply("User '" + target + "' had already changed its name to '" + targetUser.name + "'.");
+		}
+
+		var entry = targetUser.name + " was forced to choose a new name by " + user.name + (reason ? ": " + reason: "");
 		this.privateModCommand("(" + entry + ")");
 		Rooms.global.cancelSearch(targetUser);
 		targetUser.resetName();
@@ -1062,7 +1071,7 @@ var commands = exports.commands = {
 			return this.sendReply("Battle hotpatching is not supported with the single process hack.");
 
 		} else if (target === 'formats') {
-			/*try {
+			try {
 				// uncache the tools.js dependency tree
 				CommandParser.uncacheTree('./tools.js');
 				// reload tools.js
@@ -1070,17 +1079,17 @@ var commands = exports.commands = {
 				// rebuild the formats list
 				Rooms.global.formatListText = Rooms.global.getFormatListText();
 				// respawn validator processes
-				TeamValidator.ValidatorProcess.respawn();
+				//TeamValidator.ValidatorProcess.respawn();
+				battleProtoCache = {};
 				// respawn simulator processes
-				Simulator.SimulatorProcess.respawn();
+				//Simulator.SimulatorProcess.respawn();
 				// broadcast the new formats list to clients
 				Rooms.global.send(Rooms.global.formatListText);
 
 				return this.sendReply("Formats have been hotpatched.");
 			} catch (e) {
 				return this.sendReply("Something failed while trying to hotpatch formats: \n" + e.stack);
-			}*/
-			return this.sendReply("Formats hotpatching is not supported with the single process hack.");
+			}
 
 		} else if (target === 'learnsets') {
 			try {
@@ -1230,7 +1239,7 @@ var commands = exports.commands = {
 				}
 			}
 			Users.checkRangeBanned = Cidr.checker(rangebans);
-			connection.sendTo(room, "ibans.txt has been reloaded.");
+			connection.sendTo(room, "ipbans.txt has been reloaded.");
 		});
 	},
 

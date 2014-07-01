@@ -295,9 +295,9 @@ var trainerCards = {
 			  
         },
 			  
-        fore: function(target, room, user) {
+        leong: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
-			this.sendReplyBox('Gym Ldr <b>Fore</b><br />'+
+			this.sendReplyBox('Gym Ldr <b>Leong</b><br />'+
 			  '<i>"The Dark is one with us."</i> <br />'+
 			  '<b>Type:</b> Dark<br />'+
 			  '<b>Ace:</b> Greninja<br />');

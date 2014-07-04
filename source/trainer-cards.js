@@ -395,12 +395,12 @@ var trainerCards = {
 		
 	},
 	
-	falcon: function(target, room, user) {
+	ice: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Falcon</b><br />'+
-			  '<i>"Ice, Ice, Baby."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Ice<br />'+
-			  '<b>Ace:</b> Weavile<br />');
+			  '<b>Ace:</b> ???<br />');
 
         },
 

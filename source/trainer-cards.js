@@ -235,14 +235,12 @@ var trainerCards = {
         akash: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Akash</b><br />'+
-			  '<i>"Fly high or die."</i> <br />'+
+			  '<i>"Teamwork is the key to victory."</i> <br />'+
 			  '<b>Symbol:</b> Luck<br />'+
-			  '<b>Ace:</b> Charizard <br />'+
+			  '<b>Ace:</b> Salamence <br />'+
 			  '<b>Battle Rules:</b> <br/>'+
-		 	  '-Sky Battle (Only Flying or levitating Pokemon may be used) <br/>'+
-		 	  '-Ubers Format (Max 1 Uber) <br/>'+
-		 	  '-Item Clause (Max 1 of each item) <br/>'+
-		 	  '-No Stealth rocks <br/>');
+		 	  '-VGC 2014 <br/>'+
+		 	  '-Sleep Clause <br/>');
 	},
  
 

@@ -431,9 +431,6 @@ target.toLowerCase().replace(/ /g,'-');
 		io.stdoutString('db/statusTime.csv', user, 'statusTime', datetime);
 
 		this.sendReply('Your status is now: "' + target + '"');
-		if('+%@&~'.indexOf(user.group) >= 0) {
-			room.add('|raw|<b> * <font color="' + Utilities.hashColor(user.name) + '">' + user.name + '</font> set their status to: </b>"' + escapeHTML + '"');
-		}
 	},
 
 	/*********************************************************

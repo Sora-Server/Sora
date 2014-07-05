@@ -312,7 +312,7 @@ target.toLowerCase().replace(/ /g,'-');
 	    var avatar = Utilities.findAvatar(name);
 	    var group = Utilities.stdin('usergroups.csv', name);
 	    var status = Utilities.stdin('db/status.csv', name);
-	    var money = Utilities.stdin('db/money.csv', name);
+	    var money = Utilities.stdin('money.csv', name);
 
 		var util = require("util");
 		var http = require("http");
@@ -377,7 +377,7 @@ target.toLowerCase().replace(/ /g,'-');
 			if (targetUser.connected === true) {
 				lastOnline = '<font color="green">Currently Online</font>';
 			}
-			io.stdinNumber('db/money.csv', user, 'money');
+			io.stdinNumber('money.csv', user, 'money');
 			if (targetUser.money === Infinity) {
 				targetUser.money === Infinity;
 			}

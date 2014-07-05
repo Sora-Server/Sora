@@ -16,7 +16,7 @@ var customCommands = {
 
         if (!target) {
         	return this.sendReplyBox('' +
-        	'/profile - Displays the user\'s money, rank, rating tier, tournament wins, and status.<br/>' +
+        	'/profile - Displays the user\'s money, rank, rating tier, tournament wins, anhd status.<br/>' +
         	'/status - Sets up or change your status.<br/>' +
 			'/pickrandom - [option 1], [option 2], ... - Randomly chooses one of the given options.<br/>' +
 			'/poof - Disconnects you from the server and leaves a special message in chat.<br/>' +
@@ -752,6 +752,7 @@ target.toLowerCase().replace(/ /g,'-');
 	        '173.8.74.161 - SawkTooOp<br />'+
 	        '149.254.224.226<br />'+
 	        '219.74.219.210 -Buggy Bugs/Rockwolf<br />'+
+	        '42.60.104.177 -Buggy Bugs/Rockwolf<br />'+
 	        '23.17.238.53 -Zarif<br />'+
 	        'Shame on them!');
         },

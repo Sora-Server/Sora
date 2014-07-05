@@ -108,27 +108,64 @@ var fs = require('fs');
 		return text.toLowerCase().replace(/[^a-z0-9]/g, '');
 	},
 	
-	stdin: function(file, name) {
-		var info = " ";
-		var match = false;
+	stdin: function (file, name) {
+        var data = fs.readFileSync('config/' + file + '', 'utf8').split('\n');
 
-    	var data = fs.readFileSync('config/'+file,'utf8');
-
-        var row = (''+data).split("\n");
-        for (var i = row.length; i > -1; i--) {
-                if (!row[i]) continue;
-                var parts = row[i].split(",");
-                var userid = toId(parts[0]);
-                if (toId(name) == userid) {
-                	info = String(parts[1]);
-                    match = true;
-                    if (match === true) {
-                            break;
-                    }
-                }
+        var len = data.length;
+        while (len--) {
+            if (!data[len]) continue;
+            var parts = data[len].split(',');
+            if (parts[0].toLowerCase() === name) {
+                return parts[1];
+            }
         }
-        return info;
-	},
+        return 0;
+    },
+
+    stdout: function (file, name, info, callback) {
+        var data = fs.readFileSync('config/' + file + '' , 'utf8').split('\n');
+        var match = false;
+
+        var len = data.length;
+        while (len--) {
+            if (!data[len]) continue;
+            var parts = data[len].split(',');
+            if (parts[0] === name) {
+                data = data[len];
+                match = true;
+                break;
+            }
+        }
+
+        if (match === true) {
+            var re = new RegExp(data, 'g');
+            fs.readFile('config/' + file + '', 'utf8', function (err, data) {
+                if (err) return console.log(err);
+
+                var result = data.replace(re, name + ',' + info);
+                fs.writeFile('config/' + file + '', result, 'utf8', function (err) {
+                    if (err) return console.log(err);
+                    typeof callback === 'function' && callback();
+                });
+            });
+        } else {
+            var log = fs.createWriteStream('config/' + file + '', {
+                'flags': 'a'
+            });
+            log.write('\n' + name + ',' + info);
+            typeof callback === 'function' && callback();
+        }
+    },
+	findAvatar: function (name) {
+        var info = "";
+        for (user in Config.customAvatars) {
+        if (user === name) {
+        return Config.customAvatars[user];
+		}
+	}
+		return 0;
+},
+
 	
 	 shop: function (showDisplay) {
         var shop = [

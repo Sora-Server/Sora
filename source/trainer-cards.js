@@ -220,7 +220,7 @@ var trainerCards = {
         
 	tempest: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Tempest</b><br />'+
+		this.sendReplyBox('Elite Frontier <b>Tempest</b><br />'+
 		          '<i>"Pokemon Battles aren\'t the only thing I role play!"</i> <br />'+
 		          '<b>Symbol:</b> Roleplay<br />'+
 			  '<b>Ace:</b> Mienshao<br />'+
@@ -234,7 +234,7 @@ var trainerCards = {
 
         akash: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Akash</b><br />'+
+		this.sendReplyBox('Elite Frontier <b>Akash</b><br />'+
 			  '<i>"Teamwork is the key to victory."</i> <br />'+
 			  '<b>Symbol:</b> Luck<br />'+
 			  '<b>Ace:</b> Salamence <br />'+
@@ -395,12 +395,12 @@ var trainerCards = {
 		
 	},
 	
-	ice: function(target, room, user) {
+	rnbs: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Rnbs</b><br />'+
+			  '<i>"Nobody can hurt me without my permission."</i> <br />'+
 			  '<b>Type:</b> Ice<br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Kyurem-Black<br />');
 
         },
 

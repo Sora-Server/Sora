@@ -436,260 +436,128 @@ target.toLowerCase().replace(/ /g,'-');
 	/*********************************************************
 	 * Money commands
 	 *********************************************************/
-	givebucks: 'gb',
-	givemoney: 'gb',
-	gb: function (target, room, user) {
-	    if (!user.can('lockdown')) return this.sendReply('/givemoney - Access denied.');
-	    if (!target) return this.sendReply('|raw|Give money to a user. Usage: /givemoney <i>username</i>, <i>amount</i>');
-	    if (target.indexOf(',') >= 0) {
-	        var parts = target.split(',');
-	        parts[0] = this.splitTarget(parts[0]);
-	        var targetUser = this.targetUser;
-	    }
-	    if (!targetUser) {
-	        return this.sendReply('User ' + this.targetUsername + ' not found.');
-	    }
-	    if (isNaN(parts[1])) {
-	        return this.sendReply('Very funny, now use a real number.');
-	    }
-	    if (parts[1] < 0) {
-	        return this.sendReply('Number cannot be negative.');
-	    }
-	    var p = 'bucks';
-	    var cleanedUp = parts[1].trim();
-	    var giveMoney = Number(cleanedUp);
-	    if (giveMoney === 1) {
-	        p = 'buck';
-	    }
-	    io.stdoutNumber('db/money.csv', targetUser, 'money', giveMoney);
-	    this.sendReply(targetUser.name + ' was given ' + giveMoney + ' ' + p + '. This user now has ' + targetUser.money + ' ' + p + '.');
-	    targetUser.send(user.name + ' has given you ' + giveMoney + ' ' + p + '.');
-	    fs.appendFile('logs/transactions.log', '\n' + Date() + ': ' + targetUser.name + ' was given ' + giveMoney + ' ' + p + ' from ' + user.name + '. ' + 'They now have ' + targetUser.money + ' ' + p + '.');
-	},
+	 shop: function (target, room, user) {
+        if (!this.canBroadcast()) return;
+        return this.sendReply('|raw|' + Utilities.shop(true));
+    },
 
-	takebucks: 'takemoney',
-	takemoney: function (target, room, user) {
-	    if (!user.can('lockdown')) return this.sendReply('/takemoney - Access denied.');
-	    if (!target) return this.sendReply('|raw|Take away from a user. Usage: /takemoney <i>username</i>, <i>amount</i>');
-	    if (target.indexOf(',') >= 0) {
-	        var parts = target.split(',');
-	        parts[0] = this.splitTarget(parts[0]);
-	        var targetUser = this.targetUser;
-	    }
-	    if (!targetUser) {
-	        return this.sendReply('User ' + this.targetUsername + ' not found.');
-	    }
-	    if (isNaN(parts[1])) {
-	        return this.sendReply('Very funny, now use a real number.');
-	    }
-	    if (parts[1] < 0) {
-	        return this.sendReply('Number cannot be negative.');
-	    }
-	    var p = 'bucks';
-	    var cleanedUp = parts[1].trim();
-	    var takeMoney = Number(cleanedUp);
-	    if (takeMoney === 1) {
-	        p = 'buck';
-	    }
-	    io.stdoutNumber('db/money.csv', targetUser, 'money', -takeMoney);
-	    this.sendReply(targetUser.name + ' has had ' + takeMoney + ' ' + p + ' removed. This user now has ' + targetUser.money + ' ' + p + '.');
-	    targetUser.send(user.name + ' has removed ' + takeMoney + ' ' + p + ' from you.');
-	    fs.appendFile('logs/transactions.log', '\n' + Date() + ': ' + targetUser.name + ' losted ' + takeMoney + ' ' + p + ' from ' + user.name + '. ' + 'They now have ' + targetUser.money + ' ' + p + '.');
-	},
+    buy: function (target, room, user) {
+        if (!target) this.parse('/help buy');
+        var userMoney = Number(io.stdin('money.csv', user.userid));
+        var shop = Utilities.shop(false);
+        var len = shop.length;
+        while (len--) {
+            if (target.toLowerCase() === shop[len][0].toLowerCase()) {
+                var price = shop[len][2];
+                if (price > userMoney) return this.sendReply('You don\'t have enough money for this. You need ' + (price - userMoney) + ' more bucks to buy ' + target + '.');
+                io.stdout('money.csv', user.userid, (userMoney - price));
+                if (target.toLowerCase() === 'symbol') {
+                    user.canCustomSymbol = true;
+                    this.sendReply('You have purchased a custom symbol. You will have this until you log off for more than an hour. You may now use /customsymbol now.');
+                    this.parse('/help customsymbol');
+                    this.sendReply('If you do not want your custom symbol anymore, you may use /resetsymbol to go back to your old symbol.');
+                } else {
+                    this.sendReply('You have purchased ' + target + '. Please contact an admin to get ' + target + '.');
+                    for (var u in Users.users) {
+                        if (Users.get(u).group === '~') Users.get(u).send('|pm|' + user.group + user.name + '|' + Users.get(u).group + Users.get(u).name + '|' + 'I have bought ' + target + ' from the shop.');
+                    }
+                }
+                room.add(user.name + ' has bought ' + target + ' from the shop.');
+            }
+        }
+    },
 
-	transferbucks: 'transfermoney',
-	transfermoney: function (target, room, user) {
-	    if (!target) return this.sendReply('|raw|Transfer money between users. Usage: /transfermoney <i>username</i>, <i>amount</i>');
-	    if (target.indexOf(',') >= 0) {
-	        var parts = target.split(',');
-	        if (parts[0].toLowerCase() === user.name.toLowerCase()) {
-	            return this.sendReply('You can\'t transfer money to yourself.');
-	        }
-	        parts[0] = this.splitTarget(parts[0]);
-	        var targetUser = this.targetUser;
-	    }
-	    if (!targetUser) {
-	        return this.sendReply('User ' + this.targetUsername + ' not found.');
-	    }
-	    if (isNaN(parts[1])) {
-	        return this.sendReply('Very funny, now use a real number.');
-	    }
-	    if (parts[1] <= 0) {
-	        return this.sendReply('Number cannot be negative nor zero.');
-	    }
-	    if (String(parts[1]).indexOf('.') >= 0) {
-	        return this.sendReply('You cannot transfer money with decimals.');
-	    }
-	    if (parts[1] > user.money) {
-	        return this.sendReply('You cannot transfer more money than what you have.');
-	    }
-	    var p = 'bucks';
-	    var cleanedUp = parts[1].trim();
-	    var transferMoney = Number(cleanedUp);
-	    if (transferMoney === 1) {
-	        p = 'buck';
-	    }
-	    io.stdoutNumber('db/money.csv', user, 'money', -transferMoney);
-	    setTimeout(function() {
-	    	io.stdoutNumber('db/money.csv', targetUser, 'money', transferMoney);
-	    	fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has transferred '+transferMoney+' '+p+' to ' + targetUser.name + '. ' +  user.name +' now has '+user.money + ' ' + p + ' and ' + targetUser.name + ' now has ' + targetUser.money +' ' + p +'.');
-	    }, 1000);
-	    this.sendReply('You have successfully transferred ' + transferMoney + ' to ' + targetUser.name + '. You now have ' + user.money + ' ' + p + '.');
-	    targetUser.send(user.name + ' has transferred ' + transferMoney + ' ' + p + ' to you.');
-	},
+    transferbuck: 'transfermoney',
+    transferbucks: 'transfermoney',
+    transfermoney: function (target, room, user) {
+        if (!target) return this.parse('/help transfermoney');
+        if (!this.canTalk()) return;
 
-	shop: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<center><h4><b><u>The Sora League\'s Shop</u></b></h4><table border="1" cellspacing="0" cellpadding="3"><tr><th>Command</th><th>Description</th><th>Cost</th></tr><tr><td>Symbol</td><td>Buys a custom symbol to go infront of name and puts you at top of userlist. (temporary until restart)</td><td>5</td></tr><tr><td>Fix</td><td>Buys the ability to alter your current custom avatar or trainer card. (don\'t buy if you have neither)</td><td>10</td><tr><td>Custom</td><td>Buys a custom avatar to be applied to your name. (you supply)</td><td>20</td></tr><tr><td>Animated</td><td>Buys an animated avatar to be applied to your name. (you supply)</td><td>25</td></tr><tr><td>Trainer</td><td>Buys a trainer card which shows information through a command such as <i>/onyxe</i>.</td><td>40</td></tr><tr><td>Room</td><td>Buys a chatroom for you to own. (within reason, can be refused)</td><td>100</td></tr><tr><td>POTD</td><td>Buys the ability to set Pokemon of the Day.</td><td>15</td></tr></table></table><br/>To buy an item from the shop, use /buy <i>command</i>. <br/></center>');
-	},
+        if (target.indexOf(',') >= 0) {
+            var parts = target.split(',');
+            parts[0] = this.splitTarget(parts[0]);
+            var targetUser = this.targetUser;
+        }
 
-	buy: function(target, room, user) {
-		if (!target) return this.sendReply('|raw|Usage: /buy <i>command</i>');
-		var data = fs.readFileSync('config/db/money.csv','utf8')
-		var match = false;
-		var money = 0;
-		var line = '';
-		var row = (''+data).split("\n");
-		for (var i = row.length; i > -1; i--) {
-			if (!row[i]) continue;
-			var parts = row[i].split(",");
-			var userid = toId(parts[0]);
-			if (user.userid == userid) {
-			var x = Number(parts[1]);
-			var money = x;
-			match = true;
-			if (match === true) {
-				line = line + row[i];
-				break;
-			}
-			}
-		}
-		user.money = money;
-		var price = 0;
-		if (target === 'symbol') {
-			price = 5;
-			if (price <= user.money) {
-				user.money = user.money - price;
-				this.sendReply('You have purchased a custom symbol. You will have this until you log off for more than an hour.');
-				this.sendReply('|raw|Use /customsymbol <i>symbol</i> to change your symbol now.');
-				this.add(user.name + ' has purchased a custom symbol.');
-				user.canCustomSymbol = true;
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
-			} else {
-				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
-			}
-		}
-		if (target === 'fix') {
-			price = 10;
-			if (price <= user.money) {
-				user.money = user.money - price;
-				this.sendReply('You have purchased a fix for a custom avatar or trainer card. Private Message an admin to alter it for you.');
-				this.add(user.name + ' has purchased a fix for his custom avatar or trainer card.');
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
-			} else {
-				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
-			}
-		}
-		if (target === 'custom') {
-			price = 20;
-			if (price <= user.money) {
-				user.money = user.money - price;
-				this.sendReply('You have purchased an Custom Avatar. Private Message an admin add it in.');
-				this.add(user.name + ' has purchased a custom avatar.');
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
-			} else {
-				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
-			}
-		}
-		if (target === 'animated') {
-			price = 25;
-			if (price <= user.money) {
-				user.money = user.money - price;
-				this.sendReply('You have purchased an Animated Avatar. Private Message an admin add it in.');
-				this.add(user.name + ' has purchased a animated avatar.');
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
-			} else {
-				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
-			}
-		}
-		if (target === 'trainer') {
-			price = 40;
-			if (price <= user.money) {
-				user.money = user.money - price;
-				this.sendReply('You have purchased a trainer card. You need to message an admin capable of adding this.');
-				this.add(user.name + ' has purchased a trainer card.');
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
-			} else {
-				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
-			}
-		}
-		if (target === 'potd') {
-			price = 15;
-			if (price <= user.money) {
-				user.money = user.money - price;
-				this.sendReply('You have purchased the ability to set POTD. You need to message an admin capable of doing this.');
-				this.add(user.name + ' has purchased the ability to set POTD.');
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
-			} else {
-				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
-			}
-		}
-		if (target === 'room') {
-			price = 100;
-			if (price <= user.money) {
-				user.money = user.money - price;
-				this.sendReply('You have purchased a room. Private Message an admin to make the room.');
-				this.add(user.name + ' has purchased a room.');
-				fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has bought a ' + target + ' for ' + price + ' bucks. ' + user.name + ' now has ' + user.money + ' bucks' + '.');
-			} else {
-				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
-			}
-		}
-		if (match === true) {
-			var re = new RegExp(line,"g");
-			fs.readFile('config/db/money.csv', 'utf8', function (err,data) {
-			if (err) {
-				return console.log(err);
-			}
-			var result = data.replace(re, user.userid+','+user.money);
-			fs.writeFile('config/db/money.csv', result, 'utf8', function (err) {
-				if (err) return console.log(err);
-			});
-			});
-		} else {
-			var log = fs.createWriteStream('config/db/money.csv', {'flags': 'a'});
-			log.write("\n"+user.userid+','+user.money);
-		}
-	},
+        if (!targetUser) return this.sendReply('User ' + this.targetUsername + ' not found.');
+        if (targetUser.userid === user.userid) return this.sendReply('You cannot transfer money to yourself.');
+        if (isNaN(parts[1])) return this.sendReply('Very funny, now use a real number.');
+        if (parts[1] < 1) return this.sendReply('You can\'t transfer less than one buck at a time.');
+        if (String(parts[1]).indexOf('.') >= 0) return this.sendReply('You cannot transfer money with decimals.');
 
-	customsymbol: function(target, room, user) {
-		if(!user.canCustomSymbol) return this.sendReply('You need to buy this item from the shop to use.');
-		if(!target || target.length > 1) return this.sendReply('|raw|/customsymbol <i>symbol</i> - changes your symbol (usergroup) to the specified symbol. The symbol can only be one character');
-		var a = target;
-		if (a === "+" || a === "$" || a === "%" || a === "@" || a === "&" || a === "~" || a === "#" || a === "a" || a === "b" || a === "c" || a === "d" || a === "e" || a === "f" || a === "g" || a === "h" || a === "i" || a === "j" || a === "k" || a === "l" || a === "m" || a === "n" || a === "o" || a === "p" || a === "q" || a === "r" || a === "s" || a === "t" || a === "u" || a === "v" || a === "w" || a === "x" || a === "y" || a === "z" || a === "!" || a === "?" || a === "\u2605") {
-			return this.sendReply('Sorry, but you cannot change your symbol to this for safety/stability reasons.');
-		}
-		user.getIdentity = function(){
-			if(this.muted)	return '!' + this.name;
-			if(this.locked) return '‽' + this.name;
-			return target + this.name;
-		};
-		user.updateIdentity();
-		user.canCustomSymbol = false;
-		user.hasCustomSymbol = true;
-	},
+        var userMoney = io.stdin('money.csv', user.userid);
+        var targetMoney = io.stdin('money.csv', targetUser.userid);
 
-	resetsymbol: function(target, room, user) {
-		if (!user.hasCustomSymbol) return this.sendReply('You don\'t have a custom symbol!');
-		user.getIdentity = function() {
-			if (this.muted) return '!' + this.name;
-			if (this.locked) return '‽' + this.name;
-			return this.group + this.name;
-		};
-		user.hasCustomSymbol = false;
-		user.updateIdentity();
-		this.sendReply('Your symbol has been reset.');
-	},
+        if (parts[1] > Number(userMoney)) return this.sendReply('You cannot transfer more money than what you have.');
+
+        var b = 'bucks';
+        var cleanedUp = parts[1].trim();
+        var transferMoney = Number(cleanedUp);
+        if (transferMoney === 1) b = 'buck';
+
+        userMoney = Number(userMoney) - transferMoney;
+        targetMoney = Number(targetMoney) + transferMoney;
+
+        io.stdout('money.csv', user.userid, userMoney, function () {
+            io.stdout('money.csv', targetUser.userid, targetMoney);
+        });
+
+        this.sendReply('You have successfully transferred ' + transferMoney + ' ' + b + ' to ' + targetUser.name + '. You now have ' + userMoney + ' bucks.');
+        targetUser.send(user.name + ' has transferred ' + transferMoney + ' ' + b + ' to you. You now have ' + targetMoney + ' bucks.');
+    },
+
+	
+    customsymbol: function (target, room, user) {
+        if (!user.canCustomSymbol) return this.sendReply('You need to buy this item from the shop to use.');
+        if (!target || target.length > 1) return this.parse('/help customsymbol');
+        if (target.match(/[A-Za-z\d]+/g) || '‽!+%@\u2605&~#'.indexOf(target) >= 0) return this.sendReply('Sorry, but you cannot change your symbol to this for safety/stability reasons.');
+        user.getIdentity = function (roomid) {
+            if (!roomid) roomid = 'lobby';
+            var name = this.name + (this.away ? " - \u0410\u051d\u0430\u0443" : "");
+            if (this.locked) {
+                return '‽' + name;
+            }
+            if (this.mutedRooms[roomid]) {
+                return '!' + name;
+            }
+            var room = Rooms.rooms[roomid];
+            if (room.auth) {
+                if (room.auth[this.userid]) {
+                    return room.auth[this.userid] + name;
+                }
+                if (room.isPrivate) return ' ' + name;
+            }
+            return target + name;
+        };
+        user.updateIdentity();
+        user.canCustomSymbol = false;
+        user.hasCustomSymbol = true;
+    },
+
+    resetsymbol: function (target, room, user) {
+        if (!user.hasCustomSymbol) return this.sendReply('You don\'t have a custom symbol.');
+        user.getIdentity = function (roomid) {
+            if (!roomid) roomid = 'lobby';
+            var name = this.name + (this.away ? " - \u0410\u051d\u0430\u0443" : "");
+            if (this.locked) {
+                return '‽' + name;
+            }
+            if (this.mutedRooms[roomid]) {
+                return '!' + name;
+            }
+            var room = Rooms.rooms[roomid];
+            if (room.auth) {
+                if (room.auth[this.userid]) {
+                    return room.auth[this.userid] + name;
+                }
+                if (room.isPrivate) return ' ' + name;
+            }
+            return this.group + name;
+        };
+        user.hasCustomSymbol = false;
+        user.updateIdentity();
+        this.sendReply('Your symbol has been reset.');
+    },
 	
 	/*********************************************************
 	 * Tour commands

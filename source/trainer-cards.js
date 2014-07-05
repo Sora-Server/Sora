@@ -168,7 +168,7 @@ var trainerCards = {
 		 	    '<img src="http://sprites.pokecheck.org/i/601.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
         },
 
-
+        grass: 'asch',
 	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
@@ -191,7 +191,7 @@ var trainerCards = {
 			
         },
      
-        
+        fighting: 'm3owth',
         m3owth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>M3owth</b><br />'+
@@ -200,6 +200,7 @@ var trainerCards = {
 			'<b>Ace:</b> Lucario<br />');
         },
         
+        fairy: 'kezyrul',
         kezyrul: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Kezyrul</b><br />'+
@@ -209,7 +210,7 @@ var trainerCards = {
        
         },
         
-       
+        fire: 'scorcher',
         scorcher: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Scorcher</b><br />'+
@@ -244,7 +245,7 @@ var trainerCards = {
 		 	  '-Sleep Clause <br/>');
 	},
  
-
+        steel: 'myth',
         myth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Myth</b><br />'+
@@ -254,6 +255,7 @@ var trainerCards = {
 	
         },
 	
+	bug: 'steve',
 	steve: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Steve</b><br />'+
@@ -263,6 +265,7 @@ var trainerCards = {
         
         },
         
+         water: 'arthurzh',
          arthurzh: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Arthurzh</b><br />'+
@@ -271,7 +274,7 @@ var trainerCards = {
 			  '<b>Ace:</b>Kabutops<br />');
         },
         
-        
+        rock: 'core',
         core: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Core</b><br />'+
@@ -294,6 +297,7 @@ var trainerCards = {
 			  
         },
 			  
+        dark: 'leong',
         leong: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>Leong</b><br />'+
@@ -302,6 +306,7 @@ var trainerCards = {
 			  '<b>Ace:</b> Greninja<br />');
         },
         
+        poison: 'srewop',
         srewop: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Srewop</b><br />'+
@@ -310,6 +315,7 @@ var trainerCards = {
 			 '<b>Ace:</b> Venusaur<br />');
 	},
         
+        flying: 'nirvana',
         nirvana: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Nirvana</b><br />'+
@@ -342,6 +348,7 @@ var trainerCards = {
 		 	  '-Players can use whatever pokemon from the evolution chain of the pokemon picked by random <br/>');
 	},
 
+	normal: 'oz',
 	oz: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Oz</b><br />'+
@@ -351,6 +358,7 @@ var trainerCards = {
 
 	},
 
+	ghost: 'eska',
 	eska: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Eska</b><br />'+
@@ -359,6 +367,7 @@ var trainerCards = {
 			 '<b>Aces:</b> Froslass<br />');
         },
 
+	electric: 'valio',
 	valio: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Valio</b><br />'+
@@ -377,6 +386,7 @@ var trainerCards = {
 			  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"></center>');
 	},
 
+	psychic: 'gallade',
 	gallade: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Gallade</b><br />'+
@@ -386,6 +396,7 @@ var trainerCards = {
 	},
 
 
+	ground: 'terror',
 	terror: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Terror</b><br />'+
@@ -396,6 +407,7 @@ var trainerCards = {
 		
 	},
 	
+	ice: 'rnbs',
 	rnbs: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Rnbs</b><br />'+

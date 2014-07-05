@@ -144,9 +144,9 @@ target.toLowerCase().replace(/ /g,'-');
 			"fell into a meerkat hole!",
 			"took an arrow to the knee... and then one to the face.",
 			"peered through the hole on Shedinja's back",
-			"recieved judgment from the almighty Arceus!",
+			"recieved judgment from the almighty Parasect!",
 			"used Final Gambit and missed!",
-			"pissed off a Gyarados!",
+			"pissed off a Male Combee!",
 			"got lost in the illusion of reality.",
 			"was unfortunate and didn't get a cool message.",
 			"was knocked out cold by Vanilla!",
@@ -154,7 +154,7 @@ target.toLowerCase().replace(/ /g,'-');
 			"was BLEGHED on by Cocoa!",
 			"was bitten by a rabid Bart!",
 			"fed the wild Ascher and is now paying the price!",
-			"was Pan Hammered!"
+			"was incinerated by Magcargo!"
 		];
 
 		return function(target, room, user) {

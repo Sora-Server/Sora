@@ -467,11 +467,52 @@ target.toLowerCase().replace(/ /g,'-');
         }
     },
 
-    transferbuck: 'transfermoney',
-    transferbucks: 'transfermoney',
-    transfermoney: function (target, room, user) {
-        if (!target) return this.parse('/help transfermoney');
-        if (!this.canTalk()) return;
+   transferbucks: 'transfermoney',
+ 	transfermoney: function (target, room, user) {
+ 	    if (!target) return this.sendReply('|raw|Transfer money between users. Usage: /transfermoney <i>username</i>, <i>amount</i>');
+ 	    if (target.indexOf(',') >= 0) {
+ 	        var parts = target.split(',');
+ 	        if (parts[0].toLowerCase() === user.name.toLowerCase()) {
+ 	            return this.sendReply('You can\'t transfer money to yourself.');
+ 	        }
+ 	        parts[0] = this.splitTarget(parts[0]);
+ 	        var targetUser = this.targetUser;
+ 	    }
+ 	    if (!targetUser) {
+ 	        return this.sendReply('User ' + this.targetUsername + ' not found.');
+ 	    }
+ 	    if (isNaN(parts[1])) {
+ 	        return this.sendReply('Very funny, now use a real number.');
+ 	    }
+ 	    if (parts[1] <= 0) {
+ 	        return this.sendReply('Number cannot be negative nor zero.');
+ 	    }
+ 	    if (String(parts[1]).indexOf('.') >= 0) {
+ 	        return this.sendReply('You cannot transfer money with decimals.');
+ 	    }
+ 	    if (parts[1] > user.money) {
+ 	        return this.sendReply('You cannot transfer more money than what you have.');
+ 	    }
+ 	    var p = 'bucks';
+ 	    var cleanedUp = parts[1].trim();
+ 	    var transferMoney = Number(cleanedUp);
+ 	    if (transferMoney === 1) {
+ 	        p = 'buck';
+ 	    }
+ 	    io.stdoutNumber('money.csv', user, 'money', -transferMoney);
+ 	    setTimeout(function() {
+ 	    	io.stdoutNumber('money.csv', targetUser, 'money', transferMoney);
+ 	    	fs.appendFile('logs/transactions.log','\n'+Date()+': '+user.name+' has transferred '+transferMoney+' '+p+' to ' + targetUser.name + '. ' +  user.name +' now has '+user.money + ' ' + p + ' and ' + targetUser.name + ' now has ' + targetUser.money +' ' + p +'.');
+ 	    }, 1000);
+ 	    this.sendReply('You have successfully transferred ' + transferMoney + ' to ' + targetUser.name + '. You now have ' + user.money + ' ' + p + '.');
+ 	    targetUser.send(user.name + ' has transferred ' + transferMoney + ' ' + p + ' to you.');
+ 	},
+	gb: 'givemoney',
+	givebuck: 'givemoney',
+    givebucks: 'givemoney',
+    givemoney: function (target, room, user) {
+        if (!user.can('givemoney')) return;
+        if (!target) return this.parse('/help givemoney');
 
         if (target.indexOf(',') >= 0) {
             var parts = target.split(',');
@@ -480,31 +521,55 @@ target.toLowerCase().replace(/ /g,'-');
         }
 
         if (!targetUser) return this.sendReply('User ' + this.targetUsername + ' not found.');
-        if (targetUser.userid === user.userid) return this.sendReply('You cannot transfer money to yourself.');
         if (isNaN(parts[1])) return this.sendReply('Very funny, now use a real number.');
-        if (parts[1] < 1) return this.sendReply('You can\'t transfer less than one buck at a time.');
-        if (String(parts[1]).indexOf('.') >= 0) return this.sendReply('You cannot transfer money with decimals.');
-
-        var userMoney = Utilities.stdin('money.csv', user.userid);
-        var targetMoney = Utilities.stdin('money.csv', targetUser.userid);
-
-        if (parts[1] > Number(userMoney)) return this.sendReply('You cannot transfer more money than what you have.');
+        if (parts[1] < 1) return this.sendReply('You can\'t give less than one buck at a time.');
+        if (String(parts[1]).indexOf('.') >= 0) return this.sendReply('You cannot give money with decimals.');
 
         var b = 'bucks';
         var cleanedUp = parts[1].trim();
-        var transferMoney = Number(cleanedUp);
-        if (transferMoney === 1) b = 'buck';
+        var giveMoney = Number(cleanedUp);
+        if (giveMoney === 1) b = 'buck';
 
-        userMoney = Number(userMoney) - transferMoney;
-        targetMoney = Number(targetMoney) + transferMoney;
+        var money = Utilities.stdin('money.csv', targetUser.userid);
+        var total = Number(money) + Number(giveMoney);
 
-        Utilities.stdout('money.csv', user.userid, userMoney, functUtilitiesn () {
-            Utilities.stdout('money.csv', targetUser.userid, targetMoney);
-        });
+        Utilities.stdout('money.csv', targetUser.userid, total);
 
-        this.sendReply('You have successfully transferred ' + transferMoney + ' ' + b + ' to ' + targetUser.name + '. You now have ' + userMoney + ' bucks.');
-        targetUser.send(user.name + ' has transferred ' + transferMoney + ' ' + b + ' to you. You now have ' + targetMoney + ' bucks.');
+        this.sendReply(targetUser.name + ' was given ' + giveMoney + ' ' + b + '. This user now has ' + total + ' bucks.');
+        targetUser.send(user.name + ' has given you ' + giveMoney + ' ' + b + '. You now have ' + total + ' bucks.');
     },
+
+    takebuck: 'takemoney',
+    takebucks: 'takemoney',
+    takemoney: function (target, room, user) {
+        if (!user.can('takemoney')) return;
+        if (!target) return this.parse('/help takemoney');
+
+        if (target.indexOf(',') >= 0) {
+            var parts = target.split(',');
+            parts[0] = this.splitTarget(parts[0]);
+            var targetUser = this.targetUser;
+        }
+
+        if (!targetUser) return this.sendReply('User ' + this.targetUsername + ' not found.');
+        if (isNaN(parts[1])) return this.sendReply('Very funny, now use a real number.');
+        if (parts[1] < 1) return this.sendReply('You can\'t take less than one buck at a time.');
+        if (String(parts[1]).indexOf('.') >= 0) return this.sendReply('You cannot take money with decimals.');
+
+        var b = 'bucks';
+        var cleanedUp = parts[1].trim();
+        var takeMoney = Number(cleanedUp);
+        if (takeMoney === 1) b = 'buck';
+
+        var money = Utilities.stdin('money.csv', targetUser.userid);
+        var total = Number(money) - Number(takeMoney);
+
+        Utilities.stdout('money.csv', targetUser.userid, total);
+
+        this.sendReply(targetUser.name + ' has losted ' + takeMoney + ' ' + b + '. This user now has ' + total + ' bucks.');
+        targetUser.send(user.name + ' has taken ' + takeMoney + ' ' + b + ' from you. You now have ' + total + ' bucks.');
+    },
+
 
 	
     customsymbol: function (target, room, user) {

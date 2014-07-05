@@ -631,6 +631,7 @@ exports.Formats = [
 		maxLevel: 5,
 		ruleset: ['Pokemon', 'Standard', 'Little Cup', 'Same Type Clause'],
 		banlist: ['Dragon Rage', 'Sonic Boom', 'Swagger', 'LC Uber', 'Gligar']
+	},
 	{
 		name: "Gen-NEXT OU",
 		section: "Other Metagames",

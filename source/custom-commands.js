@@ -277,6 +277,18 @@ target.toLowerCase().replace(/ /g,'-');
 
 		connection.popup('Administrators: \n--------------------\n' + buffer.admins + '\n\nLeaders:\n-------------------- \n' + buffer.leaders + '\n\nModerators:\n-------------------- \n' + buffer.mods + '\n\nDrivers: \n--------------------\n' + buffer.drivers + '\n\nVoices:\n-------------------- \n' + buffer.voices);
 	},
+	 db: 'database',
+    database: function (target, room, user) {
+        if (!this.can('db')) return;
+        if (!target) return user.send('|popup|You must enter a target.');
+
+        try {
+            var log = fs.readFileSync(('config/' + target + '.csv'), 'utf8');
+            return user.send('|popup|' + log);
+        } catch (e) {
+            return user.send('|popup|Something bad happen:\n\n ' + e.stack);
+        }
+    },
 
 	tell: function(target, room, user) {
 		if (!target) return false;

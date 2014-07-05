@@ -443,14 +443,14 @@ target.toLowerCase().replace(/ /g,'-');
 
     buy: function (target, room, user) {
         if (!target) this.parse('/help buy');
-        var userMoney = Number(io.stdin('money.csv', user.userid));
+        var userMoney = Number(Utilities.stdin('money.csv', user.userid));
         var shop = Utilities.shop(false);
         var len = shop.length;
         while (len--) {
             if (target.toLowerCase() === shop[len][0].toLowerCase()) {
                 var price = shop[len][2];
                 if (price > userMoney) return this.sendReply('You don\'t have enough money for this. You need ' + (price - userMoney) + ' more bucks to buy ' + target + '.');
-                io.stdout('money.csv', user.userid, (userMoney - price));
+                Utilities.stdout('money.csv', user.userid, (userMoney - price));
                 if (target.toLowerCase() === 'symbol') {
                     user.canCustomSymbol = true;
                     this.sendReply('You have purchased a custom symbol. You will have this until you log off for more than an hour. You may now use /customsymbol now.');
@@ -485,8 +485,8 @@ target.toLowerCase().replace(/ /g,'-');
         if (parts[1] < 1) return this.sendReply('You can\'t transfer less than one buck at a time.');
         if (String(parts[1]).indexOf('.') >= 0) return this.sendReply('You cannot transfer money with decimals.');
 
-        var userMoney = io.stdin('money.csv', user.userid);
-        var targetMoney = io.stdin('money.csv', targetUser.userid);
+        var userMoney = Utilities.stdin('money.csv', user.userid);
+        var targetMoney = Utilities.stdin('money.csv', targetUser.userid);
 
         if (parts[1] > Number(userMoney)) return this.sendReply('You cannot transfer more money than what you have.');
 
@@ -498,8 +498,8 @@ target.toLowerCase().replace(/ /g,'-');
         userMoney = Number(userMoney) - transferMoney;
         targetMoney = Number(targetMoney) + transferMoney;
 
-        io.stdout('money.csv', user.userid, userMoney, function () {
-            io.stdout('money.csv', targetUser.userid, targetMoney);
+        Utilities.stdout('money.csv', user.userid, userMoney, functUtilitiesn () {
+            Utilities.stdout('money.csv', targetUser.userid, targetMoney);
         });
 
         this.sendReply('You have successfully transferred ' + transferMoney + ' ' + b + ' to ' + targetUser.name + '. You now have ' + userMoney + ' bucks.');

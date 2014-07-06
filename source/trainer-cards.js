@@ -451,7 +451,7 @@ var trainerCards = {
 			'<b>Ace:</b> Mega Gengar<br />'+
 			'<b>Honours:</b> Sora\'s first challenger to reach Hall of Fame.<br />'+
 			'<b>Battle rules:</b>'+
-			'-Balanced Hackmons <br/>'
+			'-Balanced Hackmons <br/>'+
 		 	'<img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_front/302.gif"> <img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif">');
         },
         

@@ -171,7 +171,7 @@ exports.customAvatars = {
 	  'chamintst': '044.jpg',
 	  'gymldrsrewop': '048.jpg',
 	  'theone2500': '049.gif',
-	  'e4cocoa': '074.jpg',
+	  'e4cocoa': '054.png',
 	  'gymtrnrsteve': '051.gif',
 	  'reirdkrmory': '052.gif',
 	  'prophetabraham': '056.gif',

@@ -149,7 +149,7 @@ target.toLowerCase().replace(/ /g,'-');
 			"pissed off a Male Combee!",
 			"got lost in the illusion of reality.",
 			"was unfortunate and didn't get a cool message.",
-			"was knocked out cold by Vanilla!",
+			"was knocked out cold by Snover!",
 			"was shoved in a Blendtec Blender with iPad!",
 			"was BLEGHED on by Cocoa!",
 			"was bitten by a rabid Bart!",
@@ -755,6 +755,7 @@ target.toLowerCase().replace(/ /g,'-');
 	        '219.74.219.210 -Buggy Bugs/Rockwolf<br />'+
 	        '42.60.104.177 -Buggy Bugs/Rockwolf<br />'+
 	        '23.17.238.53 -Zarif<br />'+
+	        '122.161.191.64 -Ncrypt<br />'+
 	        'Shame on them!');
         },
 

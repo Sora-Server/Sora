@@ -130,7 +130,8 @@ var trainerCards = {
 		      '<b>Ace:</b> Umbreon <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-No direct status. <br/>'+
-	 	      '-No protecting moves. <br/>');
+	 	      '-No protecting moves. <br/>'+
+	 	      '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">'
 	
 	},
 

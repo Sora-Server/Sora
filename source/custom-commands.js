@@ -132,7 +132,7 @@ target.toLowerCase().replace(/ /g,'-');
 			"felt Thundurus's wrath!",
 			"died of a broken heart.",
 			"got lost in a maze!",
-			"was hit by Magikarp's Revenge!",
+			"was hit by Based Parasect\'s Fell Stinger!",
 			"was sucked into a whirlpool!",
 			"got scared and left the server!",
 			"fell off a cliff!",

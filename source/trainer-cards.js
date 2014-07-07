@@ -192,13 +192,13 @@ var trainerCards = {
 			
         },
      
-        fighting: 'm3owth',
-        m3owth: function(target, room, user) {
+        
+        fighting: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>M3owth</b><br />'+
-			'<i>"In accordance with the dictates of reason."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			'<i>"???"</i> <br />'+
 			'<b>Type:</b> Fighting<br />'+
-			'<b>Ace:</b> Lucario<br />');
+			'<b>Ace:</b> ???<br />');
         },
         
         fairy: 'kezyrul',
@@ -298,13 +298,13 @@ var trainerCards = {
 			  
         },
 			  
-        dark: 'leong',
-        leong: function(target, room, user) {
+        
+        dark: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
-			this.sendReplyBox('Gym Ldr <b>Leong</b><br />'+
-			  '<i>"The Dark is one with us."</i> <br />'+
+			this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Dark<br />'+
-			  '<b>Ace:</b> Greninja<br />');
+			  '<b>Ace:</b> ???<br />');
         },
         
         poison: 'srewop',
@@ -316,13 +316,14 @@ var trainerCards = {
 			 '<b>Ace:</b> Venusaur<br />');
 	},
         
-        flying: 'nirvana',
-        nirvana: function(target, room, user) {
+        flying: 'waffles',
+        waffles: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Nirvana</b><br />'+
-		         '<i>"Don\'t believe in yourself. Believe in me. Believe in the me who believes in you!"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Waffles</b><br />'+
+		         '<i>"I\'m fairy sure this quote sucks"</i> <br />'+
 	              	 '<b>Type:</b> Flying<br />'+
-			 '<b>Ace:</b> All<br />');
+			 '<b>Ace:</b> Aerodactyl<br />'+
+			 '<img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/aerodactyl.gif">');
         },
         
         ground: function(target, room, user) {
@@ -349,13 +350,13 @@ var trainerCards = {
 		 	  '-Players can use whatever pokemon from the evolution chain of the pokemon picked by random <br/>');
 	},
 
-	normal: 'oz',
-	oz: function(target, room, user) {
+	
+	normal: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Oz</b><br />'+
-			  '<i>"Getting cool is not the best way to get attractive, be normal"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Normal<br />'+
-			  '<b>Ace:</b> Porygon 2 (Ducky Momo)<br />');
+			  '<b>Ace:</b> ???<br />');
 
 	},
 
@@ -368,13 +369,13 @@ var trainerCards = {
 			 '<b>Aces:</b> Froslass<br />');
         },
 
-	electric: 'valio',
-	valio: function(target, room, user) {
+	
+	electric: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Valio</b><br />'+
-			  '<i>"Reload, take aim, aaaand SPARK!"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Electric<br />'+
-			  '<b>Ace:</b> Elektross<br />');
+			  '<b>Ace:</b> ???<br />');
 	},
 
 	azh: function(target, room, user) {

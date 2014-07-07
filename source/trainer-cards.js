@@ -198,7 +198,8 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Night</b><br />'+
 			'<i>"Slow and Steady wins the race."</i> <br />'+
 			'<b>Type:</b> Fighting<br />'+
-			'<b>Ace:</b> Infernape<br />');
+			'<b>Ace:</b> Infernape<br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/xyani/infernape.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/scrafty.gif">');
         },
         
         fairy: 'kezyrul',

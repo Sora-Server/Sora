@@ -367,7 +367,8 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Eska</b><br />'+
 			 '<i>"Don\'t worry, I will protect you my feeble turtle-duck."</i> <br />'+
 		         '<b>Type:</b> Ghost<br />'+
-			 '<b>Aces:</b> Froslass<br />');
+			 '<b>Aces:</b> Froslass<br />'
+			 '<img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/chandelure.gif">');
         },
 
 	

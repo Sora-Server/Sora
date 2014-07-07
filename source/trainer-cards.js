@@ -192,13 +192,13 @@ var trainerCards = {
 			
         },
      
-        
-        fighting: function(target, room, user) {
+        fighting: 'night',
+        night: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			'<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Night</b><br />'+
+			'<i>"Infernape"</i> <br />'+
 			'<b>Type:</b> Fighting<br />'+
-			'<b>Ace:</b> ???<br />');
+			'<b>Ace:</b> Slow and Steady wins the race.<br />');
         },
         
         fairy: 'kezyrul',

@@ -351,13 +351,13 @@ var trainerCards = {
 		 	  '-Players can use whatever pokemon from the evolution chain of the pokemon picked by random <br/>');
 	},
 
-	
-	normal: function(target, room, user) {
+	normal: 'kira',
+	kira: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Kira</b><br />'+
+			  '<i>"BITCH I\'m normal and you\'re NAWT"</i> <br />'+
 			  '<b>Type:</b> Normal<br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Staraptor<br />');
 
 	},
 

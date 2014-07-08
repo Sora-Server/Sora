@@ -212,8 +212,8 @@ var trainerCards = {
        
         },
         
-        fire: 'scorcher',
-        scorcher: function(target, room, user) {
+        fire: 'hayden',
+        hayden: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Scorcher</b><br />'+
 	              '<i>"Before You judge me, make sure that you\'re perfect"</i> <br />'+

@@ -154,7 +154,8 @@ target.toLowerCase().replace(/ /g,'-');
 			"was BLEGHED on by Cocoa!",
 			"was bitten by a rabid Bart!",
 			"fed the wild Ascher and is now paying the price!",
-			"was incinerated by Magcargo!"
+			"was incinerated by Magcargo!",
+			"is better as E4!"
 		];
 
 		return function(target, room, user) {

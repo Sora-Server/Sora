@@ -150,12 +150,12 @@ target.toLowerCase().replace(/ /g,'-');
 			"got lost in the illusion of reality.",
 			"was unfortunate and didn't get a cool message.",
 			"was knocked out cold by Snover!",
-			"was shoved in a Blendtec Blender with iPad!",
 			"was BLEGHED on by Cocoa!",
 			"was bitten by a rabid Bart!",
 			"fed the wild Ascher and is now paying the price!",
 			"was incinerated by Magcargo!",
-			"is better as E4!"
+			"is better as E4!",
+			"was drowned by Wooper's divine mud!"
 		];
 
 		return function(target, room, user) {

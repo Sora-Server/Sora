@@ -188,7 +188,7 @@ var trainerCards = {
 			'<b>Battle Rules:</b> <br />'+
 			'-Ability Shift Tier<br />'+
 			'-No focus Sash/Band<br />'+
-		        '<a href="http://http://tinyurl.com/kxd7mxk">How Ability Shift works</a>'
+		        '<a href="http://http://tinyurl.com/kxd7mxk">How Ability Shift works</a>'+
 			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/torkoal.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/blaziken.gif">');
 			
         },

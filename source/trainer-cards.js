@@ -222,19 +222,6 @@ var trainerCards = {
         
         },
         
-	tempest: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Elite Frontier <b>Tempest</b><br />'+
-		          '<i>"Pokemon Battles aren\'t the only thing I role play!"</i> <br />'+
-		          '<b>Symbol:</b> Roleplay<br />'+
-			  '<b>Ace:</b> Mienshao<br />'+
-		 	  '<b>Battle Rules:</b> <br/>'+
-		 	  '-Tier: OU <br/>'+
-		 	  '-PokéCosplay: You can only use a team consisting of an existing Pokémon trainer <br/>'+
-		 	  '-This includes trainers from the anime, manga, and games (except for the game\'s main character) <br/>'+
-		 	  '-When in Champion\'s Challenge, Evasion is banned <br />'+
-		 	  '<img src="http://sprites.pokecheck.org/t/144.gif"> <img src="http://sprites.pokecheck.org/i/620.gif">');
-	},
 
         akash: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -423,7 +410,7 @@ var trainerCards = {
 
 	iggy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Iggy</b><br />'+
+		this.sendReplyBox('Elite Frontier <b>Iggy</b><br />'+
 			'<i>"Think of this as an obstacle you\'ll never overcome"</i> <br />'+
 			'<b>Symbol: Catch 22 Symbol</b> <br />'+
 			'<b>Ace:</b> HardHitter (Gurdurr)<br />'+

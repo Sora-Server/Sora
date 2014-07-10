@@ -193,18 +193,17 @@ var trainerCards = {
 			
         },
      
-        fighting: 'night',
-        night: function(target, room, user) {
+        
+        fighting: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Night</b><br />'+
-			'<i>"Slow and Steady wins the race."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			'<i>"???"</i> <br />'+
 			'<b>Type:</b> Fighting<br />'+
-			'<b>Ace:</b> Infernape<br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/xyani/infernape.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/scrafty.gif">');
+			'<b>Ace:</b> ???<br />');
         },
         
-        fairy: 'kezyrul',
-        kezyrul: function(target, room, user) {
+        fairy: 'key',
+        key: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Kezyrul</b><br />'+
 	              '<i>"Hesitation is the seed of defeat"</i> <br />'+

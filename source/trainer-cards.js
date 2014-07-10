@@ -205,7 +205,7 @@ var trainerCards = {
         fairy: 'key',
         key: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Kezyrul</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Key</b><br />'+
 	              '<i>"Hesitation is the seed of defeat"</i> <br />'+
 	              '<b>Type:</b> Fairy<br />'+
 	              '<b>Ace:</b> ?<br />');

@@ -686,7 +686,7 @@ target.toLowerCase().replace(/ /g,'-');
 					'<b>Important notice:</b> Contrary to sensationalist rumours, The Sora League or its server are NOT shutting down.<br /><br />'+
 					'P.S. <i>Do not feed the Ascher, you will regret it~</i><br />'+
 					'<center><a href="http://plug.dj/sky-tree/"><img src="http://i1171.photobucket.com/albums/r545/Brahak/button_zpse0650635.png"></a></center><br /><br />'+
-					'<a href="https://www.facebook.com/TheSoraLeague?ref_type=bookmark"><img src="http://www.do-be.co.uk/blog/wp-content/uploads/2011/08/facebook-icon1-100x100.jpg"></a> Like us on Facebook!</div>');
+					'<a href="https://www.facebook.com/TheSoraLeague?ref_type=bookmark"><img src="http://nuwaverecords.co.uk/wp-content/uploads/2014/01/Facebook.png"></a> Like us on Facebook!</div>');
 		}
 	},
 	

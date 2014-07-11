@@ -129,7 +129,7 @@ target.toLowerCase().replace(/ /g,'-');
 			"became Onyx's slave!",
 			"became Jam's love slave!",
 			"has left the building.",
-			"felt Thundurus's wrath!",
+			"felt Goomy's wrath!",
 			"died of a broken heart.",
 			"got lost in a maze!",
 			"was hit by Based Parasect\'s Fell Stinger!",

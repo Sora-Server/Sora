@@ -270,7 +270,7 @@ var trainerCards = {
 			  '<i>"True power can\'t easily be obtained, but can be awakened through guidance and passion."</i> <br />'+
 			  '<b>Type:</b> Rock<br />'+
 			  '<b>Ace:</b> Terrakion<br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/terrakion.gif"> <img src="http://sprites.pokecheck.org/t/129.gif">');
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://www.psypokes.com/forums/download/file.php?avatar=9152_1214420157.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/espeon.gif">');
         },
         
         vanilla: function(target, room, user) {
@@ -337,6 +337,21 @@ var trainerCards = {
 		 	  '-Random pokemon must be chosen using  /dice command on the Sora server<br />'+
 		 	  '-Players can use whatever pokemon from the evolution chain of the pokemon picked by random <br/>');
 	},
+
+
+
+       night: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Frontier <b>Night</b><br />'+
+			  '<i>"Slow and Steady wins the race."</i> <br />'+
+			  '<b>Symbol:</b> Limit<br />'+
+			  '<b>Ace:</b> Rhydon<br />'+
+			  '<b>Battle Rules:</b> <br/>'+
+		 	  '-No Pokemon above 40 Base Speed <br/>'+
+		 	  'No hazards <br/>');
+
+       },
+
 
 	normal: 'kira',
 	kira: function(target, room, user) {

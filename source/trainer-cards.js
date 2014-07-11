@@ -348,7 +348,7 @@ var trainerCards = {
 			  '<b>Ace:</b> Rhydon<br />'+
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-No Pokemon above 40 Base Speed <br/>'+
-		 	  'No hazards <br/>');
+		 	  '-No hazards <br/>');
 
        },
 

@@ -621,11 +621,11 @@ var Tournament = (function () {
 			} else if (secondUser === undefined){
 				this.room.add('Error: runnerUp is undefined');
 			}else {
-				io.stdoutNumber('db/money.csv', winnerUser, 'money', firstMoney);
+				io.stdoutNumber('money.csv', winnerUser, 'money', firstMoney);
 				fs.appendFile('logs/transactions.log', '\n' + Date() + ': ' + winner + ' won ' + firstMoney + ' ' + firstBuck + ' from a tournament in ' + this.room.title + '.');
 				if (runnerUp) {
 					setTimeout(function() {
-						io.stdoutNumber('db/money.csv', secondUser, 'money', secondMoney);
+						io.stdoutNumber('money.csv', secondUser, 'money', secondMoney);
 						fs.appendFile('logs/transactions.log', '\n' + Date() + ': ' + runnerUp + ' won ' + secondMoney + ' ' + secondBuck + ' from a tournament in ' + this.room.title + '.');
 					}, 1000);
 				}

@@ -148,12 +148,12 @@ exports.BattleMovedex = {
 					this.debug('sub bypass: self hit');
 					return;
 				}
+				if (move.notSubBlocked || move.isSoundBased) {
+					return;
+				}
 				if (move.category === 'Status') {
-					if (move.notSubBlocked || move.isSoundBased) {
-						return;
-					}
 					var SubBlocked = {
-						block:1, embargo:1, entrainment:1, gastroacid:1, healblock:1, healpulse:1, leechseed:1, lockon:1, meanlook:1, mindreader:1, nightmare:1, painsplit:1, psychoshift:1, simplebeam:1, skydrop:1, soak: 1, spiderweb:1, switcheroo:1, trick:1, worryseed:1, yawn:1
+						block:1, embargo:1, entrainment:1, gastroacid:1, healblock:1, healpulse:1, leechseed:1, lockon:1, meanlook:1, mindreader:1, nightmare:1, painsplit:1, psychoshift:1, simplebeam:1, skydrop:1, soak: 1, spiderweb:1, switcheroo:1, topsyturvy:1, trick:1, worryseed:1, yawn:1
 					};
 					if (move.status || move.boosts || move.volatileStatus === 'confusion' || SubBlocked[move.id]) {
 						return false;
@@ -970,6 +970,12 @@ exports.BattleMovedex = {
 	twister: {
 		inherit: true,
 		basePower: 80,
+		onBasePower: function (power, user) {
+			var GossamerWingUsers = {"Butterfree":1, "Venomoth":1, "Masquerain":1, "Dustox":1, "Beautifly":1, "Mothim":1, "Lilligant":1, "Volcarona":1, "Vivillon":1};
+			if (user.item === 'stick' && GossamerWingUsers[user.template.species]) {
+				return power * 1.5;
+			}
+		},
 		secondary: {
 			chance: 30,
 			volatileStatus: 'confusion'
@@ -1058,7 +1064,7 @@ exports.BattleMovedex = {
 		willCrit: true
 	},
 	/******************************************************************
-	Scald:
+	Scald and Steam eruption:
 	- base power not affected by weather
 	- 60% burn in sun
 
@@ -1066,6 +1072,16 @@ exports.BattleMovedex = {
 	- rain could use a nerf
 	******************************************************************/
 	scald: {
+		inherit: true,
+		onModifyMove: function (move) {
+			switch (this.effectiveWeather()) {
+			case 'sunnyday':
+				move.secondary.chance = 60;
+				break;
+			}
+		}
+	},
+	steameruption: {
 		inherit: true,
 		onModifyMove: function (move) {
 			switch (this.effectiveWeather()) {

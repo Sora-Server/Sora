@@ -314,13 +314,7 @@ var trainerCards = {
 			 '<img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/aerodactyl.gif">');
         },
         
-        ground: function(target, room, user) {
-	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> Ground<br />'+
-			  '<b>Ace:</b> ???<br />');
-	},
+       
 	
 
 
@@ -429,12 +423,9 @@ var trainerCards = {
 		this.sendReplyBox('Elite Frontier <b>Iggy</b><br />'+
 			'<i>"Think of this as an obstacle you\'ll never overcome"</i> <br />'+
 			'<b>Symbol: Catch 22 Symbol</b> <br />'+
-			'<b>Ace:</b> HardHitter (Gurdurr)<br />'+
+			'<b>Ace:</b> Volcarona<br />'+
 			'<b>Battle rules:</b> <br />'+
-			'-Middle cup tier <br />'+
-			'-Only Pokemon in the Middle of a 3 part evolutionary chain may take part <br />'+
-			'-All Pokemon must have their Level set to 50 <br />'+
-			'-The challenger must use pre-evolutions of his Gym Leader team that fulfils the requirement for participating. If there are Pokemon in the challenger\'s  team who does not have a pre-evolution, or whose pre-evolution does not fulfil the requirements for participating, then the challenger is free to replace the Pokemon with any other Pokemon who are eligible to participate in the Middle Cup <br />');
+			'-<a href="http://bulbapedia.bulbagarden.net/wiki/Inverse_Battle">Inverse Battle</a> <br />');
         },
 
 	jeratt: function(target, room, user) {

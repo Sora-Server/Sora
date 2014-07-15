@@ -254,13 +254,13 @@ var trainerCards = {
         
         },
         
-         water: 'arthurzh',
-         arthurzh: function(target, room, user) {
+         water: 'floatzel',
+         floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Arthurzh</b><br />'+
-			  '<i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY"</i> <br />'+
+			  '<i>"I will drown you so hard, you will drown to death"</i> <br />'+
 			  '<b>Type:</b> Water<br />'+
-			  '<b>Ace:</b>Kabutops<br />');
+			  '<b>Ace:</b>Keldeo<br />');
         },
         
         rock: 'core',

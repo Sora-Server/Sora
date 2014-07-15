@@ -422,7 +422,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Elite Frontier <b>Iggy</b><br />'+
 			'<i>"Think of this as an obstacle you\'ll never overcome"</i> <br />'+
-			'<b>Symbol: Catch 22 Symbol</b> <br />'+
+			'<b>Symbol:</b> Catch 22 Symbol <br />'+
 			'<b>Ace:</b> Volcarona<br />'+
 			'<b>Battle rules:</b> <br />'+
 			'-<a href="http://bulbapedia.bulbagarden.net/wiki/Inverse_Battle">Inverse Battle</a> <br />');

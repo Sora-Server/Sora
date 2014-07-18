@@ -346,7 +346,6 @@ exports.groups = {
 			alts: '%u',
 			announce: false,
 			bypassblocks: 'u%@&~',
-			forcerename: true,
 			kick: true,
 			hallofshame: false,
 			lock: true,
@@ -356,7 +355,8 @@ exports.groups = {
 			staff: true,
 			timer: true,
 			tournamentsmoderation: true,
-			warn: true
+			warn: true,
+			tournaments: true,
 		},
 		'$': {
 		        id: "operator",

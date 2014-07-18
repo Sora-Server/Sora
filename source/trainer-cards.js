@@ -408,13 +408,13 @@ var trainerCards = {
 		
 	},
 	
-	ice: 'rnbs',
-	rnbs: function(target, room, user) {
+	
+	ice: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Rnbs</b><br />'+
-			  '<i>"Nobody can hurt me without my permission."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>???</i> <br />'+
 			  '<b>Type:</b> Ice<br />'+
-			  '<b>Ace:</b> Kyurem-Black<br />');
+			  '<b>Ace:</b> ???<br />');
 
         },
 

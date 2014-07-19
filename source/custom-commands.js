@@ -864,9 +864,9 @@ target.toLowerCase().replace(/ /g,'-');
 			this.sendReplyBox('<b>Quote of the Day:</b><br />' +
 			        'This command will display genius quotes until another quote tops it!<br />' +
 				'"I\'m better as an E4." - Matt 2014<br />' +
-				'"Is Scrafty Ubers?" -Bamdee 11/6/14<br />' +
 				'"We\'re the place the Asylum sends the people who\'re too fucked up for them"- ∆Champiön Nöah∆ 14/6/14<br />'+
-				'"you have been hour munted by demon lrod helix" - Artiste Jeratt 9/7/14"'+
+				'"you have been hour munted by demon lrod helix" - Artiste Jeratt 9/7/14<br />'+
+				'"Oh boy, how I love women. Golly gosh, I really do love vajigglejaggle. If only I could express how much I loved melons. Gee whizz." -Gym Ldr Eska 19/7/14<br />'+
 				'</div>');
 	},
 	

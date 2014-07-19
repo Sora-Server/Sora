@@ -368,13 +368,13 @@ var trainerCards = {
 			 '<img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/chandelure.gif">');
         },
 
-	
-	electric: function(target, room, user) {
+	electric: 'snowking',
+	snowking: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Snowking</b><br />'+
+			  '<i>"Let\'s make our encounter electrifying."</i> <br />'+
 			  '<b>Type:</b> Electric<br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Zapdos<br />');
 	},
 
 	azh: function(target, room, user) {

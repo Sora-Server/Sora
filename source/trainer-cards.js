@@ -286,13 +286,13 @@ var trainerCards = {
 			  
         },
 			  
-        
-        dark: function(target, room, user) {
+        dark: 'kingx'
+        kingx: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
-			this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+			this.sendReplyBox('Gym Ldr <b>KingX</b><br />'+
+			  '<i>"The shadows will find you!"</i> <br />'+
 			  '<b>Type:</b> Dark<br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Troll (Sableye)<br />');
         },
         
         poison: 'srewop',

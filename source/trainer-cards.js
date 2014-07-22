@@ -286,7 +286,7 @@ var trainerCards = {
 			  
         },
 			  
-        dark: 'kingx'
+        dark: 'kingx',
         kingx: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>KingX</b><br />'+

@@ -244,13 +244,13 @@ var trainerCards = {
 	
         },
 	
-	bug: 'steve',
+	electric: 'steve',
 	steve: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Steve</b><br />'+
-			  '<i>"Bug is the power"</i> <br />'+
-			  '<b>Type:</b> Bug<br />'+
-			  '<b>Ace:</b> Pinsir <br />');
+			  '<i>"Electric power is my secret"</i> <br />'+
+			  '<b>Type:</b> Electric<br />'+
+			  '<b>Ace:</b> Thundurus <br />');
         
         },
         
@@ -368,13 +368,13 @@ var trainerCards = {
 			 '<img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/chandelure.gif">');
         },
 
-	electric: 'snowking',
+	bug: 'snowking',
 	snowking: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Snowking</b><br />'+
-			  '<i>"Let\'s make our encounter electrifying."</i> <br />'+
-			  '<b>Type:</b> Electric<br />'+
-			  '<b>Ace:</b> Zapdos<br />');
+			  '<i>"Watch out. The Swarm\'s coming."</i> <br />'+
+			  '<b>Type:</b> Bug<br />'+
+			  '<b>Ace:</b> Volcarona<br />');
 	},
 
 	azh: function(target, room, user) {

@@ -759,6 +759,7 @@ target.toLowerCase().replace(/ /g,'-');
 	        '42.60.104.177 -Buggy Bugs/Rockwolf<br />'+
 	        '23.17.238.53 -Zarif<br />'+
 	        '122.161.191.64 -Ncrypt<br />'+
+	        '74.88.1.127 -Unicode spammer<br />'+
 	        'Shame on them!');
         },
 

@@ -186,7 +186,8 @@ exports.customAvatars = {
 	  'stephan4ubers': '068.gif',
 	  'datslapzme': '069.gif',
 	  'amtesla': '070.gif',
-	  'gymldrterror': '072.gif', 
+	  'gymldrterror': '072.gif',
+	  'tsunabankai': '075.gif',
 	
 };
 

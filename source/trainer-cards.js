@@ -202,13 +202,13 @@ var trainerCards = {
 			'<b>Ace:</b> ???<br />');
         },
         
-        fairy: 'key',
-        key: function(target, room, user) {
+        
+        fairy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Key</b><br />'+
-	              '<i>"Hesitation is the seed of defeat"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+	              '<i>"???"</i> <br />'+
 	              '<b>Type:</b> Fairy<br />'+
-	              '<b>Ace:</b> ?<br />');
+	              '<b>Ace:</b> ???<br />');
        
         },
         

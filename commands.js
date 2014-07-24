@@ -393,6 +393,50 @@ var commands = exports.commands = {
 		if (targetUser) targetUser.updateIdentity();
 		if (room.chatRoomData) Rooms.global.writeChatRoomData();
 	},
+	reload: function (target, room, user) {
+	    if (!this.can('hotpatch')) return false;
+
+	    try {
+	        var path = require("path"),
+	            fs = require("fs");
+
+	        this.sendReply('Reloading command-parser.js...');
+	        CommandParser.uncacheTree(path.join(__dirname, '../', 'command-parser.js'));
+	        CommandParser = require(path.join(__dirname, '../', 'command-parser.js'));
+
+	        this.sendReply('Reloading system-operators.js...');
+	        CommandParser.uncacheTree('./source/system-operators.js');
+	        systemOperators = require('./system-operators.js').SystemOperatorOverRide();
+
+	        this.sendReply('Reloading poll.js...');
+	        CommandParser.uncacheTree('./source/poll.js');
+	        Poll = require('./poll.js').Poll();
+
+	        this.sendReply('Reloading utilities.js...');
+	        CommandParser.uncacheTree('./source/utilities.js');
+	        Utilities = require('./utilities.js').Utilities;
+
+	        this.sendReply('Reloading io.js...');
+	        CommandParser.uncacheTree('./source/io.js');
+	        io = require('./io.js');
+
+	        var runningTournaments = Tournaments.tournaments;
+		CommandParser.uncacheTree(path.join(__dirname, '../', 'tournaments/index.js'));
+		Tournaments = require(path.join(__dirname, '../', 'tournaments/index.js'));
+		Tournaments.tournaments = runningTournaments;
+
+	        this.sendReply('Reloading custom-commands.js...');
+	        CommandParser.uncacheTree('./source/custom-commands.js');
+	        customcommands = require('./custom-commands.js');
+	        CommandParser.uncacheTree('./source/trainer-cards.js');
+	        trainercards = require('./trainer-cards.js');
+
+	        return this.sendReply('All files have been reloaded.');
+	    } catch (e) {
+	        return this.sendReply('Something failed while trying to reload: \n' + e.stack);
+	    }
+	},
+
 
 	roomauth: function (target, room, user, connection) {
 		if (!room.auth) return this.sendReply("/roomauth - This room isn't designed for per-room moderation and therefore has no auth list.");

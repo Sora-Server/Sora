@@ -995,8 +995,8 @@ target.toLowerCase().replace(/ /g,'-');
 	        io = require('./io.js');
 
 	        var runningTournaments = Tournaments.tournaments;
-		CommandParser.uncacheTree(path.join(__dirname, '../', 'tournaments/middleend.js'));
-		Tournaments = require(path.join(__dirname, '../', 'tournaments/middleend.js'));
+		CommandParser.uncacheTree(path.join(__dirname, '../', 'tournaments/index.js'));
+		Tournaments = require(path.join(__dirname, '../', 'tournaments/index.js'));
 		Tournaments.tournaments = runningTournaments;
 	        
 	        this.sendReply('Reloading custom-commands.js...');

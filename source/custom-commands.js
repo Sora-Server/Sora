@@ -150,7 +150,7 @@ target.toLowerCase().replace(/ /g,'-');
 			"got lost in the illusion of reality.",
 			"was unfortunate and didn't get a cool message.",
 			"was knocked out cold by Snover!",
-			"was BLEGHED on by Cocoa!",
+			"was thrown out the window by Anna!",
 			"was bitten by a rabid Bart!",
 			"fed the wild Ascher and is now paying the price!",
 			"was incinerated by Magcargo!",

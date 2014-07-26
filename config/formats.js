@@ -663,6 +663,14 @@ exports.Formats = [
 		ruleset: ['Pokemon', 'Sleep Clause Mod', 'HP Percentage Mod']
 	},
 	{
+		name: "Triples Monotype",
+		section: "Monotype",
+
+		gameType: 'triples',
+		ruleset: ['Pokemon', 'HP Percentage Mod', 'OU', 'Same Type Clause'],
+		banlist: ['Talonflame']
+	},
+	{
 		name: "OU Monotype",
 		section: "Monotype",
 		ruleset: ['OU', 'Same Type Clause'],

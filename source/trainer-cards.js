@@ -248,7 +248,7 @@ var trainerCards = {
 	steve: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Steve</b><br />'+
-			  '<i>"Electric power is my secret"</i> <br />'+
+			  '<i>"I\'ll come like bug go like thunder"</i> <br />'+
 			  '<b>Type:</b> Electric<br />'+
 			  '<b>Ace:</b> Thundurus <br />');
         

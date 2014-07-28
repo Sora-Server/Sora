@@ -194,12 +194,13 @@ var trainerCards = {
         },
      
         
-        fighting: function(target, room, user) {
+        fighting: 'jacob',
+        jacob: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			'<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Jacob</b><br />'+
+			'<i>"I will knock out your chances of doing anything else."</i> <br />'+
 			'<b>Type:</b> Fighting<br />'+
-			'<b>Ace:</b> ???<br />');
+			'<b>Ace:</b> Heracross<br />');
         },
         
         

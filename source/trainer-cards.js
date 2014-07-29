@@ -253,7 +253,7 @@ var trainerCards = {
         
         
         normal: 'bamdee',
-         bamdee: function(target, room, user) {
+        bamdee: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bamdee</b><br />'+
 			  '<i>"What\'s a quote?"</i> <br />'+

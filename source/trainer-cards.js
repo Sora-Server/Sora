@@ -250,16 +250,7 @@ var trainerCards = {
 			  '<b>Type:</b> Water<br />'+
 			  '<b>Ace:</b> Keldeo<br />');
         },
-        
-        
-        normal: 'bamdee',
-        bamdee: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Bamdee</b><br />'+
-			  '<i>"What\'s a quote?"</i> <br />'+
-			  '<b>Type:</b> Water<br />'+
-			  '<b>Ace:</b> Staraptor<br />');
-        },
+    
         
         
         rock: 'core',
@@ -357,14 +348,6 @@ var trainerCards = {
 			 '<img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/chandelure.gif">');
         },
 
-	bug: 'tempest'
-	tempest: function(target, room, user) {
-	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Tempest</b><br />'+
-			  '<i>"Excellent. Mhm, excellent indeed."</i> <br />'+
-			  '<b>Type:</b> Bug<br />'+
-			  '<b>Ace:</b> Scizorhands (Scizor)<br />');
-	},
 
 	azh: function(target, room, user) {
 			if (!this.canBroadcast()) return;

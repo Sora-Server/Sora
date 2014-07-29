@@ -304,11 +304,17 @@ var trainerCards = {
 			 '<img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/aerodactyl.gif">');
         },
         
+        normal: 'bamdee',
+        bamdee: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Bamdee</b><br />'+
+		         '<i>"What\'s a quote?"</i> <br />'+
+	              	 '<b>Type:</b> Normal<br />'+
+			 '<b>Ace:</b> Staraptor<br />');
+        
+        },
+        
        
-	
-
-
-	
 	nova: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Frontier <b>Nova</b><br />'+
@@ -388,16 +394,6 @@ var trainerCards = {
 			  '<b>Type:</b> Ice<br />'+
 			  '<b>Ace:</b> ???<br />');
 
-        },
-
-	iggy: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Elite Frontier <b>Iggy</b><br />'+
-			'<i>"Think of this as an obstacle you\'ll never overcome"</i> <br />'+
-			'<b>Symbol:</b> Catch 22 Symbol <br />'+
-			'<b>Ace:</b> Volcarona<br />'+
-			'<b>Battle rules:</b> <br />'+
-			'-<a href="http://bulbapedia.bulbagarden.net/wiki/Inverse_Battle">Inverse Battle</a> <br />');
         },
 
 	jeratt: function(target, room, user) {

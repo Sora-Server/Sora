@@ -50,14 +50,14 @@ var trainerCards = {
 	 	     '<center><img src="http://sprites.pokecheck.org/i/461.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Misc%20sprites/Bart_zps03ad3a7d.png"></center>');
         },
 
-	dragon: 'gary',
-	gary: function(target, room, user) {
+	dragon: 'snowking',
+	snowking: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Gary</b><br />'+
-		      '<i>"Dragons may not have survived the cold but let me make you experience their sheer power"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Snowking</b><br />'+
+		      '<i>"If you don\'t come quietly, I\'m dragon you down with me."</i> <br />'+
 		      '<b>Type:</b> Dragon<br />'+
-		      '<b>Ace:</b> Goodra<br />'+
-	              '<img src="http://play.pokemonshowdown.com/sprites/bw/goodra.png"> <img src="http://sprites.pokecheck.org/t/137.gif">');
+		      '<b>Ace:</b> Latios<br />');
+	              
         },
 
 	toast: function(target, room, user) {
@@ -107,20 +107,7 @@ var trainerCards = {
       	 	      '<b>See me online and need help? Message me.<b>');
         },
         
-        apple: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Apple</b><br />'+
-		      '<i>"I\'ll mop the floor with you."</i> <br />'+
-		      '<b>Symbol:</b> Clear<br />'+
-		      '<b>Ace:</b> Vaporeon (Gills)<br />'+
-	 	      '<b>Battle Rules:</b> <br />'+
-	 	      '-Mono Body type <br/>'+
-	 	      '-No using the same body type category as Frontier <br />'+
-	 	      '-Information on Body types: http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_body_style <br />'+
-	 	      '-Max 1 uber including Uber items (Gengarite, Kangaskhanite) <br />'+
-	 	      '<img src="http://sprites.pokecheck.org/t/057.gif">');
 	
-        },
 	
 	 cocoa: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -181,7 +168,7 @@ var trainerCards = {
 
 	blade: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Blade</b><br />'+
+		this.sendReplyBox('Elite Frontier <b>Blade</b><br />'+
 			'<i>"Shift a burning flame into an ever burning flame!"</i> <br />'+
 			'<b>Symbol:</b> Yin and Yang<br />'+
 			'<b>Ace:</b> War Turtle (Torkoal)<br />'+
@@ -346,18 +333,8 @@ var trainerCards = {
 		 	  '-No hazards <br/>'+
 		 	  '-Speed Stat can\'t be changed. <br/>');
 
-       },
-
-
-	normal: 'kira',
-	kira: function(target, room, user) {
-	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Kira</b><br />'+
-			  '<i>"BITCH I\'m normal and you\'re NAWT"</i> <br />'+
-			  '<b>Type:</b> Normal<br />'+
-			  '<b>Ace:</b> Staraptor<br />');
-
 	},
+
 
 	ghost: 'eska',
 	eska: function(target, room, user) {
@@ -369,13 +346,13 @@ var trainerCards = {
 			 '<img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/chandelure.gif">');
         },
 
-	bug: 'snowking',
-	snowking: function(target, room, user) {
+	
+	bug: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Snowking</b><br />'+
-			  '<i>"Watch out. The Swarm\'s coming."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Bug<br />'+
-			  '<b>Ace:</b> Volcarona<br />');
+			  '<b>Ace:</b> ???<br />');
 	},
 
 	azh: function(target, room, user) {

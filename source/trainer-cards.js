@@ -311,6 +311,16 @@ var trainerCards = {
 		         '<i>"What\'s a quote?"</i> <br />'+
 	              	 '<b>Type:</b> Normal<br />'+
 			 '<b>Ace:</b> Staraptor<br />');
+       
+        },
+        
+        bug: 'tempest',
+        tempest: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Tempest</b><br />'+
+		         '<i>"Excellent. Mhm, excellent indeed."</i> <br />'+
+	              	 '<b>Type:</b> Bug<br />'+
+			 '<b>Ace:</b> Scizorhands (Scizor)<br />');
         
         },
         

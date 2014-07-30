@@ -686,7 +686,7 @@ target.toLowerCase().replace(/ /g,'-');
 					'<b>Warning:</b> Champion Noah and Champion Toast or any of our league members are not responsible for any damaged caused by hitting yourself after being confused by reading all this randomness.<br />'+
 					'<blink>P.S. <i>Do not feed the Ascher, you will regret it~</i></blink><br />'+
 					'<center><a href="http://plug.dj/sky-tree/"><img src="http://i1171.photobucket.com/albums/r545/Brahak/button_zpse0650635.png"></a></center><br /><br />'+
-					'<a href="https://www.facebook.com/TheSoraLeague?ref_type=bookmark"><img src="http://www.farmmachineryshow.org/images/FacebookIcon25X25.png"></a> Like us on Facebook! <spoiler>or else...</spoiler></div>');
+					'<a href="https://www.facebook.com/TheSoraLeague?ref_type=bookmark"><img src="http://www.farmmachineryshow.org/images/FacebookIcon25X25.png"></a> Like us on Facebook!</div>');
 		}
 	},
 	

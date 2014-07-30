@@ -677,7 +677,7 @@ target.toLowerCase().replace(/ /g,'-');
 			return connection.sendTo(target, "|noinit|joinfailed|The room '" + target + "' could not be joined.");
 		}
 		if (target.toLowerCase() == "lobby") {
-					return connection.sendTo('lobby','|html|<div class="infobox" style="border-color:blue"><marquee><b><u><font size= 5>Welcome to The Sora League Server!</u></b></marquee><br /><br /> ' +
+					return connection.sendTo('lobby','|html|<div class="infobox" style="border-color:blue"><marquee><b><u><font size= 3>Welcome to The Sora League Server!</u></b></marquee><br /><br /> ' +
 					'We are a Pokemon League open for challenges!<br /><br />' +
 					'You are welcomed to challenge us, participate in our tournaments or just chat in the lobby! <br /><br />' +
 					'The most important rule here is to have fun! We hope you will have an enjoyable stay here.<br /><br />' +

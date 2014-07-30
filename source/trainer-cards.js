@@ -185,7 +185,7 @@ var trainerCards = {
         jacob: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Jacob</b><br />'+
-			'<i>"I will knock out your chances of doing anything else."</i> <br />'+
+			'<i>"My fighting\'s are frightening."</i> <br />'+
 			'<b>Type:</b> Fighting<br />'+
 			'<b>Ace:</b> Heracross<br />');
         },

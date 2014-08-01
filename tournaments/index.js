@@ -736,7 +736,7 @@ var Tournament = (function () {
 
             // file i/o
             var winnerMoney = Number(Core.stdin('money', wid));
-            var tourWin = Number(Core.stdin('tourWins', wid));
+            var tourWin = Number(Core.stdin('db/tourWins', wid));
             Core.stdout('money', wid, (winnerMoney + firstMoney), function () {
                 var winnerElo = Number(Core.stdin('db/elo', wid));
                 if (winnerElo === 0) winnerElo = 1000;

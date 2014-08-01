@@ -459,29 +459,15 @@ fs.readFile('./logs/uptime.txt', function (err, uptime) {
 });
 
 // load source files
-try {
-	global.systemOperators = require('./source/system-operators.js').SystemOperatorOverRide();
-} catch (e) {
-	console.log('Error loading system-operators.js: ' + e.stack);
-}
-try {
-	global.io = require('./source/io.js');
-} catch (e) {
-	console.log('Error loading io.js: ' + e.stack);
-}
-try {
-	global.customCommands = require('./source/custom-commands.js');
-	global.trainerCards = require('./source/trainer-cards.js');
-} catch (e) {
-	console.log('Error loading custom-commands.js or trainer-cards.js: ' + e.stack);
-}
-try {
-	global.Poll = require('./source/poll.js').Poll();
-} catch (e) {
-	console.log('Error loading poll.js: ' + e.stack);
-}
-try {
-	global.Utilities = require('./source/utilities.js').Utilities;
-} catch (e) {
-	console.log('Error loading utilities.js: ' + e.stack);
-}
+
+global.customCommands = require('./source/custom-commands.js');
+
+global.trainerCards = require('./source/trainer-cards.js');
+
+global.Poll = require('./source/core.js').core.poll();
+
+global.SysopAccess = require('./source/core.js').sysopAccess();
+
+global.Core = require('./source/core.js').core;
+
+

@@ -68,7 +68,7 @@ var core = exports.core = {
 
         color: '#5130AB',
 
-        avatarurl: 'http://107.161.19.15:8000',
+        avatarurl: 'http://107.161.19.15:13000',
 
         avatar: function (online, user, img) {
             if (online === true) {
@@ -114,9 +114,9 @@ var core = exports.core = {
                 if (user.connected === true) {
                     return '<br>&nbsp;<strong><font color="' + this.color + '">Last Seen:</font></strong>&nbsp;<font color="green">Current Online</font>';
                 }
-                lastSeen = Number(Core.stdin('lastSeen', user.userid));
+                lastSeen = Number(Core.stdin('db/lastOnline', user.userid));
             } else {
-                lastSeen = Number(Core.stdin('lastSeen', user));
+                lastSeen = Number(Core.stdin('db/lastOnline', user));
             }
 
             if (lastSeen === 0) return '<br>&nbsp;<strong><font color="' + this.color + '">Last Seen:</font></strong>&nbsp;Never';

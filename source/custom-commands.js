@@ -55,6 +55,25 @@ var customCommands = {
 	}
 	}
 	},
+	
+	 clearall: function (target, room, user) {
+        if (!this.can('clearall')) return;
+        var len = room.log.length,
+            users = [];
+        while (len--) {
+            room.log[len] = '';
+        }
+        for (var user in room.users) {
+            users.push(user);
+            Users.get(user).leaveRoom(room, Users.get(user).connections[0]);
+        }
+        len = users.length;
+        setTimeout(function() {
+            while (len--) {
+                Users.get(users[len]).joinRoom(room, Users.get(users[len]).connections[0]);
+            }
+        }, 1000);
+    },
 
 	d: 'poof',
 	cpoof: 'poof',

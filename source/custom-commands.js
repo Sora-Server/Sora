@@ -276,6 +276,7 @@ var customCommands = {
         return this.sendReplyBox(Core.profile.avatar(true, targetUser, targetUser.avatar) + Core.profile.name(true, targetUser) + Core.profile.group(true, targetUser) + Core.profile.display('about', about) + Core.profile.lastSeen(true, targetUser) + Core.profile.display('money', money) + Core.profile.display('elo', elo, Core.profile.rank(targetUser.userid)) + '<br clear="all">');
     },
 
+    status: 'about',
     setabout: 'about',
     about: function (target, room, user) {
         if (!target) return this.parse('/help about');
@@ -294,10 +295,10 @@ var customCommands = {
         target = Tools.escapeHTML(target);
         target = target.replace(/[^A-Za-z\d ]+/g, '');
 
-        var data = Core.stdin('about', user.userid);
+        var data = Core.stdin('db/status', user.userid);
         if (data === target) return this.sendReply('This about is the same as your current one.');
 
-        Core.stdout('about', user.userid, target);
+        Core.stdout('db/status', user.userid, target);
 
         this.sendReply('Your about is now: "' + target + '"');
     },

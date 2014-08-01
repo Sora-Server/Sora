@@ -192,7 +192,7 @@ var core = exports.core = {
         },
 
         display: function (args, info, option) {
-            if (args === 'about') return '<br>&nbsp;<strong><font color="' + this.color + '">About:</font></strong>&nbsp;' + info;
+            if (args === 'about') return '<br>&nbsp;<strong><font color="' + this.color + '">Status:</font></strong>&nbsp;' + info;
             if (args === 'money') return '<br>&nbsp;<strong><font color="' + this.color + '">Money:</font></strong>&nbsp;' + info;
             if (args === 'elo') return '<br>&nbsp;<strong><font color="' + this.color + '">Tournament Elo:</font></strong>&nbsp;' + info + option;
         },

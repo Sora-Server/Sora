@@ -249,7 +249,7 @@ var core = exports.core = {
 
     shop: function (showDisplay) {
         var shop = [
-            <center><b>The Sora League Shop</b></center>
+            '<center><b>The Sora League Shop</b></center><br />'+
             ['Symbol', 'Buys a custom symbol to go infront of name and puts you at top of userlist. (Temporary until restart, certain symbols are blocked)', 5],
             ['Fix', 'Buys the ability to alter your current custom avatar or trainer card. (don\'t buy if you have neither)', 10],
             ['Poof', 'Buy a poof message to be added into the pool of possible poofs.', 15],

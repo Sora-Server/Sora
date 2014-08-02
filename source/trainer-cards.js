@@ -298,10 +298,10 @@ var trainerCards = {
         waffles: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Waffles</b><br />'+
-		         '<i>"I\'m fairy sure this quote sucks"</i> <br />'+
+		         '<i>"Get ready to cry as we fly into the sky~"</i> <br />'+
 	              	 '<b>Type:</b> Flying<br />'+
-			 '<b>Ace:</b> Aerodactyl<br />'+
-			 '<img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/aerodactyl.gif">');
+			 '<b>Ace:</b> Toast the Charizard<br />'+
+			 '<img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/charizard-mega-x.gif">');
         },
         
         normal: 'bamdee',

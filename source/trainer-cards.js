@@ -190,13 +190,13 @@ var trainerCards = {
 			'<b>Ace:</b> Heracross<br />');
         },
         
-        
-        fairy: function(target, room, user) {
+        fairy: 'ark',
+        ark: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-	              '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Ark</b><br />'+
+	              '<i>*Rubs hands*</i> <br />'+
 	              '<b>Type:</b> Fairy<br />'+
-	              '<b>Ace:</b> ???<br />');
+	              '<b>Ace:</b> Togekiss<br />');
        
         },
         

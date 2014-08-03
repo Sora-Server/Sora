@@ -280,9 +280,9 @@ var trainerCards = {
         kingx: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>KingX</b><br />'+
-			  '<i>"The shadows will find you!"</i> <br />'+
+			  '<i>"Long live the King!"</i> <br />'+
 			  '<b>Type:</b> Dark<br />'+
-			  '<b>Ace:</b> Troll (Sableye)<br />');
+			  '<b>Ace:</b> Sableye<br />');
         },
         
         poison: 'srewop',

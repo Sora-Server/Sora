@@ -447,6 +447,15 @@ var trainerCards = {
 			this.sendReplyBox('Here is The Sora League Website:<br />' +
 				'- <a href="http://soraleague.weebly.com/index.html">Sora League Site</a><br />' +
 				'</div>');
+				
+	},
+	
+	ipl: 'ipl',
+		ipl: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a link to the International Pokemon League Tournament (IPL):<br />' +
+				'- <a href="http://internationpokemonleague.weebly.com/">IPL Tournament Web Site</a><br />' +
+				'</div>');
 	},
 
 	incweather: 'incweather',

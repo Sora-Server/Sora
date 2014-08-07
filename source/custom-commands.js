@@ -580,6 +580,7 @@ var customCommands = {
 	        '122.161.191.64 -Ncrypt<br />'+
 	        '74.88.1.127 -Unicode spammer (Eldes)<br />'+
 	        '23.30.142.86 -Carl Jones<br />'+
+	        '94.79.237.137 -Champiön Greninja<br />'+
 	        'Shame on them!');
         },
 

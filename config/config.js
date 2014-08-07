@@ -187,7 +187,7 @@ exports.customAvatars = {
 	  'datslapzme': '069.gif',
 	  'amtesla': '070.gif',
 	  'gymldrterror': '072.gif',
-	  'tsunabankai': '076.gif',
+	  'gymldrtsuna': '076.gif',
 	  'frontieriggy': '077.jpg',
 	
 };

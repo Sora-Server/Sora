@@ -375,13 +375,13 @@ var trainerCards = {
 			  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"></center>');
 	},
 
-	psychic: 'gallade',
-	gallade: function(target, room, user) {
+	
+	psychic: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Gallade</b><br />'+
-			  '<i>"My Bride and I can read your thoughts before you can make them"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Psychic<br />'+
-			  '<b>Ace:</b> Bride (Gardevoir) <br />');
+			  '<b>Ace:</b> ??? <br />');
 	},
 
 
@@ -396,11 +396,11 @@ var trainerCards = {
 		
 	},
 	
-	
+	ice: "tsuna"
 	ice: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>???</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Tsuna</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Ice<br />'+
 			  '<b>Ace:</b> ???<br />');
 

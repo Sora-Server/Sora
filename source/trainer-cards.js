@@ -253,14 +253,14 @@ var trainerCards = {
     
         
         
-        rock: 'core',
-        core: function(target, room, user) {
+       
+        rock: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Core</b><br />'+
-			  '<i>"True power can\'t easily be obtained, but can be awakened through guidance and passion."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Rock<br />'+
-			  '<b>Ace:</b> Terrakion<br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://www.psypokes.com/forums/download/file.php?avatar=9152_1214420157.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/espeon.gif">');
+			  '<b>Ace:</b> ???<br />');
+			  
         },
         
         vanilla: function(target, room, user) {

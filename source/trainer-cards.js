@@ -56,7 +56,8 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Snowking</b><br />'+
 		      '<i>"If you don\'t come quietly, I\'m dragon you down with me."</i> <br />'+
 		      '<b>Type:</b> Dragon<br />'+
-		      '<b>Ace:</b> Latios<br />');
+		      '<b>Ace:</b> Latios<br />'+
+		      '<img src="http://play.pokemonshowdown.com/sprites/xyani/latios.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/latias.gif"><br />');
 	},
 
 	toast: function(target, room, user) {

@@ -57,8 +57,7 @@ var trainerCards = {
 		      '<i>"If you don\'t come quietly, I\'m dragon you down with me."</i> <br />'+
 		      '<b>Type:</b> Dragon<br />'+
 		      '<b>Ace:</b> Latios<br />');
-	              
-        },
+	},
 
 	toast: function(target, room, user) {
 			if (!this.canBroadcast()) return;
@@ -69,12 +68,9 @@ var trainerCards = {
 	 	          '-No Hazards <br/>'+
 	 	          '-Ubers Monotype <br/>'+
 	 	          '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/hooh.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/volcarona.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar-mega.gif"> </center>');
-	 	          
-        },
+	},
         
-        
-
-	zoro: function(target, room, user) {
+        zoro: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Zoro</b><br />'+
 		      '<i>"I am everywhere you are not."</i> <br />'+
@@ -85,8 +81,6 @@ var trainerCards = {
 	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
 	},
 	
-	
-	
 	bloodfist: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Coach <b>Bloodfist</b><br />'+
@@ -96,9 +90,7 @@ var trainerCards = {
       	 	      '<b>See me online and need help? Message me.<b>');
         },
         
-	
-	
-	 cocoa: function(target, room, user) {
+	cocoa: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Cocoa</b><br />'+
 		      '<i>"Your defeat shall be nearly as sweet as Chocolate and Vanilla"</i> <br />'+
@@ -108,8 +100,7 @@ var trainerCards = {
 	 	      '-No direct status. <br/>'+
 	 	      '-No protecting moves. <br/>'+
 	 	      '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
-	
-	},
+        },
 
 	ninjarisu: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -166,10 +157,8 @@ var trainerCards = {
 			'-No focus Sash/Band<br />'+
 		        '<a href="http://www.smogon.com/forums/threads/ability-shift.3503100/">How Ability Shift works</a> <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/torkoal.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/blaziken.gif">');
-			
-        },
+	},
      
-        
         fighting: 'jacob',
         jacob: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -186,7 +175,6 @@ var trainerCards = {
 	              '<i>*Rubs hands*</i> <br />'+
 	              '<b>Type:</b> Fairy<br />'+
 	              '<b>Ace:</b> Togekiss<br />');
-       
         },
         
         fire: 'hayden',
@@ -196,10 +184,8 @@ var trainerCards = {
 	              '<i>"Before you judge me, make sure that you\'re perfect"</i> <br />'+
 	              '<b>Type:</b> Fire<br />'+
 	              '<b>Ace:</b> Infernape<br />');
-        
         },
         
-
         akash: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Elite Frontier <b>Akash</b><br />'+
@@ -218,12 +204,10 @@ var trainerCards = {
 			  '<i>"Steel is a hard type, get it?"</i> <br />'+
 			  '<b>Type:</b> Steel<br />'+
 			  '<b>Ace:</b>Mega-Scizor (A Robot)<br />');
+	},
 	
-        },
-	
-        
-         water: 'floatzel',
-         floatzel: function(target, room, user) {
+        water: 'floatzel',
+        floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
 			  '<i>"I will drown you so hard, you will drown to death"</i> <br />'+
@@ -231,9 +215,6 @@ var trainerCards = {
 			  '<b>Ace:</b> Keldeo<br />');
         },
     
-        
-        
-       
         rock: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
@@ -253,8 +234,7 @@ var trainerCards = {
 			  '-No Focus Sash<br />'+
 			  '-No protecting moves<br />'+
 			  '<img src="http://sprites.pokecheck.org/i/241.gif"> <img src="http://sprites.pokecheck.org/t/111.gif">');
-			  
-        },
+	},
 			  
         dark: 'kingx',
         kingx: function(target, room, user) {
@@ -294,9 +274,7 @@ var trainerCards = {
        
         },
        
-        
-       
-	nova: function(target, room, user) {
+        nova: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Frontier <b>Nova</b><br />'+
 			  '<i>"Every Champion was once a contender that refused to give up,I will never give up no matter how hard you hit."</i> <br />'+
@@ -309,9 +287,7 @@ var trainerCards = {
 		 	  '-Players can use whatever pokemon from the evolution chain of the pokemon picked by random <br/>');
 	},
 
-
-
-       night: function(target, room, user) {
+        night: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Frontier <b>Night</b><br />'+
 			  '<i>"Slow and Steady wins the race."</i> <br />'+
@@ -324,8 +300,7 @@ var trainerCards = {
 
 	},
 
-
-	ghost: 'eska',
+        ghost: 'eska',
 	eska: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Eska</b><br />'+
@@ -335,8 +310,7 @@ var trainerCards = {
 			 '<img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/chandelure.gif">');
         },
 
-
-	azh: function(target, room, user) {
+        azh: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('<a><font size= 4><center><b>∆Gym Ldr ArthurZH∆</b></center></a><br />'+
 			  '<center><i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY!"</i></center> <br />'+
@@ -346,15 +320,13 @@ var trainerCards = {
 			  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"></center>');
 	},
 
-	
 	psychic: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Psychic<br />'+
 			  '<b>Ace:</b> ??? <br />');
-		
-	},
+        },
 	
 	tsuna: 'ice',
 	tsuna: function(target, room, user) {
@@ -363,8 +335,7 @@ var trainerCards = {
 			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Ice<br />'+
 			  '<b>Ace:</b> Weavile<br />');
-
-        },
+	},
 
 	jeratt: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -391,9 +362,7 @@ var trainerCards = {
 		 	'<img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_front/302.gif"> <img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif">');
         },
         
-        
-
-	getbucks: 'getbucks',
+        getbucks: 'getbucks',
 		getbucks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Please check out the Shop page in the link below to see methods of earning money:<br />' +
@@ -407,7 +376,6 @@ var trainerCards = {
 			this.sendReplyBox('Here is The Sora League Website:<br />' +
 				'- <a href="http://soraleague.weebly.com/index.html">Sora League Site</a><br />' +
 				'</div>');
-				
 	},
 	
 	ipl: 'ipl',
@@ -459,27 +427,27 @@ var trainerCards = {
 	},
 
 	champions: 'champions',
-			champions: function(target, room, user) {
-					if (!this.canBroadcast()) return;
-					this.sendReplyBox('Here is a list of Sora League Champions:<br />' +
-						'- <a href="http://soraleague.weebly.com/champions.html">Sora League Champions</a><br />' +
-						'</div>');
+		champions: function(target, room, user) {
+				if (!this.canBroadcast()) return;
+				this.sendReplyBox('Here is a list of Sora League Champions:<br />' +
+					'- <a href="http://soraleague.weebly.com/champions.html">Sora League Champions</a><br />' +
+					'</div>');
 	},
 
 	frontiers: 'frontiers',
-			frontiers: function(target, room, user) {
-					if (!this.canBroadcast()) return;
-					this.sendReplyBox('Here is a list of Sora League Frontier Brains:<br />' +
-						'- <a href="http://soraleague.weebly.com/frontier.html">Sora League Frontier Brains</a><br />' +
-						'</div>');
+		frontiers: function(target, room, user) {
+				if (!this.canBroadcast()) return;
+				this.sendReplyBox('Here is a list of Sora League Frontier Brains:<br />' +
+			        	'- <a href="http://soraleague.weebly.com/frontier.html">Sora League Frontier Brains</a><br />' +
+			        	'</div>');
 	},
 
 	sidemissions: 'sidemissions',
-			sidemissions: function(target, room, user) {
-					if (!this.canBroadcast()) return;
-					this.sendReplyBox('Here is a list of Sora League Side Missions:<br />' +
-						'- <a href="http://soraleague.weebly.com/side-missions.html">Sora League Side Missions</a><br />' +
-						'</div>');
+		sidemissions: function(target, room, user) {
+				if (!this.canBroadcast()) return;
+				this.sendReplyBox('Here is a list of Sora League Side Missions:<br />' +
+					'- <a href="http://soraleague.weebly.com/side-missions.html">Sora League Side Missions</a><br />' +
+					'</div>');
 	},
 };
 

@@ -93,8 +93,7 @@ var trainerCards = {
 		      '<i>"Excellent. Mhm, excellent indeed."</i> <br />'+
 		      '<b>Type:</b> Bug<br />'+
 		      '<b>Ace:</b> Scizor (Scizorhands) <br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-??? <br/>');
+	 	      '<b>Battle Rules:</b> <br />');
 	},	
 	
 	bloodfist: function(target, room, user) {

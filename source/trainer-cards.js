@@ -337,15 +337,13 @@ var trainerCards = {
 			  
 	},
 	
-	bug 'steve',
+	bug: 'steve',
 	steve: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Steve</b><br />'+
 			  '<i>"I come like bug, you go like an earthquake"</i> <br />'+
 			  '<b>Type:</b> Bug<br />'+
 			  '<b>Ace:</b> Pinsir <br />');
-	
-	
         },
 	
 	tsuna: 'ice',

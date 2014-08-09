@@ -412,7 +412,7 @@ var trainerCards = {
 			'<i>"Welcome to the real world... fight or flight? Your choice..."</i> <br />'+
 			'<b>Ace:</b> Nidoking<br />'+
 			'<b>Symbol:</b> Global Symbol<br />'+
-			'<b>Battle rules:</b>'+
+			'<b>Battle rules:</b> <br />'+
 			'-6v6 2014 VGC Doubles <br/>'+
 			'-To observe the 6v6 rule, battles will be fought in the Smogon doubles format, but VGC rules and clauses will apply. <br />');
         	

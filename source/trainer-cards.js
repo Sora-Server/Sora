@@ -87,15 +87,14 @@ var trainerCards = {
 	
 	
 	
-	jam: function(target, room, user) {
+	tempest: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Jam</b><br />'+
-		      '<i>"The sky is my field, but it isn\'t my limit."</i> <br />'+
-		      '<b>Type:</b> Flying<br />'+
-		      '<b>Ace:</b> Skarmory (Firebird) <br />'+
+		      '<i>"Excellent. Mhm, excellent indeed."</i> <br />'+
+		      '<b>Type:</b> Bug<br />'+
+		      '<b>Ace:</b> Scizor (Scizorhands) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No Hazards <br/>'+
-	 	      '-No Multihit moves <br/>');
+	 	      '-??? <br/>');
 	},	
 	
 	bloodfist: function(target, room, user) {
@@ -314,13 +313,13 @@ var trainerCards = {
        
         },
         
-        bug: 'tempest',
-        tempest: function(target, room, user) {
+        
+        bug: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Tempest</b><br />'+
-		         '<i>"Excellent. Mhm, excellent indeed."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		         '<i>"???"</i> <br />'+
 	              	 '<b>Type:</b> Bug<br />'+
-			 '<b>Ace:</b> Scizorhands (Scizor)<br />');
+			 '<b>Ace:</b> ???<br />');
         
         },
         

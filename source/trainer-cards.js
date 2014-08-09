@@ -318,8 +318,19 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Eska</b><br />'+
 			 '<i>"Don\'t worry, I will protect you my feeble turtle-duck."</i> <br />'+
 		         '<b>Type:</b> Ghost<br />'+
-			 '<b>Aces:</b> Froslass<br />'+
+			 '<b>Ace:</b> Froslass<br />'+
 			 '<img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/chandelure.gif">');
+        },
+        
+        
+        
+	electric: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			 '<i>"???"</i> <br />'+
+		         '<b>Type:</b> Electric<br />'+
+			 '<b>Ace:</b> ???<br />');
+  
         },
 
         azh: function(target, room, user) {
@@ -390,6 +401,23 @@ var trainerCards = {
 			'<b>Battle rules:</b>'+
 			'-Balanced Hackmons <br/>'+
 		 	'<img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_front/302.gif"> <img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif">');
+        
+        
+        },
+        
+        
+        neith: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Frontier <b>Neith</b><br />'+
+			'<i>"Welcome to the real world... fight or flight? Your choice..."</i> <br />'+
+			'<b>Ace:</b> Nidoking<br />'+
+			'<b>Symbol:</b> Global Symbol<br />'+
+			'<b>Battle rules:</b>'+
+			'-6v6 2014 VGC Doubles <br/>'+
+			'-To observe the 6v6 rule, battles will be fought in the Smogon doubles format, but VGC rules and clauses will apply. <br />');
+        	
+        	
+        	
         },
         
         getbucks: 'getbucks',

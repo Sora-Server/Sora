@@ -326,6 +326,26 @@ var trainerCards = {
 			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Psychic<br />'+
 			  '<b>Ace:</b> ??? <br />');
+	},
+	
+	ground: function(target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
+			  '<b>Type:</b> Ground<br />'+
+			  '<b>Ace:</b> ??? <br />');
+			  
+	},
+	
+	bug 'steve',
+	steve: function(target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Steve</b><br />'+
+			  '<i>"I come like bug, you go like an earthquake"</i> <br />'+
+			  '<b>Type:</b> Bug<br />'+
+			  '<b>Ace:</b> Pinsir <br />');
+	
+	
         },
 	
 	tsuna: 'ice',

@@ -244,7 +244,7 @@ var trainerCards = {
 			  '<b>Type:</b> Bug<br />'+
 			  '<b>Ace:</b> Scizor (Scizorhands)<br />'+
 			  '<b>Battle Rules:</b><br />'+
-			  '-> Rules are for scrubs <br />');
+			  '> Rules are for scrubs <br />');
 
 	},
 		  

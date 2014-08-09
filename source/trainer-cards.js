@@ -369,7 +369,7 @@ var trainerCards = {
 			  '<b>Ace:</b> Pinsir <br />');
         },
 	
-	tsuna: 'ice',
+	ice: 'tsuna',
 	tsuna: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Tsuna</b><br />'+

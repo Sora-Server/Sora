@@ -89,7 +89,7 @@ var trainerCards = {
 	
 	tempest: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Jam</b><br />'+
+		this.sendReplyBox('E4 <b>Tempest</b><br />'+
 		      '<i>"Excellent. Mhm, excellent indeed."</i> <br />'+
 		      '<b>Type:</b> Bug<br />'+
 		      '<b>Ace:</b> Scizor (Scizorhands) <br />'+
@@ -231,13 +231,13 @@ var trainerCards = {
 	
         },
 	
-	electric: 'steve',
-	steve: function(target, room, user) {
+	
+	electric: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Steve</b><br />'+
-			  '<i>"I\'ll come like bug go like thunder"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Electric<br />'+
-			  '<b>Ace:</b> Thundurus <br />');
+			  '<b>Ace:</b> ??? <br />');
         
         },
         
@@ -313,13 +313,13 @@ var trainerCards = {
        
         },
         
-        
-        bug: function(target, room, user) {
+        bug: 'steve',
+        steve: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-		         '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Steve</b><br />'+
+		         '<i>"I come like bug, go like an Earthquake"</i> <br />'+
 	              	 '<b>Type:</b> Bug<br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> Pinsir<br />');
         
         },
         
@@ -384,14 +384,13 @@ var trainerCards = {
 	},
 
 
-	ground: 'terror',
-	terror: function(target, room, user) {
+	
+	ground: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Terror</b><br />'+
-			  '<i>"Get off the ground cuz it\'s gonna get rough!"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Ground<br />'+
-			  '<b>Ace:</b> Garchomp<br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/garchomp.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/hippowdon.gif">');
+			  '<b>Ace:</b> ???<br />');
 		
 	},
 	
@@ -424,7 +423,7 @@ var trainerCards = {
 		this.sendReplyBox('Frontier <b>gasp</b><br />'+
 			'<i>"Lights out."</i> <br />'+
 			'<b>Ace:</b> Mega Gengar<br />'+
-			'<b>Honours:</b> Sora\'s first challenger to reach Hall of Fame.<br />'+
+			'<b>Honours:</b> Sora\'s first challenger to reach Hall of Fame.<br />'
 			'<b>Battle rules:</b>'+
 			'-Balanced Hackmons <br/>'+
 		 	'<img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_front/302.gif"> <img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif">');

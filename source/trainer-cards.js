@@ -237,7 +237,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Electric<br />'+
-			  '<b>Ace:</b> ??? <br />');
+			  '<b>Ace:</b> ???<br />');
         
         },
         

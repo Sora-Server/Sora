@@ -311,6 +311,7 @@ exports.groups = {
 			declare: true,
 			modchatall: true,
 			roomdesc: true,
+			roomintro: true,
 			roompromote: 'u'
 		},
 		'\u2605': {

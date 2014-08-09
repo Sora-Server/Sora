@@ -356,8 +356,8 @@ var trainerCards = {
 		
 	},
 	
-	ice: 'tsuna',
-	ice: function(target, room, user) {
+	tsuna: 'ice',
+	tsuna: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Tsuna</b><br />'+
 			  '<i>"???"</i> <br />'+

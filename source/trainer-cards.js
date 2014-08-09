@@ -350,7 +350,7 @@ var trainerCards = {
 			  '<b>Type:</b> Psychic<br />'+
 			  '<b>Ace:</b> ??? <br />');
 	},
-	ground: 'overseer'
+	ground: 'overseer',
 	overseer: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Overseer</b><br />'+

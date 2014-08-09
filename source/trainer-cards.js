@@ -233,9 +233,21 @@ var trainerCards = {
 			  '<b>Battle Rules:</b><br />'+
 			  '-No Focus Sash<br />'+
 			  '-No protecting moves<br />'+
-			  '<img src="http://sprites.pokecheck.org/i/241.gif"> <img src="http://sprites.pokecheck.org/t/111.gif">');
+         		  '<img src="http://sprites.pokecheck.org/i/241.gif"> <img src="http://sprites.pokecheck.org/t/111.gif">');
+       
+        },
+        
+        tempest: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+	        this.sendReplyBox('E4 <b>Tempest</b><br />'+
+			  '<i>"Excellent, mmhm yes. Excellent indeed."</i> <br />'+
+			  '<b>Type:</b> Bug<br />'+
+			  '<b>Ace:</b> Scizor (Scizorhands)<br />'+
+			  '<b>Battle Rules:</b><br />'+
+			  '-??? <br />');
+
 	},
-			  
+		  
         dark: 'kingx',
         kingx: function(target, room, user) {
 		    if (!this.canBroadcast()) return;

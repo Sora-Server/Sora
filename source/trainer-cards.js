@@ -87,15 +87,6 @@ var trainerCards = {
 	
 	
 	
-	tempest: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Tempest</b><br />'+
-		      '<i>"Excellent. Mhm, excellent indeed."</i> <br />'+
-		      '<b>Type:</b> Bug<br />'+
-		      '<b>Ace:</b> Scizor (Scizorhands) <br />'+
-	 	      '<b>Battle Rules:</b> <br />');
-	},	
-	
 	bloodfist: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Coach <b>Bloodfist</b><br />'+
@@ -230,15 +221,6 @@ var trainerCards = {
 	
         },
 	
-	
-	electric: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> Electric<br />'+
-			  '<b>Ace:</b> ???<br />');
-        
-        },
         
          water: 'floatzel',
          floatzel: function(target, room, user) {
@@ -311,16 +293,7 @@ var trainerCards = {
 			 '<b>Ace:</b> Staraptor<br />');
        
         },
-        
-        bug: 'steve',
-        steve: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Steve</b><br />'+
-		         '<i>"I come like bug, go like an Earthquake"</i> <br />'+
-	              	 '<b>Type:</b> Bug<br />'+
-			 '<b>Ace:</b> Pinsir<br />');
-        
-        },
+       
         
        
 	nova: function(target, room, user) {
@@ -380,16 +353,6 @@ var trainerCards = {
 			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Psychic<br />'+
 			  '<b>Ace:</b> ??? <br />');
-	},
-
-
-	
-	ground: function(target, room, user) {
-	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> Ground<br />'+
-			  '<b>Ace:</b> ???<br />');
 		
 	},
 	

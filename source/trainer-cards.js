@@ -103,6 +103,7 @@ var trainerCards = {
 	 	      '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
         },
 
+	risu: 'ninjarisu',
 	ninjarisu: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Delta <b>Ninjarisu</b><br />'+
@@ -113,8 +114,9 @@ var trainerCards = {
 	 	    '-Max 1 Eviolite item <br/>'+
 	 	    '-No Hazards <br/>'+
 	 	    '-Max 1 second Evolutionary Stage Pokemon (Pokemon that have evolved twice) <br/>'+
+	 	    '-<a href="http://pastebin.com/hV6XZnUh">Difi Battle</a> <br />'+
 	 	    '<b>Prize for victory:</b> 20 bucks <br/>'+
-	 	    '<b>Link to PU Tier list:</b> http://partiallyused.weebly.com/ <br/>'+
+	 	    '-<a href="http://partiallyused.weebly.com/">Link to PU Tier list</a><br/>'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif">');
         },
         

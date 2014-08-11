@@ -189,6 +189,7 @@ exports.customAvatars = {
 	  'gymldrterror': '072.gif',
 	  'gymldrtsuna': '076.gif',
 	  'frontieriggy': '077.jpg',
+	  'frontiergasp': '080.jpg',
 	
 };
 

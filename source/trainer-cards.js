@@ -378,7 +378,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Tsuna</b><br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type:</b> Ice<br />'+
-			  '<b>Ace:</b> Weavile<br />');
+			  '<b>Ace:</b> Kyurem<br />');
 	},
 
 	jeratt: function(target, room, user) {

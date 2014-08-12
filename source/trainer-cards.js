@@ -311,7 +311,8 @@ var trainerCards = {
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-No Pokemon above 40 Base Speed <br/>'+
 		 	  '-No hazards <br/>'+
-		 	  '-Speed Stat can\'t be changed. <br/>');
+		 	  '-Speed Stat can\'t be changed. <br/>'
+		 	  '<img src="http://play.pokemonshowdown.com/sprites/xyani/rhydon.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/escavalier.gif"> <br/>');
 
 	},
 

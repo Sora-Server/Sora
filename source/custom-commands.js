@@ -114,8 +114,8 @@ var customCommands = {
 			"was incinerated by Magcargo!",
 			"is better as E4!",
 			"was drowned by Wooper's divine mud!",
-			"was forced to Slurpuff the ℘ℯℯ℘ℯℯ!",
 			"was rejected by Len Kagamine!",
+			"x was been hour munted by demon lrod helix!",
 		];
 
 		return function(target, room, user) {

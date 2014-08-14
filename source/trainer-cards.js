@@ -474,12 +474,12 @@ var trainerCards = {
 	leaderranks: 'ranks',
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Listed here are the Top 5 Leaders in The Sora League based on performance in our Monthly Promotional Tournaments! <br />' +
+			this.sendReplyBox('Listed here are the Top 5 Leaders in The Sora League based on performance in our Monthly Promotional Tournaments! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. <br />' +
 				'-<b>1st <font color = 91ffe9>Waffles</font></b> (Flying)<br />'+
 				'-<b>2nd <font color = 5e6664>Myth</font></b></b> (Steel)<br />'+
 				'-<b>3rd <font color = 19fc00>Asch</font></b> (Grass)<br />'+
 				'-<b>4th <font color = aa00ff>Srewop</font></b> (Poison) <br />'+
-				'-<b>5th< <font color = 4f107c>Snowking</font></b> (Dragon) <br />'+
+				'-<b>5th <font color = 4f107c>Snowking</font></b> (Dragon) <br />'+
 				'</div>');
 	
 	},

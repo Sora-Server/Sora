@@ -269,7 +269,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Srewop</b><br />'+
 			 '<b> Leader rank: <font color = 76ff00>4th</font></b> <br />'+
 			 '<i>"It\'s going down, I\'m yelling Timburr"</i> <br />'+
-			 '<b>Type:</b> Poison<br />'+
+			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
 			 '<b>Ace:</b> Venusaur<br />');
 	},
         
@@ -279,7 +279,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Waffles</b><br />'+
 		         '<b> Leader ranking: <font color = ff0000>1st</font></b> <br />'+
 		         '<i>"Get ready to cry as we fly into the sky~"</i> <br />'+
-	              	 '<b>Type:</b> Flying<br />'+
+	              	 '<b>Type: <font color = 91ffe9>Flying</font></b><br />'+
 			 '<b>Ace:</b> Toast the Charizard<br />'+
 			 '<img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/charizard-mega-x.gif">');
         },
@@ -289,7 +289,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bamdee</b><br />'+
 		         '<i>"What\'s a quote?"</i> <br />'+
-	              	 '<b>Type:</b> Normal<br />'+
+	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
 			 '<b>Ace:</b> Staraptor<br />');
        
         },

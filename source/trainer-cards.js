@@ -225,7 +225,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+
-			  '<b>Type: <font color = 472e10>Rock</font></b>br />'+
+			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
 			  '<b>Ace:</b> ???<br />');
 			  
         },
@@ -259,7 +259,7 @@ var trainerCards = {
 		    if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>KingX</b><br />'+
 			  '<i>"Long live the King!"</i> <br />'+
-			  '<b>Type:</b> Dark<br />'+
+			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
 			  '<b>Ace:</b> Sableye<br />');
         },
         

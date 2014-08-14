@@ -54,6 +54,7 @@ var trainerCards = {
 	snowking: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Snowking</b><br />'+
+		      '<b> Leader rank: <font color = 00ff00>5th</font></b> <br />'+
 		      '<i>"If you don\'t come quietly, I\'m dragon you down with me."</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
 		      '<b>Ace:</b> Latios<br />'+

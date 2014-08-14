@@ -204,6 +204,7 @@ var trainerCards = {
         myth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Myth</b><br />'+
+			  '<b> Leader ranking: <font color = ff9900>2nd</font></b> <br />'+
 			  '<i>"Steel is a hard type, get it?"</i> <br />'+
 			  '<b>Type:</b> Steel<br />'+
 			  '<b>Ace:</b>Mega-Scizor (A Robot)<br />');

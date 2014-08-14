@@ -468,7 +468,10 @@ var trainerCards = {
 				'- <a href="http://soraleague.weebly.com/events.html">Sora League Events</a><br />' +
 				'</div>');
 				
-	ranking: 'leaderrank',
+
+	},
+
+	leaderranking: 'ranking',
 		ranking: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 5 Leaders in The Sora League based on performance in our Monthly Promotional Tournaments! <br />' +
@@ -481,7 +484,7 @@ var trainerCards = {
 	
 	},
 
-	gymtrainers: 'gym trainers',
+        gymtrainers: 'gym trainers',
 		gymtrainers: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Here is a list of Sora League Gym Trainers:<br />' +

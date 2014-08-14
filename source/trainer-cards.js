@@ -208,7 +208,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Myth</b><br />'+
 			  '<b> Leader ranking: <font color = ff9900>2nd</font></b> <br />'+
 			  '<i>"Steel is a hard type, get it?"</i> <br />'+
-			  '<b>Type: <font color = 5e6664>Steel</font><br />'+
+			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
 			  '<b>Ace:</b>Mega-Scizor (A Robot)<br />');
 	},
 	
@@ -217,7 +217,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
 			  '<i>"I will drown you so hard, you will drown to death"</i> <br />'+
-			  '<b>Type:</b> Water<br />'+
+			  '<b>Type: <font color = 0400f9>Water</font></b> <br />'+
 			  '<b>Ace:</b> Keldeo<br />');
         },
     

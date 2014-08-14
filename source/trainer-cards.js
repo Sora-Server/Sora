@@ -208,7 +208,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Myth</b><br />'+
 			  '<b> Leader ranking: <font color = ff9900>2nd</font></b> <br />'+
 			  '<i>"Steel is a hard type, get it?"</i> <br />'+
-			  '<b>Type:</b> Steel<br />'+
+			  '<b>Type: <font color = 5e6664>Steel</font><br />'+
 			  '<b>Ace:</b>Mega-Scizor (A Robot)<br />');
 	},
 	

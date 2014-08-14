@@ -115,7 +115,8 @@ var customCommands = {
 			"is better as E4!",
 			"was drowned by Wooper's divine mud!",
 			"was rejected by Len Kagamine!",
-			"x was been hour munted by demon lrod helix!",
+			"was been hour munted by demon lrod helix!",
+			"was killed by the God Virus!",
 		];
 
 		return function(target, room, user) {

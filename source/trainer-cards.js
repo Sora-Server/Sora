@@ -273,6 +273,7 @@ var trainerCards = {
         waffles: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Waffles</b><br />'+
+		         '<b> Leader ranking: <font color = ff0000>1st</font> '
 		         '<i>"Get ready to cry as we fly into the sky~"</i> <br />'+
 	              	 '<b>Type:</b> Flying<br />'+
 			 '<b>Ace:</b> Toast the Charizard<br />'+

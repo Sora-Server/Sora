@@ -169,7 +169,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Jacob</b><br />'+
 			'<i>"My fighting\'s are frightening."</i> <br />'+
-			'<b>Type:</b> Fighting<br />'+
+			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
 			'<b>Ace:</b> Heracross<br />');
         },
         

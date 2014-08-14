@@ -146,7 +146,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
 			'<b>Leader rank: <font color = ffe100>3rd</font></b> <br />'+
 			'<i>"Ignorance is Eviolite Blissey"</i> <br />'+
-			'<b>Type: <font color = 19fc00>Grass</font></b> <br />'+
+			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/trainers/54.png"> <img src="http://sprites.pokecheck.org/i/003f.gif">');
 	},
@@ -477,7 +477,7 @@ var trainerCards = {
 			this.sendReplyBox('Listed here are the Top 5 Leaders in The Sora League based on performance in our Monthly Promotional Tournaments! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. <br />' +
 				'-<b>1st <font color = 91ffe9>Waffles</font></b> (Flying)<br />'+
 				'-<b>2nd <font color = 5e6664>Myth</font></b></b> (Steel)<br />'+
-				'-<b>3rd <font color = 19fc00>Asch</font></b> (Grass)<br />'+
+				'-<b>3rd <font color = 006b0a>Asch</font></b> (Grass)<br />'+
 				'-<b>4th <font color = aa00ff>Srewop</font></b> (Poison) <br />'+
 				'-<b>5th <font color = 4f107c>Snowking</font></b> (Dragon) <br />'+
 				'</div>');

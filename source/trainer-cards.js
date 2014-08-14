@@ -178,7 +178,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Ark</b><br />'+
 	              '<i>*Rubs hands*</i> <br />'+
-	              '<b>Type:<font color = ff42a0>Fairy</font></b><br />'+
+	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
 	              '<b>Ace:</b> Togekiss<br />');
         },
         
@@ -187,7 +187,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Hayden</b><br />'+
 	              '<i>"Before you judge me, make sure that you\'re perfect"</i> <br />'+
-	              '<b>Type:</b> Fire<br />'+
+	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> Infernape<br />');
         },
         

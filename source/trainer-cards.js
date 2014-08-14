@@ -178,7 +178,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Ark</b><br />'+
 	              '<i>*Rubs hands*</i> <br />'+
-	              '<b>Type:</b> Fairy<br />'+
+	              '<b>Type:<font color = ff42a0>Fairy</font></b><br />'+
 	              '<b>Ace:</b> Togekiss<br />');
         },
         

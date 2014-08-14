@@ -143,7 +143,7 @@ var trainerCards = {
 	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
-			'<b>Leader rank: <font color = e9ff00>3rd</font></b> <br />'+
+			'<b>Leader rank: <font color = ffe100>3rd</font></b> <br />'+
 			'<i>"Ignorance is Eviolite Blissey"</i> <br />'+
 			'<b>Type:</b> Grass<br />'+
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+

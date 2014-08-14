@@ -326,7 +326,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Eska</b><br />'+
 			 '<i>"Don\'t worry, I will protect you my feeble turtle-duck."</i> <br />'+
-		         '<b>Type:</b> Ghost<br />'+
+		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
 			 '<b>Ace:</b> Froslass<br />'+
 			 '<img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/chandelure.gif">');
         },
@@ -337,7 +337,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			 '<i>"???"</i> <br />'+
-		         '<b>Type:</b> Electric<br />'+
+		         '<b>Type: <font color = d6cc0c>Electric</font></b><br />'+
 			 '<b>Ace:</b> ???<br />');
   
         },
@@ -356,7 +356,7 @@ var trainerCards = {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> Psychic<br />'+
+			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> ??? <br />');
 	},
 	ground: 'overseer',
@@ -364,7 +364,7 @@ var trainerCards = {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Overseer</b><br />'+
 			  '<i>"kanye > Jay z"</i> <br />'+
-			  '<b>Type:</b> Ground<br />'+
+			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
 			  '<b>Ace:</b> Zygarde <br />');
 			  
 	},
@@ -374,7 +374,7 @@ var trainerCards = {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Steve</b><br />'+
 			  '<i>"I come like bug, you go like an earthquake"</i> <br />'+
-			  '<b>Type:</b> Bug<br />'+
+			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> Pinsir <br />');
         },
 	
@@ -383,7 +383,7 @@ var trainerCards = {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Tsuna</b><br />'+
 			  '<i>"???"</i> <br />'+
-			  '<b>Type:</b> Ice<br />'+
+			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
 			  '<b>Ace:</b> Kyurem<br />');
 	},
 

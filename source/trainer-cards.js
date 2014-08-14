@@ -146,7 +146,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
 			'<b>Leader rank: <font color = ffe100>3rd</font></b> <br />'+
 			'<i>"Ignorance is Eviolite Blissey"</i> <br />'+
-			'<b>Type:</b> <font color = 19fc00>Grass</font><br />'+
+			'<b>Type: <font color = 19fc00>Grass</font></b> <br />'+
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/trainers/54.png"> <img src="http://sprites.pokecheck.org/i/003f.gif">');
 	},

@@ -189,7 +189,7 @@ var trainerCards = {
 	              '<i>"Before you judge me, make sure that you\'re perfect"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> Infernape<br />');
-       
+
 	},
  
         steel: 'myth',
@@ -315,7 +315,7 @@ var trainerCards = {
 	eska: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Eska</b><br />'+
-			 '<b> Leader Ranking:<font color = FF0000>1st</font></b>'
+			 '<b> Leader Ranking:<font color = FF0000>1st</font></b>'+
 			 '<i>"Don\'t worry, I will protect you my feeble turtle-duck."</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
 			 '<b>Ace:</b> Froslass<br />'+

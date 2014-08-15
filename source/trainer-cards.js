@@ -54,7 +54,7 @@ var trainerCards = {
 	snowking: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Snowking</b><br />'+
-		      '<b> Leader rank: <font color = 00ff00>5th</font></b> <br />'+
+		      '<b> Leader rank: <font color = 00ff00>6th</font></b> <br />'+
 		      '<i>"If you don\'t come quietly, I\'m dragon you down with me."</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
 		      '<b>Ace:</b> Latios<br />'+
@@ -144,7 +144,7 @@ var trainerCards = {
 	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
-			'<b>Leader rank: <font color = ffe100>3rd</font></b> <br />'+
+			'<b>Leader rank: <font color = 76ff00>4th</font></b> <br />'+
 			'<i>"Ignorance is Eviolite Blissey"</i> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
@@ -189,24 +189,14 @@ var trainerCards = {
 	              '<i>"Before you judge me, make sure that you\'re perfect"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> Infernape<br />');
-        },
-        
-        akash: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Elite Frontier <b>Akash</b><br />'+
-			  '<i>"Teamwork is the key to victory."</i> <br />'+
-			  '<b>Symbol:</b> Luck<br />'+
-			  '<b>Ace:</b> Salamence <br />'+
-			  '<b>Battle Rules:</b> <br/>'+
-		 	  '-VGC 2014 <br/>'+
-		 	  '-Sleep Clause <br/>');
+       
 	},
  
         steel: 'myth',
         myth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Myth</b><br />'+
-			  '<b> Leader ranking: <font color = ff9900>2nd</font></b> <br />'+
+			  '<b> Leader ranking: <font color = ffe100>3rd</font></b> <br />'+
 			  '<i>"Steel is a hard type, get it?"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
 			  '<b>Ace:</b>Mega-Scizor (A Robot)<br />');
@@ -267,7 +257,7 @@ var trainerCards = {
         srewop: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Srewop</b><br />'+
-			 '<b> Leader rank: <font color = 76ff00>4th</font></b> <br />'+
+			 '<b> Leader rank: <font color = 00ff00>5th</font></b> <br />'+
 			 '<i>"It\'s going down, I\'m yelling Timburr"</i> <br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
 			 '<b>Ace:</b> Venusaur<br />');
@@ -277,7 +267,7 @@ var trainerCards = {
         waffles: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Waffles</b><br />'+
-		         '<b> Leader ranking: <font color = ff0000>1st</font></b> <br />'+
+		         '<b> Leader ranking: <font color = ff9900>2nd</font></b> <br />'+
 		         '<i>"Get ready to cry as we fly into the sky~"</i> <br />'+
 	              	 '<b>Type: <font color = 91ffe9>Flying</font></b><br />'+
 			 '<b>Ace:</b> Toast the Charizard<br />'+
@@ -325,6 +315,7 @@ var trainerCards = {
 	eska: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Eska</b><br />'+
+			 '<b> Leader Ranking:<font color = FF0000>1st</font></b>'
 			 '<i>"Don\'t worry, I will protect you my feeble turtle-duck."</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
 			 '<b>Ace:</b> Froslass<br />'+
@@ -474,12 +465,13 @@ var trainerCards = {
 	leaderranks: 'ranks',
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Listed here are the Top 5 Leaders in The Sora League based on performance in our Monthly Promotional Tournaments! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. <br />' +
-				'-<b>1st <font color = 91ffe9>Waffles</font></b> (Flying)<br />'+
-				'-<b>2nd <font color = 5e6664>Myth</font></b></b> (Steel)<br />'+
-				'-<b>3rd <font color = 006b0a>Asch</font></b> (Grass)<br />'+
-				'-<b>4th <font color = aa00ff>Srewop</font></b> (Poison) <br />'+
-				'-<b>5th <font color = 4f107c>Snowking</font></b> (Dragon) <br />'+
+			this.sendReplyBox('Listed here are the Top 6 Leaders in The Sora League based on performance in our Monthly Promotional Tournaments! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. <br />' +
+				'-<b>1st <font color = 7814e2>Eska</font></b> (Ghost)<br />'+
+				'-<b>2nd <font color = 00fffa>Waffles</font></b> (Flying)<br />'+
+				'-<b>3rd <font color = 5e6664>Myth</font></b></b> (Steel)<br />'+
+				'-<b>4th <font color = 006b0a>Asch</font></b> (Grass)<br />'+
+				'-<b>5th <font color = aa00ff>Srewop</font></b> (Poison) <br />'+
+				'-<b>6th <font color = 4f107c>Snowking</font></b> (Dragon) <br />'+
 				'</div>');
 	
 	},

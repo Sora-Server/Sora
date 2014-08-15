@@ -18,7 +18,7 @@ var trainerCards = {
 	onyx: 'onyxeagle',
 	onyxeagle: function(target, room, user) {
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('<html><body style="background-color:yellow;"><a><font size= 4><center><b>∆OnyxEagle∆</b></center></a><br /></body></html>'+
+	 	this.sendReplyBox('<html><body style="background-color:yellow"><a><font size= 4><center><b>∆OnyxEagle∆</b></center></a><br /></body></html>'+
 	 	    '<center><i>"Heads or Tails? Heads, I Win; Tails, you Lose"</i></center> <br />'+
 		    '<b>Skilled in:</b> Rock types/ Ubers, Random Battle and OU to a certain degree.<br />'+
 		    '<b>History:</b> 2nd Champion of New Sora. One of the 2 people who resurrected Sora from the rubbles. <br/>'+

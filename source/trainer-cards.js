@@ -344,20 +344,21 @@ var trainerCards = {
 			  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"></center>');
 	},
 
-	psychic: function(target, room, user) {
-	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
-			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> ??? <br />');
-	},
-	ground: 'overseer',
+	psychic 'overseer',
 	overseer: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Overseer</b><br />'+
-			  '<i>"kanye > Jay z"</i> <br />'+
+			  '<i>"Kanye> Jay z"</i> <br />'+
+			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
+			  '<b>Ace:</b> Mega-Medicham <br />');
+	},
+	
+	ground: function(target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
-			  '<b>Ace:</b> Zygarde <br />');
+			  '<b>Ace:</b> ??? <br />');
 			  
 	},
 	

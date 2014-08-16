@@ -582,6 +582,8 @@ var customCommands = {
 	        '74.88.1.127 -Unicode spammer (Eldes)<br />'+
 	        '23.30.142.86 -Carl Jones<br />'+
 	        '94.79.237.137 -Champiön Greninja<br />'+
+	        '71.191.144.42 -Imp Dawnmidst<br />'+
+	        '104.157.62.151 -ZYGA<br />'+
 	        'Shame on them!');
         },
 

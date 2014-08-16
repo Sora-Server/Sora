@@ -149,7 +149,7 @@ exports.customAvatars = {
 	  'gymldrcore': '073.png',
 	  'e4toast': '009.gif',
 	  'e4bighug': '010.gif',
-	  'gymldrgary': '011.gif',
+	  'gary322': '011.gif',
 	  'deltaninjarisu': '060.gif',
 	  'gymldrsnowking': '079.gif',
 	  'gymldrkrenon': '017.gif',

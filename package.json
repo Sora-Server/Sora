@@ -20,7 +20,8 @@
   },
   "engineStrict": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "gulp"
   },
   "bin": "./app.js",
   "homepage": "http://play.pokemonshowdown.com",

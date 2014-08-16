@@ -422,6 +422,20 @@ var trainerCards = {
         	
         },
         
+        
+        jaddu: function (target, room, user) {
+                if (!this.canBroadcast()) return;
+                this.sendReplyBox('<center><img src="http://i.imgur.com/GHnqgjH.png"></center><br />'+
+                '<i><font color="blue"><b>Quote:Who am I? Well,I am your Worst Nightmare<br>'+
+                'Ace=Infernape(CR Ace:Rhydon)<br />'+
+                'Custom Rules:<br />'+
+                '- No poke above the base speed of 40<br />'+
+                '- No Hazards<br />'+
+                '-Speed should not be increased or decreased<br />'+
+                '</b></i><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/infernape.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/rhydon.gif">');
+        },
+        
+        
         getbucks: 'getbucks',
 		getbucks: function(target, room, user) {
 			if (!this.canBroadcast()) return;

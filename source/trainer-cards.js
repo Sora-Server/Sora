@@ -491,6 +491,19 @@ var trainerCards = {
 				'</div>');
 	
 	},
+	
+	ourevamped: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Welcome to OU Revamped! Displayed here are the details on how OU Revamped works! <br />'+
+			'After seeing the direction that the Smogon OU meta was taking, we decided we\'d like to have a different way to play Smogon\'s OU. <br />'+
+			'Unbanned Pokemon from Uber are as follows: <br />'+
+			'Mega-Mawile <img src="http://play.pokemonshowdown.com/sprites/xyani/mawile-mega.gif"> <br />'+
+			'Aegislash <img src="http://play.pokemonshowdown.com/sprites/xyani/aegislash.gif"> <br />'+
+			'Deoxys-Defense <img src="http://play.pokemonshowdown.com/sprites/xyani/deoxys-defense.gif"> <br />'+
+			'Deoxys-Speed <img src="http://play.pokemonshowdown.com/sprites/xyani/deoxys-speed.gif"> <br />'+
+			'</div>');
+			
+        },
 
         gymtrainers: 'gym trainers',
 		gymtrainers: function(target, room, user) {

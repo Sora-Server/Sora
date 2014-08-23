@@ -12,7 +12,7 @@ exports.BattleFormats = {
 		banlist: ['Unreleased', 'Illegal', 'Huntail + Shell Smash + Sucker Punch', 'Leavanny + Knock Off + Sticky Web', 'Sylveon + Hyper Voice + Heal Bell + Wish + Baton Pass']
 	},
 	
-	ourevamped: {
+        ourevamped: {
 		effectType: 'Banlist',
 		ruleset: ['Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod'],
 		banlist: ['Unreleased', 'Illegal', 'Huntail + Shell Smash + Sucker Punch', 'Leavanny + Knock Off + Sticky Web', 'Sylveon + Hyper Voice + Heal Bell + Wish + Baton Pass'],
@@ -39,6 +39,7 @@ exports.BattleFormats = {
 	        'Zekrom'
 	        ]
         },
+	
 	championchallenge: {
  		effectType: 'Banlist',
  		ruleset: ['HP Percentage Mod'],

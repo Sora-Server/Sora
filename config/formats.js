@@ -670,7 +670,7 @@ exports.Formats = [
 	{
 		name: "OU Monotype",
 		section: "Monotype",
-		ruleset: ['OU', 'Same Type Clause'],
+		ruleset: ['OU', 'HP Percentage Mod', 'Team Preview', 'Same Type Clause'],
 		banlist: ['Talonflame']
 	},
 	{

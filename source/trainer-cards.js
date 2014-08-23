@@ -241,7 +241,8 @@ var trainerCards = {
 			  '<b>Type:</b> Bug<br />'+
 			  '<b>Ace:</b> Scizor (Scizorhands)<br />'+
 			  '<b>Battle Rules:</b><br />'+
-			  '-No Hazards <br />');
+			  '-No Hazards <br />'+
+			  '<img src="http://play.pokemonshowdown.com/sprites/trainers/169.png"><img src="http://play.pokemonshowdown.com/sprites/bw/scizor.png">');
 
 	},
 		  

@@ -11,6 +11,34 @@ exports.BattleFormats = {
 		ruleset: ['Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod'],
 		banlist: ['Unreleased', 'Illegal', 'Huntail + Shell Smash + Sucker Punch', 'Leavanny + Knock Off + Sticky Web', 'Sylveon + Hyper Voice + Heal Bell + Wish + Baton Pass']
 	},
+	
+	ourevamped: {
+		effectType: 'Banlist',
+		ruleset: ['Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod'],
+		banlist: ['Unreleased', 'Illegal', 'Huntail + Shell Smash + Sucker Punch', 'Leavanny + Knock Off + Sticky Web', 'Sylveon + Hyper Voice + Heal Bell + Wish + Baton Pass'],
+	        'Arceus',
+	        'Blaziken',
+	        'Darkrai',
+	        'Deoxys-Attack',
+	        'Deoxys',
+	        'Dialga',
+	        'Genesect',
+	        'Giratina',
+	        'Giratina-Origin',
+	        'Groudon',
+	        'Kyogre',
+	        'Kyurem-White',
+	        'Lugia',
+	        'Mewtwo',
+	        'Palkia',
+	        'Rayquaza',
+	        'Reshiram',
+	        'Shaymin-Sky',
+	        'Xerneas',
+	        'Yveltal',
+	        'Zekrom'
+	        ]
+        },
 	championchallenge: {
  		effectType: 'Banlist',
  		ruleset: ['HP Percentage Mod'],

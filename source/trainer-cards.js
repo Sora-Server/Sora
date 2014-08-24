@@ -115,7 +115,7 @@ var trainerCards = {
 	 	    '<b>Rules:</b> PU Tier<br />'+
 	 	    '-Max 1 Eviolite item <br/>'+
 	 	    '-No Hazards <br/>'+
-	 	    '-Max 1 second Evolutionary Stage Pokemon (Pokemon that have evolved twice) <br/>'+
+	 	    '-No Direct Status <br/>'+
 	 	    '-<a href="http://pastebin.com/hV6XZnUh">Difi Battle</a> <br />'+
 	 	    '<b>Prize for victory:</b> 20 bucks <br/>'+
 	 	    '-<a href="http://partiallyused.weebly.com/">Link to PU Tier list</a><br/>'+

@@ -265,13 +265,13 @@ var trainerCards = {
 			 '<b>Ace:</b> Venusaur<br />');
 	},
         
-        
-        flying: function(target, room, user) {
+        flying: 'arshrs',
+        arshrs: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-		         '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Arshrs</b><br />'+
+		         '<i>"Haters gonna hate potatoes gonna potate"</i> <br />'+
 	              	 '<b>Type: <font color = 91ffe9>Flying</font></b><br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> Vivillon<br />');
 			 
         },
         

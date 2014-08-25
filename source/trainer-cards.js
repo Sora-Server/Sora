@@ -344,13 +344,13 @@ var trainerCards = {
 			  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"> <img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"></center>');
 	},
 
-	psychic: 'overseer',
-	overseer: function(target, room, user) {
+
+	psychic: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Overseer</b><br />'+
-			  '<i>"Kanye> Jay z"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> Mega-Medicham <br />');
+			  '<b>Ace:</b> ??? <br />');
 	},
 	
 	ground: function(target, room, user) {

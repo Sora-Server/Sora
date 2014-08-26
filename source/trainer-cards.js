@@ -352,13 +352,13 @@ var trainerCards = {
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> ??? <br />');
 	},
-	
-	ground: function(target, room, user) {
+	ground: 'vroen'
+	vroen: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Vroen</b><br />'+
+			  '<i>"The Earth can be your life, or your destruction."</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
-			  '<b>Ace:</b> ??? <br />');
+			  '<b>Ace:</b> Excadrill <br />');
 			  
 	},
 	

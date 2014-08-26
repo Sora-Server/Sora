@@ -352,7 +352,7 @@ var trainerCards = {
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> ??? <br />');
 	},
-	ground: 'vroen':
+	ground: 'vroen',
 	vroen: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Vroen</b><br />'+

@@ -183,13 +183,13 @@ var trainerCards = {
 	              '<b>Ace:</b> Togekiss<br />');
         },
         
-        fire: 'hayden',
-        hayden: function(target, room, user) {
+        
+        fire: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Hayden</b><br />'+
-	              '<i>"Before you judge me, make sure that you\'re perfect"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> Infernape<br />');
+	              '<b>Ace:</b> ???<br />');
 
 	},
  

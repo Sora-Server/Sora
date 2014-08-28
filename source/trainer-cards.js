@@ -146,10 +146,10 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
 			'<b> Leader ranking: <font color = ff9900>2nd</font></b> <br />'+
-			'<i>"Ignorance is Eviolite Blissey"</i> <br />'+
+			'<b>*GRACEFUL CHANTING*</b> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/trainers/54.png"> <img src="http://sprites.pokecheck.org/i/003f.gif">');
+			'<img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif"> <img src="http://sprites.pokecheck.org/i/003f.gif"> <img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif">');
 	},
 
 	blade: function(target, room, user) {

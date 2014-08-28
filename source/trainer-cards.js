@@ -55,7 +55,7 @@ var trainerCards = {
 	snowking: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Snowking</b><br />'+
-		      '<b> Leader rank: <font color = 00ff00>5th</font></b> <br />'+
+		      '<b>Leader rank: <font color = 76ff00>4th</font></b> <br />'+ 
 		      '<i>"If you don\'t come quietly, I\'m dragon you down with me."</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
 		      '<b>Ace:</b> Latios<br />'+
@@ -145,7 +145,7 @@ var trainerCards = {
 	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
-			'<b> Leader ranking: <font color = ffe100>3rd</font></b> <br />'+
+			'<b> Leader ranking: <font color = ff9900>2nd</font></b> <br />'+
 			'<i>"Ignorance is Eviolite Blissey"</i> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
@@ -197,7 +197,7 @@ var trainerCards = {
         myth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Myth</b><br />'+
-			  '<b> Leader ranking: <font color = ff9900>2nd</font></b> <br />'+
+			  '<b> Leader Ranking: <font color = FF0000>1st</font></b> <br />'+
 			  '<i>"Steel is a hard type, get it?"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
 			  '<b>Ace:</b>Mega-Scizor (A Robot)<br />');
@@ -259,7 +259,7 @@ var trainerCards = {
         srewop: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Srewop</b><br />'+
-			 '<b>Leader rank: <font color = 76ff00>4th</font></b> <br />'+
+			 '<b> Leader ranking: <font color = ffe100>3rd</font></b> <br />'+ 
 			 '<i>"It\'s going down, I\'m yelling Timburr"</i> <br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
 			 '<b>Ace:</b> Venusaur<br />');
@@ -279,6 +279,7 @@ var trainerCards = {
         bamdee: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bamdee</b><br />'+
+		         '<b> Leader rank: <font color = 00ff00>5th</font></b> <br />'+ 
 		         '<i>"What\'s a quote?"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
 			 '<b>Ace:</b> Staraptor<br />');
@@ -312,15 +313,14 @@ var trainerCards = {
 
 	},
 
-        ghost: 'eska',
-	eska: function(target, room, user) {
+        
+	ghost: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Eska</b><br />'+
-			 '<b> Leader Ranking: <font color = FF0000>1st</font></b> <br />'+
-			 '<i>"Don\'t worry, I will protect you my feeble turtle-duck."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
-			 '<b>Ace:</b> Froslass<br />'+
-			 '<img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/chandelure.gif">');
+			 '<b>Ace:</b> ???<br />');
+			 
         },
         
         
@@ -482,11 +482,11 @@ var trainerCards = {
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 5 Leaders in The Sora League based on performance in our Monthly Promotional Tournaments! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. <br />' +
-				'-<b>1st <font color = 7814e2>Eska</font></b> (Ghost)<br />'+
-				'-<b>2nd <font color = 5e6664>Myth</font></b></b> (Steel)<br />'+
-				'-<b>3rd <font color = 006b0a>Asch</font></b> (Grass)<br />'+
-				'-<b>4th <font color = aa00ff>Srewop</font></b> (Poison) <br />'+
-				'-<b>5th <font color = 4f107c>Snowking</font></b> (Dragon) <br />'+
+				'-<b>1st <font color = 7814e2>Myth</font></b> (Steel)<br />'+
+				'-<b>2nd <font color = 5e6664>Asch</font></b></b> (Grass)<br />'+
+				'-<b>3rd <font color = 006b0a>Srewop</font></b> (Poison)<br />'+
+				'-<b>4th <font color = aa00ff>Snowking</font></b> (Dragon) <br />'+
+				'-<b>5th <font color = 4f107c>Bamdee</font></b> (Normal) <br />'+
 				'</div>');
 	
 	},

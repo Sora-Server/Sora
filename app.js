@@ -111,14 +111,13 @@ global.reloadCustomAvatars = function () {
 		if (typeof Config.customAvatars[a] === 'number')
 			newCustomAvatars[a] = Config.customAvatars[a];
 		else
-			fs.exists('./config/avatars/' + Config.customAvatars[a], (function (user, file, isExists) {
+			fs.exists('./config/avatars/' + Config.customAvatars[a], function (user, file, isExists) {
 				if (isExists)
 					Config.customAvatars[user] = file;
-			}).bind(null, a, Config.customAvatars[a]));
+			}.bind(null, a, Config.customAvatars[a]));
 
 	Config.customAvatars = newCustomAvatars;
-}
-
+};
 if (Config.watchConfig) {
 	fs.watchFile('./config/config.js', function (curr, prev) {
 		if (curr.mtime <= prev.mtime) return;
@@ -373,6 +372,7 @@ global.Simulator = require('./simulator.js');
 
 global.Tournaments = require('./tournaments');
 
+
 try {
 	global.Dnsbl = require('./dnsbl.js');
 } catch (e) {
@@ -462,4 +462,4 @@ global.SysopAccess = require('./source/core.js').sysopAccess();
 
 global.Core = require('./source/core.js').core;
 
-
+global.tour = new (require('./tour.js').tour)();

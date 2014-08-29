@@ -127,15 +127,9 @@ function canTalk(user, room, connection, message) {
 			}
 			user.lastMessage = message;
 			user.lastMessageTime = Date.now();
-
-			if (user.group === Config.groups.default[roomType]) {
-				if (message.toLowerCase().indexOf('spoiler:') >= 0 || message.toLowerCase().indexOf('spoilers:') >= 0) {
-					connection.sendTo(room, "Due to spam, spoilers can't be sent to the lobby.");
-					return false;
-				}
-			}
 		}
-
+		
+		if (!Bot.parse.processChatData(user, room, connection, message)) return false;
 		if (Config.chatFilter) {
 			return Config.chatFilter(user, room, connection, message);
 		}
@@ -239,14 +233,18 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
 			send: function (data) {
 				room.send(data);
 			},
-			privateModCommand: function (data) {
-				for (var i in room.users) {
-					if (room.users[i].can('staff', room)) {
-						room.users[i].sendTo(room, data);
-					}
-				}
+			privateModCommand: function (data, noLog) {
+				this.sendModCommand(data);
 				this.logEntry(data);
 				this.logModCommand(data);
+			},
+			sendModCommand: function (data) {
+				for (var i in room.users) {
+					var user = room.users[i];
+					if (user.can('staff') || user.can('staff', room)) {
+						user.sendTo(room, data);
+					}
+				}
 			},
 			logEntry: function (data) {
 				room.logEntry(data);

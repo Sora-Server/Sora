@@ -299,6 +299,7 @@ var trainerCards = {
 		 	  '-Players can use whatever pokemon from the evolution chain of the pokemon picked by random <br/>');
 	},
 
+        
         night: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Frontier <b>Night</b><br />'+
@@ -313,13 +314,13 @@ var trainerCards = {
 
 	},
 
-        
-	ghost: function(target, room, user) {
+        ghost: 'meows',
+	meows: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			 '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
+			 '<i>"BOOOOO HEHEHEHE BOOOOOOOO"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> Froslass<br />');
 			 
         },
         

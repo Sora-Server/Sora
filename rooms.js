@@ -636,10 +636,6 @@ var BattleRoom = (function () {
 		this.sideTurnTicks = [0, 0];
 		this.disconnectTickDiff = [0, 0];
 
-<<<<<<< HEAD
-		//war battle
-		
-=======
 		this.log = [];
 
 		if (Config.forceTimer) this.requestKickInactive(false);
@@ -677,7 +673,6 @@ var BattleRoom = (function () {
 			var p2 = rated.p2;
 			if (Users.getExact(rated.p2)) p2 = Users.getExact(rated.p2).name;
 
->>>>>>> parent of e0b654d... Merge remote-tracking branch 'upstream/master'
 			//update.updates.push('[DEBUG] uri: ' + Config.loginServer.uri + 'action.php?act=ladderupdate&serverid=' + Config.serverId + '&p1=' + encodeURIComponent(p1) + '&p2=' + encodeURIComponent(p2) + '&score=' + p1score + '&format=' + toId(rated.format) + '&servertoken=[token]');
 
 			if (!rated.p1 || !rated.p2) {
@@ -1184,43 +1179,6 @@ var BattleRoom = (function () {
 		}
 		return true;
 	};
-<<<<<<< HEAD
-	BattleRoom.prototype.addCmd = function () {
-		this.log.push('|' + Array.prototype.slice.call(arguments).join('|'));
-	};
-	BattleRoom.prototype.add = function (message) {
-		if (message.rawMessage) {
-			this.addCmd('raw', message.rawMessage);
-		} else if (message.name) {
-			this.addCmd('chat', message.name.substr(1), message.message);
-		} else {
-			this.log.push(message);
-		}
-	};
-	BattleRoom.prototype.addRaw = function (message) {
-		this.addCmd('raw', message);
-	};
-	BattleRoom.prototype.chat = function (user, message, connection) {
-		// Battle actions are actually just text commands that are handled in
-		// parseCommand(), which in turn often calls Simulator.prototype.sendFor().
-		// Sometimes the call to sendFor is done indirectly, by calling
-		// room.decision(), where room.constructor === BattleRoom.
-
-		message = CommandParser.parse(message, this, user, connection);
-
-		if (message) {
-			if (Spamroom.isSpamroomed(user)) {
-				Spamroom.room.add('|c|' + user.getIdentity() + "|__(To " + this.id + ")__ " + message);
-				connection.sendTo(this, '|chat|' + user.name + '|' + message);
-			} else {
-				this.battle.chat(user, message);
-			}
-		}
-		this.update();
-	};
-	BattleRoom.prototype.logEntry = function () {};
-=======
->>>>>>> upstream/master
 	BattleRoom.prototype.expire = function () {
 		this.send('|expire|');
 		this.destroy();
@@ -1484,21 +1442,11 @@ var ChatRoom = (function () {
 	};
 	ChatRoom.prototype.onJoinConnection = function (user, connection) {
 		var userList = this.userList ? this.userList : this.getUserList();
-<<<<<<< HEAD
 		this.send('|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.logGetLast(25).join('\n') + this.getIntroMessage(), connection);
 		if (global.Tournaments && Tournaments.get(this.id))
 			Tournaments.get(this.id).update(user);
 		if (this.reminders && this.reminders.length > 0)
 			CommandParser.parse('/reminder', this, user, connection);
-=======
-		this.sendUser(connection, '|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.getLogSlice(-25).join('\n') + this.getIntroMessage());
-		if (global.Tournaments && Tournaments.get(this.id)) {
-			Tournaments.get(this.id).updateFor(user, connection);
-		}
-		if (this.reminders && this.reminders.length > 0)
-			CommandParser.parse('/reminder', this, user, connection);
-		CommandParser.parse('/donate', this, user, connection);
->>>>>>> upstream/master
 	};
 	ChatRoom.prototype.onJoin = function (user, connection, merging) {
 		if (!user) return false; // ???
@@ -1520,24 +1468,12 @@ var ChatRoom = (function () {
 
 		if (!merging) {
 			var userList = this.userList ? this.userList : this.getUserList();
-<<<<<<< HEAD
 			this.send('|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.logGetLast(100).join('\n') + this.getIntroMessage(), connection);
 			if (this.reminders && this.reminders.length > 0)
 				CommandParser.parse('/reminder', this, user, connection);
     }
 		if (global.Tournaments && Tournaments.get(this.id))
 			Tournaments.get(this.id).update(user);
-=======
-			this.sendUser(connection, '|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.getLogSlice(-100).join('\n') + this.getIntroMessage());
-			if (this.reminders && this.reminders.length > 0)
-				CommandParser.parse('/reminder', this, user, connection);
-			CommandParser.parse('/donate', this, user, connection);
-		}
-		if (global.Tournaments && Tournaments.get(this.id)) {
-			Tournaments.get(this.id).updateFor(user, connection);
-		}
->>>>>>> upstream/master
-
 		return user;
 	};
 	ChatRoom.prototype.onRename = function (user, oldid, joining) {
@@ -1609,23 +1545,6 @@ var ChatRoom = (function () {
 			this.logEntry(entry);
 		}
 	};
-<<<<<<< HEAD
-	ChatRoom.prototype.chat = function (user, message, connection) {
-		message = CommandParser.parse(message, this, user, connection);
-
-		if (message) {
-			if (Spamroom.isSpamroomed(user)) {
-				Spamroom.room.add('|c|' + user.getIdentity() + "|__(To " + this.id + ")__ " + message);
-				connection.sendTo(this, '|c|' + user.getIdentity(this.id) + '|' + message);
-			} else {
-				this.add('|c|' + user.getIdentity(this.id) + '|' + message, true);
-			}
-		}
-		this.update();
-	};
-	ChatRoom.prototype.logEntry = function () {};
-=======
->>>>>>> upstream/master
 	ChatRoom.prototype.destroy = function () {
 		// deallocate ourself
 

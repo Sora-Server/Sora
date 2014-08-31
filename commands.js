@@ -1199,7 +1199,7 @@ reload: function (target, room, user) {
 				Rooms.global.formatListText = Rooms.global.getFormatListText();
 				// respawn validator processes
 				//TeamValidator.ValidatorProcess.respawn();
-				battleProtoCache = {};
+				global.battleProtoCache = {};
 				// respawn simulator processes
 				//Simulator.SimulatorProcess.respawn();
 				// broadcast the new formats list to clients

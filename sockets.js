@@ -106,6 +106,15 @@ var fakeProcess = new (require('./fake-process').FakeProcess)();
 		worker.send('-' + channelid + '\n' + socketid);
 	};
 
+	exports.subchannelBroadcast = function (channelid, message) {
+		for (var workerid in workers) {
+			workers[workerid].send(':' + channelid + '\n' + message);
+		}
+	};
+	exports.subchannelMove = function (worker, channelid, subchannelid, socketid) {
+		worker.send('.' + channelid + '\n' + subchannelid + '\n' + socketid);
+	};
+
 //} else {
 	// is worker
 

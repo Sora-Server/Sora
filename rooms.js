@@ -17,8 +17,82 @@ var fs = require('fs');
 
 /* global Rooms: true */
 var Rooms = module.exports = getRoom;
-c
 var rooms = Rooms.rooms = Object.create(null);
+
+var Room = (function () {
+	function Room(roomid, title) {
+		this.id = roomid;
+		this.title = (title || roomid);
+
+		this.users = Object.create(null);
+
+		this.log = [];
+
+		this.bannedUsers = Object.create(null);
+		this.bannedIps = Object.create(null);
+	}
+	Room.prototype.title = "";
+	Room.prototype.type = 'chat';
+
+	Room.prototype.lastUpdate = 0;
+	Room.prototype.log = null;
+	Room.prototype.users = null;
+
+	Room.prototype.send = function (message, errorArgument) {
+		if (errorArgument) throw new Error("Use Room#sendUser");
+		if (this.id !== 'lobby') message = '>' + this.id + '\n' + message;
+		Sockets.channelBroadcast(this.id, message);
+	};
+	Room.prototype.sendAuth = function (message) {
+		for (var i in this.users) {
+			var user = this.users[i];
+			if (user.connected && user.can('staff', this)) {
+				user.sendTo(this, message);
+			}
+		}
+	};
+	Room.prototype.sendUser = function (user, message) {
+		user.sendTo(this, message);
+	};
+	Room.prototype.add = function (message) {
+		if (typeof message !== 'string') throw new Error("Deprecated message type");
+		this.logEntry(message);
+		if (this.logTimes && message.substr(0, 3) === '|c|') {
+			message = '|c:|' + (~~(Date.now() / 1000)) + '|' + message.substr(3);
+		}
+		this.log.push(message);
+	};
+	Room.prototype.logEntry = function () {};
+	Room.prototype.addRaw = function (message) {
+		this.add('|raw|' + message);
+	};
+	Room.prototype.getLogSlice = function (amount) {
+		var log = this.log.slice(amount);
+		log.unshift('|:|' + (~~(Date.now() / 1000)));
+		return log;
+	};
+	Room.prototype.chat = function (user, message, connection) {
+		// Battle actions are actually just text commands that are handled in
+		// parseCommand(), which in turn often calls Simulator.prototype.sendFor().
+		// Sometimes the call to sendFor is done indirectly, by calling
+		// room.decision(), where room.constructor === BattleRoom.
+
+		message = CommandParser.parse(message, this, user, connection);
+
+		if (message) {
+			if (Spamroom.isSpamroomed(user)) {
+				Spamroom.room.add('|c|' + user.getIdentity() + "|__(To " + this.id + ")__ " + message);
+				Spamroom.room.update();
+				connection.sendTo(this, '|c|' + user.getIdentity(this.id) + '|' + message);
+			} else {
+				this.add('|c|' + user.getIdentity(this.id) + '|' + message, true);
+			}
+		}
+		this.update();
+	};
+
+	return Room;
+})();
 
 var GlobalRoom = (function () {
 	function GlobalRoom(roomid) {
@@ -1110,6 +1184,7 @@ var BattleRoom = (function () {
 		}
 		return true;
 	};
+<<<<<<< HEAD
 	BattleRoom.prototype.addCmd = function () {
 		this.log.push('|' + Array.prototype.slice.call(arguments).join('|'));
 	};
@@ -1144,6 +1219,8 @@ var BattleRoom = (function () {
 		this.update();
 	};
 	BattleRoom.prototype.logEntry = function () {};
+=======
+>>>>>>> upstream/master
 	BattleRoom.prototype.expire = function () {
 		this.send('|expire|');
 		this.destroy();
@@ -1407,11 +1484,21 @@ var ChatRoom = (function () {
 	};
 	ChatRoom.prototype.onJoinConnection = function (user, connection) {
 		var userList = this.userList ? this.userList : this.getUserList();
+<<<<<<< HEAD
 		this.send('|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.logGetLast(25).join('\n') + this.getIntroMessage(), connection);
 		if (global.Tournaments && Tournaments.get(this.id))
 			Tournaments.get(this.id).update(user);
 		if (this.reminders && this.reminders.length > 0)
 			CommandParser.parse('/reminder', this, user, connection);
+=======
+		this.sendUser(connection, '|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.getLogSlice(-25).join('\n') + this.getIntroMessage());
+		if (global.Tournaments && Tournaments.get(this.id)) {
+			Tournaments.get(this.id).updateFor(user, connection);
+		}
+		if (this.reminders && this.reminders.length > 0)
+			CommandParser.parse('/reminder', this, user, connection);
+		CommandParser.parse('/donate', this, user, connection);
+>>>>>>> upstream/master
 	};
 	ChatRoom.prototype.onJoin = function (user, connection, merging) {
 		if (!user) return false; // ???
@@ -1433,12 +1520,23 @@ var ChatRoom = (function () {
 
 		if (!merging) {
 			var userList = this.userList ? this.userList : this.getUserList();
+<<<<<<< HEAD
 			this.send('|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.logGetLast(100).join('\n') + this.getIntroMessage(), connection);
 			if (this.reminders && this.reminders.length > 0)
 				CommandParser.parse('/reminder', this, user, connection);
     }
 		if (global.Tournaments && Tournaments.get(this.id))
 			Tournaments.get(this.id).update(user);
+=======
+			this.sendUser(connection, '|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.getLogSlice(-100).join('\n') + this.getIntroMessage());
+			if (this.reminders && this.reminders.length > 0)
+				CommandParser.parse('/reminder', this, user, connection);
+			CommandParser.parse('/donate', this, user, connection);
+		}
+		if (global.Tournaments && Tournaments.get(this.id)) {
+			Tournaments.get(this.id).updateFor(user, connection);
+		}
+>>>>>>> upstream/master
 
 		return user;
 	};
@@ -1511,6 +1609,7 @@ var ChatRoom = (function () {
 			this.logEntry(entry);
 		}
 	};
+<<<<<<< HEAD
 	ChatRoom.prototype.chat = function (user, message, connection) {
 		message = CommandParser.parse(message, this, user, connection);
 
@@ -1525,6 +1624,8 @@ var ChatRoom = (function () {
 		this.update();
 	};
 	ChatRoom.prototype.logEntry = function () {};
+=======
+>>>>>>> upstream/master
 	ChatRoom.prototype.destroy = function () {
 		// deallocate ourself
 

@@ -173,7 +173,7 @@ var RoundRobin = (function () {
 		if (userIndexA < 0 || userIndexB < 0)
 			return 'UserNotAdded';
 
-		match = this.matches[userIndexA][userIndexB];
+		var match = this.matches[userIndexA][userIndexB];
 		if (!match || match.state !== 'available')
 			return 'InvalidMatch';
 

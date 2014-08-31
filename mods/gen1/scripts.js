@@ -5,6 +5,19 @@
 exports.BattleScripts = {
 	inherit: 'gen2',
 	gen: 1,
+	init: function () {
+		for (var i in this.data.Learnsets) {
+			this.modData('Learnsets', i);
+			var learnset = this.data.Learnsets[i].learnset;
+			for (var moveid in learnset) {
+				if (typeof learnset[moveid] === 'string') learnset[moveid] = [learnset[moveid]];
+				learnset[moveid] = learnset[moveid].filter(function (source) {
+					return source[0] === '1';
+				});
+				if (!learnset[moveid].length) delete learnset[moveid];
+			}
+		}
+	},
 	debug: function (activity) {
 		if (this.getFormat().debug) {
 			this.add('debug', activity);
@@ -931,7 +944,7 @@ exports.BattleScripts = {
 		var pokemonLeft = 0;
 		var pokemon = [];
 		for (var i in this.data.FormatsData) {
-			//if (this.data.FormatsData[i].randomBattleMoves) {
+			//if (this.data.FormatsData[i].viableMoves) {
 				keys.push(i);
 			//}
 		}
@@ -955,7 +968,7 @@ exports.BattleScripts = {
 		template = this.getTemplate(template);
 		if (!template.exists) template = this.getTemplate('pikachu'); // Because Gen 1
 
-		var moveKeys = (template.randomBattleMoves || Object.keys(template.learnset)).randomize();
+		var moveKeys = Object.keys(template.viableMoves || template.learnset).randomize();
 		var moves = [];
 		var hasType = {};
 		hasType[template.types[0]] = true;
@@ -966,20 +979,6 @@ exports.BattleScripts = {
 
 		var j = 0;
 		do {
-			// Choose next 4 moves from learnset/viable moves and add them to moves list:
-			while (moves.length < 4 && j < moveKeys.length) {
-				var moveid = toId(moveKeys[j]);
-				j++;
-				if (moveid.substr(0, 11) === 'hiddenpower') {
-					if (!hasMove['hiddenpower']) {
-						hasMove['hiddenpower'] = true;
-					} else {
-						continue;
-					}
-				}
-				moves.push(moveid);
-			}
-
 			hasMove = {};
 			counter = {
 				Physical: 0, Special: 0, Status: 0, damage: 0,

@@ -43,11 +43,7 @@ var jsHintOptions = {
 		"Cidr": false,
 		"Sockets": false,
 		"Tools": false,
-		"TeamValidator": false,
-		"battleEngineFakeProcess": false,
-		"battleProtoCache": false,
-		"reloadCustomAvatars": false,
-		"Clans": false
+		"TeamValidator": false
 	}
 };
 
@@ -61,8 +57,7 @@ gulp.task('lint', function () {
 	return gulp.src(directories)
 		.pipe(replace(/\bvar\b/g, 'let'))
 		.pipe(jshint(jsHintOptions))
-		.pipe(jshint.reporter(jshintStylish))
-		.pipe(jshint.reporter('fail'));
+		.pipe(jshint.reporter(jshintStylish));
 });
 
 gulp.task('fastlint', function () {
@@ -71,8 +66,7 @@ gulp.task('fastlint', function () {
 	return gulp.src(directories)
 		.pipe(replace(/\bvar\b/g, 'let'))
 		.pipe(jshint(jsHintOptions))
-		.pipe(jshint.reporter(jshintStylish))
-		.pipe(jshint.reporter('fail'));
+		.pipe(jshint.reporter(jshintStylish));
 });
 
 gulp.task('default', ['lint']);

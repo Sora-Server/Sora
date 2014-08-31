@@ -106,8 +106,8 @@ exports.BattleFormats = {
 	},
 	standard: {
 		effectType: 'Banlist',
-		ruleset: ['Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Evasion Moves Clause'],
-		banlist: ['Unreleased', 'Illegal'],
+		ruleset: ['Sleep Clause', 'Species Clause', 'OHKO Clause', 'Evasion Moves Clause'],
+		banlist: ['Unreleased', 'Illegal', 'Ignore Illegal Abilities'],
 		validateSet: function (set) {
 			// limit one of each move in Standard
 			var moves = [];

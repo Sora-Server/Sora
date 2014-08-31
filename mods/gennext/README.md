@@ -49,7 +49,8 @@ Generation NEXT currently makes the following changes:
 Major changes:
 
 - Stealth Rock now does 1/4 damage against Flying-types, and 1/8 damage against
-  everything else.
+  everything else. To prevent Volcarona from shooting into Ubers, Quiver Dance
+  now grants +1 SpD +1 Spe +1 accuracy.
 
 - Drives will change Genesect's typing immediately after switch-in, to Bug/Ice,
   Bug/Fire, Bug/Electric, or Bug/Water. However, Download will not activate
@@ -96,7 +97,6 @@ Major changes:
   - Dive: 100% -1 Def, 60 bp
   - Shadow Force: 100% Ghost-Curse, 40 bp
   - Sky Drop: 100% -1 Def, 60 bp
-  - Phantom Force: 100% -1 Def, 60 bp
 
 - Recharge moves are similarly buffed. They have 100 base power, always crit,
   and they only recharge if they KO. Be careful - in return for a KO, they
@@ -105,10 +105,10 @@ Major changes:
 - Flower Gift now only boosts Sp. Def, but if Sunny Day is used while Cherrim
   is out, the next switch-in also receives +1 SpD
 
-- All Quiver Dancers (except Smeargle) get an item named GossamerWing (Select
-  "Stick" in the teambuilder). It makes them take half damage from Rock, Ice,
-  and Electric moves if they are Flying type, prevents them from taking
-  double SR damage, and makes Twister do 1.5x Damage.
+- Butterfree, Beautifly, Masquerain, Mothim, and Lilligant get an item named
+  GossamerWing (select "Stick" in the teambuilder). It makes them take half
+  damage from Rock, Ice, and Electric moves, prevents them from taking double
+  SR damage, and adds +1 SpA back to Quiver Dance.
 
 - Relic Song switches Meloetta's SpA and Atk EVs, boosts, and certain natures,
   specifically: Modest <-> Adamant, Jolly <-> Timid, other natures are left
@@ -136,7 +136,7 @@ Major changes:
 
 - Twister is now a 80 base power Flying move with a 30% confusion chance
 
-- Hoopa and Volcanion are released
+- Diancie and Volcanion are released
 
 New mechanic: Signature Pokemon:
 
@@ -223,14 +223,6 @@ New mechanic: Intrinsics:
 
   - Mismagius: Cursed Body
 
-  - Mesprit: Serene Grace
-
-  - Uxie: Synchronize
-
-  - Azelf: Steadfast
-
-  - Hydreigon: Sheer Force
-
 New: Type-specific items:
 
 - Big Root: also acts like Leftovers + Shell Bell for Grass types
@@ -256,7 +248,7 @@ Minor move changes:
 - Rapid Spin now has 30 base power
 
 - Rock Throw and Rapid Spin remove hazards before fainting from Rocky
-  Helmet etc. And double in power if they remove hazards.
+  Helmet etc
 
 - All moves' accuracy is rounded up to the nearest multiple of 10%
   (except Jump Kick, which will be rebalanced later)
@@ -274,8 +266,8 @@ Minor move changes:
   to 90 (this includes Aerial Ace, Disarming Voice, and Aura Sphere, among
   others)
 
-- Scald and Steam Eruption's damage is no longer affected by weather:
-  instead, they get 60% burn chance in sun
+- Scald's damage is no longer affected by weather: instead, it gets 60% burn
+  chance in sun
 
 - High Jump Kick now has 100 base power
 
@@ -304,7 +296,7 @@ Minor move changes:
 - Stomp and Steamroller now have 100 Base Power and perfect accuracy to
   reflect their thematic status as counters to Minimize
 
-- Bide is now a +1 priority move that gives the user Endure (the user
+- Bide is now a +1 priority moves that gives the user Endure (the user
   survives all move damage with at least 1 HP) for its duration. Bide fails
   if the user has 1 HP when it's used, or if the user's last move used was
   Bide.
@@ -383,11 +375,11 @@ Minor learnset changes:
 
 - Starters get a new ability option
   - Venusaur: Leaf Guard
-  - Charizard: Flame Body
+  - Charizard: Flash Fire
   - Blastoise: Shell Armor
   - Meganium: Harvest
-  - Typhlosion: Magma Armor
-  - Feraligatr: Strong Jaw
+  - Typhlosion: Flame Body
+  - Feraligatr: Intimidate
   - Sceptile: Limber
   - Blaziken: Reckless
   - Swampert: Hydration
@@ -408,22 +400,20 @@ Minor ability changes:
   Surf over Hydro Pump, other pokemon are recommended not to use
   Justified
 
-- Weak Armor reduces incoming move damage by 1/10 of the user's max HP
+- Weak Armor reduces incoming move damage by 1/8 of the user's max HP
   and increases the user's Speed for the first hit after switch-in (and
   does not activate again until the next switch-in) instead of its
   previous effect
 
-- Shell Armor and Battle Armor reduce incoming move damage by 1/10 of
+- Shell Armor and Battle Armor reduce incoming move damage by 1/8 of
   the user's max HP in addition to their crit negation (also, Shell
   Armor is removed when using Shell Smash)
 
-- Magma Armor reduces incoming move damage by 1/10 of the user's max HP,
+- Magma Armor reduces incoming move damage by 1/8 of the user's max HP,
   provides immunity to Hail and freeze, and provides a one-time immunity
   to Water and Ice, after which it turns into Shell Armor
 
-- Adaptability is now 1.33x to non-STAB moves instead of to STAB moves.
-
-- Crawdaunt is given Tough Claws to compensate
+- Adaptability is now 1.33x to non-STAB moves instead of to STAB moves
 
 - Shadow Tag now lasts only one turn
 
@@ -441,7 +431,7 @@ Minor ability changes:
 
 - Solid Rock and Filter now reduce 1/2 damage of SE moves, not 1/4
 
-- Iron Fist now grants a 1.33x boost
+- Iron Fist now grants a 1.3x boost
 
 - Outrage, Thrash, and Petal Dance don't lock if the user has Own Tempo
 
@@ -461,7 +451,7 @@ Minor ability changes:
 - Aftermath no longer requires contact, and its damage is buffed to 1/3 of the
   foe's max HP
 
-- Cursed Body works like Aftermath now, but instead of dealing damage, it
+- Cursed Body works like Afermath now, but instead of dealing damage, it
   causes the foe to be Cursed (like Ghost-type Curse)
 
 - Gluttony allows a Pokemon to use a Berry twice.
@@ -500,8 +490,8 @@ Bans:
 
 Specifically, differences from regular OU:
 
-- unbanned: Gengarite, Kangaskhanite, Lucarionite, Blaziken, Genesect
+- unbanned: Gengarite, Kangaskhanite, Lucarionite, Blaziken
 
-- banned: Kyurem, Kyurem-Black
+- banned: Kyurem, Kyurem-Black, Deoxys-Speed, Deoxys-Defense
 
 - There is no Moody Clause or Evasion Clause

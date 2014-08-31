@@ -246,8 +246,8 @@ Users.socketConnect = function(worker, workerid, socketid, ip) {
 	Dnsbl.query(connection.ip, function (isBlocked) {
 		if (isBlocked) {
 			connection.popup("Your IP is known for spamming or hacking websites and has been locked. If you're using a proxy, don't.");
-			if (connection.user && !connection.user.locked) {
-				connection.user.locked = '#dnsbl';
+			if (connection.user) {
+				connection.user.locked = true;
 				connection.user.updateIdentity();
 			}
 		}
@@ -456,7 +456,7 @@ User = (function () {
 
 		this.mutedRooms = {};
 		this.muteDuration = {};
-		this.locked = Users.checkLocked(connection.ip);
+		this.locked = !!Users.checkLocked(connection.ip);
 		this.prevNames = {};
 		this.battles = {};
 		this.roomCount = {};
@@ -888,9 +888,7 @@ User = (function () {
 					if (Object.isEmpty(Object.select(this.ips, user.ips))) {
 						user.mutedRooms = Object.merge(user.mutedRooms, this.mutedRooms);
 						user.muteDuration = Object.merge(user.muteDuration, this.muteDuration);
-						if (user.locked === '#dnsbl' && !this.locked) user.locked = false;
-						if (!user.locked && this.locked === '#dnsbl') this.locked = false;
-						if (this.locked) user.locked = this.locked;
+						if (this.locked) user.locked = true;
 						this.mutedRooms = {};
 						this.muteDuration = {};
 						this.locked = false;
@@ -1074,24 +1072,14 @@ User = (function () {
 		}
 		this.roomCount = {};
 	};
-	User.prototype.getAlts = function (getAll) {
+	User.prototype.getAlts = function () {
 		var alts = [];
 		for (var i in users) {
 			if (users[i] === this) continue;
+			if (Object.isEmpty(Object.select(this.ips, users[i].ips))) continue;
 			if (!users[i].named && !users[i].connected) continue;
-			if (!getAll && users[i].group !== Config.groups.default.global && this.group === Config.groups.default.global) continue;
-			var ipIntersected = false;
-			intersectLoop: for (var myIp in this.ips) {
-				for (var yourIp in users[i].ips) {
-					if (myIp === yourIp) {
-						ipIntersected = true;
-						break intersectLoop;
-					}
-				}
-			}
-			if (ipIntersected) {
-				alts.push(users[i].name);
-			}
+
+			alts.push(users[i].name);
 		}
 		return alts;
 	};
@@ -1184,19 +1172,18 @@ User = (function () {
 		if (this.autoconfirmed) bannedUsers[this.autoconfirmed] = userid;
 		if (this.authenticated) {
 			bannedUsers[this.userid] = userid;
-			this.locked = userid; // in case of merging into a recently banned account
+			this.locked = true; // in case of merging into a recently banned account
 			this.autoconfirmed = '';
 		}
 		this.disconnectAll();
 	};
-	User.prototype.lock = function (noRecurse, userid) {
+	User.prototype.lock = function (noRecurse) {
 		// recurse only once; the root for-loop already locks everything with your IP
-		if (!userid) userid = this.userid;
 		if (!noRecurse) {
 			for (var i in users) {
 				if (users[i] === this) continue;
 				if (Object.isEmpty(Object.select(this.ips, users[i].ips))) continue;
-				users[i].lock(true, userid);
+				users[i].lock(true);
 			}
 		}
 
@@ -1205,26 +1192,20 @@ User = (function () {
 		}
 		if (this.autoconfirmed) lockedUsers[this.autoconfirmed] = this.userid;
 		if (this.authenticated) lockedUsers[this.userid] = this.userid;
-		this.locked = userid;
+		this.locked = true;
 		this.autoconfirmed = '';
 		this.updateIdentity();
 	};
 	User.prototype.joinRoom = function (room, connection) {
 		room = Rooms.get(room);
 		if (!room) return false;
-		if (!this.can('bypassall')) {
-			// check if user has permission to join
-			if (room.staffRoom && !this.can('staff')) return false;
-			if (Clans.isRoomClosed(room.id, this.userid) && !this.can('hotpatch')) return false;
-			if (room.bannedUsers) {
-				if (this.userid in room.bannedUsers || this.autoconfirmed in room.bannedUsers) {
-					return false;
-				}
-			}
-			if (this.ips && room.bannedIps) {
-				for (var ip in this.ips) {
-					if (ip in room.bannedIps) return false;
-				}
+		if (room.staffRoom && !this.can('staff')) return false;
+		if (room.bannedUsers) {
+			if (this.userid in room.bannedUsers || this.autoconfirmed in room.bannedUsers) return false;
+		}
+		if (this.ips && room.bannedIps) {
+			for (var ip in this.ips) {
+				if (ip in room.bannedIps) return false;
 			}
 		}
 		if (!connection) {
@@ -1238,6 +1219,7 @@ User = (function () {
 			return;
 		}
 		if (!connection.rooms[room.id]) {
+			connection.joinRoom(room);
 			if (!this.roomCount[room.id]) {
 				this.roomCount[room.id] = 1;
 				room.onJoin(this, connection);
@@ -1245,7 +1227,6 @@ User = (function () {
 				this.roomCount[room.id]++;
 				room.onJoinConnection(this, connection);
 			}
-			connection.joinRoom(room);
 		}
 		return true;
 	};

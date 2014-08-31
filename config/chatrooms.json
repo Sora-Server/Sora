@@ -1,5 +1,0 @@
-[
-{"title":"Lobby","autojoin":true},
-{"title":"Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true},
-{"title":"Spam Room","isPrivate":true,"staffRoom":true,"addedUsers":{}}
-]

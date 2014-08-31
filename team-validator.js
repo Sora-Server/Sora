@@ -252,12 +252,12 @@ Validator = (function () {
 			for (var i = 0; i < format.ruleset.length; i++) {
 				var subformat = tools.getFormat(format.ruleset[i]);
 				if (subformat.validateTeam) {
-					problems = problems.concat(subformat.validateTeam.call(tools, team, format, teamHas) || []);
+					problems = problems.concat(subformat.validateTeam.call(tools, team, format) || []);
 				}
 			}
 		}
 		if (format.validateTeam) {
-			problems = problems.concat(format.validateTeam.call(tools, team, format, teamHas) || []);
+			problems = problems.concat(format.validateTeam.call(tools, team, format) || []);
 		}
 
 		if (!problems.length) return false;
@@ -369,6 +369,18 @@ Validator = (function () {
 		}
 		setHas[toId(set.ability)] = true;
 		if (banlistTable['illegal']) {
+			var totalEV = 0;
+			for (var k in set.evs) {
+				if (typeof set.evs[k] !== 'number' || set.evs[k] < 0) {
+					set.evs[k] = 0;
+				}
+				totalEV += set.evs[k];
+			}
+			// In gen 1 and 2, it was possible to max out all EVs
+			if (tools.gen >= 3 && totalEV > 510) {
+				problems.push(name + " has more than 510 total EVs.");
+			}
+
 			// Don't check abilities for metagames with All Abilities
 			if (tools.gen <= 2) {
 				set.ability = 'None';
@@ -544,7 +556,7 @@ Validator = (function () {
 	};
 
 	Validator.prototype.checkLearnset = function (move, template, lsetData) {
-		var tools = Tools.mod(Tools.getFormat(lsetData.format));
+		var tools = Tools.mod(Tools.getFormat(format));
 
 		move = toId(move);
 		template = tools.getTemplate(template);
@@ -609,7 +621,7 @@ Validator = (function () {
 						var learned = lset[i];
 						if (noPastGen && learned.charAt(0) !== '6') continue;
 						if (parseInt(learned.charAt(0), 10) > tools.gen) continue;
-						if (learned.charAt(0) !== '6' && isHidden && !tools.mod('gen' + learned.charAt(0)).getTemplate(template.species).abilities['H']) {
+						if (tools.gen < 6 && isHidden && !tools.mod('gen' + learned.charAt(0)).getTemplate(template.species).abilities['H']) {
 							// check if the Pokemon's hidden ability was available
 							incompatibleHidden = true;
 							continue;

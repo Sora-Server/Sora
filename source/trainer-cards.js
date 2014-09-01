@@ -187,9 +187,9 @@ var trainerCards = {
         ignitor: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Ignitor</b><br />'+
-	              '<i>"???"</i> <br />'+
+	              '<i>"We were all born from ashes, and from ashes we are formed then burned until we go back to what we once were."</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> ???<br />');
+	              '<b>Ace:</b> Entei<br />');
 
 	},
  

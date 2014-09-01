@@ -1,828 +1,5143 @@
-exports.BattlePokedex = {
-bulbasaur:{num:1,species:"Bulbasaur",types:["Grass","Poison"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:45,atk:49,def:49,spa:65,spd:65,spe:45},abilities:{0:"Overgrow",H:"Chlorophyll"},heightm:0.7,weightkg:6.9,color:"Green",evos:["ivysaur"],eggGroups:["Monster","Grass"]},
-ivysaur:{num:2,species:"Ivysaur",types:["Grass","Poison"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:60,atk:62,def:63,spa:80,spd:80,spe:60},abilities:{0:"Overgrow",H:"Chlorophyll"},heightm:1,weightkg:13,color:"Green",prevo:"bulbasaur",evos:["venusaur"],evoLevel:16,eggGroups:["Monster","Grass"]},
-venusaur:{num:3,species:"Venusaur",types:["Grass","Poison"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:80,atk:82,def:83,spa:100,spd:100,spe:80},abilities:{0:"Overgrow",H:"Chlorophyll"},heightm:2,weightkg:100,color:"Green",prevo:"ivysaur",evoLevel:32,eggGroups:["Monster","Grass"],otherFormes:["venusaurmega"]},
-venusaurmega:{num:3,species:"Venusaur-Mega",baseSpecies:"Venusaur",forme:"Mega",formeLetter:"M",types:["Grass","Poison"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:80,atk:100,def:123,spa:122,spd:120,spe:80},abilities:{0:"Thick Fat"},heightm:2.4,weightkg:155.5,color:"Green",prevo:"ivysaur",evoLevel:32,eggGroups:["Monster","Grass"]},
-charmander:{num:4,species:"Charmander",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:39,atk:52,def:43,spa:60,spd:50,spe:65},abilities:{0:"Blaze",H:"Solar Power"},heightm:0.6,weightkg:8.5,color:"Red",evos:["charmeleon"],eggGroups:["Monster","Dragon"]},
-charmeleon:{num:5,species:"Charmeleon",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:58,atk:64,def:58,spa:80,spd:65,spe:80},abilities:{0:"Blaze",H:"Solar Power"},heightm:1.1,weightkg:19,color:"Red",prevo:"charmander",evos:["charizard"],evoLevel:16,eggGroups:["Monster","Dragon"]},
-charizard:{num:6,species:"Charizard",types:["Fire","Flying"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:78,atk:84,def:78,spa:109,spd:85,spe:100},abilities:{0:"Blaze",H:"Solar Power"},heightm:1.7,weightkg:90.5,color:"Red",prevo:"charmeleon",evoLevel:36,eggGroups:["Monster","Dragon"],otherFormes:["charizardmegax","charizardmegay"]},
-charizardmegax:{num:6,species:"Charizard-Mega-X",baseSpecies:"Charizard",forme:"Mega-X",formeLetter:"M",types:["Fire","Dragon"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:78,atk:130,def:111,spa:130,spd:85,spe:100},abilities:{0:"Tough Claws"},heightm:1.7,weightkg:110.5,color:"Red",prevo:"charmeleon",evoLevel:36,eggGroups:["Monster","Dragon"]},
-charizardmegay:{num:6,species:"Charizard-Mega-Y",baseSpecies:"Charizard",forme:"Mega-Y",formeLetter:"M",types:["Fire","Flying"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:78,atk:104,def:78,spa:159,spd:115,spe:100},abilities:{0:"Drought"},heightm:1.7,weightkg:100.5,color:"Red",prevo:"charmeleon",evoLevel:36,eggGroups:["Monster","Dragon"]},
-squirtle:{num:7,species:"Squirtle",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:44,atk:48,def:65,spa:50,spd:64,spe:43},abilities:{0:"Torrent",H:"Rain Dish"},heightm:0.5,weightkg:9,color:"Blue",evos:["wartortle"],eggGroups:["Monster","Water 1"]},
-wartortle:{num:8,species:"Wartortle",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:59,atk:63,def:80,spa:65,spd:80,spe:58},abilities:{0:"Torrent",H:"Rain Dish"},heightm:1,weightkg:22.5,color:"Blue",prevo:"squirtle",evos:["blastoise"],evoLevel:16,eggGroups:["Monster","Water 1"]},
-blastoise:{num:9,species:"Blastoise",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:79,atk:83,def:100,spa:85,spd:105,spe:78},abilities:{0:"Torrent",H:"Rain Dish"},heightm:1.6,weightkg:85.5,color:"Blue",prevo:"wartortle",evoLevel:36,eggGroups:["Monster","Water 1"],otherFormes:["blastoisemega"]},
-blastoisemega:{num:9,species:"Blastoise-Mega",baseSpecies:"Blastoise",forme:"Mega",formeLetter:"M",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:79,atk:103,def:120,spa:135,spd:115,spe:78},abilities:{0:"Mega Launcher"},heightm:1.6,weightkg:101.1,color:"Blue",prevo:"wartortle",evoLevel:36,eggGroups:["Monster","Water 1"]},
-caterpie:{num:10,species:"Caterpie",types:["Bug"],baseStats:{hp:45,atk:30,def:35,spa:20,spd:20,spe:45},abilities:{0:"Shield Dust",H:"Run Away"},heightm:0.3,weightkg:2.9,color:"Green",evos:["metapod"],eggGroups:["Bug"]},
-metapod:{num:11,species:"Metapod",types:["Bug"],baseStats:{hp:50,atk:20,def:55,spa:25,spd:25,spe:30},abilities:{0:"Shed Skin"},heightm:0.7,weightkg:9.9,color:"Green",prevo:"caterpie",evos:["butterfree"],evoLevel:7,eggGroups:["Bug"]},
-butterfree:{num:12,species:"Butterfree",types:["Bug","Flying"],baseStats:{hp:60,atk:45,def:50,spa:90,spd:80,spe:70},abilities:{0:"Compound Eyes",H:"Tinted Lens"},heightm:1.1,weightkg:32,color:"White",prevo:"metapod",evoLevel:10,eggGroups:["Bug"]},
-weedle:{num:13,species:"Weedle",types:["Bug","Poison"],baseStats:{hp:40,atk:35,def:30,spa:20,spd:20,spe:50},abilities:{0:"Shield Dust",H:"Run Away"},heightm:0.3,weightkg:3.2,color:"Brown",evos:["kakuna"],eggGroups:["Bug"]},
-kakuna:{num:14,species:"Kakuna",types:["Bug","Poison"],baseStats:{hp:45,atk:25,def:50,spa:25,spd:25,spe:35},abilities:{0:"Shed Skin"},heightm:0.6,weightkg:10,color:"Yellow",prevo:"weedle",evos:["beedrill"],evoLevel:7,eggGroups:["Bug"]},
-beedrill:{num:15,species:"Beedrill",types:["Bug","Poison"],baseStats:{hp:65,atk:90,def:40,spa:45,spd:80,spe:75},abilities:{0:"Swarm",H:"Sniper"},heightm:1,weightkg:29.5,color:"Yellow",prevo:"kakuna",evoLevel:10,eggGroups:["Bug"]},
-pidgey:{num:16,species:"Pidgey",types:["Normal","Flying"],baseStats:{hp:40,atk:45,def:40,spa:35,spd:35,spe:56},abilities:{0:"Keen Eye",1:"Tangled Feet",H:"Big Pecks"},heightm:0.3,weightkg:1.8,color:"Brown",evos:["pidgeotto"],eggGroups:["Flying"]},
-pidgeotto:{num:17,species:"Pidgeotto",types:["Normal","Flying"],baseStats:{hp:63,atk:60,def:55,spa:50,spd:50,spe:71},abilities:{0:"Keen Eye",1:"Tangled Feet",H:"Big Pecks"},heightm:1.1,weightkg:30,color:"Brown",prevo:"pidgey",evos:["pidgeot"],evoLevel:18,eggGroups:["Flying"]},
-pidgeot:{num:18,species:"Pidgeot",types:["Normal","Flying"],baseStats:{hp:83,atk:80,def:75,spa:70,spd:70,spe:101},abilities:{0:"Keen Eye",1:"Tangled Feet",H:"Big Pecks"},heightm:1.5,weightkg:39.5,color:"Brown",prevo:"pidgeotto",evoLevel:36,eggGroups:["Flying"]},
-rattata:{num:19,species:"Rattata",types:["Normal"],baseStats:{hp:30,atk:56,def:35,spa:25,spd:35,spe:72},abilities:{0:"Run Away",1:"Guts",H:"Hustle"},heightm:0.3,weightkg:3.5,color:"Purple",evos:["raticate"],eggGroups:["Field"]},
-raticate:{num:20,species:"Raticate",types:["Normal"],baseStats:{hp:55,atk:81,def:60,spa:50,spd:70,spe:97},abilities:{0:"Run Away",1:"Guts",H:"Hustle"},heightm:0.7,weightkg:18.5,color:"Brown",prevo:"rattata",evoLevel:20,eggGroups:["Field"]},
-spearow:{num:21,species:"Spearow",types:["Normal","Flying"],baseStats:{hp:40,atk:60,def:30,spa:31,spd:31,spe:70},abilities:{0:"Keen Eye",H:"Sniper"},heightm:0.3,weightkg:2,color:"Brown",evos:["fearow"],eggGroups:["Flying"]},
-fearow:{num:22,species:"Fearow",types:["Normal","Flying"],baseStats:{hp:65,atk:90,def:65,spa:61,spd:61,spe:100},abilities:{0:"Keen Eye",H:"Sniper"},heightm:1.2,weightkg:38,color:"Brown",prevo:"spearow",evoLevel:20,eggGroups:["Flying"]},
-ekans:{num:23,species:"Ekans",types:["Poison"],baseStats:{hp:35,atk:60,def:44,spa:40,spd:54,spe:55},abilities:{0:"Intimidate",1:"Shed Skin",H:"Unnerve"},heightm:2,weightkg:6.9,color:"Purple",evos:["arbok"],eggGroups:["Field","Dragon"]},
-arbok:{num:24,species:"Arbok",types:["Poison"],baseStats:{hp:60,atk:85,def:69,spa:65,spd:79,spe:80},abilities:{0:"Intimidate",1:"Shed Skin",H:"Unnerve"},heightm:3.5,weightkg:65,color:"Purple",prevo:"ekans",evoLevel:22,eggGroups:["Field","Dragon"]},
-pikachu:{num:25,species:"Pikachu",types:["Electric"],baseStats:{hp:35,atk:55,def:40,spa:50,spd:50,spe:90},abilities:{0:"Static",H:"Lightningrod"},heightm:0.4,weightkg:6,color:"Yellow",prevo:"pichu",evos:["raichu"],evoLevel:1,eggGroups:["Field","Fairy"]},
-raichu:{num:26,species:"Raichu",types:["Electric"],baseStats:{hp:60,atk:90,def:55,spa:90,spd:80,spe:110},abilities:{0:"Static",H:"Lightningrod"},heightm:0.8,weightkg:30,color:"Yellow",prevo:"pikachu",evoLevel:1,eggGroups:["Field","Fairy"]},
-sandshrew:{num:27,species:"Sandshrew",types:["Ground"],baseStats:{hp:50,atk:75,def:85,spa:20,spd:30,spe:40},abilities:{0:"Sand Veil",H:"Sand Rush"},heightm:0.6,weightkg:12,color:"Yellow",evos:["sandslash"],eggGroups:["Field"]},
-sandslash:{num:28,species:"Sandslash",types:["Ground"],baseStats:{hp:75,atk:100,def:110,spa:45,spd:55,spe:65},abilities:{0:"Sand Veil",H:"Sand Rush"},heightm:1,weightkg:29.5,color:"Yellow",prevo:"sandshrew",evoLevel:22,eggGroups:["Field"]},
-nidoranf:{num:29,species:"Nidoran-F",types:["Poison"],gender:"F",baseStats:{hp:55,atk:47,def:52,spa:40,spd:40,spe:41},abilities:{0:"Poison Point",1:"Rivalry",H:"Hustle"},heightm:0.4,weightkg:7,color:"Blue",evos:["nidorina"],eggGroups:["Monster","Field"]},
-nidorina:{num:30,species:"Nidorina",types:["Poison"],gender:"F",baseStats:{hp:70,atk:62,def:67,spa:55,spd:55,spe:56},abilities:{0:"Poison Point",1:"Rivalry",H:"Hustle"},heightm:0.8,weightkg:20,color:"Blue",prevo:"nidoranf",evos:["nidoqueen"],evoLevel:16,eggGroups:["Undiscovered"]},
-nidoqueen:{num:31,species:"Nidoqueen",types:["Poison","Ground"],gender:"F",baseStats:{hp:90,atk:92,def:87,spa:75,spd:85,spe:76},abilities:{0:"Poison Point",1:"Rivalry",H:"Sheer Force"},heightm:1.3,weightkg:60,color:"Blue",prevo:"nidorina",evoLevel:16,eggGroups:["Undiscovered"]},
-nidoranm:{num:32,species:"Nidoran-M",types:["Poison"],gender:"M",baseStats:{hp:46,atk:57,def:40,spa:40,spd:40,spe:50},abilities:{0:"Poison Point",1:"Rivalry",H:"Hustle"},heightm:0.5,weightkg:9,color:"Purple",evos:["nidorino"],eggGroups:["Monster","Field"]},
-nidorino:{num:33,species:"Nidorino",types:["Poison"],gender:"M",baseStats:{hp:61,atk:72,def:57,spa:55,spd:55,spe:65},abilities:{0:"Poison Point",1:"Rivalry",H:"Hustle"},heightm:0.9,weightkg:19.5,color:"Purple",prevo:"nidoranm",evos:["nidoking"],evoLevel:16,eggGroups:["Monster","Field"]},
-nidoking:{num:34,species:"Nidoking",types:["Poison","Ground"],gender:"M",baseStats:{hp:81,atk:102,def:77,spa:85,spd:75,spe:85},abilities:{0:"Poison Point",1:"Rivalry",H:"Sheer Force"},heightm:1.4,weightkg:62,color:"Purple",prevo:"nidorino",evoLevel:16,eggGroups:["Monster","Field"]},
-clefairy:{num:35,species:"Clefairy",types:["Fairy"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:70,atk:45,def:48,spa:60,spd:65,spe:35},abilities:{0:"Cute Charm",1:"Magic Guard",H:"Friend Guard"},heightm:0.6,weightkg:7.5,color:"Pink",prevo:"cleffa",evos:["clefable"],evoLevel:1,eggGroups:["Fairy"]},
-clefable:{num:36,species:"Clefable",types:["Fairy"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:95,atk:70,def:73,spa:95,spd:90,spe:60},abilities:{0:"Cute Charm",1:"Magic Guard",H:"Unaware"},heightm:1.3,weightkg:40,color:"Pink",prevo:"clefairy",evoLevel:1,eggGroups:["Fairy"]},
-vulpix:{num:37,species:"Vulpix",types:["Fire"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:38,atk:41,def:40,spa:50,spd:65,spe:65},abilities:{0:"Flash Fire",H:"Drought"},heightm:0.6,weightkg:9.9,color:"Brown",evos:["ninetales"],eggGroups:["Field"]},
-ninetales:{num:38,species:"Ninetales",types:["Fire"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:73,atk:76,def:75,spa:81,spd:100,spe:100},abilities:{0:"Flash Fire",H:"Drought"},heightm:1.1,weightkg:19.9,color:"Yellow",prevo:"vulpix",evoLevel:1,eggGroups:["Field"]},
-jigglypuff:{num:39,species:"Jigglypuff",types:["Normal","Fairy"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:115,atk:45,def:20,spa:45,spd:25,spe:20},abilities:{0:"Cute Charm",1:"Competitive",H:"Friend Guard"},heightm:0.5,weightkg:5.5,color:"Pink",prevo:"igglybuff",evos:["wigglytuff"],evoLevel:1,eggGroups:["Fairy"]},
-wigglytuff:{num:40,species:"Wigglytuff",types:["Normal","Fairy"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:140,atk:70,def:45,spa:85,spd:50,spe:45},abilities:{0:"Cute Charm",1:"Competitive",H:"Frisk"},heightm:1,weightkg:12,color:"Pink",prevo:"jigglypuff",evoLevel:1,eggGroups:["Fairy"]},
-zubat:{num:41,species:"Zubat",types:["Poison","Flying"],baseStats:{hp:40,atk:45,def:35,spa:30,spd:40,spe:55},abilities:{0:"Inner Focus",H:"Infiltrator"},heightm:0.8,weightkg:7.5,color:"Purple",evos:["golbat"],eggGroups:["Flying"]},
-golbat:{num:42,species:"Golbat",types:["Poison","Flying"],baseStats:{hp:75,atk:80,def:70,spa:65,spd:75,spe:90},abilities:{0:"Inner Focus",H:"Infiltrator"},heightm:1.6,weightkg:55,color:"Purple",prevo:"zubat",evos:["crobat"],evoLevel:22,eggGroups:["Flying"]},
-oddish:{num:43,species:"Oddish",types:["Grass","Poison"],baseStats:{hp:45,atk:50,def:55,spa:75,spd:65,spe:30},abilities:{0:"Chlorophyll",H:"Run Away"},heightm:0.5,weightkg:5.4,color:"Blue",evos:["gloom"],eggGroups:["Grass"]},
-gloom:{num:44,species:"Gloom",types:["Grass","Poison"],baseStats:{hp:60,atk:65,def:70,spa:85,spd:75,spe:40},abilities:{0:"Chlorophyll",H:"Stench"},heightm:0.8,weightkg:8.6,color:"Blue",prevo:"oddish",evos:["vileplume","bellossom"],evoLevel:21,eggGroups:["Grass"]},
-vileplume:{num:45,species:"Vileplume",types:["Grass","Poison"],baseStats:{hp:75,atk:80,def:85,spa:110,spd:90,spe:50},abilities:{0:"Chlorophyll",H:"Effect Spore"},heightm:1.2,weightkg:18.6,color:"Red",prevo:"gloom",evoLevel:21,eggGroups:["Grass"]},
-paras:{num:46,species:"Paras",types:["Bug","Grass"],baseStats:{hp:35,atk:70,def:55,spa:45,spd:55,spe:25},abilities:{0:"Effect Spore",1:"Dry Skin",H:"Damp"},heightm:0.3,weightkg:5.4,color:"Red",evos:["parasect"],eggGroups:["Bug","Grass"]},
-parasect:{num:47,species:"Parasect",types:["Bug","Grass"],baseStats:{hp:60,atk:95,def:80,spa:60,spd:80,spe:30},abilities:{0:"Effect Spore",1:"Dry Skin",H:"Damp"},heightm:1,weightkg:29.5,color:"Red",prevo:"paras",evoLevel:24,eggGroups:["Bug","Grass"]},
-venonat:{num:48,species:"Venonat",types:["Bug","Poison"],baseStats:{hp:60,atk:55,def:50,spa:40,spd:55,spe:45},abilities:{0:"Compound Eyes",1:"Tinted Lens",H:"Run Away"},heightm:1,weightkg:30,color:"Purple",evos:["venomoth"],eggGroups:["Bug"]},
-venomoth:{num:49,species:"Venomoth",types:["Bug","Poison"],baseStats:{hp:70,atk:65,def:60,spa:90,spd:75,spe:90},abilities:{0:"Shield Dust",1:"Tinted Lens",H:"Wonder Skin"},heightm:1.5,weightkg:12.5,color:"Purple",prevo:"venonat",evoLevel:31,eggGroups:["Bug"]},
-diglett:{num:50,species:"Diglett",types:["Ground"],baseStats:{hp:10,atk:55,def:25,spa:35,spd:45,spe:95},abilities:{0:"Sand Veil",1:"Arena Trap",H:"Sand Force"},heightm:0.2,weightkg:0.8,color:"Brown",evos:["dugtrio"],eggGroups:["Field"]},
-dugtrio:{num:51,species:"Dugtrio",types:["Ground"],baseStats:{hp:35,atk:80,def:50,spa:50,spd:70,spe:120},abilities:{0:"Sand Veil",1:"Arena Trap",H:"Sand Force"},heightm:0.7,weightkg:33.3,color:"Brown",prevo:"diglett",evoLevel:26,eggGroups:["Field"]},
-meowth:{num:52,species:"Meowth",types:["Normal"],baseStats:{hp:40,atk:45,def:35,spa:40,spd:40,spe:90},abilities:{0:"Pickup",1:"Technician",H:"Unnerve"},heightm:0.4,weightkg:4.2,color:"Yellow",evos:["persian"],eggGroups:["Field"]},
-persian:{num:53,species:"Persian",types:["Normal"],baseStats:{hp:65,atk:70,def:60,spa:65,spd:65,spe:115},abilities:{0:"Limber",1:"Technician",H:"Unnerve"},heightm:1,weightkg:32,color:"Yellow",prevo:"meowth",evoLevel:28,eggGroups:["Field"]},
-psyduck:{num:54,species:"Psyduck",types:["Water"],baseStats:{hp:50,atk:52,def:48,spa:65,spd:50,spe:55},abilities:{0:"Damp",1:"Cloud Nine",H:"Swift Swim"},heightm:0.8,weightkg:19.6,color:"Yellow",evos:["golduck"],eggGroups:["Water 1","Field"]},
-golduck:{num:55,species:"Golduck",types:["Water"],baseStats:{hp:80,atk:82,def:78,spa:95,spd:80,spe:85},abilities:{0:"Damp",1:"Cloud Nine",H:"Swift Swim"},heightm:1.7,weightkg:76.6,color:"Blue",prevo:"psyduck",evoLevel:33,eggGroups:["Water 1","Field"]},
-mankey:{num:56,species:"Mankey",types:["Fighting"],baseStats:{hp:40,atk:80,def:35,spa:35,spd:45,spe:70},abilities:{0:"Vital Spirit",1:"Anger Point",H:"Defiant"},heightm:0.5,weightkg:28,color:"Brown",evos:["primeape"],eggGroups:["Field"]},
-primeape:{num:57,species:"Primeape",types:["Fighting"],baseStats:{hp:65,atk:105,def:60,spa:60,spd:70,spe:95},abilities:{0:"Vital Spirit",1:"Anger Point",H:"Defiant"},heightm:1,weightkg:32,color:"Brown",prevo:"mankey",evoLevel:28,eggGroups:["Field"]},
-growlithe:{num:58,species:"Growlithe",types:["Fire"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:55,atk:70,def:45,spa:70,spd:50,spe:60},abilities:{0:"Intimidate",1:"Flash Fire",H:"Justified"},heightm:0.7,weightkg:19,color:"Brown",evos:["arcanine"],eggGroups:["Field"]},
-arcanine:{num:59,species:"Arcanine",types:["Fire"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:90,atk:110,def:80,spa:100,spd:80,spe:95},abilities:{0:"Intimidate",1:"Flash Fire",H:"Justified"},heightm:1.9,weightkg:155,color:"Brown",prevo:"growlithe",evoLevel:1,eggGroups:["Field"]},
-poliwag:{num:60,species:"Poliwag",types:["Water"],baseStats:{hp:40,atk:50,def:40,spa:40,spd:40,spe:90},abilities:{0:"Water Absorb",1:"Damp",H:"Swift Swim"},heightm:0.6,weightkg:12.4,color:"Blue",evos:["poliwhirl"],eggGroups:["Water 1"]},
-poliwhirl:{num:61,species:"Poliwhirl",types:["Water"],baseStats:{hp:65,atk:65,def:65,spa:50,spd:50,spe:90},abilities:{0:"Water Absorb",1:"Damp",H:"Swift Swim"},heightm:1,weightkg:20,color:"Blue",prevo:"poliwag",evos:["poliwrath","politoed"],evoLevel:25,eggGroups:["Water 1"]},
-poliwrath:{num:62,species:"Poliwrath",types:["Water","Fighting"],baseStats:{hp:90,atk:95,def:95,spa:70,spd:90,spe:70},abilities:{0:"Water Absorb",1:"Damp",H:"Swift Swim"},heightm:1.3,weightkg:54,color:"Blue",prevo:"poliwhirl",evoLevel:25,eggGroups:["Water 1"]},
-abra:{num:63,species:"Abra",types:["Psychic"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:25,atk:20,def:15,spa:105,spd:55,spe:90},abilities:{0:"Synchronize",1:"Inner Focus",H:"Magic Guard"},heightm:0.9,weightkg:19.5,color:"Brown",evos:["kadabra"],eggGroups:["Human-Like"]},
-kadabra:{num:64,species:"Kadabra",types:["Psychic"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:40,atk:35,def:30,spa:120,spd:70,spe:105},abilities:{0:"Synchronize",1:"Inner Focus",H:"Magic Guard"},heightm:1.3,weightkg:56.5,color:"Brown",prevo:"abra",evos:["alakazam"],evoLevel:16,eggGroups:["Human-Like"]},
-alakazam:{num:65,species:"Alakazam",types:["Psychic"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:55,atk:50,def:45,spa:135,spd:95,spe:120},abilities:{0:"Synchronize",1:"Inner Focus",H:"Magic Guard"},heightm:1.5,weightkg:48,color:"Brown",prevo:"kadabra",evoLevel:16,eggGroups:["Human-Like"],otherFormes:["alakazammega"]},
-alakazammega:{num:65,species:"Alakazam-Mega",baseSpecies:"Alakazam",forme:"Mega",formeLetter:"M",types:["Psychic"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:55,atk:50,def:65,spa:175,spd:95,spe:150},abilities:{0:"Trace"},heightm:1.2,weightkg:48,color:"Brown",prevo:"kadabra",evoLevel:16,eggGroups:["Human-Like"]},
-machop:{num:66,species:"Machop",types:["Fighting"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:70,atk:80,def:50,spa:35,spd:35,spe:35},abilities:{0:"Guts",1:"No Guard",H:"Steadfast"},heightm:0.8,weightkg:19.5,color:"Gray",evos:["machoke"],eggGroups:["Human-Like"]},
-machoke:{num:67,species:"Machoke",types:["Fighting"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:80,atk:100,def:70,spa:50,spd:60,spe:45},abilities:{0:"Guts",1:"No Guard",H:"Steadfast"},heightm:1.5,weightkg:70.5,color:"Gray",prevo:"machop",evos:["machamp"],evoLevel:28,eggGroups:["Human-Like"]},
-machamp:{num:68,species:"Machamp",types:["Fighting"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:90,atk:130,def:80,spa:65,spd:85,spe:55},abilities:{0:"Guts",1:"No Guard",H:"Steadfast"},heightm:1.6,weightkg:130,color:"Gray",prevo:"machoke",evoLevel:28,eggGroups:["Human-Like"]},
-bellsprout:{num:69,species:"Bellsprout",types:["Grass","Poison"],baseStats:{hp:50,atk:75,def:35,spa:70,spd:30,spe:40},abilities:{0:"Chlorophyll",H:"Gluttony"},heightm:0.7,weightkg:4,color:"Green",evos:["weepinbell"],eggGroups:["Grass"]},
-weepinbell:{num:70,species:"Weepinbell",types:["Grass","Poison"],baseStats:{hp:65,atk:90,def:50,spa:85,spd:45,spe:55},abilities:{0:"Chlorophyll",H:"Gluttony"},heightm:1,weightkg:6.4,color:"Green",prevo:"bellsprout",evos:["victreebel"],evoLevel:21,eggGroups:["Grass"]},
-victreebel:{num:71,species:"Victreebel",types:["Grass","Poison"],baseStats:{hp:80,atk:105,def:65,spa:100,spd:70,spe:70},abilities:{0:"Chlorophyll",H:"Gluttony"},heightm:1.7,weightkg:15.5,color:"Green",prevo:"weepinbell",evoLevel:21,eggGroups:["Grass"]},
-tentacool:{num:72,species:"Tentacool",types:["Water","Poison"],baseStats:{hp:40,atk:40,def:35,spa:50,spd:100,spe:70},abilities:{0:"Clear Body",1:"Liquid Ooze",H:"Rain Dish"},heightm:0.9,weightkg:45.5,color:"Blue",evos:["tentacruel"],eggGroups:["Water 3"]},
-tentacruel:{num:73,species:"Tentacruel",types:["Water","Poison"],baseStats:{hp:80,atk:70,def:65,spa:80,spd:120,spe:100},abilities:{0:"Clear Body",1:"Liquid Ooze",H:"Rain Dish"},heightm:1.6,weightkg:55,color:"Blue",prevo:"tentacool",evoLevel:30,eggGroups:["Water 3"]},
-geodude:{num:74,species:"Geodude",types:["Rock","Ground"],baseStats:{hp:40,atk:80,def:100,spa:30,spd:30,spe:20},abilities:{0:"Rock Head",1:"Sturdy",H:"Sand Veil"},heightm:0.4,weightkg:20,color:"Brown",evos:["graveler"],eggGroups:["Mineral"]},
-graveler:{num:75,species:"Graveler",types:["Rock","Ground"],baseStats:{hp:55,atk:95,def:115,spa:45,spd:45,spe:35},abilities:{0:"Rock Head",1:"Sturdy",H:"Sand Veil"},heightm:1,weightkg:105,color:"Brown",prevo:"geodude",evos:["golem"],evoLevel:25,eggGroups:["Mineral"]},
-golem:{num:76,species:"Golem",types:["Rock","Ground"],baseStats:{hp:80,atk:120,def:130,spa:55,spd:65,spe:45},abilities:{0:"Rock Head",1:"Sturdy",H:"Sand Veil"},heightm:1.4,weightkg:300,color:"Brown",prevo:"graveler",evoLevel:25,eggGroups:["Mineral"]},
-ponyta:{num:77,species:"Ponyta",types:["Fire"],baseStats:{hp:50,atk:85,def:55,spa:65,spd:65,spe:90},abilities:{0:"Run Away",1:"Flash Fire",H:"Flame Body"},heightm:1,weightkg:30,color:"Yellow",evos:["rapidash"],eggGroups:["Field"]},
-rapidash:{num:78,species:"Rapidash",types:["Fire"],baseStats:{hp:65,atk:100,def:70,spa:80,spd:80,spe:105},abilities:{0:"Run Away",1:"Flash Fire",H:"Flame Body"},heightm:1.7,weightkg:95,color:"Yellow",prevo:"ponyta",evoLevel:40,eggGroups:["Field"]},
-slowpoke:{num:79,species:"Slowpoke",types:["Water","Psychic"],baseStats:{hp:90,atk:65,def:65,spa:40,spd:40,spe:15},abilities:{0:"Oblivious",1:"Own Tempo",H:"Regenerator"},heightm:1.2,weightkg:36,color:"Pink",evos:["slowbro","slowking"],eggGroups:["Monster","Water 1"]},
-slowbro:{num:80,species:"Slowbro",types:["Water","Psychic"],baseStats:{hp:95,atk:75,def:110,spa:100,spd:80,spe:30},abilities:{0:"Oblivious",1:"Own Tempo",H:"Regenerator"},heightm:1.6,weightkg:78.5,color:"Pink",prevo:"slowpoke",evoLevel:37,eggGroups:["Monster","Water 1"]},
-magnemite:{num:81,species:"Magnemite",types:["Electric","Steel"],gender:"N",baseStats:{hp:25,atk:35,def:70,spa:95,spd:55,spe:45},abilities:{0:"Magnet Pull",1:"Sturdy",H:"Analytic"},heightm:0.3,weightkg:6,color:"Gray",evos:["magneton"],eggGroups:["Mineral"]},
-magneton:{num:82,species:"Magneton",types:["Electric","Steel"],gender:"N",baseStats:{hp:50,atk:60,def:95,spa:120,spd:70,spe:70},abilities:{0:"Magnet Pull",1:"Sturdy",H:"Analytic"},heightm:1,weightkg:60,color:"Gray",prevo:"magnemite",evos:["magnezone"],evoLevel:30,eggGroups:["Mineral"]},
-farfetchd:{num:83,species:"Farfetch'd",types:["Normal","Flying"],baseStats:{hp:52,atk:65,def:55,spa:58,spd:62,spe:60},abilities:{0:"Keen Eye",1:"Inner Focus",H:"Defiant"},heightm:0.8,weightkg:15,color:"Brown",eggGroups:["Flying","Field"]},
-doduo:{num:84,species:"Doduo",types:["Normal","Flying"],baseStats:{hp:35,atk:85,def:45,spa:35,spd:35,spe:75},abilities:{0:"Run Away",1:"Early Bird",H:"Tangled Feet"},heightm:1.4,weightkg:39.2,color:"Brown",evos:["dodrio"],eggGroups:["Flying"]},
-dodrio:{num:85,species:"Dodrio",types:["Normal","Flying"],baseStats:{hp:60,atk:110,def:70,spa:60,spd:60,spe:100},abilities:{0:"Run Away",1:"Early Bird",H:"Tangled Feet"},heightm:1.8,weightkg:85.2,color:"Brown",prevo:"doduo",evoLevel:31,eggGroups:["Flying"]},
-seel:{num:86,species:"Seel",types:["Water"],baseStats:{hp:65,atk:45,def:55,spa:45,spd:70,spe:45},abilities:{0:"Thick Fat",1:"Hydration",H:"Ice Body"},heightm:1.1,weightkg:90,color:"White",evos:["dewgong"],eggGroups:["Water 1","Field"]},
-dewgong:{num:87,species:"Dewgong",types:["Water","Ice"],baseStats:{hp:90,atk:70,def:80,spa:70,spd:95,spe:70},abilities:{0:"Thick Fat",1:"Hydration",H:"Ice Body"},heightm:1.7,weightkg:120,color:"White",prevo:"seel",evoLevel:34,eggGroups:["Water 1","Field"]},
-grimer:{num:88,species:"Grimer",types:["Poison"],baseStats:{hp:80,atk:80,def:50,spa:40,spd:50,spe:25},abilities:{0:"Stench",1:"Sticky Hold",H:"Poison Touch"},heightm:0.9,weightkg:30,color:"Purple",evos:["muk"],eggGroups:["Amorphous"]},
-muk:{num:89,species:"Muk",types:["Poison"],baseStats:{hp:105,atk:105,def:75,spa:65,spd:100,spe:50},abilities:{0:"Stench",1:"Sticky Hold",H:"Poison Touch"},heightm:1.2,weightkg:30,color:"Purple",prevo:"grimer",evoLevel:38,eggGroups:["Amorphous"]},
-shellder:{num:90,species:"Shellder",types:["Water"],baseStats:{hp:30,atk:65,def:100,spa:45,spd:25,spe:40},abilities:{0:"Shell Armor",1:"Skill Link",H:"Overcoat"},heightm:0.3,weightkg:4,color:"Purple",evos:["cloyster"],eggGroups:["Water 3"]},
-cloyster:{num:91,species:"Cloyster",types:["Water","Ice"],baseStats:{hp:50,atk:95,def:180,spa:85,spd:45,spe:70},abilities:{0:"Shell Armor",1:"Skill Link",H:"Overcoat"},heightm:1.5,weightkg:132.5,color:"Purple",prevo:"shellder",evoLevel:1,eggGroups:["Water 3"]},
-gastly:{num:92,species:"Gastly",types:["Ghost","Poison"],baseStats:{hp:30,atk:35,def:30,spa:100,spd:35,spe:80},abilities:{0:"Levitate"},heightm:1.3,weightkg:0.1,color:"Purple",evos:["haunter"],eggGroups:["Amorphous"]},
-haunter:{num:93,species:"Haunter",types:["Ghost","Poison"],baseStats:{hp:45,atk:50,def:45,spa:115,spd:55,spe:95},abilities:{0:"Levitate"},heightm:1.6,weightkg:0.1,color:"Purple",prevo:"gastly",evos:["gengar"],evoLevel:25,eggGroups:["Amorphous"]},
-gengar:{num:94,species:"Gengar",types:["Ghost","Poison"],baseStats:{hp:60,atk:65,def:60,spa:130,spd:75,spe:110},abilities:{0:"Levitate"},heightm:1.5,weightkg:40.5,color:"Purple",prevo:"haunter",evoLevel:25,eggGroups:["Amorphous"],otherFormes:["gengarmega"]},
-gengarmega:{num:94,species:"Gengar-Mega",baseSpecies:"Gengar",forme:"Mega",formeLetter:"M",types:["Ghost","Poison"],baseStats:{hp:60,atk:65,def:80,spa:170,spd:95,spe:130},abilities:{0:"Shadow Tag"},heightm:1.4,weightkg:40.5,color:"Purple",prevo:"haunter",evoLevel:25,eggGroups:["Amorphous"]},
-onix:{num:95,species:"Onix",types:["Rock","Ground"],baseStats:{hp:35,atk:45,def:160,spa:30,spd:45,spe:70},abilities:{0:"Rock Head",1:"Sturdy",H:"Weak Armor"},heightm:8.8,weightkg:210,color:"Gray",evos:["steelix"],eggGroups:["Mineral"]},
-drowzee:{num:96,species:"Drowzee",types:["Psychic"],baseStats:{hp:60,atk:48,def:45,spa:43,spd:90,spe:42},abilities:{0:"Insomnia",1:"Forewarn",H:"Inner Focus"},heightm:1,weightkg:32.4,color:"Yellow",evos:["hypno"],eggGroups:["Human-Like"]},
-hypno:{num:97,species:"Hypno",types:["Psychic"],baseStats:{hp:85,atk:73,def:70,spa:73,spd:115,spe:67},abilities:{0:"Insomnia",1:"Forewarn",H:"Inner Focus"},heightm:1.6,weightkg:75.6,color:"Yellow",prevo:"drowzee",evoLevel:26,eggGroups:["Human-Like"]},
-krabby:{num:98,species:"Krabby",types:["Water"],baseStats:{hp:30,atk:105,def:90,spa:25,spd:25,spe:50},abilities:{0:"Hyper Cutter",1:"Shell Armor",H:"Sheer Force"},heightm:0.4,weightkg:6.5,color:"Red",evos:["kingler"],eggGroups:["Water 3"]},
-kingler:{num:99,species:"Kingler",types:["Water"],baseStats:{hp:55,atk:130,def:115,spa:50,spd:50,spe:75},abilities:{0:"Hyper Cutter",1:"Shell Armor",H:"Sheer Force"},heightm:1.3,weightkg:60,color:"Red",prevo:"krabby",evoLevel:28,eggGroups:["Water 3"]},
-voltorb:{num:100,species:"Voltorb",types:["Electric"],gender:"N",baseStats:{hp:40,atk:30,def:50,spa:55,spd:55,spe:100},abilities:{0:"Soundproof",1:"Static",H:"Aftermath"},heightm:0.5,weightkg:10.4,color:"Red",evos:["electrode"],eggGroups:["Mineral"]},
-electrode:{num:101,species:"Electrode",types:["Electric"],gender:"N",baseStats:{hp:60,atk:50,def:70,spa:80,spd:80,spe:140},abilities:{0:"Soundproof",1:"Static",H:"Aftermath"},heightm:1.2,weightkg:66.6,color:"Red",prevo:"voltorb",evoLevel:30,eggGroups:["Mineral"]},
-exeggcute:{num:102,species:"Exeggcute",types:["Grass","Psychic"],baseStats:{hp:60,atk:40,def:80,spa:60,spd:45,spe:40},abilities:{0:"Chlorophyll",H:"Harvest"},heightm:0.4,weightkg:2.5,color:"Pink",evos:["exeggutor"],eggGroups:["Grass"]},
-exeggutor:{num:103,species:"Exeggutor",types:["Grass","Psychic"],baseStats:{hp:95,atk:95,def:85,spa:125,spd:65,spe:55},abilities:{0:"Chlorophyll",H:"Harvest"},heightm:2,weightkg:120,color:"Yellow",prevo:"exeggcute",evoLevel:1,eggGroups:["Grass"]},
-cubone:{num:104,species:"Cubone",types:["Ground"],baseStats:{hp:50,atk:50,def:95,spa:40,spd:50,spe:35},abilities:{0:"Rock Head",1:"Lightningrod",H:"Battle Armor"},heightm:0.4,weightkg:6.5,color:"Brown",evos:["marowak"],eggGroups:["Monster"]},
-marowak:{num:105,species:"Marowak",types:["Ground"],baseStats:{hp:60,atk:80,def:110,spa:50,spd:80,spe:45},abilities:{0:"Rock Head",1:"Lightningrod",H:"Battle Armor"},heightm:1,weightkg:45,color:"Brown",prevo:"cubone",evoLevel:28,eggGroups:["Monster"]},
-hitmonlee:{num:106,species:"Hitmonlee",types:["Fighting"],gender:"M",baseStats:{hp:50,atk:120,def:53,spa:35,spd:110,spe:87},abilities:{0:"Limber",1:"Reckless",H:"Unburden"},heightm:1.5,weightkg:49.8,color:"Brown",prevo:"tyrogue",evoLevel:20,eggGroups:["Human-Like"]},
-hitmonchan:{num:107,species:"Hitmonchan",types:["Fighting"],gender:"M",baseStats:{hp:50,atk:105,def:79,spa:35,spd:110,spe:76},abilities:{0:"Keen Eye",1:"Iron Fist",H:"Inner Focus"},heightm:1.4,weightkg:50.2,color:"Brown",prevo:"tyrogue",evoLevel:20,eggGroups:["Human-Like"]},
-lickitung:{num:108,species:"Lickitung",types:["Normal"],baseStats:{hp:90,atk:55,def:75,spa:60,spd:75,spe:30},abilities:{0:"Own Tempo",1:"Oblivious",H:"Cloud Nine"},heightm:1.2,weightkg:65.5,color:"Pink",evos:["lickilicky"],eggGroups:["Monster"]},
-koffing:{num:109,species:"Koffing",types:["Poison"],baseStats:{hp:40,atk:65,def:95,spa:60,spd:45,spe:35},abilities:{0:"Levitate"},heightm:0.6,weightkg:1,color:"Purple",evos:["weezing"],eggGroups:["Amorphous"]},
-weezing:{num:110,species:"Weezing",types:["Poison"],baseStats:{hp:65,atk:90,def:120,spa:85,spd:70,spe:60},abilities:{0:"Levitate"},heightm:1.2,weightkg:9.5,color:"Purple",prevo:"koffing",evoLevel:35,eggGroups:["Amorphous"]},
-rhyhorn:{num:111,species:"Rhyhorn",types:["Ground","Rock"],baseStats:{hp:80,atk:85,def:95,spa:30,spd:30,spe:25},abilities:{0:"Lightningrod",1:"Rock Head",H:"Reckless"},heightm:1,weightkg:115,color:"Gray",evos:["rhydon"],eggGroups:["Monster","Field"]},
-rhydon:{num:112,species:"Rhydon",types:["Ground","Rock"],baseStats:{hp:105,atk:130,def:120,spa:45,spd:45,spe:40},abilities:{0:"Lightningrod",1:"Rock Head",H:"Reckless"},heightm:1.9,weightkg:120,color:"Gray",prevo:"rhyhorn",evos:["rhyperior"],evoLevel:42,eggGroups:["Monster","Field"]},
-chansey:{num:113,species:"Chansey",types:["Normal"],gender:"F",baseStats:{hp:250,atk:5,def:5,spa:35,spd:105,spe:50},abilities:{0:"Natural Cure",1:"Serene Grace",H:"Healer"},heightm:1.1,weightkg:34.6,color:"Pink",prevo:"happiny",evos:["blissey"],evoLevel:1,eggGroups:["Fairy"]},
-tangela:{num:114,species:"Tangela",types:["Grass"],baseStats:{hp:65,atk:55,def:115,spa:100,spd:40,spe:60},abilities:{0:"Chlorophyll",1:"Leaf Guard",H:"Regenerator"},heightm:1,weightkg:35,color:"Blue",evos:["tangrowth"],eggGroups:["Grass"]},
-kangaskhan:{num:115,species:"Kangaskhan",types:["Normal"],gender:"F",baseStats:{hp:105,atk:95,def:80,spa:40,spd:80,spe:90},abilities:{0:"Early Bird",1:"Scrappy",H:"Inner Focus"},heightm:2.2,weightkg:80,color:"Brown",eggGroups:["Monster"],otherFormes:["kangaskhanmega"]},
-kangaskhanmega:{num:115,species:"Kangaskhan-Mega",baseSpecies:"Kangaskhan",forme:"Mega",formeLetter:"M",types:["Normal"],gender:"F",baseStats:{hp:105,atk:125,def:100,spa:60,spd:100,spe:100},abilities:{0:"Parental Bond"},heightm:2.2,weightkg:100,color:"Brown",eggGroups:["Monster"]},
-horsea:{num:116,species:"Horsea",types:["Water"],baseStats:{hp:30,atk:40,def:70,spa:70,spd:25,spe:60},abilities:{0:"Swift Swim",1:"Sniper",H:"Damp"},heightm:0.4,weightkg:8,color:"Blue",evos:["seadra"],eggGroups:["Water 1","Dragon"]},
-seadra:{num:117,species:"Seadra",types:["Water"],baseStats:{hp:55,atk:65,def:95,spa:95,spd:45,spe:85},abilities:{0:"Poison Point",1:"Sniper",H:"Damp"},heightm:1.2,weightkg:25,color:"Blue",prevo:"horsea",evos:["kingdra"],evoLevel:32,eggGroups:["Water 1","Dragon"]},
-goldeen:{num:118,species:"Goldeen",types:["Water"],baseStats:{hp:45,atk:67,def:60,spa:35,spd:50,spe:63},abilities:{0:"Swift Swim",1:"Water Veil",H:"Lightningrod"},heightm:0.6,weightkg:15,color:"Red",evos:["seaking"],eggGroups:["Water 2"]},
-seaking:{num:119,species:"Seaking",types:["Water"],baseStats:{hp:80,atk:92,def:65,spa:65,spd:80,spe:68},abilities:{0:"Swift Swim",1:"Water Veil",H:"Lightningrod"},heightm:1.3,weightkg:39,color:"Red",prevo:"goldeen",evoLevel:33,eggGroups:["Water 2"]},
-staryu:{num:120,species:"Staryu",types:["Water"],gender:"N",baseStats:{hp:30,atk:45,def:55,spa:70,spd:55,spe:85},abilities:{0:"Illuminate",1:"Natural Cure",H:"Analytic"},heightm:0.8,weightkg:34.5,color:"Brown",evos:["starmie"],eggGroups:["Water 3"]},
-starmie:{num:121,species:"Starmie",types:["Water","Psychic"],gender:"N",baseStats:{hp:60,atk:75,def:85,spa:100,spd:85,spe:115},abilities:{0:"Illuminate",1:"Natural Cure",H:"Analytic"},heightm:1.1,weightkg:80,color:"Purple",prevo:"staryu",evoLevel:1,eggGroups:["Water 3"]},
-mrmime:{num:122,species:"Mr. Mime",types:["Psychic","Fairy"],baseStats:{hp:40,atk:45,def:65,spa:100,spd:120,spe:90},abilities:{0:"Soundproof",1:"Filter",H:"Technician"},heightm:1.3,weightkg:54.5,color:"Pink",prevo:"mimejr",evoLevel:1,evoMove:"Mimic",eggGroups:["Human-Like"]},
-scyther:{num:123,species:"Scyther",types:["Bug","Flying"],baseStats:{hp:70,atk:110,def:80,spa:55,spd:80,spe:105},abilities:{0:"Swarm",1:"Technician",H:"Steadfast"},heightm:1.5,weightkg:56,color:"Green",evos:["scizor"],eggGroups:["Bug"]},
-jynx:{num:124,species:"Jynx",types:["Ice","Psychic"],gender:"F",baseStats:{hp:65,atk:50,def:35,spa:115,spd:95,spe:95},abilities:{0:"Oblivious",1:"Forewarn",H:"Dry Skin"},heightm:1.4,weightkg:40.6,color:"Red",prevo:"smoochum",evoLevel:30,eggGroups:["Human-Like"]},
-electabuzz:{num:125,species:"Electabuzz",types:["Electric"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:65,atk:83,def:57,spa:95,spd:85,spe:105},abilities:{0:"Static",H:"Vital Spirit"},heightm:1.1,weightkg:30,color:"Yellow",prevo:"elekid",evos:["electivire"],evoLevel:30,eggGroups:["Human-Like"]},
-magmar:{num:126,species:"Magmar",types:["Fire"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:65,atk:95,def:57,spa:100,spd:85,spe:93},abilities:{0:"Flame Body",H:"Vital Spirit"},heightm:1.3,weightkg:44.5,color:"Red",prevo:"magby",evos:["magmortar"],evoLevel:30,eggGroups:["Human-Like"]},
-pinsir:{num:127,species:"Pinsir",types:["Bug"],baseStats:{hp:65,atk:125,def:100,spa:55,spd:70,spe:85},abilities:{0:"Hyper Cutter",1:"Mold Breaker",H:"Moxie"},heightm:1.5,weightkg:55,color:"Brown",eggGroups:["Bug"],otherFormes:["pinsirmega"]},
-pinsirmega:{num:127,species:"Pinsir-Mega",baseSpecies:"Pinsir",forme:"Mega",formeLetter:"M",types:["Bug","Flying"],baseStats:{hp:65,atk:155,def:120,spa:65,spd:90,spe:105},abilities:{0:"Aerilate"},heightm:1.7,weightkg:59,color:"Brown",eggGroups:["Bug"]},
-tauros:{num:128,species:"Tauros",types:["Normal"],gender:"M",baseStats:{hp:75,atk:100,def:95,spa:40,spd:70,spe:110},abilities:{0:"Intimidate",1:"Anger Point",H:"Sheer Force"},heightm:1.4,weightkg:88.4,color:"Brown",eggGroups:["Field"]},
-magikarp:{num:129,species:"Magikarp",types:["Water"],baseStats:{hp:20,atk:10,def:55,spa:15,spd:20,spe:80},abilities:{0:"Swift Swim",H:"Rattled"},heightm:0.9,weightkg:10,color:"Red",evos:["gyarados"],eggGroups:["Water 2","Dragon"]},
-gyarados:{num:130,species:"Gyarados",types:["Water","Flying"],baseStats:{hp:95,atk:125,def:79,spa:60,spd:100,spe:81},abilities:{0:"Intimidate",H:"Moxie"},heightm:6.5,weightkg:235,color:"Blue",prevo:"magikarp",evoLevel:20,eggGroups:["Water 2","Dragon"],otherFormes:["gyaradosmega"]},
-gyaradosmega:{num:130,species:"Gyarados-Mega",baseSpecies:"Gyarados",forme:"Mega",formeLetter:"M",types:["Water","Dark"],baseStats:{hp:95,atk:155,def:109,spa:70,spd:130,spe:81},abilities:{0:"Mold Breaker"},heightm:6.5,weightkg:305,color:"Blue",prevo:"magikarp",evoLevel:20,eggGroups:["Water 2","Dragon"]},
-lapras:{num:131,species:"Lapras",types:["Water","Ice"],baseStats:{hp:130,atk:85,def:80,spa:85,spd:95,spe:60},abilities:{0:"Water Absorb",1:"Shell Armor",H:"Hydration"},heightm:2.5,weightkg:220,color:"Blue",eggGroups:["Monster","Water 1"]},
-ditto:{num:132,species:"Ditto",types:["Normal"],gender:"N",baseStats:{hp:48,atk:48,def:48,spa:48,spd:48,spe:48},abilities:{0:"Limber",H:"Imposter"},heightm:0.3,weightkg:4,color:"Purple",eggGroups:["Ditto"]},
-eevee:{num:133,species:"Eevee",types:["Normal"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:55,atk:55,def:50,spa:45,spd:65,spe:55},abilities:{0:"Run Away",1:"Adaptability",H:"Anticipation"},heightm:0.3,weightkg:6.5,color:"Brown",evos:["vaporeon","jolteon","flareon","espeon","umbreon","leafeon","glaceon","sylveon"],eggGroups:["Field"]},
-vaporeon:{num:134,species:"Vaporeon",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:130,atk:65,def:60,spa:110,spd:95,spe:65},abilities:{0:"Water Absorb",H:"Hydration"},heightm:1,weightkg:29,color:"Blue",prevo:"eevee",evoLevel:1,eggGroups:["Field"]},
-jolteon:{num:135,species:"Jolteon",types:["Electric"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:65,atk:65,def:60,spa:110,spd:95,spe:130},abilities:{0:"Volt Absorb",H:"Quick Feet"},heightm:0.8,weightkg:24.5,color:"Yellow",prevo:"eevee",evoLevel:1,eggGroups:["Field"]},
-flareon:{num:136,species:"Flareon",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:65,atk:130,def:60,spa:95,spd:110,spe:65},abilities:{0:"Flash Fire",H:"Guts"},heightm:0.9,weightkg:25,color:"Red",prevo:"eevee",evoLevel:1,eggGroups:["Field"]},
-porygon:{num:137,species:"Porygon",types:["Normal"],gender:"N",baseStats:{hp:65,atk:60,def:70,spa:85,spd:75,spe:40},abilities:{0:"Trace",1:"Download",H:"Analytic"},heightm:0.8,weightkg:36.5,color:"Pink",evos:["porygon2"],eggGroups:["Mineral"]},
-omanyte:{num:138,species:"Omanyte",types:["Rock","Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:35,atk:40,def:100,spa:90,spd:55,spe:35},abilities:{0:"Swift Swim",1:"Shell Armor",H:"Weak Armor"},heightm:0.4,weightkg:7.5,color:"Blue",evos:["omastar"],eggGroups:["Water 1","Water 3"]},
-omastar:{num:139,species:"Omastar",types:["Rock","Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:70,atk:60,def:125,spa:115,spd:70,spe:55},abilities:{0:"Swift Swim",1:"Shell Armor",H:"Weak Armor"},heightm:1,weightkg:35,color:"Blue",prevo:"omanyte",evoLevel:40,eggGroups:["Water 1","Water 3"]},
-kabuto:{num:140,species:"Kabuto",types:["Rock","Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:30,atk:80,def:90,spa:55,spd:45,spe:55},abilities:{0:"Swift Swim",1:"Battle Armor",H:"Weak Armor"},heightm:0.5,weightkg:11.5,color:"Brown",evos:["kabutops"],eggGroups:["Water 1","Water 3"]},
-kabutops:{num:141,species:"Kabutops",types:["Rock","Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:60,atk:115,def:105,spa:65,spd:70,spe:80},abilities:{0:"Swift Swim",1:"Battle Armor",H:"Weak Armor"},heightm:1.3,weightkg:40.5,color:"Brown",prevo:"kabuto",evoLevel:40,eggGroups:["Water 1","Water 3"]},
-aerodactyl:{num:142,species:"Aerodactyl",types:["Rock","Flying"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:80,atk:105,def:65,spa:60,spd:75,spe:130},abilities:{0:"Rock Head",1:"Pressure",H:"Unnerve"},heightm:1.8,weightkg:59,color:"Purple",eggGroups:["Flying"],otherFormes:["aerodactylmega"]},
-aerodactylmega:{num:142,species:"Aerodactyl-Mega",baseSpecies:"Aerodactyl",forme:"Mega",formeLetter:"M",types:["Rock","Flying"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:80,atk:135,def:85,spa:70,spd:95,spe:150},abilities:{0:"Tough Claws"},heightm:2.1,weightkg:79,color:"Purple",eggGroups:["Flying"]},
-snorlax:{num:143,species:"Snorlax",types:["Normal"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:160,atk:110,def:65,spa:65,spd:110,spe:30},abilities:{0:"Immunity",1:"Thick Fat",H:"Gluttony"},heightm:2.1,weightkg:460,color:"Black",prevo:"munchlax",evoLevel:1,eggGroups:["Monster"]},
-articuno:{num:144,species:"Articuno",types:["Ice","Flying"],gender:"N",baseStats:{hp:90,atk:85,def:100,spa:95,spd:125,spe:85},abilities:{0:"Pressure",H:"Snow Cloak"},heightm:1.7,weightkg:55.4,color:"Blue",eggGroups:["Undiscovered"]},
-zapdos:{num:145,species:"Zapdos",types:["Electric","Flying"],gender:"N",baseStats:{hp:90,atk:90,def:85,spa:125,spd:90,spe:100},abilities:{0:"Pressure",H:"Static"},heightm:1.6,weightkg:52.6,color:"Yellow",eggGroups:["Undiscovered"]},
-moltres:{num:146,species:"Moltres",types:["Fire","Flying"],gender:"N",baseStats:{hp:90,atk:100,def:90,spa:125,spd:85,spe:90},abilities:{0:"Pressure",H:"Flame Body"},heightm:2,weightkg:60,color:"Yellow",eggGroups:["Undiscovered"]},
-dratini:{num:147,species:"Dratini",types:["Dragon"],baseStats:{hp:41,atk:64,def:45,spa:50,spd:50,spe:50},abilities:{0:"Shed Skin",H:"Marvel Scale"},heightm:1.8,weightkg:3.3,color:"Blue",evos:["dragonair"],eggGroups:["Water 1","Dragon"]},
-dragonair:{num:148,species:"Dragonair",types:["Dragon"],baseStats:{hp:61,atk:84,def:65,spa:70,spd:70,spe:70},abilities:{0:"Shed Skin",H:"Marvel Scale"},heightm:4,weightkg:16.5,color:"Blue",prevo:"dratini",evos:["dragonite"],evoLevel:30,eggGroups:["Water 1","Dragon"]},
-dragonite:{num:149,species:"Dragonite",types:["Dragon","Flying"],baseStats:{hp:91,atk:134,def:95,spa:100,spd:100,spe:80},abilities:{0:"Inner Focus",H:"Multiscale"},heightm:2.2,weightkg:210,color:"Brown",prevo:"dragonair",evoLevel:55,eggGroups:["Water 1","Dragon"]},
-mewtwo:{num:150,species:"Mewtwo",types:["Psychic"],gender:"N",baseStats:{hp:106,atk:110,def:90,spa:154,spd:90,spe:130},abilities:{0:"Pressure",H:"Unnerve"},heightm:2,weightkg:122,color:"Purple",eggGroups:["Undiscovered"],otherFormes:["mewtwomegax","mewtwomegay"]},
-mewtwomegax:{num:150,species:"Mewtwo-Mega-X",baseSpecies:"Mewtwo",forme:"Mega-X",formeLetter:"M",types:["Psychic","Fighting"],gender:"N",baseStats:{hp:106,atk:190,def:100,spa:154,spd:100,spe:130},abilities:{0:"Steadfast"},heightm:2.3,weightkg:127,color:"Purple",eggGroups:["Undiscovered"]},
-mewtwomegay:{num:150,species:"Mewtwo-Mega-Y",baseSpecies:"Mewtwo",forme:"Mega-Y",formeLetter:"M",types:["Psychic"],gender:"N",baseStats:{hp:106,atk:150,def:70,spa:194,spd:120,spe:140},abilities:{0:"Insomnia"},heightm:1.5,weightkg:33,color:"Purple",eggGroups:["Undiscovered"]},
-mew:{num:151,species:"Mew",types:["Psychic"],gender:"N",baseStats:{hp:100,atk:100,def:100,spa:100,spd:100,spe:100},abilities:{0:"Synchronize"},heightm:0.4,weightkg:4,color:"Pink",eggGroups:["Undiscovered"]},
-chikorita:{num:152,species:"Chikorita",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:45,atk:49,def:65,spa:49,spd:65,spe:45},abilities:{0:"Overgrow",H:"Leaf Guard"},heightm:0.9,weightkg:6.4,color:"Green",evos:["bayleef"],eggGroups:["Monster","Grass"]},
-bayleef:{num:153,species:"Bayleef",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:60,atk:62,def:80,spa:63,spd:80,spe:60},abilities:{0:"Overgrow",H:"Leaf Guard"},heightm:1.2,weightkg:15.8,color:"Green",prevo:"chikorita",evos:["meganium"],evoLevel:16,eggGroups:["Monster","Grass"]},
-meganium:{num:154,species:"Meganium",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:80,atk:82,def:100,spa:83,spd:100,spe:80},abilities:{0:"Overgrow",H:"Leaf Guard"},heightm:1.8,weightkg:100.5,color:"Green",prevo:"bayleef",evoLevel:32,eggGroups:["Monster","Grass"]},
-cyndaquil:{num:155,species:"Cyndaquil",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:39,atk:52,def:43,spa:60,spd:50,spe:65},abilities:{0:"Blaze",H:"Flash Fire"},heightm:0.5,weightkg:7.9,color:"Yellow",evos:["quilava"],eggGroups:["Field"]},
-quilava:{num:156,species:"Quilava",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:58,atk:64,def:58,spa:80,spd:65,spe:80},abilities:{0:"Blaze",H:"Flash Fire"},heightm:0.9,weightkg:19,color:"Yellow",prevo:"cyndaquil",evos:["typhlosion"],evoLevel:14,eggGroups:["Field"]},
-typhlosion:{num:157,species:"Typhlosion",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:78,atk:84,def:78,spa:109,spd:85,spe:100},abilities:{0:"Blaze",H:"Flash Fire"},heightm:1.7,weightkg:79.5,color:"Yellow",prevo:"quilava",evoLevel:36,eggGroups:["Field"]},
-totodile:{num:158,species:"Totodile",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:50,atk:65,def:64,spa:44,spd:48,spe:43},abilities:{0:"Torrent",H:"Sheer Force"},heightm:0.6,weightkg:9.5,color:"Blue",evos:["croconaw"],eggGroups:["Monster","Water 1"]},
-croconaw:{num:159,species:"Croconaw",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:65,atk:80,def:80,spa:59,spd:63,spe:58},abilities:{0:"Torrent",H:"Sheer Force"},heightm:1.1,weightkg:25,color:"Blue",prevo:"totodile",evos:["feraligatr"],evoLevel:18,eggGroups:["Monster","Water 1"]},
-feraligatr:{num:160,species:"Feraligatr",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:85,atk:105,def:100,spa:79,spd:83,spe:78},abilities:{0:"Torrent",H:"Sheer Force"},heightm:2.3,weightkg:88.8,color:"Blue",prevo:"croconaw",evoLevel:30,eggGroups:["Monster","Water 1"]},
-sentret:{num:161,species:"Sentret",types:["Normal"],baseStats:{hp:35,atk:46,def:34,spa:35,spd:45,spe:20},abilities:{0:"Run Away",1:"Keen Eye",H:"Frisk"},heightm:0.8,weightkg:6,color:"Brown",evos:["furret"],eggGroups:["Field"]},
-furret:{num:162,species:"Furret",types:["Normal"],baseStats:{hp:85,atk:76,def:64,spa:45,spd:55,spe:90},abilities:{0:"Run Away",1:"Keen Eye",H:"Frisk"},heightm:1.8,weightkg:32.5,color:"Brown",prevo:"sentret",evoLevel:15,eggGroups:["Field"]},
-hoothoot:{num:163,species:"Hoothoot",types:["Normal","Flying"],baseStats:{hp:60,atk:30,def:30,spa:36,spd:56,spe:50},abilities:{0:"Insomnia",1:"Keen Eye",H:"Tinted Lens"},heightm:0.7,weightkg:21.2,color:"Brown",evos:["noctowl"],eggGroups:["Flying"]},
-noctowl:{num:164,species:"Noctowl",types:["Normal","Flying"],baseStats:{hp:100,atk:50,def:50,spa:76,spd:96,spe:70},abilities:{0:"Insomnia",1:"Keen Eye",H:"Tinted Lens"},heightm:1.6,weightkg:40.8,color:"Brown",prevo:"hoothoot",evoLevel:20,eggGroups:["Flying"]},
-ledyba:{num:165,species:"Ledyba",types:["Bug","Flying"],baseStats:{hp:40,atk:20,def:30,spa:40,spd:80,spe:55},abilities:{0:"Swarm",1:"Early Bird",H:"Rattled"},heightm:1,weightkg:10.8,color:"Red",evos:["ledian"],eggGroups:["Bug"]},
-ledian:{num:166,species:"Ledian",types:["Bug","Flying"],baseStats:{hp:55,atk:35,def:50,spa:55,spd:110,spe:85},abilities:{0:"Swarm",1:"Early Bird",H:"Iron Fist"},heightm:1.4,weightkg:35.6,color:"Red",prevo:"ledyba",evoLevel:18,eggGroups:["Bug"]},
-spinarak:{num:167,species:"Spinarak",types:["Bug","Poison"],baseStats:{hp:40,atk:60,def:40,spa:40,spd:40,spe:30},abilities:{0:"Swarm",1:"Insomnia",H:"Sniper"},heightm:0.5,weightkg:8.5,color:"Green",evos:["ariados"],eggGroups:["Bug"]},
-ariados:{num:168,species:"Ariados",types:["Bug","Poison"],baseStats:{hp:70,atk:90,def:70,spa:60,spd:60,spe:40},abilities:{0:"Swarm",1:"Insomnia",H:"Sniper"},heightm:1.1,weightkg:33.5,color:"Red",prevo:"spinarak",evoLevel:22,eggGroups:["Bug"]},
-crobat:{num:169,species:"Crobat",types:["Poison","Flying"],baseStats:{hp:85,atk:90,def:80,spa:70,spd:80,spe:130},abilities:{0:"Inner Focus",H:"Infiltrator"},heightm:1.8,weightkg:75,color:"Purple",prevo:"golbat",evoLevel:23,eggGroups:["Flying"]},
-chinchou:{num:170,species:"Chinchou",types:["Water","Electric"],baseStats:{hp:75,atk:38,def:38,spa:56,spd:56,spe:67},abilities:{0:"Volt Absorb",1:"Illuminate",H:"Water Absorb"},heightm:0.5,weightkg:12,color:"Blue",evos:["lanturn"],eggGroups:["Water 2"]},
-lanturn:{num:171,species:"Lanturn",types:["Water","Electric"],baseStats:{hp:125,atk:58,def:58,spa:76,spd:76,spe:67},abilities:{0:"Volt Absorb",1:"Illuminate",H:"Water Absorb"},heightm:1.2,weightkg:22.5,color:"Blue",prevo:"chinchou",evoLevel:27,eggGroups:["Water 2"]},
-pichu:{num:172,species:"Pichu",types:["Electric"],baseStats:{hp:20,atk:40,def:15,spa:35,spd:35,spe:60},abilities:{0:"Static",H:"Lightningrod"},heightm:0.3,weightkg:2,color:"Yellow",evos:["pikachu"],eggGroups:["Undiscovered"],otherFormes:["pichuspikyeared"]},
-pichuspikyeared:{num:172,species:"Pichu-Spiky-eared",baseSpecies:"Pichu",forme:"Spiky-eared",formeLetter:"S",types:["Electric"],gender:"F",baseStats:{hp:20,atk:40,def:15,spa:35,spd:35,spe:60},abilities:{0:"Static"},heightm:0.3,weightkg:2,color:"Yellow",eggGroups:["Undiscovered"]},
-cleffa:{num:173,species:"Cleffa",types:["Fairy"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:50,atk:25,def:28,spa:45,spd:55,spe:15},abilities:{0:"Cute Charm",1:"Magic Guard",H:"Friend Guard"},heightm:0.3,weightkg:3,color:"Pink",evos:["clefairy"],eggGroups:["Undiscovered"]},
-igglybuff:{num:174,species:"Igglybuff",types:["Normal","Fairy"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:90,atk:30,def:15,spa:40,spd:20,spe:15},abilities:{0:"Cute Charm",1:"Competitive",H:"Friend Guard"},heightm:0.3,weightkg:1,color:"Pink",evos:["jigglypuff"],eggGroups:["Undiscovered"]},
-togepi:{num:175,species:"Togepi",types:["Fairy"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:35,atk:20,def:65,spa:40,spd:65,spe:20},abilities:{0:"Hustle",1:"Serene Grace",H:"Super Luck"},heightm:0.3,weightkg:1.5,color:"White",evos:["togetic"],eggGroups:["Undiscovered"]},
-togetic:{num:176,species:"Togetic",types:["Fairy","Flying"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:55,atk:40,def:85,spa:80,spd:105,spe:40},abilities:{0:"Hustle",1:"Serene Grace",H:"Super Luck"},heightm:0.6,weightkg:3.2,color:"White",prevo:"togepi",evos:["togekiss"],evoLevel:2,eggGroups:["Flying","Fairy"]},
-natu:{num:177,species:"Natu",types:["Psychic","Flying"],baseStats:{hp:40,atk:50,def:45,spa:70,spd:45,spe:70},abilities:{0:"Synchronize",1:"Early Bird",H:"Magic Bounce"},heightm:0.2,weightkg:2,color:"Green",evos:["xatu"],eggGroups:["Flying"]},
-xatu:{num:178,species:"Xatu",types:["Psychic","Flying"],baseStats:{hp:65,atk:75,def:70,spa:95,spd:70,spe:95},abilities:{0:"Synchronize",1:"Early Bird",H:"Magic Bounce"},heightm:1.5,weightkg:15,color:"Green",prevo:"natu",evoLevel:25,eggGroups:["Flying"]},
-mareep:{num:179,species:"Mareep",types:["Electric"],baseStats:{hp:55,atk:40,def:40,spa:65,spd:45,spe:35},abilities:{0:"Static",H:"Plus"},heightm:0.6,weightkg:7.8,color:"White",evos:["flaaffy"],eggGroups:["Monster","Field"]},
-flaaffy:{num:180,species:"Flaaffy",types:["Electric"],baseStats:{hp:70,atk:55,def:55,spa:80,spd:60,spe:45},abilities:{0:"Static",H:"Plus"},heightm:0.8,weightkg:13.3,color:"Pink",prevo:"mareep",evos:["ampharos"],evoLevel:15,eggGroups:["Monster","Field"]},
-ampharos:{num:181,species:"Ampharos",types:["Electric"],baseStats:{hp:90,atk:75,def:85,spa:115,spd:90,spe:55},abilities:{0:"Static",H:"Plus"},heightm:1.4,weightkg:61.5,color:"Yellow",prevo:"flaaffy",evoLevel:30,eggGroups:["Monster","Field"],otherFormes:["ampharosmega"]},
-ampharosmega:{num:181,species:"Ampharos-Mega",baseSpecies:"Ampharos",forme:"Mega",formeLetter:"M",types:["Electric","Dragon"],baseStats:{hp:90,atk:95,def:105,spa:165,spd:110,spe:45},abilities:{0:"Mold Breaker"},heightm:1.4,weightkg:61.5,color:"Yellow",prevo:"flaaffy",evoLevel:30,eggGroups:["Monster","Field"]},
-bellossom:{num:182,species:"Bellossom",types:["Grass"],baseStats:{hp:75,atk:80,def:95,spa:90,spd:100,spe:50},abilities:{0:"Chlorophyll",H:"Healer"},heightm:0.4,weightkg:5.8,color:"Green",prevo:"gloom",evoLevel:21,eggGroups:["Grass"]},
-marill:{num:183,species:"Marill",types:["Water","Fairy"],baseStats:{hp:70,atk:20,def:50,spa:20,spd:50,spe:40},abilities:{0:"Thick Fat",1:"Huge Power",H:"Sap Sipper"},heightm:0.4,weightkg:8.5,color:"Blue",prevo:"azurill",evos:["azumarill"],evoLevel:1,eggGroups:["Water 1","Fairy"]},
-azumarill:{num:184,species:"Azumarill",types:["Water","Fairy"],baseStats:{hp:100,atk:50,def:80,spa:60,spd:80,spe:50},abilities:{0:"Thick Fat",1:"Huge Power",H:"Sap Sipper"},heightm:0.8,weightkg:28.5,color:"Blue",prevo:"marill",evoLevel:18,eggGroups:["Water 1","Fairy"]},
-sudowoodo:{num:185,species:"Sudowoodo",types:["Rock"],baseStats:{hp:70,atk:100,def:115,spa:30,spd:65,spe:30},abilities:{0:"Sturdy",1:"Rock Head",H:"Rattled"},heightm:1.2,weightkg:38,color:"Brown",prevo:"bonsly",evoLevel:1,evoMove:"Mimic",eggGroups:["Mineral"]},
-politoed:{num:186,species:"Politoed",types:["Water"],baseStats:{hp:90,atk:75,def:75,spa:90,spd:100,spe:70},abilities:{0:"Water Absorb",1:"Damp",H:"Drizzle"},heightm:1.1,weightkg:33.9,color:"Green",prevo:"poliwhirl",evoLevel:25,eggGroups:["Water 1"]},
-hoppip:{num:187,species:"Hoppip",types:["Grass","Flying"],baseStats:{hp:35,atk:35,def:40,spa:35,spd:55,spe:50},abilities:{0:"Chlorophyll",1:"Leaf Guard",H:"Infiltrator"},heightm:0.4,weightkg:0.5,color:"Pink",evos:["skiploom"],eggGroups:["Fairy","Grass"]},
-skiploom:{num:188,species:"Skiploom",types:["Grass","Flying"],baseStats:{hp:55,atk:45,def:50,spa:45,spd:65,spe:80},abilities:{0:"Chlorophyll",1:"Leaf Guard",H:"Infiltrator"},heightm:0.6,weightkg:1,color:"Green",prevo:"hoppip",evos:["jumpluff"],evoLevel:18,eggGroups:["Fairy","Grass"]},
-jumpluff:{num:189,species:"Jumpluff",types:["Grass","Flying"],baseStats:{hp:75,atk:55,def:70,spa:55,spd:95,spe:110},abilities:{0:"Chlorophyll",1:"Leaf Guard",H:"Infiltrator"},heightm:0.8,weightkg:3,color:"Blue",prevo:"skiploom",evoLevel:27,eggGroups:["Fairy","Grass"]},
-aipom:{num:190,species:"Aipom",types:["Normal"],baseStats:{hp:55,atk:70,def:55,spa:40,spd:55,spe:85},abilities:{0:"Run Away",1:"Pickup",H:"Skill Link"},heightm:0.8,weightkg:11.5,color:"Purple",evos:["ambipom"],eggGroups:["Field"]},
-sunkern:{num:191,species:"Sunkern",types:["Grass"],baseStats:{hp:30,atk:30,def:30,spa:30,spd:30,spe:30},abilities:{0:"Chlorophyll",1:"Solar Power",H:"Early Bird"},heightm:0.3,weightkg:1.8,color:"Yellow",evos:["sunflora"],eggGroups:["Grass"]},
-sunflora:{num:192,species:"Sunflora",types:["Grass"],baseStats:{hp:75,atk:75,def:55,spa:105,spd:85,spe:30},abilities:{0:"Chlorophyll",1:"Solar Power",H:"Early Bird"},heightm:0.8,weightkg:8.5,color:"Yellow",prevo:"sunkern",evoLevel:1,eggGroups:["Grass"]},
-yanma:{num:193,species:"Yanma",types:["Bug","Flying"],baseStats:{hp:65,atk:65,def:45,spa:75,spd:45,spe:95},abilities:{0:"Speed Boost",1:"Compound Eyes",H:"Frisk"},heightm:1.2,weightkg:38,color:"Red",evos:["yanmega"],eggGroups:["Bug"]},
-wooper:{num:194,species:"Wooper",types:["Water","Ground"],baseStats:{hp:55,atk:45,def:45,spa:25,spd:25,spe:15},abilities:{0:"Damp",1:"Water Absorb",H:"Unaware"},heightm:0.4,weightkg:8.5,color:"Blue",evos:["quagsire"],eggGroups:["Water 1","Field"]},
-quagsire:{num:195,species:"Quagsire",types:["Water","Ground"],baseStats:{hp:95,atk:85,def:85,spa:65,spd:65,spe:35},abilities:{0:"Damp",1:"Water Absorb",H:"Unaware"},heightm:1.4,weightkg:75,color:"Blue",prevo:"wooper",evoLevel:20,eggGroups:["Water 1","Field"]},
-espeon:{num:196,species:"Espeon",types:["Psychic"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:65,atk:65,def:60,spa:130,spd:95,spe:110},abilities:{0:"Synchronize",H:"Magic Bounce"},heightm:0.9,weightkg:26.5,color:"Purple",prevo:"eevee",evoLevel:2,eggGroups:["Field"]},
-umbreon:{num:197,species:"Umbreon",types:["Dark"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:95,atk:65,def:110,spa:60,spd:130,spe:65},abilities:{0:"Synchronize",H:"Inner Focus"},heightm:1,weightkg:27,color:"Black",prevo:"eevee",evoLevel:2,eggGroups:["Field"]},
-murkrow:{num:198,species:"Murkrow",types:["Dark","Flying"],baseStats:{hp:60,atk:85,def:42,spa:85,spd:42,spe:91},abilities:{0:"Insomnia",1:"Super Luck",H:"Prankster"},heightm:0.5,weightkg:2.1,color:"Black",evos:["honchkrow"],eggGroups:["Flying"]},
-slowking:{num:199,species:"Slowking",types:["Water","Psychic"],baseStats:{hp:95,atk:75,def:80,spa:100,spd:110,spe:30},abilities:{0:"Oblivious",1:"Own Tempo",H:"Regenerator"},heightm:2,weightkg:79.5,color:"Pink",prevo:"slowpoke",evoLevel:1,eggGroups:["Monster","Water 1"]},
-misdreavus:{num:200,species:"Misdreavus",types:["Ghost"],baseStats:{hp:60,atk:60,def:60,spa:85,spd:85,spe:85},abilities:{0:"Levitate"},heightm:0.7,weightkg:1,color:"Gray",evos:["mismagius"],eggGroups:["Amorphous"]},
-unown:{num:201,species:"Unown",baseForme:"A",types:["Psychic"],gender:"N",baseStats:{hp:48,atk:72,def:48,spa:72,spd:48,spe:48},abilities:{0:"Levitate"},heightm:0.5,weightkg:5,color:"Black",eggGroups:["Undiscovered"],otherForms:["unownb","unownc","unownd","unowne","unownf","unowng","unownh","unowni","unownj","unownk","unownl","unownm","unownn","unowno","unownp","unownq","unownr","unowns","unownt","unownu","unownv","unownw","unownx","unowny","unownz","unownem","unownqm"]},
-wobbuffet:{num:202,species:"Wobbuffet",types:["Psychic"],baseStats:{hp:190,atk:33,def:58,spa:33,spd:58,spe:33},abilities:{0:"Shadow Tag",H:"Telepathy"},heightm:1.3,weightkg:28.5,color:"Blue",prevo:"wynaut",evoLevel:15,eggGroups:["Amorphous"]},
-girafarig:{num:203,species:"Girafarig",types:["Normal","Psychic"],baseStats:{hp:70,atk:80,def:65,spa:90,spd:65,spe:85},abilities:{0:"Inner Focus",1:"Early Bird",H:"Sap Sipper"},heightm:1.5,weightkg:41.5,color:"Yellow",eggGroups:["Field"]},
-pineco:{num:204,species:"Pineco",types:["Bug"],baseStats:{hp:50,atk:65,def:90,spa:35,spd:35,spe:15},abilities:{0:"Sturdy",H:"Overcoat"},heightm:0.6,weightkg:7.2,color:"Gray",evos:["forretress"],eggGroups:["Bug"]},
-forretress:{num:205,species:"Forretress",types:["Bug","Steel"],baseStats:{hp:75,atk:90,def:140,spa:60,spd:60,spe:40},abilities:{0:"Sturdy",H:"Overcoat"},heightm:1.2,weightkg:125.8,color:"Purple",prevo:"pineco",evoLevel:31,eggGroups:["Bug"]},
-dunsparce:{num:206,species:"Dunsparce",types:["Normal"],baseStats:{hp:100,atk:70,def:70,spa:65,spd:65,spe:45},abilities:{0:"Serene Grace",1:"Run Away",H:"Rattled"},heightm:1.5,weightkg:14,color:"Yellow",eggGroups:["Field"]},
-gligar:{num:207,species:"Gligar",types:["Ground","Flying"],baseStats:{hp:65,atk:75,def:105,spa:35,spd:65,spe:85},abilities:{0:"Hyper Cutter",1:"Sand Veil",H:"Immunity"},heightm:1.1,weightkg:64.8,color:"Purple",evos:["gliscor"],eggGroups:["Bug"]},
-steelix:{num:208,species:"Steelix",types:["Steel","Ground"],baseStats:{hp:75,atk:85,def:200,spa:55,spd:65,spe:30},abilities:{0:"Rock Head",1:"Sturdy",H:"Sheer Force"},heightm:9.2,weightkg:400,color:"Gray",prevo:"onix",evoLevel:1,eggGroups:["Mineral"]},
-snubbull:{num:209,species:"Snubbull",types:["Fairy"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:60,atk:80,def:50,spa:40,spd:40,spe:30},abilities:{0:"Intimidate",1:"Run Away",H:"Rattled"},heightm:0.6,weightkg:7.8,color:"Pink",evos:["granbull"],eggGroups:["Field","Fairy"]},
-granbull:{num:210,species:"Granbull",types:["Fairy"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:90,atk:120,def:75,spa:60,spd:60,spe:45},abilities:{0:"Intimidate",1:"Quick Feet",H:"Rattled"},heightm:1.4,weightkg:48.7,color:"Purple",prevo:"snubbull",evoLevel:23,eggGroups:["Field","Fairy"]},
-qwilfish:{num:211,species:"Qwilfish",types:["Water","Poison"],baseStats:{hp:65,atk:95,def:75,spa:55,spd:55,spe:85},abilities:{0:"Poison Point",1:"Swift Swim",H:"Intimidate"},heightm:0.5,weightkg:3.9,color:"Gray",eggGroups:["Water 2"]},
-scizor:{num:212,species:"Scizor",types:["Bug","Steel"],baseStats:{hp:70,atk:130,def:100,spa:55,spd:80,spe:65},abilities:{0:"Swarm",1:"Technician",H:"Light Metal"},heightm:1.8,weightkg:118,color:"Red",prevo:"scyther",evoLevel:1,eggGroups:["Bug"],otherFormes:["scizormega"]},
-scizormega:{num:212,species:"Scizor-Mega",baseSpecies:"Scizor",forme:"Mega",formeLetter:"M",types:["Bug","Steel"],baseStats:{hp:70,atk:150,def:140,spa:65,spd:100,spe:75},abilities:{0:"Technician"},heightm:2,weightkg:125,color:"Red",prevo:"scyther",evoLevel:1,eggGroups:["Bug"]},
-shuckle:{num:213,species:"Shuckle",types:["Bug","Rock"],baseStats:{hp:20,atk:10,def:230,spa:10,spd:230,spe:5},abilities:{0:"Sturdy",1:"Gluttony",H:"Contrary"},heightm:0.6,weightkg:20.5,color:"Yellow",eggGroups:["Bug"]},
-heracross:{num:214,species:"Heracross",types:["Bug","Fighting"],baseStats:{hp:80,atk:125,def:75,spa:40,spd:95,spe:85},abilities:{0:"Swarm",1:"Guts",H:"Moxie"},heightm:1.5,weightkg:54,color:"Blue",eggGroups:["Bug"],otherFormes:["heracrossmega"]},
-heracrossmega:{num:214,species:"Heracross-Mega",baseSpecies:"Heracross",forme:"Mega",formeLetter:"M",types:["Bug","Fighting"],baseStats:{hp:80,atk:185,def:115,spa:40,spd:105,spe:75},abilities:{0:"Skill Link"},heightm:1.7,weightkg:62.5,color:"Blue",eggGroups:["Bug"]},
-sneasel:{num:215,species:"Sneasel",types:["Dark","Ice"],baseStats:{hp:55,atk:95,def:55,spa:35,spd:75,spe:115},abilities:{0:"Inner Focus",1:"Keen Eye",H:"Pickpocket"},heightm:0.9,weightkg:28,color:"Black",evos:["weavile"],eggGroups:["Field"]},
-teddiursa:{num:216,species:"Teddiursa",types:["Normal"],baseStats:{hp:60,atk:80,def:50,spa:50,spd:50,spe:40},abilities:{0:"Pickup",1:"Quick Feet",H:"Honey Gather"},heightm:0.6,weightkg:8.8,color:"Brown",evos:["ursaring"],eggGroups:["Field"]},
-ursaring:{num:217,species:"Ursaring",types:["Normal"],baseStats:{hp:90,atk:130,def:75,spa:75,spd:75,spe:55},abilities:{0:"Guts",1:"Quick Feet",H:"Unnerve"},heightm:1.8,weightkg:125.8,color:"Brown",prevo:"teddiursa",evoLevel:30,eggGroups:["Field"]},
-slugma:{num:218,species:"Slugma",types:["Fire"],baseStats:{hp:40,atk:40,def:40,spa:70,spd:40,spe:20},abilities:{0:"Magma Armor",1:"Flame Body",H:"Weak Armor"},heightm:0.7,weightkg:35,color:"Red",evos:["magcargo"],eggGroups:["Amorphous"]},
-magcargo:{num:219,species:"Magcargo",types:["Fire","Rock"],baseStats:{hp:50,atk:50,def:120,spa:80,spd:80,spe:30},abilities:{0:"Magma Armor",1:"Flame Body",H:"Weak Armor"},heightm:0.8,weightkg:55,color:"Red",prevo:"slugma",evoLevel:38,eggGroups:["Amorphous"]},
-swinub:{num:220,species:"Swinub",types:["Ice","Ground"],baseStats:{hp:50,atk:50,def:40,spa:30,spd:30,spe:50},abilities:{0:"Oblivious",1:"Snow Cloak",H:"Thick Fat"},heightm:0.4,weightkg:6.5,color:"Brown",evos:["piloswine"],eggGroups:["Field"]},
-piloswine:{num:221,species:"Piloswine",types:["Ice","Ground"],baseStats:{hp:100,atk:100,def:80,spa:60,spd:60,spe:50},abilities:{0:"Oblivious",1:"Snow Cloak",H:"Thick Fat"},heightm:1.1,weightkg:55.8,color:"Brown",prevo:"swinub",evos:["mamoswine"],evoLevel:33,eggGroups:["Field"]},
-corsola:{num:222,species:"Corsola",types:["Water","Rock"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:55,atk:55,def:85,spa:65,spd:85,spe:35},abilities:{0:"Hustle",1:"Natural Cure",H:"Regenerator"},heightm:0.6,weightkg:5,color:"Pink",eggGroups:["Water 1","Water 3"]},
-remoraid:{num:223,species:"Remoraid",types:["Water"],baseStats:{hp:35,atk:65,def:35,spa:65,spd:35,spe:65},abilities:{0:"Hustle",1:"Sniper",H:"Moody"},heightm:0.6,weightkg:12,color:"Gray",evos:["octillery"],eggGroups:["Water 1","Water 2"]},
-octillery:{num:224,species:"Octillery",types:["Water"],baseStats:{hp:75,atk:105,def:75,spa:105,spd:75,spe:45},abilities:{0:"Suction Cups",1:"Sniper",H:"Moody"},heightm:0.9,weightkg:28.5,color:"Red",prevo:"remoraid",evoLevel:25,eggGroups:["Water 1","Water 2"]},
-delibird:{num:225,species:"Delibird",types:["Ice","Flying"],baseStats:{hp:45,atk:55,def:45,spa:65,spd:45,spe:75},abilities:{0:"Vital Spirit",1:"Hustle",H:"Insomnia"},heightm:0.9,weightkg:16,color:"Red",eggGroups:["Water 1","Field"]},
-mantine:{num:226,species:"Mantine",types:["Water","Flying"],baseStats:{hp:65,atk:40,def:70,spa:80,spd:140,spe:70},abilities:{0:"Swift Swim",1:"Water Absorb",H:"Water Veil"},heightm:2.1,weightkg:220,color:"Purple",prevo:"mantyke",evoLevel:1,eggGroups:["Water 1"]},
-skarmory:{num:227,species:"Skarmory",types:["Steel","Flying"],baseStats:{hp:65,atk:80,def:140,spa:40,spd:70,spe:70},abilities:{0:"Keen Eye",1:"Sturdy",H:"Weak Armor"},heightm:1.7,weightkg:50.5,color:"Gray",eggGroups:["Flying"]},
-houndour:{num:228,species:"Houndour",types:["Dark","Fire"],baseStats:{hp:45,atk:60,def:30,spa:80,spd:50,spe:65},abilities:{0:"Early Bird",1:"Flash Fire",H:"Unnerve"},heightm:0.6,weightkg:10.8,color:"Black",evos:["houndoom"],eggGroups:["Field"]},
-houndoom:{num:229,species:"Houndoom",types:["Dark","Fire"],baseStats:{hp:75,atk:90,def:50,spa:110,spd:80,spe:95},abilities:{0:"Early Bird",1:"Flash Fire",H:"Unnerve"},heightm:1.4,weightkg:35,color:"Black",prevo:"houndour",evoLevel:24,eggGroups:["Field"],otherFormes:["houndoommega"]},
-houndoommega:{num:229,species:"Houndoom-Mega",baseSpecies:"Houndoom",forme:"Mega",formeLetter:"M",types:["Dark","Fire"],baseStats:{hp:75,atk:90,def:90,spa:140,spd:90,spe:115},abilities:{0:"Solar Power"},heightm:1.9,weightkg:49.5,color:"Black",prevo:"houndour",evoLevel:24,eggGroups:["Field"]},
-kingdra:{num:230,species:"Kingdra",types:["Water","Dragon"],baseStats:{hp:75,atk:95,def:95,spa:95,spd:95,spe:85},abilities:{0:"Swift Swim",1:"Sniper",H:"Damp"},heightm:1.8,weightkg:152,color:"Blue",prevo:"seadra",evoLevel:32,eggGroups:["Water 1","Dragon"]},
-phanpy:{num:231,species:"Phanpy",types:["Ground"],baseStats:{hp:90,atk:60,def:60,spa:40,spd:40,spe:40},abilities:{0:"Pickup",H:"Sand Veil"},heightm:0.5,weightkg:33.5,color:"Blue",evos:["donphan"],eggGroups:["Field"]},
-donphan:{num:232,species:"Donphan",types:["Ground"],baseStats:{hp:90,atk:120,def:120,spa:60,spd:60,spe:50},abilities:{0:"Sturdy",H:"Sand Veil"},heightm:1.1,weightkg:120,color:"Gray",prevo:"phanpy",evoLevel:25,eggGroups:["Field"]},
-porygon2:{num:233,species:"Porygon2",types:["Normal"],gender:"N",baseStats:{hp:85,atk:80,def:90,spa:105,spd:95,spe:60},abilities:{0:"Trace",1:"Download",H:"Analytic"},heightm:0.6,weightkg:32.5,color:"Red",prevo:"porygon",evos:["porygonz"],evoLevel:1,eggGroups:["Mineral"]},
-stantler:{num:234,species:"Stantler",types:["Normal"],baseStats:{hp:73,atk:95,def:62,spa:85,spd:65,spe:85},abilities:{0:"Intimidate",1:"Frisk",H:"Sap Sipper"},heightm:1.4,weightkg:71.2,color:"Brown",eggGroups:["Field"]},
-smeargle:{num:235,species:"Smeargle",types:["Normal"],baseStats:{hp:55,atk:20,def:35,spa:20,spd:45,spe:75},abilities:{0:"Own Tempo",1:"Technician",H:"Moody"},heightm:1.2,weightkg:58,color:"White",eggGroups:["Field"]},
-tyrogue:{num:236,species:"Tyrogue",types:["Fighting"],gender:"M",baseStats:{hp:35,atk:35,def:35,spa:35,spd:35,spe:35},abilities:{0:"Guts",1:"Steadfast",H:"Vital Spirit"},heightm:0.7,weightkg:21,color:"Purple",evos:["hitmonlee","hitmonchan","hitmontop"],eggGroups:["Undiscovered"]},
-hitmontop:{num:237,species:"Hitmontop",types:["Fighting"],gender:"M",baseStats:{hp:50,atk:95,def:95,spa:35,spd:110,spe:70},abilities:{0:"Intimidate",1:"Technician",H:"Steadfast"},heightm:1.4,weightkg:48,color:"Brown",prevo:"tyrogue",evoLevel:20,eggGroups:["Human-Like"]},
-smoochum:{num:238,species:"Smoochum",types:["Ice","Psychic"],gender:"F",baseStats:{hp:45,atk:30,def:15,spa:85,spd:65,spe:65},abilities:{0:"Oblivious",1:"Forewarn",H:"Hydration"},heightm:0.4,weightkg:6,color:"Pink",evos:["jynx"],eggGroups:["Undiscovered"]},
-elekid:{num:239,species:"Elekid",types:["Electric"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:45,atk:63,def:37,spa:65,spd:55,spe:95},abilities:{0:"Static",H:"Vital Spirit"},heightm:0.6,weightkg:23.5,color:"Yellow",evos:["electabuzz"],eggGroups:["Undiscovered"]},
-magby:{num:240,species:"Magby",types:["Fire"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:45,atk:75,def:37,spa:70,spd:55,spe:83},abilities:{0:"Flame Body",H:"Vital Spirit"},heightm:0.7,weightkg:21.4,color:"Red",evos:["magmar"],eggGroups:["Undiscovered"]},
-miltank:{num:241,species:"Miltank",types:["Normal"],gender:"F",baseStats:{hp:95,atk:80,def:105,spa:40,spd:70,spe:100},abilities:{0:"Thick Fat",1:"Scrappy",H:"Sap Sipper"},heightm:1.2,weightkg:75.5,color:"Pink",eggGroups:["Field"]},
-blissey:{num:242,species:"Blissey",types:["Normal"],gender:"F",baseStats:{hp:255,atk:10,def:10,spa:75,spd:135,spe:55},abilities:{0:"Natural Cure",1:"Serene Grace",H:"Healer"},heightm:1.5,weightkg:46.8,color:"Pink",prevo:"chansey",evoLevel:2,eggGroups:["Fairy"]},
-raikou:{num:243,species:"Raikou",types:["Electric"],gender:"N",baseStats:{hp:90,atk:85,def:75,spa:115,spd:100,spe:115},abilities:{0:"Pressure",H:"Volt Absorb"},heightm:1.9,weightkg:178,color:"Yellow",eggGroups:["Undiscovered"]},
-entei:{num:244,species:"Entei",types:["Fire"],gender:"N",baseStats:{hp:115,atk:115,def:85,spa:90,spd:75,spe:100},abilities:{0:"Pressure",H:"Flash Fire"},heightm:2.1,weightkg:198,color:"Brown",eggGroups:["Undiscovered"]},
-suicune:{num:245,species:"Suicune",types:["Water"],gender:"N",baseStats:{hp:100,atk:75,def:115,spa:90,spd:115,spe:85},abilities:{0:"Pressure",H:"Water Absorb"},heightm:2,weightkg:187,color:"Blue",eggGroups:["Undiscovered"]},
-larvitar:{num:246,species:"Larvitar",types:["Rock","Ground"],baseStats:{hp:50,atk:64,def:50,spa:45,spd:50,spe:41},abilities:{0:"Guts",H:"Sand Veil"},heightm:0.6,weightkg:72,color:"Green",evos:["pupitar"],eggGroups:["Monster"]},
-pupitar:{num:247,species:"Pupitar",types:["Rock","Ground"],baseStats:{hp:70,atk:84,def:70,spa:65,spd:70,spe:51},abilities:{0:"Shed Skin"},heightm:1.2,weightkg:152,color:"Gray",prevo:"larvitar",evos:["tyranitar"],evoLevel:30,eggGroups:["Monster"]},
-tyranitar:{num:248,species:"Tyranitar",types:["Rock","Dark"],baseStats:{hp:100,atk:134,def:110,spa:95,spd:100,spe:61},abilities:{0:"Sand Stream",H:"Unnerve"},heightm:2,weightkg:202,color:"Green",prevo:"pupitar",evoLevel:55,eggGroups:["Monster"],otherFormes:["tyranitarmega"]},
-tyranitarmega:{num:248,species:"Tyranitar-Mega",baseSpecies:"Tyranitar",forme:"Mega",formeLetter:"M",types:["Rock","Dark"],baseStats:{hp:100,atk:164,def:150,spa:95,spd:120,spe:71},abilities:{0:"Sand Stream"},heightm:2.5,weightkg:255,color:"Green",prevo:"pupitar",evoLevel:55,eggGroups:["Monster"]},
-lugia:{num:249,species:"Lugia",types:["Psychic","Flying"],gender:"N",baseStats:{hp:106,atk:90,def:130,spa:90,spd:154,spe:110},abilities:{0:"Pressure",H:"Multiscale"},heightm:5.2,weightkg:216,color:"White",eggGroups:["Undiscovered"]},
-hooh:{num:250,species:"Ho-Oh",types:["Fire","Flying"],gender:"N",baseStats:{hp:106,atk:130,def:90,spa:110,spd:154,spe:90},abilities:{0:"Pressure",H:"Regenerator"},heightm:3.8,weightkg:199,color:"Red",eggGroups:["Undiscovered"]},
-celebi:{num:251,species:"Celebi",types:["Psychic","Grass"],gender:"N",baseStats:{hp:100,atk:100,def:100,spa:100,spd:100,spe:100},abilities:{0:"Natural Cure"},heightm:0.6,weightkg:5,color:"Green",eggGroups:["Undiscovered"]},
-treecko:{num:252,species:"Treecko",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:40,atk:45,def:35,spa:65,spd:55,spe:70},abilities:{0:"Overgrow",H:"Unburden"},heightm:0.5,weightkg:5,color:"Green",evos:["grovyle"],eggGroups:["Monster","Dragon"]},
-grovyle:{num:253,species:"Grovyle",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:50,atk:65,def:45,spa:85,spd:65,spe:95},abilities:{0:"Overgrow",H:"Unburden"},heightm:0.9,weightkg:21.6,color:"Green",prevo:"treecko",evos:["sceptile"],evoLevel:16,eggGroups:["Monster","Dragon"]},
-sceptile:{num:254,species:"Sceptile",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:70,atk:85,def:65,spa:105,spd:85,spe:120},abilities:{0:"Overgrow",H:"Unburden"},heightm:1.7,weightkg:52.2,color:"Green",prevo:"grovyle",evoLevel:36,eggGroups:["Monster","Dragon"]},
-torchic:{num:255,species:"Torchic",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:45,atk:60,def:40,spa:70,spd:50,spe:45},abilities:{0:"Blaze",H:"Speed Boost"},heightm:0.4,weightkg:2.5,color:"Red",evos:["combusken"],eggGroups:["Field"]},
-combusken:{num:256,species:"Combusken",types:["Fire","Fighting"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:60,atk:85,def:60,spa:85,spd:60,spe:55},abilities:{0:"Blaze",H:"Speed Boost"},heightm:0.9,weightkg:19.5,color:"Red",prevo:"torchic",evos:["blaziken"],evoLevel:16,eggGroups:["Field"]},
-blaziken:{num:257,species:"Blaziken",types:["Fire","Fighting"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:80,atk:120,def:70,spa:110,spd:70,spe:80},abilities:{0:"Blaze",H:"Speed Boost"},heightm:1.9,weightkg:52,color:"Red",prevo:"combusken",evoLevel:36,eggGroups:["Field"],otherFormes:["blazikenmega"]},
-blazikenmega:{num:257,species:"Blaziken-Mega",baseSpecies:"Blaziken",forme:"Mega",formeLetter:"M",types:["Fire","Fighting"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:80,atk:160,def:80,spa:130,spd:80,spe:100},abilities:{0:"Speed Boost"},heightm:1.9,weightkg:52,color:"Red",prevo:"combusken",evoLevel:36,eggGroups:["Field"]},
-mudkip:{num:258,species:"Mudkip",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:50,atk:70,def:50,spa:50,spd:50,spe:40},abilities:{0:"Torrent",H:"Damp"},heightm:0.4,weightkg:7.6,color:"Blue",evos:["marshtomp"],eggGroups:["Monster","Water 1"]},
-marshtomp:{num:259,species:"Marshtomp",types:["Water","Ground"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:70,atk:85,def:70,spa:60,spd:70,spe:50},abilities:{0:"Torrent",H:"Damp"},heightm:0.7,weightkg:28,color:"Blue",prevo:"mudkip",evos:["swampert"],evoLevel:16,eggGroups:["Monster","Water 1"]},
-swampert:{num:260,species:"Swampert",types:["Water","Ground"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:100,atk:110,def:90,spa:85,spd:90,spe:60},abilities:{0:"Torrent",H:"Damp"},heightm:1.5,weightkg:81.9,color:"Blue",prevo:"marshtomp",evoLevel:36,eggGroups:["Monster","Water 1"]},
-poochyena:{num:261,species:"Poochyena",types:["Dark"],baseStats:{hp:35,atk:55,def:35,spa:30,spd:30,spe:35},abilities:{0:"Run Away",1:"Quick Feet",H:"Rattled"},heightm:0.5,weightkg:13.6,color:"Gray",evos:["mightyena"],eggGroups:["Field"]},
-mightyena:{num:262,species:"Mightyena",types:["Dark"],baseStats:{hp:70,atk:90,def:70,spa:60,spd:60,spe:70},abilities:{0:"Intimidate",1:"Quick Feet",H:"Moxie"},heightm:1,weightkg:37,color:"Gray",prevo:"poochyena",evoLevel:18,eggGroups:["Field"]},
-zigzagoon:{num:263,species:"Zigzagoon",types:["Normal"],baseStats:{hp:38,atk:30,def:41,spa:30,spd:41,spe:60},abilities:{0:"Pickup",1:"Gluttony",H:"Quick Feet"},heightm:0.4,weightkg:17.5,color:"Brown",evos:["linoone"],eggGroups:["Field"]},
-linoone:{num:264,species:"Linoone",types:["Normal"],baseStats:{hp:78,atk:70,def:61,spa:50,spd:61,spe:100},abilities:{0:"Pickup",1:"Gluttony",H:"Quick Feet"},heightm:0.5,weightkg:32.5,color:"White",prevo:"zigzagoon",evoLevel:20,eggGroups:["Field"]},
-wurmple:{num:265,species:"Wurmple",types:["Bug"],baseStats:{hp:45,atk:45,def:35,spa:20,spd:30,spe:20},abilities:{0:"Shield Dust",H:"Run Away"},heightm:0.3,weightkg:3.6,color:"Red",evos:["silcoon","cascoon"],eggGroups:["Bug"]},
-silcoon:{num:266,species:"Silcoon",types:["Bug"],baseStats:{hp:50,atk:35,def:55,spa:25,spd:25,spe:15},abilities:{0:"Shed Skin"},heightm:0.6,weightkg:10,color:"White",prevo:"wurmple",evos:["beautifly"],evoLevel:7,eggGroups:["Bug"]},
-beautifly:{num:267,species:"Beautifly",types:["Bug","Flying"],baseStats:{hp:60,atk:70,def:50,spa:100,spd:50,spe:65},abilities:{0:"Swarm",H:"Rivalry"},heightm:1,weightkg:28.4,color:"Yellow",prevo:"silcoon",evoLevel:10,eggGroups:["Bug"]},
-cascoon:{num:268,species:"Cascoon",types:["Bug"],baseStats:{hp:50,atk:35,def:55,spa:25,spd:25,spe:15},abilities:{0:"Shed Skin"},heightm:0.7,weightkg:11.5,color:"Purple",prevo:"wurmple",evos:["dustox"],evoLevel:7,eggGroups:["Bug"]},
-dustox:{num:269,species:"Dustox",types:["Bug","Poison"],baseStats:{hp:60,atk:50,def:70,spa:50,spd:90,spe:65},abilities:{0:"Shield Dust",H:"Compound Eyes"},heightm:1.2,weightkg:31.6,color:"Green",prevo:"cascoon",evoLevel:10,eggGroups:["Bug"]},
-lotad:{num:270,species:"Lotad",types:["Water","Grass"],baseStats:{hp:40,atk:30,def:30,spa:40,spd:50,spe:30},abilities:{0:"Swift Swim",1:"Rain Dish",H:"Own Tempo"},heightm:0.5,weightkg:2.6,color:"Green",evos:["lombre"],eggGroups:["Water 1","Grass"]},
-lombre:{num:271,species:"Lombre",types:["Water","Grass"],baseStats:{hp:60,atk:50,def:50,spa:60,spd:70,spe:50},abilities:{0:"Swift Swim",1:"Rain Dish",H:"Own Tempo"},heightm:1.2,weightkg:32.5,color:"Green",prevo:"lotad",evos:["ludicolo"],evoLevel:14,eggGroups:["Water 1","Grass"]},
-ludicolo:{num:272,species:"Ludicolo",types:["Water","Grass"],baseStats:{hp:80,atk:70,def:70,spa:90,spd:100,spe:70},abilities:{0:"Swift Swim",1:"Rain Dish",H:"Own Tempo"},heightm:1.5,weightkg:55,color:"Green",prevo:"lombre",evoLevel:14,eggGroups:["Water 1","Grass"]},
-seedot:{num:273,species:"Seedot",types:["Grass"],baseStats:{hp:40,atk:40,def:50,spa:30,spd:30,spe:30},abilities:{0:"Chlorophyll",1:"Early Bird",H:"Pickpocket"},heightm:0.5,weightkg:4,color:"Brown",evos:["nuzleaf"],eggGroups:["Field","Grass"]},
-nuzleaf:{num:274,species:"Nuzleaf",types:["Grass","Dark"],baseStats:{hp:70,atk:70,def:40,spa:60,spd:40,spe:60},abilities:{0:"Chlorophyll",1:"Early Bird",H:"Pickpocket"},heightm:1,weightkg:28,color:"Brown",prevo:"seedot",evos:["shiftry"],evoLevel:14,eggGroups:["Field","Grass"]},
-shiftry:{num:275,species:"Shiftry",types:["Grass","Dark"],baseStats:{hp:90,atk:100,def:60,spa:90,spd:60,spe:80},abilities:{0:"Chlorophyll",1:"Early Bird",H:"Pickpocket"},heightm:1.3,weightkg:59.6,color:"Brown",prevo:"nuzleaf",evoLevel:14,eggGroups:["Field","Grass"]},
-taillow:{num:276,species:"Taillow",types:["Normal","Flying"],baseStats:{hp:40,atk:55,def:30,spa:30,spd:30,spe:85},abilities:{0:"Guts",H:"Scrappy"},heightm:0.3,weightkg:2.3,color:"Blue",evos:["swellow"],eggGroups:["Flying"]},
-swellow:{num:277,species:"Swellow",types:["Normal","Flying"],baseStats:{hp:60,atk:85,def:60,spa:50,spd:50,spe:125},abilities:{0:"Guts",H:"Scrappy"},heightm:0.7,weightkg:19.8,color:"Blue",prevo:"taillow",evoLevel:22,eggGroups:["Flying"]},
-wingull:{num:278,species:"Wingull",types:["Water","Flying"],baseStats:{hp:40,atk:30,def:30,spa:55,spd:30,spe:85},abilities:{0:"Keen Eye",H:"Rain Dish"},heightm:0.6,weightkg:9.5,color:"White",evos:["pelipper"],eggGroups:["Water 1","Flying"]},
-pelipper:{num:279,species:"Pelipper",types:["Water","Flying"],baseStats:{hp:60,atk:50,def:100,spa:85,spd:70,spe:65},abilities:{0:"Keen Eye",H:"Rain Dish"},heightm:1.2,weightkg:28,color:"Yellow",prevo:"wingull",evoLevel:25,eggGroups:["Water 1","Flying"]},
-ralts:{num:280,species:"Ralts",types:["Psychic","Fairy"],baseStats:{hp:28,atk:25,def:25,spa:45,spd:35,spe:40},abilities:{0:"Synchronize",1:"Trace",H:"Telepathy"},heightm:0.4,weightkg:6.6,color:"White",evos:["kirlia"],eggGroups:["Amorphous"]},
-kirlia:{num:281,species:"Kirlia",types:["Psychic","Fairy"],baseStats:{hp:38,atk:35,def:35,spa:65,spd:55,spe:50},abilities:{0:"Synchronize",1:"Trace",H:"Telepathy"},heightm:0.8,weightkg:20.2,color:"White",prevo:"ralts",evos:["gardevoir","gallade"],evoLevel:20,eggGroups:["Amorphous"]},
-gardevoir:{num:282,species:"Gardevoir",types:["Psychic","Fairy"],baseStats:{hp:68,atk:65,def:65,spa:125,spd:115,spe:80},abilities:{0:"Synchronize",1:"Trace",H:"Telepathy"},heightm:1.6,weightkg:48.4,color:"White",prevo:"kirlia",evoLevel:30,eggGroups:["Amorphous"],otherFormes:["gardevoirmega"]},
-gardevoirmega:{num:282,species:"Gardevoir-Mega",baseSpecies:"Gardevoir",forme:"Mega",formeLetter:"M",types:["Psychic","Fairy"],baseStats:{hp:68,atk:85,def:65,spa:165,spd:135,spe:100},abilities:{0:"Pixilate"},heightm:1.6,weightkg:48.4,color:"White",prevo:"kirlia",evoLevel:30,eggGroups:["Amorphous"]},
-surskit:{num:283,species:"Surskit",types:["Bug","Water"],baseStats:{hp:40,atk:30,def:32,spa:50,spd:52,spe:65},abilities:{0:"Swift Swim",H:"Rain Dish"},heightm:0.5,weightkg:1.7,color:"Blue",evos:["masquerain"],eggGroups:["Water 1","Bug"]},
-masquerain:{num:284,species:"Masquerain",types:["Bug","Flying"],baseStats:{hp:70,atk:60,def:62,spa:80,spd:82,spe:60},abilities:{0:"Intimidate",H:"Unnerve"},heightm:0.8,weightkg:3.6,color:"Blue",prevo:"surskit",evoLevel:22,eggGroups:["Water 1","Bug"]},
-shroomish:{num:285,species:"Shroomish",types:["Grass"],baseStats:{hp:60,atk:40,def:60,spa:40,spd:60,spe:35},abilities:{0:"Effect Spore",1:"Poison Heal",H:"Quick Feet"},heightm:0.4,weightkg:4.5,color:"Brown",evos:["breloom"],eggGroups:["Fairy","Grass"]},
-breloom:{num:286,species:"Breloom",types:["Grass","Fighting"],baseStats:{hp:60,atk:130,def:80,spa:60,spd:60,spe:70},abilities:{0:"Effect Spore",1:"Poison Heal",H:"Technician"},heightm:1.2,weightkg:39.2,color:"Green",prevo:"shroomish",evoLevel:23,eggGroups:["Fairy","Grass"]},
-slakoth:{num:287,species:"Slakoth",types:["Normal"],baseStats:{hp:60,atk:60,def:60,spa:35,spd:35,spe:30},abilities:{0:"Truant"},heightm:0.8,weightkg:24,color:"Brown",evos:["vigoroth"],eggGroups:["Field"]},
-vigoroth:{num:288,species:"Vigoroth",types:["Normal"],baseStats:{hp:80,atk:80,def:80,spa:55,spd:55,spe:90},abilities:{0:"Vital Spirit"},heightm:1.4,weightkg:46.5,color:"White",prevo:"slakoth",evos:["slaking"],evoLevel:18,eggGroups:["Field"]},
-slaking:{num:289,species:"Slaking",types:["Normal"],baseStats:{hp:150,atk:160,def:100,spa:95,spd:65,spe:100},abilities:{0:"Truant"},heightm:2,weightkg:130.5,color:"Brown",prevo:"vigoroth",evoLevel:36,eggGroups:["Field"]},
-nincada:{num:290,species:"Nincada",types:["Bug","Ground"],baseStats:{hp:31,atk:45,def:90,spa:30,spd:30,spe:40},abilities:{0:"Compound Eyes",H:"Run Away"},heightm:0.5,weightkg:5.5,color:"Gray",evos:["ninjask","shedinja"],eggGroups:["Bug"]},
-ninjask:{num:291,species:"Ninjask",types:["Bug","Flying"],baseStats:{hp:61,atk:90,def:45,spa:50,spd:50,spe:160},abilities:{0:"Speed Boost",H:"Infiltrator"},heightm:0.8,weightkg:12,color:"Yellow",prevo:"nincada",evoLevel:20,eggGroups:["Bug"]},
-shedinja:{num:292,species:"Shedinja",types:["Bug","Ghost"],gender:"N",baseStats:{hp:1,atk:90,def:45,spa:30,spd:30,spe:40},abilities:{0:"Wonder Guard"},heightm:0.8,weightkg:1.2,color:"Brown",prevo:"nincada",evoLevel:20,eggGroups:["Mineral"]},
-whismur:{num:293,species:"Whismur",types:["Normal"],baseStats:{hp:64,atk:51,def:23,spa:51,spd:23,spe:28},abilities:{0:"Soundproof",H:"Rattled"},heightm:0.6,weightkg:16.3,color:"Pink",evos:["loudred"],eggGroups:["Monster","Field"]},
-loudred:{num:294,species:"Loudred",types:["Normal"],baseStats:{hp:84,atk:71,def:43,spa:71,spd:43,spe:48},abilities:{0:"Soundproof",H:"Scrappy"},heightm:1,weightkg:40.5,color:"Blue",prevo:"whismur",evos:["exploud"],evoLevel:20,eggGroups:["Monster","Field"]},
-exploud:{num:295,species:"Exploud",types:["Normal"],baseStats:{hp:104,atk:91,def:63,spa:91,spd:73,spe:68},abilities:{0:"Soundproof",H:"Scrappy"},heightm:1.5,weightkg:84,color:"Blue",prevo:"loudred",evoLevel:40,eggGroups:["Monster","Field"]},
-makuhita:{num:296,species:"Makuhita",types:["Fighting"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:72,atk:60,def:30,spa:20,spd:30,spe:25},abilities:{0:"Thick Fat",1:"Guts",H:"Sheer Force"},heightm:1,weightkg:86.4,color:"Yellow",evos:["hariyama"],eggGroups:["Human-Like"]},
-hariyama:{num:297,species:"Hariyama",types:["Fighting"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:144,atk:120,def:60,spa:40,spd:60,spe:50},abilities:{0:"Thick Fat",1:"Guts",H:"Sheer Force"},heightm:2.3,weightkg:253.8,color:"Brown",prevo:"makuhita",evoLevel:24,eggGroups:["Human-Like"]},
-azurill:{num:298,species:"Azurill",types:["Normal","Fairy"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:50,atk:20,def:40,spa:20,spd:40,spe:20},abilities:{0:"Thick Fat",1:"Huge Power",H:"Sap Sipper"},heightm:0.2,weightkg:2,color:"Blue",evos:["marill"],eggGroups:["Undiscovered"]},
-nosepass:{num:299,species:"Nosepass",types:["Rock"],baseStats:{hp:30,atk:45,def:135,spa:45,spd:90,spe:30},abilities:{0:"Sturdy",1:"Magnet Pull",H:"Sand Force"},heightm:1,weightkg:97,color:"Gray",evos:["probopass"],eggGroups:["Mineral"]},
-skitty:{num:300,species:"Skitty",types:["Normal"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:50,atk:45,def:45,spa:35,spd:35,spe:50},abilities:{0:"Cute Charm",1:"Normalize",H:"Wonder Skin"},heightm:0.6,weightkg:11,color:"Pink",evos:["delcatty"],eggGroups:["Field","Fairy"]},
-delcatty:{num:301,species:"Delcatty",types:["Normal"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:70,atk:65,def:65,spa:55,spd:55,spe:70},abilities:{0:"Cute Charm",1:"Normalize",H:"Wonder Skin"},heightm:1.1,weightkg:32.6,color:"Purple",prevo:"skitty",evoLevel:1,eggGroups:["Field","Fairy"]},
-sableye:{num:302,species:"Sableye",types:["Dark","Ghost"],baseStats:{hp:50,atk:75,def:75,spa:65,spd:65,spe:50},abilities:{0:"Keen Eye",1:"Stall",H:"Prankster"},heightm:0.5,weightkg:11,color:"Purple",eggGroups:["Human-Like"]},
-mawile:{num:303,species:"Mawile",types:["Steel","Fairy"],baseStats:{hp:50,atk:85,def:85,spa:55,spd:55,spe:50},abilities:{0:"Hyper Cutter",1:"Intimidate",H:"Sheer Force"},heightm:0.6,weightkg:11.5,color:"Black",eggGroups:["Field","Fairy"],otherFormes:["mawilemega"]},
-mawilemega:{num:303,species:"Mawile-Mega",baseSpecies:"Mawile",forme:"Mega",formeLetter:"M",types:["Steel","Fairy"],baseStats:{hp:50,atk:105,def:125,spa:55,spd:95,spe:50},abilities:{0:"Huge Power"},heightm:1,weightkg:23.5,color:"Black",eggGroups:["Field","Fairy"]},
-aron:{num:304,species:"Aron",types:["Steel","Rock"],baseStats:{hp:50,atk:70,def:100,spa:40,spd:40,spe:30},abilities:{0:"Sturdy",1:"Rock Head",H:"Heavy Metal"},heightm:0.4,weightkg:60,color:"Gray",evos:["lairon"],eggGroups:["Monster"]},
-lairon:{num:305,species:"Lairon",types:["Steel","Rock"],baseStats:{hp:60,atk:90,def:140,spa:50,spd:50,spe:40},abilities:{0:"Sturdy",1:"Rock Head",H:"Heavy Metal"},heightm:0.9,weightkg:120,color:"Gray",prevo:"aron",evos:["aggron"],evoLevel:32,eggGroups:["Monster"]},
-aggron:{num:306,species:"Aggron",types:["Steel","Rock"],baseStats:{hp:70,atk:110,def:180,spa:60,spd:60,spe:50},abilities:{0:"Sturdy",1:"Rock Head",H:"Heavy Metal"},heightm:2.1,weightkg:360,color:"Gray",prevo:"lairon",evoLevel:42,eggGroups:["Monster"],otherFormes:["aggronmega"]},
-aggronmega:{num:306,species:"Aggron-Mega",baseSpecies:"Aggron",forme:"Mega",formeLetter:"M",types:["Steel"],baseStats:{hp:70,atk:140,def:230,spa:60,spd:80,spe:50},abilities:{0:"Filter"},heightm:2.2,weightkg:395,color:"Gray",prevo:"lairon",evoLevel:42,eggGroups:["Monster"]},
-meditite:{num:307,species:"Meditite",types:["Fighting","Psychic"],baseStats:{hp:30,atk:40,def:55,spa:40,spd:55,spe:60},abilities:{0:"Pure Power",H:"Telepathy"},heightm:0.6,weightkg:11.2,color:"Blue",evos:["medicham"],eggGroups:["Human-Like"]},
-medicham:{num:308,species:"Medicham",types:["Fighting","Psychic"],baseStats:{hp:60,atk:60,def:75,spa:60,spd:75,spe:80},abilities:{0:"Pure Power",H:"Telepathy"},heightm:1.3,weightkg:31.5,color:"Red",prevo:"meditite",evoLevel:37,eggGroups:["Human-Like"],otherFormes:["medichammega"]},
-medichammega:{num:308,species:"Medicham-Mega",baseSpecies:"Medicham",forme:"Mega",formeLetter:"M",types:["Fighting","Psychic"],baseStats:{hp:60,atk:100,def:85,spa:80,spd:85,spe:100},abilities:{0:"Pure Power"},heightm:1.3,weightkg:31.5,color:"Red",prevo:"meditite",evoLevel:37,eggGroups:["Human-Like"]},
-electrike:{num:309,species:"Electrike",types:["Electric"],baseStats:{hp:40,atk:45,def:40,spa:65,spd:40,spe:65},abilities:{0:"Static",1:"Lightningrod",H:"Minus"},heightm:0.6,weightkg:15.2,color:"Green",evos:["manectric"],eggGroups:["Field"]},
-manectric:{num:310,species:"Manectric",types:["Electric"],baseStats:{hp:70,atk:75,def:60,spa:105,spd:60,spe:105},abilities:{0:"Static",1:"Lightningrod",H:"Minus"},heightm:1.5,weightkg:40.2,color:"Yellow",prevo:"electrike",evoLevel:26,eggGroups:["Field"],otherFormes:["manectricmega"]},
-manectricmega:{num:310,species:"Manectric-Mega",baseSpecies:"Manectric",forme:"Mega",formeLetter:"M",types:["Electric"],baseStats:{hp:70,atk:75,def:80,spa:135,spd:80,spe:135},abilities:{0:"Intimidate"},heightm:1.8,weightkg:44,color:"Yellow",prevo:"electrike",evoLevel:26,eggGroups:["Field"]},
-plusle:{num:311,species:"Plusle",types:["Electric"],baseStats:{hp:60,atk:50,def:40,spa:85,spd:75,spe:95},abilities:{0:"Plus",H:"Lightningrod"},heightm:0.4,weightkg:4.2,color:"Yellow",eggGroups:["Fairy"]},
-minun:{num:312,species:"Minun",types:["Electric"],baseStats:{hp:60,atk:40,def:50,spa:75,spd:85,spe:95},abilities:{0:"Minus",H:"Volt Absorb"},heightm:0.4,weightkg:4.2,color:"Yellow",eggGroups:["Fairy"]},
-volbeat:{num:313,species:"Volbeat",types:["Bug"],gender:"M",baseStats:{hp:65,atk:73,def:55,spa:47,spd:75,spe:85},abilities:{0:"Illuminate",1:"Swarm",H:"Prankster"},heightm:0.7,weightkg:17.7,color:"Gray",eggGroups:["Bug","Human-Like"]},
-illumise:{num:314,species:"Illumise",types:["Bug"],gender:"F",baseStats:{hp:65,atk:47,def:55,spa:73,spd:75,spe:85},abilities:{0:"Oblivious",1:"Tinted Lens",H:"Prankster"},heightm:0.6,weightkg:17.7,color:"Purple",eggGroups:["Bug","Human-Like"]},
-roselia:{num:315,species:"Roselia",types:["Grass","Poison"],baseStats:{hp:50,atk:60,def:45,spa:100,spd:80,spe:65},abilities:{0:"Natural Cure",1:"Poison Point",H:"Leaf Guard"},heightm:0.3,weightkg:2,color:"Green",prevo:"budew",evos:["roserade"],evoLevel:1,eggGroups:["Fairy","Grass"]},
-gulpin:{num:316,species:"Gulpin",types:["Poison"],baseStats:{hp:70,atk:43,def:53,spa:43,spd:53,spe:40},abilities:{0:"Liquid Ooze",1:"Sticky Hold",H:"Gluttony"},heightm:0.4,weightkg:10.3,color:"Green",evos:["swalot"],eggGroups:["Amorphous"]},
-swalot:{num:317,species:"Swalot",types:["Poison"],baseStats:{hp:100,atk:73,def:83,spa:73,spd:83,spe:55},abilities:{0:"Liquid Ooze",1:"Sticky Hold",H:"Gluttony"},heightm:1.7,weightkg:80,color:"Purple",prevo:"gulpin",evoLevel:26,eggGroups:["Amorphous"]},
-carvanha:{num:318,species:"Carvanha",types:["Water","Dark"],baseStats:{hp:45,atk:90,def:20,spa:65,spd:20,spe:65},abilities:{0:"Rough Skin",H:"Speed Boost"},heightm:0.8,weightkg:20.8,color:"Red",evos:["sharpedo"],eggGroups:["Water 2"]},
-sharpedo:{num:319,species:"Sharpedo",types:["Water","Dark"],baseStats:{hp:70,atk:120,def:40,spa:95,spd:40,spe:95},abilities:{0:"Rough Skin",H:"Speed Boost"},heightm:1.8,weightkg:88.8,color:"Blue",prevo:"carvanha",evoLevel:30,eggGroups:["Water 2"]},
-wailmer:{num:320,species:"Wailmer",types:["Water"],baseStats:{hp:130,atk:70,def:35,spa:70,spd:35,spe:60},abilities:{0:"Water Veil",1:"Oblivious",H:"Pressure"},heightm:2,weightkg:130,color:"Blue",evos:["wailord"],eggGroups:["Field","Water 2"]},
-wailord:{num:321,species:"Wailord",types:["Water"],baseStats:{hp:170,atk:90,def:45,spa:90,spd:45,spe:60},abilities:{0:"Water Veil",1:"Oblivious",H:"Pressure"},heightm:14.5,weightkg:398,color:"Blue",prevo:"wailmer",evoLevel:40,eggGroups:["Field","Water 2"]},
-numel:{num:322,species:"Numel",types:["Fire","Ground"],baseStats:{hp:60,atk:60,def:40,spa:65,spd:45,spe:35},abilities:{0:"Oblivious",1:"Simple",H:"Own Tempo"},heightm:0.7,weightkg:24,color:"Yellow",evos:["camerupt"],eggGroups:["Field"]},
-camerupt:{num:323,species:"Camerupt",types:["Fire","Ground"],baseStats:{hp:70,atk:100,def:70,spa:105,spd:75,spe:40},abilities:{0:"Magma Armor",1:"Solid Rock",H:"Anger Point"},heightm:1.9,weightkg:220,color:"Red",prevo:"numel",evoLevel:33,eggGroups:["Field"]},
-torkoal:{num:324,species:"Torkoal",types:["Fire"],baseStats:{hp:70,atk:85,def:140,spa:85,spd:70,spe:20},abilities:{0:"White Smoke",H:"Shell Armor"},heightm:0.5,weightkg:80.4,color:"Brown",eggGroups:["Field"]},
-spoink:{num:325,species:"Spoink",types:["Psychic"],baseStats:{hp:60,atk:25,def:35,spa:70,spd:80,spe:60},abilities:{0:"Thick Fat",1:"Own Tempo",H:"Gluttony"},heightm:0.7,weightkg:30.6,color:"Black",evos:["grumpig"],eggGroups:["Field"]},
-grumpig:{num:326,species:"Grumpig",types:["Psychic"],baseStats:{hp:80,atk:45,def:65,spa:90,spd:110,spe:80},abilities:{0:"Thick Fat",1:"Own Tempo",H:"Gluttony"},heightm:0.9,weightkg:71.5,color:"Purple",prevo:"spoink",evoLevel:32,eggGroups:["Field"]},
-spinda:{num:327,species:"Spinda",types:["Normal"],baseStats:{hp:60,atk:60,def:60,spa:60,spd:60,spe:60},abilities:{0:"Own Tempo",1:"Tangled Feet",H:"Contrary"},heightm:1.1,weightkg:5,color:"Brown",eggGroups:["Field","Human-Like"]},
-trapinch:{num:328,species:"Trapinch",types:["Ground"],baseStats:{hp:45,atk:100,def:45,spa:45,spd:45,spe:10},abilities:{0:"Hyper Cutter",1:"Arena Trap",H:"Sheer Force"},heightm:0.7,weightkg:15,color:"Brown",evos:["vibrava"],eggGroups:["Bug"]},
-vibrava:{num:329,species:"Vibrava",types:["Ground","Dragon"],baseStats:{hp:50,atk:70,def:50,spa:50,spd:50,spe:70},abilities:{0:"Levitate"},heightm:1.1,weightkg:15.3,color:"Green",prevo:"trapinch",evos:["flygon"],evoLevel:35,eggGroups:["Bug"]},
-flygon:{num:330,species:"Flygon",types:["Ground","Dragon"],baseStats:{hp:80,atk:100,def:80,spa:80,spd:80,spe:100},abilities:{0:"Levitate"},heightm:2,weightkg:82,color:"Green",prevo:"vibrava",evoLevel:45,eggGroups:["Bug"]},
-cacnea:{num:331,species:"Cacnea",types:["Grass"],baseStats:{hp:50,atk:85,def:40,spa:85,spd:40,spe:35},abilities:{0:"Sand Veil",H:"Water Absorb"},heightm:0.4,weightkg:51.3,color:"Green",evos:["cacturne"],eggGroups:["Grass","Human-Like"]},
-cacturne:{num:332,species:"Cacturne",types:["Grass","Dark"],baseStats:{hp:70,atk:115,def:60,spa:115,spd:60,spe:55},abilities:{0:"Sand Veil",H:"Water Absorb"},heightm:1.3,weightkg:77.4,color:"Green",prevo:"cacnea",evoLevel:32,eggGroups:["Grass","Human-Like"]},
-swablu:{num:333,species:"Swablu",types:["Normal","Flying"],baseStats:{hp:45,atk:40,def:60,spa:40,spd:75,spe:50},abilities:{0:"Natural Cure",H:"Cloud Nine"},heightm:0.4,weightkg:1.2,color:"Blue",evos:["altaria"],eggGroups:["Flying","Dragon"]},
-altaria:{num:334,species:"Altaria",types:["Dragon","Flying"],baseStats:{hp:75,atk:70,def:90,spa:70,spd:105,spe:80},abilities:{0:"Natural Cure",H:"Cloud Nine"},heightm:1.1,weightkg:20.6,color:"Blue",prevo:"swablu",evoLevel:35,eggGroups:["Flying","Dragon"]},
-zangoose:{num:335,species:"Zangoose",types:["Normal"],baseStats:{hp:73,atk:115,def:60,spa:60,spd:60,spe:90},abilities:{0:"Immunity",H:"Toxic Boost"},heightm:1.3,weightkg:40.3,color:"White",eggGroups:["Field"]},
-seviper:{num:336,species:"Seviper",types:["Poison"],baseStats:{hp:73,atk:100,def:60,spa:100,spd:60,spe:65},abilities:{0:"Shed Skin",H:"Infiltrator"},heightm:2.7,weightkg:52.5,color:"Black",eggGroups:["Field","Dragon"]},
-lunatone:{num:337,species:"Lunatone",types:["Rock","Psychic"],gender:"N",baseStats:{hp:70,atk:55,def:65,spa:95,spd:85,spe:70},abilities:{0:"Levitate"},heightm:1,weightkg:168,color:"Yellow",eggGroups:["Mineral"]},
-solrock:{num:338,species:"Solrock",types:["Rock","Psychic"],gender:"N",baseStats:{hp:70,atk:95,def:85,spa:55,spd:65,spe:70},abilities:{0:"Levitate"},heightm:1.2,weightkg:154,color:"Red",eggGroups:["Mineral"]},
-barboach:{num:339,species:"Barboach",types:["Water","Ground"],baseStats:{hp:50,atk:48,def:43,spa:46,spd:41,spe:60},abilities:{0:"Oblivious",1:"Anticipation",H:"Hydration"},heightm:0.4,weightkg:1.9,color:"Gray",evos:["whiscash"],eggGroups:["Water 2"]},
-whiscash:{num:340,species:"Whiscash",types:["Water","Ground"],baseStats:{hp:110,atk:78,def:73,spa:76,spd:71,spe:60},abilities:{0:"Oblivious",1:"Anticipation",H:"Hydration"},heightm:0.9,weightkg:23.6,color:"Blue",prevo:"barboach",evoLevel:30,eggGroups:["Water 2"]},
-corphish:{num:341,species:"Corphish",types:["Water"],baseStats:{hp:43,atk:80,def:65,spa:50,spd:35,spe:35},abilities:{0:"Hyper Cutter",1:"Shell Armor",H:"Adaptability"},heightm:0.6,weightkg:11.5,color:"Red",evos:["crawdaunt"],eggGroups:["Water 1","Water 3"]},
-crawdaunt:{num:342,species:"Crawdaunt",types:["Water","Dark"],baseStats:{hp:63,atk:120,def:85,spa:90,spd:55,spe:55},abilities:{0:"Hyper Cutter",1:"Shell Armor",H:"Adaptability"},heightm:1.1,weightkg:32.8,color:"Red",prevo:"corphish",evoLevel:30,eggGroups:["Water 1","Water 3"]},
-baltoy:{num:343,species:"Baltoy",types:["Ground","Psychic"],gender:"N",baseStats:{hp:40,atk:40,def:55,spa:40,spd:70,spe:55},abilities:{0:"Levitate"},heightm:0.5,weightkg:21.5,color:"Brown",evos:["claydol"],eggGroups:["Mineral"]},
-claydol:{num:344,species:"Claydol",types:["Ground","Psychic"],gender:"N",baseStats:{hp:60,atk:70,def:105,spa:70,spd:120,spe:75},abilities:{0:"Levitate"},heightm:1.5,weightkg:108,color:"Black",prevo:"baltoy",evoLevel:36,eggGroups:["Mineral"]},
-lileep:{num:345,species:"Lileep",types:["Rock","Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:66,atk:41,def:77,spa:61,spd:87,spe:23},abilities:{0:"Suction Cups",H:"Storm Drain"},heightm:1,weightkg:23.8,color:"Purple",evos:["cradily"],eggGroups:["Water 3"]},
-cradily:{num:346,species:"Cradily",types:["Rock","Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:86,atk:81,def:97,spa:81,spd:107,spe:43},abilities:{0:"Suction Cups",H:"Storm Drain"},heightm:1.5,weightkg:60.4,color:"Green",prevo:"lileep",evoLevel:40,eggGroups:["Water 3"]},
-anorith:{num:347,species:"Anorith",types:["Rock","Bug"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:45,atk:95,def:50,spa:40,spd:50,spe:75},abilities:{0:"Battle Armor",H:"Swift Swim"},heightm:0.7,weightkg:12.5,color:"Gray",evos:["armaldo"],eggGroups:["Water 3"]},
-armaldo:{num:348,species:"Armaldo",types:["Rock","Bug"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:75,atk:125,def:100,spa:70,spd:80,spe:45},abilities:{0:"Battle Armor",H:"Swift Swim"},heightm:1.5,weightkg:68.2,color:"Gray",prevo:"anorith",evoLevel:40,eggGroups:["Water 3"]},
-feebas:{num:349,species:"Feebas",types:["Water"],baseStats:{hp:20,atk:15,def:20,spa:10,spd:55,spe:80},abilities:{0:"Swift Swim",1:"Oblivious",H:"Adaptability"},heightm:0.6,weightkg:7.4,color:"Brown",evos:["milotic"],eggGroups:["Water 1","Dragon"]},
-milotic:{num:350,species:"Milotic",types:["Water"],baseStats:{hp:95,atk:60,def:79,spa:100,spd:125,spe:81},abilities:{0:"Marvel Scale",1:"Competitive",H:"Cute Charm"},heightm:6.2,weightkg:162,color:"Pink",prevo:"feebas",evoLevel:1,eggGroups:["Water 1","Dragon"]},
-castform:{num:351,species:"Castform",types:["Normal"],baseStats:{hp:70,atk:70,def:70,spa:70,spd:70,spe:70},abilities:{0:"Forecast"},heightm:0.3,weightkg:0.8,color:"White",eggGroups:["Fairy","Amorphous"],otherFormes:["castformsunny","castformrainy","castformsnowy"]},
-castformsunny:{num:351,species:"Castform-Sunny",baseSpecies:"Castform",forme:"Sunny",formeLetter:"S",types:["Fire"],baseStats:{hp:70,atk:70,def:70,spa:70,spd:70,spe:70},abilities:{0:"Forecast"},heightm:0.3,weightkg:0.8,color:"White",eggGroups:["Fairy","Amorphous"]},
-castformrainy:{num:351,species:"Castform-Rainy",baseSpecies:"Castform",forme:"Rainy",formeLetter:"R",types:["Water"],baseStats:{hp:70,atk:70,def:70,spa:70,spd:70,spe:70},abilities:{0:"Forecast"},heightm:0.3,weightkg:0.8,color:"White",eggGroups:["Fairy","Amorphous"]},
-castformsnowy:{num:351,species:"Castform-Snowy",baseSpecies:"Castform",forme:"Snowy",formeLetter:"S",types:["Ice"],baseStats:{hp:70,atk:70,def:70,spa:70,spd:70,spe:70},abilities:{0:"Forecast"},heightm:0.3,weightkg:0.8,color:"White",eggGroups:["Fairy","Amorphous"]},
-kecleon:{num:352,species:"Kecleon",types:["Normal"],baseStats:{hp:60,atk:90,def:70,spa:60,spd:120,spe:40},abilities:{0:"Color Change",H:"Protean"},heightm:1,weightkg:22,color:"Green",eggGroups:["Field"]},
-shuppet:{num:353,species:"Shuppet",types:["Ghost"],baseStats:{hp:44,atk:75,def:35,spa:63,spd:33,spe:45},abilities:{0:"Insomnia",1:"Frisk",H:"Cursed Body"},heightm:0.6,weightkg:2.3,color:"Black",evos:["banette"],eggGroups:["Amorphous"]},
-banette:{num:354,species:"Banette",types:["Ghost"],baseStats:{hp:64,atk:115,def:65,spa:83,spd:63,spe:65},abilities:{0:"Insomnia",1:"Frisk",H:"Cursed Body"},heightm:1.1,weightkg:12.5,color:"Black",prevo:"shuppet",evoLevel:37,eggGroups:["Amorphous"],otherFormes:["banettemega"]},
-banettemega:{num:354,species:"Banette-Mega",baseSpecies:"Banette",forme:"Mega",formeLetter:"M",types:["Ghost"],baseStats:{hp:64,atk:165,def:75,spa:93,spd:83,spe:75},abilities:{0:"Prankster"},heightm:1.2,weightkg:13,color:"Black",prevo:"shuppet",evoLevel:37,eggGroups:["Amorphous"]},
-duskull:{num:355,species:"Duskull",types:["Ghost"],baseStats:{hp:20,atk:40,def:90,spa:30,spd:90,spe:25},abilities:{0:"Levitate",H:"Frisk"},heightm:0.8,weightkg:15,color:"Black",evos:["dusclops"],eggGroups:["Amorphous"]},
-dusclops:{num:356,species:"Dusclops",types:["Ghost"],baseStats:{hp:40,atk:70,def:130,spa:60,spd:130,spe:25},abilities:{0:"Pressure",H:"Frisk"},heightm:1.6,weightkg:30.6,color:"Black",prevo:"duskull",evos:["dusknoir"],evoLevel:37,eggGroups:["Amorphous"]},
-tropius:{num:357,species:"Tropius",types:["Grass","Flying"],baseStats:{hp:99,atk:68,def:83,spa:72,spd:87,spe:51},abilities:{0:"Chlorophyll",1:"Solar Power",H:"Harvest"},heightm:2,weightkg:100,color:"Green",eggGroups:["Monster","Grass"]},
-chimecho:{num:358,species:"Chimecho",types:["Psychic"],baseStats:{hp:65,atk:50,def:70,spa:95,spd:80,spe:65},abilities:{0:"Levitate"},heightm:0.6,weightkg:1,color:"Blue",prevo:"chingling",evoLevel:1,eggGroups:["Amorphous"]},
-absol:{num:359,species:"Absol",types:["Dark"],baseStats:{hp:65,atk:130,def:60,spa:75,spd:60,spe:75},abilities:{0:"Pressure",1:"Super Luck",H:"Justified"},heightm:1.2,weightkg:47,color:"White",eggGroups:["Field"],otherFormes:["absolmega"]},
-absolmega:{num:359,species:"Absol-Mega",baseSpecies:"Absol",forme:"Mega",formeLetter:"M",types:["Dark"],baseStats:{hp:65,atk:150,def:60,spa:115,spd:60,spe:115},abilities:{0:"Magic Bounce"},heightm:1.2,weightkg:49,color:"White",eggGroups:["Field"]},
-wynaut:{num:360,species:"Wynaut",types:["Psychic"],baseStats:{hp:95,atk:23,def:48,spa:23,spd:48,spe:23},abilities:{0:"Shadow Tag",H:"Telepathy"},heightm:0.6,weightkg:14,color:"Blue",evos:["wobbuffet"],eggGroups:["Undiscovered"]},
-snorunt:{num:361,species:"Snorunt",types:["Ice"],baseStats:{hp:50,atk:50,def:50,spa:50,spd:50,spe:50},abilities:{0:"Inner Focus",1:"Ice Body",H:"Moody"},heightm:0.7,weightkg:16.8,color:"Gray",evos:["glalie","froslass"],eggGroups:["Fairy","Mineral"]},
-glalie:{num:362,species:"Glalie",types:["Ice"],baseStats:{hp:80,atk:80,def:80,spa:80,spd:80,spe:80},abilities:{0:"Inner Focus",1:"Ice Body",H:"Moody"},heightm:1.5,weightkg:256.5,color:"Gray",prevo:"snorunt",evoLevel:42,eggGroups:["Fairy","Mineral"]},
-spheal:{num:363,species:"Spheal",types:["Ice","Water"],baseStats:{hp:70,atk:40,def:50,spa:55,spd:50,spe:25},abilities:{0:"Thick Fat",1:"Ice Body",H:"Oblivious"},heightm:0.8,weightkg:39.5,color:"Blue",evos:["sealeo"],eggGroups:["Water 1","Field"]},
-sealeo:{num:364,species:"Sealeo",types:["Ice","Water"],baseStats:{hp:90,atk:60,def:70,spa:75,spd:70,spe:45},abilities:{0:"Thick Fat",1:"Ice Body",H:"Oblivious"},heightm:1.1,weightkg:87.6,color:"Blue",prevo:"spheal",evos:["walrein"],evoLevel:32,eggGroups:["Water 1","Field"]},
-walrein:{num:365,species:"Walrein",types:["Ice","Water"],baseStats:{hp:110,atk:80,def:90,spa:95,spd:90,spe:65},abilities:{0:"Thick Fat",1:"Ice Body",H:"Oblivious"},heightm:1.4,weightkg:150.6,color:"Blue",prevo:"sealeo",evoLevel:44,eggGroups:["Water 1","Field"]},
-clamperl:{num:366,species:"Clamperl",types:["Water"],baseStats:{hp:35,atk:64,def:85,spa:74,spd:55,spe:32},abilities:{0:"Shell Armor",H:"Rattled"},heightm:0.4,weightkg:52.5,color:"Blue",evos:["huntail","gorebyss"],eggGroups:["Water 1"]},
-huntail:{num:367,species:"Huntail",types:["Water"],baseStats:{hp:55,atk:104,def:105,spa:94,spd:75,spe:52},abilities:{0:"Swift Swim",H:"Water Veil"},heightm:1.7,weightkg:27,color:"Blue",prevo:"clamperl",evoLevel:1,eggGroups:["Water 1"]},
-gorebyss:{num:368,species:"Gorebyss",types:["Water"],baseStats:{hp:55,atk:84,def:105,spa:114,spd:75,spe:52},abilities:{0:"Swift Swim",H:"Hydration"},heightm:1.8,weightkg:22.6,color:"Pink",prevo:"clamperl",evoLevel:1,eggGroups:["Water 1"]},
-relicanth:{num:369,species:"Relicanth",types:["Water","Rock"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:100,atk:90,def:130,spa:45,spd:65,spe:55},abilities:{0:"Swift Swim",1:"Rock Head",H:"Sturdy"},heightm:1,weightkg:23.4,color:"Gray",eggGroups:["Water 1","Water 2"]},
-luvdisc:{num:370,species:"Luvdisc",types:["Water"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:43,atk:30,def:55,spa:40,spd:65,spe:97},abilities:{0:"Swift Swim",H:"Hydration"},heightm:0.6,weightkg:8.7,color:"Pink",eggGroups:["Water 2"]},
-bagon:{num:371,species:"Bagon",types:["Dragon"],baseStats:{hp:45,atk:75,def:60,spa:40,spd:30,spe:50},abilities:{0:"Rock Head",H:"Sheer Force"},heightm:0.6,weightkg:42.1,color:"Blue",evos:["shelgon"],eggGroups:["Dragon"]},
-shelgon:{num:372,species:"Shelgon",types:["Dragon"],baseStats:{hp:65,atk:95,def:100,spa:60,spd:50,spe:50},abilities:{0:"Rock Head",H:"Overcoat"},heightm:1.1,weightkg:110.5,color:"White",prevo:"bagon",evos:["salamence"],evoLevel:30,eggGroups:["Dragon"]},
-salamence:{num:373,species:"Salamence",types:["Dragon","Flying"],baseStats:{hp:95,atk:135,def:80,spa:110,spd:80,spe:100},abilities:{0:"Intimidate",H:"Moxie"},heightm:1.5,weightkg:102.6,color:"Blue",prevo:"shelgon",evoLevel:50,eggGroups:["Dragon"]},
-beldum:{num:374,species:"Beldum",types:["Steel","Psychic"],gender:"N",baseStats:{hp:40,atk:55,def:80,spa:35,spd:60,spe:30},abilities:{0:"Clear Body",H:"Light Metal"},heightm:0.6,weightkg:95.2,color:"Blue",evos:["metang"],eggGroups:["Mineral"]},
-metang:{num:375,species:"Metang",types:["Steel","Psychic"],gender:"N",baseStats:{hp:60,atk:75,def:100,spa:55,spd:80,spe:50},abilities:{0:"Clear Body",H:"Light Metal"},heightm:1.2,weightkg:202.5,color:"Blue",prevo:"beldum",evos:["metagross"],evoLevel:20,eggGroups:["Mineral"]},
-metagross:{num:376,species:"Metagross",types:["Steel","Psychic"],gender:"N",baseStats:{hp:80,atk:135,def:130,spa:95,spd:90,spe:70},abilities:{0:"Clear Body",H:"Light Metal"},heightm:1.6,weightkg:550,color:"Blue",prevo:"metang",evoLevel:45,eggGroups:["Mineral"]},
-regirock:{num:377,species:"Regirock",types:["Rock"],gender:"N",baseStats:{hp:80,atk:100,def:200,spa:50,spd:100,spe:50},abilities:{0:"Clear Body",H:"Sturdy"},heightm:1.7,weightkg:230,color:"Brown",eggGroups:["Undiscovered"]},
-regice:{num:378,species:"Regice",types:["Ice"],gender:"N",baseStats:{hp:80,atk:50,def:100,spa:100,spd:200,spe:50},abilities:{0:"Clear Body",H:"Ice Body"},heightm:1.8,weightkg:175,color:"Blue",eggGroups:["Undiscovered"]},
-registeel:{num:379,species:"Registeel",types:["Steel"],gender:"N",baseStats:{hp:80,atk:75,def:150,spa:75,spd:150,spe:50},abilities:{0:"Clear Body",H:"Light Metal"},heightm:1.9,weightkg:205,color:"Gray",eggGroups:["Undiscovered"]},
-latias:{num:380,species:"Latias",types:["Dragon","Psychic"],gender:"F",baseStats:{hp:80,atk:80,def:90,spa:110,spd:130,spe:110},abilities:{0:"Levitate"},heightm:1.4,weightkg:40,color:"Red",eggGroups:["Undiscovered"],otherFormes:["latiasmega"]},
-latiasmega:{num:380,species:"Latias-Mega",baseSpecies:"Latias",forme:"Mega",formeLetter:"M",types:["Dragon","Psychic"],gender:"F",baseStats:{hp:80,atk:100,def:120,spa:140,spd:150,spe:110},abilities:{0:"Levitate"},heightm:1.8,weightkg:52,color:"Red",eggGroups:["Undiscovered"]},
-latios:{num:381,species:"Latios",types:["Dragon","Psychic"],gender:"M",baseStats:{hp:80,atk:90,def:80,spa:130,spd:110,spe:110},abilities:{0:"Levitate"},heightm:2,weightkg:60,color:"Blue",eggGroups:["Undiscovered"],otherFormes:["latiosmega"]},
-latiosmega:{num:381,species:"Latios-Mega",baseSpecies:"Latios",forme:"Mega",formeLetter:"M",types:["Dragon","Psychic"],gender:"M",baseStats:{hp:80,atk:130,def:100,spa:160,spd:120,spe:110},abilities:{0:"Levitate"},heightm:2.3,weightkg:70,color:"Blue",eggGroups:["Undiscovered"]},
-kyogre:{num:382,species:"Kyogre",types:["Water"],gender:"N",baseStats:{hp:100,atk:100,def:90,spa:150,spd:140,spe:90},abilities:{0:"Drizzle"},heightm:4.5,weightkg:352,color:"Blue",eggGroups:["Undiscovered"]},
-groudon:{num:383,species:"Groudon",types:["Ground"],gender:"N",baseStats:{hp:100,atk:150,def:140,spa:100,spd:90,spe:90},abilities:{0:"Drought"},heightm:3.5,weightkg:950,color:"Red",eggGroups:["Undiscovered"]},
-rayquaza:{num:384,species:"Rayquaza",types:["Dragon","Flying"],gender:"N",baseStats:{hp:105,atk:150,def:90,spa:150,spd:90,spe:95},abilities:{0:"Air Lock"},heightm:7,weightkg:206.5,color:"Green",eggGroups:["Undiscovered"]},
-jirachi:{num:385,species:"Jirachi",types:["Steel","Psychic"],gender:"N",baseStats:{hp:100,atk:100,def:100,spa:100,spd:100,spe:100},abilities:{0:"Serene Grace"},heightm:0.3,weightkg:1.1,color:"Yellow",eggGroups:["Undiscovered"]},
-deoxys:{num:386,species:"Deoxys",baseForme:"Normal",types:["Psychic"],gender:"N",baseStats:{hp:50,atk:150,def:50,spa:150,spd:50,spe:150},abilities:{0:"Pressure"},heightm:1.7,weightkg:60.8,color:"Red",eggGroups:["Undiscovered"],otherFormes:["deoxysattack","deoxysdefense","deoxysspeed"]},
-deoxysattack:{num:386,species:"Deoxys-Attack",baseSpecies:"Deoxys",forme:"Attack",formeLetter:"A",types:["Psychic"],gender:"N",baseStats:{hp:50,atk:180,def:20,spa:180,spd:20,spe:150},abilities:{0:"Pressure"},heightm:1.7,weightkg:60.8,color:"Red",eggGroups:["Undiscovered"]},
-deoxysdefense:{num:386,species:"Deoxys-Defense",baseSpecies:"Deoxys",forme:"Defense",formeLetter:"D",types:["Psychic"],gender:"N",baseStats:{hp:50,atk:70,def:160,spa:70,spd:160,spe:90},abilities:{0:"Pressure"},heightm:1.7,weightkg:60.8,color:"Red",eggGroups:["Undiscovered"]},
-deoxysspeed:{num:386,species:"Deoxys-Speed",baseSpecies:"Deoxys",forme:"Speed",formeLetter:"S",types:["Psychic"],gender:"N",baseStats:{hp:50,atk:95,def:90,spa:95,spd:90,spe:180},abilities:{0:"Pressure"},heightm:1.7,weightkg:60.8,color:"Red",eggGroups:["Undiscovered"]},
-turtwig:{num:387,species:"Turtwig",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:55,atk:68,def:64,spa:45,spd:55,spe:31},abilities:{0:"Overgrow",H:"Shell Armor"},heightm:0.4,weightkg:10.2,color:"Green",evos:["grotle"],eggGroups:["Monster","Grass"]},
-grotle:{num:388,species:"Grotle",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:75,atk:89,def:85,spa:55,spd:65,spe:36},abilities:{0:"Overgrow",H:"Shell Armor"},heightm:1.1,weightkg:97,color:"Green",prevo:"turtwig",evos:["torterra"],evoLevel:18,eggGroups:["Monster","Grass"]},
-torterra:{num:389,species:"Torterra",types:["Grass","Ground"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:95,atk:109,def:105,spa:75,spd:85,spe:56},abilities:{0:"Overgrow",H:"Shell Armor"},heightm:2.2,weightkg:310,color:"Green",prevo:"grotle",evoLevel:32,eggGroups:["Monster","Grass"]},
-chimchar:{num:390,species:"Chimchar",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:44,atk:58,def:44,spa:58,spd:44,spe:61},abilities:{0:"Blaze",H:"Iron Fist"},heightm:0.5,weightkg:6.2,color:"Brown",evos:["monferno"],eggGroups:["Field","Human-Like"]},
-monferno:{num:391,species:"Monferno",types:["Fire","Fighting"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:64,atk:78,def:52,spa:78,spd:52,spe:81},abilities:{0:"Blaze",H:"Iron Fist"},heightm:0.9,weightkg:22,color:"Brown",prevo:"chimchar",evos:["infernape"],evoLevel:14,eggGroups:["Field","Human-Like"]},
-infernape:{num:392,species:"Infernape",types:["Fire","Fighting"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:76,atk:104,def:71,spa:104,spd:71,spe:108},abilities:{0:"Blaze",H:"Iron Fist"},heightm:1.2,weightkg:55,color:"Brown",prevo:"monferno",evoLevel:36,eggGroups:["Field","Human-Like"]},
-piplup:{num:393,species:"Piplup",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:53,atk:51,def:53,spa:61,spd:56,spe:40},abilities:{0:"Torrent",H:"Defiant"},heightm:0.4,weightkg:5.2,color:"Blue",evos:["prinplup"],eggGroups:["Water 1","Field"]},
-prinplup:{num:394,species:"Prinplup",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:64,atk:66,def:68,spa:81,spd:76,spe:50},abilities:{0:"Torrent",H:"Defiant"},heightm:0.8,weightkg:23,color:"Blue",prevo:"piplup",evos:["empoleon"],evoLevel:16,eggGroups:["Water 1","Field"]},
-empoleon:{num:395,species:"Empoleon",types:["Water","Steel"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:84,atk:86,def:88,spa:111,spd:101,spe:60},abilities:{0:"Torrent",H:"Defiant"},heightm:1.7,weightkg:84.5,color:"Blue",prevo:"prinplup",evoLevel:36,eggGroups:["Water 1","Field"]},
-starly:{num:396,species:"Starly",types:["Normal","Flying"],baseStats:{hp:40,atk:55,def:30,spa:30,spd:30,spe:60},abilities:{0:"Keen Eye",H:"Reckless"},heightm:0.3,weightkg:2,color:"Brown",evos:["staravia"],eggGroups:["Flying"]},
-staravia:{num:397,species:"Staravia",types:["Normal","Flying"],baseStats:{hp:55,atk:75,def:50,spa:40,spd:40,spe:80},abilities:{0:"Intimidate",H:"Reckless"},heightm:0.6,weightkg:15.5,color:"Brown",prevo:"starly",evos:["staraptor"],evoLevel:14,eggGroups:["Flying"]},
-staraptor:{num:398,species:"Staraptor",types:["Normal","Flying"],baseStats:{hp:85,atk:120,def:70,spa:50,spd:60,spe:100},abilities:{0:"Intimidate",H:"Reckless"},heightm:1.2,weightkg:24.9,color:"Brown",prevo:"staravia",evoLevel:34,eggGroups:["Flying"]},
-bidoof:{num:399,species:"Bidoof",types:["Normal"],baseStats:{hp:59,atk:45,def:40,spa:35,spd:40,spe:31},abilities:{0:"Simple",1:"Unaware",H:"Moody"},heightm:0.5,weightkg:20,color:"Brown",evos:["bibarel"],eggGroups:["Water 1","Field"]},
-bibarel:{num:400,species:"Bibarel",types:["Normal","Water"],baseStats:{hp:79,atk:85,def:60,spa:55,spd:60,spe:71},abilities:{0:"Simple",1:"Unaware",H:"Moody"},heightm:1,weightkg:31.5,color:"Brown",prevo:"bidoof",evoLevel:15,eggGroups:["Water 1","Field"]},
-kricketot:{num:401,species:"Kricketot",types:["Bug"],baseStats:{hp:37,atk:25,def:41,spa:25,spd:41,spe:25},abilities:{0:"Shed Skin",H:"Run Away"},heightm:0.3,weightkg:2.2,color:"Red",evos:["kricketune"],eggGroups:["Bug"]},
-kricketune:{num:402,species:"Kricketune",types:["Bug"],baseStats:{hp:77,atk:85,def:51,spa:55,spd:51,spe:65},abilities:{0:"Swarm",H:"Technician"},heightm:1,weightkg:25.5,color:"Red",prevo:"kricketot",evoLevel:10,eggGroups:["Bug"]},
-shinx:{num:403,species:"Shinx",types:["Electric"],baseStats:{hp:45,atk:65,def:34,spa:40,spd:34,spe:45},abilities:{0:"Rivalry",1:"Intimidate",H:"Guts"},heightm:0.5,weightkg:9.5,color:"Blue",evos:["luxio"],eggGroups:["Field"]},
-luxio:{num:404,species:"Luxio",types:["Electric"],baseStats:{hp:60,atk:85,def:49,spa:60,spd:49,spe:60},abilities:{0:"Rivalry",1:"Intimidate",H:"Guts"},heightm:0.9,weightkg:30.5,color:"Blue",prevo:"shinx",evos:["luxray"],evoLevel:15,eggGroups:["Field"]},
-luxray:{num:405,species:"Luxray",types:["Electric"],baseStats:{hp:80,atk:120,def:79,spa:95,spd:79,spe:70},abilities:{0:"Rivalry",1:"Intimidate",H:"Guts"},heightm:1.4,weightkg:42,color:"Blue",prevo:"luxio",evoLevel:30,eggGroups:["Field"]},
-budew:{num:406,species:"Budew",types:["Grass","Poison"],baseStats:{hp:40,atk:30,def:35,spa:50,spd:70,spe:55},abilities:{0:"Natural Cure",1:"Poison Point",H:"Leaf Guard"},heightm:0.2,weightkg:1.2,color:"Green",evos:["roselia"],eggGroups:["Undiscovered"]},
-roserade:{num:407,species:"Roserade",types:["Grass","Poison"],baseStats:{hp:60,atk:70,def:65,spa:125,spd:105,spe:90},abilities:{0:"Natural Cure",1:"Poison Point",H:"Technician"},heightm:0.9,weightkg:14.5,color:"Green",prevo:"roselia",evoLevel:1,eggGroups:["Fairy","Grass"]},
-cranidos:{num:408,species:"Cranidos",types:["Rock"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:67,atk:125,def:40,spa:30,spd:30,spe:58},abilities:{0:"Mold Breaker",H:"Sheer Force"},heightm:0.9,weightkg:31.5,color:"Blue",evos:["rampardos"],eggGroups:["Monster"]},
-rampardos:{num:409,species:"Rampardos",types:["Rock"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:97,atk:165,def:60,spa:65,spd:50,spe:58},abilities:{0:"Mold Breaker",H:"Sheer Force"},heightm:1.6,weightkg:102.5,color:"Blue",prevo:"cranidos",evoLevel:30,eggGroups:["Monster"]},
-shieldon:{num:410,species:"Shieldon",types:["Rock","Steel"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:30,atk:42,def:118,spa:42,spd:88,spe:30},abilities:{0:"Sturdy",H:"Soundproof"},heightm:0.5,weightkg:57,color:"Gray",evos:["bastiodon"],eggGroups:["Monster"]},
-bastiodon:{num:411,species:"Bastiodon",types:["Rock","Steel"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:60,atk:52,def:168,spa:47,spd:138,spe:30},abilities:{0:"Sturdy",H:"Soundproof"},heightm:1.3,weightkg:149.5,color:"Gray",prevo:"shieldon",evoLevel:30,eggGroups:["Monster"]},
-burmy:{num:412,species:"Burmy",baseForme:"Grass",types:["Bug"],baseStats:{hp:40,atk:29,def:45,spa:29,spd:45,spe:36},abilities:{0:"Shed Skin",H:"Overcoat"},heightm:0.2,weightkg:3.4,color:"Gray",evos:["wormadam","wormadamsandy","wormadamtrash","mothim"],eggGroups:["Bug"],otherForms:["burmysandy","burmytrash"]},
-wormadam:{num:413,species:"Wormadam",baseForme:"Grass",types:["Bug","Grass"],gender:"F",baseStats:{hp:60,atk:59,def:85,spa:79,spd:105,spe:36},abilities:{0:"Anticipation",H:"Overcoat"},heightm:0.5,weightkg:6.5,color:"Gray",prevo:"burmy",evoLevel:20,eggGroups:["Bug"],otherFormes:["wormadamsandy","wormadamtrash"]},
-wormadamsandy:{num:413,species:"Wormadam-Sandy",baseSpecies:"Wormadam",forme:"Sandy",formeLetter:"G",types:["Bug","Ground"],gender:"F",baseStats:{hp:60,atk:79,def:105,spa:59,spd:85,spe:36},abilities:{0:"Anticipation",H:"Overcoat"},heightm:0.5,weightkg:6.5,color:"Gray",prevo:"burmy",evoLevel:20,eggGroups:["Bug"]},
-wormadamtrash:{num:413,species:"Wormadam-Trash",baseSpecies:"Wormadam",forme:"Trash",formeLetter:"S",types:["Bug","Steel"],gender:"F",baseStats:{hp:60,atk:69,def:95,spa:69,spd:95,spe:36},abilities:{0:"Anticipation",H:"Overcoat"},heightm:0.5,weightkg:6.5,color:"Gray",prevo:"burmy",evoLevel:20,eggGroups:["Bug"]},
-mothim:{num:414,species:"Mothim",types:["Bug","Flying"],gender:"M",baseStats:{hp:70,atk:94,def:50,spa:94,spd:50,spe:66},abilities:{0:"Swarm",H:"Tinted Lens"},heightm:0.9,weightkg:23.3,color:"Yellow",prevo:"burmy",evoLevel:20,eggGroups:["Bug"]},
-combee:{num:415,species:"Combee",types:["Bug","Flying"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:30,atk:30,def:42,spa:30,spd:42,spe:70},abilities:{0:"Honey Gather",H:"Hustle"},heightm:0.3,weightkg:5.5,color:"Yellow",evos:["vespiquen"],eggGroups:["Bug"]},
-vespiquen:{num:416,species:"Vespiquen",types:["Bug","Flying"],gender:"F",baseStats:{hp:70,atk:80,def:102,spa:80,spd:102,spe:40},abilities:{0:"Pressure",H:"Unnerve"},heightm:1.2,weightkg:38.5,color:"Yellow",prevo:"combee",evoLevel:21,eggGroups:["Bug"]},
-pachirisu:{num:417,species:"Pachirisu",types:["Electric"],baseStats:{hp:60,atk:45,def:70,spa:45,spd:90,spe:95},abilities:{0:"Run Away",1:"Pickup",H:"Volt Absorb"},heightm:0.4,weightkg:3.9,color:"White",eggGroups:["Field","Fairy"]},
-buizel:{num:418,species:"Buizel",types:["Water"],baseStats:{hp:55,atk:65,def:35,spa:60,spd:30,spe:85},abilities:{0:"Swift Swim",H:"Water Veil"},heightm:0.7,weightkg:29.5,color:"Brown",evos:["floatzel"],eggGroups:["Water 1","Field"]},
-floatzel:{num:419,species:"Floatzel",types:["Water"],baseStats:{hp:85,atk:105,def:55,spa:85,spd:50,spe:115},abilities:{0:"Swift Swim",H:"Water Veil"},heightm:1.1,weightkg:33.5,color:"Brown",prevo:"buizel",evoLevel:26,eggGroups:["Water 1","Field"]},
-cherubi:{num:420,species:"Cherubi",types:["Grass"],baseStats:{hp:45,atk:35,def:45,spa:62,spd:53,spe:35},abilities:{0:"Chlorophyll"},heightm:0.4,weightkg:3.3,color:"Pink",evos:["cherrim"],eggGroups:["Fairy","Grass"]},
-cherrim:{num:421,species:"Cherrim",baseForme:"Overcast",types:["Grass"],baseStats:{hp:70,atk:60,def:70,spa:87,spd:78,spe:85},abilities:{0:"Flower Gift"},heightm:0.5,weightkg:9.3,color:"Pink",prevo:"cherubi",evoLevel:25,eggGroups:["Fairy","Grass"],otherFormes:["cherrimsunshine"]},
-cherrimsunshine:{num:421,species:"Cherrim-Sunshine",baseSpecies:"Cherrim",forme:"Sunshine",formeLetter:"S",types:["Grass"],baseStats:{hp:70,atk:60,def:70,spa:87,spd:78,spe:85},abilities:{0:"Flower Gift"},heightm:0.5,weightkg:9.3,color:"Pink",prevo:"cherubi",evoLevel:25,eggGroups:["Fairy","Grass"]},
-shellos:{num:422,species:"Shellos",baseForme:"West",types:["Water"],baseStats:{hp:76,atk:48,def:48,spa:57,spd:62,spe:34},abilities:{0:"Sticky Hold",1:"Storm Drain",H:"Sand Force"},heightm:0.3,weightkg:6.3,color:"Purple",evos:["gastrodon"],eggGroups:["Water 1","Amorphous"],otherForms:["shelloseast"]},
-gastrodon:{num:423,species:"Gastrodon",baseForme:"West",types:["Water","Ground"],baseStats:{hp:111,atk:83,def:68,spa:92,spd:82,spe:39},abilities:{0:"Sticky Hold",1:"Storm Drain",H:"Sand Force"},heightm:0.9,weightkg:29.9,color:"Purple",prevo:"shellos",evoLevel:30,eggGroups:["Water 1","Amorphous"],otherForms:["gastrodoneast"]},
-ambipom:{num:424,species:"Ambipom",types:["Normal"],baseStats:{hp:75,atk:100,def:66,spa:60,spd:66,spe:115},abilities:{0:"Technician",1:"Pickup",H:"Skill Link"},heightm:1.2,weightkg:20.3,color:"Purple",prevo:"aipom",evoLevel:2,evoMove:"Double Hit",eggGroups:["Field"]},
-drifloon:{num:425,species:"Drifloon",types:["Ghost","Flying"],baseStats:{hp:90,atk:50,def:34,spa:60,spd:44,spe:70},abilities:{0:"Aftermath",1:"Unburden",H:"Flare Boost"},heightm:0.4,weightkg:1.2,color:"Purple",evos:["drifblim"],eggGroups:["Amorphous"]},
-drifblim:{num:426,species:"Drifblim",types:["Ghost","Flying"],baseStats:{hp:150,atk:80,def:44,spa:90,spd:54,spe:80},abilities:{0:"Aftermath",1:"Unburden",H:"Flare Boost"},heightm:1.2,weightkg:15,color:"Purple",prevo:"drifloon",evoLevel:28,eggGroups:["Amorphous"]},
-buneary:{num:427,species:"Buneary",types:["Normal"],baseStats:{hp:55,atk:66,def:44,spa:44,spd:56,spe:85},abilities:{0:"Run Away",1:"Klutz",H:"Limber"},heightm:0.4,weightkg:5.5,color:"Brown",evos:["lopunny"],eggGroups:["Field","Human-Like"]},
-lopunny:{num:428,species:"Lopunny",types:["Normal"],baseStats:{hp:65,atk:76,def:84,spa:54,spd:96,spe:105},abilities:{0:"Cute Charm",1:"Klutz",H:"Limber"},heightm:1.2,weightkg:33.3,color:"Brown",prevo:"buneary",evoLevel:2,eggGroups:["Field","Human-Like"]},
-mismagius:{num:429,species:"Mismagius",types:["Ghost"],baseStats:{hp:60,atk:60,def:60,spa:105,spd:105,spe:105},abilities:{0:"Levitate"},heightm:0.9,weightkg:4.4,color:"Purple",prevo:"misdreavus",evoLevel:1,eggGroups:["Amorphous"]},
-honchkrow:{num:430,species:"Honchkrow",types:["Dark","Flying"],baseStats:{hp:100,atk:125,def:52,spa:105,spd:52,spe:71},abilities:{0:"Insomnia",1:"Super Luck",H:"Moxie"},heightm:0.9,weightkg:27.3,color:"Black",prevo:"murkrow",evoLevel:1,eggGroups:["Flying"]},
-glameow:{num:431,species:"Glameow",types:["Normal"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:49,atk:55,def:42,spa:42,spd:37,spe:85},abilities:{0:"Limber",1:"Own Tempo",H:"Keen Eye"},heightm:0.5,weightkg:3.9,color:"Gray",evos:["purugly"],eggGroups:["Field"]},
-purugly:{num:432,species:"Purugly",types:["Normal"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:71,atk:82,def:64,spa:64,spd:59,spe:112},abilities:{0:"Thick Fat",1:"Own Tempo",H:"Defiant"},heightm:1,weightkg:43.8,color:"Gray",prevo:"glameow",evoLevel:38,eggGroups:["Field"]},
-chingling:{num:433,species:"Chingling",types:["Psychic"],baseStats:{hp:45,atk:30,def:50,spa:65,spd:50,spe:45},abilities:{0:"Levitate"},heightm:0.2,weightkg:0.6,color:"Yellow",evos:["chimecho"],eggGroups:["Undiscovered"]},
-stunky:{num:434,species:"Stunky",types:["Poison","Dark"],baseStats:{hp:63,atk:63,def:47,spa:41,spd:41,spe:74},abilities:{0:"Stench",1:"Aftermath",H:"Keen Eye"},heightm:0.4,weightkg:19.2,color:"Purple",evos:["skuntank"],eggGroups:["Field"]},
-skuntank:{num:435,species:"Skuntank",types:["Poison","Dark"],baseStats:{hp:103,atk:93,def:67,spa:71,spd:61,spe:84},abilities:{0:"Stench",1:"Aftermath",H:"Keen Eye"},heightm:1,weightkg:38,color:"Purple",prevo:"stunky",evoLevel:34,eggGroups:["Field"]},
-bronzor:{num:436,species:"Bronzor",types:["Steel","Psychic"],gender:"N",baseStats:{hp:57,atk:24,def:86,spa:24,spd:86,spe:23},abilities:{0:"Levitate",1:"Heatproof",H:"Heavy Metal"},heightm:0.5,weightkg:60.5,color:"Green",evos:["bronzong"],eggGroups:["Mineral"]},
-bronzong:{num:437,species:"Bronzong",types:["Steel","Psychic"],gender:"N",baseStats:{hp:67,atk:89,def:116,spa:79,spd:116,spe:33},abilities:{0:"Levitate",1:"Heatproof",H:"Heavy Metal"},heightm:1.3,weightkg:187,color:"Green",prevo:"bronzor",evoLevel:33,eggGroups:["Mineral"]},
-bonsly:{num:438,species:"Bonsly",types:["Rock"],baseStats:{hp:50,atk:80,def:95,spa:10,spd:45,spe:10},abilities:{0:"Sturdy",1:"Rock Head",H:"Rattled"},heightm:0.5,weightkg:15,color:"Brown",evos:["sudowoodo"],eggGroups:["Undiscovered"]},
-mimejr:{num:439,species:"Mime Jr.",types:["Psychic","Fairy"],baseStats:{hp:20,atk:25,def:45,spa:70,spd:90,spe:60},abilities:{0:"Soundproof",1:"Filter",H:"Technician"},heightm:0.6,weightkg:13,color:"Pink",evos:["mrmime"],eggGroups:["Undiscovered"]},
-happiny:{num:440,species:"Happiny",types:["Normal"],gender:"F",baseStats:{hp:100,atk:5,def:5,spa:15,spd:65,spe:30},abilities:{0:"Natural Cure",1:"Serene Grace",H:"Friend Guard"},heightm:0.6,weightkg:24.4,color:"Pink",evos:["chansey"],eggGroups:["Undiscovered"]},
-chatot:{num:441,species:"Chatot",types:["Normal","Flying"],baseStats:{hp:76,atk:65,def:45,spa:92,spd:42,spe:91},abilities:{0:"Keen Eye",1:"Tangled Feet",H:"Big Pecks"},heightm:0.5,weightkg:1.9,color:"Black",eggGroups:["Flying"]},
-spiritomb:{num:442,species:"Spiritomb",types:["Ghost","Dark"],baseStats:{hp:50,atk:92,def:108,spa:92,spd:108,spe:35},abilities:{0:"Pressure",H:"Infiltrator"},heightm:1,weightkg:108,color:"Purple",eggGroups:["Amorphous"]},
-gible:{num:443,species:"Gible",types:["Dragon","Ground"],baseStats:{hp:58,atk:70,def:45,spa:40,spd:45,spe:42},abilities:{0:"Sand Veil",H:"Rough Skin"},heightm:0.7,weightkg:20.5,color:"Blue",evos:["gabite"],eggGroups:["Monster","Dragon"]},
-gabite:{num:444,species:"Gabite",types:["Dragon","Ground"],baseStats:{hp:68,atk:90,def:65,spa:50,spd:55,spe:82},abilities:{0:"Sand Veil",H:"Rough Skin"},heightm:1.4,weightkg:56,color:"Blue",prevo:"gible",evos:["garchomp"],evoLevel:24,eggGroups:["Monster","Dragon"]},
-garchomp:{num:445,species:"Garchomp",types:["Dragon","Ground"],baseStats:{hp:108,atk:130,def:95,spa:80,spd:85,spe:102},abilities:{0:"Sand Veil",H:"Rough Skin"},heightm:1.9,weightkg:95,color:"Blue",prevo:"gabite",evoLevel:48,eggGroups:["Monster","Dragon"],otherFormes:["garchompmega"]},
-garchompmega:{num:445,species:"Garchomp-Mega",baseSpecies:"Garchomp",forme:"Mega",formeLetter:"M",types:["Dragon","Ground"],baseStats:{hp:108,atk:170,def:115,spa:120,spd:95,spe:92},abilities:{0:"Sand Force"},heightm:1.9,weightkg:95,color:"Blue",prevo:"gabite",evoLevel:48,eggGroups:["Monster","Dragon"]},
-munchlax:{num:446,species:"Munchlax",types:["Normal"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:135,atk:85,def:40,spa:40,spd:85,spe:5},abilities:{0:"Pickup",1:"Thick Fat",H:"Gluttony"},heightm:0.6,weightkg:105,color:"Black",evos:["snorlax"],eggGroups:["Undiscovered"]},
-riolu:{num:447,species:"Riolu",types:["Fighting"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:40,atk:70,def:40,spa:35,spd:40,spe:60},abilities:{0:"Steadfast",1:"Inner Focus",H:"Prankster"},heightm:0.7,weightkg:20.2,color:"Blue",evos:["lucario"],eggGroups:["Undiscovered"]},
-lucario:{num:448,species:"Lucario",types:["Fighting","Steel"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:70,atk:110,def:70,spa:115,spd:70,spe:90},abilities:{0:"Steadfast",1:"Inner Focus",H:"Justified"},heightm:1.2,weightkg:54,color:"Blue",prevo:"riolu",evoLevel:2,eggGroups:["Field","Human-Like"],otherFormes:["lucariomega"]},
-lucariomega:{num:448,species:"Lucario-Mega",baseSpecies:"Lucario",forme:"Mega",formeLetter:"M",types:["Fighting","Steel"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:70,atk:145,def:88,spa:140,spd:70,spe:112},abilities:{0:"Adaptability"},heightm:1.3,weightkg:57.5,color:"Blue",prevo:"riolu",evoLevel:2,eggGroups:["Field","Human-Like"]},
-hippopotas:{num:449,species:"Hippopotas",types:["Ground"],baseStats:{hp:68,atk:72,def:78,spa:38,spd:42,spe:32},abilities:{0:"Sand Stream",H:"Sand Force"},heightm:0.8,weightkg:49.5,color:"Brown",evos:["hippowdon"],eggGroups:["Field"]},
-hippowdon:{num:450,species:"Hippowdon",types:["Ground"],baseStats:{hp:108,atk:112,def:118,spa:68,spd:72,spe:47},abilities:{0:"Sand Stream",H:"Sand Force"},heightm:2,weightkg:300,color:"Brown",prevo:"hippopotas",evoLevel:34,eggGroups:["Field"]},
-skorupi:{num:451,species:"Skorupi",types:["Poison","Bug"],baseStats:{hp:40,atk:50,def:90,spa:30,spd:55,spe:65},abilities:{0:"Battle Armor",1:"Sniper",H:"Keen Eye"},heightm:0.8,weightkg:12,color:"Purple",evos:["drapion"],eggGroups:["Bug","Water 3"]},
-drapion:{num:452,species:"Drapion",types:["Poison","Dark"],baseStats:{hp:70,atk:90,def:110,spa:60,spd:75,spe:95},abilities:{0:"Battle Armor",1:"Sniper",H:"Keen Eye"},heightm:1.3,weightkg:61.5,color:"Purple",prevo:"skorupi",evoLevel:40,eggGroups:["Bug","Water 3"]},
-croagunk:{num:453,species:"Croagunk",types:["Poison","Fighting"],baseStats:{hp:48,atk:61,def:40,spa:61,spd:40,spe:50},abilities:{0:"Anticipation",1:"Dry Skin",H:"Poison Touch"},heightm:0.7,weightkg:23,color:"Blue",evos:["toxicroak"],eggGroups:["Human-Like"]},
-toxicroak:{num:454,species:"Toxicroak",types:["Poison","Fighting"],baseStats:{hp:83,atk:106,def:65,spa:86,spd:65,spe:85},abilities:{0:"Anticipation",1:"Dry Skin",H:"Poison Touch"},heightm:1.3,weightkg:44.4,color:"Blue",prevo:"croagunk",evoLevel:37,eggGroups:["Human-Like"]},
-carnivine:{num:455,species:"Carnivine",types:["Grass"],baseStats:{hp:74,atk:100,def:72,spa:90,spd:72,spe:46},abilities:{0:"Levitate"},heightm:1.4,weightkg:27,color:"Green",eggGroups:["Grass"]},
-finneon:{num:456,species:"Finneon",types:["Water"],baseStats:{hp:49,atk:49,def:56,spa:49,spd:61,spe:66},abilities:{0:"Swift Swim",1:"Storm Drain",H:"Water Veil"},heightm:0.4,weightkg:7,color:"Blue",evos:["lumineon"],eggGroups:["Water 2"]},
-lumineon:{num:457,species:"Lumineon",types:["Water"],baseStats:{hp:69,atk:69,def:76,spa:69,spd:86,spe:91},abilities:{0:"Swift Swim",1:"Storm Drain",H:"Water Veil"},heightm:1.2,weightkg:24,color:"Blue",prevo:"finneon",evoLevel:31,eggGroups:["Water 2"]},
-mantyke:{num:458,species:"Mantyke",types:["Water","Flying"],baseStats:{hp:45,atk:20,def:50,spa:60,spd:120,spe:50},abilities:{0:"Swift Swim",1:"Water Absorb",H:"Water Veil"},heightm:1,weightkg:65,color:"Blue",evos:["mantine"],eggGroups:["Undiscovered"]},
-snover:{num:459,species:"Snover",types:["Grass","Ice"],baseStats:{hp:60,atk:62,def:50,spa:62,spd:60,spe:40},abilities:{0:"Snow Warning",H:"Soundproof"},heightm:1,weightkg:50.5,color:"White",evos:["abomasnow"],eggGroups:["Monster","Grass"]},
-abomasnow:{num:460,species:"Abomasnow",types:["Grass","Ice"],baseStats:{hp:90,atk:92,def:75,spa:92,spd:85,spe:60},abilities:{0:"Snow Warning",H:"Soundproof"},heightm:2.2,weightkg:135.5,color:"White",prevo:"snover",evoLevel:40,eggGroups:["Monster","Grass"],otherFormes:["abomasnowmega"]},
-abomasnowmega:{num:460,species:"Abomasnow-Mega",baseSpecies:"Abomasnow",forme:"Mega",formeLetter:"M",types:["Grass","Ice"],baseStats:{hp:90,atk:132,def:105,spa:132,spd:105,spe:30},abilities:{0:"Snow Warning"},heightm:2.7,weightkg:185,color:"White",prevo:"snover",evoLevel:40,eggGroups:["Monster","Grass"]},
-weavile:{num:461,species:"Weavile",types:["Dark","Ice"],baseStats:{hp:70,atk:120,def:65,spa:45,spd:85,spe:125},abilities:{0:"Pressure",H:"Pickpocket"},heightm:1.1,weightkg:34,color:"Black",prevo:"sneasel",evoLevel:2,eggGroups:["Field"]},
-magnezone:{num:462,species:"Magnezone",types:["Electric","Steel"],gender:"N",baseStats:{hp:70,atk:70,def:115,spa:130,spd:90,spe:60},abilities:{0:"Magnet Pull",1:"Sturdy",H:"Analytic"},heightm:1.2,weightkg:180,color:"Gray",prevo:"magneton",evoLevel:31,eggGroups:["Mineral"]},
-lickilicky:{num:463,species:"Lickilicky",types:["Normal"],baseStats:{hp:110,atk:85,def:95,spa:80,spd:95,spe:50},abilities:{0:"Own Tempo",1:"Oblivious",H:"Cloud Nine"},heightm:1.7,weightkg:140,color:"Pink",prevo:"lickitung",evoLevel:2,evoMove:"Rollout",eggGroups:["Monster"]},
-rhyperior:{num:464,species:"Rhyperior",types:["Ground","Rock"],baseStats:{hp:115,atk:140,def:130,spa:55,spd:55,spe:40},abilities:{0:"Lightningrod",1:"Solid Rock",H:"Reckless"},heightm:2.4,weightkg:282.8,color:"Gray",prevo:"rhydon",evoLevel:42,eggGroups:["Monster","Field"]},
-tangrowth:{num:465,species:"Tangrowth",types:["Grass"],baseStats:{hp:100,atk:100,def:125,spa:110,spd:50,spe:50},abilities:{0:"Chlorophyll",1:"Leaf Guard",H:"Regenerator"},heightm:2,weightkg:128.6,color:"Blue",prevo:"tangela",evoLevel:2,evoMove:"AncientPower",eggGroups:["Grass"]},
-electivire:{num:466,species:"Electivire",types:["Electric"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:75,atk:123,def:67,spa:95,spd:85,spe:95},abilities:{0:"Motor Drive",H:"Vital Spirit"},heightm:1.8,weightkg:138.6,color:"Yellow",prevo:"electabuzz",evoLevel:30,eggGroups:["Human-Like"]},
-magmortar:{num:467,species:"Magmortar",types:["Fire"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:75,atk:95,def:67,spa:125,spd:95,spe:83},abilities:{0:"Flame Body",H:"Vital Spirit"},heightm:1.6,weightkg:68,color:"Red",prevo:"magmar",evoLevel:30,eggGroups:["Human-Like"]},
-togekiss:{num:468,species:"Togekiss",types:["Fairy","Flying"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:85,atk:50,def:95,spa:120,spd:115,spe:80},abilities:{0:"Hustle",1:"Serene Grace",H:"Super Luck"},heightm:1.5,weightkg:38,color:"White",prevo:"togetic",evoLevel:2,eggGroups:["Flying","Fairy"]},
-yanmega:{num:469,species:"Yanmega",types:["Bug","Flying"],baseStats:{hp:86,atk:76,def:86,spa:116,spd:56,spe:95},abilities:{0:"Speed Boost",1:"Tinted Lens",H:"Frisk"},heightm:1.9,weightkg:51.5,color:"Green",prevo:"yanma",evoLevel:2,evoMove:"AncientPower",eggGroups:["Bug"]},
-leafeon:{num:470,species:"Leafeon",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:65,atk:110,def:130,spa:60,spd:65,spe:95},abilities:{0:"Leaf Guard",H:"Chlorophyll"},heightm:1,weightkg:25.5,color:"Green",prevo:"eevee",evoLevel:2,eggGroups:["Field"]},
-glaceon:{num:471,species:"Glaceon",types:["Ice"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:65,atk:60,def:110,spa:130,spd:95,spe:65},abilities:{0:"Snow Cloak",H:"Ice Body"},heightm:0.8,weightkg:25.9,color:"Blue",prevo:"eevee",evoLevel:2,eggGroups:["Field"]},
-gliscor:{num:472,species:"Gliscor",types:["Ground","Flying"],baseStats:{hp:75,atk:95,def:125,spa:45,spd:75,spe:95},abilities:{0:"Hyper Cutter",1:"Sand Veil",H:"Poison Heal"},heightm:2,weightkg:42.5,color:"Purple",prevo:"gligar",evoLevel:2,eggGroups:["Bug"]},
-mamoswine:{num:473,species:"Mamoswine",types:["Ice","Ground"],baseStats:{hp:110,atk:130,def:80,spa:70,spd:60,spe:80},abilities:{0:"Oblivious",1:"Snow Cloak",H:"Thick Fat"},heightm:2.5,weightkg:291,color:"Brown",prevo:"piloswine",evoLevel:34,evoMove:"AncientPower",eggGroups:["Field"]},
-porygonz:{num:474,species:"Porygon-Z",types:["Normal"],gender:"N",baseStats:{hp:85,atk:80,def:70,spa:135,spd:75,spe:90},abilities:{0:"Adaptability",1:"Download",H:"Analytic"},heightm:0.9,weightkg:34,color:"Red",prevo:"porygon2",evoLevel:1,eggGroups:["Mineral"]},
-gallade:{num:475,species:"Gallade",types:["Psychic","Fighting"],gender:"M",baseStats:{hp:68,atk:125,def:65,spa:65,spd:115,spe:80},abilities:{0:"Steadfast",H:"Justified"},heightm:1.6,weightkg:52,color:"White",prevo:"kirlia",evoLevel:20,eggGroups:["Amorphous"]},
-probopass:{num:476,species:"Probopass",types:["Rock","Steel"],baseStats:{hp:60,atk:55,def:145,spa:75,spd:150,spe:40},abilities:{0:"Sturdy",1:"Magnet Pull",H:"Sand Force"},heightm:1.4,weightkg:340,color:"Gray",prevo:"nosepass",evoLevel:2,eggGroups:["Mineral"]},
-dusknoir:{num:477,species:"Dusknoir",types:["Ghost"],baseStats:{hp:45,atk:100,def:135,spa:65,spd:135,spe:45},abilities:{0:"Pressure",H:"Frisk"},heightm:2.2,weightkg:106.6,color:"Black",prevo:"dusclops",evoLevel:37,eggGroups:["Amorphous"]},
-froslass:{num:478,species:"Froslass",types:["Ice","Ghost"],gender:"F",baseStats:{hp:70,atk:80,def:70,spa:80,spd:70,spe:110},abilities:{0:"Snow Cloak",H:"Cursed Body"},heightm:1.3,weightkg:26.6,color:"White",prevo:"snorunt",evoLevel:1,eggGroups:["Fairy","Mineral"]},
-rotom:{num:479,species:"Rotom",types:["Electric","Ghost"],gender:"N",baseStats:{hp:50,atk:50,def:77,spa:95,spd:77,spe:91},abilities:{0:"Levitate"},heightm:0.3,weightkg:0.3,color:"Red",eggGroups:["Amorphous"],otherFormes:["rotomheat","rotomwash","rotomfrost","rotomfan","rotommow"]},
-rotomheat:{num:479,species:"Rotom-Heat",baseSpecies:"Rotom",forme:"Heat",formeLetter:"H",types:["Electric","Fire"],gender:"N",baseStats:{hp:50,atk:65,def:107,spa:105,spd:107,spe:86},abilities:{0:"Levitate"},heightm:0.3,weightkg:0.3,color:"Red",eggGroups:["Amorphous"]},
-rotomwash:{num:479,species:"Rotom-Wash",baseSpecies:"Rotom",forme:"Wash",formeLetter:"W",types:["Electric","Water"],gender:"N",baseStats:{hp:50,atk:65,def:107,spa:105,spd:107,spe:86},abilities:{0:"Levitate"},heightm:0.3,weightkg:0.3,color:"Red",eggGroups:["Amorphous"]},
-rotomfrost:{num:479,species:"Rotom-Frost",baseSpecies:"Rotom",forme:"Frost",formeLetter:"F",types:["Electric","Ice"],gender:"N",baseStats:{hp:50,atk:65,def:107,spa:105,spd:107,spe:86},abilities:{0:"Levitate"},heightm:0.3,weightkg:0.3,color:"Red",eggGroups:["Amorphous"]},
-rotomfan:{num:479,species:"Rotom-Fan",baseSpecies:"Rotom",forme:"Fan",formeLetter:"S",types:["Electric","Flying"],gender:"N",baseStats:{hp:50,atk:65,def:107,spa:105,spd:107,spe:86},abilities:{0:"Levitate"},heightm:0.3,weightkg:0.3,color:"Red",eggGroups:["Amorphous"]},
-rotommow:{num:479,species:"Rotom-Mow",baseSpecies:"Rotom",forme:"Mow",formeLetter:"C",types:["Electric","Grass"],gender:"N",baseStats:{hp:50,atk:65,def:107,spa:105,spd:107,spe:86},abilities:{0:"Levitate"},heightm:0.3,weightkg:0.3,color:"Red",eggGroups:["Amorphous"]},
-uxie:{num:480,species:"Uxie",types:["Psychic"],gender:"N",baseStats:{hp:75,atk:75,def:130,spa:75,spd:130,spe:95},abilities:{0:"Levitate"},heightm:0.3,weightkg:0.3,color:"Yellow",eggGroups:["Undiscovered"]},
-mesprit:{num:481,species:"Mesprit",types:["Psychic"],gender:"N",baseStats:{hp:80,atk:105,def:105,spa:105,spd:105,spe:80},abilities:{0:"Levitate"},heightm:0.3,weightkg:0.3,color:"Pink",eggGroups:["Undiscovered"]},
-azelf:{num:482,species:"Azelf",types:["Psychic"],gender:"N",baseStats:{hp:75,atk:125,def:70,spa:125,spd:70,spe:115},abilities:{0:"Levitate"},heightm:0.3,weightkg:0.3,color:"Blue",eggGroups:["Undiscovered"]},
-dialga:{num:483,species:"Dialga",types:["Steel","Dragon"],gender:"N",baseStats:{hp:100,atk:120,def:120,spa:150,spd:100,spe:90},abilities:{0:"Pressure",H:"Telepathy"},heightm:5.4,weightkg:683,color:"White",eggGroups:["Undiscovered"]},
-palkia:{num:484,species:"Palkia",types:["Water","Dragon"],gender:"N",baseStats:{hp:90,atk:120,def:100,spa:150,spd:120,spe:100},abilities:{0:"Pressure",H:"Telepathy"},heightm:4.2,weightkg:336,color:"Purple",eggGroups:["Undiscovered"]},
-heatran:{num:485,species:"Heatran",types:["Fire","Steel"],baseStats:{hp:91,atk:90,def:106,spa:130,spd:106,spe:77},abilities:{0:"Flash Fire",H:"Flame Body"},heightm:1.7,weightkg:430,color:"Brown",eggGroups:["Undiscovered"]},
-regigigas:{num:486,species:"Regigigas",types:["Normal"],gender:"N",baseStats:{hp:110,atk:160,def:110,spa:80,spd:110,spe:100},abilities:{0:"Slow Start"},heightm:3.7,weightkg:420,color:"White",eggGroups:["Undiscovered"]},
-giratina:{num:487,species:"Giratina",baseForme:"Altered",types:["Ghost","Dragon"],gender:"N",baseStats:{hp:150,atk:100,def:120,spa:100,spd:120,spe:90},abilities:{0:"Pressure",H:"Telepathy"},heightm:4.5,weightkg:750,color:"Black",eggGroups:["Undiscovered"],otherFormes:["giratinaorigin"]},
-giratinaorigin:{num:487,species:"Giratina-Origin",baseSpecies:"Giratina",forme:"Origin",formeLetter:"O",types:["Ghost","Dragon"],gender:"N",baseStats:{hp:150,atk:120,def:100,spa:120,spd:100,spe:90},abilities:{0:"Levitate"},heightm:6.9,weightkg:650,color:"Black",eggGroups:["Undiscovered"]},
-cresselia:{num:488,species:"Cresselia",types:["Psychic"],gender:"F",baseStats:{hp:120,atk:70,def:120,spa:75,spd:130,spe:85},abilities:{0:"Levitate"},heightm:1.5,weightkg:85.6,color:"Yellow",eggGroups:["Undiscovered"]},
-phione:{num:489,species:"Phione",types:["Water"],gender:"N",baseStats:{hp:80,atk:80,def:80,spa:80,spd:80,spe:80},abilities:{0:"Hydration"},heightm:0.4,weightkg:3.1,color:"Blue",eggGroups:["Water 1","Fairy"]},
-manaphy:{num:490,species:"Manaphy",types:["Water"],gender:"N",baseStats:{hp:100,atk:100,def:100,spa:100,spd:100,spe:100},abilities:{0:"Hydration"},heightm:0.3,weightkg:1.4,color:"Blue",eggGroups:["Water 1","Fairy"]},
-darkrai:{num:491,species:"Darkrai",types:["Dark"],gender:"N",baseStats:{hp:70,atk:90,def:90,spa:135,spd:90,spe:125},abilities:{0:"Bad Dreams"},heightm:1.5,weightkg:50.5,color:"Black",eggGroups:["Undiscovered"]},
-shaymin:{num:492,species:"Shaymin",baseForme:"Land",types:["Grass"],gender:"N",baseStats:{hp:100,atk:100,def:100,spa:100,spd:100,spe:100},abilities:{0:"Natural Cure"},heightm:0.2,weightkg:2.1,color:"Green",eggGroups:["Undiscovered"],otherFormes:["shayminsky"]},
-shayminsky:{num:492,species:"Shaymin-Sky",baseSpecies:"Shaymin",forme:"Sky",formeLetter:"S",types:["Grass","Flying"],gender:"N",baseStats:{hp:100,atk:103,def:75,spa:120,spd:75,spe:127},abilities:{0:"Serene Grace"},heightm:0.4,weightkg:5.2,color:"Green",eggGroups:["Undiscovered"]},
-arceus:{num:493,species:"Arceus",baseForme:"Normal",types:["Normal"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"],otherFormes:["arceusbug","arceusdark","arceusdragon","arceuselectric","arceusfairy","arceusfighting","arceusfire","arceusflying","arceusghost","arceusgrass","arceusground","arceusice","arceuspoison","arceuspsychic","arceusrock","arceussteel","arceuswater"]},
-arceusbug:{num:493,species:"Arceus-Bug",baseSpecies:"Arceus",forme:"Bug",formeLetter:"B",types:["Bug"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceusdark:{num:493,species:"Arceus-Dark",baseSpecies:"Arceus",forme:"Dark",formeLetter:"D",types:["Dark"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceusdragon:{num:493,species:"Arceus-Dragon",baseSpecies:"Arceus",forme:"Dragon",formeLetter:"D",types:["Dragon"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceuselectric:{num:493,species:"Arceus-Electric",baseSpecies:"Arceus",forme:"Electric",formeLetter:"E",types:["Electric"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceusfairy:{num:493,species:"Arceus-Fairy",baseSpecies:"Arceus",forme:"Fairy",formeLetter:"F",types:["Fairy"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceusfighting:{num:493,species:"Arceus-Fighting",baseSpecies:"Arceus",forme:"Fighting",formeLetter:"F",types:["Fighting"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceusfire:{num:493,species:"Arceus-Fire",baseSpecies:"Arceus",forme:"Fire",formeLetter:"F",types:["Fire"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceusflying:{num:493,species:"Arceus-Flying",baseSpecies:"Arceus",forme:"Flying",formeLetter:"F",types:["Flying"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceusghost:{num:493,species:"Arceus-Ghost",baseSpecies:"Arceus",forme:"Ghost",formeLetter:"G",types:["Ghost"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceusgrass:{num:493,species:"Arceus-Grass",baseSpecies:"Arceus",forme:"Grass",formeLetter:"G",types:["Grass"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceusground:{num:493,species:"Arceus-Ground",baseSpecies:"Arceus",forme:"Ground",formeLetter:"G",types:["Ground"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceusice:{num:493,species:"Arceus-Ice",baseSpecies:"Arceus",forme:"Ice",formeLetter:"I",types:["Ice"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceuspoison:{num:493,species:"Arceus-Poison",baseSpecies:"Arceus",forme:"Poison",formeLetter:"P",types:["Poison"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceuspsychic:{num:493,species:"Arceus-Psychic",baseSpecies:"Arceus",forme:"Psychic",formeLetter:"P",types:["Psychic"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceusrock:{num:493,species:"Arceus-Rock",baseSpecies:"Arceus",forme:"Rock",formeLetter:"R",types:["Rock"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceussteel:{num:493,species:"Arceus-Steel",baseSpecies:"Arceus",forme:"Steel",formeLetter:"S",types:["Steel"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-arceuswater:{num:493,species:"Arceus-Water",baseSpecies:"Arceus",forme:"Water",formeLetter:"W",types:["Water"],gender:"N",baseStats:{hp:120,atk:120,def:120,spa:120,spd:120,spe:120},abilities:{0:"Multitype"},heightm:3.2,weightkg:320,color:"Gray",eggGroups:["Undiscovered"]},
-victini:{num:494,species:"Victini",types:["Psychic","Fire"],gender:"N",baseStats:{hp:100,atk:100,def:100,spa:100,spd:100,spe:100},abilities:{0:"Victory Star"},heightm:0.4,weightkg:4,color:"Yellow",eggGroups:["Undiscovered"]},
-snivy:{num:495,species:"Snivy",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:45,atk:45,def:55,spa:45,spd:55,spe:63},abilities:{0:"Overgrow",H:"Contrary"},heightm:0.6,weightkg:8.1,color:"Green",evos:["servine"],eggGroups:["Field","Grass"]},
-servine:{num:496,species:"Servine",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:60,atk:60,def:75,spa:60,spd:75,spe:83},abilities:{0:"Overgrow",H:"Contrary"},heightm:0.8,weightkg:16,color:"Green",prevo:"snivy",evos:["serperior"],evoLevel:17,eggGroups:["Field","Grass"]},
-serperior:{num:497,species:"Serperior",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:75,atk:75,def:95,spa:75,spd:95,spe:113},abilities:{0:"Overgrow",H:"Contrary"},heightm:3.3,weightkg:63,color:"Green",prevo:"servine",evoLevel:36,eggGroups:["Field","Grass"]},
-tepig:{num:498,species:"Tepig",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:65,atk:63,def:45,spa:45,spd:45,spe:45},abilities:{0:"Blaze",H:"Thick Fat"},heightm:0.5,weightkg:9.9,color:"Red",evos:["pignite"],eggGroups:["Field"]},
-pignite:{num:499,species:"Pignite",types:["Fire","Fighting"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:90,atk:93,def:55,spa:70,spd:55,spe:55},abilities:{0:"Blaze",H:"Thick Fat"},heightm:1,weightkg:55.5,color:"Red",prevo:"tepig",evos:["emboar"],evoLevel:17,eggGroups:["Field"]},
-emboar:{num:500,species:"Emboar",types:["Fire","Fighting"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:110,atk:123,def:65,spa:100,spd:65,spe:65},abilities:{0:"Blaze",H:"Reckless"},heightm:1.6,weightkg:150,color:"Red",prevo:"pignite",evoLevel:36,eggGroups:["Field"]},
-oshawott:{num:501,species:"Oshawott",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:55,atk:55,def:45,spa:63,spd:45,spe:45},abilities:{0:"Torrent",H:"Shell Armor"},heightm:0.5,weightkg:5.9,color:"Blue",evos:["dewott"],eggGroups:["Field"]},
-dewott:{num:502,species:"Dewott",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:75,atk:75,def:60,spa:83,spd:60,spe:60},abilities:{0:"Torrent",H:"Shell Armor"},heightm:0.8,weightkg:24.5,color:"Blue",prevo:"oshawott",evos:["samurott"],evoLevel:17,eggGroups:["Field"]},
-samurott:{num:503,species:"Samurott",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:95,atk:100,def:85,spa:108,spd:70,spe:70},abilities:{0:"Torrent",H:"Shell Armor"},heightm:1.5,weightkg:94.6,color:"Blue",prevo:"dewott",evoLevel:36,eggGroups:["Field"]},
-patrat:{num:504,species:"Patrat",types:["Normal"],baseStats:{hp:45,atk:55,def:39,spa:35,spd:39,spe:42},abilities:{0:"Run Away",1:"Keen Eye",H:"Analytic"},heightm:0.5,weightkg:11.6,color:"Brown",evos:["watchog"],eggGroups:["Field"]},
-watchog:{num:505,species:"Watchog",types:["Normal"],baseStats:{hp:60,atk:85,def:69,spa:60,spd:69,spe:77},abilities:{0:"Illuminate",1:"Keen Eye",H:"Analytic"},heightm:1.1,weightkg:27,color:"Brown",prevo:"patrat",evoLevel:20,eggGroups:["Field"]},
-lillipup:{num:506,species:"Lillipup",types:["Normal"],baseStats:{hp:45,atk:60,def:45,spa:25,spd:45,spe:55},abilities:{0:"Vital Spirit",1:"Pickup",H:"Run Away"},heightm:0.4,weightkg:4.1,color:"Brown",evos:["herdier"],eggGroups:["Field"]},
-herdier:{num:507,species:"Herdier",types:["Normal"],baseStats:{hp:65,atk:80,def:65,spa:35,spd:65,spe:60},abilities:{0:"Intimidate",1:"Sand Rush",H:"Scrappy"},heightm:0.9,weightkg:14.7,color:"Gray",prevo:"lillipup",evos:["stoutland"],evoLevel:16,eggGroups:["Field"]},
-stoutland:{num:508,species:"Stoutland",types:["Normal"],baseStats:{hp:85,atk:110,def:90,spa:45,spd:90,spe:80},abilities:{0:"Intimidate",1:"Sand Rush",H:"Scrappy"},heightm:1.2,weightkg:61,color:"Gray",prevo:"herdier",evoLevel:32,eggGroups:["Field"]},
-purrloin:{num:509,species:"Purrloin",types:["Dark"],baseStats:{hp:41,atk:50,def:37,spa:50,spd:37,spe:66},abilities:{0:"Limber",1:"Unburden",H:"Prankster"},heightm:0.4,weightkg:10.1,color:"Purple",evos:["liepard"],eggGroups:["Field"]},
-liepard:{num:510,species:"Liepard",types:["Dark"],baseStats:{hp:64,atk:88,def:50,spa:88,spd:50,spe:106},abilities:{0:"Limber",1:"Unburden",H:"Prankster"},heightm:1.1,weightkg:37.5,color:"Purple",prevo:"purrloin",evoLevel:20,eggGroups:["Field"]},
-pansage:{num:511,species:"Pansage",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:50,atk:53,def:48,spa:53,spd:48,spe:64},abilities:{0:"Gluttony",H:"Overgrow"},heightm:0.6,weightkg:10.5,color:"Green",evos:["simisage"],eggGroups:["Field"]},
-simisage:{num:512,species:"Simisage",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:75,atk:98,def:63,spa:98,spd:63,spe:101},abilities:{0:"Gluttony",H:"Overgrow"},heightm:1.1,weightkg:30.5,color:"Green",prevo:"pansage",evoLevel:1,eggGroups:["Field"]},
-pansear:{num:513,species:"Pansear",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:50,atk:53,def:48,spa:53,spd:48,spe:64},abilities:{0:"Gluttony",H:"Blaze"},heightm:0.6,weightkg:11,color:"Red",evos:["simisear"],eggGroups:["Field"]},
-simisear:{num:514,species:"Simisear",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:75,atk:98,def:63,spa:98,spd:63,spe:101},abilities:{0:"Gluttony",H:"Blaze"},heightm:1,weightkg:28,color:"Red",prevo:"pansear",evoLevel:1,eggGroups:["Field"]},
-panpour:{num:515,species:"Panpour",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:50,atk:53,def:48,spa:53,spd:48,spe:64},abilities:{0:"Gluttony",H:"Torrent"},heightm:0.6,weightkg:13.5,color:"Blue",evos:["simipour"],eggGroups:["Field"]},
-simipour:{num:516,species:"Simipour",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:75,atk:98,def:63,spa:98,spd:63,spe:101},abilities:{0:"Gluttony",H:"Torrent"},heightm:1,weightkg:29,color:"Blue",prevo:"panpour",evoLevel:1,eggGroups:["Field"]},
-munna:{num:517,species:"Munna",types:["Psychic"],baseStats:{hp:76,atk:25,def:45,spa:67,spd:55,spe:24},abilities:{0:"Forewarn",1:"Synchronize",H:"Telepathy"},heightm:0.6,weightkg:23.3,color:"Pink",evos:["musharna"],eggGroups:["Field"]},
-musharna:{num:518,species:"Musharna",types:["Psychic"],baseStats:{hp:116,atk:55,def:85,spa:107,spd:95,spe:29},abilities:{0:"Forewarn",1:"Synchronize",H:"Telepathy"},heightm:1.1,weightkg:60.5,color:"Pink",prevo:"munna",evoLevel:1,eggGroups:["Field"]},
-pidove:{num:519,species:"Pidove",types:["Normal","Flying"],baseStats:{hp:50,atk:55,def:50,spa:36,spd:30,spe:43},abilities:{0:"Big Pecks",1:"Super Luck",H:"Rivalry"},heightm:0.3,weightkg:2.1,color:"Gray",evos:["tranquill"],eggGroups:["Flying"]},
-tranquill:{num:520,species:"Tranquill",types:["Normal","Flying"],baseStats:{hp:62,atk:77,def:62,spa:50,spd:42,spe:65},abilities:{0:"Big Pecks",1:"Super Luck",H:"Rivalry"},heightm:0.6,weightkg:15,color:"Gray",prevo:"pidove",evos:["unfezant"],evoLevel:21,eggGroups:["Flying"]},
-unfezant:{num:521,species:"Unfezant",types:["Normal","Flying"],baseStats:{hp:80,atk:115,def:80,spa:65,spd:55,spe:93},abilities:{0:"Big Pecks",1:"Super Luck",H:"Rivalry"},heightm:1.2,weightkg:29,color:"Gray",prevo:"tranquill",evoLevel:32,eggGroups:["Flying"]},
-blitzle:{num:522,species:"Blitzle",types:["Electric"],baseStats:{hp:45,atk:60,def:32,spa:50,spd:32,spe:76},abilities:{0:"Lightningrod",1:"Motor Drive",H:"Sap Sipper"},heightm:0.8,weightkg:29.8,color:"Black",evos:["zebstrika"],eggGroups:["Field"]},
-zebstrika:{num:523,species:"Zebstrika",types:["Electric"],baseStats:{hp:75,atk:100,def:63,spa:80,spd:63,spe:116},abilities:{0:"Lightningrod",1:"Motor Drive",H:"Sap Sipper"},heightm:1.6,weightkg:79.5,color:"Black",prevo:"blitzle",evoLevel:27,eggGroups:["Field"]},
-roggenrola:{num:524,species:"Roggenrola",types:["Rock"],baseStats:{hp:55,atk:75,def:85,spa:25,spd:25,spe:15},abilities:{0:"Sturdy",H:"Sand Force"},heightm:0.4,weightkg:18,color:"Blue",evos:["boldore"],eggGroups:["Mineral"]},
-boldore:{num:525,species:"Boldore",types:["Rock"],baseStats:{hp:70,atk:105,def:105,spa:50,spd:40,spe:20},abilities:{0:"Sturdy",H:"Sand Force"},heightm:0.9,weightkg:102,color:"Blue",prevo:"roggenrola",evos:["gigalith"],evoLevel:25,eggGroups:["Mineral"]},
-gigalith:{num:526,species:"Gigalith",types:["Rock"],baseStats:{hp:85,atk:135,def:130,spa:60,spd:80,spe:25},abilities:{0:"Sturdy",H:"Sand Force"},heightm:1.7,weightkg:260,color:"Blue",prevo:"boldore",evoLevel:25,eggGroups:["Mineral"]},
-woobat:{num:527,species:"Woobat",types:["Psychic","Flying"],baseStats:{hp:55,atk:45,def:43,spa:55,spd:43,spe:72},abilities:{0:"Unaware",1:"Klutz",H:"Simple"},heightm:0.4,weightkg:2.1,color:"Blue",evos:["swoobat"],eggGroups:["Flying","Field"]},
-swoobat:{num:528,species:"Swoobat",types:["Psychic","Flying"],baseStats:{hp:67,atk:57,def:55,spa:77,spd:55,spe:114},abilities:{0:"Unaware",1:"Klutz",H:"Simple"},heightm:0.9,weightkg:10.5,color:"Blue",prevo:"woobat",evoLevel:2,eggGroups:["Flying","Field"]},
-drilbur:{num:529,species:"Drilbur",types:["Ground"],baseStats:{hp:60,atk:85,def:40,spa:30,spd:45,spe:68},abilities:{0:"Sand Rush",1:"Sand Force",H:"Mold Breaker"},heightm:0.3,weightkg:8.5,color:"Gray",evos:["excadrill"],eggGroups:["Field"]},
-excadrill:{num:530,species:"Excadrill",types:["Ground","Steel"],baseStats:{hp:110,atk:135,def:60,spa:50,spd:65,spe:88},abilities:{0:"Sand Rush",1:"Sand Force",H:"Mold Breaker"},heightm:0.7,weightkg:40.4,color:"Gray",prevo:"drilbur",evoLevel:31,eggGroups:["Field"]},
-audino:{num:531,species:"Audino",types:["Normal"],baseStats:{hp:103,atk:60,def:86,spa:60,spd:86,spe:50},abilities:{0:"Healer",1:"Regenerator",H:"Klutz"},heightm:1.1,weightkg:31,color:"Pink",eggGroups:["Fairy"]},
-timburr:{num:532,species:"Timburr",types:["Fighting"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:75,atk:80,def:55,spa:25,spd:35,spe:35},abilities:{0:"Guts",1:"Sheer Force",H:"Iron Fist"},heightm:0.6,weightkg:12.5,color:"Gray",evos:["gurdurr"],eggGroups:["Human-Like"]},
-gurdurr:{num:533,species:"Gurdurr",types:["Fighting"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:85,atk:105,def:85,spa:40,spd:50,spe:40},abilities:{0:"Guts",1:"Sheer Force",H:"Iron Fist"},heightm:1.2,weightkg:40,color:"Gray",prevo:"timburr",evos:["conkeldurr"],evoLevel:25,eggGroups:["Human-Like"]},
-conkeldurr:{num:534,species:"Conkeldurr",types:["Fighting"],genderRatio:{M:0.75,F:0.25},baseStats:{hp:105,atk:140,def:95,spa:55,spd:65,spe:45},abilities:{0:"Guts",1:"Sheer Force",H:"Iron Fist"},heightm:1.4,weightkg:87,color:"Brown",prevo:"gurdurr",evoLevel:25,eggGroups:["Human-Like"]},
-tympole:{num:535,species:"Tympole",types:["Water"],baseStats:{hp:50,atk:50,def:40,spa:50,spd:40,spe:64},abilities:{0:"Swift Swim",1:"Hydration",H:"Water Absorb"},heightm:0.5,weightkg:4.5,color:"Blue",evos:["palpitoad"],eggGroups:["Water 1"]},
-palpitoad:{num:536,species:"Palpitoad",types:["Water","Ground"],baseStats:{hp:75,atk:65,def:55,spa:65,spd:55,spe:69},abilities:{0:"Swift Swim",1:"Hydration",H:"Water Absorb"},heightm:0.8,weightkg:17,color:"Blue",prevo:"tympole",evos:["seismitoad"],evoLevel:25,eggGroups:["Water 1"]},
-seismitoad:{num:537,species:"Seismitoad",types:["Water","Ground"],baseStats:{hp:105,atk:95,def:75,spa:85,spd:75,spe:74},abilities:{0:"Swift Swim",1:"Poison Touch",H:"Water Absorb"},heightm:1.5,weightkg:62,color:"Blue",prevo:"palpitoad",evoLevel:36,eggGroups:["Water 1"]},
-throh:{num:538,species:"Throh",types:["Fighting"],gender:"M",baseStats:{hp:120,atk:100,def:85,spa:30,spd:85,spe:45},abilities:{0:"Guts",1:"Inner Focus",H:"Mold Breaker"},heightm:1.3,weightkg:55.5,color:"Red",eggGroups:["Human-Like"]},
-sawk:{num:539,species:"Sawk",types:["Fighting"],gender:"M",baseStats:{hp:75,atk:125,def:75,spa:30,spd:75,spe:85},abilities:{0:"Sturdy",1:"Inner Focus",H:"Mold Breaker"},heightm:1.4,weightkg:51,color:"Blue",eggGroups:["Human-Like"]},
-sewaddle:{num:540,species:"Sewaddle",types:["Bug","Grass"],baseStats:{hp:45,atk:53,def:70,spa:40,spd:60,spe:42},abilities:{0:"Swarm",1:"Chlorophyll",H:"Overcoat"},heightm:0.3,weightkg:2.5,color:"Yellow",evos:["swadloon"],eggGroups:["Bug"]},
-swadloon:{num:541,species:"Swadloon",types:["Bug","Grass"],baseStats:{hp:55,atk:63,def:90,spa:50,spd:80,spe:42},abilities:{0:"Leaf Guard",1:"Chlorophyll",H:"Overcoat"},heightm:0.5,weightkg:7.3,color:"Green",prevo:"sewaddle",evos:["leavanny"],evoLevel:20,eggGroups:["Bug"]},
-leavanny:{num:542,species:"Leavanny",types:["Bug","Grass"],baseStats:{hp:75,atk:103,def:80,spa:70,spd:80,spe:92},abilities:{0:"Swarm",1:"Chlorophyll",H:"Overcoat"},heightm:1.2,weightkg:20.5,color:"Yellow",prevo:"swadloon",evoLevel:21,eggGroups:["Bug"]},
-venipede:{num:543,species:"Venipede",types:["Bug","Poison"],baseStats:{hp:30,atk:45,def:59,spa:30,spd:39,spe:57},abilities:{0:"Poison Point",1:"Swarm",H:"Speed Boost"},heightm:0.4,weightkg:5.3,color:"Red",evos:["whirlipede"],eggGroups:["Bug"]},
-whirlipede:{num:544,species:"Whirlipede",types:["Bug","Poison"],baseStats:{hp:40,atk:55,def:99,spa:40,spd:79,spe:47},abilities:{0:"Poison Point",1:"Swarm",H:"Speed Boost"},heightm:1.2,weightkg:58.5,color:"Gray",prevo:"venipede",evos:["scolipede"],evoLevel:22,eggGroups:["Bug"]},
-scolipede:{num:545,species:"Scolipede",types:["Bug","Poison"],baseStats:{hp:60,atk:100,def:89,spa:55,spd:69,spe:112},abilities:{0:"Poison Point",1:"Swarm",H:"Speed Boost"},heightm:2.5,weightkg:200.5,color:"Red",prevo:"whirlipede",evoLevel:30,eggGroups:["Bug"]},
-cottonee:{num:546,species:"Cottonee",types:["Grass","Fairy"],baseStats:{hp:40,atk:27,def:60,spa:37,spd:50,spe:66},abilities:{0:"Prankster",1:"Infiltrator",H:"Chlorophyll"},heightm:0.3,weightkg:0.6,color:"Green",evos:["whimsicott"],eggGroups:["Fairy","Grass"]},
-whimsicott:{num:547,species:"Whimsicott",types:["Grass","Fairy"],baseStats:{hp:60,atk:67,def:85,spa:77,spd:75,spe:116},abilities:{0:"Prankster",1:"Infiltrator",H:"Chlorophyll"},heightm:0.7,weightkg:6.6,color:"Green",prevo:"cottonee",evoLevel:1,eggGroups:["Fairy","Grass"]},
-petilil:{num:548,species:"Petilil",types:["Grass"],gender:"F",baseStats:{hp:45,atk:35,def:50,spa:70,spd:50,spe:30},abilities:{0:"Chlorophyll",1:"Own Tempo",H:"Leaf Guard"},heightm:0.5,weightkg:6.6,color:"Green",evos:["lilligant"],eggGroups:["Grass"]},
-lilligant:{num:549,species:"Lilligant",types:["Grass"],gender:"F",baseStats:{hp:70,atk:60,def:75,spa:110,spd:75,spe:90},abilities:{0:"Chlorophyll",1:"Own Tempo",H:"Leaf Guard"},heightm:1.1,weightkg:16.3,color:"Green",prevo:"petilil",evoLevel:1,eggGroups:["Grass"]},
-basculin:{num:550,species:"Basculin",baseForme:"Red-Striped",types:["Water"],baseStats:{hp:70,atk:92,def:65,spa:80,spd:55,spe:98},abilities:{0:"Reckless",1:"Adaptability",H:"Mold Breaker"},heightm:1,weightkg:18,color:"Green",eggGroups:["Water 2"],otherFormes:["basculinbluestriped"]},
-basculinbluestriped:{num:550,species:"Basculin-Blue-Striped",baseSpecies:"Basculin",forme:"Blue-Striped",formeLetter:"B",types:["Water"],baseStats:{hp:70,atk:92,def:65,spa:80,spd:55,spe:98},abilities:{0:"Rock Head",1:"Adaptability",H:"Mold Breaker"},heightm:1,weightkg:18,color:"Green",eggGroups:["Water 2"]},
-sandile:{num:551,species:"Sandile",types:["Ground","Dark"],baseStats:{hp:50,atk:72,def:35,spa:35,spd:35,spe:65},abilities:{0:"Intimidate",1:"Moxie",H:"Anger Point"},heightm:0.7,weightkg:15.2,color:"Brown",evos:["krokorok"],eggGroups:["Field"]},
-krokorok:{num:552,species:"Krokorok",types:["Ground","Dark"],baseStats:{hp:60,atk:82,def:45,spa:45,spd:45,spe:74},abilities:{0:"Intimidate",1:"Moxie",H:"Anger Point"},heightm:1,weightkg:33.4,color:"Brown",prevo:"sandile",evos:["krookodile"],evoLevel:29,eggGroups:["Field"]},
-krookodile:{num:553,species:"Krookodile",types:["Ground","Dark"],baseStats:{hp:95,atk:117,def:80,spa:65,spd:70,spe:92},abilities:{0:"Intimidate",1:"Moxie",H:"Anger Point"},heightm:1.5,weightkg:96.3,color:"Red",prevo:"krokorok",evoLevel:40,eggGroups:["Field"]},
-darumaka:{num:554,species:"Darumaka",types:["Fire"],baseStats:{hp:70,atk:90,def:45,spa:15,spd:45,spe:50},abilities:{0:"Hustle",H:"Inner Focus"},heightm:0.6,weightkg:37.5,color:"Red",evos:["darmanitan"],eggGroups:["Field"]},
-darmanitan:{num:555,species:"Darmanitan",baseForme:"Standard",types:["Fire"],baseStats:{hp:105,atk:140,def:55,spa:30,spd:55,spe:95},abilities:{0:"Sheer Force",H:"Zen Mode"},heightm:1.3,weightkg:92.9,color:"Red",prevo:"darumaka",evoLevel:35,eggGroups:["Field"],otherFormes:["darmanitanzen"]},
-darmanitanzen:{num:555,species:"Darmanitan-Zen",baseSpecies:"Darmanitan",forme:"Zen",formeLetter:"Z",types:["Fire","Psychic"],baseStats:{hp:105,atk:30,def:105,spa:140,spd:105,spe:55},abilities:{0:"Sheer Force",H:"Zen Mode"},heightm:1.3,weightkg:92.9,color:"Red",prevo:"darumaka",evoLevel:35,eggGroups:["Field"]},
-maractus:{num:556,species:"Maractus",types:["Grass"],baseStats:{hp:75,atk:86,def:67,spa:106,spd:67,spe:60},abilities:{0:"Water Absorb",1:"Chlorophyll",H:"Storm Drain"},heightm:1,weightkg:28,color:"Green",eggGroups:["Grass"]},
-dwebble:{num:557,species:"Dwebble",types:["Bug","Rock"],baseStats:{hp:50,atk:65,def:85,spa:35,spd:35,spe:55},abilities:{0:"Sturdy",1:"Shell Armor",H:"Weak Armor"},heightm:0.3,weightkg:14.5,color:"Red",evos:["crustle"],eggGroups:["Bug","Mineral"]},
-crustle:{num:558,species:"Crustle",types:["Bug","Rock"],baseStats:{hp:70,atk:95,def:125,spa:65,spd:75,spe:45},abilities:{0:"Sturdy",1:"Shell Armor",H:"Weak Armor"},heightm:1.4,weightkg:200,color:"Red",prevo:"dwebble",evoLevel:34,eggGroups:["Bug","Mineral"]},
-scraggy:{num:559,species:"Scraggy",types:["Dark","Fighting"],baseStats:{hp:50,atk:75,def:70,spa:35,spd:70,spe:48},abilities:{0:"Shed Skin",1:"Moxie",H:"Intimidate"},heightm:0.6,weightkg:11.8,color:"Yellow",evos:["scrafty"],eggGroups:["Field","Dragon"]},
-scrafty:{num:560,species:"Scrafty",types:["Dark","Fighting"],baseStats:{hp:65,atk:90,def:115,spa:45,spd:115,spe:58},abilities:{0:"Shed Skin",1:"Moxie",H:"Intimidate"},heightm:1.1,weightkg:30,color:"Red",prevo:"scraggy",evoLevel:39,eggGroups:["Field","Dragon"]},
-sigilyph:{num:561,species:"Sigilyph",types:["Psychic","Flying"],baseStats:{hp:72,atk:58,def:80,spa:103,spd:80,spe:97},abilities:{0:"Wonder Skin",1:"Magic Guard",H:"Tinted Lens"},heightm:1.4,weightkg:14,color:"Black",eggGroups:["Flying"]},
-yamask:{num:562,species:"Yamask",types:["Ghost"],baseStats:{hp:38,atk:30,def:85,spa:55,spd:65,spe:30},abilities:{0:"Mummy"},heightm:0.5,weightkg:1.5,color:"Black",evos:["cofagrigus"],eggGroups:["Mineral","Amorphous"]},
-cofagrigus:{num:563,species:"Cofagrigus",types:["Ghost"],baseStats:{hp:58,atk:50,def:145,spa:95,spd:105,spe:30},abilities:{0:"Mummy"},heightm:1.7,weightkg:76.5,color:"Yellow",prevo:"yamask",evoLevel:34,eggGroups:["Mineral","Amorphous"]},
-tirtouga:{num:564,species:"Tirtouga",types:["Water","Rock"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:54,atk:78,def:103,spa:53,spd:45,spe:22},abilities:{0:"Solid Rock",1:"Sturdy",H:"Swift Swim"},heightm:0.7,weightkg:16.5,color:"Blue",evos:["carracosta"],eggGroups:["Water 1","Water 3"]},
-carracosta:{num:565,species:"Carracosta",types:["Water","Rock"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:74,atk:108,def:133,spa:83,spd:65,spe:32},abilities:{0:"Solid Rock",1:"Sturdy",H:"Swift Swim"},heightm:1.2,weightkg:81,color:"Blue",prevo:"tirtouga",evoLevel:37,eggGroups:["Water 1","Water 3"]},
-archen:{num:566,species:"Archen",types:["Rock","Flying"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:55,atk:112,def:45,spa:74,spd:45,spe:70},abilities:{0:"Defeatist"},heightm:0.5,weightkg:9.5,color:"Yellow",evos:["archeops"],eggGroups:["Flying","Water 3"]},
-archeops:{num:567,species:"Archeops",types:["Rock","Flying"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:75,atk:140,def:65,spa:112,spd:65,spe:110},abilities:{0:"Defeatist"},heightm:1.4,weightkg:32,color:"Yellow",prevo:"archen",evoLevel:37,eggGroups:["Flying","Water 3"]},
-trubbish:{num:568,species:"Trubbish",types:["Poison"],baseStats:{hp:50,atk:50,def:62,spa:40,spd:62,spe:65},abilities:{0:"Stench",1:"Sticky Hold",H:"Aftermath"},heightm:0.6,weightkg:31,color:"Green",evos:["garbodor"],eggGroups:["Mineral"]},
-garbodor:{num:569,species:"Garbodor",types:["Poison"],baseStats:{hp:80,atk:95,def:82,spa:60,spd:82,spe:75},abilities:{0:"Stench",1:"Weak Armor",H:"Aftermath"},heightm:1.9,weightkg:107.3,color:"Green",prevo:"trubbish",evoLevel:36,eggGroups:["Mineral"]},
-zorua:{num:570,species:"Zorua",types:["Dark"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:40,atk:65,def:40,spa:80,spd:40,spe:65},abilities:{0:"Illusion"},heightm:0.7,weightkg:12.5,color:"Gray",evos:["zoroark"],eggGroups:["Field"]},
-zoroark:{num:571,species:"Zoroark",types:["Dark"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:60,atk:105,def:60,spa:120,spd:60,spe:105},abilities:{0:"Illusion"},heightm:1.6,weightkg:81.1,color:"Gray",prevo:"zorua",evoLevel:30,eggGroups:["Field"]},
-minccino:{num:572,species:"Minccino",types:["Normal"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:55,atk:50,def:40,spa:40,spd:40,spe:75},abilities:{0:"Cute Charm",1:"Technician",H:"Skill Link"},heightm:0.4,weightkg:5.8,color:"Gray",evos:["cinccino"],eggGroups:["Field"]},
-cinccino:{num:573,species:"Cinccino",types:["Normal"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:75,atk:95,def:60,spa:65,spd:60,spe:115},abilities:{0:"Cute Charm",1:"Technician",H:"Skill Link"},heightm:0.5,weightkg:7.5,color:"Gray",prevo:"minccino",evoLevel:1,eggGroups:["Field"]},
-gothita:{num:574,species:"Gothita",types:["Psychic"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:45,atk:30,def:50,spa:55,spd:65,spe:45},abilities:{0:"Frisk",1:"Competitive",H:"Shadow Tag"},heightm:0.4,weightkg:5.8,color:"Purple",evos:["gothorita"],eggGroups:["Human-Like"]},
-gothorita:{num:575,species:"Gothorita",types:["Psychic"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:60,atk:45,def:70,spa:75,spd:85,spe:55},abilities:{0:"Frisk",1:"Competitive",H:"Shadow Tag"},heightm:0.7,weightkg:18,color:"Purple",prevo:"gothita",evos:["gothitelle"],evoLevel:32,eggGroups:["Human-Like"]},
-gothitelle:{num:576,species:"Gothitelle",types:["Psychic"],genderRatio:{M:0.25,F:0.75},baseStats:{hp:70,atk:55,def:95,spa:95,spd:110,spe:65},abilities:{0:"Frisk",1:"Competitive",H:"Shadow Tag"},heightm:1.5,weightkg:44,color:"Purple",prevo:"gothorita",evoLevel:41,eggGroups:["Human-Like"]},
-solosis:{num:577,species:"Solosis",types:["Psychic"],baseStats:{hp:45,atk:30,def:40,spa:105,spd:50,spe:20},abilities:{0:"Overcoat",1:"Magic Guard",H:"Regenerator"},heightm:0.3,weightkg:1,color:"Green",evos:["duosion"],eggGroups:["Amorphous"]},
-duosion:{num:578,species:"Duosion",types:["Psychic"],baseStats:{hp:65,atk:40,def:50,spa:125,spd:60,spe:30},abilities:{0:"Overcoat",1:"Magic Guard",H:"Regenerator"},heightm:0.6,weightkg:8,color:"Green",prevo:"solosis",evos:["reuniclus"],evoLevel:32,eggGroups:["Amorphous"]},
-reuniclus:{num:579,species:"Reuniclus",types:["Psychic"],baseStats:{hp:110,atk:65,def:75,spa:125,spd:85,spe:30},abilities:{0:"Overcoat",1:"Magic Guard",H:"Regenerator"},heightm:1,weightkg:20.1,color:"Green",prevo:"duosion",evoLevel:41,eggGroups:["Amorphous"]},
-ducklett:{num:580,species:"Ducklett",types:["Water","Flying"],baseStats:{hp:62,atk:44,def:50,spa:44,spd:50,spe:55},abilities:{0:"Keen Eye",1:"Big Pecks",H:"Hydration"},heightm:0.5,weightkg:5.5,color:"Blue",evos:["swanna"],eggGroups:["Water 1","Flying"]},
-swanna:{num:581,species:"Swanna",types:["Water","Flying"],baseStats:{hp:75,atk:87,def:63,spa:87,spd:63,spe:98},abilities:{0:"Keen Eye",1:"Big Pecks",H:"Hydration"},heightm:1.3,weightkg:24.2,color:"White",prevo:"ducklett",evoLevel:35,eggGroups:["Water 1","Flying"]},
-vanillite:{num:582,species:"Vanillite",types:["Ice"],baseStats:{hp:36,atk:50,def:50,spa:65,spd:60,spe:44},abilities:{0:"Ice Body",H:"Weak Armor"},heightm:0.4,weightkg:5.7,color:"White",evos:["vanillish"],eggGroups:["Mineral"]},
-vanillish:{num:583,species:"Vanillish",types:["Ice"],baseStats:{hp:51,atk:65,def:65,spa:80,spd:75,spe:59},abilities:{0:"Ice Body",H:"Weak Armor"},heightm:1.1,weightkg:41,color:"White",prevo:"vanillite",evos:["vanilluxe"],evoLevel:35,eggGroups:["Mineral"]},
-vanilluxe:{num:584,species:"Vanilluxe",types:["Ice"],baseStats:{hp:71,atk:95,def:85,spa:110,spd:95,spe:79},abilities:{0:"Ice Body",H:"Weak Armor"},heightm:1.3,weightkg:57.5,color:"White",prevo:"vanillish",evoLevel:47,eggGroups:["Mineral"]},
-deerling:{num:585,species:"Deerling",baseForme:"Spring",types:["Normal","Grass"],baseStats:{hp:60,atk:60,def:50,spa:40,spd:50,spe:75},abilities:{0:"Chlorophyll",1:"Sap Sipper",H:"Serene Grace"},heightm:0.6,weightkg:19.5,color:"Yellow",evos:["sawsbuck"],eggGroups:["Field"],otherForms:["deerlingsummer","deerlingautumn","deerlingwinter"]},
-sawsbuck:{num:586,species:"Sawsbuck",baseForme:"Spring",types:["Normal","Grass"],baseStats:{hp:80,atk:100,def:70,spa:60,spd:70,spe:95},abilities:{0:"Chlorophyll",1:"Sap Sipper",H:"Serene Grace"},heightm:1.9,weightkg:92.5,color:"Brown",prevo:"deerling",evoLevel:34,eggGroups:["Field"],otherForms:["sawsbucksummer","sawsbuckautumn","sawsbuckwinter"]},
-emolga:{num:587,species:"Emolga",types:["Electric","Flying"],baseStats:{hp:55,atk:75,def:60,spa:75,spd:60,spe:103},abilities:{0:"Static",H:"Motor Drive"},heightm:0.4,weightkg:5,color:"White",eggGroups:["Field"]},
-karrablast:{num:588,species:"Karrablast",types:["Bug"],baseStats:{hp:50,atk:75,def:45,spa:40,spd:45,spe:60},abilities:{0:"Swarm",1:"Shed Skin",H:"No Guard"},heightm:0.5,weightkg:5.9,color:"Blue",evos:["escavalier"],eggGroups:["Bug"]},
-escavalier:{num:589,species:"Escavalier",types:["Bug","Steel"],baseStats:{hp:70,atk:135,def:105,spa:60,spd:105,spe:20},abilities:{0:"Swarm",1:"Shell Armor",H:"Overcoat"},heightm:1,weightkg:33,color:"Gray",prevo:"karrablast",evoLevel:1,eggGroups:["Bug"]},
-foongus:{num:590,species:"Foongus",types:["Grass","Poison"],baseStats:{hp:69,atk:55,def:45,spa:55,spd:55,spe:15},abilities:{0:"Effect Spore",H:"Regenerator"},heightm:0.2,weightkg:1,color:"White",evos:["amoonguss"],eggGroups:["Grass"]},
-amoonguss:{num:591,species:"Amoonguss",types:["Grass","Poison"],baseStats:{hp:114,atk:85,def:70,spa:85,spd:80,spe:30},abilities:{0:"Effect Spore",H:"Regenerator"},heightm:0.6,weightkg:10.5,color:"White",prevo:"foongus",evoLevel:39,eggGroups:["Grass"]},
-frillish:{num:592,species:"Frillish",types:["Water","Ghost"],baseStats:{hp:55,atk:40,def:50,spa:65,spd:85,spe:40},abilities:{0:"Water Absorb",1:"Cursed Body",H:"Damp"},heightm:1.2,weightkg:33,color:"White",evos:["jellicent"],eggGroups:["Amorphous"]},
-jellicent:{num:593,species:"Jellicent",types:["Water","Ghost"],baseStats:{hp:100,atk:60,def:70,spa:85,spd:105,spe:60},abilities:{0:"Water Absorb",1:"Cursed Body",H:"Damp"},heightm:2.2,weightkg:135,color:"White",prevo:"frillish",evoLevel:40,eggGroups:["Amorphous"]},
-alomomola:{num:594,species:"Alomomola",types:["Water"],baseStats:{hp:165,atk:75,def:80,spa:40,spd:45,spe:65},abilities:{0:"Healer",1:"Hydration",H:"Regenerator"},heightm:1.2,weightkg:31.6,color:"Pink",eggGroups:["Water 1","Water 2"]},
-joltik:{num:595,species:"Joltik",types:["Bug","Electric"],baseStats:{hp:50,atk:47,def:50,spa:57,spd:50,spe:65},abilities:{0:"Compound Eyes",1:"Unnerve",H:"Swarm"},heightm:0.1,weightkg:0.6,color:"Yellow",evos:["galvantula"],eggGroups:["Bug"]},
-galvantula:{num:596,species:"Galvantula",types:["Bug","Electric"],baseStats:{hp:70,atk:77,def:60,spa:97,spd:60,spe:108},abilities:{0:"Compound Eyes",1:"Unnerve",H:"Swarm"},heightm:0.8,weightkg:14.3,color:"Yellow",prevo:"joltik",evoLevel:36,eggGroups:["Bug"]},
-ferroseed:{num:597,species:"Ferroseed",types:["Grass","Steel"],baseStats:{hp:44,atk:50,def:91,spa:24,spd:86,spe:10},abilities:{0:"Iron Barbs"},heightm:0.6,weightkg:18.8,color:"Gray",evos:["ferrothorn"],eggGroups:["Grass","Mineral"]},
-ferrothorn:{num:598,species:"Ferrothorn",types:["Grass","Steel"],baseStats:{hp:74,atk:94,def:131,spa:54,spd:116,spe:20},abilities:{0:"Iron Barbs",H:"Anticipation"},heightm:1,weightkg:110,color:"Gray",prevo:"ferroseed",evoLevel:40,eggGroups:["Grass","Mineral"]},
-klink:{num:599,species:"Klink",types:["Steel"],gender:"N",baseStats:{hp:40,atk:55,def:70,spa:45,spd:60,spe:30},abilities:{0:"Plus",1:"Minus",H:"Clear Body"},heightm:0.3,weightkg:21,color:"Gray",evos:["klang"],eggGroups:["Mineral"]},
-klang:{num:600,species:"Klang",types:["Steel"],gender:"N",baseStats:{hp:60,atk:80,def:95,spa:70,spd:85,spe:50},abilities:{0:"Plus",1:"Minus",H:"Clear Body"},heightm:0.6,weightkg:51,color:"Gray",prevo:"klink",evos:["klinklang"],evoLevel:38,eggGroups:["Mineral"]},
-klinklang:{num:601,species:"Klinklang",types:["Steel"],gender:"N",baseStats:{hp:60,atk:100,def:115,spa:70,spd:85,spe:90},abilities:{0:"Plus",1:"Minus",H:"Clear Body"},heightm:0.6,weightkg:81,color:"Gray",prevo:"klang",evoLevel:49,eggGroups:["Mineral"]},
-tynamo:{num:602,species:"Tynamo",types:["Electric"],baseStats:{hp:35,atk:55,def:40,spa:45,spd:40,spe:60},abilities:{0:"Levitate"},heightm:0.2,weightkg:0.3,color:"White",evos:["eelektrik"],eggGroups:["Amorphous"]},
-eelektrik:{num:603,species:"Eelektrik",types:["Electric"],baseStats:{hp:65,atk:85,def:70,spa:75,spd:70,spe:40},abilities:{0:"Levitate"},heightm:1.2,weightkg:22,color:"Blue",prevo:"tynamo",evos:["eelektross"],evoLevel:39,eggGroups:["Amorphous"]},
-eelektross:{num:604,species:"Eelektross",types:["Electric"],baseStats:{hp:85,atk:115,def:80,spa:105,spd:80,spe:50},abilities:{0:"Levitate"},heightm:2.1,weightkg:80.5,color:"Blue",prevo:"eelektrik",evoLevel:39,eggGroups:["Amorphous"]},
-elgyem:{num:605,species:"Elgyem",types:["Psychic"],baseStats:{hp:55,atk:55,def:55,spa:85,spd:55,spe:30},abilities:{0:"Telepathy",1:"Synchronize",H:"Analytic"},heightm:0.5,weightkg:9,color:"Blue",evos:["beheeyem"],eggGroups:["Human-Like"]},
-beheeyem:{num:606,species:"Beheeyem",types:["Psychic"],baseStats:{hp:75,atk:75,def:75,spa:125,spd:95,spe:40},abilities:{0:"Telepathy",1:"Synchronize",H:"Analytic"},heightm:1,weightkg:34.5,color:"Brown",prevo:"elgyem",evoLevel:42,eggGroups:["Human-Like"]},
-litwick:{num:607,species:"Litwick",types:["Ghost","Fire"],baseStats:{hp:50,atk:30,def:55,spa:65,spd:55,spe:20},abilities:{0:"Flash Fire",1:"Flame Body",H:"Infiltrator"},heightm:0.3,weightkg:3.1,color:"White",evos:["lampent"],eggGroups:["Amorphous"]},
-lampent:{num:608,species:"Lampent",types:["Ghost","Fire"],baseStats:{hp:60,atk:40,def:60,spa:95,spd:60,spe:55},abilities:{0:"Flash Fire",1:"Flame Body",H:"Infiltrator"},heightm:0.6,weightkg:13,color:"Black",prevo:"litwick",evos:["chandelure"],evoLevel:41,eggGroups:["Amorphous"]},
-chandelure:{num:609,species:"Chandelure",types:["Ghost","Fire"],baseStats:{hp:60,atk:55,def:90,spa:145,spd:90,spe:80},abilities:{0:"Flash Fire",1:"Flame Body",H:"Infiltrator"},heightm:1,weightkg:34.3,color:"Black",prevo:"lampent",evoLevel:41,eggGroups:["Amorphous"]},
-axew:{num:610,species:"Axew",types:["Dragon"],baseStats:{hp:46,atk:87,def:60,spa:30,spd:40,spe:57},abilities:{0:"Rivalry",1:"Mold Breaker",H:"Unnerve"},heightm:0.6,weightkg:18,color:"Green",evos:["fraxure"],eggGroups:["Monster","Dragon"]},
-fraxure:{num:611,species:"Fraxure",types:["Dragon"],baseStats:{hp:66,atk:117,def:70,spa:40,spd:50,spe:67},abilities:{0:"Rivalry",1:"Mold Breaker",H:"Unnerve"},heightm:1,weightkg:36,color:"Green",prevo:"axew",evos:["haxorus"],evoLevel:38,eggGroups:["Monster","Dragon"]},
-haxorus:{num:612,species:"Haxorus",types:["Dragon"],baseStats:{hp:76,atk:147,def:90,spa:60,spd:70,spe:97},abilities:{0:"Rivalry",1:"Mold Breaker",H:"Unnerve"},heightm:1.8,weightkg:105.5,color:"Yellow",prevo:"fraxure",evoLevel:48,eggGroups:["Monster","Dragon"]},
-cubchoo:{num:613,species:"Cubchoo",types:["Ice"],baseStats:{hp:55,atk:70,def:40,spa:60,spd:40,spe:40},abilities:{0:"Snow Cloak",H:"Rattled"},heightm:0.5,weightkg:8.5,color:"White",evos:["beartic"],eggGroups:["Field"]},
-beartic:{num:614,species:"Beartic",types:["Ice"],baseStats:{hp:95,atk:110,def:80,spa:70,spd:80,spe:50},abilities:{0:"Snow Cloak",H:"Swift Swim"},heightm:2.6,weightkg:260,color:"White",prevo:"cubchoo",evoLevel:37,eggGroups:["Field"]},
-cryogonal:{num:615,species:"Cryogonal",types:["Ice"],gender:"N",baseStats:{hp:70,atk:50,def:30,spa:95,spd:135,spe:105},abilities:{0:"Levitate"},heightm:1.1,weightkg:148,color:"Blue",eggGroups:["Mineral"]},
-shelmet:{num:616,species:"Shelmet",types:["Bug"],baseStats:{hp:50,atk:40,def:85,spa:40,spd:65,spe:25},abilities:{0:"Hydration",1:"Shell Armor",H:"Overcoat"},heightm:0.4,weightkg:7.7,color:"Red",evos:["accelgor"],eggGroups:["Bug"]},
-accelgor:{num:617,species:"Accelgor",types:["Bug"],baseStats:{hp:80,atk:70,def:40,spa:100,spd:60,spe:145},abilities:{0:"Hydration",1:"Sticky Hold",H:"Unburden"},heightm:0.8,weightkg:25.3,color:"Red",prevo:"shelmet",evoLevel:1,eggGroups:["Bug"]},
-stunfisk:{num:618,species:"Stunfisk",types:["Ground","Electric"],baseStats:{hp:109,atk:66,def:84,spa:81,spd:99,spe:32},abilities:{0:"Static",1:"Limber",H:"Sand Veil"},heightm:0.7,weightkg:11,color:"Brown",eggGroups:["Water 1","Amorphous"]},
-mienfoo:{num:619,species:"Mienfoo",types:["Fighting"],baseStats:{hp:45,atk:85,def:50,spa:55,spd:50,spe:65},abilities:{0:"Inner Focus",1:"Regenerator",H:"Reckless"},heightm:0.9,weightkg:20,color:"Yellow",evos:["mienshao"],eggGroups:["Field","Human-Like"]},
-mienshao:{num:620,species:"Mienshao",types:["Fighting"],baseStats:{hp:65,atk:125,def:60,spa:95,spd:60,spe:105},abilities:{0:"Inner Focus",1:"Regenerator",H:"Reckless"},heightm:1.4,weightkg:35.5,color:"Purple",prevo:"mienfoo",evoLevel:50,eggGroups:["Field","Human-Like"]},
-druddigon:{num:621,species:"Druddigon",types:["Dragon"],baseStats:{hp:77,atk:120,def:90,spa:60,spd:90,spe:48},abilities:{0:"Rough Skin",1:"Sheer Force",H:"Mold Breaker"},heightm:1.6,weightkg:139,color:"Red",eggGroups:["Monster","Dragon"]},
-golett:{num:622,species:"Golett",types:["Ground","Ghost"],gender:"N",baseStats:{hp:59,atk:74,def:50,spa:35,spd:50,spe:35},abilities:{0:"Iron Fist",1:"Klutz",H:"No Guard"},heightm:1,weightkg:92,color:"Green",evos:["golurk"],eggGroups:["Mineral"]},
-golurk:{num:623,species:"Golurk",types:["Ground","Ghost"],gender:"N",baseStats:{hp:89,atk:124,def:80,spa:55,spd:80,spe:55},abilities:{0:"Iron Fist",1:"Klutz",H:"No Guard"},heightm:2.8,weightkg:330,color:"Green",prevo:"golett",evoLevel:43,eggGroups:["Mineral"]},
-pawniard:{num:624,species:"Pawniard",types:["Dark","Steel"],baseStats:{hp:45,atk:85,def:70,spa:40,spd:40,spe:60},abilities:{0:"Defiant",1:"Inner Focus",H:"Pressure"},heightm:0.5,weightkg:10.2,color:"Red",evos:["bisharp"],eggGroups:["Human-Like"]},
-bisharp:{num:625,species:"Bisharp",types:["Dark","Steel"],baseStats:{hp:65,atk:125,def:100,spa:60,spd:70,spe:70},abilities:{0:"Defiant",1:"Inner Focus",H:"Pressure"},heightm:1.6,weightkg:70,color:"Red",prevo:"pawniard",evoLevel:52,eggGroups:["Human-Like"]},
-bouffalant:{num:626,species:"Bouffalant",types:["Normal"],baseStats:{hp:95,atk:110,def:95,spa:40,spd:95,spe:55},abilities:{0:"Reckless",1:"Sap Sipper",H:"Soundproof"},heightm:1.6,weightkg:94.6,color:"Brown",eggGroups:["Field"]},
-rufflet:{num:627,species:"Rufflet",types:["Normal","Flying"],gender:"M",baseStats:{hp:70,atk:83,def:50,spa:37,spd:50,spe:60},abilities:{0:"Keen Eye",1:"Sheer Force",H:"Hustle"},heightm:0.5,weightkg:10.5,color:"White",evos:["braviary"],eggGroups:["Flying"]},
-braviary:{num:628,species:"Braviary",types:["Normal","Flying"],gender:"M",baseStats:{hp:100,atk:123,def:75,spa:57,spd:75,spe:80},abilities:{0:"Keen Eye",1:"Sheer Force",H:"Defiant"},heightm:1.5,weightkg:41,color:"Red",prevo:"rufflet",evoLevel:54,eggGroups:["Flying"]},
-vullaby:{num:629,species:"Vullaby",types:["Dark","Flying"],gender:"F",baseStats:{hp:70,atk:55,def:75,spa:45,spd:65,spe:60},abilities:{0:"Big Pecks",1:"Overcoat",H:"Weak Armor"},heightm:0.5,weightkg:9,color:"Brown",evos:["mandibuzz"],eggGroups:["Flying"]},
-mandibuzz:{num:630,species:"Mandibuzz",types:["Dark","Flying"],gender:"F",baseStats:{hp:110,atk:65,def:105,spa:55,spd:95,spe:80},abilities:{0:"Big Pecks",1:"Overcoat",H:"Weak Armor"},heightm:1.2,weightkg:39.5,color:"Brown",prevo:"vullaby",evoLevel:54,eggGroups:["Flying"]},
-heatmor:{num:631,species:"Heatmor",types:["Fire"],baseStats:{hp:85,atk:97,def:66,spa:105,spd:66,spe:65},abilities:{0:"Gluttony",1:"Flash Fire",H:"White Smoke"},heightm:1.4,weightkg:58,color:"Red",eggGroups:["Field"]},
-durant:{num:632,species:"Durant",types:["Bug","Steel"],baseStats:{hp:58,atk:109,def:112,spa:48,spd:48,spe:109},abilities:{0:"Swarm",1:"Hustle",H:"Truant"},heightm:0.3,weightkg:33,color:"Gray",eggGroups:["Bug"]},
-deino:{num:633,species:"Deino",types:["Dark","Dragon"],baseStats:{hp:52,atk:65,def:50,spa:45,spd:50,spe:38},abilities:{0:"Hustle"},heightm:0.8,weightkg:17.3,color:"Blue",evos:["zweilous"],eggGroups:["Dragon"]},
-zweilous:{num:634,species:"Zweilous",types:["Dark","Dragon"],baseStats:{hp:72,atk:85,def:70,spa:65,spd:70,spe:58},abilities:{0:"Hustle"},heightm:1.4,weightkg:50,color:"Blue",prevo:"deino",evos:["hydreigon"],evoLevel:50,eggGroups:["Dragon"]},
-hydreigon:{num:635,species:"Hydreigon",types:["Dark","Dragon"],baseStats:{hp:92,atk:105,def:90,spa:125,spd:90,spe:98},abilities:{0:"Levitate"},heightm:1.8,weightkg:160,color:"Blue",prevo:"zweilous",evoLevel:64,eggGroups:["Dragon"]},
-larvesta:{num:636,species:"Larvesta",types:["Bug","Fire"],baseStats:{hp:55,atk:85,def:55,spa:50,spd:55,spe:60},abilities:{0:"Flame Body",H:"Swarm"},heightm:1.1,weightkg:28.8,color:"White",evos:["volcarona"],eggGroups:["Bug"]},
-volcarona:{num:637,species:"Volcarona",types:["Bug","Fire"],baseStats:{hp:85,atk:60,def:65,spa:135,spd:105,spe:100},abilities:{0:"Flame Body",H:"Swarm"},heightm:1.6,weightkg:46,color:"White",prevo:"larvesta",evoLevel:59,eggGroups:["Bug"]},
-cobalion:{num:638,species:"Cobalion",types:["Steel","Fighting"],gender:"N",baseStats:{hp:91,atk:90,def:129,spa:90,spd:72,spe:108},abilities:{0:"Justified"},heightm:2.1,weightkg:250,color:"Blue",eggGroups:["Undiscovered"]},
-terrakion:{num:639,species:"Terrakion",types:["Rock","Fighting"],gender:"N",baseStats:{hp:91,atk:129,def:90,spa:72,spd:90,spe:108},abilities:{0:"Justified"},heightm:1.9,weightkg:260,color:"Gray",eggGroups:["Undiscovered"]},
-virizion:{num:640,species:"Virizion",types:["Grass","Fighting"],gender:"N",baseStats:{hp:91,atk:90,def:72,spa:90,spd:129,spe:108},abilities:{0:"Justified"},heightm:2,weightkg:200,color:"Green",eggGroups:["Undiscovered"]},
-tornadus:{num:641,species:"Tornadus",baseForme:"Incarnate",types:["Flying"],gender:"M",baseStats:{hp:79,atk:115,def:70,spa:125,spd:80,spe:111},abilities:{0:"Prankster",H:"Defiant"},heightm:1.5,weightkg:63,color:"Green",eggGroups:["Undiscovered"],otherFormes:["tornadustherian"]},
-tornadustherian:{num:641,species:"Tornadus-Therian",baseSpecies:"Tornadus",forme:"Therian",formeLetter:"T",types:["Flying"],gender:"M",baseStats:{hp:79,atk:100,def:80,spa:110,spd:90,spe:121},abilities:{0:"Regenerator"},heightm:1.4,weightkg:63,color:"Green",eggGroups:["Undiscovered"]},
-thundurus:{num:642,species:"Thundurus",baseForme:"Incarnate",types:["Electric","Flying"],gender:"M",baseStats:{hp:79,atk:115,def:70,spa:125,spd:80,spe:111},abilities:{0:"Prankster",H:"Defiant"},heightm:1.5,weightkg:61,color:"Blue",eggGroups:["Undiscovered"],otherFormes:["thundurustherian"]},
-thundurustherian:{num:642,species:"Thundurus-Therian",baseSpecies:"Thundurus",forme:"Therian",formeLetter:"T",types:["Electric","Flying"],gender:"M",baseStats:{hp:79,atk:105,def:70,spa:145,spd:80,spe:101},abilities:{0:"Volt Absorb"},heightm:3,weightkg:61,color:"Blue",eggGroups:["Undiscovered"]},
-reshiram:{num:643,species:"Reshiram",types:["Dragon","Fire"],gender:"N",baseStats:{hp:100,atk:120,def:100,spa:150,spd:120,spe:90},abilities:{0:"Turboblaze"},heightm:3.2,weightkg:330,color:"White",eggGroups:["Undiscovered"]},
-zekrom:{num:644,species:"Zekrom",types:["Dragon","Electric"],gender:"N",baseStats:{hp:100,atk:150,def:120,spa:120,spd:100,spe:90},abilities:{0:"Teravolt"},heightm:2.9,weightkg:345,color:"Black",eggGroups:["Undiscovered"]},
-landorus:{num:645,species:"Landorus",baseForme:"Incarnate",types:["Ground","Flying"],gender:"M",baseStats:{hp:89,atk:125,def:90,spa:115,spd:80,spe:101},abilities:{0:"Sand Force",H:"Sheer Force"},heightm:1.5,weightkg:68,color:"Brown",eggGroups:["Undiscovered"],otherFormes:["landorustherian"]},
-landorustherian:{num:645,species:"Landorus-Therian",baseSpecies:"Landorus",forme:"Therian",formeLetter:"T",types:["Ground","Flying"],gender:"M",baseStats:{hp:89,atk:145,def:90,spa:105,spd:80,spe:91},abilities:{0:"Intimidate"},heightm:1.3,weightkg:68,color:"Brown",eggGroups:["Undiscovered"]},
-kyurem:{num:646,species:"Kyurem",types:["Dragon","Ice"],gender:"N",baseStats:{hp:125,atk:130,def:90,spa:130,spd:90,spe:95},abilities:{0:"Pressure"},heightm:3,weightkg:325,color:"Gray",eggGroups:["Undiscovered"],otherFormes:["kyuremblack","kyuremwhite"]},
-kyuremblack:{num:646,species:"Kyurem-Black",baseSpecies:"Kyurem",forme:"Black",formeLetter:"B",types:["Dragon","Ice"],gender:"N",baseStats:{hp:125,atk:170,def:100,spa:120,spd:90,spe:95},abilities:{0:"Teravolt"},heightm:3.3,weightkg:325,color:"Gray",eggGroups:["Undiscovered"]},
-kyuremwhite:{num:646,species:"Kyurem-White",baseSpecies:"Kyurem",forme:"White",formeLetter:"W",types:["Dragon","Ice"],gender:"N",baseStats:{hp:125,atk:120,def:90,spa:170,spd:100,spe:95},abilities:{0:"Turboblaze"},heightm:3.6,weightkg:325,color:"Gray",eggGroups:["Undiscovered"]},
-keldeo:{num:647,species:"Keldeo",baseForme:"Ordinary",types:["Water","Fighting"],gender:"N",baseStats:{hp:91,atk:72,def:90,spa:129,spd:90,spe:108},abilities:{0:"Justified"},heightm:1.4,weightkg:48.5,color:"Yellow",eggGroups:["Undiscovered"],otherFormes:["keldeoresolute"]},
-keldeoresolute:{num:647,species:"Keldeo-Resolute",baseSpecies:"Keldeo",forme:"Resolute",formeLetter:"R",types:["Water","Fighting"],gender:"N",baseStats:{hp:91,atk:72,def:90,spa:129,spd:90,spe:108},abilities:{0:"Justified"},heightm:1.4,weightkg:48.5,color:"Yellow",eggGroups:["Undiscovered"]},
-meloetta:{num:648,species:"Meloetta",baseForme:"Aria",types:["Normal","Psychic"],gender:"N",baseStats:{hp:100,atk:77,def:77,spa:128,spd:128,spe:90},abilities:{0:"Serene Grace"},heightm:0.6,weightkg:6.5,color:"White",eggGroups:["Undiscovered"],otherFormes:["meloettapirouette"]},
-meloettapirouette:{num:648,species:"Meloetta-Pirouette",baseSpecies:"Meloetta",forme:"Pirouette",formeLetter:"P",types:["Normal","Fighting"],gender:"N",baseStats:{hp:100,atk:128,def:90,spa:77,spd:77,spe:128},abilities:{0:"Serene Grace"},heightm:0.6,weightkg:6.5,color:"White",eggGroups:["Undiscovered"]},
-genesect:{num:649,species:"Genesect",types:["Bug","Steel"],gender:"N",baseStats:{hp:71,atk:120,def:95,spa:120,spd:95,spe:99},abilities:{0:"Download"},heightm:1.5,weightkg:82.5,color:"Purple",eggGroups:["Undiscovered"],otherFormes:["genesectdouse","genesectshock","genesectburn","genesectchill"]},
-genesectdouse:{num:649,species:"Genesect-Douse",baseSpecies:"Genesect",forme:"Douse",formeLetter:"D",types:["Bug","Steel"],gender:"N",baseStats:{hp:71,atk:120,def:95,spa:120,spd:95,spe:99},abilities:{0:"Download"},heightm:1.5,weightkg:82.5,color:"Purple",eggGroups:["Undiscovered"]},
-genesectshock:{num:649,species:"Genesect-Shock",baseSpecies:"Genesect",forme:"Shock",formeLetter:"S",types:["Bug","Steel"],gender:"N",baseStats:{hp:71,atk:120,def:95,spa:120,spd:95,spe:99},abilities:{0:"Download"},heightm:1.5,weightkg:82.5,color:"Purple",eggGroups:["Undiscovered"]},
-genesectburn:{num:649,species:"Genesect-Burn",baseSpecies:"Genesect",forme:"Burn",formeLetter:"B",types:["Bug","Steel"],gender:"N",baseStats:{hp:71,atk:120,def:95,spa:120,spd:95,spe:99},abilities:{0:"Download"},heightm:1.5,weightkg:82.5,color:"Purple",eggGroups:["Undiscovered"]},
-genesectchill:{num:649,species:"Genesect-Chill",baseSpecies:"Genesect",forme:"Chill",formeLetter:"C",types:["Bug","Steel"],gender:"N",baseStats:{hp:71,atk:120,def:95,spa:120,spd:95,spe:99},abilities:{0:"Download"},heightm:1.5,weightkg:82.5,color:"Purple",eggGroups:["Undiscovered"]},
-chespin:{num:650,species:"Chespin",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:56,atk:61,def:65,spa:48,spd:45,spe:38},abilities:{0:"Overgrow",H:"Bulletproof"},heightm:0.4,weightkg:9,color:"Green",evos:["quilladin"],eggGroups:["Field"]},
-quilladin:{num:651,species:"Quilladin",types:["Grass"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:61,atk:78,def:95,spa:56,spd:58,spe:57},abilities:{0:"Overgrow",H:"Bulletproof"},heightm:0.7,weightkg:29,color:"Green",prevo:"chespin",evos:["chesnaught"],evoLevel:16,eggGroups:["Field"]},
-chesnaught:{num:652,species:"Chesnaught",types:["Grass","Fighting"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:88,atk:107,def:122,spa:74,spd:75,spe:64},abilities:{0:"Overgrow",H:"Bulletproof"},heightm:1.6,weightkg:90,color:"Green",prevo:"quilladin",evoLevel:36,eggGroups:["Field"]},
-fennekin:{num:653,species:"Fennekin",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:40,atk:45,def:40,spa:62,spd:60,spe:60},abilities:{0:"Blaze",H:"Magician"},heightm:0.4,weightkg:9.4,color:"Red",evos:["braixen"],eggGroups:["Field"]},
-braixen:{num:654,species:"Braixen",types:["Fire"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:59,atk:59,def:58,spa:90,spd:70,spe:73},abilities:{0:"Blaze",H:"Magician"},heightm:1,weightkg:14.5,color:"Red",prevo:"fennekin",evos:["delphox"],evoLevel:16,eggGroups:["Field"]},
-delphox:{num:655,species:"Delphox",types:["Fire","Psychic"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:75,atk:69,def:72,spa:114,spd:100,spe:104},abilities:{0:"Blaze",H:"Magician"},heightm:1.5,weightkg:39,color:"Red",prevo:"braixen",evoLevel:36,eggGroups:["Field"]},
-froakie:{num:656,species:"Froakie",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:41,atk:56,def:40,spa:62,spd:44,spe:71},abilities:{0:"Torrent",H:"Protean"},heightm:0.3,weightkg:7,color:"Blue",evos:["frogadier"],eggGroups:["Water 1"]},
-frogadier:{num:657,species:"Frogadier",types:["Water"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:54,atk:63,def:52,spa:83,spd:56,spe:97},abilities:{0:"Torrent",H:"Protean"},heightm:0.6,weightkg:10.9,color:"Blue",prevo:"froakie",evos:["greninja"],evoLevel:16,eggGroups:["Water 1"]},
-greninja:{num:658,species:"Greninja",types:["Water","Dark"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:72,atk:95,def:67,spa:103,spd:71,spe:122},abilities:{0:"Torrent",H:"Protean"},heightm:1.5,weightkg:40,color:"Blue",prevo:"frogadier",evoLevel:36,eggGroups:["Water 1"]},
-bunnelby:{num:659,species:"Bunnelby",types:["Normal"],baseStats:{hp:38,atk:36,def:38,spa:32,spd:36,spe:57},abilities:{0:"Pickup",1:"Cheek Pouch",H:"Huge Power"},heightm:0.4,weightkg:5,color:"Brown",evos:["diggersby"],eggGroups:["Field"]},
-diggersby:{num:660,species:"Diggersby",types:["Normal","Ground"],baseStats:{hp:85,atk:56,def:77,spa:50,spd:77,spe:78},abilities:{0:"Pickup",1:"Cheek Pouch",H:"Huge Power"},heightm:1,weightkg:42.4,color:"Brown",prevo:"bunnelby",evoLevel:20,eggGroups:["Field"]},
-fletchling:{num:661,species:"Fletchling",types:["Normal","Flying"],baseStats:{hp:45,atk:50,def:43,spa:40,spd:38,spe:62},abilities:{0:"Big Pecks",H:"Gale Wings"},heightm:0.3,weightkg:1.7,color:"Red",evos:["fletchinder"],eggGroups:["Flying"]},
-fletchinder:{num:662,species:"Fletchinder",types:["Fire","Flying"],baseStats:{hp:62,atk:73,def:55,spa:56,spd:52,spe:84},abilities:{0:"Flame Body",H:"Gale Wings"},heightm:0.7,weightkg:16,color:"Red",prevo:"fletchling",evos:["talonflame"],evoLevel:17,eggGroups:["Flying"]},
-talonflame:{num:663,species:"Talonflame",types:["Fire","Flying"],baseStats:{hp:78,atk:81,def:71,spa:74,spd:69,spe:126},abilities:{0:"Flame Body",H:"Gale Wings"},heightm:1.2,weightkg:24.5,color:"Red",prevo:"fletchinder",evoLevel:35,eggGroups:["Flying"]},
-scatterbug:{num:664,species:"Scatterbug",types:["Bug"],baseStats:{hp:38,atk:35,def:40,spa:27,spd:25,spe:35},abilities:{0:"Shield Dust",1:"Compound Eyes",H:"Friend Guard"},heightm:0.3,weightkg:2.5,color:"Black",evos:["spewpa"],eggGroups:["Bug"]},
-spewpa:{num:665,species:"Spewpa",types:["Bug"],baseStats:{hp:45,atk:22,def:60,spa:27,spd:30,spe:29},abilities:{0:"Shed Skin",H:"Friend Guard"},heightm:0.3,weightkg:8.4,color:"Black",prevo:"scatterbug",evos:["vivillon"],evoLevel:9,eggGroups:["Bug"]},
-vivillon:{num:666,species:"Vivillon",types:["Bug","Flying"],baseStats:{hp:80,atk:52,def:50,spa:90,spd:50,spe:89},abilities:{0:"Shield Dust",1:"Compound Eyes",H:"Friend Guard"},heightm:1.2,weightkg:17,color:"Black",prevo:"spewpa",evoLevel:12,eggGroups:["Bug"]},
-litleo:{num:667,species:"Litleo",types:["Fire","Normal"],baseStats:{hp:62,atk:50,def:58,spa:73,spd:54,spe:72},abilities:{0:"Rivalry",1:"Unnerve",H:"Moxie"},heightm:0.6,weightkg:13.5,color:"Brown",evos:["pyroar"],eggGroups:["Field"]},
-pyroar:{num:668,species:"Pyroar",baseForme:"M",types:["Fire","Normal"],baseStats:{hp:86,atk:68,def:72,spa:109,spd:66,spe:106},abilities:{0:"Rivalry",1:"Unnerve",H:"Moxie"},heightm:1.5,weightkg:81.5,color:"Brown",prevo:"litleo",evoLevel:35,eggGroups:["Field"],otherFormes:["pyroarf"]},
-flabebe:{num:669,species:"Flabebe",types:["Fairy"],gender:"F",baseStats:{hp:44,atk:38,def:39,spa:61,spd:79,spe:42},abilities:{0:"Flower Veil",H:"Symbiosis"},heightm:0.1,weightkg:0.1,color:"White",evos:["floette"],eggGroups:["Fairy"]},
-floette:{num:670,species:"Floette",baseForme:"Red-Flower",types:["Fairy"],gender:"F",baseStats:{hp:54,atk:45,def:47,spa:75,spd:98,spe:52},abilities:{0:"Flower Veil",H:"Symbiosis"},heightm:0.2,weightkg:0.9,color:"White",prevo:"flabebe",evos:["florges"],evoLevel:19,eggGroups:["Fairy"],otherForms:["floetteeternalflower"]},
-floetteeternalflower:{num:670,species:"Floette-Eternal-Flower",baseSpecies:"Floette",forme:"Eternal-Flower",formeLetter:"E",types:["Fairy"],gender:"F",baseStats:{hp:74,atk:65,def:67,spa:125,spd:128,spe:92},abilities:{0:"Flower Veil"},heightm:0.2,weightkg:0.9,color:"White",prevo:"flabebe",evoLevel:19,eggGroups:["Fairy"]},
-florges:{num:671,species:"Florges",types:["Fairy"],gender:"F",baseStats:{hp:78,atk:65,def:68,spa:112,spd:154,spe:75},abilities:{0:"Flower Veil",H:"Symbiosis"},heightm:1.1,weightkg:10,color:"White",prevo:"floette",evoLevel:19,eggGroups:["Fairy"]},
-skiddo:{num:672,species:"Skiddo",types:["Grass"],baseStats:{hp:66,atk:65,def:48,spa:62,spd:57,spe:52},abilities:{0:"Sap Sipper",H:"Grass Pelt"},heightm:0.9,weightkg:31,color:"Brown",evos:["gogoat"],eggGroups:["Field"]},
-gogoat:{num:673,species:"Gogoat",types:["Grass"],baseStats:{hp:123,atk:100,def:62,spa:97,spd:81,spe:68},abilities:{0:"Sap Sipper",H:"Grass Pelt"},heightm:1.7,weightkg:91,color:"Brown",prevo:"skiddo",evoLevel:32,eggGroups:["Field"]},
-pancham:{num:674,species:"Pancham",types:["Fighting"],baseStats:{hp:67,atk:82,def:62,spa:46,spd:48,spe:43},abilities:{0:"Iron Fist",1:"Mold Breaker",H:"Scrappy"},heightm:0.6,weightkg:8,color:"White",evos:["pangoro"],eggGroups:["Field","Human-Like"]},
-pangoro:{num:675,species:"Pangoro",types:["Fighting","Dark"],baseStats:{hp:95,atk:124,def:78,spa:69,spd:71,spe:58},abilities:{0:"Iron Fist",1:"Mold Breaker",H:"Scrappy"},heightm:2.1,weightkg:136,color:"White",prevo:"pancham",evoLevel:32,eggGroups:["Field","Human-Like"]},
-furfrou:{num:676,species:"Furfrou",types:["Normal"],baseStats:{hp:75,atk:80,def:60,spa:65,spd:90,spe:102},abilities:{0:"Fur Coat"},heightm:1.2,weightkg:28,color:"White",eggGroups:["Field"]},
-espurr:{num:677,species:"Espurr",types:["Psychic"],baseStats:{hp:62,atk:48,def:54,spa:63,spd:60,spe:68},abilities:{0:"Keen Eye",1:"Infiltrator",H:"Own Tempo"},heightm:0.3,weightkg:3.5,color:"Gray",evos:["meowstic"],eggGroups:["Field"]},
-meowstic:{num:678,species:"Meowstic",baseForme:"M",types:["Psychic"],gender:"M",baseStats:{hp:74,atk:48,def:76,spa:83,spd:81,spe:104},abilities:{0:"Keen Eye",1:"Infiltrator",H:"Prankster"},heightm:0.6,weightkg:8.5,color:"White",prevo:"espurr",evoLevel:25,eggGroups:["Field"],otherFormes:["meowsticf"]},
-meowsticf:{num:678,species:"Meowstic-F",baseSpecies:"Meowstic",forme:"F",formeLetter:"F",types:["Psychic"],gender:"F",baseStats:{hp:74,atk:48,def:76,spa:83,spd:81,spe:104},abilities:{0:"Keen Eye",1:"Infiltrator",H:"Competitive"},heightm:0.6,weightkg:8.5,color:"White",prevo:"espurr",evoLevel:25,eggGroups:["Field"]},
-honedge:{num:679,species:"Honedge",types:["Steel","Ghost"],baseStats:{hp:45,atk:80,def:100,spa:35,spd:37,spe:28},abilities:{0:"No Guard"},heightm:0.8,weightkg:2,color:"Brown",evos:["doublade"],eggGroups:["Mineral"]},
-doublade:{num:680,species:"Doublade",types:["Steel","Ghost"],baseStats:{hp:59,atk:110,def:150,spa:45,spd:49,spe:35},abilities:{0:"No Guard"},heightm:0.8,weightkg:4.5,color:"Brown",prevo:"honedge",evos:["aegislash"],evoLevel:35,eggGroups:["Mineral"]},
-aegislash:{num:681,species:"Aegislash",types:["Steel","Ghost"],baseStats:{hp:60,atk:50,def:150,spa:50,spd:150,spe:60},abilities:{0:"Stance Change"},heightm:1.7,weightkg:53,color:"Brown",prevo:"doublade",evoLevel:35,eggGroups:["Mineral"],otherFormes:["aegislashblade"]},
-aegislashblade:{num:681,species:"Aegislash-Blade",baseSpecies:"Aegislash",forme:"Blade",formeLetter:"B",types:["Steel","Ghost"],baseStats:{hp:60,atk:150,def:50,spa:150,spd:50,spe:60},abilities:{0:"Stance Change"},heightm:1.7,weightkg:53,color:"Brown",prevo:"doublade",evoLevel:35,eggGroups:["Mineral"]},
-spritzee:{num:682,species:"Spritzee",types:["Fairy"],baseStats:{hp:78,atk:52,def:60,spa:63,spd:65,spe:23},abilities:{0:"Healer",H:"Aroma Veil"},heightm:0.2,weightkg:0.5,color:"Pink",evos:["aromatisse"],eggGroups:["Fairy"]},
-aromatisse:{num:683,species:"Aromatisse",types:["Fairy"],baseStats:{hp:101,atk:72,def:72,spa:99,spd:89,spe:29},abilities:{0:"Healer",H:"Aroma Veil"},heightm:0.8,weightkg:15.5,color:"Pink",prevo:"spritzee",evoLevel:1,eggGroups:["Fairy"]},
-swirlix:{num:684,species:"Swirlix",types:["Fairy"],baseStats:{hp:62,atk:48,def:66,spa:59,spd:57,spe:49},abilities:{0:"Sweet Veil",H:"Unburden"},heightm:0.4,weightkg:3.5,color:"White",evos:["slurpuff"],eggGroups:["Fairy"]},
-slurpuff:{num:685,species:"Slurpuff",types:["Fairy"],baseStats:{hp:82,atk:80,def:86,spa:85,spd:75,spe:72},abilities:{0:"Sweet Veil",H:"Unburden"},heightm:0.8,weightkg:5,color:"White",prevo:"swirlix",evoLevel:1,eggGroups:["Fairy"]},
-inkay:{num:686,species:"Inkay",types:["Dark","Psychic"],baseStats:{hp:53,atk:54,def:53,spa:37,spd:46,spe:45},abilities:{0:"Contrary",1:"Suction Cups",H:"Infiltrator"},heightm:0.4,weightkg:3.5,color:"Blue",evos:["malamar"],eggGroups:["Water 1","Water 2"]},
-malamar:{num:687,species:"Malamar",types:["Dark","Psychic"],baseStats:{hp:86,atk:92,def:88,spa:68,spd:75,spe:73},abilities:{0:"Contrary",1:"Suction Cups",H:"Infiltrator"},heightm:1.5,weightkg:47,color:"Blue",prevo:"inkay",evoLevel:30,eggGroups:["Water 1","Water 2"]},
-binacle:{num:688,species:"Binacle",types:["Rock","Water"],baseStats:{hp:42,atk:52,def:67,spa:39,spd:56,spe:50},abilities:{0:"Tough Claws",1:"Sniper",H:"Pickpocket"},heightm:0.5,weightkg:31,color:"Brown",evos:["barbaracle"],eggGroups:["Water 3"]},
-barbaracle:{num:689,species:"Barbaracle",types:["Rock","Water"],baseStats:{hp:72,atk:105,def:115,spa:54,spd:86,spe:68},abilities:{0:"Tough Claws",1:"Sniper",H:"Pickpocket"},heightm:1.3,weightkg:96,color:"Brown",prevo:"binacle",evoLevel:39,eggGroups:["Water 3"]},
-skrelp:{num:690,species:"Skrelp",types:["Poison","Water"],baseStats:{hp:50,atk:60,def:60,spa:60,spd:60,spe:30},abilities:{0:"Poison Point",1:"Poison Touch",H:"Adaptability"},heightm:0.5,weightkg:7.3,color:"Brown",evos:["dragalge"],eggGroups:["Water 1","Dragon"]},
-dragalge:{num:691,species:"Dragalge",types:["Poison","Dragon"],baseStats:{hp:65,atk:75,def:90,spa:97,spd:123,spe:44},abilities:{0:"Poison Point",1:"Poison Touch",H:"Adaptability"},heightm:1.8,weightkg:81.5,color:"Brown",prevo:"skrelp",evoLevel:37,eggGroups:["Water 1","Dragon"]},
-clauncher:{num:692,species:"Clauncher",types:["Water"],baseStats:{hp:50,atk:53,def:62,spa:58,spd:63,spe:44},abilities:{0:"Mega Launcher"},heightm:0.5,weightkg:8.3,color:"Blue",evos:["clawitzer"],eggGroups:["Water 1","Water 3"]},
-clawitzer:{num:693,species:"Clawitzer",types:["Water"],baseStats:{hp:71,atk:73,def:88,spa:120,spd:89,spe:59},abilities:{0:"Mega Launcher"},heightm:1.3,weightkg:35.3,color:"Blue",prevo:"clauncher",evoLevel:37,eggGroups:["Water 1","Water 3"]},
-helioptile:{num:694,species:"Helioptile",types:["Electric","Normal"],baseStats:{hp:44,atk:38,def:33,spa:61,spd:43,spe:70},abilities:{0:"Dry Skin",1:"Sand Veil",H:"Solar Power"},heightm:0.5,weightkg:6,color:"Yellow",evos:["heliolisk"],eggGroups:["Monster","Dragon"]},
-heliolisk:{num:695,species:"Heliolisk",types:["Electric","Normal"],baseStats:{hp:62,atk:55,def:52,spa:109,spd:94,spe:109},abilities:{0:"Dry Skin",1:"Sand Veil",H:"Solar Power"},heightm:1,weightkg:21,color:"Yellow",prevo:"helioptile",evoLevel:1,eggGroups:["Monster","Dragon"]},
-tyrunt:{num:696,species:"Tyrunt",types:["Rock","Dragon"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:58,atk:89,def:77,spa:45,spd:45,spe:48},abilities:{0:"Strong Jaw",H:"Sturdy"},heightm:0.8,weightkg:26,color:"Brown",evos:["tyrantrum"],eggGroups:["Monster","Dragon"]},
-tyrantrum:{num:697,species:"Tyrantrum",types:["Rock","Dragon"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:82,atk:121,def:119,spa:69,spd:59,spe:71},abilities:{0:"Strong Jaw",H:"Rock Head"},heightm:2.5,weightkg:270,color:"Red",prevo:"tyrunt",evoLevel:39,eggGroups:["Monster","Dragon"]},
-amaura:{num:698,species:"Amaura",types:["Rock","Ice"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:77,atk:59,def:50,spa:67,spd:63,spe:46},abilities:{0:"Refrigerate",H:"Snow Warning"},heightm:1.3,weightkg:25.2,color:"Blue",evos:["aurorus"],eggGroups:["Monster"]},
-aurorus:{num:699,species:"Aurorus",types:["Rock","Ice"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:123,atk:77,def:72,spa:99,spd:92,spe:58},abilities:{0:"Refrigerate",H:"Snow Warning"},heightm:2.7,weightkg:225,color:"Blue",prevo:"amaura",evoLevel:39,eggGroups:["Monster"]},
-sylveon:{num:700,species:"Sylveon",types:["Fairy"],genderRatio:{M:0.875,F:0.125},baseStats:{hp:95,atk:65,def:65,spa:110,spd:130,spe:60},abilities:{0:"Cute Charm",H:"Pixilate"},heightm:1,weightkg:23.5,color:"Pink",prevo:"eevee",evoLevel:2,eggGroups:["Field"]},
-hawlucha:{num:701,species:"Hawlucha",types:["Fighting","Flying"],baseStats:{hp:78,atk:92,def:75,spa:74,spd:63,spe:118},abilities:{0:"Limber",1:"Unburden",H:"Mold Breaker"},heightm:0.8,weightkg:21.5,color:"Green",eggGroups:["Human-Like"]},
-dedenne:{num:702,species:"Dedenne",types:["Electric","Fairy"],baseStats:{hp:67,atk:58,def:57,spa:81,spd:67,spe:101},abilities:{0:"Cheek Pouch",1:"Pickup",H:"Plus"},heightm:0.2,weightkg:2.2,color:"Yellow",eggGroups:["Field","Fairy"]},
-carbink:{num:703,species:"Carbink",types:["Rock","Fairy"],gender:"N",baseStats:{hp:50,atk:50,def:150,spa:50,spd:150,spe:50},abilities:{0:"Clear Body",H:"Sturdy"},heightm:0.3,weightkg:5.7,color:"Gray",eggGroups:["Fairy","Mineral"]},
-goomy:{num:704,species:"Goomy",types:["Dragon"],baseStats:{hp:45,atk:50,def:35,spa:55,spd:75,spe:40},abilities:{0:"Sap Sipper",1:"Hydration",H:"Gooey"},heightm:0.3,weightkg:2.8,color:"Purple",evos:["sliggoo"],eggGroups:["Dragon"]},
-sliggoo:{num:705,species:"Sliggoo",types:["Dragon"],baseStats:{hp:68,atk:75,def:53,spa:83,spd:113,spe:60},abilities:{0:"Sap Sipper",1:"Hydration",H:"Gooey"},heightm:0.8,weightkg:17.5,color:"Purple",prevo:"goomy",evos:["goodra"],evoLevel:40,eggGroups:["Dragon"]},
-goodra:{num:706,species:"Goodra",types:["Dragon"],baseStats:{hp:90,atk:100,def:70,spa:110,spd:150,spe:80},abilities:{0:"Sap Sipper",1:"Hydration",H:"Gooey"},heightm:2,weightkg:150.5,color:"Purple",prevo:"sliggoo",evoLevel:50,eggGroups:["Dragon"]},
-klefki:{num:707,species:"Klefki",types:["Steel","Fairy"],baseStats:{hp:57,atk:80,def:91,spa:80,spd:87,spe:75},abilities:{0:"Prankster",H:"Magician"},heightm:0.2,weightkg:3,color:"Gray",eggGroups:["Mineral"]},
-phantump:{num:708,species:"Phantump",types:["Ghost","Grass"],baseStats:{hp:43,atk:70,def:48,spa:50,spd:60,spe:38},abilities:{0:"Natural Cure",1:"Frisk",H:"Harvest"},heightm:0.4,weightkg:7,color:"Brown",evos:["trevenant"],eggGroups:["Grass","Amorphous"]},
-trevenant:{num:709,species:"Trevenant",types:["Ghost","Grass"],baseStats:{hp:85,atk:110,def:76,spa:65,spd:82,spe:56},abilities:{0:"Natural Cure",1:"Frisk",H:"Harvest"},heightm:1.5,weightkg:71,color:"Brown",prevo:"phantump",evoLevel:1,eggGroups:["Grass","Amorphous"]},
-pumpkaboo:{num:710,species:"Pumpkaboo",baseForme:"Average",types:["Ghost","Grass"],baseStats:{hp:49,atk:66,def:70,spa:44,spd:55,spe:51},abilities:{0:"Pickup",1:"Frisk",H:"Insomnia"},heightm:0.4,weightkg:5,color:"Brown",evos:["gourgeist"],eggGroups:["Amorphous"],otherFormes:["pumpkaboosmall","pumpkaboolarge","pumpkaboosuper"]},
-pumpkaboosmall:{num:710,species:"Pumpkaboo-Small",baseSpecies:"Pumpkaboo",forme:"Small",formeLetter:"S",types:["Ghost","Grass"],baseStats:{hp:44,atk:66,def:70,spa:44,spd:55,spe:56},abilities:{0:"Pickup",1:"Frisk",H:"Insomnia"},heightm:0.3,weightkg:3.5,color:"Brown",evos:["gourgeistsmall"],eggGroups:["Amorphous"]},
-pumpkaboolarge:{num:710,species:"Pumpkaboo-Large",baseSpecies:"Pumpkaboo",forme:"Large",formeLetter:"L",types:["Ghost","Grass"],baseStats:{hp:54,atk:66,def:70,spa:44,spd:55,spe:46},abilities:{0:"Pickup",1:"Frisk",H:"Insomnia"},heightm:0.5,weightkg:7.5,color:"Brown",evos:["gourgeistlarge"],eggGroups:["Amorphous"]},
-pumpkaboosuper:{num:710,species:"Pumpkaboo-Super",baseSpecies:"Pumpkaboo",forme:"Super",formeLetter:"S",types:["Ghost","Grass"],baseStats:{hp:59,atk:66,def:70,spa:44,spd:55,spe:41},abilities:{0:"Pickup",1:"Frisk",H:"Insomnia"},heightm:0.8,weightkg:15,color:"Brown",evos:["gourgeistsuper"],eggGroups:["Amorphous"]},
-gourgeist:{num:711,species:"Gourgeist",baseForme:"Average",types:["Ghost","Grass"],baseStats:{hp:65,atk:90,def:122,spa:58,spd:75,spe:84},abilities:{0:"Pickup",1:"Frisk",H:"Insomnia"},heightm:0.9,weightkg:12.5,color:"Brown",prevo:"pumpkaboo",evoLevel:1,eggGroups:["Amorphous"],otherFormes:["gourgeistsmall","gourgeistlarge","gourgeistsuper"]},
-gourgeistsmall:{num:711,species:"Gourgeist-Small",baseSpecies:"Gourgeist",forme:"Small",formeLetter:"S",types:["Ghost","Grass"],baseStats:{hp:55,atk:85,def:122,spa:58,spd:75,spe:99},abilities:{0:"Pickup",1:"Frisk",H:"Insomnia"},heightm:0.7,weightkg:9.5,color:"Brown",prevo:"pumpkaboosmall",evoLevel:1,eggGroups:["Amorphous"]},
-gourgeistlarge:{num:711,species:"Gourgeist-Large",baseSpecies:"Gourgeist",forme:"Large",formeLetter:"L",types:["Ghost","Grass"],baseStats:{hp:75,atk:95,def:122,spa:58,spd:75,spe:69},abilities:{0:"Pickup",1:"Frisk",H:"Insomnia"},heightm:1.1,weightkg:14,color:"Brown",prevo:"pumpkaboolarge",evoLevel:1,eggGroups:["Amorphous"]},
-gourgeistsuper:{num:711,species:"Gourgeist-Super",baseSpecies:"Gourgeist",forme:"Super",formeLetter:"S",types:["Ghost","Grass"],baseStats:{hp:85,atk:100,def:122,spa:58,spd:75,spe:54},abilities:{0:"Pickup",1:"Frisk",H:"Insomnia"},heightm:1.7,weightkg:39,color:"Brown",prevo:"pumpkaboosuper",evoLevel:1,eggGroups:["Amorphous"]},
-bergmite:{num:712,species:"Bergmite",types:["Ice"],baseStats:{hp:55,atk:69,def:85,spa:32,spd:35,spe:28},abilities:{0:"Own Tempo",1:"Ice Body",H:"Sturdy"},heightm:1,weightkg:99.5,color:"Blue",evos:["avalugg"],eggGroups:["Monster"]},
-avalugg:{num:713,species:"Avalugg",types:["Ice"],baseStats:{hp:95,atk:117,def:184,spa:44,spd:46,spe:28},abilities:{0:"Own Tempo",1:"Ice Body",H:"Sturdy"},heightm:2,weightkg:505,color:"Blue",prevo:"bergmite",evoLevel:40,eggGroups:["Monster"]},
-noibat:{num:714,species:"Noibat",types:["Flying","Dragon"],baseStats:{hp:40,atk:30,def:35,spa:45,spd:40,spe:55},abilities:{0:"Frisk",1:"Infiltrator",H:"Telepathy"},heightm:0.5,weightkg:8,color:"Purple",evos:["noivern"],eggGroups:["Flying"]},
-noivern:{num:715,species:"Noivern",types:["Flying","Dragon"],baseStats:{hp:85,atk:70,def:80,spa:97,spd:80,spe:123},abilities:{0:"Frisk",1:"Infiltrator",H:"Telepathy"},heightm:1.5,weightkg:85,color:"Purple",prevo:"noibat",evoLevel:48,eggGroups:["Flying"]},
-xerneas:{num:716,species:"Xerneas",types:["Fairy"],gender:"N",baseStats:{hp:126,atk:131,def:95,spa:131,spd:98,spe:99},abilities:{0:"Fairy Aura"},heightm:3,weightkg:215,color:"Blue",eggGroups:["Undiscovered"]},
-yveltal:{num:717,species:"Yveltal",types:["Dark","Flying"],gender:"N",baseStats:{hp:126,atk:131,def:95,spa:131,spd:98,spe:99},abilities:{0:"Dark Aura"},heightm:5.8,weightkg:203,color:"Red",eggGroups:["Undiscovered"]},
-zygarde:{num:718,species:"Zygarde",types:["Dragon","Ground"],gender:"N",baseStats:{hp:108,atk:100,def:121,spa:81,spd:95,spe:95},abilities:{0:"Aura Break"},heightm:5,weightkg:305,color:"Green",eggGroups:["Undiscovered"]},
-diancie:{num:719,species:"Diancie",types:["Rock","Fairy"],gender:"N",baseStats:{hp:50,atk:100,def:150,spa:100,spd:150,spe:50},abilities:{0:"Clear Body"},heightm:0.7,weightkg:8.8,color:"Gray",eggGroups:["Undiscovered"]},
-hoopa:{num:720,species:"Hoopa",types:["Psychic","Ghost"],gender:"N",baseStats:{hp:80,atk:110,def:60,spa:150,spd:130,spe:70},abilities:{0:"Magician"},heightm:0.5,weightkg:9,color:"Pink",eggGroups:["Undiscovered"]},
-volcanion:{num:721,species:"Volcanion",types:["Fire","Water"],gender:"N",baseStats:{hp:80,atk:110,def:120,spa:130,spd:90,spe:70},abilities:{0:"Water Absorb"},heightm:1.7,weightkg:195,color:"Red",eggGroups:["Undiscovered"]},
-missingno:{num:0,species:"Missingno.",types:["Bird","Normal"],baseStats:{hp:33,atk:136,def:0,spa:6,spd:6,spe:29},abilities:{0:"",H:""},heightm:3,weightkg:1590.8,color:"Gray",eggGroups:["Undiscovered"]},
-tomohawk:{num:-1,species:"Tomohawk",types:["Flying","Fighting"],baseStats:{hp:105,atk:60,def:90,spa:115,spd:80,spe:85},abilities:{0:"Intimidate",1:"Prankster",H:"Justified"},heightm:1.27,weightkg:37.2,color:"Red",eggGroups:["Field","Flying"]},
-necturna:{num:-2,species:"Necturna",types:["Grass","Ghost"],gender:"F",baseStats:{hp:64,atk:120,def:100,spa:85,spd:120,spe:81},abilities:{0:"Forewarn",H:"Telepathy"},heightm:1.65,weightkg:49.6,color:"Black",eggGroups:["Grass","Field"]},
-mollux:{num:-3,species:"Mollux",types:["Fire","Poison"],baseStats:{hp:95,atk:45,def:83,spa:131,spd:105,spe:76},abilities:{0:"Dry Skin",H:"Illuminate"},heightm:1.2,weightkg:41,color:"Pink",eggGroups:["Fairy","Field"]},
-aurumoth:{num:-4,species:"Aurumoth",types:["Bug","Psychic"],baseStats:{hp:110,atk:120,def:99,spa:117,spd:60,spe:94},abilities:{0:"Weak Armor",1:"No Guard",H:"Illusion"},heightm:2.1,weightkg:193,color:"Purple",eggGroups:["Bug"]},
-malaconda:{num:-5,species:"Malaconda",types:["Dark","Grass"],baseStats:{hp:115,atk:100,def:60,spa:40,spd:130,spe:55},abilities:{0:"Harvest",1:"Infiltrator"},heightm:5.5,weightkg:108.8,color:"Brown",eggGroups:["Grass","Dragon"]},
-cawmodore:{num:-6,species:"Cawmodore",types:["Steel","Flying"],baseStats:{hp:50,atk:92,def:130,spa:65,spd:75,spe:118},abilities:{0:"Intimidate",1:"Volt Absorb",H:"Big Pecks"},heightm:1.7,weightkg:37.0,color:"Black",eggGroups:["Flying"]},
-volkraken:{num:-7,species:"Volkraken",types:["Water","Fire"],baseStats:{hp:100,atk:45,def:80,spa:135,spd:100,spe:95},abilities:{0:"Analytic",1:"Infiltrator",H:"Pressure"},heightm:1.3,weightkg:44.5,color:"Red",eggGroups:["Water 1","Water 2"]},
-syclant:{num:-51,species:"Syclant",types:["Ice","Bug"],baseStats:{hp:70,atk:116,def:70,spa:114,spd:64,spe:121},abilities:{0:"Compound Eyes",1:"Mountaineer"},heightm:1.7,weightkg:52,color:"Blue",eggGroups:["Bug"]},
-revenankh:{num:-52,species:"Revenankh",types:["Ghost","Fighting"],baseStats:{hp:90,atk:105,def:90,spa:65,spd:110,spe:65},abilities:{0:"Shed Skin",1:"Air Lock"},heightm:1.8,weightkg:44,color:"White",eggGroups:["Amorphous","Human-Like"]},
-pyroak:{num:-53,species:"Pyroak",types:["Fire","Grass"],baseStats:{hp:120,atk:70,def:105,spa:95,spd:90,spe:60},abilities:{0:"Rock Head",1:"Battle Armor"},heightm:2.1,weightkg:168,color:"Brown",eggGroups:["Monster","Dragon"]},
-fidgit:{num:-54,species:"Fidgit",types:["Poison","Ground"],baseStats:{hp:95,atk:76,def:109,spa:90,spd:80,spe:105},abilities:{0:"Persistent",1:"Vital Spirit"},heightm:0.9,weightkg:53,color:"Purple",eggGroups:["Field"]},
-stratagem:{num:-55,species:"Stratagem",types:["Rock"],gender:"N",baseStats:{hp:90,atk:60,def:65,spa:120,spd:70,spe:130},abilities:{0:"Levitate",1:"Technician"},heightm:0.9,weightkg:45,color:"Gray",eggGroups:["Undiscovered"]},
-arghonaut:{num:-56,species:"Arghonaut",types:["Water","Fighting"],baseStats:{hp:105,atk:110,def:95,spa:70,spd:100,spe:75},abilities:{0:"Unaware"},heightm:1.7,weightkg:151,color:"Green",eggGroups:["Water 1","Water 3"]},
-kitsunoh:{num:-57,species:"Kitsunoh",types:["Steel","Ghost"],baseStats:{hp:80,atk:103,def:85,spa:55,spd:80,spe:110},abilities:{0:"Frisk",1:"Limber"},heightm:1.1,weightkg:51,color:"Gray",eggGroups:["Field"]},
-cyclohm:{num:-58,species:"Cyclohm",types:["Electric","Dragon"],baseStats:{hp:108,atk:60,def:118,spa:112,spd:70,spe:80},abilities:{0:"Shield Dust",1:"Static"},heightm:1.6,weightkg:59,color:"Yellow",eggGroups:["Dragon","Monster"]},
-colossoil:{num:-59,species:"Colossoil",types:["Dark","Ground"],baseStats:{hp:133,atk:122,def:72,spa:71,spd:72,spe:95},abilities:{0:"Rebound",1:"Guts"},heightm:2.6,weightkg:683.6,color:"Brown",eggGroups:["Water 2","Field"]},
-krilowatt:{num:-60,species:"Krilowatt",types:["Electric","Water"],baseStats:{hp:151,atk:84,def:73,spa:83,spd:74,spe:105},abilities:{0:"Trace",1:"Magic Guard"},heightm:0.7,weightkg:10.6,color:"Red",eggGroups:["Water 1","Fairy"]},
-voodoom:{num:-61,species:"Voodoom",types:["Fighting","Dark"],baseStats:{hp:90,atk:85,def:80,spa:105,spd:80,spe:110},abilities:{0:"Volt Absorb",1:"Lightningrod"},heightm:2,weightkg:75.5,color:"Brown",eggGroups:["Human-Like","Ground"]}
+exports.BattleFormatsData = {
+	bulbasaur: {
+		randomBattleMoves: ["sleeppowder","gigadrain","hiddenpowerfire","hiddenpowerice","sludgebomb","powerwhip","leechseed","synthesis"],
+		randomDoubleBattleMoves: ["sleeppowder","gigadrain","hiddenpowerfire","hiddenpowerice","sludgebomb","powerwhip","protect"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["sweetscent","growth","solarbeam","synthesis"]},
+			{"generation":3,"level":10,"gender":"M","moves":["tackle","growl","leechseed","vinewhip"]},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["tackle","growl","leechseed","vinewhip"]},
+			{"generation":5,"level":1,"isHidden":false,"moves":["falseswipe","block","frenzyplant","weatherball"]}
+		],
+		tier: "LC"
+	},
+	ivysaur: {
+		randomBattleMoves: ["sleeppowder","gigadrain","hiddenpowerfire","hiddenpowerice","sludgebomb","powerwhip","leechseed","synthesis"],
+		randomDoubleBattleMoves: ["sleeppowder","gigadrain","hiddenpowerfire","hiddenpowerice","sludgebomb","powerwhip","protect"],
+		tier: "NFE"
+	},
+	venusaur: {
+		randomBattleMoves: ["sleeppowder","gigadrain","hiddenpowerfire","hiddenpowerice","sludgebomb","knockoff","leechseed","synthesis","earthquake"],
+		randomDoubleBattleMoves: ["sleeppowder","gigadrain","hiddenpowerfire","hiddenpowerice","sludgebomb","powerwhip","protect"],
+		tier: "OU"
+	},
+	venusaurmega: {
+		randomBattleMoves: ["sleeppowder","gigadrain","hiddenpowerfire","hiddenpowerice","sludgebomb","swordsdance","powerwhip","leechseed","synthesis","earthquake"],
+		randomDoubleBattleMoves: ["sleeppowder","gigadrain","hiddenpowerfire","hiddenpowerice","sludgebomb","powerwhip","protect"],
+		requiredItem: "Venusaurite"
+	},
+	charmander: {
+		randomBattleMoves: ["flamethrower","overheat","dragonpulse","hiddenpowergrass","fireblast"],
+		randomDoubleBattleMoves: ["heatwave","dragonpulse","hiddenpowergrass","fireblast","protect"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["scratch","growl","ember"]},
+			{"generation":4,"level":40,"gender":"M","nature":"Mild","moves":["return","hiddenpower","quickattack","howl"]},
+			{"generation":4,"level":40,"gender":"M","nature":"Naive","moves":["return","hiddenpower","quickattack","howl"]},
+			{"generation":4,"level":40,"gender":"M","nature":"Naughty","moves":["return","hiddenpower","quickattack","howl"]},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["scratch","growl","ember","smokescreen"]},
+			{"generation":4,"level":40,"gender":"M","nature":"Hardy","moves":["return","hiddenpower","quickattack","howl"],"pokeball":"cherishball"},
+			{"generation":5,"level":1,"isHidden":false,"moves":["falseswipe","block","blastburn","acrobatics"]}
+		],
+		tier: "LC"
+	},
+	charmeleon: {
+		randomBattleMoves: ["flamethrower","overheat","dragonpulse","hiddenpowergrass","fireblast","dragondance","flareblitz","shadowclaw","dragonclaw"],
+		randomDoubleBattleMoves: ["heatwave","dragonpulse","hiddenpowergrass","fireblast","protect"],
+		tier: "NFE"
+	},
+	charizard: {
+		randomBattleMoves: ["fireblast","focusblast","airslash","roost","dragondance","flareblitz","dragonclaw","earthquake"],
+		randomDoubleBattleMoves: ["heatwave","fireblast","solarbeam","airslash","dragondance","flareblitz","dragonclaw","earthquake","protect"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["wingattack","slash","dragonrage","firespin"]},
+			{"generation":6,"level":36,"gender":"M","isHidden":false,"moves":["firefang","flamethrower","airslash","inferno"],"pokeball":"cherishball"},
+			{"generation":6,"level":36,"gender":"M","isHidden":false,"moves":["dragonrage","firefang","airslash","dragonclaw"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	charizardmegax: {
+		randomBattleMoves: ["dragondance","flareblitz","dragonclaw","earthquake","roost","substitute"],
+		requiredItem: "Charizardite X"
+	},
+	charizardmegay: {
+		randomBattleMoves: ["flamethrower","fireblast","airslash","roost","solarbeam"],
+		requiredItem: "Charizardite Y"
+	},
+	squirtle: {
+		randomBattleMoves: ["icebeam","hydropump","rapidspin","scald","aquajet","toxic"],
+		randomDoubleBattleMoves: ["muddywater","icebeam","hydropump","fakeout","scald","followme","icywind","protect"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["tackle","tailwhip","bubble","withdraw"]},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["tackle","tailwhip","bubble","withdraw"]},
+			{"generation":5,"level":1,"isHidden":false,"moves":["falseswipe","block","hydrocannon","followme"]}
+		],
+		tier: "LC"
+	},
+	wartortle: {
+		randomBattleMoves: ["icebeam","hydropump","rapidspin","scald","aquajet","toxic"],
+		randomDoubleBattleMoves: ["muddywater","icebeam","hydropump","fakeout","scald","followme","icywind","protect"],
+		tier: "NFE"
+	},
+	blastoise: {
+		randomBattleMoves: ["icebeam","hydropump","rapidspin","scald","toxic","darkpulse","aurasphere"],
+		randomDoubleBattleMoves: ["muddywater","icebeam","hydropump","fakeout","scald","darkpulse","aurasphere","followme","icywind","protect","waterspout"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["protect","raindance","skullbash","hydropump"]}
+		],
+		tier: "UU"
+	},
+	blastoisemega: {
+		randomBattleMoves: ["icebeam","hydropump","rapidspin","scald","aquajet","toxic","dragontail","darkpulse","aurasphere"],
+		randomDoubleBattleMoves: ["muddywater","icebeam","hydropump","fakeout","scald","darkpulse","aurasphere","followme","icywind","protect"],
+		requiredItem: "Blastoisinite"
+	},
+	caterpie: {
+		randomBattleMoves: ["bugbite","snore","tackle","electroweb"],
+		tier: "LC"
+	},
+	metapod: {
+		randomBattleMoves: ["snore","bugbite","tackle","electroweb"],
+		tier: "NFE"
+	},
+	butterfree: {
+		randomBattleMoves: ["quiverdance","roost","bugbuzz","substitute","sleeppowder","gigadrain","psychic"],
+		randomDoubleBattleMoves: ["quiverdance","bugbuzz","substitute","sleeppowder","gigadrain","psychic","shadowball","protect"],
+		eventPokemon: [
+			{"generation":3,"level":30,"moves":["morningsun","psychic","sleeppowder","aerialace"]}
+		],
+		tier: "NU"
+	},
+	weedle: {
+		randomBattleMoves: ["bugbite","stringshot","poisonsting","electroweb"],
+		tier: "LC"
+	},
+	kakuna: {
+		randomBattleMoves: ["electroweb","bugbite","irondefense","poisonsting"],
+		tier: "NFE"
+	},
+	beedrill: {
+		randomBattleMoves: ["toxicspikes","xscissor","swordsdance","uturn","endeavor","poisonjab","drillrun","knockoff"],
+		randomDoubleBattleMoves: ["xscissor","uturn","endeavor","poisonjab","drillrun","brickbreak","knockoff","protect","stringshot"],
+		eventPokemon: [
+			{"generation":3,"level":30,"moves":["batonpass","sludgebomb","twineedle","swordsdance"]}
+		],
+		tier: "NU"
+	},
+	pidgey: {
+		randomBattleMoves: ["roost","bravebird","heatwave","return","workup","uturn","thief"],
+		randomDoubleBattleMoves: ["bravebird","heatwave","return","uturn","tailwind","protect"],
+		tier: "LC"
+	},
+	pidgeotto: {
+		randomBattleMoves: ["roost","bravebird","heatwave","return","workup","uturn","thief"],
+		randomDoubleBattleMoves: ["bravebird","heatwave","return","uturn","tailwind","protect"],
+		eventPokemon: [
+			{"generation":3,"level":30,"abilities":["keeneye"],"moves":["refresh","wingattack","steelwing","featherdance"]}
+		],
+		tier: "NFE"
+	},
+	pidgeot: {
+		randomBattleMoves: ["roost","bravebird","pursuit","heatwave","return","uturn","hurricane"],
+		randomDoubleBattleMoves: ["bravebird","heatwave","return","uturn","tailwind","protect"],
+		eventPokemon: [
+			{"generation":5,"level":61,"gender":"M","nature":"Naughty","isHidden":false,"abilities":["keeneye"],"moves":["whirlwind","wingattack","skyattack","mirrormove"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	rattata: {
+		randomBattleMoves: ["facade","flamewheel","suckerpunch","uturn","wildcharge","thunderwave","crunch","revenge"],
+		randomDoubleBattleMoves: ["facade","flamewheel","suckerpunch","uturn","wildcharge","superfang","crunch","protect"],
+		tier: "LC"
+	},
+	raticate: {
+		randomBattleMoves: ["facade","flamewheel","suckerpunch","uturn","wildcharge","crunch"],
+		randomDoubleBattleMoves: ["facade","flamewheel","suckerpunch","uturn","wildcharge","superfang","crunch","protect"],
+		eventPokemon: [
+			{"generation":3,"level":34,"moves":["refresh","superfang","scaryface","hyperfang"]}
+		],
+		tier: "NU"
+	},
+	spearow: {
+		randomBattleMoves: ["return","drillpeck","doubleedge","uturn","quickattack","pursuit","drillrun","featherdance"],
+		randomDoubleBattleMoves: ["return","drillpeck","doubleedge","uturn","quickattack","drillrun","protect"],
+		eventPokemon: [
+			{"generation":3,"level":22,"moves":["batonpass","falseswipe","leer","aerialace"]}
+		],
+		tier: "LC"
+	},
+	fearow: {
+		randomBattleMoves: ["return","drillpeck","doubleedge","uturn","quickattack","pursuit","drillrun","roost"],
+		randomDoubleBattleMoves: ["return","drillpeck","doubleedge","uturn","quickattack","drillrun","protect"],
+		tier: "NU"
+	},
+	ekans: {
+		randomBattleMoves: ["coil","gunkshot","seedbomb","glare","suckerpunch","aquatail","earthquake","rest","rockslide"],
+		randomDoubleBattleMoves: ["gunkshot","seedbomb","suckerpunch","aquatail","earthquake","rest","rockslide","protect"],
+		eventPokemon: [
+			{"generation":3,"level":14,"abilities":["shedskin"],"moves":["leer","wrap","poisonsting","bite"]},
+			{"generation":3,"level":10,"gender":"M","moves":["wrap","leer","poisonsting"]}
+		],
+		tier: "LC"
+	},
+	arbok: {
+		randomBattleMoves: ["coil","gunkshot","suckerpunch","aquatail","earthquake","rest"],
+		randomDoubleBattleMoves: ["gunkshot","seedbomb","suckerpunch","aquatail","crunch","earthquake","rest","rockslide","protect"],
+		eventPokemon: [
+			{"generation":3,"level":33,"moves":["refresh","sludgebomb","glare","bite"]}
+		],
+		tier: "NU"
+	},
+	pichu: {
+		randomBattleMoves: ["fakeout","volttackle","encore","irontail","toxic","thunderbolt"],
+		randomDoubleBattleMoves: ["fakeout","volttackle","encore","irontail","protect","thunderbolt","discharge"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["thundershock","charm","surf"]},
+			{"generation":3,"level":5,"moves":["thundershock","charm","wish"]},
+			{"generation":3,"level":5,"moves":["thundershock","charm","teeterdance"]},
+			{"generation":3,"level":5,"moves":["thundershock","charm","followme"]},
+			{"generation":4,"level":1,"moves":["volttackle","thunderbolt","grassknot","return"]},
+			{"generation":4,"level":30,"shiny":true,"gender":"M","nature":"Jolly","moves":["charge","volttackle","endeavor","endure"],"pokeball":"cherishball"},
+			{"generation":4,"level":30,"shiny":true,"gender":"M","nature":"Jolly","moves":["volttackle","charge","endeavor","endure"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	pichuspikyeared: {
+		eventPokemon: [
+			{"generation":4,"level":30,"gender":"F","nature":"Naughty","moves":["helpinghand","volttackle","swagger","painsplit"]}
+		],
+		tier: ""
+	},
+	pikachu: {
+		randomBattleMoves: ["thunderbolt","volttackle","voltswitch","grassknot","hiddenpowerice","brickbreak","extremespeed","encore","substitute","knockoff","signalbeam"],
+		randomDoubleBattleMoves: ["fakeout","thunderbolt","volttackle","voltswitch","feint","grassknot","hiddenpowerice","brickbreak","extremespeed","encore","substitute","knockoff","protect","discharge"],
+		eventPokemon: [
+			{"generation":3,"level":50,"moves":["thunderbolt","agility","thunder","lightscreen"]},
+			{"generation":3,"level":10,"moves":["thundershock","growl","tailwhip","thunderwave"]},
+			{"generation":3,"level":10,"moves":["fly","tailwhip","growl","thunderwave"]},
+			{"generation":3,"level":5,"moves":["surf","growl","tailwhip","thunderwave"]},
+			{"generation":3,"level":10,"moves":["fly","growl","tailwhip","thunderwave"]},
+			{"generation":3,"level":10,"moves":["thundershock","growl","thunderwave","surf"]},
+			{"generation":3,"level":70,"moves":["thunderbolt","thunder","lightscreen","fly"]},
+			{"generation":3,"level":70,"moves":["thunderbolt","thunder","lightscreen","surf"]},
+			{"generation":3,"level":70,"moves":["thunderbolt","thunder","lightscreen","agility"]},
+			{"generation":4,"level":10,"gender":"F","nature":"Hardy","moves":["surf","volttackle","tailwhip","thunderwave"]},
+			{"generation":3,"level":10,"gender":"M","moves":["thundershock","growl","tailwhip","thunderwave"]},
+			{"generation":4,"level":50,"gender":"M","nature":"Hardy","moves":["surf","thunderbolt","lightscreen","quickattack"],"pokeball":"cherishball"},
+			{"generation":4,"level":20,"gender":"F","nature":"Bashful","moves":["present","quickattack","thundershock","tailwhip"],"pokeball":"cherishball"},
+			{"generation":4,"level":20,"gender":"M","nature":"Jolly","moves":["grassknot","thunderbolt","flash","doubleteam"],"pokeball":"cherishball"},
+			{"generation":4,"level":40,"gender":"M","nature":"Modest","moves":["surf","thunder","protect"],"pokeball":"cherishball"},
+			{"generation":4,"level":20,"gender":"F","nature":"Bashful","moves":["quickattack","thundershock","tailwhip","present"],"pokeball":"cherishball"},
+			{"generation":4,"level":40,"gender":"M","nature":"Mild","moves":["surf","thunder","protect"],"pokeball":"cherishball"},
+			{"generation":4,"level":20,"gender":"F","nature":"Bashful","moves":["present","quickattack","thunderwave","tailwhip"],"pokeball":"cherishball"},
+			{"generation":4,"level":30,"gender":"M","moves":["lastresort","present","thunderbolt","quickattack"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"gender":"M","nature":"Relaxed","moves":["rest","sleeptalk","yawn","snore"],"pokeball":"cherishball"},
+			{"generation":4,"level":20,"gender":"M","nature":"Docile","moves":["present","quickattack","thundershock","tailwhip"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"gender":"M","nature":"Naughty","moves":["volttackle","irontail","quickattack","thunderbolt"],"pokeball":"cherishball"},
+			{"generation":4,"level":20,"gender":"M","nature":"Bashful","moves":["present","quickattack","thundershock","tailwhip"],"pokeball":"cherishball"},
+			{"generation":5,"level":30,"gender":"F","isHidden":true,"moves":["sing","teeterdance","encore","electroball"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"isHidden":false,"moves":["fly","irontail","electroball","quickattack"],"pokeball":"cherishball"},
+			{"generation":5,"level":100,"gender":"F","isHidden":false,"moves":["thunder","volttackle","grassknot","quickattack"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"gender":"F","isHidden":false,"moves":["extremespeed","thunderbolt","grassknot","brickbreak"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"gender":"F","isHidden":true,"moves":["fly","thunderbolt","grassknot","protect"],"pokeball":"cherishball"},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["thundershock","tailwhip","thunderwave","headbutt"]},
+			{"generation":5,"level":100,"gender":"M","isHidden":true,"moves":["volttackle","quickattack","feint","voltswitch"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"gender":"M","nature":"Brave","isHidden":false,"moves":["thunderbolt","quickattack","irontail","electroball"],"pokeball":"cherishball"},
+			{"generation":6,"level":10,"isHidden":false,"moves":["celebrate","growl","playnice","quickattack"],"pokeball":"cherishball"},
+			{"generation":6,"level":22,"isHidden":false,"moves":["quickattack","electroball","doubleteam","megakick"],"pokeball":"cherishball"},
+			{"generation":6,"level":10,"gender":"M","isHidden":false,"moves":["thunderbolt","quickattack","surf","holdhands"],"pokeball":"cherishball"},
+			{"generation":6,"level":10,"gender":"F","isHidden":false,"moves":["thunderbolt","quickattack","heartstamp","holdhands"],"pokeball":"healball"}
+		],
+		tier: "NFE"
+	},
+	raichu: {
+		randomBattleMoves: ["nastyplot","encore","thunderbolt","grassknot","hiddenpowerice","focusblast","substitute"],
+		randomDoubleBattleMoves: ["fakeout","encore","thunderbolt","grassknot","hiddenpowerice","focusblast","substitute","extremespeed","knockoff","signalbeam","feint","protect"],
+		tier: "NU"
+	},
+	sandshrew: {
+		randomBattleMoves: ["earthquake","rockslide","swordsdance","rapidspin","xscissor","stealthrock","toxic","knockoff"],
+		randomDoubleBattleMoves: ["earthquake","rockslide","swordsdance","xscissor","knockoff","protect"],
+		eventPokemon: [
+			{"generation":3,"level":12,"moves":["scratch","defensecurl","sandattack","poisonsting"]}
+		],
+		tier: "LC"
+	},
+	sandslash: {
+		randomBattleMoves: ["earthquake","stoneedge","swordsdance","rapidspin","xscissor","stealthrock","toxic","knockoff"],
+		randomDoubleBattleMoves: ["earthquake","rockslide","stoneedge","swordsdance","xscissor","knockoff","protect"],
+		tier: "NU"
+	},
+	nidoranf: {
+		randomBattleMoves: ["toxicspikes","crunch","poisonjab","honeclaws"],
+		randomDoubleBattleMoves: ["helpinghand","crunch","poisonjab","protect"],
+		tier: "LC"
+	},
+	nidorina: {
+		randomBattleMoves: ["toxicspikes","crunch","poisonjab","honeclaws","icebeam","thunderbolt","shadowclaw"],
+		randomDoubleBattleMoves: ["helpinghand","crunch","poisonjab","protect","icebeam","thunderbolt","shadowclaw"],
+		tier: "NFE"
+	},
+	nidoqueen: {
+		randomBattleMoves: ["toxicspikes","stealthrock","fireblast","thunderbolt","icebeam","earthpower","sludgewave","focusblast"],
+		randomDoubleBattleMoves: ["helpinghand","protect","fireblast","thunderbolt","icebeam","earthpower","sludgebomb","focusblast"],
+		tier: "UU"
+	},
+	nidoranm: {
+		randomBattleMoves: ["suckerpunch","poisonjab","headsmash","honeclaws","shadowclaw"],
+		randomDoubleBattleMoves: ["suckerpunch","poisonjab","shadowclaw","helpinghand","protect"],
+		tier: "LC"
+	},
+	nidorino: {
+		randomBattleMoves: ["suckerpunch","poisonjab","headsmash","honeclaws","shadowclaw"],
+		randomDoubleBattleMoves: ["suckerpunch","poisonjab","shadowclaw","helpinghand","protect"],
+		tier: "NFE"
+	},
+	nidoking: {
+		randomBattleMoves: ["stealthrock","fireblast","thunderbolt","icebeam","earthpower","sludgewave","focusblast"],
+		randomDoubleBattleMoves: ["helpinghand","protect","fireblast","thunderbolt","icebeam","earthpower","sludgebomb","focusblast"],
+		tier: "UU"
+	},
+	cleffa: {
+		randomBattleMoves: ["reflect","thunderwave","lightscreen","toxic","fireblast","encore","wish","protect","aromatherapy","moonblast"],
+		randomDoubleBattleMoves: ["reflect","thunderwave","lightscreen","safeguard","fireblast","protect","moonblast"],
+		tier: "LC"
+	},
+	clefairy: {
+		randomBattleMoves: ["healingwish","reflect","thunderwave","lightscreen","toxic","fireblast","encore","wish","protect","aromatherapy","stealthrock","moonblast","knockoff","moonlight"],
+		randomDoubleBattleMoves: ["reflect","thunderwave","lightscreen","safeguard","fireblast","followme","protect","moonblast"],
+		tier: "NFE"
+	},
+	clefable: {
+		randomBattleMoves: ["calmmind","softboiled","fireblast","thunderbolt","icebeam","moonblast"],
+		randomDoubleBattleMoves: ["reflect","thunderwave","lightscreen","safeguard","fireblast","followme","protect","moonblast","softboiled"],
+		tier: "OU"
+	},
+	vulpix: {
+		randomBattleMoves: ["flamethrower","fireblast","willowisp","energyball","substitute","toxic","hypnosis","painsplit"],
+		randomDoubleBattleMoves: ["heatwave","fireblast","willowisp","energyball","substitute","protect"],
+		eventPokemon: [
+			{"generation":3,"level":18,"moves":["tailwhip","roar","quickattack","willowisp"]},
+			{"generation":3,"level":18,"moves":["charm","heatwave","ember","dig"]}
+		],
+		tier: "LC"
+	},
+	ninetales: {
+		randomBattleMoves: ["flamethrower","fireblast","willowisp","solarbeam","nastyplot","substitute","toxic","painsplit"],
+		randomDoubleBattleMoves: ["heatwave","fireblast","willowisp","solarbeam","substitute","protect"],
+		eventPokemon: [
+			{"generation":5,"level":50,"gender":"M","nature":"Bold","isHidden":true,"moves":["heatwave","solarbeam","psyshock","willowisp"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	igglybuff: {
+		randomBattleMoves: ["wish","thunderwave","reflect","lightscreen","healbell","seismictoss","counter","protect","knockoff","dazzlinggleam"],
+		randomDoubleBattleMoves: ["wish","thunderwave","reflect","lightscreen","seismictoss","protect","knockoff","dazzlinggleam"],
+		eventPokemon: [
+			{"generation":3,"level":5,"abilities":["cutecharm"],"moves":["sing","charm","defensecurl","tickle"]}
+		],
+		tier: "LC"
+	},
+	jigglypuff: {
+		randomBattleMoves: ["wish","thunderwave","reflect","lightscreen","healbell","seismictoss","counter","stealthrock","protect","knockoff","dazzlinggleam"],
+		randomDoubleBattleMoves: ["wish","thunderwave","reflect","lightscreen","seismictoss","protect","knockoff","dazzlinggleam"],
+		tier: "NFE"
+	},
+	wigglytuff: {
+		randomBattleMoves: ["wish","thunderwave","healbell","fireblast","stealthrock","dazzlinggleam","hypervoice"],
+		randomDoubleBattleMoves: ["thunderwave","reflect","lightscreen","seismictoss","protect","knockoff","dazzlinggleam","fireblast","icebeam","hypervoice"],
+		tier: "NU"
+	},
+	zubat: {
+		randomBattleMoves: ["bravebird","roost","toxic","taunt","nastyplot","gigadrain","sludgebomb","airslash","uturn","whirlwind","heatwave","superfang"],
+		randomDoubleBattleMoves: ["bravebird","taunt","nastyplot","gigadrain","sludgebomb","airslash","uturn","protect","heatwave","superfang"],
+		tier: "LC"
+	},
+	golbat: {
+		randomBattleMoves: ["bravebird","roost","toxic","taunt","nastyplot","gigadrain","sludgebomb","airslash","uturn","whirlwind","heatwave","superfang"],
+		randomDoubleBattleMoves: ["bravebird","taunt","nastyplot","gigadrain","sludgebomb","airslash","uturn","protect","heatwave","superfang"],
+		tier: "RU"
+	},
+	crobat: {
+		randomBattleMoves: ["bravebird","roost","toxic","taunt","defog","uturn","superfang"],
+		randomDoubleBattleMoves: ["bravebird","taunt","nastyplot","gigadrain","sludgebomb","airslash","uturn","protect","heatwave","superfang"],
+		eventPokemon: [
+			{"generation":4,"level":30,"gender":"M","nature":"Timid","moves":["heatwave","airslash","sludgebomb","superfang"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	oddish: {
+		randomBattleMoves: ["gigadrain","sludgebomb","synthesis","sleeppowder","stunspore","toxic","hiddenpowerfire","leechseed","dazzlinggleam","sunnyday"],
+		randomDoubleBattleMoves: ["gigadrain","sludgebomb","sleeppowder","stunspore","protect","hiddenpowerfire","leechseed","dazzlinggleam","sunnyday"],
+		eventPokemon: [
+			{"generation":3,"level":26,"moves":["poisonpowder","stunspore","sleeppowder","acid"]},
+			{"generation":3,"level":5,"moves":["absorb","leechseed"]}
+		],
+		tier: "LC"
+	},
+	gloom: {
+		randomBattleMoves: ["gigadrain","sludgebomb","synthesis","sleeppowder","stunspore","toxic","hiddenpowerfire","leechseed","dazzlinggleam","sunnyday"],
+		randomDoubleBattleMoves: ["gigadrain","sludgebomb","sleeppowder","stunspore","protect","hiddenpowerfire","leechseed","dazzlinggleam","sunnyday"],
+		eventPokemon: [
+			{"generation":3,"level":50,"moves":["sleeppowder","acid","moonlight","petaldance"]}
+		],
+		tier: "NFE"
+	},
+	vileplume: {
+		randomBattleMoves: ["gigadrain","sludgebomb","synthesis","sleeppowder","stunspore","toxic","hiddenpowerfire","leechseed","aromatherapy"],
+		randomDoubleBattleMoves: ["gigadrain","sludgebomb","sleeppowder","stunspore","protect","hiddenpowerfire","leechseed","dazzlinggleam","aromatherapy"],
+		tier: "NU"
+	},
+	bellossom: {
+		randomBattleMoves: ["gigadrain","sludgebomb","synthesis","sleeppowder","hiddenpowerfire","leafstorm","sunnyday"],
+		randomDoubleBattleMoves: ["gigadrain","sludgebomb","sleeppowder","stunspore","protect","hiddenpowerfire","leechseed","dazzlinggleam","sunnyday","leafstorm"],
+		tier: "NU"
+	},
+	paras: {
+		randomBattleMoves: ["spore","stunspore","xscissor","seedbomb","synthesis","leechseed","aromatherapy","knockoff"],
+		randomDoubleBattleMoves: ["spore","stunspore","xscissor","seedbomb","ragepowder","leechseed","protect","knockoff","wideguard"],
+		eventPokemon: [
+			{"generation":3,"level":28,"abilities":["effectspore"],"moves":["refresh","spore","slash","falseswipe"]}
+		],
+		tier: "LC"
+	},
+	parasect: {
+		randomBattleMoves: ["spore","stunspore","xscissor","seedbomb","synthesis","leechseed","aromatherapy","knockoff"],
+		randomDoubleBattleMoves: ["spore","stunspore","xscissor","seedbomb","ragepowder","leechseed","protect","knockoff","wideguard"],
+		tier: "NU"
+	},
+	venonat: {
+		randomBattleMoves: ["sleeppowder","morningsun","toxicspikes","sludgebomb","signalbeam","stunspore","psychic"],
+		randomDoubleBattleMoves: ["sleeppowder","morningsun","ragepowder","sludgebomb","signalbeam","stunspore","psychic","protect"],
+		tier: "LC"
+	},
+	venomoth: {
+		randomBattleMoves: ["sleeppowder","roost","quiverdance","batonpass","bugbuzz","sludgebomb","substitute"],
+		randomDoubleBattleMoves: ["sleeppowder","roost","ragepowder","quiverdance","protect","bugbuzz","sludgebomb","gigadrain","substitute","psychic"],
+		eventPokemon: [
+			{"generation":3,"level":32,"abilities":["shielddust"],"moves":["refresh","silverwind","substitute","psychic"]}
+		],
+		tier: "BL"
+	},
+	diglett: {
+		randomBattleMoves: ["earthquake","rockslide","stealthrock","suckerpunch","reversal","substitute","shadowclaw"],
+		randomDoubleBattleMoves: ["earthquake","rockslide","protect","suckerpunch","shadowclaw"],
+		tier: "LC"
+	},
+	dugtrio: {
+		randomBattleMoves: ["earthquake","stoneedge","stealthrock","suckerpunch","reversal","substitute"],
+		randomDoubleBattleMoves: ["earthquake","rockslide","protect","suckerpunch","shadowclaw","stoneedge"],
+		eventPokemon: [
+			{"generation":3,"level":40,"moves":["charm","earthquake","sandstorm","triattack"]}
+		],
+		tier: "RU"
+	},
+	meowth: {
+		randomBattleMoves: ["fakeout","uturn","thief","taunt","return","hypnosis"],
+		randomDoubleBattleMoves: ["fakeout","uturn","nightslash","taunt","return","hypnosis","feint","protect"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["scratch","growl","petaldance"]},
+			{"generation":3,"level":5,"moves":["scratch","growl"]},
+			{"generation":3,"level":10,"gender":"M","moves":["scratch","growl","bite"]},
+			{"generation":3,"level":22,"moves":["sing","slash","payday","bite"]},
+			{"generation":4,"level":21,"gender":"F","nature":"Jolly","abilities":["pickup"],"moves":["bite","fakeout","furyswipes","screech"],"pokeball":"cherishball"},
+			{"generation":4,"level":10,"gender":"M","nature":"Jolly","abilities":["pickup"],"moves":["fakeout","payday","assist","scratch"],"pokeball":"cherishball"},
+			{"generation":5,"level":15,"gender":"M","isHidden":false,"abilities":["pickup"],"moves":["furyswipes","sing","nastyplot","snatch"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	persian: {
+		randomBattleMoves: ["fakeout","uturn","taunt","return","knockoff"],
+		randomDoubleBattleMoves: ["fakeout","uturn","nightslash","taunt","return","hypnosis","feint","protect"],
+		tier: "NU"
+	},
+	psyduck: {
+		randomBattleMoves: ["hydropump","scald","icebeam","hiddenpowergrass","crosschop","encore","psychic","signalbeam"],
+		randomDoubleBattleMoves: ["hydropump","scald","icebeam","hiddenpowergrass","crosschop","encore","psychic","signalbeam","surf","icywind","protect"],
+		eventPokemon: [
+			{"generation":3,"level":27,"abilities":["damp"],"moves":["tailwhip","confusion","disable"]},
+			{"generation":3,"level":5,"moves":["watersport","scratch","tailwhip","mudsport"]}
+		],
+		tier: "LC"
+	},
+	golduck: {
+		randomBattleMoves: ["hydropump","scald","icebeam","hiddenpowergrass","encore","focusblast","calmmind"],
+		randomDoubleBattleMoves: ["hydropump","scald","icebeam","hiddenpowergrass","focusblast","encore","psychic","signalbeam","surf","icywind","protect"],
+		eventPokemon: [
+			{"generation":3,"level":33,"moves":["charm","waterfall","psychup","brickbreak"]}
+		],
+		tier: "NU"
+	},
+	mankey: {
+		randomBattleMoves: ["closecombat","uturn","icepunch","rockslide","punishment","earthquake","poisonjab"],
+		randomDoubleBattleMoves: ["closecombat","uturn","icepunch","rockslide","punishment","earthquake","poisonjab","protect"],
+		tier: "LC"
+	},
+	primeape: {
+		randomBattleMoves: ["closecombat","uturn","icepunch","stoneedge","encore","earthquake"],
+		randomDoubleBattleMoves: ["closecombat","uturn","icepunch","rockslide","punishment","earthquake","poisonjab","protect","taunt","stoneedge"],
+		eventPokemon: [
+			{"generation":3,"level":34,"abilities":["vitalspirit"],"moves":["helpinghand","crosschop","focusenergy","reversal"]}
+		],
+		tier: "NU"
+	},
+	growlithe: {
+		randomBattleMoves: ["flareblitz","wildcharge","hiddenpowergrass","closecombat","morningsun","willowisp","toxic","flamethrower"],
+		randomDoubleBattleMoves: ["flareblitz","wildcharge","hiddenpowergrass","closecombat","willowisp","snarl","heatwave","helpinghand","protect"],
+		eventPokemon: [
+			{"generation":3,"level":32,"abilities":["intimidate"],"moves":["leer","odorsleuth","takedown","flamewheel"]},
+			{"generation":3,"level":10,"gender":"M","moves":["bite","roar","ember"]},
+			{"generation":3,"level":28,"moves":["charm","flamethrower","bite","takedown"]}
+		],
+		tier: "LC"
+	},
+	arcanine: {
+		randomBattleMoves: ["flareblitz","wildcharge","extremespeed","closecombat","morningsun","willowisp","toxic"],
+		randomDoubleBattleMoves: ["flareblitz","wildcharge","hiddenpowergrass","closecombat","willowisp","snarl","heatwave","helpinghand","protect","extremespeed"],
+		tier: "UU"
+	},
+	poliwag: {
+		randomBattleMoves: ["hydropump","icebeam","encore","bellydrum","hypnosis","waterfall","return"],
+		randomDoubleBattleMoves: ["hydropump","icebeam","encore","icywind","hypnosis","waterfall","return","protect","helpinghand"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["bubble","sweetkiss"]}
+		],
+		tier: "LC"
+	},
+	poliwhirl: {
+		randomBattleMoves: ["hydropump","icebeam","encore","bellydrum","hypnosis","waterfall","return","earthquake"],
+		randomDoubleBattleMoves: ["hydropump","icebeam","encore","icywind","hypnosis","waterfall","return","protect","helpinghand","earthquake"],
+		tier: "NFE"
+	},
+	poliwrath: {
+		randomBattleMoves: ["substitute","focuspunch","bulkup","encore","waterfall","toxic","rest","sleeptalk","protect","scald","earthquake","circlethrow"],
+		randomDoubleBattleMoves: ["substitute","helpinghand","icywind","encore","waterfall","protect","icepunch","poisonjab","earthquake","brickbreak"],
+		eventPokemon: [
+			{"generation":3,"level":42,"moves":["helpinghand","hydropump","raindance","brickbreak"]}
+		],
+		tier: "NU"
+	},
+	politoed: {
+		randomBattleMoves: ["scald","toxic","encore","perishsong","protect","icebeam","focusblast","hydropump","hiddenpowergrass"],
+		randomDoubleBattleMoves: ["scald","hypnosis","icywind","encore","helpinghand","protect","icebeam","focusblast","hydropump","hiddenpowergrass"],
+		eventPokemon: [
+			{"generation":5,"level":50,"gender":"M","nature":"Calm","isHidden":true,"moves":["scald","icebeam","perishsong","protect"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	abra: {
+		randomBattleMoves: ["calmmind","psychic","psyshock","hiddenpowerfighting","shadowball","encore","substitute"],
+		randomDoubleBattleMoves: ["protect","psychic","psyshock","hiddenpowerfighting","shadowball","encore","substitute"],
+		tier: "LC"
+	},
+	kadabra: {
+		randomBattleMoves: ["calmmind","psychic","psyshock","hiddenpowerfighting","shadowball","encore","substitute"],
+		randomDoubleBattleMoves: ["protect","psychic","psyshock","hiddenpowerfighting","shadowball","encore","substitute"],
+		tier: "NFE"
+	},
+	alakazam: {
+		randomBattleMoves: ["calmmind","psychic","psyshock","focusblast","shadowball","encore","substitute","dazzlinggleam"],
+		randomDoubleBattleMoves: ["protect","psychic","psyshock","focusblast","shadowball","encore","substitute","energyball"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["futuresight","calmmind","psychic","trick"]}
+		],
+		tier: "UU"
+	},
+	alakazammega: {
+		randomBattleMoves: ["calmmind","psychic","psyshock","focusblast","shadowball","encore","substitute","energyball"],
+		randomDoubleBattleMoves: ["protect","psychic","psyshock","focusblast","shadowball","encore","substitute","energyball"],
+		requiredItem: "Alakazite",
+		tier: "BL"
+	},
+	machop: {
+		randomBattleMoves: ["dynamicpunch","payback","bulkup","icepunch","rockslide","bulletpunch","knockoff"],
+		randomDoubleBattleMoves: ["dynamicpunch","payback","protect","icepunch","rockslide","bulletpunch","knockoff"],
+		tier: "LC"
+	},
+	machoke: {
+		randomBattleMoves: ["dynamicpunch","payback","bulkup","icepunch","rockslide","bulletpunch","poweruppunch","knockoff"],
+		randomDoubleBattleMoves: ["dynamicpunch","payback","protect","icepunch","rockslide","bulletpunch","knockoff"],
+		eventPokemon: [
+			{"generation":3,"level":38,"abilities":["guts"],"moves":["seismictoss","foresight","revenge","vitalthrow"]},
+			{"generation":5,"level":30,"isHidden":false,"moves":["lowsweep","foresight","seismictoss","revenge"],"pokeball":"cherishball"}
+		],
+		tier: "NFE"
+	},
+	machamp: {
+		randomBattleMoves: ["dynamicpunch","bulkup","icepunch","stoneedge","bulletpunch","earthquake","knockoff"],
+		randomDoubleBattleMoves: ["dynamicpunch","payback","protect","icepunch","rockslide","bulletpunch","knockoff","wideguard"],
+		tier: "UU"
+	},
+	bellsprout: {
+		randomBattleMoves: ["swordsdance","sleeppowder","sunnyday","growth","solarbeam","gigadrain","sludgebomb","weatherball","suckerpunch","seedbomb"],
+		randomDoubleBattleMoves: ["swordsdance","sleeppowder","sunnyday","growth","solarbeam","gigadrain","sludgebomb","weatherball","suckerpunch","seedbomb","protect"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["vinewhip","teeterdance"]},
+			{"generation":3,"level":10,"gender":"M","moves":["vinewhip","growth"]}
+		],
+		tier: "LC"
+	},
+	weepinbell: {
+		randomBattleMoves: ["swordsdance","sleeppowder","sunnyday","growth","solarbeam","gigadrain","sludgebomb","weatherball","suckerpunch","seedbomb","knockoff"],
+		randomDoubleBattleMoves: ["swordsdance","sleeppowder","sunnyday","growth","solarbeam","gigadrain","sludgebomb","weatherball","suckerpunch","seedbomb","protect","knockoff"],
+		eventPokemon: [
+			{"generation":3,"level":32,"moves":["morningsun","magicalleaf","sludgebomb","sweetscent"]}
+		],
+		tier: "NFE"
+	},
+	victreebel: {
+		randomBattleMoves: ["sleeppowder","sunnyday","growth","solarbeam","gigadrain","sludgebomb","weatherball","suckerpunch","powerwhip","knockoff"],
+		randomDoubleBattleMoves: ["swordsdance","sleeppowder","sunnyday","growth","solarbeam","gigadrain","sludgebomb","weatherball","suckerpunch","powerwhip","protect","knockoff"],
+		tier: "NU"
+	},
+	tentacool: {
+		randomBattleMoves: ["toxicspikes","rapidspin","scald","sludgebomb","icebeam","knockoff","gigadrain","toxic","dazzlinggleam"],
+		randomDoubleBattleMoves: ["muddywater","scald","sludgebomb","icebeam","knockoff","gigadrain","protect","dazzlinggleam"],
+		tier: "LC"
+	},
+	tentacruel: {
+		randomBattleMoves: ["toxicspikes","rapidspin","scald","sludgebomb","icebeam","toxic","substitute"],
+		randomDoubleBattleMoves: ["muddywater","scald","sludgebomb","icebeam","knockoff","gigadrain","protect","dazzlinggleam"],
+		tier: "UU"
+	},
+	geodude: {
+		randomBattleMoves: ["stealthrock","earthquake","stoneedge","suckerpunch","hammerarm","firepunch","rockblast"],
+		randomDoubleBattleMoves: ["rockslide","earthquake","stoneedge","suckerpunch","hammerarm","firepunch","rockblast","protect"],
+		tier: "LC"
+	},
+	graveler: {
+		randomBattleMoves: ["stealthrock","earthquake","stoneedge","suckerpunch","hammerarm","firepunch","rockblast"],
+		randomDoubleBattleMoves: ["rockslide","earthquake","stoneedge","suckerpunch","hammerarm","firepunch","rockblast","protect"],
+		tier: "NFE"
+	},
+	golem: {
+		randomBattleMoves: ["stealthrock","earthquake","stoneedge","suckerpunch","toxic","rockblast"],
+		randomDoubleBattleMoves: ["rockslide","earthquake","stoneedge","suckerpunch","hammerarm","firepunch","rockblast","protect"],
+		tier: "NU"
+	},
+	ponyta: {
+		randomBattleMoves: ["flareblitz","wildcharge","morningsun","hypnosis","flamecharge"],
+		randomDoubleBattleMoves: ["flareblitz","wildcharge","protect","hypnosis","flamecharge"],
+		tier: "LC"
+	},
+	rapidash: {
+		randomBattleMoves: ["flareblitz","wildcharge","morningsun","megahorn","drillrun","willowisp","sunnyday","solarbeam"],
+		randomDoubleBattleMoves: ["flareblitz","wildcharge","protect","hypnosis","flamecharge","megahorn","drillrun","willowisp","sunnyday","solarbeam"],
+		eventPokemon: [
+			{"generation":3,"level":40,"moves":["batonpass","solarbeam","sunnyday","flamethrower"]}
+		],
+		tier: "NU"
+	},
+	slowpoke: {
+		randomBattleMoves: ["scald","aquatail","zenheadbutt","thunderwave","toxic","slackoff","trickroom"],
+		randomDoubleBattleMoves: ["scald","aquatail","zenheadbutt","thunderwave","slackoff","trickroom","protect"],
+		eventPokemon: [
+			{"generation":3,"level":31,"abilities":["oblivious"],"moves":["watergun","confusion","disable","headbutt"]},
+			{"generation":3,"level":10,"gender":"M","moves":["curse","yawn","tackle","growl"]},
+			{"generation":5,"level":30,"isHidden":false,"moves":["confusion","disable","headbutt","waterpulse"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	slowbro: {
+		randomBattleMoves: ["scald","fireblast","icebeam","psychic","grassknot","calmmind","thunderwave","toxic","slackoff","trickroom","psyshock"],
+		randomDoubleBattleMoves: ["scald","fireblast","icebeam","psychic","grassknot","thunderwave","slackoff","trickroom","protect","psyshock"],
+		tier: "UU"
+	},
+	slowking: {
+		randomBattleMoves: ["scald","fireblast","icebeam","psychic","grassknot","calmmind","thunderwave","toxic","slackoff","trickroom","nastyplot","dragontail","psyshock"],
+		randomDoubleBattleMoves: ["scald","fireblast","icebeam","psychic","grassknot","thunderwave","slackoff","trickroom","protect","psyshock"],
+		tier: "RU"
+	},
+	magnemite: {
+		randomBattleMoves: ["thunderbolt","thunderwave","magnetrise","substitute","flashcannon","hiddenpowerice","voltswitch"],
+		randomDoubleBattleMoves: ["thunderbolt","thunderwave","magnetrise","substitute","flashcannon","hiddenpowerice","voltswitch","protect","electroweb","discharge"],
+		tier: "LC"
+	},
+	magneton: {
+		randomBattleMoves: ["thunderbolt","thunderwave","magnetrise","substitute","flashcannon","hiddenpowerice","voltswitch","chargebeam","hiddenpowerfire"],
+		randomDoubleBattleMoves: ["thunderbolt","thunderwave","magnetrise","substitute","flashcannon","hiddenpowerice","voltswitch","protect","electroweb","discharge","hiddenpowerfire"],
+		eventPokemon: [
+			{"generation":3,"level":30,"moves":["refresh","doubleedge","raindance","thunder"]}
+		],
+		tier: "RU"
+	},
+	magnezone: {
+		randomBattleMoves: ["thunderbolt","substitute","flashcannon","hiddenpowerice","voltswitch","chargebeam","hiddenpowerfire"],
+		randomDoubleBattleMoves: ["thunderbolt","thunderwave","magnetrise","substitute","flashcannon","hiddenpowerice","voltswitch","protect","electroweb","discharge","hiddenpowerfire"],
+		tier: "BL"
+	},
+	farfetchd: {
+		randomBattleMoves: ["bravebird","swordsdance","return","leafblade","roost"],
+		randomDoubleBattleMoves: ["bravebird","swordsdance","return","leafblade","protect"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["yawn","wish"]},
+			{"generation":3,"level":36,"moves":["batonpass","slash","swordsdance","aerialace"]}
+		],
+		tier: "NU"
+	},
+	doduo: {
+		randomBattleMoves: ["bravebird","return","doubleedge","roost","quickattack","pursuit"],
+		randomDoubleBattleMoves: ["bravebird","return","doubleedge","quickattack","protect"],
+		tier: "LC"
+	},
+	dodrio: {
+		randomBattleMoves: ["bravebird","return","doubleedge","roost","quickattack","knockoff"],
+		randomDoubleBattleMoves: ["bravebird","return","doubleedge","quickattack","protect"],
+		eventPokemon: [
+			{"generation":3,"level":34,"moves":["batonpass","drillpeck","agility","triattack"]}
+		],
+		tier: "NU"
+	},
+	seel: {
+		randomBattleMoves: ["surf","icebeam","aquajet","protect","rest","toxic","drillrun"],
+		randomDoubleBattleMoves: ["surf","icebeam","aquajet","protect","rest","fakeout","drillrun","icywind"],
+		eventPokemon: [
+			{"generation":3,"level":23,"abilities":["thickfat"],"moves":["helpinghand","surf","safeguard","icebeam"]}
+		],
+		tier: "LC"
+	},
+	dewgong: {
+		randomBattleMoves: ["surf","icebeam","aquajet","iceshard","toxic","drillrun","encore"],
+		randomDoubleBattleMoves: ["surf","icebeam","aquajet","protect","rest","fakeout","drillrun","icywind"],
+		tier: "NU"
+	},
+	grimer: {
+		randomBattleMoves: ["curse","gunkshot","poisonjab","shadowsneak","payback","rest","icepunch","firepunch","sleeptalk","memento"],
+		randomDoubleBattleMoves: ["gunkshot","poisonjab","shadowsneak","payback","protect","icepunch","firepunch"],
+		eventPokemon: [
+			{"generation":3,"level":23,"moves":["helpinghand","sludgebomb","shadowpunch","minimize"]}
+		],
+		tier: "LC"
+	},
+	muk: {
+		randomBattleMoves: ["curse","gunkshot","shadowsneak","icepunch","firepunch","memento"],
+		randomDoubleBattleMoves: ["gunkshot","poisonjab","shadowsneak","payback","protect","icepunch","firepunch","brickbreak"],
+		tier: "NU"
+	},
+	shellder: {
+		randomBattleMoves: ["shellsmash","hydropump","razorshell","rockblast","iciclespear","rapidspin"],
+		randomDoubleBattleMoves: ["shellsmash","hydropump","razorshell","rockblast","iciclespear","protect"],
+		eventPokemon: [
+			{"generation":3,"level":24,"abilities":["shellarmor"],"moves":["withdraw","iciclespear","supersonic","aurorabeam"]},
+			{"generation":3,"level":10,"gender":"M","abilities":["shellarmor"],"moves":["tackle","withdraw","iciclespear"]},
+			{"generation":3,"level":29,"abilities":["shellarmor"],"moves":["refresh","takedown","surf","aurorabeam"]}
+		],
+		tier: "LC"
+	},
+	cloyster: {
+		randomBattleMoves: ["shellsmash","hydropump","razorshell","rockblast","iciclespear","iceshard","rapidspin","spikes","toxicspikes"],
+		randomDoubleBattleMoves: ["shellsmash","hydropump","razorshell","rockblast","iciclespear","protect"],
+		eventPokemon: [
+			{"generation":5,"level":30,"gender":"M","nature":"Naughty","isHidden":false,"abilities":["skilllink"],"moves":["iciclespear","rockblast","hiddenpower","razorshell"]}
+		],
+		tier: "UU"
+	},
+	gastly: {
+		randomBattleMoves: ["shadowball","sludgebomb","hiddenpowerfighting","thunderbolt","substitute","disable","painsplit","hypnosis","gigadrain","trick","dazzlinggleam"],
+		randomDoubleBattleMoves: ["shadowball","sludgebomb","hiddenpowerfighting","thunderbolt","substitute","disable","taunt","hypnosis","gigadrain","trick","dazzlinggleam","protect"],
+		tier: "LC"
+	},
+	haunter: {
+		randomBattleMoves: ["shadowball","sludgebomb","hiddenpowerfighting","thunderbolt","substitute","disable","painsplit","hypnosis","gigadrain","trick"],
+		randomDoubleBattleMoves: ["shadowball","sludgebomb","hiddenpowerfighting","thunderbolt","substitute","disable","taunt","hypnosis","gigadrain","trick","dazzlinggleam","protect"],
+		eventPokemon: [
+			{"generation":3,"level":23,"moves":["spite","curse","nightshade","confuseray"]},
+			{"generation":5,"level":30,"moves":["confuseray","suckerpunch","shadowpunch","payback"],"pokeball":"cherishball"}
+		],
+		tier: "NFE"
+	},
+	gengar: {
+		randomBattleMoves: ["shadowball","sludgebomb","focusblast","thunderbolt","substitute","disable","painsplit"],
+		randomDoubleBattleMoves: ["shadowball","sludgebomb","focusblast","thunderbolt","substitute","disable","taunt","hypnosis","gigadrain","trick","dazzlinggleam","protect"],
+		eventPokemon: [
+			{"generation":6,"level":25,"nature":"Timid","moves":["psychic","confuseray","suckerpunch","shadowpunch"],"pokeball":"cherishball"},
+			{"generation":6,"level":25,"moves":["nightshade","confuseray","suckerpunch","shadowpunch"],"pokeball":"cherishball"},
+			{"generation":6,"level":50,"moves":["shadowball","sludgebomb","willowisp","destinybond"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	gengarmega: {
+		randomBattleMoves: ["shadowball","sludgebomb","focusblast","thunderbolt","substitute","disable","painsplit","hypnosis","gigadrain"],
+		randomDoubleBattleMoves: ["shadowball","sludgebomb","focusblast","thunderbolt","substitute","disable","taunt","hypnosis","gigadrain","trick","dazzlinggleam","protect"],
+		requiredItem: "Gengarite",
+		tier: "Uber"
+	},
+	onix: {
+		randomBattleMoves: ["stealthrock","earthquake","stoneedge","dragontail","curse"],
+		randomDoubleBattleMoves: ["stealthrock","earthquake","stoneedge","rockslide","protect","explosion"],
+		tier: "LC"
+	},
+	steelix: {
+		randomBattleMoves: ["stealthrock","earthquake","ironhead","roar","toxic","rockslide"],
+		randomDoubleBattleMoves: ["stealthrock","earthquake","ironhead","rockslide","protect","explosion","icefang","firefang"],
+		tier: "NU"
+	},
+	drowzee: {
+		randomBattleMoves: ["psychic","seismictoss","thunderwave","wish","protect","toxic","shadowball","trickroom","calmmind","dazzlinggleam"],
+		randomDoubleBattleMoves: ["psychic","seismictoss","thunderwave","wish","protect","hypnosis","shadowball","trickroom","calmmind","dazzlinggleam","toxic"],
+		eventPokemon: [
+			{"generation":3,"level":5,"abilities":["insomnia"],"moves":["bellydrum","wish"]}
+		],
+		tier: "LC"
+	},
+	hypno: {
+		randomBattleMoves: ["psychic","seismictoss","thunderwave","wish","protect","batonpass","toxic"],
+		randomDoubleBattleMoves: ["psychic","seismictoss","thunderwave","wish","protect","hypnosis","shadowball","trickroom","calmmind","dazzlinggleam","zenheadbutt","firepunch"],
+		eventPokemon: [
+			{"generation":3,"level":34,"abilities":["insomnia"],"moves":["batonpass","psychic","meditate","shadowball"]}
+		],
+		tier: "NU"
+	},
+	krabby: {
+		randomBattleMoves: ["crabhammer","return","swordsdance","agility","rockslide","substitute","xscissor","superpower","knockoff"],
+		randomDoubleBattleMoves: ["crabhammer","return","swordsdance","agility","rockslide","substitute","xscissor","superpower","knockoff","protect"],
+		tier: "LC"
+	},
+	kingler: {
+		randomBattleMoves: ["crabhammer","return","swordsdance","agility","superpower","knockoff"],
+		randomDoubleBattleMoves: ["crabhammer","return","swordsdance","agility","rockslide","substitute","xscissor","superpower","knockoff","protect","wideguard"],
+		tier: "NU"
+	},
+	voltorb: {
+		randomBattleMoves: ["voltswitch","thunderbolt","taunt","foulplay","hiddenpowerice"],
+		randomDoubleBattleMoves: ["voltswitch","thunderbolt","taunt","foulplay","hiddenpowerice","protect","thunderwave"],
+		eventPokemon: [
+			{"generation":3,"level":19,"moves":["refresh","mirrorcoat","spark","swift"]}
+		],
+		tier: "LC"
+	},
+	electrode: {
+		randomBattleMoves: ["voltswitch","thunderbolt","taunt","foulplay","hiddenpowerice"],
+		randomDoubleBattleMoves: ["voltswitch","thunderbolt","taunt","foulplay","hiddenpowerice","protect","thunderwave"],
+		tier: "NU"
+	},
+	exeggcute: {
+		randomBattleMoves: ["substitute","leechseed","gigadrain","psychic","sleeppowder","stunspore","hiddenpowerfire","synthesis"],
+		randomDoubleBattleMoves: ["substitute","leechseed","gigadrain","psychic","sleeppowder","stunspore","hiddenpowerfire","protect","trickroom"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["sweetscent","wish"]}
+		],
+		tier: "LC"
+	},
+	exeggutor: {
+		randomBattleMoves: ["substitute","leechseed","gigadrain","leafstorm","psychic","sleeppowder","hiddenpowerfire","trickroom","psyshock"],
+		randomDoubleBattleMoves: ["substitute","leechseed","gigadrain","leafstorm","psychic","sleeppowder","stunspore","hiddenpowerfire","protect","sludgebomb","trickroom","psyshock"],
+		eventPokemon: [
+			{"generation":3,"level":46,"moves":["refresh","psychic","hypnosis","ancientpower"]}
+		],
+		tier: "NU"
+	},
+	cubone: {
+		randomBattleMoves: ["substitute","bonemerang","doubleedge","rockslide","firepunch","earthquake"],
+		randomDoubleBattleMoves: ["substitute","bonemerang","doubleedge","rockslide","firepunch","earthquake","protect"],
+		tier: "LC"
+	},
+	marowak: {
+		randomBattleMoves: ["stealthrock","doubleedge","stoneedge","swordsdance","bonemerang","earthquake"],
+		randomDoubleBattleMoves: ["substitute","bonemerang","doubleedge","rockslide","firepunch","earthquake","protect","swordsdance"],
+		eventPokemon: [
+			{"generation":3,"level":44,"moves":["sing","earthquake","swordsdance","rockslide"]}
+		],
+		tier: "NU"
+	},
+	tyrogue: {
+		randomBattleMoves: ["highjumpkick","rapidspin","fakeout","bulletpunch","machpunch","toxic","counter"],
+		randomDoubleBattleMoves: ["highjumpkick","feint","fakeout","bulletpunch","machpunch","helpinghand","protect"],
+		tier: "LC"
+	},
+	hitmonlee: {
+		randomBattleMoves: ["highjumpkick","suckerpunch","stoneedge","machpunch","rapidspin","knockoff"],
+		randomDoubleBattleMoves: ["helpinghand","suckerpunch","stoneedge","machpunch","substitute","fakeout","closecombat","earthquake","blazekick","feint","wideguard","protect"],
+		eventPokemon: [
+			{"generation":3,"level":38,"abilities":["limber"],"moves":["refresh","highjumpkick","mindreader","megakick"]}
+		],
+		tier: "RU"
+	},
+	hitmonchan: {
+		randomBattleMoves: ["bulkup","drainpunch","icepunch","machpunch","substitute","rapidspin"],
+		randomDoubleBattleMoves: ["fakeout","drainpunch","icepunch","machpunch","substitute","earthquake","stoneedge","feint","protect","helpinghand"],
+		eventPokemon: [
+			{"generation":3,"level":38,"abilities":["keeneye"],"moves":["helpinghand","skyuppercut","mindreader","megapunch"]}
+		],
+		tier: "RU"
+	},
+	hitmontop: {
+		randomBattleMoves: ["suckerpunch","machpunch","rapidspin","closecombat","toxic"],
+		randomDoubleBattleMoves: ["fakeout","feint","suckerpunch","closecombat","helpinghand","machpunch","wideguard"],
+		eventPokemon: [
+			{"generation":5,"level":55,"gender":"M","nature":"Adamant","isHidden":false,"abilities":["intimidate"],"moves":["fakeout","closecombat","suckerpunch","helpinghand"]}
+		],
+		tier: "RU"
+	},
+	lickitung: {
+		randomBattleMoves: ["wish","protect","dragontail","curse","bodyslam","return","powerwhip","swordsdance","earthquake","toxic","healbell"],
+		randomDoubleBattleMoves: ["wish","protect","dragontail","knockoff","bodyslam","return","powerwhip","swordsdance","earthquake","toxic","healbell"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["healbell","wish"]},
+			{"generation":3,"level":38,"moves":["helpinghand","doubleedge","defensecurl","rollout"]}
+		],
+		tier: "LC"
+	},
+	lickilicky: {
+		randomBattleMoves: ["wish","protect","dragontail","bodyslam","return","powerwhip","swordsdance","earthquake","toxic","healbell","explosion","knockoff"],
+		randomDoubleBattleMoves: ["wish","protect","dragontail","knockoff","bodyslam","return","powerwhip","swordsdance","earthquake","toxic","healbell","explosion"],
+		tier: "NU"
+	},
+	koffing: {
+		randomBattleMoves: ["painsplit","sludgebomb","willowisp","fireblast","toxic","clearsmog","rest","sleeptalk","thunderbolt"],
+		randomDoubleBattleMoves: ["protect","sludgebomb","willowisp","fireblast","toxic","rest","sleeptalk","thunderbolt"],
+		tier: "LC"
+	},
+	weezing: {
+		randomBattleMoves: ["painsplit","sludgebomb","willowisp","fireblast","toxic","clearsmog"],
+		randomDoubleBattleMoves: ["protect","sludgebomb","willowisp","fireblast","toxic","rest","sleeptalk","thunderbolt","explosion"],
+		tier: "NU"
+	},
+	rhyhorn: {
+		randomBattleMoves: ["stoneedge","earthquake","aquatail","megahorn","stealthrock","rockblast","rockpolish"],
+		randomDoubleBattleMoves: ["stoneedge","earthquake","aquatail","megahorn","stealthrock","rockslide","protect"],
+		tier: "LC"
+	},
+	rhydon: {
+		randomBattleMoves: ["stoneedge","earthquake","aquatail","megahorn","stealthrock","rockblast","rockpolish"],
+		randomDoubleBattleMoves: ["stoneedge","earthquake","aquatail","megahorn","stealthrock","rockslide","protect"],
+		eventPokemon: [
+			{"generation":3,"level":46,"moves":["helpinghand","megahorn","scaryface","earthquake"]}
+		],
+		tier: "NFE"
+	},
+	rhyperior: {
+		randomBattleMoves: ["stoneedge","earthquake","aquatail","megahorn","stealthrock","rockblast","rockpolish","dragontail","protect"],
+		randomDoubleBattleMoves: ["stoneedge","earthquake","aquatail","megahorn","stealthrock","rockslide","protect"],
+		tier: "RU"
+	},
+	happiny: {
+		randomBattleMoves: ["aromatherapy","toxic","thunderwave","counter","endeavor","lightscreen","fireblast"],
+		randomDoubleBattleMoves: ["aromatherapy","toxic","thunderwave","helpinghand","swagger","lightscreen","fireblast","protect"],
+		tier: "LC"
+	},
+	chansey: {
+		randomBattleMoves: ["wish","softboiled","protect","toxic","aromatherapy","seismictoss","counter","thunderwave","stealthrock","fireblast","icebeam"],
+		randomDoubleBattleMoves: ["aromatherapy","toxic","thunderwave","helpinghand","softboiled","lightscreen","seismictoss","protect","wish"],
+		eventPokemon: [
+			{"generation":3,"level":5,"gender":"F","moves":["sweetscent","wish"]},
+			{"generation":3,"level":10,"gender":"F","moves":["pound","growl","tailwhip","refresh"]},
+			{"generation":3,"level":39,"gender":"F","moves":["sweetkiss","thunderbolt","softboiled","skillswap"]}
+		],
+		tier: "OU"
+	},
+	blissey: {
+		randomBattleMoves: ["wish","softboiled","protect","toxic","healbell","seismictoss","counter","thunderwave","stealthrock","flamethrower","icebeam"],
+		randomDoubleBattleMoves: ["wish","softboiled","protect","toxic","aromatherapy","seismictoss","helpinghand","thunderwave","flamethrower","icebeam"],
+		eventPokemon: [
+			{"generation":5,"level":10,"gender":"F","isHidden":true,"moves":["pound","growl","tailwhip","refresh"]}
+		],
+		tier: "UU"
+	},
+	tangela: {
+		randomBattleMoves: ["gigadrain","sleeppowder","hiddenpowerrock","hiddenpowerice","leechseed","knockoff","leafstorm","stunspore","synthesis"],
+		randomDoubleBattleMoves: ["gigadrain","sleeppowder","hiddenpowerrock","hiddenpowerice","leechseed","knockoff","leafstorm","stunspore","protect","hiddenpowerfire"],
+		eventPokemon: [
+			{"generation":3,"level":30,"abilities":["chlorophyll"],"moves":["morningsun","solarbeam","sunnyday","ingrain"]}
+		],
+		tier: "LC Uber"
+	},
+	tangrowth: {
+		randomBattleMoves: ["gigadrain","sleeppowder","hiddenpowerice","leechseed","knockoff","leafstorm","focusblast","synthesis","powerwhip","earthquake"],
+		randomDoubleBattleMoves: ["gigadrain","sleeppowder","hiddenpowerice","leechseed","knockoff","leafstorm","stunspore","focusblast","protect","powerwhip","earthquake"],
+		tier: "RU"
+	},
+	kangaskhan: {
+		randomBattleMoves: ["return","suckerpunch","earthquake","poweruppunch","crunch"],
+		randomDoubleBattleMoves: ["fakeout","return","suckerpunch","earthquake","doubleedge","poweruppunch","crunch","protect"],
+		eventPokemon: [
+			{"generation":3,"level":5,"gender":"F","abilities":["earlybird"],"moves":["yawn","wish"]},
+			{"generation":3,"level":10,"gender":"F","abilities":["earlybird"],"moves":["cometpunch","leer","bite"]},
+			{"generation":3,"level":36,"gender":"F","abilities":["earlybird"],"moves":["sing","earthquake","tailwhip","dizzypunch"]},
+			{"generation":6,"level":50,"gender":"F","isHidden":false,"abilities":["scrappy"],"moves":["fakeout","return","earthquake","suckerpunch"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	kangaskhanmega: {
+		randomBattleMoves: ["fakeout","return","suckerpunch","earthquake","wish","poweruppunch","crunch"],
+		randomDoubleBattleMoves: ["fakeout","return","suckerpunch","earthquake","facade","poweruppunch","crunch"],
+		requiredItem: "Kangaskhanite",
+		tier: "Uber"
+	},
+	horsea: {
+		randomBattleMoves: ["hydropump","icebeam","substitute","hiddenpowergrass","raindance"],
+		randomDoubleBattleMoves: ["hydropump","icebeam","substitute","hiddenpowergrass","raindance","muddywater","protect"],
+		eventPokemon: [
+			{"generation":5,"level":1,"shiny":true,"isHidden":false,"moves":["bubble"]}
+		],
+		tier: "LC"
+	},
+	seadra: {
+		randomBattleMoves: ["hydropump","icebeam","agility","substitute","hiddenpowergrass"],
+		randomDoubleBattleMoves: ["hydropump","icebeam","substitute","hiddenpowergrass","agility","muddywater","protect"],
+		eventPokemon: [
+			{"generation":3,"level":45,"abilities":["poisonpoint"],"moves":["leer","watergun","twister","agility"]}
+		],
+		tier: "NFE"
+	},
+	kingdra: {
+		randomBattleMoves: ["hydropump","dragondance","substitute","outrage","dracometeor","waterfall","dragonpulse","surf"],
+		randomDoubleBattleMoves: ["hydropump","icebeam","dragondance","substitute","outrage","dracometeor","waterfall","dragonpulse","muddywater","protect"],
+		eventPokemon: [
+			{"generation":3,"level":50,"abilities":["swiftswim"],"moves":["leer","watergun","twister","agility"]},
+			{"generation":5,"level":50,"gender":"M","nature":"Timid","isHidden":false,"abilities":["swiftswim"],"moves":["dracometeor","muddywater","dragonpulse","protect"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	goldeen: {
+		randomBattleMoves: ["raindance","waterfall","megahorn","return","drillrun","icebeam"],
+		randomDoubleBattleMoves: ["raindance","waterfall","megahorn","return","drillrun","icebeam","protect"],
+		tier: "LC"
+	},
+	seaking: {
+		randomBattleMoves: ["raindance","waterfall","megahorn","return","drillrun","icebeam"],
+		randomDoubleBattleMoves: ["raindance","waterfall","megahorn","return","drillrun","icebeam","protect"],
+		tier: "NU"
+	},
+	staryu: {
+		randomBattleMoves: ["scald","thunderbolt","icebeam","rapidspin","recover","dazzlinggleam","hydropump"],
+		randomDoubleBattleMoves: ["scald","thunderbolt","icebeam","protect","recover","dazzlinggleam","hydropump"],
+		eventPokemon: [
+			{"generation":3,"level":50,"moves":["minimize","lightscreen","cosmicpower","hydropump"]},
+			{"generation":3,"level":18,"abilities":["illuminate"],"moves":["tackle","watergun","rapidspin","recover"]}
+		],
+		tier: "LC"
+	},
+	starmie: {
+		randomBattleMoves: ["surf","thunderbolt","icebeam","rapidspin","recover","psyshock","scald","hydropump"],
+		randomDoubleBattleMoves: ["surf","thunderbolt","icebeam","protect","recover","psychic","psyshock","scald","hydropump"],
+		eventPokemon: [
+			{"generation":3,"level":41,"moves":["refresh","waterfall","icebeam","recover"]}
+		],
+		tier: "UU"
+	},
+	mimejr: {
+		randomBattleMoves: ["substitute","batonpass","psychic","thunderwave","hiddenpowerfighting","healingwish","nastyplot","thunderbolt","encore"],
+		randomDoubleBattleMoves: ["substitute","fakeout","psychic","thunderwave","hiddenpowerfighting","healingwish","nastyplot","thunderbolt","encore","icywind","protect"],
+		tier: "LC"
+	},
+	mrmime: {
+		randomBattleMoves: ["substitute","batonpass","psychic","hiddenpowerfighting","healingwish","nastyplot","thunderbolt","encore","dazzlinggleam"],
+		randomDoubleBattleMoves: ["substitute","fakeout","psychic","thunderwave","hiddenpowerfighting","healingwish","nastyplot","thunderbolt","encore","icywind","protect","dazzlinggleam"],
+		eventPokemon: [
+			{"generation":3,"level":42,"abilities":["soundproof"],"moves":["followme","psychic","encore","thunderpunch"]}
+		],
+		tier: "NU"
+	},
+	scyther: {
+		randomBattleMoves: ["swordsdance","roost","bugbite","quickattack","brickbreak","aerialace","batonpass","uturn","knockoff"],
+		randomDoubleBattleMoves: ["swordsdance","protect","bugbite","quickattack","brickbreak","aerialace","feint","uturn","knockoff"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","abilities":["swarm"],"moves":["quickattack","leer","focusenergy"]},
+			{"generation":3,"level":40,"abilities":["swarm"],"moves":["morningsun","razorwind","silverwind","slash"]},
+			{"generation":5,"level":30,"isHidden":false,"moves":["agility","wingattack","furycutter","slash"],"pokeball":"cherishball"}
+		],
+		tier: "LC Uber"
+	},
+	scizor: {
+		randomBattleMoves: ["swordsdance","roost","bulletpunch","bugbite","superpower","uturn","pursuit","defog","knockoff"],
+		randomDoubleBattleMoves: ["swordsdance","roost","bulletpunch","bugbite","superpower","uturn","protect","feint","knockoff"],
+		eventPokemon: [
+			{"generation":3,"level":50,"gender":"M","abilities":["swarm"],"moves":["furycutter","metalclaw","swordsdance","slash"]},
+			{"generation":4,"level":50,"gender":"M","nature":"Adamant","abilities":["swarm"],"moves":["xscissor","swordsdance","irondefense","agility"],"pokeball":"cherishball"},
+			{"generation":5,"level":100,"gender":"M","isHidden":false,"abilities":["technician"],"moves":["bulletpunch","bugbite","roost","swordsdance"],"pokeball":"cherishball"},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["leer","focusenergy","pursuit","steelwing"]},
+			{"generation":6,"level":50,"gender":"M","isHidden":false,"moves":["xscissor","nightslash","doublehit","ironhead"],"pokeball":"cherishball"},
+			{"generation":6,"level":25,"nature":"Adamant","isHidden":false,"abilities":["technician"],"moves":["aerialace","falseswipe","agility","furycutter"],"pokeball":"cherishball"},
+			{"generation":6,"level":25,"isHidden":false,"moves":["metalclaw","falseswipe","agility","furycutter"],"pokeball":"cherishball"},
+			{"generation":6,"level":50,"isHidden":false,"abilities":["technician"],"moves":["bulletpunch","swordsdance","roost","uturn"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	scizormega: {
+		randomBattleMoves: ["swordsdance","roost","bulletpunch","bugbite","superpower","uturn","batonpass","pursuit","defog","knockoff"],
+		randomDoubleBattleMoves: ["swordsdance","roost","bulletpunch","bugbite","superpower","uturn","protect","feint","knockoff"],
+		requiredItem: "Scizorite"
+	},
+	smoochum: {
+		randomBattleMoves: ["icebeam","psychic","hiddenpowerfighting","trick","shadowball","grassknot"],
+		randomDoubleBattleMoves: ["icebeam","psychic","hiddenpowerfighting","trick","shadowball","grassknot","fakeout","protect"],
+		tier: "LC"
+	},
+	jynx: {
+		randomBattleMoves: ["icebeam","psychic","focusblast","trick","nastyplot","lovelykiss","substitute","psyshock"],
+		randomDoubleBattleMoves: ["icebeam","psychic","hiddenpowerfighting","trick","shadowball","grassknot","fakeout","protect","lovelykiss","substitute","psyshock"],
+		tier: "NU"
+	},
+	elekid: {
+		randomBattleMoves: ["thunderbolt","crosschop","voltswitch","substitute","icepunch","psychic","hiddenpowergrass"],
+		randomDoubleBattleMoves: ["thunderbolt","crosschop","voltswitch","substitute","icepunch","psychic","hiddenpowergrass","feint","protect"],
+		eventPokemon: [
+			{"generation":3,"level":20,"moves":["icepunch","firepunch","thunderpunch","crosschop"]}
+		],
+		tier: "LC"
+	},
+	electabuzz: {
+		randomBattleMoves: ["thunderbolt","voltswitch","substitute","hiddenpowerice","hiddenpowergrass","focusblast","psychic"],
+		randomDoubleBattleMoves: ["thunderbolt","crosschop","voltswitch","substitute","icepunch","psychic","hiddenpowergrass","feint","protect","focusblast","discharge"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["quickattack","leer","thunderpunch"]},
+			{"generation":3,"level":43,"moves":["followme","crosschop","thunderwave","thunderbolt"]},
+			{"generation":4,"level":30,"gender":"M","nature":"Naughty","moves":["lowkick","shockwave","lightscreen","thunderpunch"]},
+			{"generation":5,"level":30,"isHidden":false,"moves":["lowkick","swift","shockwave","lightscreen"],"pokeball":"cherishball"},
+			{"generation":6,"level":30,"gender":"M","isHidden":true,"moves":["lowkick","shockwave","lightscreen","thunderpunch"],"pokeball":"cherishball"}
+		],
+		tier: "NFE"
+	},
+	electivire: {
+		randomBattleMoves: ["wildcharge","crosschop","icepunch","flamethrower","earthquake"],
+		randomDoubleBattleMoves: ["wildcharge","crosschop","icepunch","substitute","flamethrower","earthquake","feint","protect","thunderbolt","followme","electricterrain"],
+		eventPokemon: [
+			{"generation":4,"level":50,"gender":"M","nature":"Adamant","moves":["thunderpunch","icepunch","crosschop","earthquake"]},
+			{"generation":4,"level":50,"gender":"M","nature":"Serious","moves":["lightscreen","thunderpunch","discharge","thunderbolt"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	magby: {
+		randomBattleMoves: ["flareblitz","substitute","fireblast","hiddenpowergrass","hiddenpowerice","crosschop","thunderpunch","overheat"],
+		tier: "LC"
+	},
+	magmar: {
+		randomBattleMoves: ["flareblitz","substitute","fireblast","hiddenpowergrass","hiddenpowerice","crosschop","thunderpunch","focusblast"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["leer","smog","firepunch","leer"]},
+			{"generation":3,"level":36,"moves":["followme","fireblast","crosschop","thunderpunch"]},
+			{"generation":4,"level":30,"gender":"M","nature":"Quiet","moves":["smokescreen","firespin","confuseray","firepunch"]},
+			{"generation":5,"level":30,"isHidden":false,"moves":["smokescreen","feintattack","firespin","confuseray"],"pokeball":"cherishball"},
+			{"generation":6,"level":30,"gender":"M","isHidden":true,"moves":["smokescreen","firespin","confuseray","firepunch"],"pokeball":"cherishball"}
+		],
+		tier: "NFE"
+	},
+	magmortar: {
+		randomBattleMoves: ["fireblast","focusblast","hiddenpowergrass","hiddenpowerice","thunderbolt","earthquake","willowisp"],
+		randomDoubleBattleMoves: ["fireblast","taunt","focusblast","hiddenpowergrass","hiddenpowerice","thunderbolt","heatwave","willowisp","protect","followme"],
+		eventPokemon: [
+			{"generation":4,"level":50,"gender":"F","nature":"Modest","moves":["flamethrower","psychic","hyperbeam","solarbeam"]},
+			{"generation":4,"level":50,"gender":"M","nature":"Hardy","moves":["confuseray","firepunch","lavaplume","flamethrower"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	pinsir: {
+		randomBattleMoves: ["swordsdance","earthquake","xscissor","quickattack","return"],
+		randomDoubleBattleMoves: ["feint","protect","swordsdance","xscissor","earthquake","closecombat","substitute","stoneedge","quickattack","return"],
+		eventPokemon: [
+			{"generation":3,"level":35,"abilities":["hypercutter"],"moves":["helpinghand","guillotine","falseswipe","submission"]},
+			{"generation":6,"level":50,"gender":"F","nature":"Adamant","isHidden":false,"moves":["xscissor","earthquake","stoneedge","return"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	pinsirmega: {
+		randomBattleMoves: ["swordsdance","xscissor","earthquake","closecombat","stealthrock","substitute","stoneedge","quickattack","return"],
+		randomDoubleBattleMoves: ["feint","protect","swordsdance","xscissor","earthquake","closecombat","substitute","stoneedge","quickattack","return"],
+		requiredItem: "Pinsirite"
+	},
+	tauros: {
+		randomBattleMoves: ["rockclimb","earthquake","zenheadbutt","rockslide","pursuit","doubleedge"],
+		randomDoubleBattleMoves: ["rockclimb","earthquake","zenheadbutt","rockslide","protect","doubleedge"],
+		eventPokemon: [
+			{"generation":3,"level":25,"gender":"M","abilities":["intimidate"],"moves":["rage","hornattack","scaryface","pursuit"]},
+			{"generation":3,"level":10,"gender":"M","abilities":["intimidate"],"moves":["tackle","tailwhip","rage","hornattack"]},
+			{"generation":3,"level":46,"gender":"M","abilities":["intimidate"],"moves":["refresh","earthquake","tailwhip","bodyslam"]}
+		],
+		tier: "NU"
+	},
+	magikarp: {
+		randomBattleMoves: ["bounce","flail","tackle","hydropump"],
+		eventPokemon: [
+			{"generation":4,"level":5,"gender":"M","nature":"Relaxed","moves":["splash"]},
+			{"generation":4,"level":6,"gender":"F","nature":"Rash","moves":["splash"]},
+			{"generation":4,"level":7,"gender":"F","nature":"Hardy","moves":["splash"]},
+			{"generation":4,"level":5,"gender":"F","nature":"Lonely","moves":["splash"]},
+			{"generation":4,"level":4,"gender":"M","nature":"Modest","moves":["splash"]},
+			{"generation":5,"level":99,"shiny":true,"gender":"M","isHidden":false,"moves":["flail","hydropump","bounce","splash"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	gyarados: {
+		randomBattleMoves: ["dragondance","waterfall","earthquake","stoneedge","substitute","icefang","taunt"],
+		randomDoubleBattleMoves: ["dragondance","waterfall","earthquake","bounce","taunt","protect","thunderwave","stoneedge","substitute","icefang"],
+		eventPokemon: [
+			{"generation":6,"level":50,"isHidden":false,"moves":["waterfall","earthquake","icefang","dragondance"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	gyaradosmega: {
+		randomBattleMoves: ["dragondance","waterfall","earthquake","bounce","rest","sleeptalk","dragontail","stoneedge","substitute","icefang"],
+		randomDoubleBattleMoves: ["dragondance","waterfall","earthquake","bounce","taunt","protect","thunderwave","stoneedge","substitute","icefang"],
+		requiredItem: "Gyaradosite"
+	},
+	lapras: {
+		randomBattleMoves: ["icebeam","thunderbolt","healbell","toxic","surf","rest","sleeptalk"],
+		randomDoubleBattleMoves: ["icebeam","thunderbolt","healbell","hydropump","surf","substitute","protect","iceshard","icywind"],
+		eventPokemon: [
+			{"generation":3,"level":44,"moves":["hydropump","raindance","blizzard","healbell"]}
+		],
+		tier: "NU"
+	},
+	ditto: {
+		randomBattleMoves: ["transform"],
+		tier: "NU"
+	},
+	eevee: {
+		randomBattleMoves: ["quickattack","return","bite","batonpass","irontail","yawn","protect","wish"],
+		randomDoubleBattleMoves: ["quickattack","return","bite","helpinghand","irontail","yawn","protect","wish"],
+		eventPokemon: [
+			{"generation":4,"level":10,"gender":"F","nature":"Lonely","abilities":["adaptability"],"moves":["covet","bite","helpinghand","attract"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"shiny":true,"gender":"M","nature":"Hardy","abilities":["adaptability"],"moves":["irontail","trumpcard","flail","quickattack"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"gender":"F","nature":"Hardy","isHidden":false,"abilities":["adaptability"],"moves":["sing","return","echoedvoice","attract"],"pokeball":"cherishball"},
+			{"generation":6,"level":10,"isHidden":false,"moves":["celebrate","sandattack","babydolleyes","swift"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	vaporeon: {
+		randomBattleMoves: ["wish","protect","scald","roar","icebeam","toxic"],
+		randomDoubleBattleMoves: ["helpinghand","wish","protect","scald","muddywater","icebeam","toxic","hydropump"],
+		eventPokemon: [
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["tailwhip","tackle","helpinghand","sandattack"]},
+			{"generation":6,"level":10,"isHidden":false,"moves":["celebrate","tailwhip","sandattack","watergun"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	jolteon: {
+		randomBattleMoves: ["thunderbolt","voltswitch","hiddenpowerice","batonpass","substitute","signalbeam"],
+		randomDoubleBattleMoves: ["thunderbolt","voltswitch","hiddenpowergrass","hiddenpowerice","helpinghand","protect","substitute","signalbeam"],
+		eventPokemon: [
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["tailwhip","tackle","helpinghand","sandattack"]},
+			{"generation":6,"level":10,"isHidden":false,"moves":["celebrate","tailwhip","sandattack","thundershock"],"pokeball":"cherishball"}
+		],
+		tier: "RU"
+	},
+	flareon: {
+		randomBattleMoves: ["flamecharge","facade","flareblitz","superpower","wish","protect","toxic"],
+		randomDoubleBattleMoves: ["flamecharge","facade","flareblitz","superpower","wish","protect","helpinghand"],
+		eventPokemon: [
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["tailwhip","tackle","helpinghand","sandattack"]},
+			{"generation":6,"level":10,"isHidden":false,"moves":["celebrate","tailwhip","sandattack","ember"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	espeon: {
+		randomBattleMoves: ["psychic","psyshock","substitute","wish","shadowball","calmmind","morningsun","batonpass","dazzlinggleam"],
+		randomDoubleBattleMoves: ["psychic","psyshock","substitute","wish","shadowball","hiddenpowerfighting","helpinghand","protect","dazzlinggleam"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["psybeam","psychup","psychic","morningsun"]},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["tailwhip","tackle","helpinghand","sandattack"]},
+			{"generation":6,"level":10,"isHidden":false,"moves":["celebrate","tailwhip","sandattack","confusion"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	umbreon: {
+		randomBattleMoves: ["wish","protect","healbell","toxic","batonpass","foulplay"],
+		randomDoubleBattleMoves: ["moonlight","wish","protect","healbell","toxic","snarl","foulplay","helpinghand"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["feintattack","meanlook","screech","moonlight"]},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["tailwhip","tackle","helpinghand","sandattack"]},
+			{"generation":6,"level":10,"isHidden":false,"moves":["celebrate","tailwhip","sandattack","pursuit"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	leafeon: {
+		randomBattleMoves: ["swordsdance","leafblade","substitute","return","xscissor","synthesis","roar","healbell","batonpass","knockoff"],
+		randomDoubleBattleMoves: ["swordsdance","leafblade","substitute","return","xscissor","protect","helpinghand","knockoff"],
+		eventPokemon: [
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["tailwhip","tackle","helpinghand","sandattack"]},
+			{"generation":6,"level":10,"isHidden":false,"moves":["celebrate","tailwhip","sandattack","razorleaf"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	glaceon: {
+		randomBattleMoves: ["icebeam","hiddenpowerground","shadowball","wish","protect","healbell","batonpass"],
+		randomDoubleBattleMoves: ["icebeam","hiddenpowerground","shadowball","wish","protect","healbell","helpinghand"],
+		eventPokemon: [
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["tailwhip","tackle","helpinghand","sandattack"]},
+			{"generation":6,"level":10,"isHidden":false,"moves":["celebrate","tailwhip","sandattack","icywind"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	porygon: {
+		randomBattleMoves: ["triattack","icebeam","recover","toxic","thunderwave","discharge","trick"],
+		eventPokemon: [
+			{"generation":5,"level":10,"isHidden":true,"moves":["tackle","conversion","sharpen","psybeam"]}
+		],
+		tier: "LC"
+	},
+	porygon2: {
+		randomBattleMoves: ["triattack","icebeam","recover","toxic","thunderwave","discharge","trick","shadowball","trickroom"],
+		tier: "UU"
+	},
+	porygonz: {
+		randomBattleMoves: ["triattack","darkpulse","icebeam","thunderbolt","agility","trick","nastyplot"],
+		randomDoubleBattleMoves: ["protect","triattack","darkpulse","hiddenpowerfighting","agility","trick","nastyplot"],
+		tier: "UU"
+	},
+	omanyte: {
+		randomBattleMoves: ["shellsmash","surf","icebeam","earthpower","hiddenpowerelectric","spikes","toxicspikes","stealthrock","hydropump"],
+		eventPokemon: [
+			{"generation":5,"level":15,"gender":"M","isHidden":false,"abilities":["swiftswim"],"moves":["bubblebeam","supersonic","withdraw","bite"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	omastar: {
+		randomBattleMoves: ["shellsmash","surf","icebeam","earthpower","spikes","toxicspikes","stealthrock","hydropump"],
+		randomDoubleBattleMoves: ["shellsmash","muddywater","icebeam","earthpower","hiddenpowerelectric","protect","toxicspikes","stealthrock","hydropump"],
+		tier: "NU"
+	},
+	kabuto: {
+		randomBattleMoves: ["aquajet","rockslide","rapidspin","stealthrock","honeclaws","waterfall","toxic"],
+		eventPokemon: [
+			{"generation":5,"level":15,"gender":"M","isHidden":false,"abilities":["battlearmor"],"moves":["confuseray","dig","scratch","harden"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	kabutops: {
+		randomBattleMoves: ["aquajet","stoneedge","rapidspin","swordsdance","waterfall","knockoff"],
+		randomDoubleBattleMoves: ["aquajet","stoneedge","protect","rockslide","swordsdance","waterfall","superpower","feint"],
+		tier: "RU"
+	},
+	aerodactyl: {
+		randomBattleMoves: ["stealthrock","taunt","stoneedge","earthquake","aquatail","roost","aerialace","defog"],
+		randomDoubleBattleMoves: ["wideguard","taunt","stoneedge","rockslide","earthquake","aquatail","firefang","protect","icefang","skydrop","tailwind"],
+		eventPokemon: [
+			{"generation":5,"level":15,"gender":"M","isHidden":false,"abilities":["pressure"],"moves":["steelwing","icefang","firefang","thunderfang"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	aerodactylmega: {
+		randomBattleMoves: ["stealthrock","taunt","stoneedge","rockslide","earthquake","aquatail","roost","firefang","defog","icefang"],
+		randomDoubleBattleMoves: ["wideguard","taunt","stoneedge","rockslide","earthquake","aquatail","firefang","protect","icefang","skydrop","tailwind"],
+		requiredItem: "Aerodactylite"
+	},
+	munchlax: {
+		randomBattleMoves: ["rest","curse","sleeptalk","bodyslam","earthquake","return","firepunch","icepunch","whirlwind","toxic"],
+		tier: "LC"
+	},
+	snorlax: {
+		randomBattleMoves: ["rest","curse","sleeptalk","bodyslam","earthquake","return","firepunch","crunch","pursuit","whirlwind"],
+		randomDoubleBattleMoves: ["curse","protect","bodyslam","earthquake","return","firepunch","icepunch","crunch","selfdestruct"],
+		eventPokemon: [
+			{"generation":3,"level":43,"moves":["refresh","fissure","curse","bodyslam"]}
+		],
+		tier: "UU"
+	},
+	articuno: {
+		randomBattleMoves: ["icebeam","roost","freezedry","toxic","substitute","hurricane"],
+		randomDoubleBattleMoves: ["icebeam","roost","protect","blizzard","skydrop","substitute","hurricane","tailwind"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["agility","mindreader","icebeam","reflect"]},
+			{"generation":3,"level":50,"moves":["icebeam","healbell","extrasensory","haze"]}
+		],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	zapdos: {
+		randomBattleMoves: ["thunderbolt","heatwave","hiddenpowergrass","hiddenpowerice","roost","toxic","substitute","defog"],
+		randomDoubleBattleMoves: ["thunderbolt","heatwave","hiddenpowergrass","hiddenpowerice","tailwind","protect","skydrop"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["agility","detect","drillpeck","charge"]},
+			{"generation":3,"level":50,"moves":["thunderbolt","extrasensory","batonpass","metalsound"]}
+		],
+		unreleasedHidden: true,
+		tier: "OU"
+	},
+	moltres: {
+		randomBattleMoves: ["fireblast","hiddenpowergrass","roost","substitute","toxic","uturn","willowisp","hurricane"],
+		randomDoubleBattleMoves: ["fireblast","hiddenpowergrass","airslash","roost","substitute","protect","uturn","willowisp","hurricane","heatwave","skydrop","tailwind"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["agility","endure","flamethrower","safeguard"]},
+			{"generation":3,"level":50,"moves":["extrasensory","morningsun","willowisp","flamethrower"]}
+		],
+		unreleasedHidden: true,
+		tier: "RU"
+	},
+	dratini: {
+		randomBattleMoves: ["dragondance","outrage","waterfall","fireblast","extremespeed","dracometeor","substitute","aquatail"],
+		tier: "LC"
+	},
+	dragonair: {
+		randomBattleMoves: ["dragondance","outrage","waterfall","fireblast","extremespeed","dracometeor","substitute","aquatail"],
+		tier: "NFE"
+	},
+	dragonite: {
+		randomBattleMoves: ["dragondance","outrage","firepunch","extremespeed","dragonclaw","earthquake","roost","substitute"],
+		randomDoubleBattleMoves: ["firepunch","extremespeed","dragonclaw","earthquake","roost","waterfall","substitute","thunderwave","hurricane","superpower","dracometeor","protect","skydrop"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["agility","safeguard","wingattack","outrage"]},
+			{"generation":3,"level":55,"moves":["healbell","hyperbeam","dragondance","earthquake"]},
+			{"generation":4,"level":50,"gender":"M","nature":"Mild","moves":["dracometeor","thunderbolt","outrage","dragondance"],"pokeball":"cherishball"},
+			{"generation":5,"level":100,"gender":"M","isHidden":true,"moves":["extremespeed","firepunch","dragondance","outrage"],"pokeball":"cherishball"},
+			{"generation":5,"level":55,"gender":"M","isHidden":true,"moves":["dragonrush","safeguard","wingattack","thunderpunch"]},
+			{"generation":5,"level":55,"gender":"M","isHidden":true,"moves":["dragonrush","safeguard","wingattack","extremespeed"]},
+			{"generation":5,"level":50,"gender":"M","nature":"Brave","isHidden":false,"abilities":["innerfocus"],"moves":["fireblast","safeguard","outrage","hyperbeam"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	mewtwo: {
+		randomBattleMoves: ["psystrike","aurasphere","fireblast","icebeam","calmmind","substitute","recover","thunderbolt","willowisp"],
+		randomDoubleBattleMoves: ["psystrike","aurasphere","fireblast","icebeam","calmmind","substitute","recover","thunderbolt","willowisp","taunt","protect"],
+		eventPokemon: [
+			{"generation":5,"level":70,"isHidden":false,"moves":["psystrike","shadowball","aurasphere","electroball"],"pokeball":"cherishball"},
+			{"generation":5,"level":100,"nature":"Timid","isHidden":true,"moves":["psystrike","icebeam","healpulse","hurricane"],"pokeball":"cherishball"}
+		],
+		tier: "Uber"
+	},
+	mewtwomegax: {
+		randomBattleMoves: ["bulkup","drainpunch","earthquake","firepunch","icepunch","irontail","recover","stoneedge","substitute","thunderpunch","zenheadbutt"],
+		requiredItem: "Mewtwonite X"
+	},
+	mewtwomegay: {
+		randomBattleMoves: ["psystrike","aurasphere","fireblast","icebeam","calmmind","substitute","recover","thunderbolt","willowisp"],
+		requiredItem: "Mewtwonite Y"
+	},
+	mew: {
+		randomBattleMoves: ["taunt","willowisp","roost","psychic","nastyplot","aurasphere","fireblast","swordsdance","drainpunch","zenheadbutt","batonpass","substitute","toxic","icebeam","thunderbolt","knockoff","stealthrock","suckerpunch","defog"],
+		randomDoubleBattleMoves: ["taunt","willowisp","transform","roost","psyshock","nastyplot","aurasphere","fireblast","swordsdance","drainpunch","zenheadbutt","icebeam","thunderbolt","drillrun","suckerpunch","protect","fakeout","helpinghand","tailwind"],
+		eventPokemon: [
+			{"generation":3,"level":30,"moves":["pound","transform","megapunch","metronome"]},
+			{"generation":3,"level":10,"moves":["pound","transform"]},
+			{"generation":4,"level":50,"moves":["ancientpower","metronome","teleport","aurasphere"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["barrier","metronome","teleport","aurasphere"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["megapunch","metronome","teleport","aurasphere"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["amnesia","metronome","teleport","aurasphere"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["transform","metronome","teleport","aurasphere"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["psychic","metronome","teleport","aurasphere"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["synthesis","return","hypnosis","teleport"],"pokeball":"cherishball"},
+			{"generation":4,"level":5,"moves":["pound"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	chikorita: {
+		randomBattleMoves: ["reflect","lightscreen","aromatherapy","grasswhistle","leechseed","toxic","gigadrain","synthesis"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["tackle","growl","razorleaf"]}
+		],
+		unreleasedHidden: true,
+		tier: "LC"
+	},
+	bayleef: {
+		randomBattleMoves: ["reflect","lightscreen","aromatherapy","grasswhistle","leechseed","toxic","gigadrain","synthesis"],
+		unreleasedHidden: true,
+		tier: "NFE"
+	},
+	meganium: {
+		randomBattleMoves: ["reflect","lightscreen","aromatherapy","leechseed","toxic","gigadrain","synthesis","dragontail"],
+		randomDoubleBattleMoves: ["reflect","lightscreen","aromatherapy","leechseed","hiddenpowerfire","gigadrain","synthesis","dragontail", "healpulse", "protect","grassyterrain"],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	cyndaquil: {
+		randomBattleMoves: ["eruption","fireblast","flamethrower","hiddenpowergrass","hiddenpowerice"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["tackle","leer","smokescreen"]}
+		],
+		unreleasedHidden: true,
+		tier: "LC"
+	},
+	quilava: {
+		randomBattleMoves: ["eruption","fireblast","flamethrower","hiddenpowergrass","hiddenpowerice"],
+		unreleasedHidden: true,
+		tier: "NFE"
+	},
+	typhlosion: {
+		randomBattleMoves: ["eruption","fireblast","hiddenpowergrass","hiddenpowerice","focusblast"],
+		randomDoubleBattleMoves: ["eruption","fireblast","hiddenpowergrass","hiddenpowerice","focusblast","heatwave","protect"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["quickattack","flamewheel","swift","flamethrower"]}
+		],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	totodile: {
+		randomBattleMoves: ["aquajet","waterfall","crunch","icepunch","superpower","dragondance","swordsdance"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["scratch","leer","rage"]}
+		],
+		unreleasedHidden: true,
+		tier: "LC"
+	},
+	croconaw: {
+		randomBattleMoves: ["aquajet","waterfall","crunch","icepunch","superpower","dragondance","swordsdance"],
+		unreleasedHidden: true,
+		tier: "NFE"
+	},
+	feraligatr: {
+		randomBattleMoves: ["aquajet","waterfall","crunch","icepunch","dragondance","swordsdance","earthquake"],
+		randomDoubleBattleMoves: ["aquajet","waterfall","crunch","icepunch","dragondance","swordsdance","earthquake","protect"],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	sentret: {
+		randomBattleMoves: ["superfang","trick","toxic","uturn","knockoff"],
+		tier: "LC"
+	},
+	furret: {
+		randomBattleMoves: ["uturn","suckerpunch","trick","icepunch","firepunch","knockoff","doubleedge"],
+		randomDoubleBattleMoves: ["uturn","suckerpunch","trick","icepunch","firepunch","knockoff","doubleedge","followme","helpinghand","protect"],
+		tier: "NU"
+	},
+	hoothoot: {
+		randomBattleMoves: ["reflect","toxic","roost","whirlwind","nightshade","magiccoat"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["tackle","growl","foresight"]}
+		],
+		tier: "LC"
+	},
+	noctowl: {
+		randomBattleMoves: ["roost","whirlwind","airslash","nightshade","toxic","magiccoat"],
+		randomDoubleBattleMoves: ["roost","tailwind","airslash","hypervoice","heatwave","protect","hypnosis"],
+		tier: "NU"
+	},
+	ledyba: {
+		randomBattleMoves: ["roost","agility","lightscreen","encore","reflect","knockoff","swordsdance","batonpass","toxic"],
+		eventPokemon: [
+			{"generation":3,"level":10,"moves":["refresh","psybeam","aerialace","supersonic"]}
+		],
+		tier: "LC"
+	},
+	ledian: {
+		randomBattleMoves: ["roost","lightscreen","encore","reflect","knockoff","toxic","uturn"],
+		randomDoubleBattleMoves: ["protect","lightscreen","encore","reflect","knockoff","bugbuzz","uturn","tailwind","stringshot","strugglebug"],
+		tier: "NU"
+	},
+	spinarak: {
+		randomBattleMoves: ["agility","toxic","xscissor","toxicspikes","poisonjab","batonpass","stickyweb"],
+		eventPokemon: [
+			{"generation":3,"level":14,"moves":["refresh","dig","signalbeam","nightshade"]}
+		],
+		tier: "LC"
+	},
+	ariados: {
+		randomBattleMoves: ["toxic","megahorn","toxicspikes","poisonjab","batonpass","stickyweb"],
+		randomDoubleBattleMoves: ["protect","megahorn","stringshot","poisonjab","stickyweb","ragepowder","strugglebug"],
+		tier: "NU"
+	},
+	chinchou: {
+		randomBattleMoves: ["voltswitch","thunderbolt","hiddenpowergrass","hydropump","icebeam","surf","thunderwave","scald","discharge","healbell"],
+		tier: "LC"
+	},
+	lanturn: {
+		randomBattleMoves: ["voltswitch","hiddenpowergrass","hydropump","icebeam","thunderwave","scald","discharge","healbell"],
+		randomDoubleBattleMoves: ["thunderbolt","hiddenpowergrass","hydropump","icebeam","thunderwave","scald","discharge","protect","surf"],
+		tier: "NU"
+	},
+	togepi: {
+		randomBattleMoves: ["protect","fireblast","toxic","thunderwave","softboiled","dazzlinggleam"],
+		eventPokemon: [
+			{"generation":3,"level":20,"gender":"F","abilities":["serenegrace"],"moves":["metronome","charm","sweetkiss","yawn"]},
+			{"generation":3,"level":25,"moves":["triattack","followme","ancientpower","helpinghand"]}
+		],
+		tier: "LC"
+	},
+	togetic: {
+		randomBattleMoves: ["nastyplot","dazzlinggleam","fireblast","batonpass","roost","encore","healbell","thunderwave"],
+		tier: "NFE"
+	},
+	togekiss: {
+		randomBattleMoves: ["roost","thunderwave","nastyplot","airslash","aurasphere","batonpass","dazzlinggleam","fireblast"],
+		randomDoubleBattleMoves: ["roost","thunderwave","nastyplot","airslash","aurasphere","followme","dazzlinggleam","heatwave","tailwind","protect"],
+		eventPokemon: [
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["extremespeed","aurasphere","airslash","present"]}
+		],
+		tier: "OU"
+	},
+	natu: {
+		randomBattleMoves: ["thunderwave","roost","toxic","reflect","lightscreen","uturn","wish","psychic","nightshade"],
+		eventPokemon: [
+			{"generation":3,"level":22,"moves":["batonpass","futuresight","nightshade","aerialace"]}
+		],
+		tier: "LC"
+	},
+	xatu: {
+		randomBattleMoves: ["thunderwave","toxic","roost","psychic","uturn","reflect","lightscreen","grassknot","heatwave"],
+		randomDoubleBattleMoves: ["thunderwave","tailwind","roost","psychic","uturn","reflect","lightscreen","grassknot","heatwave","protect"],
+		tier: "NU"
+	},
+	mareep: {
+		randomBattleMoves: ["reflect","lightscreen","thunderbolt","discharge","thunderwave","toxic","hiddenpowerice","cottonguard","powergem"],
+		eventPokemon: [
+			{"generation":3,"level":37,"gender":"F","moves":["thunder","thundershock","thunderwave","cottonspore"]},
+			{"generation":3,"level":10,"gender":"M","moves":["tackle","growl","thundershock"]},
+			{"generation":3,"level":17,"moves":["healbell","thundershock","thunderwave","bodyslam"]}
+		],
+		tier: "LC"
+	},
+	flaaffy: {
+		randomBattleMoves: ["reflect","lightscreen","thunderbolt","discharge","thunderwave","toxic","hiddenpowerice","cottonguard","powergem"],
+		tier: "NFE"
+	},
+	ampharos: {
+		randomBattleMoves: ["voltswitch","focusblast","hiddenpowerice","hiddenpowergrass","thunderbolt","healbell","dragonpulse"],
+		randomDoubleBattleMoves: ["electricterrain","focusblast","hiddenpowerice","hiddenpowergrass","thunderbolt","discharge","dragonpulse","protect"],
+		tier: "UU"
+	},
+	ampharosmega: {
+		randomBattleMoves: ["voltswitch","focusblast","hiddenpowerice","hiddenpowergrass","thunderbolt","healbell","dragonpulse"],
+		randomDoubleBattleMoves: ["electricterrain","focusblast","hiddenpowerice","hiddenpowergrass","thunderbolt","discharge","dragonpulse","protect"],
+		requiredItem: "Ampharosite"
+	},
+	azurill: {
+		randomBattleMoves: ["scald","return","bodyslam","encore","toxic","protect","knockoff"],
+		tier: "LC"
+	},
+	marill: {
+		randomBattleMoves: ["waterfall","knockoff","encore","toxic","aquajet","superpower","icepunch","protect","playrough","poweruppunch"],
+		tier: "NFE"
+	},
+	azumarill: {
+		randomBattleMoves: ["waterfall","aquajet","playrough","superpower","bellydrum","knockoff"],
+		randomDoubleBattleMoves: ["waterfall","aquajet","playrough","superpower","bellydrum","knockoff","protect"],
+		tier: "OU"
+	},
+	bonsly: {
+		randomBattleMoves: ["rockslide","brickbreak","doubleedge","toxic","stealthrock","suckerpunch","explosion"],
+		tier: "LC"
+	},
+	sudowoodo: {
+		randomBattleMoves: ["stoneedge","earthquake","suckerpunch","woodhammer","explosion","stealthrock"],
+		randomDoubleBattleMoves: ["stoneedge","earthquake","suckerpunch","woodhammer","explosion","stealthrock","rockslide","helpinghand","protect","taunt"],
+		tier: "NU"
+	},
+	hoppip: {
+		randomBattleMoves: ["encore","sleeppowder","uturn","toxic","leechseed","substitute","protect"],
+		tier: "LC"
+	},
+	skiploom: {
+		randomBattleMoves: ["encore","sleeppowder","uturn","toxic","leechseed","substitute","protect"],
+		tier: "NFE"
+	},
+	jumpluff: {
+		randomBattleMoves: ["encore","sleeppowder","uturn","toxic","leechseed","gigadrain","synthesis"],
+		randomDoubleBattleMoves: ["encore","sleeppowder","uturn","helpinghand","leechseed","gigadrain","ragepowder","protect"],
+		eventPokemon: [
+			{"generation":5,"level":27,"gender":"M","isHidden":true,"moves":["falseswipe","sleeppowder","bulletseed","leechseed"]}
+		],
+		tier: "NU"
+	},
+	aipom: {
+		randomBattleMoves: ["fakeout","return","brickbreak","seedbomb","knockoff","uturn","icepunch","irontail"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["scratch","tailwhip","sandattack"]}
+		],
+		tier: "LC"
+	},
+	ambipom: {
+		randomBattleMoves: ["fakeout","return","knockoff","uturn","switcheroo","seedbomb","icepunch","lowkick"],
+		randomDoubleBattleMoves: ["fakeout","return","knockoff","uturn","switcheroo","seedbomb","icepunch","lowkick","protect"],
+		tier: "RU"
+	},
+	sunkern: {
+		randomBattleMoves: ["sunnyday","gigadrain","solarbeam","hiddenpowerfire","toxic","earthpower","leechseed"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","abilities":["chlorophyll"],"moves":["absorb","growth"]}
+		],
+		tier: "LC"
+	},
+	sunflora: {
+		randomBattleMoves: ["sunnyday","gigadrain","solarbeam","hiddenpowerfire","earthpower"],
+		randomDoubleBattleMoves: ["sunnyday","gigadrain","solarbeam","hiddenpowerfire","earthpower","protect"],
+		tier: "NU"
+	},
+	yanma: {
+		randomBattleMoves: ["bugbuzz","airslash","hiddenpowerground","uturn","protect","gigadrain","ancientpower"],
+		tier: "LC Uber"
+	},
+	yanmega: {
+		randomBattleMoves: ["bugbuzz","airslash","hiddenpowerground","uturn","protect","gigadrain"],
+		tier: "BL2"
+	},
+	wooper: {
+		randomBattleMoves: ["recover","earthquake","scald","toxic","stockpile","yawn","protect"],
+		tier: "LC"
+	},
+	quagsire: {
+		randomBattleMoves: ["recover","earthquake","waterfall","scald","toxic","curse","yawn","icepunch"],
+		randomDoubleBattleMoves: ["icywind","earthquake","waterfall","scald","rockslide","curse","yawn","icepunch","protect"],
+		tier: "OU"
+	},
+	murkrow: {
+		randomBattleMoves: ["substitute","suckerpunch","bravebird","heatwave","hiddenpowergrass","roost","darkpulse","thunderwave"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","abilities":["insomnia"],"moves":["peck","astonish"]}
+		],
+		tier: "LC Uber"
+	},
+	honchkrow: {
+		randomBattleMoves: ["substitute","superpower","suckerpunch","bravebird","roost","heatwave","pursuit"],
+		randomDoubleBattleMoves: ["substitute","superpower","suckerpunch","bravebird","roost","heatwave","protect"],
+		tier: "UU"
+	},
+	misdreavus: {
+		randomBattleMoves: ["nastyplot","substitute","calmmind","willowisp","shadowball","thunderbolt","hiddenpowerfighting"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["growl","psywave","spite"]}
+		],
+		tier: "LC Uber"
+	},
+	mismagius: {
+		randomBattleMoves: ["nastyplot","substitute","willowisp","shadowball","thunderbolt","dazzlinggleam","healbell","painsplit"],
+		randomDoubleBattleMoves: ["nastyplot","substitute","willowisp","shadowball","thunderbolt","dazzlinggleam","taunt","protect"],
+		tier: "NU"
+	},
+	unown: {
+		randomBattleMoves: ["hiddenpowerpsychic"],
+		tier: "NU"
+	},
+	wynaut: {
+		randomBattleMoves: ["destinybond","counter","mirrorcoat","encore"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["splash","charm","encore","tickle"]}
+		],
+		tier: "LC"
+	},
+	wobbuffet: {
+		randomBattleMoves: ["destinybond","counter","mirrorcoat","encore"],
+		randomDoubleBattleMoves: ["charm","encore","tickle","safeguard"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["counter","mirrorcoat","safeguard","destinybond"]},
+			{"generation":3,"level":10,"gender":"M","moves":["counter","mirrorcoat","safeguard","destinybond"]},
+			{"generation":6,"level":10,"gender":"M","isHidden":false,"moves":["counter"],"pokeball":"cherishball"},
+			{"generation":6,"level":15,"gender":"M","isHidden":false,"moves":["counter","mirrorcoat"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	girafarig: {
+		randomBattleMoves: ["psychic","thunderbolt","calmmind","batonpass","agility","hypervoice"],
+		randomDoubleBattleMoves: ["psychic","thunderbolt","calmmind","protect","agility","hypervoice"],
+		tier: "NU"
+	},
+	pineco: {
+		randomBattleMoves: ["rapidspin","toxicspikes","spikes","bugbite","stealthrock"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["tackle","protect","selfdestruct"]},
+			{"generation":3,"level":22,"moves":["refresh","pinmissile","spikes","counter"]}
+		],
+		tier: "LC"
+	},
+	forretress: {
+		randomBattleMoves: ["rapidspin","toxicspikes","spikes","voltswitch","stealthrock","gyroball"],
+		randomDoubleBattleMoves: ["rockslide","drillrun","stringshot","voltswitch","stealthrock","gyroball","protect"],
+		tier: "UU"
+	},
+	dunsparce: {
+		randomBattleMoves: ["coil","rockslide","bite","headbutt","glare","bodyslam","roost"],
+		randomDoubleBattleMoves: ["coil","rockslide","bite","headbutt","glare","bodyslam","protect"],
+		tier: "NU"
+	},
+	gligar: {
+		randomBattleMoves: ["stealthrock","toxic","roost","taunt","swordsdance","earthquake","uturn","stoneedge","knockoff"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["poisonsting","sandattack"]}
+		],
+		tier: "RU"
+	},
+	gliscor: {
+		randomBattleMoves: ["uturn","roost","substitute","taunt","earthquake","protect","toxic","stealthrock","knockoff"],
+		randomDoubleBattleMoves: ["uturn","tailwind","substitute","taunt","earthquake","protect","stoneedge","knockoff"],
+		tier: "OU"
+	},
+	snubbull: {
+		randomBattleMoves: ["thunderwave","firepunch","crunch","closecombat","icepunch","earthquake","playrough"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["tackle","scaryface","tailwhip","charm"]}
+		],
+		tier: "LC"
+	},
+	granbull: {
+		randomBattleMoves: ["thunderwave","playrough","crunch","earthquake","healbell"],
+		randomDoubleBattleMoves: ["thunderwave","playrough","crunch","earthquake","snarl","rockslide","protect"],
+		tier: "NU"
+	},
+	qwilfish: {
+		randomBattleMoves: ["toxicspikes","waterfall","spikes","painsplit","thunderwave","taunt","destinybond"],
+		randomDoubleBattleMoves: ["poisonjab","waterfall","swordsdance","protect","thunderwave","taunt","destinybond"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["tackle","poisonsting","harden","minimize"]}
+		],
+		tier: "NU"
+	},
+	shuckle: {
+		randomBattleMoves: ["toxic","encore","stealthrock","knockoff","stickyweb","infestation"],
+		randomDoubleBattleMoves: ["encore","stealthrock","knockoff","stickyweb","guardsplit","helpinghand","stringshot"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","abilities":["sturdy"],"moves":["constrict","withdraw","wrap"]},
+			{"generation":3,"level":20,"abilities":["sturdy"],"moves":["substitute","toxic","sludgebomb","encore"]}
+		],
+		tier: "BL2"
+	},
+	heracross: {
+		randomBattleMoves: ["closecombat","megahorn","stoneedge","swordsdance","knockoff","earthquake"],
+		randomDoubleBattleMoves: ["closecombat","megahorn","stoneedge","swordsdance","knockoff","earthquake","protect"],
+		eventPokemon: [
+			{"generation":6,"level":50,"gender":"F","nature":"Adamant","isHidden":false,"moves":["bulletseed","pinmissile","closecombat","megahorn"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	heracrossmega: {
+		randomBattleMoves: ["closecombat","pinmissile","rockblast","swordsdance","bulletseed","knockoff","earthquake"],
+		randomDoubleBattleMoves: ["closecombat","pinmissile","rockblast","swordsdance","bulletseed","knockoff","earthquake","protect"],
+		requiredItem: "Heracronite",
+		tier: "BL"
+	},
+	sneasel: {
+		randomBattleMoves: ["iceshard","icepunch","lowkick","pursuit","swordsdance","knockoff"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["scratch","leer","taunt","quickattack"]}
+		],
+		tier: "LC Uber"
+	},
+	weavile: {
+		randomBattleMoves: ["iceshard","icepunch","knockoff","pursuit","swordsdance","lowkick"],
+		randomDoubleBattleMoves: ["iceshard","icepunch","knockoff","fakeout","swordsdance","lowkick","taunt","protect","feint"],
+		eventPokemon: [
+			{"generation":4,"level":30,"gender":"M","nature":"Jolly","moves":["fakeout","iceshard","nightslash","brickbreak"],"pokeball":"cherishball"}
+		],
+		tier: "BL"
+	},
+	teddiursa: {
+		randomBattleMoves: ["swordsdance","protect","facade","closecombat","firepunch","crunch","playrough","gunkshot"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","abilities":["pickup"],"moves":["scratch","leer","lick"]},
+			{"generation":3,"level":11,"abilities":["pickup"],"moves":["refresh","metalclaw","leer","return"]}
+		],
+		tier: "LC"
+	},
+	ursaring: {
+		randomBattleMoves: ["swordsdance","facade","closecombat","earthquake","crunch"],
+		randomDoubleBattleMoves: ["swordsdance","facade","closecombat","earthquake","crunch","protect"],
+		tier: "NU"
+	},
+	slugma: {
+		randomBattleMoves: ["stockpile","recover","lavaplume","willowisp","toxic","hiddenpowergrass","earthpower","memento"],
+		tier: "LC"
+	},
+	magcargo: {
+		randomBattleMoves: ["recover","lavaplume","willowisp","toxic","hiddenpowergrass","hiddenpowerrock","stealthrock","fireblast","earthpower"],
+		randomDoubleBattleMoves: ["protect","heatwave","willowisp","shellsmash","hiddenpowergrass","hiddenpowerrock","stealthrock","fireblast","earthpower"],
+		eventPokemon: [
+			{"generation":3,"level":38,"moves":["refresh","heatwave","earthquake","flamethrower"]}
+		],
+		tier: "NU"
+	},
+	swinub: {
+		randomBattleMoves: ["earthquake","iciclecrash","iceshard","superpower","endeavor","stealthrock"],
+		eventPokemon: [
+			{"generation":3,"level":22,"abilities":["oblivious"],"moves":["charm","ancientpower","mist","mudshot"]}
+		],
+		tier: "LC"
+	},
+	piloswine: {
+		randomBattleMoves: ["earthquake","iciclecrash","iceshard","superpower","endeavor","stealthrock"],
+		tier: "NFE"
+	},
+	mamoswine: {
+		randomBattleMoves: ["iceshard","earthquake","endeavor","iciclecrash","stealthrock","superpower","knockoff"],
+		randomDoubleBattleMoves: ["iceshard","earthquake","rockslide","iciclecrash","protect","superpower","knockoff"],
+		eventPokemon: [
+			{"generation":5,"level":34,"gender":"M","isHidden":true,"moves":["hail","icefang","takedown","doublehit"]},
+			{"generation":6,"level":50,"shiny":true,"gender":"M","nature":"Adamant","isHidden":true,"moves":["iciclespear","earthquake","iciclecrash","rockslide"]}
+		],
+		tier: "OU"
+	},
+	corsola: {
+		randomBattleMoves: ["recover","toxic","powergem","scald","stealthrock","earthpower"],
+		randomDoubleBattleMoves: ["protect","icywind","powergem","scald","stealthrock","earthpower"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["tackle","mudsport"]}
+		],
+		tier: "NU"
+	},
+	remoraid: {
+		randomBattleMoves: ["waterspout","hydropump","fireblast","hiddenpowerground","icebeam","seedbomb","rockblast"],
+		tier: "LC"
+	},
+	octillery: {
+		randomBattleMoves: ["hydropump","fireblast","icebeam","energyball","rockblast","waterspout"],
+		randomDoubleBattleMoves: ["hydropump","fireblast","icebeam","energyball","rockblast","waterspout","protect"],
+		eventPokemon: [
+			{"generation":4,"level":50,"gender":"F","nature":"Serious","abilities":["suctioncups"],"moves":["octazooka","icebeam","signalbeam","hyperbeam"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	delibird: {
+		randomBattleMoves: ["rapidspin","iceshard","icepunch","aerialace","spikes","destinybond"],
+		randomDoubleBattleMoves: ["fakeout","iceshard","icepunch","aerialace","brickbreak","protect"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["present"]}
+		],
+		tier: "NU"
+	},
+	mantyke: {
+		randomBattleMoves: ["raindance","hydropump","scald","airslash","icebeam","rest","sleeptalk","toxic"],
+		tier: "LC"
+	},
+	mantine: {
+		randomBattleMoves: ["raindance","hydropump","scald","airslash","icebeam","rest","sleeptalk","toxic"],
+		randomDoubleBattleMoves: ["raindance","hydropump","scald","airslash","icebeam","tailwind","wideguard","helpinghand","protect","surf"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["tackle","bubble","supersonic"]}
+		],
+		tier: "NU"
+	},
+	skarmory: {
+		randomBattleMoves: ["whirlwind","bravebird","roost","spikes","stealthrock","defog"],
+		randomDoubleBattleMoves: ["skydrop","bravebird","tailwind","taunt","feint","protect","ironhead"],
+		tier: "OU"
+	},
+	houndour: {
+		randomBattleMoves: ["pursuit","suckerpunch","fireblast","darkpulse","hiddenpowerfighting","nastyplot"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["leer","ember","howl"]},
+			{"generation":3,"level":17,"moves":["charm","feintattack","ember","roar"]}
+		],
+		tier: "LC"
+	},
+	houndoom: {
+		randomBattleMoves: ["nastyplot","darkpulse","suckerpunch","fireblast","hiddenpowerfighting"],
+		randomDoubleBattleMoves: ["nastyplot","darkpulse","suckerpunch","heatwave","hiddenpowerfighting","protect"],
+		tier: "UU"
+	},
+	houndoommega: {
+		randomBattleMoves: ["nastyplot","darkpulse","suckerpunch","fireblast","hiddenpowerfighting"],
+		randomDoubleBattleMoves: ["nastyplot","darkpulse","suckerpunch","heatwave","hiddenpowerfighting","protect"],
+		requiredItem: "Houndoominite"
+	},
+	phanpy: {
+		randomBattleMoves: ["stealthrock","earthquake","iceshard","headsmash","knockoff","seedbomb","superpower","playrough"],
+		tier: "LC"
+	},
+	donphan: {
+		randomBattleMoves: ["stealthrock","rapidspin","iceshard","earthquake","headsmash","playrough"],
+		randomDoubleBattleMoves: ["stealthrock","seedbomb","iceshard","earthquake","rockslide","playrough","protect"],
+		tier: "UU"
+	},
+	stantler: {
+		randomBattleMoves: ["return","megahorn","jumpkick","earthquake","suckerpunch"],
+		randomDoubleBattleMoves: ["return","megahorn","jumpkick","earthquake","suckerpunch","protect"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","abilities":["intimidate"],"moves":["tackle","leer"]}
+		],
+		tier: "NU"
+	},
+	smeargle: {
+		randomBattleMoves: ["spore","spikes","stealthrock","destinybond","whirlwind","stickyweb"],
+		randomDoubleBattleMoves: ["spore","fakeout","wideguard","helpinghand","followme","tailwind","kingsshield"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","abilities":["owntempo"],"moves":["sketch"]},
+			{"generation":5,"level":50,"gender":"F","nature":"Jolly","abilities":["technician"],"moves":["falseswipe","spore","odorsleuth","meanlook"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	miltank: {
+		randomBattleMoves: ["milkdrink","stealthrock","bodyslam","healbell","curse","earthquake","thunderwave"],
+		randomDoubleBattleMoves: ["protect","helpinghand","bodyslam","healbell","curse","earthquake","thunderwave"],
+		tier: "NU"
+	},
+	raikou: {
+		randomBattleMoves: ["thunderbolt","hiddenpowerice","aurasphere","calmmind","substitute","voltswitch"],
+		randomDoubleBattleMoves: ["thunderbolt","hiddenpowerice","aurasphere","calmmind","substitute","snarl","protect"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["quickattack","spark","reflect","crunch"]},
+			{"generation":4,"level":30,"shiny":true,"nature":"Rash","moves":["zapcannon","aurasphere","extremespeed","weatherball"],"pokeball":"cherishball"}
+		],
+		unreleasedHidden: true,
+		tier: "UU"
+	},
+	entei: {
+		randomBattleMoves: ["extremespeed","flareblitz","ironhead","stoneedge","sacredfire"],
+		randomDoubleBattleMoves: ["extremespeed","flareblitz","ironhead","stoneedge","sacredfire","protect"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["firespin","stomp","flamethrower","swagger"]},
+			{"generation":4,"level":30,"shiny":true,"nature":"Adamant","moves":["flareblitz","howl","extremespeed","crushclaw"],"pokeball":"cherishball"}
+		],
+		unreleasedHidden: true,
+		tier: "UU"
+	},
+	suicune: {
+		randomBattleMoves: ["hydropump","icebeam","scald","hiddenpowergrass","hiddenpowerelectric","rest","sleeptalk","roar","calmmind"],
+		randomDoubleBattleMoves: ["hydropump","icebeam","scald","hiddenpowergrass","hiddenpowerelectric","snarl","tailwind","protect","calmmind"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["gust","aurorabeam","mist","mirrorcoat"]},
+			{"generation":4,"level":30,"shiny":true,"nature":"Relaxed","moves":["sheercold","airslash","extremespeed","aquaring"],"pokeball":"cherishball"}
+		],
+		unreleasedHidden: true,
+		tier: "UU"
+	},
+	larvitar: {
+		randomBattleMoves: ["earthquake","stoneedge","facade","dragondance","superpower","crunch"],
+		eventPokemon: [
+			{"generation":3,"level":20,"moves":["sandstorm","dragondance","bite","outrage"]},
+			{"generation":5,"level":5,"shiny":true,"gender":"M","isHidden":false,"moves":["bite","leer","sandstorm","superpower"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	pupitar: {
+		randomBattleMoves: ["earthquake","stoneedge","crunch","dragondance","superpower","stealthrock"],
+		tier: "NFE"
+	},
+	tyranitar: {
+		randomBattleMoves: ["crunch","stoneedge","pursuit","superpower","fireblast","icebeam","stealthrock"],
+		randomDoubleBattleMoves: ["crunch","stoneedge","rockslide","lowkick","fireblast","icebeam","stealthrock","protect"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["thrash","scaryface","crunch","earthquake"]},
+			{"generation":5,"level":100,"gender":"M","isHidden":false,"moves":["fireblast","icebeam","stoneedge","crunch"],"pokeball":"cherishball"},
+			{"generation":5,"level":55,"gender":"M","isHidden":true,"moves":["payback","crunch","earthquake","seismictoss"]},
+			{"generation":6,"level":50,"isHidden":false,"moves":["stoneedge","crunch","earthquake","icepunch"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	tyranitarmega: {
+		randomBattleMoves: ["crunch","stoneedge","earthquake","icepunch","dragondance"],
+		randomDoubleBattleMoves: ["crunch","stoneedge","earthquake","icepunch","dragondance","rockslide","protect"],
+		requiredItem: "Tyranitarite"
+	},
+	lugia: {
+		randomBattleMoves: ["toxic","roost","substitute","whirlwind","icebeam","psychic","calmmind"],
+		randomDoubleBattleMoves: ["toxic","roost","substitute","tailwind","icebeam","psychic","calmmind","skydrop","protect"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["swift","raindance","hydropump","recover"]},
+			{"generation":3,"level":70,"moves":["recover","hydropump","raindance","swift"]},
+			{"generation":3,"level":50,"moves":["psychoboost","recover","hydropump","featherdance"]}
+		],
+		dreamWorldPokeball: 'dreamball',
+		tier: "Uber"
+	},
+	hooh: {
+		randomBattleMoves: ["substitute","sacredfire","bravebird","earthquake","roost","willowisp","flamecharge","tailwind"],
+		randomDoubleBattleMoves: ["substitute","sacredfire","bravebird","earthquake","roost","willowisp","flamecharge","tailwind","skydrop","protect"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["swift","sunnyday","fireblast","recover"]},
+			{"generation":3,"level":70,"moves":["recover","fireblast","sunnyday","swift"]}
+		],
+		dreamWorldPokeball: 'dreamball',
+		tier: "Uber"
+	},
+	celebi: {
+		randomBattleMoves: ["nastyplot","psychic","gigadrain","recover","healbell","batonpass","stealthrock","earthpower","hiddenpowerfire","hiddenpowerice","calmmind","leafstorm","uturn","thunderwave"],
+		randomDoubleBattleMoves: ["protect","psychic","gigadrain","recover","earthpower","hiddenpowerfire","hiddenpowerice","helpinghand","leafstorm","uturn","thunderwave"],
+		eventPokemon: [
+			{"generation":3,"level":10,"moves":["confusion","recover","healbell","safeguard"]},
+			{"generation":3,"level":70,"moves":["ancientpower","futuresight","batonpass","perishsong"]},
+			{"generation":3,"level":10,"moves":["leechseed","recover","healbell","safeguard"]},
+			{"generation":3,"level":30,"moves":["healbell","safeguard","ancientpower","futuresight"]},
+			{"generation":4,"level":50,"moves":["leafstorm","recover","nastyplot","healingwish"],"pokeball":"cherishball"},
+			{"generation":6,"level":10,"moves":["recover","healbell","safeguard","holdback"],"pokeball":"luxuryball"}
+		],
+		tier: "UU"
+	},
+	treecko: {
+		randomBattleMoves: ["substitute","leechseed","leafstorm","hiddenpowerice","hiddenpowerrock","endeavor"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["pound","leer","absorb"]},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["pound","leer","absorb"]}
+		],
+		tier: "LC"
+	},
+	grovyle: {
+		randomBattleMoves: ["substitute","leechseed","gigadrain","leafstorm","hiddenpowerice","hiddenpowerrock","endeavor"],
+		tier: "NFE"
+	},
+	sceptile: {
+		randomBattleMoves: ["substitute","gigadrain","leafstorm","hiddenpowerice","focusblast","hiddenpowerrock"],
+		randomDoubleBattleMoves: ["substitute","gigadrain","leafstorm","hiddenpowerice","focusblast","hiddenpowerrock","protect"],
+		eventPokemon: [
+			{"generation":5,"level":50,"isHidden":false,"moves":["leafstorm","dragonpulse","focusblast","rockslide"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	torchic: {
+		randomBattleMoves: ["protect","batonpass","substitute","hiddenpowergrass","swordsdance","firepledge"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["scratch","growl","focusenergy","ember"]},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["scratch","growl","focusenergy","ember"]},
+			{"generation":6,"level":10,"gender":"M","isHidden":true,"moves":["scratch","growl","focusenergy","ember"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	combusken: {
+		randomBattleMoves: ["flareblitz","skyuppercut","protect","swordsdance","substitute","batonpass","shadowclaw"],
+		tier: "BL3"
+	},
+	blaziken: {
+		randomBattleMoves: ["flareblitz","highjumpkick","protect","swordsdance","substitute","batonpass","stoneedge","knockoff"],
+		eventPokemon: [
+			{"generation":3,"level":70,"moves":["blazekick","slash","mirrormove","skyuppercut"]},
+			{"generation":5,"level":50,"isHidden":false,"moves":["flareblitz","highjumpkick","thunderpunch","stoneedge"],"pokeball":"cherishball"}
+		],
+		tier: "Uber"
+	},
+	blazikenmega: {
+		randomBattleMoves: ["flareblitz","highjumpkick","protect","swordsdance","substitute","batonpass","stoneedge","knockoff"],
+		requiredItem: "Blazikenite"
+	},
+	mudkip: {
+		randomBattleMoves: ["hydropump","earthpower","hiddenpowerelectric","icebeam","sludgewave"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["tackle","growl","mudslap","watergun"]},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["tackle","growl","mudslap","watergun"]}
+		],
+		tier: "LC"
+	},
+	marshtomp: {
+		randomBattleMoves: ["waterfall","earthquake","superpower","icepunch","rockslide","stealthrock"],
+		tier: "NFE"
+	},
+	swampert: {
+		randomBattleMoves: ["waterfall","earthquake","icebeam","stealthrock","roar","scald"],
+		randomDoubleBattleMoves: ["waterfall","earthquake","icebeam","stealthrock","wideguard","scald","rockslide","muddywater","protect","icywind"],
+		eventPokemon: [
+			{"generation":5,"level":50,"isHidden":false,"moves":["earthquake","icebeam","hydropump","hammerarm"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	poochyena: {
+		randomBattleMoves: ["superfang","foulplay","suckerpunch","toxic","crunch","firefang","icefang","poisonfang"],
+		eventPokemon: [
+			{"generation":3,"level":10,"abilities":["runaway"],"moves":["healbell","dig","poisonfang","growl"]}
+		],
+		tier: "LC"
+	},
+	mightyena: {
+		randomBattleMoves: ["suckerpunch","crunch","playrough","firefang","taunt"],
+		randomDoubleBattleMoves: ["suckerpunch","crunch","playrough","firefang","taunt","protect"],
+		tier: "NU"
+	},
+	zigzagoon: {
+		randomBattleMoves: ["trick","thunderwave","icebeam","thunderbolt","gunkshot","lastresort"],
+		eventPokemon: [
+			{"generation":3,"level":5,"shiny":true,"abilities":["pickup"],"moves":["tackle","growl","tailwhip"]},
+			{"generation":3,"level":5,"abilities":["pickup"],"moves":["tackle","growl","extremespeed"]}
+		],
+		tier: "LC"
+	},
+	linoone: {
+		randomBattleMoves: ["bellydrum","extremespeed","seedbomb","substitute","shadowclaw"],
+		randomDoubleBattleMoves: ["bellydrum","extremespeed","seedbomb","protect","shadowclaw"],
+		tier: "NU"
+	},
+	wurmple: {
+		randomBattleMoves: ["bugbite","poisonsting","tackle","electroweb"],
+		tier: "LC"
+	},
+	silcoon: {
+		randomBattleMoves: ["bugbite","poisonsting","tackle","electroweb"],
+		tier: "NFE"
+	},
+	beautifly: {
+		randomBattleMoves: ["quiverdance","bugbuzz","gigadrain","hiddenpowerground","psychic","substitute"],
+		randomDoubleBattleMoves: ["quiverdance","bugbuzz","gigadrain","hiddenpowerground","psychic","substitute","tailwind","stringshot","protect"],
+		tier: "NU"
+	},
+	cascoon: {
+		randomBattleMoves: ["bugbite","poisonsting","tackle","electroweb"],
+		tier: "NFE"
+	},
+	dustox: {
+		randomBattleMoves: ["toxic","roost","whirlwind","bugbuzz","protect","sludgebomb","quiverdance","shadowball"],
+		randomDoubleBattleMoves: ["tailwind","stringshot","strugglebug","bugbuzz","protect","sludgebomb","quiverdance","shadowball"],
+		tier: "NU"
+	},
+	lotad: {
+		randomBattleMoves: ["gigadrain","icebeam","scald","naturepower","raindance"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["astonish","growl","absorb"]}
+		],
+		tier: "LC"
+	},
+	lombre: {
+		randomBattleMoves: ["fakeout","swordsdance","waterfall","seedbomb","icepunch","firepunch","thunderpunch","poweruppunch","gigadrain","icebeam"],
+		tier: "NFE"
+	},
+	ludicolo: {
+		randomBattleMoves: ["raindance","hydropump","scald","gigadrain","icebeam","focusblast"],
+		randomDoubleBattleMoves: ["raindance","hydropump","surf","gigadrain","icebeam","fakeout","protect"],
+		eventPokemon: [
+			{"generation":5,"level":50,"isHidden":false,"abilities":["swiftswim"],"moves":["fakeout","hydropump","icebeam","gigadrain"],"pokeball":"cherishball"},
+			{"generation":5,"level":30,"gender":"M","nature":"Calm","isHidden":false,"abilities":["swiftswim"],"moves":["scald","gigadrain","icebeam","sunnyday"]}
+		],
+		tier: "NU"
+	},
+	seedot: {
+		randomBattleMoves: ["defog","naturepower","seedbomb","explosion","foulplay"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["bide","harden","growth"]},
+			{"generation":3,"level":17,"moves":["refresh","gigadrain","bulletseed","secretpower"]}
+		],
+		tier: "LC"
+	},
+	nuzleaf: {
+		randomBattleMoves: ["suckerpunch","naturepower","seedbomb","explosion","swordsdance","rockslide","lowsweep"],
+		tier: "NFE"
+	},
+	shiftry: {
+		randomBattleMoves: ["leafstorm","swordsdance","seedbomb","suckerpunch","defog","lowkick"],
+		randomDoubleBattleMoves: ["leafstorm","swordsdance","seedbomb","suckerpunch","knockoff","lowkick","fakeout","protect"],
+		tier: "RU"
+	},
+	taillow: {
+		randomBattleMoves: ["bravebird","facade","quickattack","uturn","protect"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["peck","growl","focusenergy","featherdance"]}
+		],
+		tier: "LC"
+	},
+	swellow: {
+		randomBattleMoves: ["bravebird","facade","quickattack","uturn","endeavor"],
+		randomDoubleBattleMoves: ["bravebird","facade","quickattack","uturn","protect"],
+		eventPokemon: [
+			{"generation":3,"level":43,"moves":["batonpass","skyattack","agility","facade"]}
+		],
+		tier: "NU"
+	},
+	wingull: {
+		randomBattleMoves: ["scald","icebeam","tailwind","uturn","airslash","knockoff","defog"],
+		tier: "LC"
+	},
+	pelipper: {
+		randomBattleMoves: ["scald","uturn","hurricane","toxic","roost","defog","knockoff"],
+		randomDoubleBattleMoves: ["scald","surf","hurricane","wideguard","protect","tailwind","knockoff"],
+		tier: "NU"
+	},
+	ralts: {
+		randomBattleMoves: ["trickroom","destinybond","psychic","willowisp","hypnosis","dazzlinggleam","substitute","trick"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["growl","wish"]},
+			{"generation":3,"level":5,"moves":["growl","charm"]},
+			{"generation":3,"level":20,"moves":["sing","shockwave","reflect","confusion"]}
+		],
+		tier: "LC"
+	},
+	kirlia: {
+		randomBattleMoves: ["trick","dazzlinggleam","psychic","willowisp","signalbeam","thunderbolt","destinybond","substitute"],
+		tier: "NFE"
+	},
+	gardevoir: {
+		randomBattleMoves: ["psyshock","focusblast","shadowball","moonblast","calmmind","willowisp","thunderbolt","healingwish"],
+		randomDoubleBattleMoves: ["psyshock","focusblast","shadowball","moonblast","taunt","willowisp","thunderbolt","trickroom","helpinghand","protect","dazzlinggleam"],
+		eventPokemon: [
+			{"generation":5,"level":50,"isHidden":false,"abilities":["trace"],"moves":["hypnosis","thunderbolt","focusblast","psychic"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	gardevoirmega: {
+		randomBattleMoves: ["psyshock","focusblast","shadowball","calmmind","thunderbolt","hypervoice","healingwish"],
+		randomDoubleBattleMoves: ["psyshock","focusblast","shadowball","calmmind","thunderbolt","hypervoice","protect"],
+		requiredItem: "Gardevoirite"
+	},
+	gallade: {
+		randomBattleMoves: ["closecombat","trick","stoneedge","shadowsneak","drainpunch","icepunch","zenheadbutt","swordsdance","knockoff"],
+		randomDoubleBattleMoves: ["closecombat","trick","stoneedge","shadowsneak","drainpunch","icepunch","zenheadbutt","feint","knockoff","trickroom","protect","helpinghand","healpulse"],
+		tier: "RU"
+	},
+	surskit: {
+		randomBattleMoves: ["hydropump","signalbeam","hiddenpowerfire","stickyweb","gigadrain","powersplit"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["bubble","mudsport"]},
+			{"generation":3,"level":10,"gender":"M","moves":["bubble","quickattack"]}
+		],
+		tier: "LC"
+	},
+	masquerain: {
+		randomBattleMoves: ["hydropump","bugbuzz","airslash","quiverdance","substitute","batonpass","stickyweb","roost"],
+		randomDoubleBattleMoves: ["hydropump","bugbuzz","airslash","quiverdance","substitute","tailwind","stickyweb","roost","strugglebug","protect"],
+		tier: "NU"
+	},
+	shroomish: {
+		randomBattleMoves: ["spore","substitute","leechseed","gigadrain","protect","toxic","stunspore"],
+		eventPokemon: [
+			{"generation":3,"level":15,"abilities":["effectspore"],"moves":["refresh","falseswipe","megadrain","stunspore"]}
+		],
+		tier: "LC"
+	},
+	breloom: {
+		randomBattleMoves: ["spore","substitute","focuspunch","machpunch","bulletseed","rocktomb","swordsdance","drainpunch"],
+		randomDoubleBattleMoves: ["spore","helpinghand","machpunch","bulletseed","rocktomb","protect","drainpunch"],
+		tier: "OU"
+	},
+	slakoth: {
+		randomBattleMoves: ["doubleedge","hammerarm","firepunch","counter","retaliate","toxic"],
+		tier: "LC"
+	},
+	vigoroth: {
+		randomBattleMoves: ["bulkup","return","earthquake","firepunch","suckerpunch","slackoff","icepunch","lowkick"],
+		tier: "NFE"
+	},
+	slaking: {
+		randomBattleMoves: ["earthquake","pursuit","nightslash","doubleedge","retaliate"],
+		randomDoubleBattleMoves: ["earthquake","protect","nightslash","doubleedge","retaliate","hammerarm"],
+		eventPokemon: [
+			{"generation":4,"level":50,"gender":"M","nature":"Adamant","moves":["gigaimpact","return","shadowclaw","aerialace"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	nincada: {
+		randomBattleMoves: ["xscissor","dig","aerialace","nightslash"],
+		tier: "LC"
+	},
+	ninjask: {
+		randomBattleMoves: ["batonpass","swordsdance","substitute","protect","xscissor"],
+		randomDoubleBattleMoves: ["batonpass","swordsdance","substitute","protect","xscissor","aerialace"],
+		tier: "NU"
+	},
+	shedinja: {
+		randomBattleMoves: ["swordsdance","willowisp","xscissor","shadowsneak","protect"],
+		eventPokemon: [
+			{"generation":3,"level":50,"moves":["spite","confuseray","shadowball","grudge"]},
+			{"generation":3,"level":20,"moves":["doubleteam","furycutter","screech"]},
+			{"generation":3,"level":25,"moves":["swordsdance"]},
+			{"generation":3,"level":31,"moves":["slash"]},
+			{"generation":3,"level":38,"moves":["agility"]},
+			{"generation":3,"level":45,"moves":["batonpass"]},
+			{"generation":4,"level":52,"moves":["xscissor"]}
+		],
+		tier: "NU"
+	},
+	whismur: {
+		randomBattleMoves: ["hypervoice","fireblast","shadowball","icebeam","extrasensory"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["pound","uproar","teeterdance"]}
+		],
+		tier: "LC"
+	},
+	loudred: {
+		randomBattleMoves: ["hypervoice","fireblast","shadowball","icebeam","circlethrow","bodyslam"],
+		tier: "NFE"
+	},
+	exploud: {
+		randomBattleMoves: ["boomburst","fireblast","icebeam","surf","focusblast"],
+		randomDoubleBattleMoves: ["boomburst","fireblast","icebeam","surf","focusblast","protect","hypervoice"],
+		eventPokemon: [
+			{"generation":3,"level":100,"moves":["roar","rest","sleeptalk","hypervoice"]},
+			{"generation":3,"level":50,"moves":["stomp","screech","hyperbeam","roar"]}
+		],
+		tier: "RU"
+	},
+	makuhita: {
+		randomBattleMoves: ["crosschop","bulletpunch","closecombat","icepunch","bulkup","fakeout","earthquake"],
+		eventPokemon: [
+			{"generation":3,"level":18,"moves":["refresh","brickbreak","armthrust","rocktomb"]}
+		],
+		tier: "LC"
+	},
+	hariyama: {
+		randomBattleMoves: ["bulletpunch","closecombat","icepunch","stoneedge","bulkup","earthquake"],
+		randomDoubleBattleMoves: ["bulletpunch","closecombat","icepunch","stoneedge","fakeout","feint","helpinghand","wideguard","protect"],
+		tier: "NU"
+	},
+	nosepass: {
+		randomBattleMoves: ["powergem","thunderwave","stealthrock","painsplit","explosion","voltswitch"],
+		eventPokemon: [
+			{"generation":3,"level":26,"moves":["helpinghand","thunderbolt","thunderwave","rockslide"]}
+		],
+		tier: "LC"
+	},
+	probopass: {
+		randomBattleMoves: ["stealthrock","thunderwave","toxic","earthpower","powergem","voltswitch","painsplit"],
+		randomDoubleBattleMoves: ["stealthrock","thunderwave","helpinghand","earthpower","powergem","wideguard","protect","voltswitch"],
+		tier: "NU"
+	},
+	skitty: {
+		randomBattleMoves: ["doubleedge","zenheadbutt","thunderwave","fakeout","playrough","healbell"],
+		eventPokemon: [
+			{"generation":3,"level":5,"abilities":["cutecharm"],"moves":["tackle","growl","tailwhip","payday"]},
+			{"generation":3,"level":5,"abilities":["cutecharm"],"moves":["growl","tackle","tailwhip","rollout"]},
+			{"generation":3,"level":10,"gender":"M","abilities":["cutecharm"],"moves":["growl","tackle","tailwhip","attract"]}
+		],
+		tier: "LC"
+	},
+	delcatty: {
+		randomBattleMoves: ["doubleedge","suckerpunch","playrough","wildcharge","fakeout","thunderwave","wish","healbell"],
+		randomDoubleBattleMoves: ["doubleedge","suckerpunch","playrough","wildcharge","fakeout","thunderwave","protect","helpinghand"],
+		eventPokemon: [
+			{"generation":3,"level":18,"abilities":["cutecharm"],"moves":["sweetkiss","secretpower","attract","shockwave"]}
+		],
+		tier: "NU"
+	},
+	sableye: {
+		randomBattleMoves: ["recover","willowisp","taunt","toxic","knockoff","foulplay"],
+		randomDoubleBattleMoves: ["recover","willowisp","taunt","fakeout","knockoff","foulplay","feint","helpinghand","snarl","protect"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","abilities":["keeneye"],"moves":["leer","scratch","foresight","nightshade"]},
+			{"generation":3,"level":33,"abilities":["keeneye"],"moves":["helpinghand","shadowball","feintattack","recover"]},
+			{"generation":5,"level":50,"gender":"M","isHidden":true,"moves":["foulplay","octazooka","tickle","trick"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	mawile: {
+		randomBattleMoves: ["swordsdance","ironhead","firefang","substitute","playrough","suckerpunch","knockoff","focuspunch"],
+		randomDoubleBattleMoves: ["swordsdance","ironhead","firefang","substitute","playrough","suckerpunch","knockoff","protect"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["astonish","faketears"]},
+			{"generation":3,"level":22,"moves":["sing","falseswipe","vicegrip","irondefense"]},
+			{"generation":6,"level":50,"isHidden":false,"abilities":["intimidate"],"moves":["ironhead","playrough","firefang","suckerpunch"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	mawilemega: {
+		randomBattleMoves: ["swordsdance","ironhead","firefang","substitute","playrough","suckerpunch","knockoff","focuspunch"],
+		randomDoubleBattleMoves: ["swordsdance","ironhead","firefang","substitute","playrough","suckerpunch","knockoff","protect"],
+		requiredItem: "Mawilite",
+		tier: "Uber"
+	},
+	aron: {
+		randomBattleMoves: ["headsmash","ironhead","earthquake","superpower","stealthrock","endeavor"],
+		tier: "LC"
+	},
+	lairon: {
+		randomBattleMoves: ["headsmash","ironhead","earthquake","superpower","stealthrock"],
+		tier: "NFE"
+	},
+	aggron: {
+		randomBattleMoves: ["autotomize","headsmash","earthquake","lowkick","heavyslam","aquatail","stealthrock"],
+		randomDoubleBattleMoves: ["rockslide","headsmash","earthquake","lowkick","heavyslam","aquatail","stealthrock","protect"],
+		eventPokemon: [
+			{"generation":3,"level":100,"moves":["irontail","protect","metalsound","doubleedge"]},
+			{"generation":3,"level":50,"moves":["takedown","irontail","protect","metalsound"]}
+		],
+		tier: "UU"
+	},
+	aggronmega: {
+		randomBattleMoves: ["earthquake","heavyslam","icepunch","stealthrock","thunderwave","roar"],
+		randomDoubleBattleMoves: ["rockslide","earthquake","lowkick","heavyslam","aquatail","protect"],
+		requiredItem: "Aggronite"
+	},
+	meditite: {
+		randomBattleMoves: ["highjumpkick","psychocut","icepunch","thunderpunch","trick","fakeout","bulletpunch","drainpunch","zenheadbutt"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["bide","meditate","confusion"]},
+			{"generation":3,"level":20,"moves":["dynamicpunch","confusion","shadowball","detect"]}
+		],
+		tier: "LC Uber"
+	},
+	medicham: {
+		randomBattleMoves: ["highjumpkick","drainpunch","zenheadbutt","icepunch","bulletpunch"],
+		randomDoubleBattleMoves: ["highjumpkick","drainpunch","zenheadbutt","icepunch","bulletpunch","protect","fakeout"],
+		tier: "OU"
+	},
+	medichammega: {
+		randomBattleMoves: ["highjumpkick","drainpunch","icepunch","bulletpunch","zenheadbutt","firepunch"],
+		randomDoubleBattleMoves: ["highjumpkick","drainpunch","zenheadbutt","icepunch","bulletpunch","protect","fakeout"],
+		requiredItem: "Medichamite",
+		tier: "BL"
+	},
+	electrike: {
+		randomBattleMoves: ["voltswitch","thunderbolt","hiddenpowerice","switcheroo","flamethrower","hiddenpowergrass"],
+		tier: "LC"
+	},
+	manectric: {
+		randomBattleMoves: ["voltswitch","thunderbolt","hiddenpowerice","hiddenpowergrass","overheat","flamethrower"],
+		randomDoubleBattleMoves: ["voltswitch","thunderbolt","hiddenpowerice","hiddenpowergrass","overheat","flamethrower","snarl","protect"],
+		eventPokemon: [
+			{"generation":3,"level":44,"moves":["refresh","thunder","raindance","bite"]}
+		],
+		tier: "OU"
+	},
+	manectricmega: {
+		randomBattleMoves: ["voltswitch","thunderbolt","hiddenpowerice","hiddenpowergrass","overheat","flamethrower"],
+		randomDoubleBattleMoves: ["voltswitch","thunderbolt","hiddenpowerice","hiddenpowergrass","overheat","flamethrower","snarl","protect"],
+		requiredItem: "Manectite"
+	},
+	plusle: {
+		randomBattleMoves: ["nastyplot","thunderbolt","substitute","batonpass","hiddenpowerice","encore"],
+		randomDoubleBattleMoves: ["nastyplot","thunderbolt","substitute","protect","hiddenpowerice","encore","helpinghand"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["growl","thunderwave","mudsport"]},
+			{"generation":3,"level":10,"gender":"M","moves":["growl","thunderwave","quickattack"]}
+		],
+		tier: "NU"
+	},
+	minun: {
+		randomBattleMoves: ["nastyplot","thunderbolt","substitute","batonpass","hiddenpowerice","encore"],
+		randomDoubleBattleMoves: ["nastyplot","thunderbolt","substitute","protect","hiddenpowerice","encore","helpinghand"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["growl","thunderwave","watersport"]},
+			{"generation":3,"level":10,"gender":"M","moves":["growl","thunderwave","quickattack"]}
+		],
+		tier: "NU"
+	},
+	volbeat: {
+		randomBattleMoves: ["tailglow","batonpass","substitute","bugbuzz","thunderwave","encore","tailwind"],
+		randomDoubleBattleMoves: ["stringshot","strugglebug","helpinghand","bugbuzz","thunderwave","encore","tailwind","protect"],
+		tier: "NU"
+	},
+	illumise: {
+		randomBattleMoves: ["substitute","batonpass","wish","bugbuzz","encore","thunderbolt","tailwind","uturn"],
+		randomDoubleBattleMoves: ["protect","helpinghand","bugbuzz","encore","thunderbolt","tailwind","uturn"],
+		tier: "NU"
+	},
+	budew: {
+		randomBattleMoves: ["spikes","sludgebomb","sleeppowder","gigadrain","stunspore","rest"],
+		tier: "LC"
+	},
+	roselia: {
+		randomBattleMoves: ["spikes","toxicspikes","sleeppowder","gigadrain","stunspore","rest","sludgebomb","synthesis"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["absorb","growth","poisonsting"]},
+			{"generation":3,"level":22,"moves":["sweetkiss","magicalleaf","leechseed","grasswhistle"]}
+		],
+		tier: "NFE"
+	},
+	roserade: {
+		randomBattleMoves: ["sludgebomb","gigadrain","sleeppowder","leafstorm","spikes","toxicspikes","rest","synthesis","hiddenpowerfire"],
+		randomDoubleBattleMoves: ["sludgebomb","gigadrain","sleeppowder","leafstorm","protect","hiddenpowerfire"],
+		tier: "UU"
+	},
+	gulpin: {
+		randomBattleMoves: ["stockpile","sludgebomb","sludgewave","icebeam","toxic","painsplit","yawn","encore"],
+		eventPokemon: [
+			{"generation":3,"level":17,"moves":["sing","shockwave","sludge","toxic"]}
+		],
+		tier: "LC"
+	},
+	swalot: {
+		randomBattleMoves: ["sludgebomb","icebeam","toxic","yawn","encore","painsplit","earthquake"],
+		randomDoubleBattleMoves: ["sludgebomb","icebeam","protect","yawn","encore","gunkshot","earthquake"],
+		tier: "NU"
+	},
+	carvanha: {
+		randomBattleMoves: ["protect","hydropump","surf","icebeam","waterfall","crunch","aquajet","destinybond"],
+		eventPokemon: [
+			{"generation":3,"level":15,"moves":["refresh","waterpulse","bite","scaryface"]}
+		],
+		tier: "NFE"
+	},
+	sharpedo: {
+		randomBattleMoves: ["protect","hydropump","surf","icebeam","crunch","earthquake","waterfall","darkpulse","aquajet","destinybond"],
+		tier: "RU"
+	},
+	wailmer: {
+		randomBattleMoves: ["waterspout","surf","hydropump","icebeam","hiddenpowergrass","hiddenpowerelectric"],
+		tier: "LC"
+	},
+	wailord: {
+		randomBattleMoves: ["waterspout","hydropump","icebeam","hiddenpowergrass","hiddenpowerfire"],
+		randomDoubleBattleMoves: ["waterspout","hydropump","icebeam","hiddenpowergrass","hiddenpowerfire","protect"],
+		eventPokemon: [
+			{"generation":3,"level":100,"moves":["rest","waterspout","amnesia","hydropump"]},
+			{"generation":3,"level":50,"moves":["waterpulse","mist","rest","waterspout"]}
+		],
+		tier: "NU"
+	},
+	numel: {
+		randomBattleMoves: ["curse","earthquake","rockslide","fireblast","flamecharge","rest","sleeptalk","stockpile","hiddenpowerelectric","earthpower","lavaplume"],
+		eventPokemon: [
+			{"generation":3,"level":14,"abilities":["oblivious"],"moves":["charm","takedown","dig","ember"]}
+		],
+		tier: "LC"
+	},
+	camerupt: {
+		randomBattleMoves: ["rockpolish","fireblast","earthpower","lavaplume","stealthrock","eruption","hiddenpowergrass","roar"],
+		randomDoubleBattleMoves: ["rockpolish","fireblast","earthpower","heatwave","eruption","hiddenpowergrass","protect"],
+		tier: "NU"
+	},
+	torkoal: {
+		randomBattleMoves: ["rapidspin","stealthrock","yawn","lavaplume","earthpower","toxic","willowisp","shellsmash","fireblast"],
+		randomDoubleBattleMoves: ["protect","heatwave","earthpower","willowisp","shellsmash","fireblast","hiddenpowergrass"],
+		tier: "NU"
+	},
+	spoink: {
+		randomBattleMoves: ["psychic","reflect","lightscreen","thunderwave","trick","healbell","calmmind","hiddenpowerfighting","shadowball"],
+		eventPokemon: [
+			{"generation":3,"level":5,"abilities":["owntempo"],"moves":["splash","uproar"]}
+		],
+		tier: "LC"
+	},
+	grumpig: {
+		randomBattleMoves: ["psychic","psyshock","thunderwave","healbell","whirlwind","toxic","focusblast","reflect","lightscreen"],
+		randomDoubleBattleMoves: ["psychic","psyshock","thunderwave","trickroom","taunt","protect","focusblast","reflect","lightscreen"],
+		tier: "NU"
+	},
+	spinda: {
+		randomBattleMoves: ["doubleedge","return","superpower","suckerpunch","trickroom"],
+		randomDoubleBattleMoves: ["doubleedge","return","superpower","suckerpunch","trickroom","fakeout","protect"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["tackle","uproar","sing"]}
+		],
+		tier: "NU"
+	},
+	trapinch: {
+		randomBattleMoves: ["earthquake","rockslide","crunch","quickattack","superpower"],
+		eventPokemon: [
+			{"generation":5,"level":1,"shiny":true,"isHidden":false,"moves":["bite"]}
+		],
+		tier: "LC"
+	},
+	vibrava: {
+		randomBattleMoves: ["substitute","earthquake","outrage","roost","uturn","superpower","defog"],
+		tier: "NFE"
+	},
+	flygon: {
+		randomBattleMoves: ["earthquake","outrage","dragonclaw","uturn","roost","stoneedge","firepunch","fireblast","defog"],
+		randomDoubleBattleMoves: ["earthquake","protect","dragonclaw","uturn","rockslide","firepunch","fireblast","tailwind","feint"],
+		eventPokemon: [
+			{"generation":3,"level":45,"moves":["sandtomb","crunch","dragonbreath","screech"]},
+			{"generation":4,"level":50,"gender":"M","nature":"Naive","moves":["dracometeor","uturn","earthquake","dragonclaw"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	cacnea: {
+		randomBattleMoves: ["swordsdance","spikes","suckerpunch","seedbomb","drainpunch"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["poisonsting","leer","absorb","encore"]}
+		],
+		tier: "LC"
+	},
+	cacturne: {
+		randomBattleMoves: ["swordsdance","spikes","suckerpunch","seedbomb","drainpunch","substitute","focuspunch","destinybond"],
+		randomDoubleBattleMoves: ["darkpulse","protect","suckerpunch","seedbomb","drainpunch","gigadrain"],
+		eventPokemon: [
+			{"generation":3,"level":45,"moves":["ingrain","feintattack","spikes","needlearm"]}
+		],
+		tier: "NU"
+	},
+	swablu: {
+		randomBattleMoves: ["roost","toxic","cottonguard","pluck","hypervoice","return"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["peck","growl","falseswipe"]},
+			{"generation":5,"level":1,"shiny":true,"isHidden":false,"moves":["peck","growl"]}
+		],
+		tier: "LC"
+	},
+	altaria: {
+		randomBattleMoves: ["dragondance","dracometeor","outrage","dragonclaw","earthquake","roost","fireblast","healbell"],
+		randomDoubleBattleMoves: ["dragondance","dracometeor","protect","dragonclaw","earthquake","fireblast","tailwind"],
+		eventPokemon: [
+			{"generation":3,"level":45,"moves":["takedown","dragonbreath","dragondance","refresh"]},
+			{"generation":3,"level":36,"moves":["healbell","dragonbreath","solarbeam","aerialace"]},
+			{"generation":5,"level":35,"gender":"M","isHidden":true,"moves":["takedown","naturalgift","dragonbreath","falseswipe"]}
+		],
+		tier: "NU"
+	},
+	zangoose: {
+		randomBattleMoves: ["swordsdance","closecombat","knockoff","quickattack","facade"],
+		randomDoubleBattleMoves: ["protect","closecombat","knockoff","quickattack","facade"],
+		eventPokemon: [
+			{"generation":3,"level":18,"moves":["leer","quickattack","swordsdance","furycutter"]},
+			{"generation":3,"level":10,"gender":"M","moves":["scratch","leer","quickattack","swordsdance"]},
+			{"generation":3,"level":28,"moves":["refresh","brickbreak","counter","crushclaw"]}
+		],
+		tier: "NU"
+	},
+	seviper: {
+		randomBattleMoves: ["flamethrower","gigadrain","earthquake","suckerpunch","aquatail","coil","glare","poisonjab","sludgebomb"],
+		randomDoubleBattleMoves: ["flamethrower","gigadrain","earthquake","suckerpunch","aquatail","protect","glare","poisonjab","sludgebomb"],
+		eventPokemon: [
+			{"generation":3,"level":18,"moves":["wrap","lick","bite","poisontail"]},
+			{"generation":3,"level":30,"moves":["poisontail","screech","glare","crunch"]},
+			{"generation":3,"level":10,"gender":"M","moves":["wrap","lick","bite"]}
+		],
+		tier: "NU"
+	},
+	lunatone: {
+		randomBattleMoves: ["psychic","earthpower","stealthrock","rockpolish","batonpass","calmmind","icebeam","hiddenpowerrock","moonlight","trickroom","explosion"],
+		randomDoubleBattleMoves: ["psychic","earthpower","rockpolish","calmmind","helpinghand","icebeam","hiddenpowerrock","moonlight","trickroom","protect"],
+		eventPokemon: [
+			{"generation":3,"level":10,"moves":["tackle","harden","confusion"]},
+			{"generation":3,"level":25,"moves":["batonpass","psychic","raindance","rocktomb"]}
+		],
+		tier: "NU"
+	},
+	solrock: {
+		randomBattleMoves: ["stealthrock","explosion","stoneedge","zenheadbutt","willowisp","morningsun","trickroom"],
+		randomDoubleBattleMoves: ["protect","helpinghand","stoneedge","zenheadbutt","willowisp","trickroom","rockslide"],
+		eventPokemon: [
+			{"generation":3,"level":10,"moves":["tackle","harden","confusion"]},
+			{"generation":3,"level":41,"moves":["batonpass","psychic","sunnyday","cosmicpower"]}
+		],
+		tier: "NU"
+	},
+	barboach: {
+		randomBattleMoves: ["dragondance","waterfall","earthquake","return","bounce"],
+		tier: "LC"
+	},
+	whiscash: {
+		randomBattleMoves: ["dragondance","waterfall","earthquake","stoneedge","zenheadbutt"],
+		randomDoubleBattleMoves: ["dragondance","waterfall","earthquake","stoneedge","zenheadbutt","protect"],
+		eventPokemon: [
+			{"generation":4,"level":51,"gender":"F","nature":"Gentle","abilities":["oblivious"],"moves":["earthquake","aquatail","zenheadbutt","gigaimpact"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	corphish: {
+		randomBattleMoves: ["dragondance","waterfall","crunch","superpower","swordsdance","knockoff","aquajet"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["bubble","watersport"]}
+		],
+		tier: "LC"
+	},
+	crawdaunt: {
+		randomBattleMoves: ["dragondance","crabhammer","crunch","superpower","swordsdance","knockoff","aquajet"],
+		randomDoubleBattleMoves: ["dragondance","crabhammer","crunch","superpower","swordsdance","knockoff","aquajet","protect"],
+		eventPokemon: [
+			{"generation":3,"level":100,"moves":["taunt","crabhammer","swordsdance","guillotine"]},
+			{"generation":3,"level":50,"moves":["knockoff","taunt","crabhammer","swordsdance"]}
+		],
+		tier: "BL"
+	},
+	baltoy: {
+		randomBattleMoves: ["stealthrock","earthquake","toxic","psychic","reflect","lightscreen","icebeam","rapidspin"],
+		eventPokemon: [
+			{"generation":3,"level":17,"moves":["refresh","rocktomb","mudslap","psybeam"]}
+		],
+		tier: "LC"
+	},
+	claydol: {
+		randomBattleMoves: ["stealthrock","toxic","psychic","icebeam","earthquake","rapidspin"],
+		randomDoubleBattleMoves: ["earthpower","trickroom","psychic","icebeam","earthquake","protect"],
+		tier: "RU"
+	},
+	lileep: {
+		randomBattleMoves: ["stealthrock","recover","ancientpower","hiddenpowerfire","gigadrain","stockpile"],
+		eventPokemon: [
+			{"generation":5,"level":15,"gender":"M","isHidden":false,"moves":["recover","rockslide","constrict","acid"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	cradily: {
+		randomBattleMoves: ["stealthrock","recover","seedbomb","rockslide","earthquake","curse","swordsdance"],
+		randomDoubleBattleMoves: ["protect","recover","seedbomb","rockslide","earthquake","curse","swordsdance"],
+		tier: "NU"
+	},
+	anorith: {
+		randomBattleMoves: ["stealthrock","brickbreak","toxic","xscissor","rockslide","swordsdance","rockpolish"],
+		eventPokemon: [
+			{"generation":5,"level":15,"gender":"M","isHidden":false,"moves":["harden","mudsport","watergun","crosspoison"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	armaldo: {
+		randomBattleMoves: ["stealthrock","stoneedge","toxic","xscissor","swordsdance","knockoff","rapidspin"],
+		randomDoubleBattleMoves: ["rockslide","stoneedge","stringshot","xscissor","swordsdance","knockoff","protect"],
+		tier: "NU"
+	},
+	feebas: {
+		randomBattleMoves: ["protect","confuseray","hypnosis","scald","toxic"],
+		tier: "LC"
+	},
+	milotic: {
+		randomBattleMoves: ["recover","scald","toxic","icebeam","dragontail","rest","sleeptalk","hiddenpowergrass"],
+		randomDoubleBattleMoves: ["recover","scald","hydropump","icebeam","dragontail","hypnosis","protect","hiddenpowergrass"],
+		eventPokemon: [
+			{"generation":3,"level":35,"moves":["waterpulse","twister","recover","raindance"]},
+			{"generation":4,"level":50,"gender":"F","nature":"Bold","moves":["recover","raindance","icebeam","hydropump"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"shiny":true,"gender":"M","nature":"Timid","moves":["raindance","recover","hydropump","icywind"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"isHidden":false,"moves":["recover","hydropump","icebeam","mirrorcoat"],"pokeball":"cherishball"},
+			{"generation":5,"level":58,"gender":"M","nature":"Lax","isHidden":false,"moves":["recover","surf","icebeam","toxic"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	castform: {
+		randomBattleMoves: ["sunnyday","raindance","fireblast","hydropump","thunder","icebeam","solarbeam","weatherball"],
+		randomDoubleBattleMoves: ["sunnyday","raindance","fireblast","hydropump","thunder","icebeam","solarbeam","weatherball","protect"],
+		tier: "NU"
+	},
+	kecleon: {
+		randomBattleMoves: ["foulplay","toxic","stealthrock","recover","return","thunderwave","suckerpunch","shadowsneak"],
+		randomDoubleBattleMoves: ["knockoff","fakeout","trickroom","recover","return","thunderwave","suckerpunch","shadowsneak","protect","feint"],
+		tier: "NU"
+	},
+	shuppet: {
+		randomBattleMoves: ["trickroom","destinybond","taunt","shadowsneak","suckerpunch","willowisp"],
+		eventPokemon: [
+			{"generation":3,"level":45,"abilities":["insomnia"],"moves":["spite","willowisp","feintattack","shadowball"]}
+		],
+		tier: "LC"
+	},
+	banette: {
+		randomBattleMoves: ["destinybond","taunt","shadowclaw","suckerpunch","willowisp","shadowsneak","knockoff"],
+		randomDoubleBattleMoves: ["destinybond","taunt","shadowclaw","suckerpunch","willowisp","shadowsneak","knockoff","protect"],
+		eventPokemon: [
+			{"generation":3,"level":37,"abilities":["insomnia"],"moves":["helpinghand","feintattack","shadowball","curse"]},
+			{"generation":5,"level":37,"gender":"F","isHidden":true,"moves":["feintattack","hex","shadowball","cottonguard"]}
+		],
+		tier: "RU"
+	},
+	banettemega: {
+		randomBattleMoves: ["destinybond","taunt","shadowclaw","suckerpunch","willowisp","shadowsneak","knockoff"],
+		randomDoubleBattleMoves: ["destinybond","taunt","shadowclaw","suckerpunch","willowisp","shadowsneak","knockoff","protect"],
+		requiredItem: "Banettite"
+	},
+	duskull: {
+		randomBattleMoves: ["willowisp","shadowsneak","icebeam","painsplit","substitute","nightshade"],
+		eventPokemon: [
+			{"generation":3,"level":45,"moves":["pursuit","curse","willowisp","meanlook"]},
+			{"generation":3,"level":19,"moves":["helpinghand","shadowball","astonish","confuseray"]}
+		],
+		tier: "LC"
+	},
+	dusclops: {
+		randomBattleMoves: ["willowisp","shadowsneak","icebeam","painsplit","substitute","seismictoss","toxic","trickroom"],
+		tier: "NFE"
+	},
+	dusknoir: {
+		randomBattleMoves: ["willowisp","shadowsneak","icepunch","painsplit","substitute","earthquake","focuspunch","trickroom"],
+		randomDoubleBattleMoves: ["willowisp","shadowsneak","icepunch","painsplit","protect","earthquake","helpinghand","trickroom"],
+		tier: "NU"
+	},
+	tropius: {
+		randomBattleMoves: ["leechseed","substitute","airslash","gigadrain","earthquake","hiddenpowerfire","roost","defog"],
+		randomDoubleBattleMoves: ["leechseed","protect","airslash","gigadrain","earthquake","hiddenpowerfire","tailwind","sunnyday","roost"],
+		eventPokemon: [
+			{"generation":4,"level":53,"gender":"F","nature":"Jolly","abilities":["chlorophyll"],"moves":["airslash","synthesis","sunnyday","solarbeam"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	chingling: {
+		randomBattleMoves: ["hypnosis","reflect","lightscreen","toxic","recover","psychic","signalbeam","healbell"],
+		tier: "LC"
+	},
+	chimecho: {
+		randomBattleMoves: ["toxic","psychic","thunderwave","recover","calmmind","shadowball","dazzlinggleam","healingwish","healbell","taunt"],
+		randomDoubleBattleMoves: ["protect","psychic","thunderwave","recover","shadowball","dazzlinggleam","trickroom","helpinghand","taunt"],
+		eventPokemon: [
+			{"generation":3,"level":10,"gender":"M","moves":["wrap","growl","astonish"]}
+		],
+		tier: "NU"
+	},
+	absol: {
+		randomBattleMoves: ["swordsdance","suckerpunch","knockoff","fireblast","superpower","pursuit","playrough"],
+		randomDoubleBattleMoves: ["swordsdance","suckerpunch","knockoff","fireblast","superpower","protect","playrough"],
+		eventPokemon: [
+			{"generation":3,"level":5,"abilities":["pressure"],"moves":["scratch","leer","wish"]},
+			{"generation":3,"level":5,"abilities":["pressure"],"moves":["scratch","leer","spite"]},
+			{"generation":3,"level":35,"abilities":["pressure"],"moves":["razorwind","bite","swordsdance","spite"]},
+			{"generation":3,"level":70,"abilities":["pressure"],"moves":["doubleteam","slash","futuresight","perishsong"]}
+		],
+		tier: "UU"
+	},
+	absolmega: {
+		randomBattleMoves: ["swordsdance","suckerpunch","knockoff","fireblast","superpower","pursuit","playrough"],
+		randomDoubleBattleMoves: ["swordsdance","suckerpunch","knockoff","fireblast","superpower","protect","playrough"],
+		requiredItem: "Absolite"
+	},
+	snorunt: {
+		randomBattleMoves: ["spikes","icebeam","hiddenpowerground","iceshard","crunch","switcheroo"],
+		eventPokemon: [
+			{"generation":3,"level":22,"abilities":["innerfocus"],"moves":["sing","waterpulse","bite","icywind"]}
+		],
+		tier: "LC"
+	},
+	glalie: {
+		randomBattleMoves: ["spikes","icebeam","iceshard","taunt","earthquake","explosion"],
+		randomDoubleBattleMoves: ["icebeam","iceshard","taunt","earthquake","explosion","protect","encore"],
+		tier: "NU"
+	},
+	froslass: {
+		randomBattleMoves: ["icebeam","spikes","destinybond","shadowball","taunt","thunderwave"],
+		randomDoubleBattleMoves: ["icebeam","protect","destinybond","shadowball","taunt","thunderwave"],
+		tier: "BL2"
+	},
+	spheal: {
+		randomBattleMoves: ["substitute","protect","toxic","surf","icebeam","yawn","superfang"],
+		eventPokemon: [
+			{"generation":3,"level":17,"abilities":["thickfat"],"moves":["charm","aurorabeam","watergun","mudslap"]}
+		],
+		tier: "LC"
+	},
+	sealeo: {
+		randomBattleMoves: ["substitute","protect","toxic","surf","icebeam","yawn","superfang"],
+		tier: "NFE"
+	},
+	walrein: {
+		randomBattleMoves: ["substitute","protect","toxic","surf","icebeam","roar"],
+		randomDoubleBattleMoves: ["hydropump","protect","icywind","surf","icebeam"],
+		eventPokemon: [
+			{"generation":5,"level":50,"isHidden":false,"abilities":["thickfat"],"moves":["icebeam","surf","hail","sheercold"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	clamperl: {
+		randomBattleMoves: ["shellsmash","icebeam","surf","hiddenpowergrass","hiddenpowerelectric","substitute"],
+		tier: "LC"
+	},
+	huntail: {
+		randomBattleMoves: ["shellsmash","return","hydropump","batonpass","suckerpunch"],
+		randomDoubleBattleMoves: ["shellsmash","return","hydropump","batonpass","suckerpunch","protect"],
+		tier: "NU"
+	},
+	gorebyss: {
+		randomBattleMoves: ["shellsmash","batonpass","hydropump","icebeam","hiddenpowergrass","substitute"],
+		randomDoubleBattleMoves: ["shellsmash","batonpass","hydropump","icebeam","hiddenpowergrass","substitute","protect"],
+		tier: "NU"
+	},
+	relicanth: {
+		randomBattleMoves: ["headsmash","waterfall","earthquake","doubleedge","stealthrock","toxic"],
+		randomDoubleBattleMoves: ["headsmash","waterfall","earthquake","doubleedge","rockslide","protect"],
+		tier: "NU"
+	},
+	luvdisc: {
+		randomBattleMoves: ["surf","icebeam","toxic","sweetkiss","protect"],
+		tier: "NU"
+	},
+	bagon: {
+		randomBattleMoves: ["outrage","dragondance","firefang","rockslide","dragonclaw"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["rage","bite","wish"]},
+			{"generation":3,"level":5,"moves":["rage","bite","irondefense"]},
+			{"generation":5,"level":1,"shiny":true,"isHidden":false,"moves":["rage"]}
+		],
+		tier: "LC"
+	},
+	shelgon: {
+		randomBattleMoves: ["outrage","brickbreak","dragonclaw","dragondance","crunch","zenheadbutt"],
+		tier: "NFE"
+	},
+	salamence: {
+		randomBattleMoves: ["outrage","fireblast","earthquake","dracometeor","roost","dragondance","dragonclaw","hydropump","stoneedge"],
+		randomDoubleBattleMoves: ["protect","fireblast","earthquake","dracometeor","tailwind","dragondance","dragonclaw","hydropump","rockslide"],
+		eventPokemon: [
+			{"generation":3,"level":50,"moves":["protect","dragonbreath","scaryface","fly"]},
+			{"generation":3,"level":50,"moves":["refresh","dragonclaw","dragondance","aerialace"]},
+			{"generation":4,"level":50,"gender":"M","nature":"Naughty","moves":["hydropump","stoneedge","fireblast","dragonclaw"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"isHidden":false,"moves":["dragondance","dragonclaw","outrage","aerialace"],"pokeball":"cherishball"}
+		],
+		tier: "BL"
+	},
+	beldum: {
+		randomBattleMoves: ["ironhead","zenheadbutt","headbutt","irondefense"],
+		tier: "LC"
+	},
+	metang: {
+		randomBattleMoves: ["stealthrock","meteormash","toxic","earthquake","bulletpunch","zenheadbutt"],
+		eventPokemon: [
+			{"generation":3,"level":30,"moves":["takedown","confusion","metalclaw","refresh"]}
+		],
+		tier: "NFE"
+	},
+	metagross: {
+		randomBattleMoves: ["meteormash","earthquake","agility","stealthrock","zenheadbutt","bulletpunch","thunderpunch","explosion","icepunch"],
+		randomDoubleBattleMoves: ["meteormash","earthquake","protect","zenheadbutt","bulletpunch","thunderpunch","explosion","icepunch"],
+		eventPokemon: [
+			{"generation":4,"level":62,"nature":"Brave","moves":["bulletpunch","meteormash","hammerarm","zenheadbutt"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"isHidden":false,"moves":["meteormash","earthquake","bulletpunch","hammerarm"],"pokeball":"cherishball"},
+			{"generation":5,"level":100,"isHidden":false,"moves":["bulletpunch","zenheadbutt","hammerarm","icepunch"],"pokeball":"cherishball"},
+			{"generation":5,"level":45,"isHidden":false,"moves":["earthquake","zenheadbutt","protect","meteormash"]},
+			{"generation":5,"level":45,"isHidden":true,"moves":["irondefense","agility","hammerarm","doubleedge"]},
+			{"generation":5,"level":45,"isHidden":true,"moves":["psychic","meteormash","hammerarm","doubleedge"]},
+			{"generation":5,"level":58,"nature":"Serious","isHidden":false,"moves":["earthquake","hyperbeam","psychic","meteormash"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	regirock: {
+		randomBattleMoves: ["stealthrock","thunderwave","stoneedge","drainpunch","curse","rest","sleeptalk","rockslide","toxic"],
+		randomDoubleBattleMoves: ["stealthrock","thunderwave","stoneedge","drainpunch","curse","rockslide","protect"],
+		eventPokemon: [
+			{"generation":3,"level":40,"moves":["curse","superpower","ancientpower","hyperbeam"]}
+		],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	regice: {
+		randomBattleMoves: ["thunderwave","icebeam","thunderbolt","rest","sleeptalk","focusblast","rockpolish"],
+		randomDoubleBattleMoves: ["thunderwave","icebeam","thunderbolt","icywind","protect","focusblast","rockpolish"],
+		eventPokemon: [
+			{"generation":3,"level":40,"moves":["curse","superpower","ancientpower","hyperbeam"]}
+		],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	registeel: {
+		randomBattleMoves: ["stealthrock","ironhead","curse","rest","thunderwave","toxic","seismictoss"],
+		randomDoubleBattleMoves: ["stealthrock","ironhead","curse","rest","thunderwave","protect","seismictoss"],
+		eventPokemon: [
+			{"generation":3,"level":40,"moves":["curse","superpower","ancientpower","hyperbeam"]}
+		],
+		unreleasedHidden: true,
+		tier: "RU"
+	},
+	latias: {
+		randomBattleMoves: ["dragonpulse","surf","thunderbolt","roost","calmmind","healingwish","defog"],
+		randomDoubleBattleMoves: ["dragonpulse","psychic","tailwind","helpinghand","healpulse","lightscreen","reflect","protect"],
+		eventPokemon: [
+			{"generation":3,"level":50,"gender":"F","moves":["charm","recover","psychic","mistball"]},
+			{"generation":3,"level":70,"gender":"F","moves":["mistball","psychic","recover","charm"]},
+			{"generation":4,"level":40,"gender":"F","moves":["watersport","refresh","mistball","zenheadbutt"]}
+		],
+		tier: "OU"
+	},
+	latiasmega: {
+		randomBattleMoves: ["dragonpulse","surf","thunderbolt","roost","calmmind","healingwish","defog"],
+		randomDoubleBattleMoves: ["dragonpulse","psychic","tailwind","helpinghand","healpulse","lightscreen","reflect","protect"],
+		requiredItem: "Latiasite",
+		tier: "Unreleased"
+	},
+	latios: {
+		randomBattleMoves: ["dracometeor","dragonpulse","surf","thunderbolt","psyshock","roost","trick","calmmind","defog"],
+		randomDoubleBattleMoves: ["dracometeor","dragonpulse","surf","thunderbolt","psyshock","substitute","trick","tailwind","protect","hiddenpowerfire"],
+		eventPokemon: [
+			{"generation":3,"level":50,"gender":"M","moves":["dragondance","recover","psychic","lusterpurge"]},
+			{"generation":3,"level":70,"gender":"M","moves":["lusterpurge","psychic","recover","dragondance"]},
+			{"generation":4,"level":40,"gender":"M","moves":["protect","refresh","lusterpurge","zenheadbutt"]}
+		],
+		tier: "OU"
+	},
+	latiosmega: {
+		randomBattleMoves: ["dracometeor","dragonpulse","surf","thunderbolt","psyshock","roost","calmmind","defog"],
+		randomDoubleBattleMoves: ["dracometeor","dragonpulse","surf","thunderbolt","psyshock","substitute","trick","tailwind","protect","hiddenpowerfire"],
+		requiredItem: "Latiosite",
+		tier: "Unreleased"
+	},
+	kyogre: {
+		randomBattleMoves: ["waterspout","surf","thunder","icebeam","calmmind","rest","sleeptalk","roar"],
+		randomDoubleBattleMoves: ["waterspout","muddywater","thunder","icebeam","calmmind","rest","sleeptalk","protect"],
+		eventPokemon: [
+			{"generation":5,"level":80,"moves":["icebeam","ancientpower","waterspout","thunder"],"pokeball":"cherishball"},
+			{"generation":5,"level":100,"moves":["waterspout","thunder","icebeam","sheercold"],"pokeball":"cherishball"}
+		],
+		tier: "Uber"
+	},
+	groudon: {
+		randomBattleMoves: ["earthquake","roar","stealthrock","stoneedge","swordsdance","rockpolish","thunderwave","dragonclaw","firepunch"],
+		randomDoubleBattleMoves: ["earthquake","rockslide","protect","stoneedge","swordsdance","rockpolish","dragonclaw","firepunch"],
+		eventPokemon: [
+			{"generation":5,"level":80,"moves":["earthquake","ancientpower","eruption","solarbeam"],"pokeball":"cherishball"},
+			{"generation":5,"level":100,"moves":["eruption","hammerarm","earthpower","solarbeam"],"pokeball":"cherishball"}
+		],
+		tier: "Uber"
+	},
+	rayquaza: {
+		randomBattleMoves: ["outrage","vcreate","extremespeed","dragondance","earthquake","dracometeor","dragonclaw"],
+		randomDoubleBattleMoves: ["tailwind","vcreate","extremespeed","dragondance","earthquake","dracometeor","dragonclaw","protect"],
+		eventPokemon: [
+			{"generation":5,"level":70,"shiny":true,"moves":["dragonpulse","ancientpower","outrage","dragondance"],"pokeball":"cherishball"},
+			{"generation":5,"level":100,"moves":["extremespeed","hyperbeam","dragonpulse","vcreate"],"pokeball":"cherishball"}
+		],
+		tier: "Uber"
+	},
+	jirachi: {
+		randomBattleMoves: ["bodyslam","ironhead","firepunch","thunderwave","stealthrock","wish","uturn","calmmind","psychic","thunderbolt","icepunch","trick"],
+		randomDoubleBattleMoves: ["bodyslam","ironhead","icywind","thunderwave","helpinghand","trickroom","uturn","followme","psychic","protect"],
+		eventPokemon: [
+			{"generation":3,"level":5,"moves":["wish","confusion","rest"]},
+			{"generation":3,"level":30,"moves":["helpinghand","psychic","refresh","rest"]},
+			{"generation":4,"level":5,"moves":["wish","confusion","rest"],"pokeball":"cherishball"},
+			{"generation":4,"level":5,"moves":["wish","confusion","rest","dracometeor"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"moves":["healingwish","psychic","swift","meteormash"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"moves":["dracometeor","meteormash","wish","followme"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"moves":["wish","healingwish","cosmicpower","meteormash"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"moves":["wish","healingwish","swift","return"],"pokeball":"cherishball"},
+			{"generation":6,"level":10,"shiny":true,"moves":["wish","swift","healingwish","moonblast"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	deoxys: {
+		randomBattleMoves: ["psychoboost","lowkick","extremespeed","icebeam","thunderbolt","firepunch","spikes","stealthrock","knockoff"],
+		randomDoubleBattleMoves: ["psychoboost","lowkick","extremespeed","icebeam","thunderbolt","firepunch","protect","knockoff"],
+		eventPokemon: [
+			{"generation":3,"level":30,"moves":["snatch","psychic","spikes","knockoff"]},
+			{"generation":3,"level":30,"moves":["superpower","psychic","pursuit","taunt"]},
+			{"generation":3,"level":30,"moves":["swift","psychic","pursuit","knockoff"]},
+			{"generation":3,"level":70,"moves":["cosmicpower","recover","psychoboost","hyperbeam"]},
+			{"generation":4,"level":50,"moves":["psychoboost","zapcannon","irondefense","extremespeed"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["psychoboost","swift","doubleteam","extremespeed"]},
+			{"generation":4,"level":50,"moves":["psychoboost","detect","counter","mirrorcoat"]},
+			{"generation":4,"level":50,"moves":["psychoboost","meteormash","superpower","hyperbeam"]},
+			{"generation":4,"level":50,"moves":["psychoboost","leer","wrap","nightshade"]},
+			{"generation":5,"level":100,"moves":["nastyplot","darkpulse","recover","psychoboost"],"pokeball":"duskball"}
+		],
+		tier: "Uber"
+	},
+	deoxysattack: {
+		randomBattleMoves: ["psychoboost","superpower","extremespeed","icebeam","thunderbolt","firepunch","spikes","stealthrock","knockoff"],
+		randomDoubleBattleMoves: ["psychoboost","superpower","extremespeed","icebeam","thunderbolt","firepunch","protect","knockoff"],
+		eventPokemon: [
+			{"generation":3,"level":30,"moves":["snatch","psychic","spikes","knockoff"]},
+			{"generation":3,"level":30,"moves":["superpower","psychic","pursuit","taunt"]},
+			{"generation":3,"level":30,"moves":["swift","psychic","pursuit","knockoff"]},
+			{"generation":3,"level":70,"moves":["cosmicpower","recover","psychoboost","hyperbeam"]},
+			{"generation":4,"level":50,"moves":["psychoboost","zapcannon","irondefense","extremespeed"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["psychoboost","swift","doubleteam","extremespeed"]},
+			{"generation":4,"level":50,"moves":["psychoboost","detect","counter","mirrorcoat"]},
+			{"generation":4,"level":50,"moves":["psychoboost","meteormash","superpower","hyperbeam"]},
+			{"generation":4,"level":50,"moves":["psychoboost","leer","wrap","nightshade"]},
+			{"generation":5,"level":100,"moves":["nastyplot","darkpulse","recover","psychoboost"],"pokeball":"duskball"}
+		],
+		tier: "Uber"
+	},
+	deoxysdefense: {
+		randomBattleMoves: ["spikes","stealthrock","recover","taunt","toxic","seismictoss","magiccoat"],
+		randomDoubleBattleMoves: ["protect","stealthrock","recover","taunt","reflect","seismictoss","lightscreen","trickroom"],
+		eventPokemon: [
+			{"generation":3,"level":30,"moves":["snatch","psychic","spikes","knockoff"]},
+			{"generation":3,"level":30,"moves":["superpower","psychic","pursuit","taunt"]},
+			{"generation":3,"level":30,"moves":["swift","psychic","pursuit","knockoff"]},
+			{"generation":3,"level":70,"moves":["cosmicpower","recover","psychoboost","hyperbeam"]},
+			{"generation":4,"level":50,"moves":["psychoboost","zapcannon","irondefense","extremespeed"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["psychoboost","swift","doubleteam","extremespeed"]},
+			{"generation":4,"level":50,"moves":["psychoboost","detect","counter","mirrorcoat"]},
+			{"generation":4,"level":50,"moves":["psychoboost","meteormash","superpower","hyperbeam"]},
+			{"generation":4,"level":50,"moves":["psychoboost","leer","wrap","nightshade"]},
+			{"generation":5,"level":100,"moves":["nastyplot","darkpulse","recover","psychoboost"],"pokeball":"duskball"}
+		],
+		tier: "Uber"
+	},
+	deoxysspeed: {
+		randomBattleMoves: ["spikes","stealthrock","superpower","icebeam","psychoboost","taunt","lightscreen","reflect","magiccoat","knockoff"],
+		randomDoubleBattleMoves: ["superpower","icebeam","psychoboost","taunt","lightscreen","reflect","protect","knockoff"],
+		eventPokemon: [
+			{"generation":3,"level":30,"moves":["snatch","psychic","spikes","knockoff"]},
+			{"generation":3,"level":30,"moves":["superpower","psychic","pursuit","taunt"]},
+			{"generation":3,"level":30,"moves":["swift","psychic","pursuit","knockoff"]},
+			{"generation":3,"level":70,"moves":["cosmicpower","recover","psychoboost","hyperbeam"]},
+			{"generation":4,"level":50,"moves":["psychoboost","zapcannon","irondefense","extremespeed"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["psychoboost","swift","doubleteam","extremespeed"]},
+			{"generation":4,"level":50,"moves":["psychoboost","detect","counter","mirrorcoat"]},
+			{"generation":4,"level":50,"moves":["psychoboost","meteormash","superpower","hyperbeam"]},
+			{"generation":4,"level":50,"moves":["psychoboost","leer","wrap","nightshade"]},
+			{"generation":5,"level":100,"moves":["nastyplot","darkpulse","recover","psychoboost"],"pokeball":"duskball"}
+		],
+		tier: "Uber"
+	},
+	turtwig: {
+		randomBattleMoves: ["reflect","lightscreen","stealthrock","seedbomb","substitute","leechseed","toxic"],
+		eventPokemon: [
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["tackle","withdraw","absorb"]},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["tackle","withdraw","absorb","stockpile"]}
+		],
+		tier: "LC"
+	},
+	grotle: {
+		randomBattleMoves: ["reflect","lightscreen","stealthrock","seedbomb","substitute","leechseed","toxic"],
+		tier: "NFE"
+	},
+	torterra: {
+		randomBattleMoves: ["stealthrock","earthquake","woodhammer","stoneedge","synthesis","leechseed","rockpolish"],
+		randomDoubleBattleMoves: ["protect","earthquake","woodhammer","stoneedge","rockslide","wideguard","rockpolish"],
+		eventPokemon: [
+			{"generation":5,"level":100,"gender":"M","isHidden":false,"moves":["woodhammer","earthquake","outrage","stoneedge"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	chimchar: {
+		randomBattleMoves: ["stealthrock","overheat","hiddenpowergrass","fakeout","uturn","gunkshot"],
+		eventPokemon: [
+			{"generation":4,"level":40,"gender":"M","nature":"Mild","moves":["flamethrower","thunderpunch","grassknot","helpinghand"],"pokeball":"cherishball"},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["scratch","leer","ember","taunt"]},
+			{"generation":4,"level":40,"gender":"M","nature":"Hardy","moves":["flamethrower","thunderpunch","grassknot","helpinghand"],"pokeball":"cherishball"},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["leer","ember","taunt","fakeout"]}
+		],
+		tier: "LC"
+	},
+	monferno: {
+		randomBattleMoves: ["stealthrock","overheat","hiddenpowergrass","fakeout","vacuumwave","uturn","gunkshot"],
+		tier: "NFE"
+	},
+	infernape: {
+		randomBattleMoves: ["stealthrock","fireblast","closecombat","uturn","grassknot","stoneedge","machpunch","swordsdance","nastyplot","flareblitz","hiddenpowerice","thunderpunch"],
+		randomDoubleBattleMoves: ["fakeout","heatwave","closecombat","uturn","grassknot","stoneedge","machpunch","feint","taunt","flareblitz","hiddenpowerice","thunderpunch","protect"],
+		eventPokemon: [
+			{"generation":5,"level":100,"gender":"M","isHidden":false,"moves":["fireblast","closecombat","uturn","grassknot"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	piplup: {
+		randomBattleMoves: ["stealthrock","hydropump","scald","icebeam","hiddenpowerelectric","hiddenpowerfire","yawn","defog"],
+		eventPokemon: [
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["pound","growl","bubble"]},
+			{"generation":5,"level":15,"isHidden":false,"moves":["hydropump","featherdance","watersport","peck"],"pokeball":"cherishball"},
+			{"generation":5,"level":15,"gender":"M","isHidden":false,"moves":["sing","round","featherdance","peck"],"pokeball":"cherishball"},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["pound","growl","bubble","featherdance"]}
+		],
+		tier: "LC"
+	},
+	prinplup: {
+		randomBattleMoves: ["stealthrock","hydropump","scald","icebeam","hiddenpowerelectric","hiddenpowerfire","yawn","defog"],
+		tier: "NFE"
+	},
+	empoleon: {
+		randomBattleMoves: ["stealthrock","hydropump","scald","icebeam","hiddenpowerelectric","roar","grassknot","flashcannon","defog","agility"],
+		randomDoubleBattleMoves: ["icywind","hydropump","scald","icebeam","hiddenpowerelectric","protect","grassknot","flashcannon"],
+		eventPokemon: [
+			{"generation":5,"level":100,"gender":"M","isHidden":false,"moves":["hydropump","icebeam","aquajet","grassknot"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	starly: {
+		randomBattleMoves: ["bravebird","return","uturn","pursuit"],
+		eventPokemon: [
+			{"generation":4,"level":1,"gender":"M","nature":"Mild","moves":["tackle","growl"]}
+		],
+		tier: "LC"
+	},
+	staravia: {
+		randomBattleMoves: ["bravebird","return","uturn","pursuit","defog"],
+		tier: "NFE"
+	},
+	staraptor: {
+		randomBattleMoves: ["bravebird","closecombat","uturn","quickattack","roost","doubleedge"],
+		randomDoubleBattleMoves: ["bravebird","closecombat","uturn","quickattack","doubleedge","tailwind","protect"],
+		tier: "BL"
+	},
+	bidoof: {
+		randomBattleMoves: ["return","aquatail","curse","quickattack","stealthrock","superfang"],
+		eventPokemon: [
+			{"generation":4,"level":1,"gender":"M","nature":"Lonely","abilities":["simple"],"moves":["tackle"]}
+		],
+		tier: "LC"
+	},
+	bibarel: {
+		randomBattleMoves: ["return","waterfall","curse","quickattack","stealthrock","rest"],
+		randomDoubleBattleMoves: ["return","waterfall","curse","quickattack","protect","rest"],
+		tier: "NU"
+	},
+	kricketot: {
+		randomBattleMoves: ["endeavor","mudslap","bugbite","strugglebug"],
+		tier: "LC"
+	},
+	kricketune: {
+		randomBattleMoves: ["xscissor","endeavor","taunt","toxic","stickyweb","knockoff"],
+		randomDoubleBattleMoves: ["bugbite","protect","taunt","stickyweb","knockoff"],
+		tier: "NU"
+	},
+	shinx: {
+		randomBattleMoves: ["wildcharge","icefang","firefang","crunch"],
+		tier: "LC"
+	},
+	luxio: {
+		randomBattleMoves: ["wildcharge","icefang","firefang","crunch"],
+		tier: "NFE"
+	},
+	luxray: {
+		randomBattleMoves: ["wildcharge","icefang","voltswitch","crunch","superpower","facade"],
+		randomDoubleBattleMoves: ["wildcharge","icefang","voltswitch","crunch","superpower","facade","protect"],
+		tier: "NU"
+	},
+	cranidos: {
+		randomBattleMoves: ["headsmash","rockslide","earthquake","zenheadbutt","firepunch","rockpolish","crunch"],
+		eventPokemon: [
+			{"generation":5,"level":15,"gender":"M","isHidden":false,"moves":["pursuit","takedown","crunch","headbutt"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	rampardos: {
+		randomBattleMoves: ["headsmash","earthquake","zenheadbutt","rockpolish","crunch","stoneedge"],
+		randomDoubleBattleMoves: ["headsmash","earthquake","zenheadbutt","rockslide","crunch","stoneedge","protect"],
+		tier: "NU"
+	},
+	shieldon: {
+		randomBattleMoves: ["stealthrock","metalburst","fireblast","icebeam","protect","toxic","roar"],
+		eventPokemon: [
+			{"generation":5,"level":15,"gender":"M","isHidden":false,"moves":["metalsound","takedown","bodyslam","protect"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	bastiodon: {
+		randomBattleMoves: ["stealthrock","rockblast","magiccoat","protect","toxic","roar"],
+		randomDoubleBattleMoves: ["stealthrock","rockslide","metalburst","protect","wideguard","guardsplit"],
+		tier: "NU"
+	},
+	burmy: {
+		randomBattleMoves: ["bugbite","hiddenpowerice","electroweb","protect"],
+		tier: "LC"
+	},
+	wormadam: {
+		randomBattleMoves: ["leafstorm","gigadrain","signalbeam","hiddenpowerice","hiddenpowerrock","toxic"],
+		randomDoubleBattleMoves: ["leafstorm","gigadrain","signalbeam","hiddenpowerice","hiddenpowerrock","stringshot","protect"],
+		tier: "NU"
+	},
+	wormadamsandy: {
+		randomBattleMoves: ["earthquake","toxic","rockblast","protect","stealthrock"],
+		randomDoubleBattleMoves: ["earthquake","suckerpunch","rockblast","protect","stringshot"],
+		tier: "NU"
+	},
+	wormadamtrash: {
+		randomBattleMoves: ["stealthrock","toxic","gyroball","protect"],
+		randomDoubleBattleMoves: ["strugglebug","stringshot","gyroball","protect"],
+		tier: "NU"
+	},
+	mothim: {
+		randomBattleMoves: ["quiverdance","bugbuzz","airslash","gigadrain","roost"],
+		randomDoubleBattleMoves: ["quiverdance","bugbuzz","airslash","gigadrain","roost","protect"],
+		tier: "NU"
+	},
+	combee: {
+		randomBattleMoves: ["bugbuzz","aircutter","endeavor","ominouswind","tailwind"],
+		tier: "LC"
+	},
+	vespiquen: {
+		randomBattleMoves: ["substitute","roost","toxic","attackorder","defendorder"],
+		randomDoubleBattleMoves: ["tailwind","roost","stringshot","attackorder","strugglebug","protect"],
+		tier: "NU"
+	},
+	pachirisu: {
+		randomBattleMoves: ["nuzzle","thunderbolt","superfang","toxic","uturn"],
+		randomDoubleBattleMoves: ["nuzzle","thunderbolt","superfang","followme","uturn","helpinghand","protect"],
+		tier: "NU"
+	},
+	buizel: {
+		randomBattleMoves: ["waterfall","aquajet","switcheroo","brickbreak","bulkup","batonpass","icepunch"],
+		tier: "LC"
+	},
+	floatzel: {
+		randomBattleMoves: ["waterfall","aquajet","switcheroo","bulkup","batonpass","icepunch","crunch","taunt"],
+		randomDoubleBattleMoves: ["waterfall","aquajet","switcheroo","raindance","protect","icepunch","crunch","taunt"],
+		tier: "NU"
+	},
+	cherubi: {
+		randomBattleMoves: ["sunnyday","solarbeam","weatherball","hiddenpowerice","aromatherapy","dazzlinggleam"],
+		tier: "LC"
+	},
+	cherrim: {
+		randomBattleMoves: ["sunnyday","solarbeam","weatherball","hiddenpowerice"],
+		randomDoubleBattleMoves: ["sunnyday","solarbeam","weatherball","hiddenpowerice","protect"],
+		tier: "NU"
+	},
+	shellos: {
+		randomBattleMoves: ["scald","clearsmog","recover","toxic","icebeam","stockpile"],
+		tier: "LC"
+	},
+	gastrodon: {
+		randomBattleMoves: ["earthquake","icebeam","scald","toxic","recover"],
+		randomDoubleBattleMoves: ["earthpower","icebeam","scald","muddywater","recover","icywind","protect"],
+		tier: "RU"
+	},
+	drifloon: {
+		randomBattleMoves: ["shadowball","substitute","calmmind","hypnosis","hiddenpowerfighting","thunderbolt","destinybond","willowisp","stockpile","batonpass","disable"],
+		tier: "LC"
+	},
+	drifblim: {
+		randomBattleMoves: ["shadowball","substitute","calmmind","hiddenpowerfighting","thunderbolt","destinybond","willowisp","batonpass"],
+		randomDoubleBattleMoves: ["shadowball","substitute","hypnosis","hiddenpowerfighting","thunderbolt","destinybond","willowisp","protect"],
+		tier: "NU"
+	},
+	buneary: {
+		randomBattleMoves: ["fakeout","return","switcheroo","thunderpunch","jumpkick","firepunch","icepunch","healingwish"],
+		tier: "LC"
+	},
+	lopunny: {
+		randomBattleMoves: ["return","switcheroo","jumpkick","firepunch","icepunch","healingwish"],
+		randomDoubleBattleMoves: ["return","switcheroo","jumpkick","firepunch","icepunch","fakeout","protect","encore"],
+		tier: "NU"
+	},
+	glameow: {
+		randomBattleMoves: ["fakeout","uturn","suckerpunch","hypnosis","quickattack","return","foulplay"],
+		tier: "LC"
+	},
+	purugly: {
+		randomBattleMoves: ["fakeout","uturn","suckerpunch","quickattack","return","knockoff"],
+		randomDoubleBattleMoves: ["fakeout","uturn","suckerpunch","quickattack","return","knockoff","protect"],
+		tier: "NU"
+	},
+	stunky: {
+		randomBattleMoves: ["pursuit","suckerpunch","crunch","fireblast","explosion","taunt","poisonjab","playrough","defog"],
+		tier: "LC"
+	},
+	skuntank: {
+		randomBattleMoves: ["pursuit","suckerpunch","crunch","fireblast","taunt","poisonjab","playrough","defog"],
+		randomDoubleBattleMoves: ["protect","suckerpunch","crunch","fireblast","taunt","poisonjab","playrough","snarl","feint"],
+		tier: "RU"
+	},
+	bronzor: {
+		randomBattleMoves: ["stealthrock","psychic","toxic","hypnosis","reflect","lightscreen","trickroom","trick"],
+		tier: "LC"
+	},
+	bronzong: {
+		randomBattleMoves: ["stealthrock","earthquake","toxic","reflect","lightscreen","trickroom","explosion","gyroball"],
+		randomDoubleBattleMoves: ["zenheadbutt","earthquake","protect","reflect","lightscreen","trickroom","explosion","gyroball"],
+		tier: "RU"
+	},
+	chatot: {
+		randomBattleMoves: ["nastyplot","boomburst","heatwave","encore","substitute","chatter","uturn"],
+		randomDoubleBattleMoves: ["nastyplot","heatwave","encore","substitute","chatter","uturn","protect","hypervoice","boomburst"],
+		eventPokemon: [
+			{"generation":4,"level":25,"gender":"M","nature":"Jolly","abilities":["keeneye"],"moves":["mirrormove","furyattack","chatter","taunt"]}
+		],
+		tier: "NU"
+	},
+	spiritomb: {
+		randomBattleMoves: ["shadowsneak","suckerpunch","pursuit","willowisp","calmmind","darkpulse","rest","sleeptalk","foulplay","painsplit"],
+		randomDoubleBattleMoves: ["shadowsneak","suckerpunch","icywind","willowisp","snarl","darkpulse","protect","foulplay","painsplit"],
+		eventPokemon: [
+			{"generation":5,"level":61,"gender":"F","nature":"Quiet","isHidden":false,"moves":["darkpulse","psychic","silverwind","embargo"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	gible: {
+		randomBattleMoves: ["outrage","dragonclaw","earthquake","fireblast","stoneedge","stealthrock"],
+		tier: "LC"
+	},
+	gabite: {
+		randomBattleMoves: ["outrage","dragonclaw","earthquake","fireblast","stoneedge","stealthrock"],
+		tier: "NFE"
+	},
+	garchomp: {
+		randomBattleMoves: ["outrage","dragonclaw","earthquake","stoneedge","fireblast","swordsdance","stealthrock"],
+		randomDoubleBattleMoves: ["substitute","dragonclaw","earthquake","stoneedge","rockslide","swordsdance","protect"],
+		eventPokemon: [
+			{"generation":5,"level":100,"gender":"M","isHidden":false,"moves":["outrage","earthquake","swordsdance","stoneedge"],"pokeball":"cherishball"},
+			{"generation":5,"level":48,"gender":"M","isHidden":true,"moves":["dragonclaw","dig","crunch","outrage"]},
+			{"generation":6,"level":48,"gender":"M","isHidden":false,"moves":["dracometeor","dragonclaw","dig","crunch"],"pokeball":"cherishball"},
+			{"generation":6,"level":50,"gender":"M","isHidden":false,"moves":["slash","dragonclaw","dig","crunch"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	garchompmega: {
+		randomBattleMoves: ["outrage","dragonclaw","earthquake","stoneedge","fireblast","swordsdance","stealthrock"],
+		randomDoubleBattleMoves: ["substitute","dragonclaw","earthquake","stoneedge","rockslide","swordsdance","protect","fireblast"],
+		requiredItem: "Garchompite"
+	},
+	riolu: {
+		randomBattleMoves: ["crunch","rockslide","copycat","drainpunch","highjumpkick","icepunch","swordsdance"],
+		eventPokemon: [
+			{"generation":4,"level":30,"gender":"M","nature":"Serious","abilities":["steadfast"],"moves":["aurasphere","shadowclaw","bulletpunch","drainpunch"]}
+		],
+		tier: "LC"
+	},
+	lucario: {
+		randomBattleMoves: ["swordsdance","closecombat","crunch","extremespeed","icepunch","bulletpunch","nastyplot","aurasphere","darkpulse","vacuumwave","flashcannon"],
+		randomDoubleBattleMoves: ["followme","closecombat","crunch","extremespeed","icepunch","bulletpunch","feint","aurasphere","darkpulse","vacuumwave","flashcannon","protect"],
+		eventPokemon: [
+			{"generation":4,"level":50,"gender":"M","nature":"Modest","abilities":["steadfast"],"moves":["aurasphere","darkpulse","dragonpulse","waterpulse"],"pokeball":"cherishball"},
+			{"generation":4,"level":30,"gender":"M","nature":"Adamant","abilities":["innerfocus"],"moves":["forcepalm","bonerush","sunnyday","blazekick"],"pokeball":"cherishball"},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["detect","metalclaw","counter","bulletpunch"]},
+			{"generation":5,"level":50,"gender":"M","nature":"Naughty","isHidden":true,"moves":["bulletpunch","closecombat","stoneedge","shadowclaw"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	lucariomega: {
+		randomBattleMoves: ["swordsdance","closecombat","crunch","extremespeed","icepunch","bulletpunch","nastyplot","aurasphere","darkpulse","vacuumwave","flashcannon"],
+		randomDoubleBattleMoves: ["followme","closecombat","crunch","extremespeed","icepunch","bulletpunch","feint","aurasphere","darkpulse","vacuumwave","flashcannon","protect"],
+		requiredItem: "Lucarionite",
+		tier: "Uber"
+	},
+	hippopotas: {
+		randomBattleMoves: ["earthquake","slackoff","whirlwind","stealthrock","protect","toxic","stockpile"],
+		tier: "LC"
+	},
+	hippowdon: {
+		randomBattleMoves: ["earthquake","slackoff","whirlwind","stealthrock","toxic","stoneedge"],
+		randomDoubleBattleMoves: ["earthquake","slackoff","rockslide","stealthrock","protect","stoneedge"],
+		tier: "UU"
+	},
+	skorupi: {
+		randomBattleMoves: ["toxicspikes","xscissor","poisonjab","knockoff","pinmissile","whirlwind"],
+		tier: "LC"
+	},
+	drapion: {
+		randomBattleMoves: ["whirlwind","toxicspikes","pursuit","earthquake","aquatail","swordsdance","poisonjab","knockoff"],
+		randomDoubleBattleMoves: ["snarl","taunt","protect","earthquake","aquatail","swordsdance","poisonjab","knockoff"],
+		tier: "RU"
+	},
+	croagunk: {
+		randomBattleMoves: ["fakeout","vacuumwave","suckerpunch","drainpunch","darkpulse","knockoff","gunkshot","toxic"],
+		eventPokemon: [
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["astonish","mudslap","poisonsting","taunt"]},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["mudslap","poisonsting","taunt","poisonjab"]}
+		],
+		tier: "LC"
+	},
+	toxicroak: {
+		randomBattleMoves: ["suckerpunch","drainpunch","substitute","swordsdance","knockoff","icepunch","gunkshot"],
+		randomDoubleBattleMoves: ["suckerpunch","drainpunch","substitute","swordsdance","knockoff","icepunch","gunkshot","fakeout","protect"],
+		tier: "UU"
+	},
+	carnivine: {
+		randomBattleMoves: ["swordsdance","powerwhip","return","sleeppowder","substitute","leechseed","knockoff"],
+		randomDoubleBattleMoves: ["swordsdance","powerwhip","return","sleeppowder","substitute","leechseed","knockoff","ragepowder","protect"],
+		tier: "NU"
+	},
+	finneon: {
+		randomBattleMoves: ["surf","uturn","icebeam","hiddenpowerelectric","hiddenpowergrass","raindance"],
+		tier: "LC"
+	},
+	lumineon: {
+		randomBattleMoves: ["surf","uturn","icebeam","hiddenpowerelectric","hiddenpowergrass","raindance","defog"],
+		randomDoubleBattleMoves: ["surf","uturn","icebeam","hiddenpowerelectric","hiddenpowergrass","raindance","tailwind","protect"],
+		tier: "NU"
+	},
+	snover: {
+		randomBattleMoves: ["blizzard","iceshard","gigadrain","leechseed","substitute","woodhammer"],
+		tier: "LC"
+	},
+	abomasnow: {
+		randomBattleMoves: ["blizzard","iceshard","gigadrain","leechseed","substitute","focusblast","woodhammer","earthquake"],
+		randomDoubleBattleMoves: ["blizzard","iceshard","gigadrain","leechseed","protect","focusblast","woodhammer","earthquake"],
+		tier: "RU"
+	},
+	abomasnowmega: {
+		randomBattleMoves: ["blizzard","iceshard","gigadrain","leechseed","substitute","focusblast","woodhammer","earthquake"],
+		randomDoubleBattleMoves: ["blizzard","iceshard","gigadrain","leechseed","protect","focusblast","woodhammer","earthquake"],
+		requiredItem: "Abomasite"
+	},
+	rotom: {
+		randomBattleMoves: ["thunderbolt","voltswitch","shadowball","substitute","painsplit","hiddenpowerice","trick","willowisp"],
+		randomDoubleBattleMoves: ["thunderbolt","voltswitch","shadowball","substitute","painsplit","hiddenpowerice","trick","willowisp","electroweb","protect"],
+		eventPokemon: [
+			{"generation":5,"level":10,"nature":"Naughty","moves":["uproar","astonish","trick","thundershock"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	rotomheat: {
+		randomBattleMoves: ["overheat","thunderbolt","voltswitch","substitute","painsplit","hiddenpowerice","willowisp","trick"],
+		randomDoubleBattleMoves: ["overheat","thunderbolt","voltswitch","substitute","painsplit","hiddenpowerice","willowisp","trick","electroweb","protect"],
+		eventPokemon: [
+			{"generation":5,"level":10,"nature":"Naughty","moves":["uproar","astonish","trick","thundershock"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	rotomwash: {
+		randomBattleMoves: ["hydropump","thunderbolt","voltswitch","substitute","painsplit","hiddenpowerice","willowisp","trick"],
+		randomDoubleBattleMoves: ["hydropump","thunderbolt","voltswitch","substitute","painsplit","hiddenpowerice","willowisp","trick","electroweb","protect","hiddenpowergrass"],
+		eventPokemon: [
+			{"generation":5,"level":10,"nature":"Naughty","moves":["uproar","astonish","trick","thundershock"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	rotomfrost: {
+		randomBattleMoves: ["blizzard","thunderbolt","voltswitch","substitute","painsplit","willowisp","trick"],
+		randomDoubleBattleMoves: ["blizzard","thunderbolt","voltswitch","substitute","painsplit","willowisp","trick","electroweb","protect"],
+		eventPokemon: [
+			{"generation":5,"level":10,"nature":"Naughty","moves":["uproar","astonish","trick","thundershock"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	rotomfan: {
+		randomBattleMoves: ["airslash","thunderbolt","voltswitch","substitute","painsplit","hiddenpowerice","willowisp","trick"],
+		randomDoubleBattleMoves: ["airslash","thunderbolt","voltswitch","substitute","painsplit","hiddenpowerice","willowisp","trick","electroweb","discharge","protect"],
+		eventPokemon: [
+			{"generation":5,"level":10,"nature":"Naughty","moves":["uproar","astonish","trick","thundershock"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	rotommow: {
+		randomBattleMoves: ["leafstorm","thunderbolt","voltswitch","substitute","painsplit","hiddenpowerfire","willowisp","trick"],
+		randomDoubleBattleMoves: ["leafstorm","thunderbolt","voltswitch","substitute","painsplit","hiddenpowerfire","willowisp","trick","electroweb","protect"],
+		eventPokemon: [
+			{"generation":5,"level":10,"nature":"Naughty","moves":["uproar","astonish","trick","thundershock"],"pokeball":"cherishball"}
+		],
+		tier: "RU"
+	},
+	uxie: {
+		randomBattleMoves: ["uturn","psyshock","yawn","healbell","stealthrock","toxic","thunderbolt","substitute","calmmind"],
+		randomDoubleBattleMoves: ["uturn","psyshock","yawn","healbell","stealthrock","thunderbolt","protect","helpinghand","thunderwave","skillswap"],
+		tier: "NU"
+	},
+	mesprit: {
+		randomBattleMoves: ["calmmind","psyshock","thunderbolt","icebeam","substitute","uturn","trick","stealthrock","knockoff","zenheadbutt"],
+		randomDoubleBattleMoves: ["calmmind","psychic","thunderbolt","icebeam","substitute","uturn","trick","protect","knockoff","zenheadbutt","helpinghand"],
+		tier: "NU"
+	},
+	azelf: {
+		randomBattleMoves: ["nastyplot","psychic","fireblast","grassknot","thunderbolt","icepunch","knockoff","zenheadbutt","uturn","trick","taunt","stealthrock","explosion"],
+		randomDoubleBattleMoves: ["nastyplot","psychic","fireblast","grassknot","thunderbolt","icepunch","knockoff","zenheadbutt","uturn","trick","taunt","protect"],
+		tier: "UU"
+	},
+	dialga: {
+		randomBattleMoves: ["stealthrock","dracometeor","dragonpulse","roar","thunderbolt","flashcannon","outrage","fireblast","aurasphere"],
+		randomDoubleBattleMoves: ["trickroom","dracometeor","dragonpulse","protect","thunderbolt","flashcannon","earthpower","fireblast","aurasphere"],
+		eventPokemon: [
+			{"generation":5,"level":100,"shiny":true,"isHidden":false,"moves":["dragonpulse","dracometeor","aurasphere","roaroftime"],"pokeball":"cherishball"}
+		],
+		dreamWorldPokeball: 'dreamball',
+		tier: "Uber"
+	},
+	palkia: {
+		randomBattleMoves: ["spacialrend","dracometeor","surf","hydropump","thunderbolt","outrage","fireblast"],
+		randomDoubleBattleMoves: ["spacialrend","dracometeor","surf","hydropump","thunderbolt","trickroom","fireblast","protect"],
+		eventPokemon: [
+			{"generation":5,"level":100,"shiny":true,"isHidden":false,"moves":["hydropump","dracometeor","spacialrend","aurasphere"],"pokeball":"cherishball"}
+		],
+		dreamWorldPokeball: 'dreamball',
+		tier: "Uber"
+	},
+	heatran: {
+		randomBattleMoves: ["substitute","fireblast","lavaplume","willowisp","stealthrock","earthpower","hiddenpowerice","protect","toxic","roar"],
+		randomDoubleBattleMoves: ["heatwave","substitute","earthpower","protect","eruption","willowisp"],
+		eventPokemon: [
+			{"generation":4,"level":50,"nature":"Quiet","moves":["eruption","magmastorm","earthpower","ancientpower"]}
+		],
+		unreleasedHidden: true,
+		tier: "OU"
+	},
+	regigigas: {
+		randomBattleMoves: ["thunderwave","substitute","return","drainpunch","earthquake","confuseray"],
+		randomDoubleBattleMoves: ["thunderwave","substitute","return","icywind","safeguard","knockoff","wideguard","protect"],
+		eventPokemon: [
+			{"generation":4,"level":100,"moves":["ironhead","rockslide","icywind","crushgrip"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	giratina: {
+		randomBattleMoves: ["rest","sleeptalk","dragontail","roar","willowisp","calmmind","dragonpulse","shadowball"],
+		randomDoubleBattleMoves: ["tailwind","icywind","protect","dragontail","willowisp","calmmind","dragonpulse","shadowball"],
+		eventPokemon: [
+			{"generation":5,"level":100,"shiny":true,"isHidden":false,"moves":["dragonpulse","dragonclaw","aurasphere","shadowforce"],"pokeball":"cherishball"}
+		],
+		dreamWorldPokeball: 'dreamball',
+		tier: "Uber"
+	},
+	giratinaorigin: {
+		randomBattleMoves: ["dracometeor","shadowsneak","dragontail","hiddenpowerfire","willowisp","calmmind","substitute","dragonpulse","shadowball","aurasphere","outrage","earthquake"],
+		randomDoubleBattleMoves: ["dracometeor","shadowsneak","tailwind","hiddenpowerfire","willowisp","calmmind","substitute","dragonpulse","shadowball","aurasphere","protect","earthquake"],
+		requiredItem: "Griseous Orb",
+		tier: "Uber"
+	},
+	cresselia: {
+		randomBattleMoves: ["moonlight","psychic","icebeam","thunderwave","toxic","lunardance","rest","sleeptalk","calmmind"],
+		randomDoubleBattleMoves: ["psyshock","icywind","thunderwave","trickroom","moonblast","moonlight","skillswap","reflect","lightscreen","icebeam","protect","helpinghand"],
+		eventPokemon: [
+			{"generation":5,"level":68,"gender":"F","nature":"Modest","moves":["icebeam","psyshock","energyball","hiddenpower"]}
+		],
+		tier: "RU"
+	},
+	phione: {
+		randomBattleMoves: ["raindance","scald","uturn","rest","icebeam"],
+		randomDoubleBattleMoves: ["raindance","scald","uturn","rest","icebeam","helpinghand","icywind","protect"],
+		eventPokemon: [
+			{"generation":4,"level":50,"abilities":["hydration"],"moves":["grassknot","raindance","rest","surf"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	manaphy: {
+		randomBattleMoves: ["tailglow","surf","icebeam","energyball","psychic"],
+		randomDoubleBattleMoves: ["tailglow","surf","icebeam","energyball","protect","scald","icywind","helpinghand"],
+		eventPokemon: [
+			{"generation":4,"level":5,"moves":["tailglow","bubble","watersport"]},
+			{"generation":4,"level":1,"moves":["tailglow","bubble","watersport"]},
+			{"generation":4,"level":50,"moves":["acidarmor","whirlpool","waterpulse","heartswap"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["heartswap","waterpulse","whirlpool","acidarmor"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["heartswap","whirlpool","waterpulse","acidarmor"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"nature":"Impish","moves":["aquaring","waterpulse","watersport","heartswap"],"pokeball":"cherishball"}
+		],
+		tier: "BL"
+	},
+	darkrai: {
+		randomBattleMoves: ["darkvoid","darkpulse","focusblast","nastyplot","substitute","trick","sludgebomb"],
+		randomDoubleBattleMoves: ["darkpulse","focusblast","nastyplot","substitute","snarl","protect"],
+		eventPokemon: [
+			{"generation":4,"level":50,"moves":["roaroftime","spacialrend","nightmare","hypnosis"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["darkvoid","darkpulse","shadowball","doubleteam"]},
+			{"generation":4,"level":50,"moves":["nightmare","hypnosis","roaroftime","spacialrend"],"pokeball":"cherishball"},
+			{"generation":4,"level":50,"moves":["doubleteam","nightmare","feintattack","hypnosis"]},
+			{"generation":5,"level":50,"moves":["darkvoid","ominouswind","feintattack","nightmare"],"pokeball":"cherishball"},
+			{"generation":6,"level":50,"moves":["darkvoid","darkpulse","phantomforce","dreameater"],"pokeball":"cherishball"}
+		],
+		tier: "Uber"
+	},
+	shaymin: {
+		randomBattleMoves: ["seedflare","earthpower","airslash","hiddenpowerfire","rest","substitute","leechseed"],
+		randomDoubleBattleMoves: ["seedflare","earthpower","airslash","hiddenpowerfire","rest","substitute","leechseed","tailwind","protect"],
+		eventPokemon: [
+			{"generation":4,"level":50,"moves":["seedflare","aromatherapy","substitute","energyball"],"pokeball":"cherishball"},
+			{"generation":4,"level":30,"moves":["synthesis","leechseed","magicalleaf","growth"]},
+			{"generation":4,"level":30,"moves":["growth","magicalleaf","leechseed","synthesis"]},
+			{"generation":5,"level":50,"moves":["seedflare","leechseed","synthesis","sweetscent"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	shayminsky: {
+		randomBattleMoves: ["seedflare","earthpower","airslash","hiddenpowerice","hiddenpowerfire","substitute","leechseed"],
+		randomDoubleBattleMoves: ["seedflare","earthpower","airslash","hiddenpowerfire","rest","substitute","leechseed","tailwind","protect","hiddenpowerice"],
+		eventPokemon: [
+			{"generation":4,"level":50,"moves":["seedflare","aromatherapy","substitute","energyball"],"pokeball":"cherishball"},
+			{"generation":4,"level":30,"moves":["synthesis","leechseed","magicalleaf","growth"]},
+			{"generation":4,"level":30,"moves":["growth","magicalleaf","leechseed","synthesis"]},
+			{"generation":5,"level":50,"moves":["seedflare","leechseed","synthesis","sweetscent"],"pokeball":"cherishball"}
+		],
+		tier: "Uber"
+	},
+	arceus: {
+		randomBattleMoves: ["swordsdance","extremespeed","shadowclaw","earthquake","recover"],
+		randomDoubleBattleMoves: ["swordsdance","extremespeed","shadowclaw","earthquake","recover","protect"],
+		eventPokemon: [
+			{"generation":4,"level":100,"moves":["judgment","roaroftime","spacialrend","shadowforce"],"pokeball":"cherishball"},
+			{"generation":5,"level":100,"moves":["recover","hyperbeam","perishsong","judgment"]}
+		],
+		tier: "Uber"
+	},
+	arceusbug: {
+		randomBattleMoves: ["swordsdance","xscissor","stoneedge","recover","earthquake","ironhead"],
+		randomDoubleBattleMoves: ["swordsdance","xscissor","stoneedge","recover","earthquake","ironhead","protect"],
+		requiredItem: "Insect Plate"
+	},
+	arceusdark: {
+		randomBattleMoves: ["calmmind","judgment","recover","refresh"],
+		randomDoubleBattleMoves: ["calmmind","judgment","recover","focusblast","safeguard","snarl","willowisp","protect"],
+		requiredItem: "Dread Plate"
+	},
+	arceusdragon: {
+		randomBattleMoves: ["swordsdance","outrage","extremespeed","earthquake","recover"],
+		randomDoubleBattleMoves: ["swordsdance","dragonclaw","extremespeed","earthquake","recover","protect"],
+		requiredItem: "Draco Plate"
+	},
+	arceuselectric: {
+		randomBattleMoves: ["calmmind","judgment","recover","icebeam"],
+		randomDoubleBattleMoves: ["calmmind","judgment","recover","icebeam","protect"],
+		requiredItem: "Zap Plate"
+	},
+	arceusfairy: {
+		randomBattleMoves: ["calmmind","judgment","recover","willowisp","defog","earthpower","thunderbolt"],
+		randomDoubleBattleMoves: ["calmmind","judgment","recover","willowisp","protect","earthpower","thunderbolt"],
+		requiredItem: "Pixie Plate",
+		gen: 6
+	},
+	arceusfighting: {
+		randomBattleMoves: ["calmmind","judgment","icebeam","shadowball","recover","toxic","defog"],
+		randomDoubleBattleMoves: ["calmmind","judgment","icebeam","shadowball","recover","willowisp","protect"],
+		requiredItem: "Fist Plate"
+	},
+	arceusfire: {
+		randomBattleMoves: ["calmmind","judgment","thunderbolt","recover"],
+		randomDoubleBattleMoves: ["calmmind","judgment","thunderbolt","recover","heatwave","protect","willowisp"],
+		requiredItem: "Flame Plate"
+	},
+	arceusflying: {
+		randomBattleMoves: ["calmmind","judgment","refresh","recover","substitute"],
+		randomDoubleBattleMoves: ["calmmind","judgment","safeguard","recover","substitute","tailwind","protect"],
+		requiredItem: "Sky Plate"
+	},
+	arceusghost: {
+		randomBattleMoves: ["calmmind","judgment","focusblast","recover","swordsdance","shadowforce","brickbreak","willowisp","roar","defog"],
+		randomDoubleBattleMoves: ["calmmind","judgment","focusblast","recover","swordsdance","shadowforce","brickbreak","willowisp","protect"],
+		requiredItem: "Spooky Plate"
+	},
+	arceusgrass: {
+		randomBattleMoves: ["calmmind","icebeam","judgment","earthpower","recover","stealthrock","thunderwave","defog"],
+		randomDoubleBattleMoves: ["calmmind","icebeam","judgment","earthpower","recover","safeguard","thunderwave","protect"],
+		requiredItem: "Meadow Plate"
+	},
+	arceusground: {
+		randomBattleMoves: ["swordsdance","earthquake","stoneedge","recover","calmmind","judgment","icebeam","stealthrock"],
+		randomDoubleBattleMoves: ["swordsdance","earthquake","stoneedge","recover","calmmind","judgment","icebeam","rockslide","protect"],
+		requiredItem: "Earth Plate"
+	},
+	arceusice: {
+		randomBattleMoves: ["calmmind","judgment","thunderbolt","focusblast","recover"],
+		randomDoubleBattleMoves: ["calmmind","judgment","thunderbolt","focusblast","recover","protect","icywind"],
+		requiredItem: "Icicle Plate"
+	},
+	arceuspoison: {
+		randomBattleMoves: ["calmmind","judgment","sludgebomb","fireblast","recover","willowisp","defog","stealthrock"],
+		randomDoubleBattleMoves: ["calmmind","judgment","sludgebomb","heatwave","recover","willowisp","protect","earthpower"],
+		requiredItem: "Toxic Plate"
+	},
+	arceuspsychic: {
+		randomBattleMoves: ["calmmind","psyshock","focusblast","recover","willowisp","judgment"],
+		randomDoubleBattleMoves: ["calmmind","psyshock","focusblast","recover","willowisp","judgment","protect"],
+		requiredItem: "Mind Plate"
+	},
+	arceusrock: {
+		randomBattleMoves: ["calmmind","judgment","recover","willowisp","defog","refresh"],
+		randomDoubleBattleMoves: ["swordsdance","stoneedge","recover","rockslide","earthquake","protect"],
+		requiredItem: "Stone Plate"
+	},
+	arceussteel: {
+		randomBattleMoves: ["calmmind","judgment","recover","roar","willowisp","defog"],
+		randomDoubleBattleMoves: ["calmmind","judgment","recover","protect","willowisp"],
+		requiredItem: "Iron Plate"
+	},
+	arceuswater: {
+		randomBattleMoves: ["recover","calmmind","judgment","icebeam","fireblast","defog","willowisp"],
+		randomDoubleBattleMoves: ["recover","calmmind","judgment","icebeam","fireblast","icywind","surf","protect"],
+		requiredItem: "Splash Plate"
+	},
+	victini: {
+		randomBattleMoves: ["vcreate","boltstrike","uturn","psychic","focusblast","blueflare"],
+		randomDoubleBattleMoves: ["vcreate","boltstrike","uturn","psychic","focusblast","blueflare","protect"],
+		eventPokemon: [
+			{"generation":5,"level":15,"moves":["incinerate","quickattack","endure","confusion"]},
+			{"generation":5,"level":50,"moves":["vcreate","fusionflare","fusionbolt","searingshot"],"pokeball":"cherishball"},
+			{"generation":5,"level":100,"moves":["vcreate","blueflare","boltstrike","glaciate"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	snivy: {
+		randomBattleMoves: ["leafstorm","hiddenpowerfire","substitute","leechseed","hiddenpowerice","gigadrain"],
+		eventPokemon: [
+			{"generation":5,"level":5,"gender":"M","nature":"Hardy","isHidden":false,"moves":["growth","synthesis","energyball","aromatherapy"],"pokeball":"cherishball"}
+		],
+		unreleasedHidden: true,
+		tier: "LC"
+	},
+	servine: {
+		randomBattleMoves: ["leafstorm","hiddenpowerfire","substitute","leechseed","hiddenpowerice","gigadrain"],
+		unreleasedHidden: true,
+		tier: "NFE"
+	},
+	serperior: {
+		randomBattleMoves: ["leafstorm","hiddenpowerfire","substitute","leechseed","dragonpulse","gigadrain"],
+		randomDoubleBattleMoves: ["leafstorm","hiddenpowerfire","substitute","taunt","grassyterrain","gigadrain","protect"],
+		eventPokemon: [
+			{"generation":5,"level":100,"gender":"M","isHidden":false,"moves":["leafstorm","substitute","gigadrain","leechseed"],"pokeball":"cherishball"}
+		],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	tepig: {
+		randomBattleMoves: ["flamecharge","flareblitz","wildcharge","superpower","headsmash"],
+		unreleasedHidden: true,
+		tier: "LC"
+	},
+	pignite: {
+		randomBattleMoves: ["flamecharge","flareblitz","wildcharge","superpower","headsmash"],
+		unreleasedHidden: true,
+		tier: "NFE"
+	},
+	emboar: {
+		randomBattleMoves: ["flareblitz","superpower","flamecharge","wildcharge","headsmash","earthquake","fireblast"],
+		randomDoubleBattleMoves: ["flareblitz","superpower","flamecharge","wildcharge","headsmash","protect","heatwave","rockslide"],
+		eventPokemon: [
+			{"generation":5,"level":100,"gender":"M","isHidden":false,"moves":["flareblitz","hammerarm","wildcharge","headsmash"],"pokeball":"cherishball"}
+		],
+		unreleasedHidden: true,
+		tier: "RU"
+	},
+	oshawott: {
+		randomBattleMoves: ["swordsdance","waterfall","aquajet","xscissor"],
+		unreleasedHidden: true,
+		tier: "LC"
+	},
+	dewott: {
+		randomBattleMoves: ["swordsdance","waterfall","aquajet","xscissor"],
+		unreleasedHidden: true,
+		tier: "NFE"
+	},
+	samurott: {
+		randomBattleMoves: ["swordsdance","aquajet","waterfall","megahorn","superpower"],
+		randomDoubleBattleMoves: ["hydropump","aquajet","icebeam","scald","hiddenpowergrass","taunt","helpinghand","protect"],
+		eventPokemon: [
+			{"generation":5,"level":100,"gender":"M","isHidden":false,"moves":["hydropump","icebeam","megahorn","superpower"],"pokeball":"cherishball"}
+		],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	patrat: {
+		randomBattleMoves: ["swordsdance","batonpass","substitute","hypnosis","return","superfang"],
+		tier: "LC"
+	},
+	watchog: {
+		randomBattleMoves: ["swordsdance","batonpass","substitute","hypnosis","return","superfang"],
+		randomDoubleBattleMoves: ["swordsdance","knockoff","substitute","hypnosis","return","superfang","protect"],
+		tier: "NU"
+	},
+	lillipup: {
+		randomBattleMoves: ["return","wildcharge","firefang","crunch","icefang"],
+		tier: "LC"
+	},
+	herdier: {
+		randomBattleMoves: ["return","wildcharge","firefang","crunch","icefang"],
+		tier: "NFE"
+	},
+	stoutland: {
+		randomBattleMoves: ["return","wildcharge","superpower","crunch","icefang"],
+		randomDoubleBattleMoves: ["return","wildcharge","superpower","crunch","icefang","protect"],
+		tier: "NU"
+	},
+	purrloin: {
+		randomBattleMoves: ["encore","suckerpunch","playrough","uturn","knockoff"],
+		tier: "LC"
+	},
+	liepard: {
+		randomBattleMoves: ["encore","thunderwave","substitute","knockoff","playrough","uturn","suckerpunch"],
+		randomDoubleBattleMoves: ["encore","thunderwave","substitute","knockoff","playrough","uturn","suckerpunch","fakeout","protect"],
+		eventPokemon: [
+			{"generation":5,"level":20,"gender":"F","nature":"Jolly","isHidden":true,"moves":["fakeout","foulplay","encore","swagger"]}
+		],
+		tier: "NU"
+	},
+	pansage: {
+		randomBattleMoves: ["leafstorm","hiddenpowerfire","hiddenpowerice","gigadrain","nastyplot","substitute","leechseed"],
+		eventPokemon: [
+			{"generation":5,"level":1,"gender":"M","nature":"Brave","isHidden":false,"moves":["bulletseed","bite","solarbeam","dig"],"pokeball":"cherishball"},
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["leer","lick","vinewhip","leafstorm"]},
+			{"generation":5,"level":30,"gender":"M","nature":"Serious","isHidden":false,"moves":["seedbomb","solarbeam","rocktomb","dig"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	simisage: {
+		randomBattleMoves: ["nastyplot","leafstorm","hiddenpowerfire","hiddenpowerice","gigadrain","focusblast","substitute","leechseed","synthesis"],
+		randomDoubleBattleMoves: ["nastyplot","leafstorm","hiddenpowerfire","hiddenpowerice","gigadrain","focusblast","substitute","taunt","synthesis","helpinghand","protect"],
+		tier: "NU"
+	},
+	pansear: {
+		randomBattleMoves: ["nastyplot","fireblast","hiddenpowerelectric","hiddenpowerground","sunnyday","solarbeam","overheat"],
+		eventPokemon: [
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["leer","lick","incinerate","heatwave"]}
+		],
+		tier: "LC"
+	},
+	simisear: {
+		randomBattleMoves: ["nastyplot","fireblast","focusblast","grassknot","hiddenpowerground","substitute","flamethrower","overheat"],
+		randomDoubleBattleMoves: ["nastyplot","fireblast","focusblast","grassknot","hiddenpowerground","substitute","heatwave","taunt","protect"],
+		tier: "NU"
+	},
+	panpour: {
+		randomBattleMoves: ["nastyplot","hydropump","hiddenpowergrass","substitute","surf","icebeam"],
+		eventPokemon: [
+			{"generation":5,"level":10,"gender":"M","isHidden":true,"moves":["leer","lick","watergun","hydropump"]}
+		],
+		tier: "LC"
+	},
+	simipour: {
+		randomBattleMoves: ["nastyplot","hydropump","icebeam","substitute","grassknot","surf"],
+		randomDoubleBattleMoves: ["nastyplot","hydropump","icebeam","substitute","grassknot","surf","taunt","helpinghand","protect"],
+		tier: "NU"
+	},
+	munna: {
+		randomBattleMoves: ["psychic","hiddenpowerfighting","hypnosis","calmmind","moonlight","thunderwave","batonpass","psyshock","healbell","signalbeam"],
+		tier: "LC"
+	},
+	musharna: {
+		randomBattleMoves: ["calmmind","thunderwave","moonlight","psychic","hiddenpowerfighting","batonpass","psyshock","healbell","signalbeam"],
+		randomDoubleBattleMoves: ["trickroom","thunderwave","moonlight","psychic","hiddenpowerfighting","helpinghand","psyshock","healbell","signalbeam","protect"],
+		eventPokemon: [
+			{"generation":5,"level":50,"isHidden":true,"moves":["defensecurl","luckychant","psybeam","hypnosis"]}
+		],
+		tier: "NU"
+	},
+	pidove: {
+		randomBattleMoves: ["pluck","uturn","return","detect","roost","wish"],
+		eventPokemon: [
+			{"generation":5,"level":1,"gender":"F","nature":"Hardy","isHidden":false,"abilities":["superluck"],"moves":["gust","quickattack","aircutter"]}
+		],
+		tier: "LC"
+	},
+	tranquill: {
+		randomBattleMoves: ["pluck","uturn","return","detect","roost","wish"],
+		tier: "NFE"
+	},
+	unfezant: {
+		randomBattleMoves: ["pluck","uturn","return","detect","roost","wish"],
+		randomDoubleBattleMoves: ["pluck","uturn","return","protect","tailwind","taunt","wish"],
+		tier: "NU"
+	},
+	blitzle: {
+		randomBattleMoves: ["voltswitch","hiddenpowergrass","wildcharge","mefirst"],
+		tier: "LC"
+	},
+	zebstrika: {
+		randomBattleMoves: ["voltswitch","hiddenpowergrass","overheat","wildcharge"],
+		randomDoubleBattleMoves: ["voltswitch","hiddenpowergrass","overheat","wildcharge","protect"],
+		tier: "NU"
+	},
+	roggenrola: {
+		randomBattleMoves: ["autotomize","stoneedge","stealthrock","rockblast","earthquake","explosion"],
+		tier: "LC"
+	},
+	boldore: {
+		randomBattleMoves: ["autotomize","stoneedge","stealthrock","rockblast","earthquake","explosion"],
+		tier: "NFE"
+	},
+	gigalith: {
+		randomBattleMoves: ["stealthrock","rockblast","earthquake","explosion","stoneedge","autotomize","superpower"],
+		randomDoubleBattleMoves: ["stealthrock","rockslide","earthquake","explosion","stoneedge","autotomize","superpower","wideguard","protect"],
+		tier: "NU"
+	},
+	woobat: {
+		randomBattleMoves: ["calmmind","psychic","airslash","gigadrain","roost","heatwave","storedpower"],
+		tier: "LC"
+	},
+	swoobat: {
+		randomBattleMoves: ["calmmind","psychic","airslash","gigadrain","roost","heatwave","storedpower"],
+		randomDoubleBattleMoves: ["calmmind","psychic","airslash","gigadrain","protect","heatwave","tailwind"],
+		tier: "NU"
+	},
+	drilbur: {
+		randomBattleMoves: ["swordsdance","rapidspin","earthquake","rockslide","shadowclaw","return","xscissor"],
+		tier: "LC"
+	},
+	excadrill: {
+		randomBattleMoves: ["swordsdance","rapidspin","earthquake","rockslide","ironhead"],
+		randomDoubleBattleMoves: ["swordsdance","drillrun","earthquake","rockslide","ironhead","substitute","protect"],
+		tier: "OU"
+	},
+	audino: {
+		randomBattleMoves: ["wish","protect","healbell","toxic","thunderwave","reflect","lightscreen","return"],
+		randomDoubleBattleMoves: ["healpulse","protect","healbell","trickroom","thunderwave","reflect","lightscreen","return","helpinghand"],
+		eventPokemon: [
+			{"generation":5,"level":30,"gender":"F","nature":"Calm","isHidden":false,"abilities":["healer"],"moves":["healpulse","helpinghand","refresh","doubleslap"],"pokeball":"cherishball"},
+			{"generation":5,"level":30,"gender":"F","nature":"Serious","isHidden":false,"abilities":["healer"],"moves":["healpulse","helpinghand","refresh","present"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	timburr: {
+		randomBattleMoves: ["machpunch","bulkup","drainpunch","icepunch","knockoff"],
+		tier: "LC"
+	},
+	gurdurr: {
+		randomBattleMoves: ["bulkup","machpunch","drainpunch","icepunch","knockoff"],
+		tier: "NFE"
+	},
+	conkeldurr: {
+		randomBattleMoves: ["bulkup","machpunch","drainpunch","icepunch","knockoff"],
+		randomDoubleBattleMoves: ["wideguard","machpunch","drainpunch","icepunch","knockoff","protect"],
+		tier: "OU"
+	},
+	tympole: {
+		randomBattleMoves: ["hydropump","surf","sludgewave","earthpower","hiddenpowerelectric"],
+		tier: "LC"
+	},
+	palpitoad: {
+		randomBattleMoves: ["hydropump","surf","sludgewave","earthpower","hiddenpowerelectric","stealthrock"],
+		tier: "NFE"
+	},
+	seismitoad: {
+		randomBattleMoves: ["hydropump","surf","sludgewave","earthpower","hiddenpowerelectric","stealthrock"],
+		randomDoubleBattleMoves: ["hydropump","muddywater","sludgebomb","earthpower","hiddenpowerelectric","icywind","protect"],
+		tier: "NU"
+	},
+	throh: {
+		randomBattleMoves: ["bulkup","circlethrow","icepunch","stormthrow","rest","sleeptalk"],
+		randomDoubleBattleMoves: ["helpinghand","circlethrow","icepunch","stormthrow","wideguard","knockoff","protect"],
+		tier: "NU"
+	},
+	sawk: {
+		randomBattleMoves: ["closecombat","earthquake","icepunch","stoneedge","bulkup"],
+		randomDoubleBattleMoves: ["closecombat","knockoff","icepunch","rockslide","protect"],
+		tier: "NU"
+	},
+	sewaddle: {
+		randomBattleMoves: ["calmmind","gigadrain","bugbuzz","hiddenpowerfire","hiddenpowerice","airslash"],
+		tier: "LC"
+	},
+	swadloon: {
+		randomBattleMoves: ["calmmind","gigadrain","bugbuzz","hiddenpowerfire","hiddenpowerice","airslash","stickyweb"],
+		tier: "NFE"
+	},
+	leavanny: {
+		randomBattleMoves: ["swordsdance","leafblade","xscissor","batonpass","stickyweb","poisonjab"],
+		randomDoubleBattleMoves: ["swordsdance","leafblade","xscissor","protect","stickyweb","poisonjab"],
+		tier: "NU"
+	},
+	venipede: {
+		randomBattleMoves: ["toxicspikes","steamroller","spikes","poisonjab"],
+		tier: "LC"
+	},
+	whirlipede: {
+		randomBattleMoves: ["toxicspikes","steamroller","spikes","poisonjab"],
+		tier: "NFE"
+	},
+	scolipede: {
+		randomBattleMoves: ["spikes","toxicspikes","megahorn","rockslide","earthquake","swordsdance","batonpass","aquatail","superpower"],
+		randomDoubleBattleMoves: ["substitute","protect","megahorn","rockslide","poisonjab","swordsdance","batonpass","aquatail","superpower"],
+		tier: "OU"
+	},
+	cottonee: {
+		randomBattleMoves: ["encore","taunt","substitute","leechseed","toxic","stunspore"],
+		tier: "LC"
+	},
+	whimsicott: {
+		randomBattleMoves: ["encore","taunt","substitute","leechseed","uturn","toxic","stunspore","memento","tailwind"],
+		randomDoubleBattleMoves: ["encore","taunt","substitute","leechseed","uturn","helpinghand","stunspore","moonblast","tailwind","dazzlinggleam","gigadrain","protect"],
+		eventPokemon: [
+			{"generation":5,"level":50,"gender":"F","nature":"Timid","isHidden":false,"abilities":["prankster"],"moves":["swagger","gigadrain","beatup","helpinghand"],"pokeball":"cherishball"}
+		],
+		tier: "RU"
+	},
+	petilil: {
+		randomBattleMoves: ["sunnyday","sleeppowder","solarbeam","hiddenpowerfire","hiddenpowerice","healingwish"],
+		tier: "LC"
+	},
+	lilligant: {
+		randomBattleMoves: ["quiverdance","gigadrain","sleeppowder","hiddenpowerice","hiddenpowerfire","hiddenpowerrock","petaldance"],
+		randomDoubleBattleMoves: ["quiverdance","gigadrain","sleeppowder","hiddenpowerice","hiddenpowerfire","hiddenpowerrock","petaldance","helpinghand","protect"],
+		tier: "NU"
+	},
+	basculin: {
+		randomBattleMoves: ["waterfall","aquajet","superpower","crunch","doubleedge"],
+		randomDoubleBattleMoves: ["waterfall","aquajet","superpower","crunch","doubleedge","protect"],
+		tier: "NU"
+	},
+	basculinbluestriped: {
+		randomBattleMoves: ["waterfall","aquajet","superpower","crunch","doubleedge"],
+		randomDoubleBattleMoves: ["waterfall","aquajet","superpower","crunch","doubleedge","protect"],
+		tier: "NU"
+	},
+	sandile: {
+		randomBattleMoves: ["earthquake","stoneedge","pursuit","crunch"],
+		tier: "LC"
+	},
+	krokorok: {
+		randomBattleMoves: ["earthquake","stoneedge","pursuit","crunch"],
+		tier: "NFE"
+	},
+	krookodile: {
+		randomBattleMoves: ["earthquake","stoneedge","pursuit","crunch","bulkup","superpower"],
+		randomDoubleBattleMoves: ["earthquake","stoneedge","protect","knockoff","bulkup","superpower"],
+		tier: "UU"
+	},
+	darumaka: {
+		randomBattleMoves: ["uturn","flareblitz","firepunch","rockslide","superpower"],
+		tier: "LC"
+	},
+	darmanitan: {
+		randomBattleMoves: ["uturn","flareblitz","firepunch","rockslide","earthquake","superpower"],
+		randomDoubleBattleMoves: ["uturn","flareblitz","firepunch","rockslide","earthquake","superpower","protect"],
+		eventPokemon: [
+			{"generation":5,"level":35,"isHidden":true,"moves":["thrash","bellydrum","flareblitz","hammerarm"]}
+		],
+		tier: "UU"
+	},
+	maractus: {
+		randomBattleMoves: ["spikes","gigadrain","leechseed","hiddenpowerfire","toxic","suckerpunch"],
+		randomDoubleBattleMoves: ["grassyterrain","gigadrain","leechseed","hiddenpowerfire","helpinghand","suckerpunch","protect"],
+		tier: "NU"
+	},
+	dwebble: {
+		randomBattleMoves: ["stealthrock","spikes","shellsmash","earthquake","rockblast","xscissor","stoneedge"],
+		tier: "LC"
+	},
+	crustle: {
+		randomBattleMoves: ["stealthrock","spikes","shellsmash","earthquake","rockblast","xscissor","stoneedge"],
+		randomDoubleBattleMoves: ["protect","shellsmash","earthquake","rockslide","xscissor","stoneedge"],
+		tier: "NU"
+	},
+	scraggy: {
+		randomBattleMoves: ["dragondance","icepunch","highjumpkick","drainpunch","rest","bulkup","crunch","knockoff"],
+		eventPokemon: [
+			{"generation":5,"level":1,"gender":"M","nature":"Adamant","isHidden":false,"abilities":["moxie"],"moves":["headbutt","leer","highjumpkick","lowkick"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	scrafty: {
+		randomBattleMoves: ["dragondance","icepunch","highjumpkick","drainpunch","rest","bulkup","crunch","knockoff"],
+		randomDoubleBattleMoves: ["fakeout","drainpunch","knockoff","icepunch","stoneedge", "protect"],
+		eventPokemon: [
+			{"generation":5,"level":50,"gender":"M","nature":"Brave","isHidden":false,"abilities":["moxie"],"moves":["firepunch","payback","drainpunch","substitute"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	sigilyph: {
+		randomBattleMoves: ["cosmicpower","roost","storedpower","psychoshift"],
+		randomDoubleBattleMoves: ["psyshock","heatwave","icebeam","airslash","energyball","shadowball","tailwind","protect"],
+		tier: "BL3"
+	},
+	yamask: {
+		randomBattleMoves: ["nastyplot","trickroom","shadowball","hiddenpowerfighting","willowisp","haze","rest","sleeptalk","painsplit"],
+		tier: "LC"
+	},
+	cofagrigus: {
+		randomBattleMoves: ["nastyplot","trickroom","shadowball","hiddenpowerfighting","willowisp","haze","rest","sleeptalk","painsplit"],
+		randomDoubleBattleMoves: ["nastyplot","trickroom","shadowball","hiddenpowerfighting","willowisp","protect","painsplit"],
+		tier: "RU"
+	},
+	tirtouga: {
+		randomBattleMoves: ["shellsmash","aquajet","waterfall","stoneedge","earthquake","stealthrock"],
+		eventPokemon: [
+			{"generation":5,"level":15,"gender":"M","isHidden":false,"abilities":["sturdy"],"moves":["bite","protect","aquajet","bodyslam"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	carracosta: {
+		randomBattleMoves: ["shellsmash","aquajet","waterfall","stoneedge","earthquake","stealthrock"],
+		randomDoubleBattleMoves: ["shellsmash","aquajet","waterfall","stoneedge","earthquake","protect","wideguard","rockslide"],
+		tier: "NU"
+	},
+	archen: {
+		randomBattleMoves: ["stoneedge","rockslide","earthquake","uturn","pluck","headsmash"],
+		eventPokemon: [
+			{"generation":5,"level":15,"gender":"M","moves":["headsmash","wingattack","doubleteam","scaryface"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	archeops: {
+		randomBattleMoves: ["stoneedge","rockslide","earthquake","uturn","pluck","headsmash"],
+		randomDoubleBattleMoves: ["stoneedge","rockslide","earthquake","uturn","pluck","tailwind","taunt","protect"],
+		tier: "NU"
+	},
+	trubbish: {
+		randomBattleMoves: ["clearsmog","toxicspikes","spikes","gunkshot","painsplit","toxic"],
+		tier: "LC"
+	},
+	garbodor: {
+		randomBattleMoves: ["spikes","toxicspikes","gunkshot","haze","painsplit","toxic","rockblast"],
+		randomDoubleBattleMoves: ["protect","painsplit","gunkshot","seedbomb","drainpunch","explosion","rockblast"],
+		tier: "NU"
+	},
+	zorua: {
+		randomBattleMoves: ["suckerpunch","extrasensory","darkpulse","hiddenpowerfighting","uturn","knockoff"],
+		tier: "LC"
+	},
+	zoroark: {
+		randomBattleMoves: ["suckerpunch","darkpulse","focusblast","flamethrower","uturn","nastyplot","knockoff"],
+		randomDoubleBattleMoves: ["suckerpunch","darkpulse","focusblast","flamethrower","uturn","nastyplot","knockoff","protect"],
+		eventPokemon: [
+			{"generation":5,"level":50,"gender":"M","nature":"Quirky","moves":["agility","embargo","punishment","snarl"],"pokeball":"cherishball"}
+		],
+		tier: "BL2"
+	},
+	minccino: {
+		randomBattleMoves: ["return","tailslap","wakeupslap","uturn","aquatail"],
+		tier: "LC"
+	},
+	cinccino: {
+		randomBattleMoves: ["return","tailslap","wakeupslap","uturn","aquatail","bulletseed","rockblast"],
+		randomDoubleBattleMoves: ["return","tailslap","wakeupslap","uturn","aquatail","bulletseed","rockblast","protect"],
+		tier: "RU"
+	},
+	gothita: {
+		randomBattleMoves: ["psychic","thunderbolt","hiddenpowerfighting","shadowball","substitute","calmmind","reflect","lightscreen","trick","grassknot","signalbeam"],
+		tier: "LC"
+	},
+	gothorita: {
+		randomBattleMoves: ["psychic","thunderbolt","hiddenpowerfighting","shadowball","substitute","calmmind","reflect","lightscreen","trick","grassknot","signalbeam"],
+		eventPokemon: [
+			{"generation":5,"level":32,"gender":"M","isHidden":true,"moves":["psyshock","flatter","futuresight","mirrorcoat"]},
+			{"generation":5,"level":32,"gender":"M","isHidden":true,"moves":["psyshock","flatter","futuresight","imprison"]}
+		],
+		tier: "NFE"
+	},
+	gothitelle: {
+		randomBattleMoves: ["psychic","thunderbolt","hiddenpowerfighting","shadowball","substitute","calmmind","reflect","lightscreen","trick","psyshock","grassknot","signalbeam"],
+		randomDoubleBattleMoves: ["psychic","thunderbolt","hiddenpowerfighting","shadowball","calmmind","reflect","lightscreen","trick","psyshock","grassknot","signalbeam","trickroom","taunt","helpinghand","healpulse","protect"],
+		tier: "UU"
+	},
+	solosis: {
+		randomBattleMoves: ["calmmind","recover","psychic","hiddenpowerfighting","shadowball","trickroom","psyshock"],
+		tier: "LC"
+	},
+	duosion: {
+		randomBattleMoves: ["calmmind","recover","psychic","hiddenpowerfighting","shadowball","trickroom","psyshock"],
+		tier: "NFE"
+	},
+	reuniclus: {
+		randomBattleMoves: ["calmmind","recover","psychic","focusblast","shadowball","trickroom","psyshock","hiddenpowerfire"],
+		randomDoubleBattleMoves: ["calmmind","recover","psychic","focusblast","shadowball","trickroom","psyshock","hiddenpowerfire","protect"],
+		tier: "RU"
+	},
+	ducklett: {
+		randomBattleMoves: ["scald","airslash","roost","hurricane","icebeam","hiddenpowergrass","bravebird","defog"],
+		tier: "LC"
+	},
+	swanna: {
+		randomBattleMoves: ["airslash","roost","hurricane","surf","icebeam","raindance","defog"],
+		randomDoubleBattleMoves: ["airslash","roost","hurricane","surf","icebeam","raindance","tailwind","scald","protect"],
+		tier: "NU"
+	},
+	vanillite: {
+		randomBattleMoves: ["icebeam","explosion","hiddenpowerelectric","hiddenpowerfighting","autotomize"],
+		tier: "LC"
+	},
+	vanillish: {
+		randomBattleMoves: ["icebeam","explosion","hiddenpowerelectric","hiddenpowerfighting","autotomize"],
+		tier: "NFE"
+	},
+	vanilluxe: {
+		randomBattleMoves: ["icebeam","explosion","hiddenpowerelectric","hiddenpowerfighting","autotomize"],
+		randomDoubleBattleMoves: ["icebeam","taunt","hiddenpowerelectric","hiddenpowerfighting","autotomize","protect","freezedry"],
+		tier: "NU"
+	},
+	deerling: {
+		randomBattleMoves: ["agility","batonpass","seedbomb","jumpkick","synthesis","return","thunderwave"],
+		eventPokemon: [
+			{"generation":5,"level":30,"gender":"F","isHidden":true,"moves":["feintattack","takedown","jumpkick","aromatherapy"]}
+		],
+		tier: "LC"
+	},
+	sawsbuck: {
+		randomBattleMoves: ["swordsdance","hornleech","jumpkick","return","substitute","synthesis","batonpass"],
+		randomDoubleBattleMoves: ["swordsdance","hornleech","jumpkick","return","substitute","synthesis","protect"],
+		tier: "NU"
+	},
+	emolga: {
+		randomBattleMoves: ["agility","chargebeam","batonpass","substitute","thunderbolt","airslash","roost"],
+		randomDoubleBattleMoves: ["helpinghand","tailwind","encore","substitute","thunderbolt","airslash","roost","protect"],
+		tier: "NU"
+	},
+	karrablast: {
+		randomBattleMoves: ["swordsdance","megahorn","return","substitute"],
+		eventPokemon: [
+			{"generation":5,"level":30,"isHidden":false,"moves":["furyattack","headbutt","falseswipe","bugbuzz"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"isHidden":false,"moves":["megahorn","takedown","xscissor","flail"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	escavalier: {
+		randomBattleMoves: ["megahorn","pursuit","ironhead","knockoff","swordsdance","drillrun"],
+		randomDoubleBattleMoves: ["megahorn","protect","ironhead","knockoff","swordsdance","drillrun"],
+		tier: "RU"
+	},
+	foongus: {
+		randomBattleMoves: ["spore","stunspore","gigadrain","clearsmog","hiddenpowerfire","synthesis","sludgebomb"],
+		tier: "LC"
+	},
+	amoonguss: {
+		randomBattleMoves: ["spore","stunspore","gigadrain","clearsmog","hiddenpowerfire","synthesis","sludgebomb"],
+		randomDoubleBattleMoves: ["spore","stunspore","gigadrain","ragepowder","hiddenpowerfire","synthesis","sludgebomb","protect"],
+		tier: "RU"
+	},
+	frillish: {
+		randomBattleMoves: ["scald","willowisp","recover","toxic","shadowball","taunt"],
+		tier: "LC"
+	},
+	jellicent: {
+		randomBattleMoves: ["scald","willowisp","recover","toxic","shadowball","icebeam","gigadrain","taunt"],
+		randomDoubleBattleMoves: ["scald","willowisp","recover","trickroom","shadowball","icebeam","gigadrain","waterspout","icywind","protect"],
+		eventPokemon: [
+			{"generation":5,"level":40,"isHidden":true,"moves":["waterpulse","ominouswind","brine","raindance"]}
+		],
+		tier: "RU"
+	},
+	alomomola: {
+		randomBattleMoves: ["wish","protect","waterfall","toxic","scald"],
+		randomDoubleBattleMoves: ["wish","protect","waterfall","icywind","scald","helpinghand","wideguard"],
+		tier: "RU"
+	},
+	joltik: {
+		randomBattleMoves: ["thunderbolt","bugbuzz","hiddenpowerice","gigadrain","voltswitch","stickyweb"],
+		tier: "LC"
+	},
+	galvantula: {
+		randomBattleMoves: ["thunder","hiddenpowerice","gigadrain","bugbuzz","voltswitch","stickyweb"],
+		randomDoubleBattleMoves: ["thunder","hiddenpowerice","gigadrain","bugbuzz","voltswitch","stickyweb",'protect'],
+		tier: "UU"
+	},
+	ferroseed: {
+		randomBattleMoves: ["spikes","stealthrock","leechseed","seedbomb","protect","thunderwave","gyroball"],
+		tier: "LC"
+	},
+	ferrothorn: {
+		randomBattleMoves: ["spikes","stealthrock","leechseed","powerwhip","thunderwave","protect"],
+		randomDoubleBattleMoves: ["gyroball","stealthrock","leechseed","powerwhip","thunderwave","protect"],
+		tier: "OU"
+	},
+	klink: {
+		randomBattleMoves: ["shiftgear","return","geargrind","wildcharge","substitute"],
+		tier: "LC"
+	},
+	klang: {
+		randomBattleMoves: ["shiftgear","return","geargrind","wildcharge","substitute"],
+		tier: "NFE"
+	},
+	klinklang: {
+		randomBattleMoves: ["shiftgear","return","geargrind","wildcharge"],
+		randomDoubleBattleMoves: ["shiftgear","return","geargrind","wildcharge","protect"],
+		tier: "NU"
+	},
+	tynamo: {
+		randomBattleMoves: ["spark","chargebeam","thunderwave","tackle"],
+		tier: "LC"
+	},
+	eelektrik: {
+		randomBattleMoves: ["uturn","voltswitch","acidspray","wildcharge","thunderbolt","gigadrain","aquatail","coil"],
+		tier: "NFE"
+	},
+	eelektross: {
+		randomBattleMoves: ["thunderbolt","flamethrower","uturn","voltswitch","acidspray","wildcharge","drainpunch","superpower","gigadrain","aquatail","coil"],
+		randomDoubleBattleMoves: ["thunderbolt","flamethrower","uturn","voltswitch","thunderwave","wildcharge","drainpunch","superpower","gigadrain","aquatail","protect"],
+		tier: "RU"
+	},
+	elgyem: {
+		randomBattleMoves: ["nastyplot","psychic","thunderbolt","hiddenpowerfighting","substitute","calmmind","recover","trick", "trickroom", "signalbeam"],
+		tier: "LC"
+	},
+	beheeyem: {
+		randomBattleMoves: ["nastyplot","psychic","thunderbolt","hiddenpowerfighting","substitute","calmmind","recover","trick","trickroom", "signalbeam"],
+		randomDoubleBattleMoves: ["nastyplot","psychic","thunderbolt","hiddenpowerfighting","recover","trick","trickroom", "signalbeam","protect"],
+		tier: "NU"
+	},
+	litwick: {
+		randomBattleMoves: ["calmmind","shadowball","energyball","fireblast","overheat","hiddenpowerfighting","hiddenpowerground","hiddenpowerrock","trick","substitute", "painsplit"],
+		tier: "LC"
+	},
+	lampent: {
+		randomBattleMoves: ["calmmind","shadowball","energyball","fireblast","overheat","hiddenpowerfighting","hiddenpowerground","hiddenpowerrock","trick","substitute", "painsplit"],
+		tier: "NFE"
+	},
+	chandelure: {
+		randomBattleMoves: ["shadowball","energyball","fireblast","overheat","hiddenpowerfighting","hiddenpowerground","trick","substitute","painsplit"],
+		randomDoubleBattleMoves: ["shadowball","energyball","fireblast","heatwave","hiddenpowerfighting","hiddenpowerground","trick","substitute","protect"],
+		eventPokemon: [
+			{"generation":5,"level":50,"gender":"F","nature":"Modest","isHidden":false,"abilities":["flashfire"],"moves":["heatwave","shadowball","energyball","psychic"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	axew: {
+		randomBattleMoves: ["dragondance","outrage","dragonclaw","swordsdance","aquatail","superpower","poisonjab","taunt", "substitute"],
+		eventPokemon: [
+			{"generation":5,"level":1,"gender":"M","nature":"Naive","isHidden":false,"abilities":["moldbreaker"],"moves":["scratch","dragonrage"]},
+			{"generation":5,"level":10,"gender":"F","isHidden":false,"abilities":["moldbreaker"],"moves":["dragonrage","return","endure","dragonclaw"],"pokeball":"cherishball"},
+			{"generation":5,"level":30,"gender":"M","nature":"Naive","isHidden":false,"abilities":["rivalry"],"moves":["dragonrage","scratch","outrage","gigaimpact"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	fraxure: {
+		randomBattleMoves: ["dragondance","swordsdance","outrage","dragonclaw","aquatail","superpower","poisonjab","taunt", "substitute"],
+		tier: "NFE"
+	},
+	haxorus: {
+		randomBattleMoves: ["dragondance","swordsdance","outrage","dragonclaw","earthquake","lowkick","poisonjab","taunt", "substitute"],
+		randomDoubleBattleMoves: ["dragondance","swordsdance","protect","dragonclaw","earthquake","lowkick","poisonjab","taunt", "substitute"],
+		eventPokemon: [
+			{"generation":5,"level":59,"gender":"F","nature":"Naive","isHidden":false,"abilities":["moldbreaker"],"moves":["earthquake","dualchop","xscissor","dragondance"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	cubchoo: {
+		randomBattleMoves: ["icebeam","surf","hiddenpowergrass","superpower"],
+		eventPokemon: [
+			{"generation":5,"level":15,"isHidden":false,"moves":["powdersnow","growl","bide","icywind"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	beartic: {
+		randomBattleMoves: ["iciclecrash","superpower","nightslash","stoneedge","swordsdance","aquajet"],
+		randomDoubleBattleMoves: ["iciclecrash","superpower","nightslash","stoneedge","swordsdance","aquajet","protect"],
+		tier: "NU"
+	},
+	cryogonal: {
+		randomBattleMoves: ["icebeam","recover","toxic","rapidspin","reflect","freezedry","hiddenpowerfire"],
+		randomDoubleBattleMoves: ["icebeam","recover","icywind","protect","reflect","freezedry","hiddenpowerfire"],
+		tier: "NU"
+	},
+	shelmet: {
+		randomBattleMoves: ["spikes","yawn","substitute","acidarmor","batonpass","recover","toxic","bugbuzz","infestation"],
+		eventPokemon: [
+			{"generation":5,"level":30,"isHidden":false,"moves":["strugglebug","megadrain","yawn","protect"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"isHidden":false,"moves":["encore","gigadrain","bodyslam","bugbuzz"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	accelgor: {
+		randomBattleMoves: ["spikes","yawn","bugbuzz","focusblast","gigadrain","hiddenpowerrock","encore","sludgebomb"],
+		randomDoubleBattleMoves: ["protect","yawn","bugbuzz","focusblast","gigadrain","hiddenpowerrock","encore","sludgebomb"],
+		tier: "NU"
+	},
+	stunfisk: {
+		randomBattleMoves: ["discharge","thunderbolt","earthpower","scald","toxic","rest","sleeptalk","stealthrock"],
+		randomDoubleBattleMoves: ["discharge","thunderbolt","earthpower","scald","electroweb","protect","stealthrock"],
+		tier: "NU"
+	},
+	mienfoo: {
+		randomBattleMoves: ["uturn","drainpunch","stoneedge","swordsdance","batonpass","highjumpkick","fakeout","knockoff"],
+		tier: "LC"
+	},
+	mienshao: {
+		randomBattleMoves: ["uturn","fakeout","highjumpkick","stoneedge","drainpunch","swordsdance","batonpass","knockoff"],
+		randomDoubleBattleMoves: ["uturn","fakeout","highjumpkick","stoneedge","drainpunch","swordsdance","wideguard","knockoff","feint","protect"],
+		tier: "UU"
+	},
+	druddigon: {
+		randomBattleMoves: ["outrage","superpower","earthquake","suckerpunch","dragonclaw","dragontail","substitute","glare","stealthrock","firepunch","thunderpunch"],
+		randomDoubleBattleMoves: ["superpower","earthquake","suckerpunch","dragonclaw","glare","protect","firepunch","thunderpunch"],
+		eventPokemon: [
+			{"generation":5,"level":1,"shiny":true,"isHidden":false,"moves":["leer","scratch"]}
+		],
+		tier: "RU"
+	},
+	golett: {
+		randomBattleMoves: ["earthquake","shadowpunch","dynamicpunch","icepunch","stealthrock","rockpolish"],
+		tier: "LC"
+	},
+	golurk: {
+		randomBattleMoves: ["earthquake","shadowpunch","dynamicpunch","icepunch","stoneedge","stealthrock","rockpolish"],
+		randomDoubleBattleMoves: ["earthquake","shadowpunch","dynamicpunch","icepunch","stoneedge","protect","rockpolish"],
+		eventPokemon: [
+			{"generation":5,"level":70,"shiny":true,"isHidden":false,"abilities":["ironfist"],"moves":["shadowpunch","hyperbeam","gyroball","hammerarm"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	pawniard: {
+		randomBattleMoves: ["swordsdance","substitute","suckerpunch","ironhead","brickbreak","knockoff"],
+		tier: "LC"
+	},
+	bisharp: {
+		randomBattleMoves: ["swordsdance","substitute","suckerpunch","ironhead","brickbreak","knockoff"],
+		randomDoubleBattleMoves: ["swordsdance","substitute","suckerpunch","ironhead","brickbreak","knockoff","protect"],
+		tier: "OU"
+	},
+	bouffalant: {
+		randomBattleMoves: ["headcharge","earthquake","stoneedge","megahorn","swordsdance","superpower"],
+		randomDoubleBattleMoves: ["headcharge","earthquake","stoneedge","megahorn","swordsdance","superpower","protect"],
+		tier: "NU"
+	},
+	rufflet: {
+		randomBattleMoves: ["bravebird","rockslide","return","uturn","substitute","bulkup","roost"],
+		tier: "LC"
+	},
+	braviary: {
+		randomBattleMoves: ["bravebird","superpower","return","uturn","substitute","rockslide","bulkup","roost"],
+		randomDoubleBattleMoves: ["bravebird","superpower","return","uturn","tailwind","rockslide","bulkup","roost","skydrop","protect"],
+		eventPokemon: [
+			{"generation":5,"level":25,"gender":"M","isHidden":true,"moves":["wingattack","honeclaws","scaryface","aerialace"]}
+		],
+		tier: "RU"
+	},
+	vullaby: {
+		randomBattleMoves: ["knockoff","roost","taunt","whirlwind","toxic","defog","uturn","bravebird"],
+		tier: "LC"
+	},
+	mandibuzz: {
+		randomBattleMoves: ["knockoff","roost","taunt","whirlwind","toxic","uturn","bravebird","defog"],
+		randomDoubleBattleMoves: ["knockoff","roost","taunt","tailwind","snarl","uturn","bravebird","protect"],
+		eventPokemon: [
+			{"generation":5,"level":25,"gender":"F","isHidden":true,"moves":["pluck","nastyplot","flatter","feintattack"]}
+		],
+		tier: "OU"
+	},
+	heatmor: {
+		randomBattleMoves: ["fireblast","suckerpunch","focusblast","gigadrain"],
+		randomDoubleBattleMoves: ["fireblast","suckerpunch","focusblast","gigadrain","heatwave","protect"],
+		tier: "NU"
+	},
+	durant: {
+		randomBattleMoves: ["honeclaws","ironhead","xscissor","stoneedge","batonpass","superpower"],
+		randomDoubleBattleMoves: ["honeclaws","ironhead","xscissor","rockslide","protect","superpower"],
+		tier: "RU"
+	},
+	deino: {
+		randomBattleMoves: ["outrage","crunch","firefang","dragontail","thunderwave","superpower"],
+		eventPokemon: [
+			{"generation":5,"level":1,"shiny":true,"moves":["tackle","dragonrage"]}
+		],
+		tier: "LC"
+	},
+	zweilous: {
+		randomBattleMoves: ["outrage","crunch","firefang","dragontail","thunderwave","superpower"],
+		tier: "NFE"
+	},
+	hydreigon: {
+		randomBattleMoves: ["uturn","dracometeor","dragonpulse","earthpower","fireblast","darkpulse","roost","flashcannon","superpower"],
+		randomDoubleBattleMoves: ["uturn","dracometeor","dragonpulse","earthpower","fireblast","darkpulse","roost","flashcannon","superpower","tailwind","protect"],
+		eventPokemon: [
+			{"generation":5,"level":70,"shiny":true,"gender":"M","moves":["hypervoice","dragonbreath","flamethrower","focusblast"],"pokeball":"cherishball"}
+		],
+		tier: "UU"
+	},
+	larvesta: {
+		randomBattleMoves: ["flareblitz","uturn","wildcharge","zenheadbutt","morningsun","willowisp"],
+		tier: "LC"
+	},
+	volcarona: {
+		randomBattleMoves: ["quiverdance","fierydance","fireblast","bugbuzz","roost","gigadrain","hiddenpowerice"],
+		randomDoubleBattleMoves: ["quiverdance","fierydance","fireblast","bugbuzz","roost","gigadrain","hiddenpowerice","heatwave","willowisp","ragepowder","tailwind","protect"],
+		eventPokemon: [
+			{"generation":5,"level":35,"isHidden":false,"moves":["stringshot","leechlife","gust","firespin"]},
+			{"generation":5,"level":77,"gender":"M","nature":"Calm","isHidden":false,"moves":["bugbuzz","overheat","hyperbeam","quiverdance"],"pokeball":"cherishball"}
+		],
+		tier: "BL"
+	},
+	cobalion: {
+		randomBattleMoves: ["closecombat","ironhead","swordsdance","substitute","stoneedge","voltswitch","hiddenpowerice","thunderwave","stealthrock"],
+		randomDoubleBattleMoves: ["closecombat","ironhead","swordsdance","substitute","stoneedge","voltswitch","hiddenpowerice","thunderwave","protect","helpinghand"],
+		tier: "RU"
+	},
+	terrakion: {
+		randomBattleMoves: ["stoneedge","closecombat","swordsdance","rockpolish","substitute","stealthrock","earthquake"],
+		randomDoubleBattleMoves: ["stoneedge","closecombat","substitute","rockslide","earthquake","protect"],
+		tier: "OU"
+	},
+	virizion: {
+		randomBattleMoves: ["swordsdance","calmmind","closecombat","focusblast","hiddenpowerice","stoneedge","leafblade","gigadrain","substitute","synthesis"],
+		randomDoubleBattleMoves: ["taunt","closecombat","focusblast","hiddenpowerice","stoneedge","leafblade","gigadrain","substitute","synthesis","protect","helpinghand"],
+		tier: "RU"
+	},
+	tornadus: {
+		randomBattleMoves: ["hurricane","airslash","uturn","superpower","focusblast","taunt","substitute","heatwave","tailwind"],
+		randomDoubleBattleMoves: ["hurricane","airslash","uturn","superpower","focusblast","taunt","substitute","heatwave","tailwind","protect","skydrop"],
+		eventPokemon: [
+			{"generation":5,"level":70,"gender":"M","isHidden":false,"moves":["hurricane","hammerarm","airslash","hiddenpower"],"pokeball":"cherishball"}
+		],
+		dreamWorldPokeball: 'dreamball',
+		tier: "BL2"
+	},
+	tornadustherian: {
+		randomBattleMoves: ["hurricane","airslash","focusblast","uturn","heatwave"],
+		randomDoubleBattleMoves: ["hurricane","airslash","focusblast","uturn","heatwave","skydrop","tailwind","taunt","protect"],
+		eventPokemon: [
+			{"generation":5,"level":70,"gender":"M","isHidden":false,"moves":["hurricane","hammerarm","airslash","hiddenpower"],"pokeball":"cherishball"}
+		],
+		tier: "BL"
+	},
+	thundurus: {
+		randomBattleMoves: ["thunderwave","nastyplot","thunderbolt","hiddenpowerice","focusblast","grassknot","substitute"],
+		randomDoubleBattleMoves: ["thunderwave","nastyplot","thunderbolt","hiddenpowerice","focusblast","grassknot","substitute","taunt","protect"],
+		eventPokemon: [
+			{"generation":5,"level":70,"gender":"M","isHidden":false,"moves":["thunder","hammerarm","focusblast","wildcharge"],"pokeball":"cherishball"}
+		],
+		dreamWorldPokeball: 'dreamball',
+		tier: "OU"
+	},
+	thundurustherian: {
+		randomBattleMoves: ["nastyplot","agility","thunderbolt","hiddenpowerice","focusblast","grassknot","superpower"],
+		randomDoubleBattleMoves: ["nastyplot","agility","thunderbolt","hiddenpowerice","focusblast","grassknot","superpower","protect"],
+		eventPokemon: [
+			{"generation":5,"level":70,"gender":"M","isHidden":false,"moves":["thunder","hammerarm","focusblast","wildcharge"],"pokeball":"cherishball"}
+		],
+		tier: "BL"
+	},
+	reshiram: {
+		randomBattleMoves: ["blueflare","dracometeor","dragonpulse","flamethrower","flamecharge","roost"],
+		randomDoubleBattleMoves: ["blueflare","dracometeor","dragonpulse","heatwave","flamecharge","roost","protect","tailwind"],
+		eventPokemon: [
+			{"generation":5,"level":100,"moves":["blueflare","fusionflare","mist","dracometeor"],"pokeball":"cherishball"}
+		],
+		tier: "Uber"
+	},
+	zekrom: {
+		randomBattleMoves: ["voltswitch","outrage","dragonclaw","boltstrike","honeclaws","substitute","dracometeor","fusionbolt","roost"],
+		randomDoubleBattleMoves: ["voltswitch","protect","dragonclaw","boltstrike","honeclaws","substitute","dracometeor","fusionbolt","roost","tailwind"],
+		eventPokemon: [
+			{"generation":5,"level":100,"moves":["boltstrike","fusionbolt","haze","outrage"],"pokeball":"cherishball"}
+		],
+		tier: "Uber"
+	},
+	landorus: {
+		randomBattleMoves: ["earthpower","focusblast","rockpolish","hiddenpowerice","psychic","sludgewave"],
+		randomDoubleBattleMoves: ["earthpower","focusblast","rockpolish","hiddenpowerice","psychic","sludgebomb","protect"],
+		dreamWorldPokeball: 'dreamball',
+		tier: "OU"
+	},
+	landorustherian: {
+		randomBattleMoves: ["rockpolish","earthquake","stoneedge","uturn","superpower","stealthrock","swordsdance"],
+		randomDoubleBattleMoves: ["rockslide","earthquake","stoneedge","uturn","superpower","knockoff","protect"],
+		tier: "OU"
+	},
+	kyurem: {
+		randomBattleMoves: ["substitute","icebeam","dracometeor","dragonpulse","focusblast","outrage","earthpower","roost"],
+		randomDoubleBattleMoves: ["substitute","icebeam","dracometeor","dragonpulse","focusblast","glaciate","earthpower","roost","protect"],
+		tier: "BL2"
+	},
+	kyuremblack: {
+		randomBattleMoves: ["outrage","fusionbolt","icebeam","roost","substitute","honeclaws","earthpower","dragonclaw"],
+		randomDoubleBattleMoves: ["protect","fusionbolt","icebeam","roost","substitute","honeclaws","earthpower","dragonclaw"],
+		tier: "OU"
+	},
+	kyuremwhite: {
+		randomBattleMoves: ["dracometeor","dragonpulse","icebeam","fusionflare","earthpower","focusblast","roost"],
+		randomDoubleBattleMoves: ["dracometeor","dragonpulse","icebeam","fusionflare","earthpower","focusblast","roost","protect"],
+		tier: "Uber"
+	},
+	keldeo: {
+		randomBattleMoves: ["hydropump","secretsword","calmmind","hiddenpowerghost","hiddenpowerelectric","substitute","surf","icywind"],
+		randomDoubleBattleMoves: ["hydropump","secretsword","protect","hiddenpowerghost","hiddenpowerelectric","substitute","surf","icywind","taunt"],
+		eventPokemon: [
+			{"generation":5,"level":15,"moves":["aquajet","leer","doublekick","bubblebeam"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"moves":["sacredsword","hydropump","aquajet","swordsdance"],"pokeball":"cherishball"}
+		],
+		dreamWorldPokeball: 'cherishball',
+		tier: "OU"
+	},
+	keldeoresolute: {},
+	meloetta: {
+		randomBattleMoves: ["relicsong","closecombat","calmmind","psychic","thunderbolt","hypervoice","uturn"],
+		randomDoubleBattleMoves: ["relicsong","closecombat","calmmind","psychic","thunderbolt","hypervoice","uturn","protect"],
+		eventPokemon: [
+			{"generation":5,"level":15,"moves":["quickattack","confusion","round"],"pokeball":"cherishball"},
+			{"generation":5,"level":50,"moves":["round","teeterdance","psychic","closecombat"],"pokeball":"cherishball"}
+		],
+		dreamWorldPokeball: 'cherishball',
+		tier: "RU"
+	},
+	genesect: {
+		randomBattleMoves: ["uturn","bugbuzz","icebeam","flamethrower","thunderbolt","ironhead","shiftgear","extremespeed","blazekick"],
+		randomDoubleBattleMoves: ["uturn","bugbuzz","icebeam","flamethrower","thunderbolt","ironhead","shiftgear","extremespeed","blazekick","protect"],
+		eventPokemon: [
+			{"generation":5,"level":50,"moves":["technoblast","magnetbomb","solarbeam","signalbeam"],"pokeball":"cherishball"},
+			{"generation":5,"level":15,"moves":["technoblast","magnetbomb","solarbeam","signalbeam"],"pokeball":"cherishball"},
+			{"generation":5,"level":100,"shiny":true,"nature":"Hasty","moves":["extremespeed","technoblast","blazekick","shiftgear"],"pokeball":"cherishball"}
+		],
+		dreamWorldPokeball: 'cherishball',
+		tier: "Uber"
+	},
+	genesectburn: {
+		randomBattleMoves: ["uturn","bugbuzz","icebeam","technoblast","thunderbolt","ironhead","shiftgear","extremespeed","blazekick"],
+		randomDoubleBattleMoves: ["uturn","bugbuzz","icebeam","technoblast","thunderbolt","ironhead","shiftgear","extremespeed","blazekick","protect"],
+		dreamWorldPokeball: 'cherishball',
+		requiredItem: "Burn Drive"
+	},
+	genesectchill: {
+		randomBattleMoves: ["uturn","bugbuzz","technoblast","flamethrower","thunderbolt","ironhead","shiftgear","extremespeed","blazekick"],
+		randomDoubleBattleMoves: ["uturn","bugbuzz","icebeam","technoblast","thunderbolt","ironhead","shiftgear","extremespeed","blazekick","protect"],
+		dreamWorldPokeball: 'cherishball',
+		requiredItem: "Chill Drive"
+	},
+	genesectdouse: {
+		randomBattleMoves: ["uturn","bugbuzz","icebeam","flamethrower","thunderbolt","technoblast","ironhead","shiftgear","extremespeed","blazekick"],
+		randomDoubleBattleMoves: ["uturn","bugbuzz","icebeam","technoblast","thunderbolt","ironhead","shiftgear","extremespeed","blazekick","protect"],
+		dreamWorldPokeball: 'cherishball',
+		requiredItem: "Douse Drive"
+	},
+	genesectshock: {
+		randomBattleMoves: ["uturn","bugbuzz","icebeam","flamethrower","technoblast","ironhead","shiftgear","extremespeed","blazekick"],
+		randomDoubleBattleMoves: ["uturn","bugbuzz","icebeam","technoblast","thunderbolt","ironhead","shiftgear","extremespeed","blazekick","protect"],
+		dreamWorldPokeball: 'cherishball',
+		requiredItem: "Shock Drive"
+	},
+	chespin: {
+		randomBattleMoves: ["curse","gyroball","seedbomb","stoneedge","spikes","synthesis"],
+		tier: "LC"
+	},
+	quilladin: {
+		randomBattleMoves: ["curse","gyroball","seedbomb","stoneedge","spikes","synthesis"],
+		tier: "NFE"
+	},
+	chesnaught: {
+		randomBattleMoves: ["leechseed","synthesis","roar","hammerarm","spikyshield","stoneedge","woodhammer"],
+		randomDoubleBattleMoves: ["leechseed","synthesis","hammerarm","spikyshield","stoneedge","woodhammer","rockslide"],
+		tier: "UU"
+	},
+	fennekin: {
+		randomBattleMoves: ["fireblast","psychic","psyshock","grassknot","willowisp","hypnosis","hiddenpowerrock","flamecharge"],
+		tier: "LC"
+	},
+	braixen: {
+		randomBattleMoves: ["fireblast","flamethrower","psychic","psyshock","grassknot","willowisp","hiddenpowerrock"],
+		tier: "NFE"
+	},
+	delphox: {
+		randomBattleMoves: ["calmmind","fireblast","flamethrower","psychic","psyshock", "grassknot", "switcheroo","shadowball"],
+		randomDoubleBattleMoves: ["calmmind","fireblast","flamethrower","psychic","psyshock", "grassknot", "switcheroo","shadowball","heatwave","protect"],
+		tier: "RU"
+	},
+	froakie: {
+		randomBattleMoves: ["quickattack","hydropump","icebeam","waterfall","toxicspikes","poweruppunch","uturn"],
+		tier: "LC"
+	},
+	frogadier: {
+		randomBattleMoves: ["hydropump","surf","icebeam","uturn","taunt","toxicspikes"],
+		tier: "NFE"
+	},
+	greninja: {
+		randomBattleMoves: ["hydropump","uturn","surf","icebeam","spikes","taunt","darkpulse","toxicspikes","hiddenpowerfire"],
+		randomDoubleBattleMoves: ["hydropump","uturn","surf","icebeam","matblock","taunt","darkpulse","protect","hiddenpowerfire"],
+		tier: "OU"
+	},
+	bunnelby: {
+		randomBattleMoves: ["agility","earthquake","return","quickattack","uturn","stoneedge","spikes","bounce"],
+		tier: "LC"
+	},
+	diggersby: {
+		randomBattleMoves: ["earthquake","uturn","return","wildcharge","swordsdance","quickattack","agility"],
+		randomDoubleBattleMoves: ["earthquake","uturn","return","wildcharge","protect","quickattack"],
+		tier: "BL"
+	},
+	fletchling: {
+		randomBattleMoves: ["roost","swordsdance","uturn","return","overheat","flamecharge","tailwind"],
+		tier: "LC"
+	},
+	fletchinder: {
+		randomBattleMoves: ["roost","swordsdance","uturn","return","overheat","flamecharge","tailwind"],
+		tier: "RU"
+	},
+	talonflame: {
+		randomBattleMoves: ["bravebird","flareblitz","roost","swordsdance","uturn","willowisp","tailwind"],
+		randomDoubleBattleMoves: ["bravebird","flareblitz","roost","swordsdance","uturn","willowisp","tailwind","taunt","protect"],
+		tier: "OU"
+	},
+	scatterbug: {
+		randomBattleMoves: ["tackle","stringshot","stunspore","bugbite","poisonpowder"],
+		tier: "LC"
+	},
+	spewpa: {
+		randomBattleMoves: ["tackle","stringshot","stunspore","bugbite","poisonpowder"],
+		tier: "NFE"
+	},
+	vivillon: {
+		randomBattleMoves: ["sleeppowder","quiverdance","hurricane","bugbuzz","roost"],
+		randomDoubleBattleMoves: ["sleeppowder","quiverdance","hurricane","bugbuzz","roost","protect"],
+		eventPokemon: [
+			// Poké Ball pattern
+			{"generation":6,"level":12,"gender":"M","isHidden":false,"moves":["stunspore","gust","lightscreen","strugglebug"],"pokeball":"cherishball"},
+			// Fancy pattern
+			{"generation":6,"level":12,"isHidden":false,"moves":["gust","lightscreen","strugglebug","holdhands"],"pokeball":"cherishball"}
+		],
+		tier: "NU"
+	},
+	litleo: {
+		randomBattleMoves: ["hypervoice","fireblast","willowisp","bulldoze","yawn"],
+		tier: "LC"
+	},
+	pyroar: {
+		randomBattleMoves: ["hypervoice","fireblast","willowisp","bulldoze","sunnyday","solarbeam"],
+		randomDoubleBattleMoves: ["hypervoice","fireblast","willowisp","protect","sunnyday","solarbeam"],
+		tier: "NU"
+	},
+	flabebe: {
+		randomBattleMoves: ["moonblast","toxic","wish","psychic","aromatherapy","protect","calmmind"],
+		tier: "LC"
+	},
+	floette: {
+		randomBattleMoves: ["moonblast","toxic","wish","psychic","aromatherapy","protect","calmmind"],
+		tier: "NFE"
+	},
+	floetteeternalflower: {
+		isUnreleased: true,
+		tier: "Unreleased"
+	},
+	florges: {
+		randomBattleMoves: ["moonblast","toxic","wish","psychic","aromatherapy","protect","calmmind"],
+		randomDoubleBattleMoves: ["moonblast","dazzlinggleam","wish","psychic","aromatherapy","protect","calmmind"],
+		tier: "UU"
+	},
+	skiddo: {
+		randomBattleMoves: ["hornleech","earthquake","brickbreak","bulkup","leechseed","milkdrink","rockslide"],
+		tier: "LC"
+	},
+	gogoat: {
+		randomBattleMoves: ["hornleech","earthquake","brickbreak","bulkup","leechseed","milkdrink","rockslide"],
+		randomDoubleBattleMoves: ["hornleech","earthquake","brickbreak","bulkup","leechseed","milkdrink","rockslide","protect"],
+		tier: "NU"
+	},
+	pancham: {
+		randomBattleMoves: ["partingshot","skyuppercut","crunch","stoneedge","bulldoze","shadowclaw","bulkup"],
+		tier: "LC"
+	},
+	pangoro: {
+		randomBattleMoves: ["partingshot","hammerarm","crunch","circlethrow","stoneedge","earthquake","poisonjab"],
+		randomDoubleBattleMoves: ["partingshot","hammerarm","crunch","circlethrow","stoneedge","earthquake","poisonjab","protect"],
+		tier: "NU"
+	},
+	furfrou: {
+		randomBattleMoves: ["return","cottonguard","uturn","thunderwave","suckerpunch","roar","wildcharge","rest","sleeptalk"],
+		randomDoubleBattleMoves: ["return","cottonguard","uturn","thunderwave","suckerpunch","snarl","wildcharge","protect"],
+		tier: "NU"
+	},
+	espurr: {
+		randomBattleMoves: ["fakeout","yawn","thunderwave","psyshock","trick","darkpulse"],
+		tier: "LC"
+	},
+	meowstic: {
+		randomBattleMoves: ["fakeout","toxic","yawn","thunderwave","psyshock","trick","psychic","reflect","lightscreen"],
+		randomDoubleBattleMoves: ["fakeout","thunderwave","psyshock","trick","psychic","reflect","lightscreen","safeguard","swagger","protect"],
+		tier: "NU"
+	},
+	meowsticf: {
+		randomBattleMoves: ["psyshock","darkpulse","calmmind","energyball","signalbeam","thunderbolt"],
+		randomDoubleBattleMoves: ["psyshock","darkpulse","fakeout","energyball","signalbeam","thunderbolt","protect","helpinghand"],
+		tier: "NU"
+	},
+	honedge: {
+		randomBattleMoves: ["swordsdance","shadowclaw","shadowsneak","ironhead","rockslide","aerialace","destinybond"],
+		tier: "LC"
+	},
+	doublade: {
+		randomBattleMoves: ["swordsdance","shadowclaw","shadowsneak","ironhead","rockslide","aerialace","destinybond"],
+		tier: "RU"
+	},
+	aegislash: {
+		randomBattleMoves: ["kingsshield","swordsdance","shadowclaw","sacredsword","ironhead","shadowsneak","autotomize","hiddenpowerice","shadowball"],
+		randomDoubleBattleMoves: ["kingsshield","swordsdance","shadowclaw","sacredsword","ironhead","shadowsneak","wideguard","hiddenpowerice","shadowball"],
+		eventPokemon: [
+			{"generation":6,"level":50,"gender":"F","nature":"Quiet","moves":["wideguard","kingsshield","shadowball","flashcannon"],"pokeball":"cherishball"}
+		],
+		tier: "Uber"
+	},
+	spritzee: {
+		randomBattleMoves: ["calmmind","drainingkiss","moonblast","psychic","aromatherapy","wish","trickroom","thunderbolt"],
+		tier: "LC"
+	},
+	aromatisse: {
+		randomBattleMoves: ["calmmind","drainingkiss","moonblast","psychic","aromatherapy","wish","trickroom","thunderbolt"],
+		randomDoubleBattleMoves: ["moonblast","aromatherapy","wish","trickroom","thunderbolt","protect","healpulse"],
+		tier: "RU"
+	},
+	swirlix: {
+		randomBattleMoves: ["calmmind","drainingkiss","dazzlinggleam","surf","psychic","flamethrower","bellydrum","thunderbolt","return","thief","cottonguard"],
+		tier: "LC Uber"
+	},
+	slurpuff: {
+		randomBattleMoves: ["calmmind","dazzlinggleam","surf","psychic","flamethrower","thunderbolt"],
+		randomDoubleBattleMoves: ["calmmind","dazzlinggleam","surf","psychic","flamethrower","thunderbolt","protect"],
+		tier: "NU"
+	},
+	inkay: {
+		randomBattleMoves: ["topsyturvy","switcheroo","superpower","psychocut","flamethrower","rockslide","trickroom"],
+		eventPokemon: [
+			{"generation":6,"level":10,"isHidden":false,"moves":["happyhour","foulplay","hypnosis","topsyturvy"],"pokeball":"cherishball"}
+		],
+		tier: "LC"
+	},
+	malamar: {
+		randomBattleMoves: ["switcheroo","superpower","psychocut","rockslide","trickroom","nightslash"],
+		randomDoubleBattleMoves: ["switcheroo","superpower","psychocut","rockslide","trickroom","nightslash","protect"],
+		tier: "NU"
+	},
+	binacle: {
+		randomBattleMoves: ["shellsmash","razorshell","stoneedge","earthquake","crosschop","poisonjab","xscissor","rockslide"],
+		tier: "LC"
+	},
+	barbaracle: {
+		randomBattleMoves: ["shellsmash","razorshell","stoneedge","earthquake","crosschop","poisonjab","xscissor","rockslide"],
+		randomDoubleBattleMoves: ["shellsmash","razorshell","stoneedge","earthquake","crosschop","poisonjab","xscissor","rockslide","protect"],
+		tier: "NU"
+	},
+	skrelp: {
+		randomBattleMoves: ["scald","sludgebomb","thunderbolt","shadowball","toxicspikes","hydropump"],
+		unreleasedHidden: true,
+		tier: "LC"
+	},
+	dragalge: {
+		randomBattleMoves: ["scald","sludgebomb","thunderbolt","toxicspikes","hydropump","focusblast","dracometeor","dragontail","substitute"],
+		randomDoubleBattleMoves: ["scald","sludgebomb","thunderbolt","protect","hydropump","focusblast","dracometeor","dragonpulse","substitute"],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	clauncher: {
+		randomBattleMoves: ["waterpulse","flashcannon","uturn","darkpulse","crabhammer","aquajet","sludgebomb"],
+		tier: "LC"
+	},
+	clawitzer: {
+		randomBattleMoves: ["waterpulse","icebeam","uturn","darkpulse","dragonpulse","aurasphere"],
+		randomDoubleBattleMoves: ["waterpulse","icebeam","uturn","darkpulse","dragonpulse","aurasphere","muddywater","helpinghand","protect"],
+		tier: "RU"
+	},
+	helioptile: {
+		randomBattleMoves: ["surf","voltswitch","hiddenpowerice","raindance","thunder","darkpulse","thunderbolt"],
+		tier: "LC"
+	},
+	heliolisk: {
+		randomBattleMoves: ["surf","voltswitch","hiddenpowerice","raindance","thunder","darkpulse","thunderbolt"],
+		randomDoubleBattleMoves: ["surf","voltswitch","hiddenpowerice","raindance","thunder","darkpulse","thunderbolt","electricterrain","protect"],
+		tier: "RU"
+	},
+	tyrunt: {
+		randomBattleMoves: ["stealthrock","dragondance","stoneedge","dragonclaw","earthquake","icefang","firefang"],
+		unreleasedHidden: true,
+		tier: "LC"
+	},
+	tyrantrum: {
+		randomBattleMoves: ["stealthrock","dragondance","stoneedge","dragonclaw","earthquake","icefang","firefang"],
+		randomDoubleBattleMoves: ["rockslide","dragondance","stoneedge","dragonclaw","earthquake","icefang","firefang","protect"],
+		unreleasedHidden: true,
+		tier: "RU"
+	},
+	amaura: {
+		randomBattleMoves: ["naturepower","ancientpower","thunderbolt","darkpulse","thunderwave","dragontail","flashcannon"],
+		unreleasedHidden: true,
+		tier: "LC"
+	},
+	aurorus: {
+		randomBattleMoves: ["naturepower","ancientpower","thunderbolt","encore","thunderwave","flashcannon","freezedry"],
+		randomDoubleBattleMoves: ["naturepower","ancientpower","thunderbolt","encore","thunderwave","flashcannon","freezedry","icywind","protect"],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	sylveon: {
+		randomBattleMoves: ["hypervoice","calmmind","wish","protect","psyshock","batonpass","shadowball","hiddenpowerground"],
+		randomDoubleBattleMoves: ["hypervoice","calmmind","wish","protect","psyshock","helpinghand","shadowball","hiddenpowerground"],
+		eventPokemon: [
+			{"generation":6,"level":10,"isHidden":false,"moves":["celebrate","helpinghand","sandattack","fairywind"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	hawlucha: {
+		randomBattleMoves: ["swordsdance","highjumpkick","uturn","stoneedge","roost","batonpass"],
+		randomDoubleBattleMoves: ["swordsdance","highjumpkick","uturn","stoneedge","skydrop","encore","protect"],
+		tier: "BL"
+	},
+	dedenne: {
+		randomBattleMoves: ["voltswitch","thunderbolt","nuzzle","grassknot","hiddenpowerice","uturn","toxic"],
+		randomDoubleBattleMoves: ["voltswitch","thunderbolt","nuzzle","grassknot","hiddenpowerice","uturn","helpinghand","protect"],
+		tier: "NU"
+	},
+	carbink: {
+		randomBattleMoves: ["stealthrock","lightscreen","reflect","explosion","powergem","moonblast"],
+		randomDoubleBattleMoves: ["trickroom","lightscreen","reflect","explosion","powergem","moonblast","protect"],
+		tier: "NU"
+	},
+	goomy: {
+		randomBattleMoves: ["sludgebomb","thunderbolt","toxic","protect","infestation"],
+		tier: "LC"
+	},
+	sliggoo: {
+		randomBattleMoves: ["sludgebomb","thunderbolt","toxic","protect","infestation","icebeam"],
+		tier: "NFE"
+	},
+	goodra: {
+		randomBattleMoves: ["thunderbolt","toxic","icebeam","dragonpulse","fireblast","dragontail","dracometeor","focusblast"],
+		randomDoubleBattleMoves: ["thunderbolt","feint","icebeam","dragonpulse","fireblast","muddywater","dracometeor","focusblast","protect"],
+		tier: "UU"
+	},
+	klefki: {
+		randomBattleMoves: ["reflect","lightscreen","spikes","torment","substitute","thunderwave","drainingkiss","flashcannon","dazzlinggleam"],
+		randomDoubleBattleMoves: ["reflect","lightscreen","safeguard","playrough","substitute","thunderwave","protect","flashcannon","dazzlinggleam"],
+		tier: "BL"
+	},
+	phantump: {
+		randomBattleMoves: ["hornleech","leechseed","phantomforce","substitute","willowisp","curse","bulldoze","rockslide","poisonjab"],
+		tier: "LC"
+	},
+	trevenant: {
+		randomBattleMoves: ["hornleech","woodhammer","leechseed","shadowclaw","substitute","willowisp","curse","earthquake","rockslide"],
+		randomDoubleBattleMoves: ["hornleech","woodhammer","leechseed","shadowclaw","willowisp","trickroom","earthquake","rockslide","protect"],
+		tier: "UU"
+	},
+	pumpkaboo: {
+		randomBattleMoves: ["willowisp","shadowsneak","fireblast","painsplit","seedbomb"],
+		tier: "LC"
+	},
+	pumpkaboosmall: {
+		randomBattleMoves: ["willowisp","shadowsneak","fireblast","painsplit","seedbomb"],
+		unreleasedHidden: true,
+		tier: "LC"
+	},
+	pumpkaboolarge: {
+		randomBattleMoves: ["willowisp","shadowsneak","fireblast","painsplit","seedbomb"],
+		unreleasedHidden: true,
+		tier: "LC"
+	},
+	pumpkaboosuper: {
+		randomBattleMoves: ["willowisp","shadowsneak","fireblast","painsplit","seedbomb"],
+		unreleasedHidden: true,
+		tier: "LC"
+	},
+	gourgeist: {
+		randomBattleMoves: ["willowisp","shadowsneak","painsplit","seedbomb","leechseed","phantomforce","explosion"],
+		randomDoubleBattleMoves: ["willowisp","shadowsneak","painsplit","seedbomb","leechseed","phantomforce","explosion","protect"],
+		tier: "NU"
+	},
+	gourgeistsmall: {
+		randomBattleMoves: ["willowisp","shadowsneak","painsplit","seedbomb","leechseed","phantomforce","explosion"],
+		randomDoubleBattleMoves: ["willowisp","shadowsneak","painsplit","seedbomb","leechseed","phantomforce","explosion","protect"],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	gourgeistlarge: {
+		randomBattleMoves: ["willowisp","shadowsneak","painsplit","seedbomb","leechseed","phantomforce","explosion"],
+		randomDoubleBattleMoves: ["willowisp","shadowsneak","painsplit","seedbomb","leechseed","phantomforce","explosion","protect","trickroom"],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	gourgeistsuper: {
+		randomBattleMoves: ["willowisp","shadowsneak","painsplit","seedbomb","leechseed","phantomforce","explosion"],
+		randomDoubleBattleMoves: ["willowisp","shadowsneak","painsplit","seedbomb","leechseed","phantomforce","explosion","protect","trickroom"],
+		unreleasedHidden: true,
+		tier: "NU"
+	},
+	bergmite: {
+		randomBattleMoves: ["avalanche","recover","stoneedge","curse","gyroball","rapidspin"],
+		tier: "LC"
+	},
+	avalugg: {
+		randomBattleMoves: ["avalanche","recover","stoneedge","curse","gyroball","rapidspin","roar","earthquake"],
+		randomDoubleBattleMoves: ["avalanche","recover","stoneedge","protect","gyroball","earthquake","curse"],
+		tier: "NU"
+	},
+	noibat: {
+		randomBattleMoves: ["airslash","hurricane","dracometeor","uturn","roost","switcheroo"],
+		tier: "LC"
+	},
+	noivern: {
+		randomBattleMoves: ["airslash","hurricane","dragonpulse","dracometeor","focusblast","flamethrower","uturn","roost","boomburst","switcheroo"],
+		randomDoubleBattleMoves: ["airslash","hurricane","dragonpulse","dracometeor","focusblast","flamethrower","uturn","roost","boomburst","switcheroo","tailwind","taunt","protect"],
+		tier: "UU"
+	},
+	xerneas: {
+		randomBattleMoves: ["geomancy","moonblast","thunder","focusblast"],
+		randomDoubleBattleMoves: ["geomancy","dazzlinggleam","thunder","focusblast","protect"],
+		tier: "Uber"
+	},
+	yveltal: {
+		randomBattleMoves: ["darkpulse","oblivionwing","taunt","focusblast","hurricane","roost","suckerpunch"],
+		randomDoubleBattleMoves: ["darkpulse","oblivionwing","taunt","focusblast","hurricane","roost","suckerpunch","snarl","skydrop","protect"],
+		tier: "Uber"
+	},
+	zygarde: {
+		randomBattleMoves: ["dragondance","earthquake","extremespeed","outrage","coil","stoneedge"],
+		randomDoubleBattleMoves: ["dragondance","landswrath","extremespeed","rockslide","coil","stoneedge","glare","protect"],
+		tier: "BL"
+	},
+	diancie: {
+		randomBattleMoves: ["diamondstorm","moonblast","reflect","lightscreen","substitute","calmmind","psychic","stealthrock"],
+		randomDoubleBattleMoves: ["diamondstorm","moonblast","reflect","lightscreen","safeguard","substitute","calmmind","psychic","dazzlinggleam","protect"],
+		eventPokemon: [
+			{"generation":6,"level":50,"moves":["diamondstorm","moonblast","reflect","return"],"pokeball":"cherishball"}
+		],
+		tier: "OU"
+	},
+	hoopa: {
+		isUnreleased: true,
+		tier: "Unreleased"
+	},
+	volcanion: {
+		isUnreleased: true,
+		tier: "Unreleased"
+	},
+	missingno: {
+		randomBattleMoves: ["watergun","skyattack","doubleedge","metronome"],
+		isNonstandard: true,
+		tier: ""
+	},
+	tomohawk: {
+		randomBattleMoves: ["aurasphere","roost","stealthrock","rapidspin","hurricane","airslash","taunt","substitute","toxic","naturepower","earthpower"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	necturna: {
+		randomBattleMoves: ["powerwhip","hornleech","willowisp","shadowsneak","stoneedge","sacredfire","boltstrike","vcreate","extremespeed","closecombat","shellsmash","spore","milkdrink","batonpass","stickyweb"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	mollux: {
+		randomBattleMoves: ["fireblast","thunderbolt","sludgebomb","thunderwave","willowisp","recover","rapidspin","trick","stealthrock","toxicspikes","lavaplume"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	aurumoth: {
+		randomBattleMoves: ["dragondance","quiverdance","closecombat","bugbuzz","hydropump","megahorn","psychic","blizzard","thunder","focusblast","zenheadbutt"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	malaconda: {
+		randomBattleMoves: ["powerwhip","glare","crunch","toxic","suckerpunch","rest","substitute","uturn","synthesis","rapidspin","knockoff"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	cawmodore: {
+		randomBattleMoves: ["bellydrum","bulletpunch","drainpunch","acrobatics","drillpeck","substitute","ironhead","quickattack"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	volkraken: {
+		randomBattleMoves: ["scald","powergem","hydropump","memento","hiddenpower","flamethrower","fireblast","overheat","willowisp","uturn","substitute","flashcannon","surf"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	syclant: {
+		randomBattleMoves: ["bugbuzz","icebeam","blizzard","earthpower","spikes","superpower","tailglow","uturn","focusblast"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	revenankh: {
+		randomBattleMoves: ["bulkup","shadowsneak","drainpunch","rest","moonlight","icepunch","glare"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	pyroak: {
+		randomBattleMoves: ["leechseed","lavaplume","substitute","protect","gigadrain"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	fidgit: {
+		randomBattleMoves: ["spikes","stealthrock","toxicspikes","wish","rapidspin","encore","uturn","sludgebomb","earthpower"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	stratagem: {
+		randomBattleMoves: ["paleowave","earthpower","fireblast","gigadrain","calmmind","substitute"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	arghonaut: {
+		randomBattleMoves: ["recover","bulkup","waterfall","drainpunch","crosschop","stoneedge","thunderpunch","aquajet","machpunch"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	kitsunoh: {
+		randomBattleMoves: ["shadowstrike","earthquake","superpower","meteormash","uturn","icepunch","trick","willowisp"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	cyclohm: {
+		randomBattleMoves: ["slackoff","dracometeor","dragonpulse","fireblast","thunderbolt","hydropump","discharge","healbell"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	colossoil: {
+		randomBattleMoves: ["earthquake","crunch","suckerpunch","uturn","rapidspin","encore","pursuit","knockoff"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	krilowatt: {
+		randomBattleMoves: ["surf","thunderbolt","icebeam","earthpower"],
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	voodoom: {
+		randomBattleMoves: ["aurasphere","darkpulse","taunt","painsplit","substitute","hiddenpowerice","vacuumwave"],
+		isNonstandard: true,
+		tier: "CAP"
+	}
 };

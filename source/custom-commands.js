@@ -693,6 +693,7 @@ var customCommands = {
 				'"you have been hour munted by demon lrod helix" - Artiste Jeratt 9/7/14<br />'+
 				'"Oh boy, how I love women. Golly gosh, I really do love vajigglejaggle. If only I could express how much I loved melons. Gee whizz." -Gym Ldr Eska 19/7/14<br />'+
 				'"there can only be one asch, but anyone can be an aschhole" -E4 Cocoa 17/8/14<br />'+
+				'"Drizzle Damp Rock is broken, but apparently the flying Rabbit Hedgehog from Ubers is okay." -∆Champiön Nöah∆ 1/9/14 <br />'+ 
 				'</div>');
 	},
 	

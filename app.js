@@ -75,10 +75,9 @@ if (!Object.select) {
 
 // Make sure config.js exists, and copy it over from config-example.js
 // if it doesn't
-global.fs = require('fs');
-if (!('existsSync' in fs)) {
-	fs.existsSync = require('path').existsSync;
-}
+
+var fs = require('fs');
+
 // Synchronously, since it's needed before we can start the server
 if (!fs.existsSync('./config/config.js')) {
 	console.log("config.js doesn't exist - creating one with default settings...");
@@ -340,13 +339,6 @@ global.toName = function (name) {
 	return name;
 };
 
-global.sanitize = function(str, strEscape) {
-	str = (''+(str||''));
-	str = str.escapeHTML();
-	if (strEscape) str = str.replace(/'/g, '\\\'');
-	return str;
-};
-
 /**
  * Safely ensures the passed variable is a string
  * Simply doing '' + str can crash if str.toString crashes or isn't a function
@@ -440,7 +432,6 @@ reloadCustomAvatars();
 
 global.Spamroom = require('./spamroom.js');
 
-// uptime recording
 fs.readFile('./logs/uptime.txt', function (err, uptime) {
 	if (!err) global.uptimeRecord = parseInt(uptime, 10);
 	global.uptimeRecordInterval = setInterval(function () {
@@ -461,5 +452,3 @@ global.Poll = require('./source/core.js').core.poll();
 global.SysopAccess = require('./source/core.js').sysopAccess();
 
 global.Core = require('./source/core.js').core;
-
-

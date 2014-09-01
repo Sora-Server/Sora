@@ -86,6 +86,7 @@ var Battle = (function (){
 		this.playerids = [null, null];
 		this.playerTable = {};
 		this.requests = {};
+		this.field = {}; // Bot battling AI
 
 		this.process = SimulatorProcess.acquire();
 
@@ -98,7 +99,7 @@ var Battle = (function (){
 
 	Battle.prototype.started = false;
 	Battle.prototype.ended = false;
-	Battle.prototype.active = true;
+	Battle.prototype.active = false;
 	Battle.prototype.players = null;
 	Battle.prototype.playerids = null;
 	Battle.prototype.playerTable = null;
@@ -173,6 +174,7 @@ var Battle = (function (){
 			var rqid = lines[3];
 			if (player) {
 				this.requests[player.userid] = lines[4];
+				this.field[player.userid] = JSON.parse(this.requests[player.userid]); // Bot battling AI
 				player.sendTo(this.id, '|request|' + lines[4]);
 			}
 			if (rqid !== this.rqid) {
@@ -279,6 +281,10 @@ var Battle = (function (){
 		// console.log('joining: ' + user.name + ' ' + slot);
 		if (this.players[slot] || slot >= this.players.length) return false;
 
+		for (var i = 0; i < user.connections.length; i++) {
+			var connection = user.connections[i];
+			Sockets.subchannelMove(connection.worker, this.id, slot + 1, connection.socketid);
+		}
 		this.setPlayer(user, slot);
 
 		var message = '' + user.avatar;
@@ -307,6 +313,10 @@ var Battle = (function (){
 			var player = this.players[i];
 			if (player === user) {
 				this.sendFor(user, 'leave');
+				for (var j = 0; j < user.connections.length; j++) {
+					var connection = user.connections[j];
+					Sockets.subchannelMove(connection.worker, this.id, '0', connection.socketid);
+				}
 				this.setPlayer(null, i);
 				return true;
 			}

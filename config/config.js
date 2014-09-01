@@ -151,7 +151,7 @@ exports.customAvatars = {
 	  'e4bighug': '010.gif',
 	  'gymtrnrgary': '011.gif',
 	  'deltaninjarisu': '060.gif',
-	  'gymldrsnowking': '079.gif',
+	  'gymldrsnowking': '082.gif',
 	  'gymldrkrenon': '017.gif',
 	  'gymldrasch': '018.gif',
 	  'kingarani': '019.png',
@@ -191,6 +191,7 @@ exports.customAvatars = {
 	  'frontieriggy': '077.jpg',
 	  'frontiergasp': '080.jpg',
 	  'typhozzz': '081.png',
+	  
 	
 };
 

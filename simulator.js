@@ -86,7 +86,6 @@ var Battle = (function (){
 		this.playerids = [null, null];
 		this.playerTable = {};
 		this.requests = {};
-		this.field = {}; // Bot battling AI
 
 		this.process = SimulatorProcess.acquire();
 
@@ -174,7 +173,6 @@ var Battle = (function (){
 			var rqid = lines[3];
 			if (player) {
 				this.requests[player.userid] = lines[4];
-				this.field[player.userid] = JSON.parse(this.requests[player.userid]); // Bot battling AI
 				player.sendTo(this.id, '|request|' + lines[4]);
 			}
 			if (rqid !== this.rqid) {

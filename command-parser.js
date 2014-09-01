@@ -386,7 +386,6 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
 		});
 	}
 
-
 	return message;
 };
 

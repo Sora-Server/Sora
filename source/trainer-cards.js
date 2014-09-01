@@ -59,7 +59,7 @@ var trainerCards = {
 		      '<i>"If you don\'t come quietly, I\'m dragon you down with me."</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
 		      '<b>Ace:</b> Latios<br />'+
-		      '<img src="http://play.pokemonshowdown.com/sprites/xyani/latios.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/latias.gif"><br />');
+		      '<img src="http://play.pokemonshowdown.com/sprites/xyani/latios.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/dragonite.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/latias.gif"><br />');
 	},
 
 	toast: function(target, room, user) {
@@ -183,10 +183,10 @@ var trainerCards = {
 	              '<b>Ace:</b> Togekiss<br />');
         },
         
-        
-        fire: function(target, room, user) {
+        fire: 'ignitor',
+        ignitor: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Ignitor</b><br />'+
 	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> ???<br />');

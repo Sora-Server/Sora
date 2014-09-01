@@ -1363,12 +1363,9 @@ var ChatRoom = (function () {
 	};
 	ChatRoom.prototype.onJoinConnection = function (user, connection) {
 		var userList = this.userList ? this.userList : this.getUserList();
-		this.sendUser(connection, '|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.getLogSlice(-25).join('\n') + this.getIntroMessage());
-		if (global.Tournaments && Tournaments.get(this.id)) {
-			Tournaments.get(this.id).updateFor(user, connection);
-		}
-		if (this.reminders && this.reminders.length > 0)
-			CommandParser.parse('/reminder', this, user, connection);
+		this.send('|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.logGetLast(25).join('\n') + this.getIntroMessage(), connection);
+		if (global.Tournaments && Tournaments.get(this.id))
+			Tournaments.get(this.id).update(user);
 	};
 	ChatRoom.prototype.onJoin = function (user, connection, merging) {
 		if (!user) return false; // ???
@@ -1386,9 +1383,7 @@ var ChatRoom = (function () {
 
 		if (!merging) {
 			var userList = this.userList ? this.userList : this.getUserList();
-			this.sendUser(connection, '|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.getLogSlice(-100).join('\n') + this.getIntroMessage());
-			if (this.reminders && this.reminders.length > 0)
-				CommandParser.parse('/reminder', this, user, connection);
+			this.send('|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.logGetLast(100).join('\n') + this.getIntroMessage(), connection);
 		}
 		if (global.Tournaments && Tournaments.get(this.id)) {
 			Tournaments.get(this.id).updateFor(user, connection);

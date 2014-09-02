@@ -191,7 +191,6 @@ exports.customAvatars = {
 	  'frontieriggy': '077.jpg',
 	  'frontiergasp': '080.jpg',
 	  'typhozzz': '081.png',
-	  'elitefurrubiks': '084.png',
 	  
 	
 };

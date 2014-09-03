@@ -192,7 +192,7 @@ exports.customAvatars = {
 	  'frontiergasp': '080.jpg',
 	  'typhozzz': '081.png',
 	  'rubiks456': '084.png',
-	  
+	  'gymldrarshrs': 'blakjack.png',
 	
 };
 

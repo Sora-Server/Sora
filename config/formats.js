@@ -670,8 +670,12 @@ exports.Formats = [
 	{
 		name: "OU Monotype",
 		section: "Monotype",
-		ruleset: ['Pokemon', 'OU', 'HP Percentage Mod', 'Team Preview', 'Same Type Clause'],
-		banlist: ['Talonflame']
+
+		ruleset: ['Pokemon', 'Standard', 'Baton Pass Clause', 'Swagger Clause', 'Same Type Clause', 'Team Preview'],
+		banlist: ['Arceus', 'Blaziken', 'Darkrai', 'Deoxys', 'Deoxys-Attack', 'Dialga', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh',
+			'Kyogre', 'Lugia', 'Mewtwo', 'Palkia', 'Rayquaza', 'Reshiram', 'Talonflame', 'Xerneas', 'Yveltal', 'Zekrom',
+			'Gengarite', 'Kangaskhanite', 'Lucarionite'
+		]
 	},
 	{
 		name: "Ubers Monotype",

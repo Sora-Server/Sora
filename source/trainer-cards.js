@@ -373,13 +373,13 @@ var trainerCards = {
 			  '<b>Ace:</b> Pinsir <br />');
         },
 	
-	ice: 'tsuna',
-	tsuna: function(target, room, user) {
+	
+	ice: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Tsuna</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b> Kyurem-Black<br />');
+			  '<b>Ace:</b> ???<br />');
 	},
 
 	jeratt: function(target, room, user) {

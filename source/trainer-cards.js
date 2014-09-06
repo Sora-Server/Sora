@@ -51,15 +51,13 @@ var trainerCards = {
 	 	     '<center><img src="http://sprites.pokecheck.org/i/461.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Misc%20sprites/Bart_zps03ad3a7d.png"></center>');
         },
 
-	dragon: 'snowking',
-	snowking: function(target, room, user) {
+	
+	dragon: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Snowking</b><br />'+
-		      '<b>Leader rank: <font color = 76ff00>4th</font></b> <br />'+ 
-		      '<i>"If you don\'t come quietly, I\'m dragon you down with me."</i> <br />'+
+		      '<i>"???."</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> Latios<br />'+
-		      '<img src="http://play.pokemonshowdown.com/sprites/xyani/latios.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/dragonite.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/latias.gif"><br />');
+		      '<b>Ace:</b> ???<br />');
 	},
 
 	toast: function(target, room, user) {

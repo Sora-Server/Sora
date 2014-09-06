@@ -689,11 +689,11 @@ var customCommands = {
 			this.sendReplyBox('<b>Quote of the Day:</b><br />' +
 			        'This command will display genius quotes until another quote tops it!<br />' +
 				'"I\'m better as an E4." - Matt 2014<br />' +
-				'"We\'re the place the Asylum sends the people who\'re too fucked up for them"- ∆Champiön Nöah∆ 14/6/14<br />'+
-				'"you have been hour munted by demon lrod helix" - Artiste Jeratt 9/7/14<br />'+
+				'"you have been hour munted by demon lrod helix" - Artiste Jeratt 9/7/14<br />' +
 				'"Oh boy, how I love women. Golly gosh, I really do love vajigglejaggle. If only I could express how much I loved melons. Gee whizz." -Gym Ldr Eska 19/7/14<br />'+
-				'"there can only be one asch, but anyone can be an aschhole" -E4 Cocoa 17/8/14<br />'+
-				'"Drizzle Damp Rock is broken, but apparently the flying Rabbit Hedgehog from Ubers is okay." -∆Champiön Nöah∆ 1/9/14 <br />'+ 
+				'"there can only be one asch, but anyone can be an aschhole" -E4 Cocoa 17/8/14<br /> '+
+				'"Drizzle Damp Rock is broken, but apparently the flying Rabbit Hedgehog from Ubers is okay." -∆Champiön Nöah∆ 1/9/14 <br />' +
+				'"The thing about electric types is you always gotta wear a rubber"-∆E4 Vanilla∆ 6/9/14<br />' +
 				'</div>');
 	},
 	

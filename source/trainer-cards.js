@@ -264,13 +264,13 @@ var trainerCards = {
 			 '<b>Ace:</b> Venusaur<br />');
 	},
         
-        flying: 'arshrs',
-        arshrs: function(target, room, user) {
+        flying: 'meows',
+        meows: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Arshrs</b><br />'+
-		         '<i>"Haters gonna hate potatoes gonna potate"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
+		         '<i>"WOOOOOO HEHEHEHE WOOOOOOO"</i> <br />'+
 	              	 '<b>Type: <font color = 91ffe9>Flying</font></b><br />'+
-			 '<b>Ace:</b> Vivillon<br />');
+			 '<b>Ace:</b> Aerodactyl<br />');
 			 
         },
         
@@ -313,13 +313,13 @@ var trainerCards = {
 
 	},
 
-        ghost: 'meows',
-	meows: function(target, room, user) {
+        
+	ghost: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
-			 '<i>"BOOOOO HEHEHEHE BOOOOOOOO"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
-			 '<b>Ace:</b> Froslass<br />');
+			 '<b>Ace:</b> ???<br />');
 			 
         },
         

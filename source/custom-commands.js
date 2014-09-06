@@ -584,6 +584,7 @@ var customCommands = {
 	        '94.79.237.137 -Champiön Greninja<br />'+
 	        '71.191.144.42 -Imp Dawnmidst<br />'+
 	        '104.157.62.151 -ZYGA<br />'+
+	        '37.58.52.99 -Snowking<br />'+
 	        'Shame on them!');
         },
 

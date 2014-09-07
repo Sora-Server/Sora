@@ -187,5 +187,5 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Bug"
-	      },
+	      }
 };	      

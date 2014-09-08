@@ -361,7 +361,7 @@ var trainerCards = {
 			  '<b>Ace:</b> Excadrill <br />');
 			  
 	},
-	
+	bug: 'aidan',
 	aidan: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Aidan</b><br />'+

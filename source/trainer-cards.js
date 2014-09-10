@@ -276,7 +276,7 @@ var trainerCards = {
 		         '<b> Leader Ranking <font color =007daa>7th</font></b> <br />'+
 		         '<i>"WOOOOOO HEHEHEHE WOOOOOOO"</i> <br />'+
 	              	 '<b>Type: <font color = 00a6c4>Flying</font></b><br />'+
-			 '<b>Ace:</b> Aerodactyl<br />');
+			 '<b>Ace:</b> Hawlucha<br />');
 			 
         },
         
@@ -310,7 +310,7 @@ var trainerCards = {
 			this.sendReplyBox('Frontier <b>Night</b><br />'+
 			  '<i>"Slow and Steady wins the race."</i> <br />'+
 			  '<b>Symbol:</b> Limit<br />'+
-			  '<b>Ace:</b> Rhydon<br />'+
+			  '<b>Ace:</b> FUCKING ESCA<br />'+
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-No Pokemon above 40 Base Speed <br/>'+
 		 	  '-No hazards <br/>'+

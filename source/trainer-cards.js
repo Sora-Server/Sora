@@ -253,7 +253,7 @@ var trainerCards = {
         kingx: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>KingX</b><br />'+
-			  'Leader Ranking: <font color =480087>10th</font></b> <br />'+
+			  '<b>Leader Ranking: <font color =480087>10th</font></b> <br />'+
 			  '<i>"Long live the King!"</i> <br />'+
 			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
 			  '<b>Ace:</b> Sableye<br />');

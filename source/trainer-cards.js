@@ -275,7 +275,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
 		         '<b> Leader Ranking <font color =007daa>7th</font></b> <br />'+
 		         '<i>"WOOOOOO HEHEHEHE WOOOOOOO"</i> <br />'+
-	              	 '<b>Type: <font color = 91ffe9>Flying</font></b><br />'+
+	              	 '<b>Type: <font color = 00a6c4>Flying</font></b><br />'+
 			 '<b>Ace:</b> Aerodactyl<br />');
 			 
         },
@@ -492,9 +492,9 @@ var trainerCards = {
 				'-<b>3rd <font color = 5e6664>Myth</font></b> (Steel)<br />'+
 				'-<b>4th <font color = 0400f9>Floatzel</font></b> (Water) <br />'+
 				'-<b>5th <font color = d83c08>Jacob</font></b> (Fighting) <br />'+
-				'-<b>6th <font color = ff9900>Asch</font></b> (Grass)<br />'+
-				'-<b>7th <font color = 91ffe9>Meows</front></b> (Flying)<br />'+
-				'-<b>8th <font color = ffe100>Srewop</front></b> (Poison)<br />'+
+				'-<b>6th <font color = 006b0a>Asch</font></b> (Grass)<br />'+
+				'-<b>7th <font color = 00a6c4>Meows</front></b> (Flying)<br />'+
+				'-<b>8th <font color = aa00ff>Srewop</front></b> (Poison)<br />'+
 				'-<b>9th <font color = ff42a0>Ark</front></b> (Fairy)<br />'+
 				'-<b>10th <font color =15012b>KingX</front></b> (Dark)<br />'+
 				'</div>');

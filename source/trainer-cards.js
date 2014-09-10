@@ -480,12 +480,17 @@ var trainerCards = {
 	leaderranks: 'ranks',
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Listed here are the Top 5 Leaders in The Sora League based on performance in our Monthly Promotional Tournaments! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. <br />' +
-				'-<b>1st <font color = 5e6664>Myth</font></b> (Steel)<br />'+
-				'-<b>2nd <font color = 006b0a>Asch</font></b></b> (Grass)<br />'+
-				'-<b>3rd <font color = aa00ff>Srewop</font></b> (Poison)<br />'+
-				'-<b>4th <font color = 4f107c>Snowking</font></b> (Dragon) <br />'+
-				'-<b>5th <font color = ecb0f4>Bamdee</font></b> (Normal) <br />'+
+			this.sendReplyBox('Listed here are the Top 10 Leaders in The Sora League based on performance in our Monthly Promotional Tournaments! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. <br />' +
+				'-<b>1st <font color = 00ff00>Bamdee</font></b> (Normal)<br />'+
+				'-<b>2nd <font color = FF0000>Ignitor</font></b></b> (Fire)<br />'+
+				'-<b>3rd <font color = 5e6664>Myth</font></b> (Steel)<br />'+
+				'-<b>4th <font color = 0400f9>Floatzel</font></b> (Water) <br />'+
+				'-<b>5th <font color = d83c08>Jacob</font></b> (Fighting) <br />'+
+				'-<b>6th <font color = ff9900>Asch</font></b> (Grass)<br />'+
+				'-<b>7th <font color = 91ffe9>Meows</front></b> (Flying)<br />'+
+				'-<b>8th <font color = ffe100>Srewop</front></b> (Poison)<br />'+
+				'-<b>9th <font color = ff42a0>Ark</front></b> (Fairy)<br />'+
+				'-<b>10th <font color = 15012b>KingX</front></b> (Dark)<br />'+
 				'</div>');
 	
 	},

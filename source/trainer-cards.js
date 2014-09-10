@@ -347,7 +347,7 @@ var trainerCards = {
         psychic: 'chaoz',
 	chaoz: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Psychic</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Chaoz</b><br />'+
 			  '<i>"Anything can be overcome with willpower."</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Alakazam <br />');

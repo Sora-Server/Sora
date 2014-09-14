@@ -245,7 +245,7 @@ var trainerCards = {
 			  '<b>Ace:</b> Scizor (Scizorhands)<br />'+
 			  '<b>Battle Rules:</b><br />'+
 			  '-No Hazards <br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/trainers/169.png"><img src="http://sprites.pokecheck.org/i/212.gif">');
+			  '<img src="http://sprites.pokecheck.org/t/144.gif"><img src="http://sprites.pokecheck.org/i/212.gif">');
 
 	},
 		  

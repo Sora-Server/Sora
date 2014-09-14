@@ -364,6 +364,10 @@ reload: function (target, room, user) {
             this.sendReply('Reloading Core...');
             CommandParser.uncacheTree(path.join(__dirname, './', './source/core.js'));
             Core = require(path.join(__dirname, './', './source/core.js')).core;
+			
+			this.sendReply('Reloading Hangman...');
+            CommandParser.uncacheTree(path.join(__dirname, './', './source/hangman.js'));
+            hangman = require(path.join(__dirname, './', './source/hangman.js')).hangman;
 
             this.sendReply('Reloading custom-commands.js...');
 	        CommandParser.uncacheTree(path.join(__dirname, './', './source/custom-commands.js'));

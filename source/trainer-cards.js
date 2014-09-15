@@ -330,7 +330,7 @@ var trainerCards = {
         },
         
         
-        electric: 'praga'
+        electric: 'praga',
 	praga: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Praga</b><br />'+

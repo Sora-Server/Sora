@@ -269,14 +269,13 @@ var trainerCards = {
 			 '<b>Ace:</b> Venusaur<br />');
 	},
         
-        flying: 'meows',
-        meows: function(target, room, user) {
+        
+        flying: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
-		         '<b> Leader Ranking <font color =007daa>7th</font></b> <br />'+
-		         '<i>"WOOOOOO HEHEHEHE WOOOOOOO"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		         '<i>"???"</i> <br />'+
 	              	 '<b>Type: <font color = 00a6c4>Flying</font></b><br />'+
-			 '<b>Ace:</b> Hawlucha<br />');
+			 '<b>Ace:</b> ???<br />');
 			 
         },
         
@@ -379,7 +378,8 @@ var trainerCards = {
 	
 	ice: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
+		          '<b> Leader Ranking <font color =007daa>7th</font></b> <br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
 			  '<b>Ace:</b> ???<br />');
@@ -493,7 +493,7 @@ var trainerCards = {
 				'-<b>4th <font color = 0400f9>Floatzel</font></b> (Water) <br />'+
 				'-<b>5th <font color = d83c08>Jacob</font></b> (Fighting) <br />'+
 				'-<b>6th <font color = 006b0a>Asch</font></b> (Grass)<br />'+
-				'-<b>7th <font color = 00a6c4>Meows</front></b> (Flying)<br />'+
+				'-<b>7th <font color = 00e0ac>Meows</front></b> (Ice)<br />'+
 				'-<b>8th <font color = aa00ff>Srewop</front></b> (Poison)<br />'+
 				'-<b>9th <font color = ff42a0>Ark</front></b> (Fairy)<br />'+
 				'-<b>10th <font color =15012b>KingX</front></b> (Dark)<br />'+

@@ -272,7 +272,7 @@ var trainerCards = {
         flying: 'arsh',
         arsh: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Arsh</b><br />'+
 		         '<i>"Haters gonna hate, potatoes gonna potate."</i> <br />'+
 	              	 '<b>Type: <font color = 00a6c4>Flying</font></b><br />'+
 			 '<b>Ace:</b> Vivillon<br />');

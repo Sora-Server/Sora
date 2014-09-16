@@ -375,14 +375,14 @@ var trainerCards = {
 			  '<b>Ace:</b> Scizor <br />');
         },
 	
-	
-	ice: function(target, room, user) {
+	ice: 'meows',
+	meows: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
 		          '<b> Leader Ranking <font color =007daa>7th</font></b> <br />'+
-			  '<i>"???"</i> <br />'+
+			  '<i>"Meow."</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Inb4 Specs (Weavile)<br />');
 	},
 
 	jeratt: function(target, room, user) {

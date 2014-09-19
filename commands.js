@@ -210,6 +210,8 @@ var commands = exports.commands = {
 				room.chatRoomData.modjoin = true;
 				Rooms.global.writeChatRoomData();
 			}
+			if (!room.modchat) this.parse('/modchat ' + Config.groupsranking[1]);
+			if (!room.isPrivate) this.parse('/privateroom');
 		}
 	},
 
@@ -278,6 +280,86 @@ var commands = exports.commands = {
 
 		if (room.chatRoomData) {
 			room.chatRoomData.introMessage = room.introMessage;
+			Rooms.global.writeChatRoomData();
+		}
+	},
+
+	roomalias: function (target, room, user) {
+		if (!room.chatRoomData) return this.sendReply("This room isn't designed for aliases.");
+		if (!target) {
+			if (!room.chatRoomData.aliases || !room.chatRoomData.aliases.length) return this.sendReplyBox("This room does not have any aliases.");
+			return this.sendReplyBox("This room has the following aliases: " + room.chatRoomData.aliases.join(", ") + "");
+		}
+		if (!this.can('setalias')) return false;
+		var alias = toId(target);
+		if (!alias.length) return this.sendReply("Only alphanumeric characters are valid in an alias.");
+		if (Rooms.get(alias) || Rooms.aliases[alias]) return this.sendReply("You cannot set an alias to an existing room or alias.");
+
+		this.privateModCommand("(" + user.name + " added the room alias '" + target + "'.)");
+
+		if (!room.chatRoomData.aliases) room.chatRoomData.aliases = [];
+		room.chatRoomData.aliases.push(alias);
+		Rooms.aliases[alias] = room;
+		Rooms.global.writeChatRoomData();
+	},
+
+	removeroomalias: function (target, room, user) {
+		if (!room.chatRoomData) return this.sendReply("This room isn't designed for aliases.");
+		if (!room.chatRoomData.aliases) return this.sendReply("This room does not have any aliases.");
+		if (!this.can('setalias')) return false;
+		var alias = toId(target);
+		if (!alias.length || !Rooms.aliases[alias]) return this.sendReply("Please specify an existing alias.");
+		if (Rooms.aliases[alias] !== room) return this.sendReply("You may only remove an alias from the current room.");
+
+		this.privateModCommand("(" + user.name + " removed the room alias '" + target + "'.)");
+
+		var aliasIndex = room.chatRoomData.aliases.indexOf(alias);
+		if (aliasIndex >= 0) {
+			room.chatRoomData.aliases.splice(aliasIndex, 1);
+			delete Rooms.aliases[alias];
+			Rooms.global.writeChatRoomData();
+		}
+	},
+
+	roomowner: function (target, room, user) {
+		if (!room.chatRoomData) {
+			return this.sendReply("/roomowner - This room isn't designed for per-room moderation to be added");
+		}
+		target = this.splitTarget(target, true);
+		var targetUser = this.targetUser;
+
+		if (!targetUser) return this.sendReply("User '" + this.targetUsername + "' is not online.");
+
+		if (!this.can('makeroom', targetUser, room)) return false;
+
+		if (!room.auth) room.auth = room.chatRoomData.auth = {};
+
+		var name = targetUser.name;
+
+		room.auth[targetUser.userid] = '#';
+		this.addModCommand("" + name + " was appointed Room Owner by " + user.name + ".");
+		room.onUpdateIdentity(targetUser);
+		Rooms.global.writeChatRoomData();
+	},
+
+	roomdeowner: 'deroomowner',
+	deroomowner: function (target, room, user) {
+		if (!room.auth) {
+			return this.sendReply("/roomdeowner - This room isn't designed for per-room moderation");
+		}
+		target = this.splitTarget(target, true);
+		var targetUser = this.targetUser;
+		var name = this.targetUsername;
+		var userid = toId(name);
+		if (!userid || userid === '') return this.sendReply("User '" + name + "' does not exist.");
+
+		if (room.auth[userid] !== '#') return this.sendReply("User '" + name + "' is not a room owner.");
+		if (!this.can('makeroom', null, room)) return false;
+
+		delete room.auth[userid];
+		this.sendReply("(" + name + " is no longer Room Owner.)");
+		if (targetUser) targetUser.updateIdentity();
+		if (room.chatRoomData) {
 			Rooms.global.writeChatRoomData();
 		}
 	},
@@ -539,7 +621,7 @@ reload: function (target, room, user) {
 
 	join: function (target, room, user, connection) {
 		if (!target) return false;
-		var targetRoom = Rooms.get(target) || Rooms.get(toId(target));
+		var targetRoom = Rooms.get(target) || Rooms.get(toId(target)) || Rooms.aliases[toId(target)];
 		if (!targetRoom) {
 			return connection.sendTo(target, "|noinit|nonexistent|The room '" + target + "' does not exist.");
 		}
@@ -849,6 +931,8 @@ reload: function (target, room, user) {
 	mn: 'modnote',
 	modnote: function (target, room, user, connection) {
 		if (!target) return this.parse('/help modnote');
+		if (user.locked || user.mutedRooms[room.id]) return this.sendReply("You cannot do this while unable to talk.");
+
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.sendReply("The note is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
 		}
@@ -942,6 +1026,7 @@ reload: function (target, room, user) {
 		case 'off':
 		case 'false':
 		case 'no':
+		case ' ':
 			room.modchat = false;
 			break;
 		case 'ac':
@@ -1798,7 +1883,7 @@ reload: function (target, room, user) {
 		} else if (cmd === 'roomlist') {
 			if (!trustable) return false;
 			connection.send('|queryresponse|roomlist|' + JSON.stringify({
-				rooms: Rooms.global.getRoomList(true)
+				rooms: Rooms.global.getRoomList(target)
 			}));
 
 		} else if (cmd === 'rooms') {

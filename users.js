@@ -1089,9 +1089,6 @@ User = (function () {
 					}
 				}
 			}
-			if (ipIntersected) {
-				alts.push(users[i].name);
-			}
 		}
 		return alts;
 	};
@@ -1145,8 +1142,12 @@ User = (function () {
 		if (!noRecurse) {
 			for (var i in users) {
 				if (users[i] === this) continue;
-				if (Object.isEmpty(Object.select(this.ips, users[i].ips))) continue;
-				users[i].mute(roomid, time, force, true);
+				for (var myIp in this.ips) {
+					if (myIp in users[i].ips) {
+						users[i].mute(roomid, time, force, true);
+						break;
+					}
+				}
 			}
 		}
 
@@ -1173,8 +1174,12 @@ User = (function () {
 		if (!noRecurse) {
 			for (var i in users) {
 				if (users[i] === this) continue;
-				if (Object.isEmpty(Object.select(this.ips, users[i].ips))) continue;
-				users[i].ban(true, userid);
+				for (var myIp in this.ips) {
+					if (myIp in users[i].ips) {
+						users[i].ban(true, userid);
+						break;
+					}
+				}
 			}
 		}
 
@@ -1195,8 +1200,12 @@ User = (function () {
 		if (!noRecurse) {
 			for (var i in users) {
 				if (users[i] === this) continue;
-				if (Object.isEmpty(Object.select(this.ips, users[i].ips))) continue;
-				users[i].lock(true, userid);
+				for (var myIp in this.ips) {
+					if (myIp in users[i].ips) {
+						users[i].lock(true, userid);
+						break;
+					}
+				}
 			}
 		}
 

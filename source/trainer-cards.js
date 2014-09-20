@@ -231,7 +231,7 @@ var trainerCards = {
 			  '<b>Type:</b> Normal<br />'+
 			  '<b>Ace:</b> Miltank<br />'+
 			  '<b>Battle Rules:</b><br />'+
-			  '-No Focus Sash<br />'+
+			  '-No Trick/Switcheroo<br />'+
 			  '-No Hazards<br />');
        
         },

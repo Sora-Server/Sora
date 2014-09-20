@@ -585,6 +585,7 @@ var customCommands = {
 	        '71.191.144.42 -Imp Dawnmidst<br />'+
 	        '104.157.62.151 -ZYGA<br />'+
 	        '37.58.52.99 -Snowking<br />'+
+	        '222.127.85.53 -Galactic Azir<br />'+
 	        'Shame on them!');
         },
 

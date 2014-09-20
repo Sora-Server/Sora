@@ -321,10 +321,10 @@ var trainerCards = {
 	
 	ajeratt: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Frontier <b>AJerratt</b><br />'+
+			this.sendReplyBox('Frontier <b>AJeratt</b><br />'+
 			  '<i>"Can you keep up though?"</i> <br />'+
-			  '<b>Symbol:</b> Limit<br />'+
-			  '<b>Ace:</b> Trapcard (Gigalith) and Soraptor (Staraptor)<br />'+
+			  '<b>Symbol:</b> Priority<br />'+
+			  '<b>Ace:</b> Trap Card (Gigalith) and Soraptor (Staraptor)<br />'+
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-<a href="http://soraleague.weebly.com/priomons.html">Priomons</a> Uber <br/>'+
 		 	  '-Maximum of 1 Uber <br/>'+

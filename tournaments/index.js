@@ -96,7 +96,7 @@ Tournament = (function () {
 		room.add('|tournament|create|' + this.format + '|' + generator.name);
 		room.send('|tournament|update|' + JSON.stringify({
 			format: this.format,
-			generator: generator.name,,
+			generator: generator.name,
 			isStarted: false,
 			isJoined: false
 		}));

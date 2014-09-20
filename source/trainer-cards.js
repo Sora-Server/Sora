@@ -224,16 +224,15 @@ var trainerCards = {
 			  
         },
         
-        vanilla: function(target, room, user) {
+        bamdee: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-	        this.sendReplyBox('E4 <b>Vanilla</b><br />'+
-			  '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
+	        this.sendReplyBox('E4 <b>Bamdee</b><br />'+
+			  '<i>"What\'s a quote?""</i> <br />'+
 			  '<b>Type:</b> Normal<br />'+
 			  '<b>Ace:</b> Miltank (Dragonslayer)<br />'+
 			  '<b>Battle Rules:</b><br />'+
 			  '-No Focus Sash<br />'+
-			  '-No protecting moves<br />'+
-         		  '<img src="http://sprites.pokecheck.org/i/241.gif"> <img src="http://sprites.pokecheck.org/t/111.gif">');
+			  '-No Hazards<br />');
        
         },
         
@@ -279,14 +278,14 @@ var trainerCards = {
 			 
         },
         
-        normal: 'bamdee',
-        bamdee: function(target, room, user) {
+        normal: 'vanilla',
+        vanilla: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Bamdee</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Vanilla</b><br />'+
 		         '<b> Leader rank: <font color = FF0000>1st</font></b> <br />'+ 
-		         '<i>"What\'s a quote?"</i> <br />'+
+		         '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
-			 '<b>Ace:</b> Staraptor<br />');
+			 '<b>Ace:</b> Miltank (Dragonslayer)<br />');
        
         },
        
@@ -487,7 +486,7 @@ var trainerCards = {
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 10 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. <br />' +
-				'-<b>1st <font color = ffa5d5>Bamdee</font></b> (Normal)<br />'+
+				'-<b>1st <font color = ffa5d5>Vanilla</font></b> (Normal)<br />'+
 				'-<b>2nd <font color = FF0000>Ignitor</font></b></b> (Fire)<br />'+
 				'-<b>3rd <font color = 5e6664>Myth</font></b> (Steel)<br />'+
 				'-<b>4th <font color = 0400f9>Floatzel</font></b> (Water) <br />'+

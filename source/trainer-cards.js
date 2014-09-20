@@ -51,13 +51,13 @@ var trainerCards = {
 	 	     '<center><img src="http://sprites.pokecheck.org/i/461.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Misc%20sprites/Bart_zps03ad3a7d.png"><img src="http://play.pokemonshowdown.com/sprites/xyani/torterra.gif"></center>');
         },
 
-	
-	dragon: function(target, room, user) {
+	dragon: 'tempest',
+	tempest: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-		      '<i>"???."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Tempest</b><br />'+
+		      '<i>"Excellent. Mhm, excellent indeed."</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> ???<br />');
+		      '<b>Ace:</b> Babylon (Garchomp)<br />');
 	},
 
 	toast: function(target, room, user) {
@@ -236,17 +236,6 @@ var trainerCards = {
        
         },
         
-        tempest: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-	        this.sendReplyBox('E4 <b>Tempest</b><br />'+
-			  '<i>"Excellent, mmhm yes. Excellent indeed."</i> <br />'+
-			  '<b>Type:</b> Bug<br />'+
-			  '<b>Ace:</b> Scizor (Scizorhands)<br />'+
-			  '<b>Battle Rules:</b><br />'+
-			  '-No Hazards <br />'+
-			  '<img src="http://sprites.pokecheck.org/t/144.gif"><img src="http://sprites.pokecheck.org/i/212.gif">');
-
-	},
 		  
         dark: 'kingx',
         kingx: function(target, room, user) {

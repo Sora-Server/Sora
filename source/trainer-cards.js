@@ -328,7 +328,7 @@ var trainerCards = {
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-<a href="http://soraleague.weebly.com/priomons.html">Priomons</a> Uber <br/>'+
 		 	  '-Maximum of 1 Uber <br/>'+
-		 	  '-At least 3 Primons <a href"http://pastebin.com/43kY73pL">Moves</a> must be used <br/>'+
+		 	  '-At least 3 Priomons <a href"http://pastebin.com/43kY73pL">Moves</a> must be used <br/>'+
 		 	  '-No hazards <br />'+
 		 	  '<img src="http://play.pokemonshowdown.com/sprites/xyani/groudon.gif"><img src="http://sprites.pokecheck.org/t/033.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/kyogre.gif"> <br/>');
 	

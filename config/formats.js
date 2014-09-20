@@ -73,6 +73,14 @@ exports.Formats = [
 		ruleset: ['Pokemon', 'Team Preview', 'Champion Challenge'],
 		banlist: ['Kangaskhanite', 'Swagger']
 	},
+	{
+		name: "Priomons Champion's Challenge",
+		section: "Sora Exclusive",
+
+		mod: 'priomon',
+		ruleset: ['Pokemon', 'Champion Challenge', 'Team Preview'],
+		banlist: ['Kangaskhanite', 'Swagger']
+	},
 	
 	// XY Singles
 	///////////////////////////////////////////////////////////////////

@@ -26,7 +26,7 @@ function createTournamentGenerator(generator, args, output) {
 	args.unshift(null);
 	return new (Generator.bind.apply(Generator, args))();
 }
-function createTournament(room, format, generator, playerCap, isRated, args, output) {
+function createTournament(room, format, generator, isRated, args, output) {
 	if (room.type !== 'chat') {
 		output.sendReply("Tournaments can only be created in chat rooms.");
 		return;
@@ -50,11 +50,7 @@ function createTournament(room, format, generator, playerCap, isRated, args, out
 		output.sendReply("Valid types: " + Object.keys(TournamentGenerators).join(", "));
 		return;
 	}
-	if (playerCap && playerCap < 2) {
-		output.sendReply("You cannot have a player cap that is less than 2.");
-		return;
-	}
-	return (exports.tournaments[room.id] = new Tournament(room, format, createTournamentGenerator(generator, args, output), playerCap, isRated));
+	return (exports.tournaments[room.id] = new Tournament(room, format, createTournamentGenerator(generator, args, output), isRated));
 }
 function deleteTournament(name, output) {
 	var id = toId(name);
@@ -75,12 +71,11 @@ function getTournament(name, output) {
 }
 
 Tournament = (function () {
-	function Tournament(room, format, generator, playerCap, isRated) {
+	function Tournament(room, format, generator, isRated) {
 		this.room = room;
 		this.format = toId(format);
 		this.generator = generator;
 		this.isRated = isRated;
-		this.playerCap = parseInt(playerCap) || Config.tournamentDefaultPlayerCap || 0;
 
 		this.isBracketInvalidated = true;
 		this.lastBracketUpdate = 0;
@@ -98,11 +93,10 @@ Tournament = (function () {
 
 		this.isEnded = false;
 
-		room.add('|tournament|create|' + this.format + '|' + generator.name + '|' + this.playerCap);
+		room.add('|tournament|create|' + this.format + '|' + generator.name);
 		room.send('|tournament|update|' + JSON.stringify({
 			format: this.format,
-			generator: generator.name,
-			playerCap: this.playerCap,
+			generator: generator.name,,
 			isStarted: false,
 			isJoined: false
 		}));
@@ -237,15 +231,12 @@ Tournament = (function () {
 			return;
 		}
 
-		var users = this.generator.getUsers();
-		if (this.playerCap && users.length >= this.playerCap) {
-			output.sendReply('|tournament|error|Full');
-			return;
-		}
-
 		if (!isAllowAlts) {
-			for (var i = 0; i < users.length; i++) {
-				if (users[i].latestIp === user.latestIp) {
+		var users = {};
+			this.generator.getUsers().forEach(function (user) { users[user.name] = 1; });
+			var alts = user.getAlts();
+			for (var a = 0; a < alts.length; ++a) {
+				if (users[alts[a]]) {
 					output.sendReply('|tournament|error|AltUserAlreadyAdded');
 					return;
 				}
@@ -262,7 +253,6 @@ Tournament = (function () {
 		user.sendTo(this.room, '|tournament|update|{"isJoined":true}');
 		this.isBracketInvalidated = true;
 		this.update();
-		if (this.playerCap === (users.length + 1)) this.room.add("The tournament is now full");
 	};
 	Tournament.prototype.removeUser = function (user, output) {
 		var error = this.generator.removeUser(user);
@@ -802,7 +792,7 @@ var commands = {
 		getusers: function (tournament) {
 			if (!this.canBroadcast()) return;
 			var users = usersToNames(tournament.generator.getUsers().sort());
-			this.sendReplyBox("<strong>" + users.length + " users are in this tournament:</strong><br />" + Tools.escapeHTML(users.join(", ")));
+			this.sendReplyBox("<strong>" + users.length + " users are in this tournament:</strong><br />" + users.join(", "));
 		},
 		getupdate: function (tournament, user) {
 			tournament.updateFor(user);

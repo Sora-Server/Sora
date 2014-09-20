@@ -322,7 +322,7 @@ var trainerCards = {
 	ajeratt: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Frontier <b>AJerratt</b><br />'+
-			  '<i>"Can you keep up thought?"</i> <br />'+
+			  '<i>"Can you keep up though?"</i> <br />'+
 			  '<b>Symbol:</b> Limit<br />'+
 			  '<b>Ace:</b> Trapcard (Gigalith) and Soraptor (Staraptor)<br />'+
 			  '<b>Battle Rules:</b> <br/>'+

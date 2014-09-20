@@ -229,7 +229,7 @@ var trainerCards = {
 	        this.sendReplyBox('E4 <b>Bamdee</b><br />'+
 			  '<i>"What\'s a quote?""</i> <br />'+
 			  '<b>Type:</b> Normal<br />'+
-			  '<b>Ace:</b> Miltank (Dragonslayer)<br />'+
+			  '<b>Ace:</b> Miltank<br />'+
 			  '<b>Battle Rules:</b><br />'+
 			  '-No Focus Sash<br />'+
 			  '-No Hazards<br />');
@@ -285,7 +285,8 @@ var trainerCards = {
 		         '<b> Leader rank: <font color = FF0000>1st</font></b> <br />'+ 
 		         '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
-			 '<b>Ace:</b> Miltank (Dragonslayer)<br />');
+			 '<b>Ace:</b> Miltank (Dragonslayer)<br />'+
+			 '<img src="http://sprites.pokecheck.org/i/241.gif"><img src="http://sprites.pokecheck.org/t/111.gif">');
        
         },
        

@@ -193,6 +193,7 @@ exports.customAvatars = {
 	  'typhozzz': '081.png',
 	  'rubiks456': '084.png',
 	  'gymldrarshrs': 'blakjack.png',
+	  'e4bamdee': '085.png',
 	
 };
 

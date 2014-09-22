@@ -526,9 +526,9 @@ exports.Formats = [
                 banlist: ['Ampharosite', 'Gyaradosite',
                         'Arceus', 'Darkrai', 'Deoxys', 'Deoxys-Attack', 'Dialga', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyurem-White',
                         'Lugia', 'Meloetta', 'Mewtwo', 'Palkia', 'Rayquaza', 'Regigigas', 'Reshiram', 'Slaking', 'Xerneas', 'Zekrom'
-         
-        },       ]
-        },
+	         ]
+        },       
+        {
 		name: "Almost Any Ability",
 		section: "Other Metagames",
 

@@ -105,7 +105,7 @@ var trainerCards = {
         
         ignitor: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Cocoa</b><br />'+
+		this.sendReplyBox('E4 <b>Igintor</b><br />'+
 		      '<i>"From fire to demons, I welcome you to hell."</i> <br />'+
 		      '<b>Type: <font color = #FF0000>Fire</font></b> <br />'+
 		      '<b>Ace:</b> Victini <br />'+

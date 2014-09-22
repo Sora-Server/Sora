@@ -75,7 +75,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Zoro</b><br />'+
 		      '<i>"I am everywhere you are not."</i> <br />'+
-		      '<b>Type:</b> Psychic<br />'+
+		      '<b>Type:<font color = #ff007f>Psychic</font></b><br />'+
 		      '<b>Ace:</b> Gardevoir <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br/>'+
@@ -95,12 +95,24 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Cocoa</b><br />'+
 		      '<i>"Your defeat shall be nearly as sweet as Chocolate and Vanilla"</i> <br />'+
-		      '<b>Type:</b> Dark<br />'+
+		      '<b>Type:<font color = #200644>Dark</font></b><br />'+
 		      '<b>Ace:</b> Umbreon <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-No direct status. <br/>'+
 	 	      '-No protecting moves. <br/>'+
 	 	      '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
+        },
+        
+        ignitor: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('E4 <b>Cocoa</b><br />'+
+		      '<i>"From fire to demons, I welcome you to hell."</i> <br />'+
+		      '<b>Type: <font color = #FF0000>Fire</font></b> <br />'+
+		      '<b>Ace:</b> Victini <br />'+
+	 	      '<b>Battle Rules:</b> <br/>'+
+	 	      '-No hazards <br/>');
+        
+        
         },
 
 	risu: 'ninjarisu',
@@ -183,14 +195,13 @@ var trainerCards = {
 	              '<b>Ace:</b> Togekiss<br />');
         },
         
-        fire: 'ignitor',
-        ignitor: function(target, room, user) {
+        
+        fire: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Ignitor</b><br />'+
-	              '<b> Leader Ranking: <font color =ff9900>2nd</font></b> <br />'+
-	              '<i>"We were all born from ashes, and from ashes we are formed then burned until we go back to what we once were."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> Entei<br />');
+	              '<b>Ace:</b> ???<br />');
 
 	},
  
@@ -228,7 +239,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 	        this.sendReplyBox('E4 <b>Bamdee</b><br />'+
 			  '<i>"What\'s a quote?""</i> <br />'+
-			  '<b>Type:</b> Normal<br />'+
+			  '<b>Type:<font color = #9b8f95>Normal</font></b><br />'+
 			  '<b>Ace:</b> Miltank<br />'+
 			  '<b>Battle Rules:</b><br />'+
 			  '-No Focus Sash<br />'+

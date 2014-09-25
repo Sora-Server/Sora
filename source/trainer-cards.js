@@ -225,13 +225,13 @@ var trainerCards = {
 			  '<b>Ace:</b> Keldeo<br />');
         },
     
-            
-        rock: function(target, room, user) {
+        rock: 'arjun',    
+        arjun: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Arjun</b><br />'+
+			  '<i>"Love me! Hate me! I am still gonna <b>rock</b>"</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Terrakion<br />');
 			  
         },
         

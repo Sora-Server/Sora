@@ -117,6 +117,7 @@ var customCommands = {
 			"was rejected by Len Kagamine!",
 			"was been hour munted by demon lrod helix!",
 			"was killed by the God Virus!",
+			"Rubiks sucked {{user}}'s soul!",
 		];
 
 		return function(target, room, user) {

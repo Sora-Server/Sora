@@ -239,7 +239,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 	        this.sendReplyBox('E4 <b>Bamdee</b><br />'+
 			  '<i>"What\'s a quote?""</i> <br />'+
-			  '<b>Type:<font color = #9b8f95>Normal</font></b><br />'+
+			  '<b>Type :<font color = #9b8f95>Normal</font></b><br />'+
 			  '<b>Ace:</b> Miltank<br />'+
 			  '<b>Battle Rules:</b><br />'+
 			  '-No Focus Sash<br />'+

@@ -444,7 +444,7 @@ var trainerCards = {
         
         priomonsnervepulse: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox( '<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xfa1/v/t34.0-12/10719371_987326284626509_1067848736_n.jpg?oh=80bc58fc069f4ca82dccc57724c23428&oe=542A493D&__gda__=1412071198_2c95e1dc45645c452b939dc144288eef"> <br />');
+		this.sendReplyBox( '<img src="http://oi58.tinypic.com/ayw0aq.jpg"> <br />');
 		
         },
         

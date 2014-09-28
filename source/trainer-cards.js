@@ -440,9 +440,14 @@ var trainerCards = {
 			'-6v6 2014 VGC Doubles <br/>'+
 			'-To observe the 6v6 rule, battles will be fought in the Smogon doubles format, but VGC rules and clauses will apply. <br />');
         	
-        	
-        	
         },
+        
+        hue: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpf1/v/t34.0-12/10708113_987303717962099_141024984_n.jpg?oh=ee601126e97237d4c5043e1fd084ae3a&oe=542A149F&__gda__=1412075010_9c07e64a4e9ac515da3af78b9417f27d"> <br />');
+		
+        },
+        
         
         
         jaddu: function (target, room, user) {
@@ -465,6 +470,8 @@ var trainerCards = {
 				'- <a href="http://soraleague.weebly.com/shop.html">Shop</a><br />' +
 				'</div>');
 	},
+	
+	
 
 	site: 'site',
 		site: function(target, room, user) {

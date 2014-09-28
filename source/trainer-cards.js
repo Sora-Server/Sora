@@ -293,14 +293,14 @@ var trainerCards = {
         nova: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Frontier <b>Nova</b><br />'+
-			  '<i>"Every Champion was once a contender that refused to give up,I will never give up no matter how hard you hit."</i> <br />'+
+			  '<i>"Every Champion was once a contender that refused to give up, I will never give up no matter how hard you hit."</i> <br />'+
 			  '<b>Symbol:</b> Will of Steel<br />'+
-			  '<b>Ace:</b> Mewtwo<br />'+
+			  '<b>Ace:</b> Pop Singer (Meloetta)<br />'+
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-Ubers tier <br/>'+
-		 	  '-2 Uber, 2 OU and 2 random pokemon must be used <br/>'+
-		 	  '-Random pokemon must be chosen using  /dice command on the Sora server<br />'+
-		 	  '-Players can use whatever pokemon from the evolution chain of the pokemon picked by random <br/>');
+		 	  '-2 Uber, 2 OU and 2 RU Pokemon must be used <br/>'+
+		 	  '-No Focus Sash/Band<br />'+
+		 	  '-No Hazards <br/>');
 	},
 
         

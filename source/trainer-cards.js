@@ -444,7 +444,7 @@ var trainerCards = {
         
         hue: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox( '<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpf1/v/t34.0-12/10708113_987303717962099_141024984_n.jpg?oh=ee601126e97237d4c5043e1fd084ae3a&oe=542A149F&__gda__=1412075010_9c07e64a4e9ac515da3af78b9417f27d"> <br />');
+		this.sendReplyBox( '<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpf1/v/t34.0-12/10716126_987310534628084_1002256756_n.jpg?oh=428b782f6b21d48dd3597c2cf631d6e5&oe=542A4F8C&__gda__=1411996380_cc2578bebb029bfc81b97d4b14a51cff"> <br />');
 		
         },
         

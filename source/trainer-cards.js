@@ -442,9 +442,9 @@ var trainerCards = {
         	
         },
         
-        hue: function(target, room, user) {
+        priomonsnervepulse: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox( '<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpf1/v/t34.0-12/10716126_987310534628084_1002256756_n.jpg?oh=428b782f6b21d48dd3597c2cf631d6e5&oe=542A4F8C&__gda__=1411996380_cc2578bebb029bfc81b97d4b14a51cff"> <br />');
+		this.sendReplyBox( '<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xfa1/v/t34.0-12/10719371_987326284626509_1067848736_n.jpg?oh=80bc58fc069f4ca82dccc57724c23428&oe=542A493D&__gda__=1412071198_2c95e1dc45645c452b939dc144288eef"> <br />');
 		
         },
         

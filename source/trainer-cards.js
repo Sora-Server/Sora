@@ -475,7 +475,7 @@ var trainerCards = {
         
         priomonsflameshot: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox( '<img src="http://oi61.tinypic.com/2r2sxgp.jpg"> <br />');
+		this.sendReplyBox( '<img src="http://oi62.tinypic.com/29m6j5e.jpg"> <br />');
 		
         },
         

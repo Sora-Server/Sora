@@ -512,6 +512,12 @@ var trainerCards = {
 		
         },
         
+        kineticforce: 'priomonskineticforce',
+        priomonskineticforce: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<img src="http://oi60.tinypic.com/1ptn36.jpg"> <br />');
+		
+        },
         
         
         jaddu: function (target, room, user) {

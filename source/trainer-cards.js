@@ -486,6 +486,14 @@ var trainerCards = {
 		
         },
         
+         priomonsdivingcharge: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<img src="http://oi58.tinypic.com/ezj4pl.jpg"> <br />');
+		
+        },
+        
+        
+        
         jaddu: function (target, room, user) {
                 if (!this.canBroadcast()) return;
                 this.sendReplyBox('<center><img src="http://i.imgur.com/GHnqgjH.png"></center><br />'+

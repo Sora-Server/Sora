@@ -480,6 +480,12 @@ var trainerCards = {
         },
         
         
+         priomonsvenomstrike: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<img src="http://oi60.tinypic.com/2wf761w.jpg"> <br />');
+		
+        },
+        
         jaddu: function (target, room, user) {
                 if (!this.canBroadcast()) return;
                 this.sendReplyBox('<center><img src="http://i.imgur.com/GHnqgjH.png"></center><br />'+

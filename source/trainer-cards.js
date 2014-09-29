@@ -461,6 +461,13 @@ var trainerCards = {
         },
         
         
+         priomonstwineedle: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<img src="http://oi58.tinypic.com/9h6i5z.jpg"> <br />');
+		
+        },
+        
+        
         jaddu: function (target, room, user) {
                 if (!this.canBroadcast()) return;
                 this.sendReplyBox('<center><img src="http://i.imgur.com/GHnqgjH.png"></center><br />'+

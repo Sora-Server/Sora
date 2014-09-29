@@ -494,7 +494,14 @@ var trainerCards = {
         
         priomonsstonespine: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox( '<img src="http://oi58.tinypic.com/2pzag09.jpg"> <br />');
+		this.sendReplyBox( '<img src="http://oi62.tinypic.com/2moy06e.jpg"> <br />');
+		
+        },
+        
+        
+        priomonssapblast: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<img src="http://oi62.tinypic.com/23rk9oz.jpg"> <br />');
 		
         },
         

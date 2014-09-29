@@ -480,15 +480,21 @@ var trainerCards = {
         },
         
         
-         priomonsvenomstrike: function(target, room, user) {
+        priomonsvenomstrike: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi60.tinypic.com/2wf761w.jpg"> <br />');
 		
         },
         
-         priomonsdivingcharge: function(target, room, user) {
+        priomonsdivingcharge: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi58.tinypic.com/ezj4pl.jpg"> <br />');
+		
+        },
+        
+        priomonsstonespine: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<img src="http://oi58.tinypic.com/2pzag09.jpg"> <br />');
 		
         },
         

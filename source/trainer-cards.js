@@ -448,6 +448,11 @@ var trainerCards = {
 		
         },
         
+        priomonstremorshock: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<img src="http://oi58.tinypic.com/14u8e2s.jpg"> <br />');
+		
+        },
         
         
         jaddu: function (target, room, user) {

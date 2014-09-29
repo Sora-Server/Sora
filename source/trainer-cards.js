@@ -456,7 +456,7 @@ var trainerCards = {
         
         priomonsfairywind: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox( '<img src="http://oi57.tinypic.com/bjidyw.jpg"> <br />');
+		this.sendReplyBox( '<img src="http://oi60.tinypic.com/33z7ndf.jpg"> <br />');
 		
         },
         

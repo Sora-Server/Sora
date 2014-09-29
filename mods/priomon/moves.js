@@ -187,5 +187,26 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Bug"
-	      }
+	      },
+	      "corrosion": {
+		num: 2009,
+		accuracy: 100,
+		basePower: 10,
+		category: "Special",
+		desc: "Deals damage to one adjacent target.",
+		shortDesc: "Usually goes first, 30% chance to badly poison the target.",
+		id: "Corrosion",
+		name: "Corrosion",
+		pp: 16,
+		priority: 1,
+		volatileStatus: 'partiallytrapped',
+		onModifyMove: function (move) {
+			if (move.type in {'Poison':1}) {
+				move.affectedByImmunities = false;
+			}
+		},
+		secondary: false,
+		target: "normal",
+		type: "Poison"
+	      },
 };	      

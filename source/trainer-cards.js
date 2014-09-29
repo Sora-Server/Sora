@@ -473,6 +473,11 @@ var trainerCards = {
 		
         },
         
+        priomonsflameshot: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<img src="http://oi61.tinypic.com/2r2sxgp.jpg"> <br />');
+		
+        },
         
         
         jaddu: function (target, room, user) {

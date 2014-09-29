@@ -467,6 +467,13 @@ var trainerCards = {
 		
         },
         
+        priomonsdracocrash: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<img src="http://oi59.tinypic.com/dyvvw2.jpg"> <br />');
+		
+        },
+        
+        
         
         jaddu: function (target, room, user) {
                 if (!this.canBroadcast()) return;

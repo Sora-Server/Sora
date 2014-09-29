@@ -318,5 +318,8 @@ exports.BattleScripts = {
                 //Pokemon that can learn Corrosion
                 this.modData('Learnsets', 'drapion').learnset.corrosion = ['5M'];
                 
+                //Pokemon that can learn Frost Bite
+                this.modData('Learnsets', 'rotomfrost').learnset.frostbite = ['5M'];
+                
         }        
 };              

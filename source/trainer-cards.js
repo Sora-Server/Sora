@@ -454,6 +454,12 @@ var trainerCards = {
 		
         },
         
+        priomonsfairywind: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<img src="http://oi57.tinypic.com/bjidyw.jpg"> <br />');
+		
+        },
+        
         
         jaddu: function (target, room, user) {
                 if (!this.canBroadcast()) return;

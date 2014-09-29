@@ -442,32 +442,32 @@ var trainerCards = {
         	
         },
         
-        priomonsnervepulse: function(target, room, user) {
+        priomonnervepulse: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi58.tinypic.com/ayw0aq.jpg"> <br />');
 		
         },
         
-        priomonstremorshock: function(target, room, user) {
+        priomontremorshock: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi58.tinypic.com/14u8e2s.jpg"> <br />');
 		
         },
         
-        priomonsfairywind: function(target, room, user) {
+        priomonfairywind: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi60.tinypic.com/33z7ndf.jpg"> <br />');
 		
         },
         
         
-         priomonstwineedle: function(target, room, user) {
+         priomontwineedle: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi58.tinypic.com/9h6i5z.jpg"> <br />');
 		
         },
         
-        priomonsdracocrash: function(target, room, user) {
+        priomondracocrash: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi59.tinypic.com/dyvvw2.jpg"> <br />');
 		

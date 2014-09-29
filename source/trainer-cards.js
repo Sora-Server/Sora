@@ -195,13 +195,14 @@ var trainerCards = {
 	              '<b>Ace:</b> Togekiss<br />');
         },
         
-        
-        fire: function(target, room, user) {
+        fire: 'meows',
+        meows: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-	              '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
+		      '<b> Leader ranking: <font color = 00bc8d>6th</font></b> <br />'+
+	              '<i>"Meowwwwwwwww, Woof"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> ???<br />');
+	              '<b>Ace:</b> Combusken<br />');
 
 	},
  
@@ -392,14 +393,13 @@ var trainerCards = {
 			  '<b>Ace:</b> Scizor <br />');
         },
 	
-	ice: 'meows',
-	meows: function(target, room, user) {
+	
+	ice: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
-		          '<b> Leader ranking: <font color = 00bc8d>6th</font></b> <br />'+
-			  '<i>"Meow."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b> Inb4 Specs (Weavile)<br />');
+			  '<b>Ace:</b>  ???<br />');
 	},
 
 	jeratt: function(target, room, user) {

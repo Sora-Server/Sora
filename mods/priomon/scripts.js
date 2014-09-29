@@ -314,5 +314,9 @@ exports.BattleScripts = {
                 this.modData('Learnsets', 'quagsire').learnset.tremorshock = ['5M'];
                 this.modData('Learnsets', 'zygarde').learnset.tremorshock = ['5M'];
                 this.modData('Learnsets', 'groudon').learnset.tremorshock = ['5M'];
+                
+                //Pokemon that can learn Corrosion
+                this.modData('Learnsets', 'drapion').learnset.corrosion = ['5M'];
+                
         }        
 };              

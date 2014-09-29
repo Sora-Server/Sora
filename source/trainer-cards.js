@@ -442,63 +442,70 @@ var trainerCards = {
         	
         },
         
+        nervepulse: 'priomonsnervepulse',
         priomonsnervepulse: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi58.tinypic.com/ayw0aq.jpg"> <br />');
 		
         },
         
+        tremorshock: 'priomonstremorshock',
         priomonstremorshock: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi58.tinypic.com/14u8e2s.jpg"> <br />');
 		
         },
         
+        fairywind: 'priomonsfairywind',
         priomonsfairywind: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi60.tinypic.com/33z7ndf.jpg"> <br />');
 		
         },
         
-        
+         twineedle: 'priomonstwineedle',
          priomonstwineedle: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi58.tinypic.com/9h6i5z.jpg"> <br />');
 		
         },
         
+        dracocrash: 'priomonsdracocrash',
         priomonsdracocrash: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi59.tinypic.com/dyvvw2.jpg"> <br />');
 		
         },
         
+        flameshot: 'priomonsflameshot',
         priomonsflameshot: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi62.tinypic.com/29m6j5e.jpg"> <br />');
 		
         },
         
-        
+        venomstrike: 'priomonsvenomstrike',
         priomonsvenomstrike: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi60.tinypic.com/2wf761w.jpg"> <br />');
 		
         },
         
+        divingcharge: 'priomonsdivingcharge',
         priomonsdivingcharge: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi58.tinypic.com/ezj4pl.jpg"> <br />');
 		
         },
         
+        stonespine: 'priomonsstonespine',
         priomonsstonespine: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi62.tinypic.com/2moy06e.jpg"> <br />');
 		
         },
         
-        
+        sapblast: 'priomonssapblast',
         priomonssapblast: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi62.tinypic.com/23rk9oz.jpg"> <br />');

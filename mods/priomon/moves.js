@@ -209,4 +209,37 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Poison"
 	      },
+	      "frostbite": {
+		num: 2010,
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		desc: "Causes one adjacent target to fall asleep at the end of the next turn. If the target is still on the field and does not have a major status problem at that time, it freezes, and this effect cannot be prevented by Safeguard or Substitute. Fails if the target cannot freeze or if it already has a major status problem. Pokemon protected by Magic Coat or the Ability Magic Bounce are unaffected and instead use this move themselves.",
+		shortDesc: "Freezes the target after 1 turn. Usually goes last.",
+		id: "Frost Bite",
+		isViable: true,
+		name: "Frost Bite",
+		pp: 8,
+		priority: -5,
+		isBounceable: true,
+		volatileStatus: 'frostbite',
+		onTryHit: function (target) {
+			if (target.status || !target.runImmunity('frz')) {
+				return false;
+			}
+		},
+		effect: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			duration: 2,
+			onStart: function (target, source) {
+				this.add('-start', target, 'move: Frost Bite', '[of] ' + source);
+			},
+			onEnd: function (target) {
+				target.trySetStatus('frz');
+			}
+		},
+		secondary: false,
+		target: "normal",
+		type: "Ice"
+	      }
 };	      

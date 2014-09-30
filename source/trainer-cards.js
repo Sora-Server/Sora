@@ -384,13 +384,13 @@ var trainerCards = {
 			  '<b>Ace:</b> Excadrill <br />');
 			  
 	},
-	bug: 'aidan',
-	aidan: function(target, room, user) {
+	
+	bug: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Aidan</b><br />'+
-			  '<i>"Prepare to get Scizorised!</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
-			  '<b>Ace:</b> Scizor <br />');
+			  '<b>Ace:</b> ??? <br />');
         },
 	
 	

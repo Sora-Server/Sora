@@ -164,10 +164,10 @@ var trainerCards = {
 
 	blade: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Elite Frontier <b>Blade</b><br />'+
+		this.sendReplyBox('Frontier <b>Blade</b><br />'+
 			'<i>"Shift a burning flame into an ever burning flame!"</i> <br />'+
 			'<b>Symbol:</b> Yin and Yang<br />'+
-			'<b>Ace:</b> War Turtle (Torkoal)<br />'+
+			'<b>Ace:</b> Slowbro<br />'+
 			'<b>Battle Rules:</b> <br />'+
 			'-Ability Shift Tier<br />'+
 			'-No focus Sash/Band<br />'+
@@ -307,7 +307,7 @@ var trainerCards = {
         
         night: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Frontier <b>Night</b><br />'+
+			this.sendReplyBox('Elite Frontier <b>Night</b><br />'+
 			  '<i>"Slow and Steady wins the race."</i> <br />'+
 			  '<b>Symbol:</b> Limit<br />'+
 			  '<b>Ace:</b> FUCKING ESCA<br />'+

@@ -320,6 +320,5 @@ exports.BattleScripts = {
                 
                 //Pokemon that can learn Frost Bite
                 this.modData('Learnsets', 'rotomfrost').learnset.frostbite = ['5M'];
-                
         }        
 };              

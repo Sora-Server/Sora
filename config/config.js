@@ -289,7 +289,8 @@ exports.groups = {
 			id: 'admin',
 			name: "Administrator",
 			description: "Supreme Rulers of this server. They can do anything.",
-			root: true
+			root: true,
+			rank: 7
 		},
 		'&': {
 			id: 'leader',
@@ -305,7 +306,8 @@ exports.groups = {
 			potd: false,
 			tell: false,
 			promote: 'u',
-			rangeban: true
+			rangeban: true,
+			rank: 6
 		},
 		'#': {
 			id: 'owner',
@@ -317,7 +319,8 @@ exports.groups = {
 			modchatall: true,
 			roomdesc: true,
 			roomintro: true,
-			roompromote: 'u'
+			roompromote: 'u',
+			rank: 5
 		},
 		'\u2605': {
 			id: 'player',
@@ -343,7 +346,8 @@ exports.groups = {
 			modchat: true,
 			tell: false,
 			roompromote: '+ ',
-			scavengers: true
+			scavengers: true,
+			rank: 4
 		},
 		'%': {
 			id: 'driver',
@@ -365,6 +369,7 @@ exports.groups = {
 			tournamentsmoderation: true,
 			warn: true,
 			tournaments: true,
+			rank: 3
 		},
 		'$': {
 		        id: "operator",
@@ -385,11 +390,13 @@ exports.groups = {
 			broadcast: true,
 			tournaments: true,
 			tell: false,
-			joinbattle: true
+			joinbattle: true,
+			rank: 1
 		},
 		' ': {
 			alts: 's',
-			ip: 's'
+			ip: 's',
+			rank: 0
 		}
 	}
 };

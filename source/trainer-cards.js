@@ -155,7 +155,7 @@ var trainerCards = {
 	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
-			'<b> Leader Ranking: <font color =00d30a>5th</font></b> <br />'+
+			'<b> Leader Ranking: <font color = a1ff00>4th</font></b> <br />'+
 			'<b>*GRACEFUL CHANTING*</b> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
@@ -175,21 +175,20 @@ var trainerCards = {
 			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/torkoal.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/blaziken.gif">');
 	},
      
-        fighting: 'jacob',
-        jacob: function(target, room, user) {
+        
+        fighting: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Jacob</b><br />'+
-		        '<b> Leader Ranking: <font color = a1ff00>4th</font></b> <br />'+
-			'<i>"My fighting\'s are frightening."</i> <br />'+
+			'<i>"???"</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
-			'<b>Ace:</b> Breloom<br />');
+			'<b>Ace:</b> ???<br />');
         },
         
         fairy: 'ark',
         ark: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Ark</b><br />'+
-		      '<b> Leader Ranking: <font color = 0044aa>8th</font></b> <br />'+
+		      '<b> Leader Ranking <font color =007daa>7th</font></b> <br />'+
 	              '<i>*Rubs hands*</i> <br />'+
 	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
 	              '<b>Ace:</b> Togekiss<br />');
@@ -199,7 +198,7 @@ var trainerCards = {
         meows: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
-		      '<b> Leader ranking: <font color = 00bc8d>6th</font></b> <br />'+
+		      '<b> Leader Ranking: <font color =00d30a>5th</font></b> <br />'+
 	              '<i>"Meowwwwwwwww, Woof"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> Combusken<br />');
@@ -253,7 +252,7 @@ var trainerCards = {
         kingx: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>KingX</b><br />'+
-			  '<b> Leader Ranking: <font color =1600bc>9th</font></b> <br />'+
+			  '<b> Leader Ranking: <font color = 0044aa>8th</font></b> <br />'+
 			  '<i>"Long live the King!"</i> <br />'+
 			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
 			  '<b>Ace:</b> Sableye<br />');
@@ -263,7 +262,7 @@ var trainerCards = {
         srewop: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Srewop</b><br />'+
-			 '<b> Leader Ranking <font color =007daa>7th</font></b> <br />'+
+			 '<b> Leader ranking: <font color = 00bc8d>6th</font></b> <br />'+
 			 '<i>"It\'s going down, I\'m yelling Timburr"</i> <br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
 			 '<b>Ace:</b> Venusaur<br />');
@@ -581,16 +580,15 @@ var trainerCards = {
 	leaderranks: 'ranks',
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Listed here are the Top 9 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. <br />' +
+			this.sendReplyBox('Listed here are the Top 8 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. <br />' +
 				'-<b>1st <font color = ffa5d5>Vanilla</font></b> (Normal)<br />'+
 				'-<b>2nd <font color = 5e6664>Myth</font></b></b> (Steel)<br />'+
 				'-<b>3rd <font color = 0400f9>Floatzel</font></b> (Water)<br />'+
-				'-<b>4th <font color = d83c08>Jacob</font></b> (Fighting) <br />'+
-				'-<b>5th <font color = 006b0a>Asch</font></b> (Grass) <br />'+
-				'-<b>6th <font color = FF0000>Meows</font></b> (Fire)<br />'+
-				'-<b>7th <font color = aa00ff>Srewop</front></b> (Poison)<br />'+
-				'-<b>8th <font color = ff42a0>Ark</front></b> (Fairy)<br />'+
-				'-<b>9th <font color = 15012b>KingX</front></b> (Dark)<br />'+
+				'-<b>4th <font color = 006b0a>Asch</font></b> (Grass) <br />'+
+				'-<b>5th <font color = FF0000>Meows</font></b> (Fire)<br />'+
+				'-<b>6th <font color = aa00ff>Srewop</front></b> (Poison)<br />'+
+				'-<b>7th <font color = ff42a0>Ark</front></b> (Fairy)<br />'+
+				'-<b>8th <font color = 15012b>KingX</front></b> (Dark)<br />'+
 				'</div>');
 	
 	},

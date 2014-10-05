@@ -28,13 +28,14 @@ var trainerCards = {
         
         noah: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b>∆Champion Noah∆</b></center></a><br />'+
+		this.sendReplyBox('<a><font size= 4><center><b><font color = 300051>∆Champion Noah∆</font></b></center></a><br />'+
 		      '<center><i>"Need a Champion? I Noah guy."</i></center> <br />'+
-		      '<b>Ace:</b> Liquidbones/Gegnarthewise (Gengar) <br />'+
+		      '<b>Ace:</b> Demonisation (Yveltal) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-Gen 5 Ubers (Maximum of 2 Ubers) <br/>'+
-	 	      '-No Hazards<br />'+
-	 	      '<center><img src="http://sprites.pokecheck.org/i/134.gif"> <img src="http://i.imgur.com/pFtOL9I.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/gengar.gif"></center>');
+	 	      '-Ubers <br/>'+
+	 	      '<center><img src="http://i.imgur.com/pFtOL9I.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/yveltal.gif"></center>'+
+	 	      'R.I.P in piece Liquidbones 2013-2014 gone, but definitely not forgotten.'+
+	 	      '<img src="http://sprites.pokecheck.org/i/134.gif">');
 	},
 
 	bart: function(target, room, user) {

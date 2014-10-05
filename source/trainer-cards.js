@@ -34,9 +34,9 @@ var trainerCards = {
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-Ubers <br/>'+
 	 	      '<center><img src="http://i.imgur.com/pFtOL9I.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/yveltal.gif"></center> <br />'+
+	 	      '<img src="http://sprites.pokecheck.org/i/134.gif">'+
 	 	      'R.I.P. in piece Liquidbones 2013-2014 <br />'+
-	 	      'Gone, but definitely not forgotten. <br />'+
-	 	      '<img src="http://sprites.pokecheck.org/i/134.gif">');
+	 	      'Gone, but definitely not forgotten. <br />');
 	},
 
 	bart: function(target, room, user) {

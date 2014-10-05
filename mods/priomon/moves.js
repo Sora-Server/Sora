@@ -241,5 +241,21 @@ exports.BattleMovedex = {
 		secondary: false,
 		target: "normal",
 		type: "Ice"
+	      },
+	      "perplex": {
+		num: 2011,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Does not check accuracy. Causes one adjacent target to become confused. Pokemon protected by Magic Coat or the Ability Magic Bounce are unaffected and instead use this move themselves.",
+		shortDesc: "Usually goes first.",
+		id: "Perplex",
+		name: "Perplex",
+		pp: 8,
+		priority: 1,
+		volatileStatus: 'confusion',
+		secondary: false,
+		target: "normal",
+		type: "Psychic"
 	      }
 };	      

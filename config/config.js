@@ -195,6 +195,7 @@ exports.customAvatars = {
 	  'gymldrarshrs': 'blakjack.png',
 	  'e4bamdee': '085.png',
 	  'gymldrarjun': '091.gif',
+	  'arifeen': '051.gif',
 	
 };
 

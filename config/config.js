@@ -318,9 +318,11 @@ exports.groups = {
 			inherit: '@',
 			jurisdiction: 'u',
 			declare: true,
-			modchatall: true,
 			roomdesc: true,
 			roomintro: true,
+			modchatall: true,
+		        roomonly: true,
+		        tournamentsmanagement: true,
 			roompromote: 'u',
 			rank: 5
 		},
@@ -349,6 +351,7 @@ exports.groups = {
 			tell: false,
 			roompromote: '+ ',
 			scavengers: true,
+			tournaments: true,
 			rank: 4
 		},
 		'%': {

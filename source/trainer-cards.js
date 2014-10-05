@@ -28,13 +28,13 @@ var trainerCards = {
         
         noah: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b><font color = 300051>∆Champion Noah∆</font></b></center></a><br />'+
+		this.sendReplyBox('<a><font size= 4><center><b><font color = 03b206>∆Champion Noah∆</font></b></center></a><br />'+
 		      '<center><i>"Need a Champion? I Noah guy."</i></center> <br />'+
 		      '<b>Ace:</b> Demonisation (Yveltal) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-Ubers <br/>'+
 	 	      '<center><img src="http://i.imgur.com/pFtOL9I.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/yveltal.gif"></center> <br />'+
-	 	      'R.I.P in piece Liquidbones 2013-2014 gone, but definitely not forgotten. <br />'+
+	 	      'R.I.P. in piece Liquidbones 2013-2014 gone, but definitely not forgotten. <br />'+
 	 	      '<img src="http://sprites.pokecheck.org/i/134.gif">');
 	},
 

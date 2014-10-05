@@ -385,12 +385,13 @@ var trainerCards = {
 			  
 	},
 	
-	bug: function(target, room, user) {
+	bug: 'photon',
+	photon: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Photon</b><br />'+
+			  '<i>"Am I bugging you yet?"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
-			  '<b>Ace:</b> ??? <br />');
+			  '<b>Ace:</b> Heracross <br />');
         },
 	
 	ice: 'vescy',

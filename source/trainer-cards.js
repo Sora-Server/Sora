@@ -177,10 +177,10 @@ var trainerCards = {
 			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/torkoal.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/blaziken.gif">');
 	},
      
-        
-        fighting: function(target, room, user) {
+        fighting: 'arjun',
+        arjun: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Jacob</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Arjun</b><br />'+
 			'<i>"???"</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
 			'<b>Ace:</b> ???<br />');
@@ -227,13 +227,13 @@ var trainerCards = {
 			  '<b>Ace:</b> Keldeo<br />');
         },
     
-        rock: 'arjun',    
-        arjun: function(target, room, user) {
+           
+        rock: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Arjun</b><br />'+
-			  '<i>"Love me! Hate me! I am still gonna <b>rock</b>"</i> <br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
-			  '<b>Ace:</b> Terrakion<br />');
+			  '<b>Ace:</b> ???<br />');
 			  
         },
         

@@ -124,7 +124,8 @@ var trainerCards = {
 		    '<i>"While many regarded Risu as weak, I saw your Determination shine, and you proved to be a real bro. The legend of Ninjarisu will forever live on. ~Marriland"</i> <br />'+
 		    '<b>Ace:</b> Pachirisu<br />'+
 	 	    '<b>Requirements:</b> 8 Gym Badges<br />'+
-	 	    '<b>Rules:</b> PU Tier<br />'+
+	 	    '<b>Rules:</b> Original Fan Made PU <br />'+
+	 	    'Please note that this is NOT Smogon\'s PU <br />'+
 	 	    '-Max 1 Eviolite item <br/>'+
 	 	    '-No Hazards <br/>'+
 	 	    '-No Direct Status <br/>'+
@@ -386,13 +387,13 @@ var trainerCards = {
 			  
 	},
 	
-	bug: 'photon',
-	photon: function(target, room, user) {
+	
+	bug: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Photon</b><br />'+
-			  '<i>"Am I bugging you yet?"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
-			  '<b>Ace:</b> Heracross <br />');
+			  '<b>Ace:</b> ??? <br />');
         },
 	
 	ice: 'vescy',

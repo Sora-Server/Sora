@@ -1482,7 +1482,7 @@ var customCommands = {
         },
 
         diceend: function(target, room, user) {
-                if (!this.can('broadcast', null, room) return;
+                if (!this.can('broadcast', null, room)) return false;
                     if (!room.dice) return this.sendReply("There is no game of dice going on in this room right now."); this.add('|html|<b>The game of dice has been ended by ' + user.name); delete room.dice;
                 },
 

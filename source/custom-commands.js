@@ -1421,7 +1421,7 @@ var customCommands = {
                     if (result1 > result2) {
                         result3 = '' + room.dice.members[0] + ' has won ' + room.dice.award + ' '+point+'!';
                     } else {
-                        result3 = '' + room.dice.members[1] + ' has won ' + room.dice.award + ' 'point+'!';
+                        result3 = '' + room.dice.members[1] + ' has won ' + room.dice.award + ' '+point+'!';
                     }
                 }
                 var dice1, dice2;

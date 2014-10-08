@@ -1395,7 +1395,7 @@ var customCommands = {
             if (!room.dice) {
                 return this.sendReply('There is no dice game going on now');
             }
-            if (Core.profile.money(userId)) < room.dice.award) {
+            if (Core.profile.money(userId)) =< room.dice.award) {
                 return this.sendReply("You don't have enough money to join this game of dice.");
             }
             for (var i = 0; i < room.dice.members.length; i++) {
@@ -1641,7 +1641,7 @@ var customCommands = {
 		this.addModCommand(''+name+' was appointed to Room Founder by '+user.name+'.');
 		room.onUpdateIdentity(targetUser);
 		room.chatRoomData.founder = room.founder;
-		Rooms.global.writeChatRoomData();
+		Rooms.gdlobal.writeChatRoomData();
 	},
 
 };

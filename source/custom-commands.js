@@ -12,7 +12,7 @@ var fs = require("fs");
 	
 var customCommands = {
 	/*********************************************************
-	 * General commandss
+	 * General commands
 	 *********************************************************/
 	
 		
@@ -1479,14 +1479,16 @@ var customCommands = {
                 if (result3 === '' + Users.get(room.dice.members[0]).name + ' has won ' + room.dice.award + ' '+point+'!') {
                 	var userMoney = parseInt(user1) + parseInt(room.dice.award);
                 	var targetMoney = parseInt(user2) - parseInt(room.dice.award);
+                	var loser = Users.get(room.dice.members[1]).userid;
                 	Core.stdout('money', Users.get(room.dice.members[0]).userid, userMoney, function () {
-                		Core.stdout('money', Users.get(room.dice.members[1]).userid, targetMoney);
+                		Core.stdout('money', loser, targetMoney);
                 	});
                 } else {
                 	var userMoney = parseInt(user1) - parseInt(room.dice.award);
                 	var targetMoney = parseInt(user2) + parseInt(room.dice.award);
+                	var winner = Users.get(room.dice.members[1]).userid;
                 	Core.stdout('money', Users.get(room.dice.members[0]).userid, userMoney, function () {
-                		Core.stdout('money', Users.get(room.dice.members[1]).userid, targetMoney);
+                		Core.stdout('money', winner, targetMoney);
                 	});
                 }
                 delete room.dice;

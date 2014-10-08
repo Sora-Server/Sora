@@ -30,7 +30,7 @@ var core = exports.core = {
     },
     
     checkAmt: function(name, target) {
-        var userdata = fs.readFileSync('config/userdata.json');
+        var userdata = fs.readFileSync('config/money.js');
         var amt = JSON.parse(userdata);
         if (!amt[toId(name)]) return 0;
         if (amt[toId(name)][target]) {

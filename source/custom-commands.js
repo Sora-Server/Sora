@@ -1363,6 +1363,128 @@ var customCommands = {
             }
         }, 1000);
     },
+	
+	dicerules: 'dicecommands',
+        dicehelp: 'dicecommands',
+        dicecommands: function(target, room, user) {
+            if (!this.canBroadcast()) return;
+            return this.sendReplyBox('<u><font size = 2><center>Dice rules and commands</center></font></u><br />' +
+                '<b>/dice [amount]</b> - Starts a dice game in the room for the specified amount of points. Must be ranked + or higher to use.<br />' +
+                '<b>/play</b> - Joins the game of dice. You must have more or the same number of points the game is for. Winning a game wins you the amount of points the game is for. Losing the game removes that amount from you.<br />' +
+                '<b>/diceend</b> - Ends the current game of dice in the room. You must be ranked + or higher to use this.');
+        },
+
+        dice: 'diceon',
+        diceon: function(target, room, user) {
+            if (!this.can('broadcast', null, room)) return this.sendReply('You must be ranked + or higher to be able to start a game of dice.');
+            if (room.dice) {
+                return this.sendReply('There is already a dice game going on');
+            }
+            target = toId(target);
+            if (!target) return this.sendReply('/dice [amount] - Starts a dice game. The specified amount will be the amount of cash betted for.');
+            if (isNaN(target)) return this.sendReply('That isn\'t a number, smartass.');
+            if (target < 1) return this.sendReply('You cannot start a game with anything less than 1 buck.');
+            room.dice = {};
+            room.dice.members = [];
+            room.dice.award = parseInt(target);
+            this.add('|html|<div class="infobox"><font color = #007cc9><center><h2>' + user.name + ' has started a dice game for <font color = green>' + room.dice.award + '</font color> Bucks!<br />' +
+                '<center><button name="send" value="/play" target="_blank">Click to join!</button>');
+        },
+
+        play: function(target, room, user, connection, cmd) {
+            if (!room.dice) {
+                return this.sendReply('There is no dice game going on now');
+            }
+            if (Core.profile.money(userId)) < room.dice.award) {
+                return this.sendReply("You don't have enough money to join this game of dice.");
+            }
+            for (var i = 0; i < room.dice.members.length; i++) {
+                if (Users.get(room.dice.members[i]).userid == user.userid) return this.sendReply("You have already joined this game of dice!");
+            }
+            room.dice.members.push(user.userid);
+            this.add('|html|<b>' + user.name + ' has joined the game!');
+            if (room.dice.members.length == 2) {
+                result1 = Math.floor((Math.random() * 6) + 1);
+                result2 = Math.floor((Math.random() * 6) + 1);
+                if (result1 > result2) {
+                    var result3 = '' + Users.get(room.dice.members[0]).name + ' has won ' + room.dice.award + ' points!'
+                } else if (result2 > result1) {
+                    var result3 = '' + Users.get(room.dice.members[1]).name + ' has won ' + room.dice.award + ' points!'
+                } else {
+                    var result3;
+                    do {
+                        result1 = Math.floor((Math.random() * 6) + 1);
+                        result2 = Math.floor((Math.random() * 6) + 1);
+                    } while (result1 === result2);
+                    if (result1 > result2) {
+                        result3 = '' + room.dice.members[0] + ' has won ' + room.dice.award + ' points!';
+                    } else {
+                        result3 = '' + room.dice.members[1] + ' has won ' + room.dice.award + ' points!';
+                    }
+                }
+                var dice1, dice2;
+                switch (result1) {
+                    case 1:
+                        dice1 = "http://i1171.photobucket.com/albums/r545/Brahak/1_zps4bef0fe2.png";
+                        break;
+                    case 2:
+                        dice1 = "http://i1171.photobucket.com/albums/r545/Brahak/2_zpsa0efaac0.png";
+                        break;
+                    case 3:
+                        dice1 = "http://i1171.photobucket.com/albums/r545/Brahak/3_zps36d44175.png";
+                        break;
+                    case 4:
+                        dice1 = "http://i1171.photobucket.com/albums/r545/Brahak/4_zpsd3983524.png";
+                        break;
+                    case 5:
+                        dice1 = "http://i1171.photobucket.com/albums/r545/Brahak/5_zpsc9bc5572.png";
+                        break;
+                    case 6:
+                        dice1 = "http://i1171.photobucket.com/albums/r545/Brahak/6_zps05c8b6f5.png";
+                        break;
+                }
+
+                switch (result2) {
+                    case 1:
+                        dice2 = "http://i1171.photobucket.com/albums/r545/Brahak/1_zps4bef0fe2.png";
+                        break;
+                    case 2:
+                        dice2 = "http://i1171.photobucket.com/albums/r545/Brahak/2_zpsa0efaac0.png";
+                        break;
+                    case 3:
+                        dice2 = "http://i1171.photobucket.com/albums/r545/Brahak/3_zps36d44175.png";
+                        break;
+                    case 4:
+                        dice2 = "http://i1171.photobucket.com/albums/r545/Brahak/4_zpsd3983524.png";
+                        break;
+                    case 5:
+                        dice2 = "http://i1171.photobucket.com/albums/r545/Brahak/5_zpsc9bc5572.png";
+                        break;
+                    case 6:
+                        dice2 = "http://i1171.photobucket.com/albums/r545/Brahak/6_zps05c8b6f5.png";
+                        break;
+                }
+
+                room.add('|html|<div class="infobox"><center><b>The dice game has been started!</b><br />' +
+                    'Two members have joined the game.<br />' +
+                    'Rolling the dice...<br />' +
+                    '<img src = "' + dice2 + '" align = "left"><img src = "' + dice1 + '" align = "right"><br/>' +
+                    '<b>' + Users.get(room.dice.members[0]).name + '</b> rolled ' + result1 + '!<br />' +
+                    '<b>' + Users.get(room.dice.members[1]).name + '</b> rolled ' + result2 + '!<br />' +
+                    '<b>' + result3 + '</b><br />');
+                if (result3 === '' + Users.get(room.dice.members[0]).name + ' has won ' + room.dice.award + ' points!') {
+                    Core.transferAmt(Users.get(room.dice.members[1]).userid, Users.get(room.dice.members[0]).userid, room.dice.award);
+                } else {
+                    Core.transferAmt(Users.get(room.dice.members[0]).userid, Users.get(room.dice.members[1]).userid, room.dice.award);
+                }
+                delete room.dice;
+            }
+        },
+
+        diceend: function(target, room, user) {
+                if (!this.can('broadcast', null, room) return this.sendReply('You must be ranked + or higher to end a game of dice.');
+                    if (!room.dice) return this.sendReply("There is no game of dice going on in this room right now."); this.add('|html|<b>The game of dice has been ended by ' + user.name); delete room.dice;
+                },
 
     /*********************************************************
      * Server management commands

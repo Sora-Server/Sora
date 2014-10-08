@@ -28,6 +28,18 @@ var core = exports.core = {
         }
         return 0;
     },
+	
+	transferAmt: function(user1, user2, type, amount) {
+        var userdata = fs.readFileSync('config/money.js');
+        var amt = JSON.parse(userdata);
+        if (!amt[toId(user2)]) amt[toId(user2)] = {};
+        if (!amt[toId(user2)][type]) amt[toId(user2)] = 0;
+        parseInt(amt[toId(user1)][type]) -= parseInt(amount);
+        parseInt(amt[toId(user2)][type]) += parseInt(amount);
+        var finished = JSON.stringify(amt, null, 1);
+        fs.writeFile('config/money.js', finished);
+        return;
+    },
 
     stdout: function (file, name, info, callback) {
         var data = fs.readFileSync('config/' + file + '.csv', 'utf8').split('\n');
@@ -321,14 +333,14 @@ var core = exports.core = {
 
 
     tournaments: {
-        tourSize: 4,
+        tourSize: 8,
         amountEarn: 10,
         winningElo: 50,
         runnerUpElo: 25,
         earningMoney: function () {
-            if (this.amountEarn === 10) return '<u>Standard (4 players = 1 buck)</u> Double (4 players = 1 buck) Quadruple (2 players = 1 bucks)';
-            if (this.amountEarn === 4) return 'Standard (4 players = 1 buck) <u>Double (4 players = 1 buck)</u> Quadruple (2 players = 1 bucks)';
-            if (this.amountEarn === 2) return 'Standard (4 players = 1 buck) Double (4 players = 1 buck) <u>Quadruple (2 players = 1 bucks)</u>';
+            if (this.amountEarn === 10) return '<u>Standard (8 players = 1 buck)</u> Double (4 players = 1 buck) Quadruple (2 players = 1 bucks)';
+            if (this.amountEarn === 4) return 'Standard (8 players = 1 buck) <u>Double (4 players = 1 buck)</u> Quadruple (2 players = 1 bucks)';
+            if (this.amountEarn === 2) return 'Standard (8 players = 1 buck) Double (4 players = 1 buck) <u>Quadruple (2 players = 1 bucks)</u>';
         }
     },
 

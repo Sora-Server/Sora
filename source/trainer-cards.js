@@ -369,13 +369,13 @@ var trainerCards = {
 			  '<center><img src="http://fc00.deviantart.net/fs71/f/2014/082/f/8/manaphy_gif_by_gloomymyth-d7bakkc.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/tentacruel.gif"><img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/swampert.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/gyarados-mega.gif"></center>');
 	},
 
-        psychic: 'chaoz',
-	chaoz: function(target, room, user) {
+        
+	psychic: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Chaoz</b><br />'+
-			  '<i>"Anything can be overcome with willpower."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> Alakazam <br />');
+			  '<b>Ace:</b> ??? <br />');
 	},
 	ground: 'vroen',
 	vroen: function(target, room, user) {

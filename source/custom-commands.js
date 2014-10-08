@@ -1396,7 +1396,7 @@ var customCommands = {
             if (!room.dice) {
                 return this.sendReply('There is no dice game going on now');
             }
-            if (Core.checkAmt(user.userid) < room.dice.award) {
+            if (parseInt(Core.stdin('money', user.userid)) < room.dice.award) {
                 return this.sendReply("You don't have enough money to join this game of dice.");
             }
             for (var i = 0; i < room.dice.members.length; i++) {

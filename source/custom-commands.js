@@ -1388,7 +1388,7 @@ var customCommands = {
             room.dice.members = [];
             room.dice.award = parseInt(target);
             var point = (target == 1) ? 'point' : 'points';
-            this.add('|html|<div class="infobox"><font color = #007cc9><center><h2>' + user.name + ' has started a dice game for <font color = green>' + room.dice.award + '</font color> '+point'+!<br />' +
+            this.add('|html|<div class="infobox"><font color = #007cc9><center><h2>' + user.name + ' has started a dice game for <font color = green>' + room.dice.award + '</font color> '+point+'!<br />' +
                 '<center><button name="send" value="/play" target="_blank">Click to join!</button>');
         },
 

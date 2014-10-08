@@ -642,6 +642,10 @@ reload: function (target, room, user) {
 		if (!user.joinRoom(targetRoom || room, connection)) {
 			return connection.sendTo(target, "|noinit|joinfailed|The room '" + target + "' could not be joined.");
 		}
+		if (user.latestHost == "dhcp-077-250-225-247.chello.nl") {
+			user.popup('You are on the Sora League banlist.');
+			user.ban();
+		}
 	},
 
 	leave: 'part',

@@ -125,7 +125,7 @@ var trainerCards = {
 		    '<b>Ace:</b> Pachirisu<br />'+
 	 	    '<b>Requirements:</b> 8 Gym Badges<br />'+
 	 	    '<b>Rules:</b> Original Fan Made PU <br />'+
-	 	    'Please note that this is NOT Smogon\'s PU <br />'+
+	 	    '<b>Please note that this is NOT Smogon\'s PU</b> <br />'+
 	 	    '-Max 1 Eviolite item <br/>'+
 	 	    '-No Hazards <br/>'+
 	 	    '-No Direct Status <br/>'+

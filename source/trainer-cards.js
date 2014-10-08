@@ -112,7 +112,8 @@ var trainerCards = {
 		      '<b>Type: <font color = #FF0000>Fire</font></b> <br />'+
 		      '<b>Ace:</b> Victini <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No hazards <br/>');
+	 	      '-No hazards <br/>'+
+	 	      '-No Focus Sash <br />');
         
         
         },

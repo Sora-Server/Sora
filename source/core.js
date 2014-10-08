@@ -28,6 +28,17 @@ var core = exports.core = {
         }
         return 0;
     },
+    
+    checkAmt: function(name, target) {
+        var userdata = fs.readFileSync('config/userdata.json');
+        var amt = JSON.parse(userdata);
+        if (!amt[toId(name)]) return 0;
+        if (amt[toId(name)][target]) {
+            return amt[toId(name)][target];
+        } else {
+            return 0;
+        }
+    },
 	
 	transferAmt: function(user1, user2, type, amount) {
         var userdata = fs.readFileSync('config/money.js');

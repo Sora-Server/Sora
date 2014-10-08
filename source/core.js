@@ -30,7 +30,7 @@ var core = exports.core = {
     },
     
     checkAmt: function(name, target) {
-        var userdata = fs.readFileSync('config/money.js');
+        var userdata = fs.readFileSync('config/money.csv');
         var amt = JSON.parse(userdata);
         if (!amt[toId(name)]) return 0;
         if (amt[toId(name)][target]) {
@@ -41,14 +41,14 @@ var core = exports.core = {
     },
 	
 	transferAmt: function(user1, user2, type, amount) {
-        var userdata = fs.readFileSync('config/money.js');
+        var userdata = fs.readFileSync('config/money.csv');
         var amt = JSON.parse(userdata);
         if (!amt[toId(user2)]) amt[toId(user2)] = {};
         if (!amt[toId(user2)][type]) amt[toId(user2)] = 0;
         parseInt(amt[toId(user1)][type]) -= parseInt(amount);
         parseInt(amt[toId(user2)][type]) += parseInt(amount);
         var finished = JSON.stringify(amt, null, 1);
-        fs.writeFile('config/money.js', finished);
+        fs.writeFile('config/money.csv', finished);
         return;
     },
 

@@ -1387,7 +1387,8 @@ var customCommands = {
             room.dice = {};
             room.dice.members = [];
             room.dice.award = parseInt(target);
-            this.add('|html|<div class="infobox"><font color = #007cc9><center><h2>' + user.name + ' has started a dice game for <font color = green>' + room.dice.award + '</font color> Bucks!<br />' +
+            var point = (target == 1) ? 'point' : 'points';
+            this.add('|html|<div class="infobox"><font color = #007cc9><center><h2>' + user.name + ' has started a dice game for <font color = green>' + room.dice.award + '</font color> '+point'+!<br />' +
                 '<center><button name="send" value="/play" target="_blank">Click to join!</button>');
         },
 
@@ -1404,12 +1405,13 @@ var customCommands = {
             room.dice.members.push(user.userid);
             this.add('|html|<b>' + user.name + ' has joined the game!');
             if (room.dice.members.length == 2) {
+            	var point = (room.dice.award == 1) ? 'point' : 'points';
                 result1 = Math.floor((Math.random() * 6) + 1);
                 result2 = Math.floor((Math.random() * 6) + 1);
                 if (result1 > result2) {
-                    var result3 = '' + Users.get(room.dice.members[0]).name + ' has won ' + room.dice.award + ' points!'
+                    var result3 = '' + Users.get(room.dice.members[0]).name + ' has won ' + room.dice.award + ' '+point+'!'
                 } else if (result2 > result1) {
-                    var result3 = '' + Users.get(room.dice.members[1]).name + ' has won ' + room.dice.award + ' points!'
+                    var result3 = '' + Users.get(room.dice.members[1]).name + ' has won ' + room.dice.award + ' '+point+'!'
                 } else {
                     var result3;
                     do {
@@ -1417,9 +1419,9 @@ var customCommands = {
                         result2 = Math.floor((Math.random() * 6) + 1);
                     } while (result1 === result2);
                     if (result1 > result2) {
-                        result3 = '' + room.dice.members[0] + ' has won ' + room.dice.award + ' points!';
+                        result3 = '' + room.dice.members[0] + ' has won ' + room.dice.award + ' '+point+'!';
                     } else {
-                        result3 = '' + room.dice.members[1] + ' has won ' + room.dice.award + ' points!';
+                        result3 = '' + room.dice.members[1] + ' has won ' + room.dice.award + ' 'point+'!';
                     }
                 }
                 var dice1, dice2;
@@ -1472,10 +1474,20 @@ var customCommands = {
                     '<b>' + Users.get(room.dice.members[0]).name + '</b> rolled ' + result1 + '!<br />' +
                     '<b>' + Users.get(room.dice.members[1]).name + '</b> rolled ' + result2 + '!<br />' +
                     '<b>' + result3 + '</b><br />');
-                if (result3 === '' + Users.get(room.dice.members[0]).name + ' has won ' + room.dice.award + ' points!') {
-                    Core.transferAmt(Users.get(room.dice.members[1]).userid, Users.get(room.dice.members[0]).userid, room.dice.award);
+                    var user1 = Core.stdin('money', Users.get(room.dice.members[0]).userid);
+                    var user2 = Core.stdin('money', Users.get(room.dice.members[1]).userid);
+                if (result3 === '' + Users.get(room.dice.members[0]).name + ' has won ' + room.dice.award + ' '+point+'!') {
+                	var userMoney = parseInt(user1) + parseInt(room.dice.award);
+                	var targetMoney = parseInt(user2) - parseInt(room.dice.award);
+                	Core.stdout('money', Users.get(room.dice.members[0]).userid, userMoney, function () {
+                		Core.stdout('money', Users.get(room.dice.members[1]).userid, targetMoney);
+                	});
                 } else {
-                    Core.transferAmt(Users.get(room.dice.members[0]).userid, Users.get(room.dice.members[1]).userid, room.dice.award);
+                	var userMoney = parseInt(user1) - parseInt(room.dice.award);
+                	var targetMoney = parseInt(user2) + parseInt(room.dice.award);
+                	Core.stdout('money', Users.get(room.dice.members[0]).userid, userMoney, function () {
+                		Core.stdout('money', Users.get(room.dice.members[1]).userid, targetMoney);
+                	});
                 }
                 delete room.dice;
             }

@@ -1369,8 +1369,8 @@ var customCommands = {
         dicecommands: function(target, room, user) {
             if (!this.canBroadcast()) return;
             return this.sendReplyBox('<u><font size = 2><center>Dice rules and commands</center></font></u><br />' +
-                '<b>/dice [amount]</b> - Starts a dice game in the room for the specified amount of points. Must be ranked + or higher to use.<br />' +
-                '<b>/play</b> - Joins the game of dice. You must have more or the same number of points the game is for. Winning a game wins you the amount of points the game is for. Losing the game removes that amount from you.<br />' +
+                '<b>/dice [amount]</b> - Starts a dice game in the room for the specified amount of bucks. Must be ranked + or higher to use.<br />' +
+                '<b>/play</b> - Joins the game of dice. You must have more or the same number of bucks the game is for. Winning a game wins you the amount of bucks the game is for. Losing the game removes that amount from you.<br />' +
                 '<b>/diceend</b> - Ends the current game of dice in the room. You must be ranked + or higher to use this.');
         },
 
@@ -1383,11 +1383,11 @@ var customCommands = {
             target = toId(target);
             if (!target) return this.sendReply('/dice [amount] - Starts a dice game. The specified amount will be the amount of cash betted for.');
             if (isNaN(target)) return this.sendReply('That isn\'t a number, smartass.');
-            if (target < 1) return this.sendReply('You cannot start a game with anything less than 1 buck.');
+            if (target < 1) return this.sendReply('You cannot start a game for anything less than 1 buck.');
             room.dice = {};
             room.dice.members = [];
             room.dice.award = parseInt(target);
-            var point = (target == 1) ? 'point' : 'points';
+            var point = (target == 1) ? 'buck' : 'buckss';
             this.add('|html|<div class="infobox"><font color = #007cc9><center><h2>' + user.name + ' has started a dice game for <font color = green>' + room.dice.award + '</font color> '+point+'!<br />' +
                 '<center><button name="send" value="/play" target="_blank">Click to join!</button>');
         },
@@ -1405,23 +1405,28 @@ var customCommands = {
             room.dice.members.push(user.userid);
             this.add('|html|<b>' + user.name + ' has joined the game!');
             if (room.dice.members.length == 2) {
-            	var point = (room.dice.award == 1) ? 'point' : 'points';
+            	var point = (room.dice.award == 1) ? 'buck' : 'bucks';
                 result1 = Math.floor((Math.random() * 6) + 1);
                 result2 = Math.floor((Math.random() * 6) + 1);
                 if (result1 > result2) {
                     var result3 = '' + Users.get(room.dice.members[0]).name + ' has won ' + room.dice.award + ' '+point+'!'
+                    var losemessage = 'Better luck next time, '+Users.get(room.dice.members[1]).name+'!';
                 } else if (result2 > result1) {
                     var result3 = '' + Users.get(room.dice.members[1]).name + ' has won ' + room.dice.award + ' '+point+'!'
+                    var losemessage = 'Better luck next time, '+Users.get(room.dice.members[0]).name+'!';
                 } else {
                     var result3;
+                    var losemessage;
                     do {
                         result1 = Math.floor((Math.random() * 6) + 1);
                         result2 = Math.floor((Math.random() * 6) + 1);
                     } while (result1 === result2);
                     if (result1 > result2) {
-                        result3 = '' + room.dice.members[0] + ' has won ' + room.dice.award + ' '+point+'!';
+                        result3 = '' + Users.get(room.dice.members[0]) + ' has won ' + room.dice.award + ' '+point+'!';
+                        var losemessage = 'Better luck next time, '+Users.get(room.dice.members[1]).name+'!';
                     } else {
-                        result3 = '' + room.dice.members[1] + ' has won ' + room.dice.award + ' '+point+'!';
+                        result3 = '' + Users.get(room.dice.members[1]) + ' has won ' + room.dice.award + ' '+point+'!';
+                        var losemessage = 'Better luck next time, '+Users.get(room.dice.members[0]).name+'!';
                     }
                 }
                 var dice1, dice2;
@@ -1473,7 +1478,7 @@ var customCommands = {
                     '<img src = "' + dice2 + '" align = "left"><img src = "' + dice1 + '" align = "right"><br/>' +
                     '<b>' + Users.get(room.dice.members[0]).name + '</b> rolled ' + result1 + '!<br />' +
                     '<b>' + Users.get(room.dice.members[1]).name + '</b> rolled ' + result2 + '!<br />' +
-                    '<b>' + result3 + '</b><br />');
+                    '<b>' + result3 + '</b><br />'+losemessage);
                     var user1 = Core.stdin('money', Users.get(room.dice.members[0]).userid);
                     var user2 = Core.stdin('money', Users.get(room.dice.members[1]).userid);
                 if (result3 === '' + Users.get(room.dice.members[0]).name + ' has won ' + room.dice.award + ' '+point+'!') {

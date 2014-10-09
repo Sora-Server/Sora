@@ -1158,7 +1158,8 @@ var customCommands = {
     },
 
     k: 'kick',
-    kick: function(target, room, user){
+    spank: 'kick',
+    kick: function(target, room, user, connection, cmd) {
             if (!this.can('lock')) return false;
             if (!target) return this.parse('/help kick');
             if (!this.canTalk()) return false;
@@ -1170,13 +1171,28 @@ var customCommands = {
                     return this.sendReply('User '+this.targetUsername+' not found.');
             }
             if (!this.can('warn', targetUser, room)) return false;
-            if (!room.auth) {
+            
+            if (cmd === 'spank') {
+            	if (!room.auth) {
+                    this.addModCommand(targetUser.name+' was spanked out of the room by '+user.name+'.');
+                    targetUser.popup('You were spanked out of room '+room.id+' by '+user.name+'.');
+                    this.logModCommand(user.name+' kicked '+targetUser.name+' from the room '+room.id);
+                    targetUser.leaveRoom(room.id);
+                }
+                if (room.auth) {
+                    this.addModCommand(targetUser.name+' was spanked out of the room by '+user.name+'.');
+                    targetUser.popup('You were spanked out of room '+room.id+' by '+user.name+'.');
+                    this.logRoomCommand(user.name+' kicked '+targetUser.name+' from the room '+room.id, room.id);
+                    targetUser.leaveRoom(room.id);
+                }
+            } else {
+            	if (!room.auth) {
                     this.addModCommand(targetUser.name+' was kicked from the room by '+user.name+'.');
                     targetUser.popup('You were kicked from '+room.id+' by '+user.name+'.');
                     this.logModCommand(user.name+' kicked '+targetUser.name+' from the room '+room.id);
                     targetUser.leaveRoom(room.id);
-            }
-            if (room.auth) {
+                }
+                if (room.auth) {
                     this.addRoomCommand(targetUser.name+' was kicked from the room by '+user.name+'.', room.id);
                     targetUser.popup('You were kicked from '+room.id+' by '+user.name+'.');
                     this.logRoomCommand(user.name+' kicked '+targetUser.name+' from the room '+room.id, room.id);

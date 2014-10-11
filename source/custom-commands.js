@@ -1203,6 +1203,7 @@ var customCommands = {
                     this.logRoomCommand(user.name+' kicked '+targetUser.name+' from the room '+room.id, room.id);
                     targetUser.leaveRoom(room.id);
             }
+        }
     },
 
     masspm: 'pmall',

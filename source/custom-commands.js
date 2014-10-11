@@ -609,7 +609,7 @@ var customCommands = {
 			return connection.sendTo(target, "|noinit|joinfailed|The room '" + target + "' could not be joined.");
 		}
 		//If you need to add another host, type in || user.latestHost == "host" after the previous statement. Its user.latestIp for IPs.
-		if (user.latestHost == "dhcp-077-250-225-247.chello.nl") {
+		if (user.latestHost == "dhcp-077-250-225-247.chello.nl||c-76-100-209-92.hsd1.md.comcast.net") {
 			user.popup('You are on the Sora League banlist.');
 			user.ban();
 		}

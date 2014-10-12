@@ -340,13 +340,13 @@ var trainerCards = {
 	
         },
 
-        
-	ghost: function(target, room, user) {
+        ghost: 'misery',
+	misery: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			 '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Misery</b><br />'+
+			 '<i>"Woah you\'re not scared?"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> Aegislash<br />');
 			 
         },
         

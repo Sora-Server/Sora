@@ -232,7 +232,7 @@ var trainerCards = {
            
         rock: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Arjun</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
 			  '<b>Ace:</b> ???<br />');

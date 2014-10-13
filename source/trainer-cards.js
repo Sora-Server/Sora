@@ -140,7 +140,7 @@ var trainerCards = {
 	
 	ignatius: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<b> <font color = 55dbe8>∆Gym Ldr Meows∆</font></b> <br />'+
+		this.sendReplyBox('<b><font color = 55dbe8><a><font size= 4><center>∆Gym Ldr Meows∆</font></center></b><br />'+
 		'<i>"I might be a bitch, but I\'m definitely not a pussy"</i><br />'+
 		'<b>Who am I:</b> Middle Cup Master, Ice Trainer and OM lover <br />'+
 		'<b>Favorite Pokemon:</b> Gardevoir, Porygon 2, Meloetta <br />'+

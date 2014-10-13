@@ -118,6 +118,7 @@ var trainerCards = {
         
         
         },
+        
 
 	risu: 'ninjarisu',
 	ninjarisu: function(target, room, user) {
@@ -184,15 +185,19 @@ var trainerCards = {
 
 	blade: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Blade</b><br />'+
-			'<i>"Shift a burning flame into an ever burning flame!"</i> <br />'+
-			'<b>Symbol:</b> Yin and Yang<br />'+
-			'<b>Ace:</b> Slowbro<br />'+
+		this.sendReplyBox('<a><font size= 4><center><b><font color = 03b206>∆Fröntier∆Blade☯</font></b></center></a><br />'+
+			'<center><i>"I'm a stalling asshole, I just sit back and let you shift me ya moves"</i></center> <br />'+
+			'<b>Symbol:</b> Yin and Yang <br />'+
+			'<b>Ace:</b> Mybro, Slowbro <br />'+
 			'<b>Battle Rules:</b> <br />'+
 			'-Ability Shift Tier<br />'+
 			'-No focus Sash/Band<br />'+
 		        '<a href="http://www.smogon.com/forums/threads/ability-shift.3503100/">How Ability Shift works</a> <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/torkoal.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/blaziken.gif">');
+                        '<a href="http://www.psypokes.com/lab/abilities.php">Pokemon Ability List</a> <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/blaziken.gif">
+                        '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/torkoal.gif"></center>
+                        '<center>R.I.P. War Turtle</center> <br />'+
+                        '<center>Second time you have been killed, first a creation in minecraft and second by smogon</center><br />');
 	},
      
         fighting: 'arjun',

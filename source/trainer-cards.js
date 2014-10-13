@@ -135,6 +135,21 @@ var trainerCards = {
 	 	    '<b>Prize for victory:</b> 20 bucks <br/>'+
 	 	    '-<a href="http://partiallyused.weebly.com/">Link to PU Tier list</a><br/>'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif">');
+	 	    
+	}, 	    
+	
+	ignatius: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<b> Meows</b> <br />'+
+		'<i>"I might be a bitch, but I\'m definitely not a pussy"</i><br />'+
+		'Who am i: Middle Cup Master, Ice Trainer and OM lover <br />'+
+		'Favorite Pokemon: Gardevoir, Porygon 2, Meloetta <br />'+
+		'Favorite type: Ice <br />'+
+		'Ace: Gurdurr <br />'+
+		'<img src="http://play.pokemonshowdown.com/sprites/xyani/gurdurr.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/doublade.gif"><br />');
+		
+	
+	
         },
         
         silth: function(target, room, user) {

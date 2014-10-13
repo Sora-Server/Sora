@@ -141,12 +141,12 @@ var trainerCards = {
 	ignatius: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<b><font color = 55dbe8><a><font size= 4><center>∆Gym Ldr Meows∆</font></center></b><br />'+
-		'<i>"I might be a bitch, but I\'m definitely not a pussy"</i><br />'+
+		'<center><i>"I might be a bitch, but I\'m definitely not a pussy"</i></center><br />'+
 		'<b>Who am I:</b> Middle Cup Master, Ice Trainer and OM lover <br />'+
 		'<b>Favorite Pokemon:</b> Gardevoir, Porygon 2, Meloetta <br />'+
 		'<b>Favorite type:</b> Ice <br />'+
 		'<b>Ace:</b> Gurdurr <br />'+
-		'<img src="http://play.pokemonshowdown.com/sprites/xyani/gurdurr.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/doublade.gif"><br />');
+		'<center><img src="http://play.pokemonshowdown.com/sprites/xyani/gurdurr.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/doublade.gif"></center><br />');
 		
 	
 	

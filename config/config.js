@@ -196,6 +196,7 @@ exports.customAvatars = {
 	  'e4bamdee': '085.png',
 	  'gymldrarjun': '091.gif',
 	  'arifeen': '051.gif',
+	  'e4ignitor': '093.png',
 	
 };
 

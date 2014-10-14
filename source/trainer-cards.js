@@ -201,18 +201,20 @@ var trainerCards = {
 
 	blade: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b><font color = 03b206>∆Fröntier∆Blade☯</font></b></center></a><br />'+
+		this.sendReplyBox(blade: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<a><font size= 4><center><b><font color = FF0000>∆Fröntier∆Blade☯</font></b></center></a><br />'+
 			'<center><i>"I\'m a stalling asshole, I just sit back and let you shift me ya moves"</i></center> <br />'+
 			'<b>Symbol:</b> Yin and Yang <br />'+
-			'<b>Ace:</b> Mybro, Slowbro <br />'+
+			'<b>Ace:</b> Mybro (Slowbro) <br />'+
 			'<b>Battle Rules:</b> <br />'+
 			'-Ability Shift Tier<br />'+
 			'-No focus Sash/Band<br />'+
 		        '<a href="http://www.smogon.com/forums/threads/ability-shift.3503100/">How Ability Shift works</a> <br />'+
                         '<a href="http://www.psypokes.com/lab/abilities.php">Pokemon Ability List</a> <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/blaziken.gif" <br />'+
-                        '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/torkoal.gif"></center> <br />'+
-                        '<center>R.I.P. War Turtle</center> <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="http://play.pokemonshowdown.com/sprites/xyani/blaziken.gif">
+                        '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/torkoal.gif"></center>
+                        '<center><b>R.I.P. War Turtle</b></center> <br />'+
                         '<center>Second time you have been killed, first a creation in minecraft and second by smogon</center><br />');
 	},
      

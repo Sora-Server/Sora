@@ -157,13 +157,13 @@ var trainerCards = {
         
         abtth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox( '<b><font size="4" color="03b206">ABootToTheHead</font></b><br />'+
-		'<i>"Stardust-weaved ARiA, please deliver this melody for me."</i> </center><br />'+
+		this.sendReplyBox( '<center><b><font size="4" color="03b206"ABootToTheHead</font></b></center><br /><br />'+
+		'<center><i>"Stardust-weaved ARiA, please deliver this melody for me."</i> </center><br /><br />'+
 		'<b>Ace: </b>Scizor and Whimsicott<br />'+
 		'<b>Favorite Pokemon: </b>Typhlosion and Scizor<br />'+
 		'<b>Preferred tiers: </b>VGC, Ubers, OU <br />'+
 		'<b>Known for: </b>VoltTurn and Whimsistall shenanigans<br />'+
-		'<b>Achievements: </b>Ex-Elite Frontier, ex-Elite Four<br />'+
+		'<b>Achievements: </b>Ex-Elite Frontier, ex-Elite Four<br /><br />'+
 		'<center><img src="http://sprites.pokecheck.org/i/157.gif"><img src="http://sprites.pokecheck.org/i/530.gif"><img src="http://sprites.pokecheck.org/i/547.gif"><img src="http://sprites.pokecheck.org/t/144.gif"><img src="http://sprites.pokecheck.org/i/205.gif"><img src="http://sprites.pokecheck.org/i/310.gif"></center> <br />');
 	
 	

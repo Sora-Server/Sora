@@ -157,7 +157,7 @@ var trainerCards = {
         
         abtth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox( '<center><b><font size="4" color="03b206"ABootToTheHead</font></b></center><br />'+
+		this.sendReplyBox( '<center><b><font size="4" color="03b206">ABootToTheHead</font></b></center><br>'+
 		'<center><i>"Stardust-weaved ARiA, please deliver this melody for me."</i> </center><br /><br />'+
 		'<b>Ace: </b>Scizor and Whimsicott<br />'+
 		'<b>Favorite Pokemon: </b>Typhlosion and Scizor<br />'+

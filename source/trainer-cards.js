@@ -137,7 +137,9 @@ var trainerCards = {
 	 	    '-<a href="http://partiallyused.weebly.com/">Link to PU Tier list</a><br/>'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif">');
 	 	    
-	}, 	    
+	},
+	
+	
 	
 	ignatius: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -148,7 +150,21 @@ var trainerCards = {
 		'<b>Favorite type:</b> Ice <br />'+
 		'<b>Ace:</b> Gurdurr <br />'+
 		'<center><img src="http://play.pokemonshowdown.com/sprites/xyani/gurdurr.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/doublade.gif"></center><br />');
-		
+        
+	},
+        
+        
+        
+        abtth: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<b><font size="4" color="03b206">ABootToTheHead</font></b><br />'+
+		'<i>"Stardust-weaved ARiA, please deliver this melody for me."</i> </center><br />'+
+		'<b>Ace: </b>Scizor and Whimsicott<br />'+
+		'<b>Favorite Pokemon: </b>Typhlosion and Scizor<br />'+
+		'<b>Preferred tiers: </b>VGC, Ubers, OU <br />'+
+		'<b>Known for: </b>VoltTurn and Whimsistall shenanigans<br />'+
+		'<b>Achievements: </b>Ex-Elite Frontier, ex-Elite Four<br />'+
+		'<center><img src="http://sprites.pokecheck.org/i/157.gif"><img src="http://sprites.pokecheck.org/i/530.gif"><img src="http://sprites.pokecheck.org/i/547.gif"><img src="http://sprites.pokecheck.org/t/144.gif"><img src="http://sprites.pokecheck.org/i/205.gif"><img src="http://sprites.pokecheck.org/i/310.gif"></center> <br />');
 	
 	
         },

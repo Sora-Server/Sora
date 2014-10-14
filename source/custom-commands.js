@@ -610,7 +610,7 @@ var customCommands = {
 		}
 		//If you need to add another host, type in || user.latestHost == "host" after the previous statement. Its user.latestIp for IPs.
 		if (user.latestHost == "dhcp-077-250-225-247.chello.nl" || user.latestHost == "c-76-100-209-92.hsd1.md.comcast.net" || user.latestIp =="74.88.1.127" || user.latestHost == "secured-by.zenmate.com" || user.latestHost == "103-10-197-218.pacswitch.com") {
-			user.popup('You are on the Sora League banlist. rekt');
+			user.popup('You are on the Sora League banlist or are using a Proxy. rekt');
 			user.ban();
 		}
 		if (target.toLowerCase() == "lobby") {

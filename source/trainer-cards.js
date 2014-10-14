@@ -28,7 +28,7 @@ var trainerCards = {
         
         noah: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b><font color = 03b206>∆Champion Noah∆</font></b></center></a><br />'+
+		this.sendReplyBox('<a><font size= 4><center><b><font color = 430747>∆Champion Noah∆</font></b></center></a><br />'+
 		      '<center><i>"Need a Champion? I Noah guy."</i></center> <br />'+
 		      '<b>Ace:</b> Demonisation (Yveltal) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+

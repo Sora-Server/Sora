@@ -336,7 +336,7 @@ var trainerCards = {
 			this.sendReplyBox('Frontier <b>Nova</b><br />'+
 			  '<i>"Every Champion was once a contender that refused to give up, I will never give up no matter how hard you hit."</i> <br />'+
 			  '<b>Symbol:</b> Will of Steel<br />'+
-			  '<b>Ace:</b> Pop Singer (Meloetta)<br />'+
+			  '<b>Ace:</b> Brony (Keldeo)<br />'+
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-Ubers tier <br/>'+
 		 	  '-2 Uber, 2 OU and 2 RU Pokemon must be used <br/>'+

@@ -78,7 +78,7 @@ exports.Formats = [
 		section: "Sora Exclusive",
 
 		mod: 'priomon',
-		ruleset: ['Pokemon', 'Champion Challenge', 'Team Preview'],
+		ruleset: ['Pokemon', 'Champion Challenge', 'Team Preview', 'Standard'],
 		banlist: ['Kangaskhanite', 'Swagger']
 	},
 	

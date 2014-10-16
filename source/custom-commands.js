@@ -222,6 +222,7 @@ var customCommands = {
 			"was been hour munted by demon lrod helix!",
 			"was killed by the God Virus!",
 			"Rubiks sucked {{user}}'s soul!",
+			"is jealous of Risu's VGC crown!",
 		];
 
 		return function(target, room, user) {

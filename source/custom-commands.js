@@ -1210,7 +1210,7 @@ var customCommands = {
         if (!this.can('pmall')) return;
         if (!target) return this.parse('/help pmall');
 
-        var pmName = '~Server PM [Do not reply]';
+        var pmName = '~Server-Kun [Do not reply]';
 
         for (var i in Users.users) {
             var message = '|pm|' + pmName + '|' + Users.users[i].getIdentity() + '|' + target;
@@ -1222,7 +1222,7 @@ var customCommands = {
         if(!this.can('declare')) return;
         if (!target) return this.parse('/help rmall');
 
-        var pmName = '~Server PM [Do not reply]';
+        var pmName = '~Server-Kun [Do not reply]';
 
         for (var i in room.users) {
             var message = '|pm|' + pmName + '|' + room.users[i].getIdentity() + '|' + target;

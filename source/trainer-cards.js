@@ -263,7 +263,8 @@ var trainerCards = {
 		          '<b> Leader Ranking <font color =007daa>7th</font></b> <br />'+
 			  '<i>"I will drown you so hard, you will drown to death"</i> <br />'+
 			  '<b>Type: <font color = 0400f9>Water</font></b> <br />'+
-			  '<b>Ace:</b> Keldeo<br />');
+			  '<b>Ace:</b> Keldeo<br />'+
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/surskit.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gyarados-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/surskit.gif">');
         },
     
            

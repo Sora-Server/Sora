@@ -272,11 +272,11 @@ var core = exports.core = {
 
     shop: function (showDisplay) {
         var shop = [
+            ['RNG', 'Buys Floatzel\'s RNG/Cloning <a href="http://pastebin.com/1AvnBhjH">Services</a> for Pokemon X&Y. 2 bucks is a minimum price and additional bucks will be charged by Floatzel himself if you buy something other than or more expensive than Gender/Pokeball change. If Floatzel and you are not on at the same time, you will need to wait for him to come online. (He will be informed by an Admin when you buy this) ', 2],
             ['Symbol', 'Buys a custom symbol to go infront of name and puts you at top of userlist. (Temporary until restart, certain symbols are blocked)', 5],
             ['Fix', 'Buys the ability to alter your current custom avatar or trainer card. (don\'t buy if you have neither)', 10],
             ['Poof', 'Buy a poof message to be added into the pool of possible poofs.', 15],
             ['Who', 'Buys a custom whois bot message for your name.', 25],
-            ['RNG', 'Buys Gym Ldr Floatzel\'s RNG/Cloning <a href="http://pastebin.com/1AvnBhjH">Services</a> for Pokemon X&Y, additional bucks will be charged by Floatzel himself if you buy something other than Gender/Pokeball change. If Floatzel and you are not on at the same time, you will need to wait for him to come online. (He will be informed by an Admin when you buy this) ', 2],
             ['Avatar', 'Buys an custom avatar to be applied to your name (You supply. Images larger than 80x80 may not show correctly)', 30],
             ['Trainer', 'Buys a trainer card which shows information through a command.', 50],
             ['Room', 'Buys a chatroom for you to own. (within reason, can be refused)', 100],

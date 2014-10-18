@@ -5,7 +5,16 @@ exports.Formats = [
 
 	// Sora Exclusive
 	///////////////////////////////////////////////////////////////////
+        {
+		name: "League Battle",
+		section: "XY Singles",
         
+		searchShow: false, 
+		ruleset: ['Pokemon', 'Standard', 'Baton Pass Clause', 'Swagger Clause', 'Monotype Exception Clause', 'Team Preview'],
+		banlist: ['Arceus', 'Blaziken', 'Darkrai', 'Deoxys', 'Deoxys-Attack', 'Dialga', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh',
+			'Kyogre', 'Lugia', 'Mewtwo', 'Palkia', 'Rayquaza', 'Reshiram', 'Xerneas', 'Yveltal', 'Zekrom',
+			'Gengarite', 'Kangaskhanite', 'Lucarionite']
+	},
         {
 		name: "Inclement Weather OU",
 		section: "Sora Exclusive",

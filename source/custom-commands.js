@@ -627,6 +627,33 @@ var customCommands = {
 		}
 	},
 	
+	chall: 'challenge',
+	challenge: function (target, room, user, connection) {
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+		if (!targetUser || !targetUser.connected) {
+			return this.popupReply("The user '" + this.targetUsername + "' was not found.");
+		}
+		if (targetUser.blockChallenges && !user.can('bypassblocks', targetUser)) {
+			return this.popupReply("The user '" + this.targetUsername + "' is not accepting challenges right now.");
+		}
+		if (Config.modchat.pm) {
+			var userGroup = user.group;
+			if (Config.groups.bySymbol[userGroup].rank < Config.groups.bySymbol[Config.modchat.pm].rank) {
+				var groupName = Config.groups.bySymbol[Config.modchat.pm].name || Config.modchat.pm;
+				this.popupReply("Because moderated chat is set, you must be of rank " + groupName + " or higher to challenge users.");
+				return false;
+			}
+		}
+		if (toId(target) == 'leaguebattle') {
+			if (!user.can('warn') && !targetUser.can('lock')) return this.popupReply('Only Gym Leaders or higher can be challenged in this format.');
+			else if (user.can('warn') && targetUser.can('lock')) return this.popupReply('Only challengers can be challenged in this format.');
+		}
+		user.prepBattle(target, 'challenge', connection, function (result) {
+			if (result) user.makeChallenge(targetUser, target);
+		});
+	},
+	
 	/*********************************************************
 	 * Misc Commands
 	 *********************************************************/

@@ -267,13 +267,13 @@ var trainerCards = {
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/surskit.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gyarados-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/surskit.gif">');
         },
     
-           
-        rock: function(target, room, user) {
+        rock: 'torterra',   
+        torterra: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Torterra</b><br />'+
+			  '<i>"I am rock hard and solid."</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Aerodactyl<br />');
 			  
         },
         

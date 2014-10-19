@@ -13,7 +13,7 @@ var trainerCards = {
 		    '<i>"Welcome to the Sora Battle Frontier! Challenge us if you Dare."</i> <br />'+
 		    '<b>Requirements:</b> 8 Badges<br />'+
 	 	    '<b>Rules:</b> The battle frontier may be challenged after collecting 8 gym badges and is needed to enter the Hall of Fame. You must beat 7 frontiers (Frontier Head needs to be the last Frontier battle and teams may be changed after each game to fit the next Battle Frontiers set of rules). You can not use Super Effective type pokemon against Mono-Type frontier brains. The same frontier may be challenged once every 24 hours.The Challenger must choose a partner Pokemon that must be present in all Frontier challenges.<br/>');
-        },
+        },ro
 
 	onyx: 'onyxeagle',
 	onyxeagle: function(target, room, user) {
@@ -267,13 +267,13 @@ var trainerCards = {
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/surskit.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gyarados-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/surskit.gif">');
         },
     
-           
-        rock: function(target, room, user) {
+        rock: 'torterra',   
+        torterra: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Torterra</b><br />'+
+			  '<i>"I am rock hard and solid."</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Aerodactyl<br />');
 			  
         },
         

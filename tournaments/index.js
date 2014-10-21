@@ -76,6 +76,10 @@ Tournament = (function () {
 		this.format = toId(format);
 		this.generator = generator;
 		this.isRated = isRated;
+		this.playerCap = parseInt(playerCap) || Config.tournamentDefaultPlayerCap || 0;
+		if (Config.tournamentDefaultPlayerCap && this.playerCap > Config.tournamentDefaultPlayerCap) {
+			ResourceMonitor.log('[ResourceMonitor] Room ' + room.id + ' starting a tour over default cap (' + this.playerCap + ')');
+		}
 
 		this.isBracketInvalidated = true;
 		this.lastBracketUpdate = 0;
@@ -129,7 +133,10 @@ Tournament = (function () {
 	Tournament.prototype.forceEnd = function () {
 		if (this.isTournamentStarted) {
 			this.inProgressMatches.forEach(function (match) {
-				if (match) delete match.room.win;
+				if (match) {
+					delete match.room.tour;
+					match.room.addRaw("<div class=\"broadcast-red\"><b>The tournament was forcefully ended.</b><br />You can finish playing, but this battle is no longer considered a tournament battle.</div>");
+				}
 			});
 		}
 		this.isEnded = true;
@@ -620,7 +627,7 @@ Tournament = (function () {
 		if (!this.pendingChallenges.get(challenge.from)) return;
 		if (!this.pendingChallenges.get(user)) return;
 
-		var room = Rooms.global.startBattle(challenge.from, user, this.format, this.isRated, challenge.team, user.team);
+		var room = Rooms.global.startBattle(challenge.from, user, this.format, challenge.team, user.team, {rated: this.isRated, tour: this});
 		if (!room) return;
 
 		this.pendingChallenges.set(challenge.from, null);
@@ -634,12 +641,6 @@ Tournament = (function () {
 		this.isBracketInvalidated = true;
 		this.runAutoDisqualify();
 		this.update();
-
-		var self = this;
-		room.win = function (winner) {
-			self.onBattleWin(this, Users.get(winner));
-			return Object.getPrototypeOf(this).win.call(this, winner);
-		};
 	};
 	Tournament.prototype.onBattleWin = function (room, winner) {
         var from = Users.get(room.p1),
@@ -927,7 +928,7 @@ CommandParser.commands.tournament = function (paramString, room, user) {
 				return this.sendReply(cmd + " -  Access denied.");
 			}
 		} else {
-			if (!user.can('tournamentsmanagement', room)) {
+			if (!user.can('tournamentsmanagement', null, room)) {
 				return this.sendReply("Tournaments are disabled in this room (" + room.id + ").");
 			}
 		}
@@ -954,7 +955,7 @@ CommandParser.commands.tournament = function (paramString, room, user) {
 					return this.sendReply(cmd + " -  Access denied.");
 				}
 			} else {
-				if (!user.can('tournamentsmanagement', room)) {
+				if (!user.can('tournamentsmanagement', null, room)) {
 					return this.sendReply("Tournaments are disabled in this room (" + room.id + ").");
 				}
 			}

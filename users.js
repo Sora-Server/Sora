@@ -695,15 +695,7 @@ User = (function () {
 			this.send("|popup|Your username (" + name + ") is locked" + bannedUnder + "'. Your lock will expire in a few days." + (Config.appealurl ? " Or you can appeal at:\n" + Config.appealurl : ""));
 			this.lock(true);
 		}
-		if (!this.locked && this.group === Config.groupsranking[0]) {
-			var shortHost = Users.shortenHost(this.latestHost);
-			if (lockedDomains[shortHost]) {
-				this.send("|popup|Your ISP is temporarily locked from talking in chats, battles, and PMing regular users.");
-				lockedDomainsUsers[shortHost][this.userid] = 1;
-				this.locked = '#range';
-				this.updateIdentity();
-			}
-		}
+		
 
 		for (var i = 0; i < this.connections.length; i++) {
 			//console.log('' + name + ' renaming: socket ' + i + ' of ' + this.connections.length);

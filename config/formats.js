@@ -784,7 +784,7 @@ exports.Formats = [
 	},
 	{
 		name: "ORAS OU Monotype",
-		section: "OM of the Month",
+		section: "Monotype",
 
 		mod: 'oras',
 		ruleset: ['Pokemon', 'Same Type Clause', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Team Preview', 'Swagger Clause', 'Baton Pass Clause'],

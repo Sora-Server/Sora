@@ -12,7 +12,7 @@ exports.Formats = [
         
 		searchShow: false,
 		ruleset: ['Pokemon', 'Standard', 'Baton Pass Clause', 'Swagger Clause', 'Monotype Exception Clause', 'Team Preview'],
-		banlist: ['Arceus', 'Blaziken', 'Darkrai', 'Deoxys', 'Deoxys-Attack', 'Dialga', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh',
+		banlist: ['Arceus', 'Blaziken', 'Darkrai', 'Deoxys', 'Deoxys-Attack', 'DialgadouoGiratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh',
 			'Kyogre', 'Lugia', 'Mewtwo', 'Palkia', 'Rayquaza', 'Reshiram', 'Xerneas', 'Yveltal', 'Zekrom',
 			'Gengarite', 'Kangaskhanite', 'Lucarionite'
 		]
@@ -458,6 +458,30 @@ exports.Formats = [
 		section: "OM of the Month",
 
 		mod: 'oras',
+		ruleset: ['Pokemon', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Team Preview', 'Swagger Clause', 'Baton Pass Clause'],
+		banlist: ['Illegal', 'Uber', 'Floette-Eternal-Flower', 'Hoopa', 'Volcanion', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Soul Dew',
+			'Bug Gem', 'Custap Berry', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem',
+			'Grass Gem', 'Ground Gem', 'Ice Gem', 'Mail', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem'
+		]
+	},
+	{
+		name: "ORAS OU Doubles",
+		section: "OM of the Month",
+
+		mod: 'oras',
+		gameType: 'doubles',
+		ruleset: ['Pokemon', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Team Preview', 'Swagger Clause', 'Baton Pass Clause'],
+		banlist: ['Illegal', 'Uber', 'Floette-Eternal-Flower', 'Hoopa', 'Volcanion', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Soul Dew',
+			'Bug Gem', 'Custap Berry', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem',
+			'Grass Gem', 'Ground Gem', 'Ice Gem', 'Mail', 'Poison Gem', 'Psychic Gem', 'Rock Gem', 'Steel Gem', 'Water Gem'
+		]
+	},
+	{
+		name: "ORAS OU Triples",
+		section: "OM of the Month",
+
+		mod: 'oras',
+		gameType: 'triples',
 		ruleset: ['Pokemon', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Team Preview', 'Swagger Clause', 'Baton Pass Clause'],
 		banlist: ['Illegal', 'Uber', 'Floette-Eternal-Flower', 'Hoopa', 'Volcanion', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Mawilite', 'Soul Dew',
 			'Bug Gem', 'Custap Berry', 'Dark Gem', 'Dragon Gem', 'Electric Gem', 'Fairy Gem', 'Fighting Gem', 'Fire Gem', 'Flying Gem', 'Ghost Gem',

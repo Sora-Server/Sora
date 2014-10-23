@@ -1448,7 +1448,7 @@ var customCommands = {
                 return this.sendReply("You don't have enough money to join this game of dice.");
             }
             for (var i = 0; i < room.dice.members.length; i++) {
-                if (Users.get(room.dice.members[i]).userid == user.userid) return this.sendReply("You have already joined this game of dice!");
+                if (Users.get(room.dice.members[i]) || room.dice.members[i] == user.userid) return this.sendReply("You have already joined this game of dice!");
             }
             room.dice.members.push(user.userid);
             this.add('|html|<b>' + user.name + ' has joined the game!');

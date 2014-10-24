@@ -127,10 +127,11 @@ var trainerCards = {
 		    '<i>"I will show you the power of the best of the worst"</i> <br />'+
 		    '<b>Ace:</b> <s>Unown</s><br />'+
 	 	    '<b>Symbol:</b> Powerless Symbol<br />'+
-	 	    '<b>Rules:</b> CAP <br />'+
+	 	    '<b>Rules:</b> PU <br />'+
 	 	    '-No Stat Changing moves <br/>'+
 	 	    '-No base stat over 115<br/>'+
 	 	    '-No Hazards <br/>'+
+	 	    '-FUCK OFF KNOCK OFF (No Knock off) <br />'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/unown.gif">');
 	 	    
 	},

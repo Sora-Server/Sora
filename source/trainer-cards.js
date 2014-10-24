@@ -123,19 +123,15 @@ var trainerCards = {
 	risu: 'ninjarisu',
 	ninjarisu: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Delta <b>Ninjarisu</b><br />'+
-		    '<i>"While many regarded Risu as weak, I saw your Determination shine, and you proved to be a real bro. The legend of Ninjarisu will forever live on. ~Marriland"</i> <br />'+
-		    '<b>Ace:</b> Pachirisu<br />'+
-	 	    '<b>Requirements:</b> 8 Gym Badges<br />'+
-	 	    '<b>Rules:</b> Original Fan Made PU <br />'+
-	 	    '<b>Please note that this is NOT Smogon\'s PU</b> <br />'+
-	 	    '-Max 1 Eviolite item <br/>'+
+		this.sendReplyBox('Frontier <b>Ninjarisu</b><br />'+
+		    '<i>"I will show you the power of the best of the worst"</i> <br />'+
+		    '<b>Ace:</b> <s>Unown</s><br />'+
+	 	    '<b>Symbol:</b> Powerless Symbol<br />'+
+	 	    '<b>Rules:</b> CAP <br />'+
+	 	    '-No Stat Changing moves <br/>'+
+	 	    '-No base stat over 115<br/>'+
 	 	    '-No Hazards <br/>'+
-	 	    '-No Direct Status <br/>'+
-	 	    '-<a href="http://pastebin.com/hV6XZnUh">Difi Battle</a> <br />'+
-	 	    '<b>Prize for victory:</b> 20 bucks <br/>'+
-	 	    '-<a href="http://partiallyused.weebly.com/">Link to PU Tier list</a><br/>'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif">');
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/unown.gif">');
 	 	    
 	},
 	

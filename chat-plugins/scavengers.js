@@ -21,7 +21,7 @@ exports.commands = {
 	startofficialhunt: 'starthunt',
 	starthunt: function (target, room, user, connection, cmd) {
 		if (room.id !== 'gambling') return this.sendReply('This command can only be used in the Gambling room.');
-		if (!this.can('gambling', room)) return false;
+		if (!this.can('scavengers', room)) return false;
 		if (status === 'on') return this.sendReply('There is already an active scavenger hunt.');
 		var targets = target.split(',');
 		if (!targets[0] || !targets[1] || !targets[2] || !targets[3] || !targets[4] || !targets[5] || targets[6]) {
@@ -29,7 +29,7 @@ exports.commands = {
 		}
 		status = 'on';
 		if (cmd === 'startofficialhunt') {
-			if (!this.can('officialscavengers', room)) return false;
+			if (!this.can('officialscavengers', room) || !this.can('declare', room)) return false;
 			blitz = setTimeout(function () {
 				blitz = null;
 			}, 60000);
@@ -131,7 +131,7 @@ exports.commands = {
 			'<br />' +
 			'<strong>Staff commands:</strong><br />' +
 			'- /starthunt <em>hint, answer, hint, answer, hint, answer</em> - Start a new scavenger hunt (Requires: % @ # & ~)<br />' +
-			'- /startofficialhunt <em>hint, answer, hint, answer, hint, answer</em> - Start an official hunt with 60 seconds blitz period (Requires: @ # & ~)<br />' +
+			'- /startofficialhunt <em>hint, answer, hint, answer, hint, answer</em> - Start an official hunt with 60 seconds blitz period (Requires: # & ~)<br />' +
 			'- /endhunt - Finish the current hunt and announce the winners (Requires: % @ # & ~)<br />' +
 			'- /resethunt - Reset the scavenger hunt to mint status (Requires: % @ # & ~)'
 		);

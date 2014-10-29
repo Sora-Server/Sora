@@ -150,7 +150,7 @@ exports.customAvatars = {
 	  'e4toast': '009.gif',
 	  'e4bighug': '010.gif',
 	  'gymtrnrgary': '011.gif',
-	  'deltaninjarisu': '060.gif',
+	  'deltaninjarisu': '096.gif',
 	  'gymldrsnowking': '082.gif',
 	  'gymldrkrenon': '017.gif',
 	  'gymldrasch': '018.gif',

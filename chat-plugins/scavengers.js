@@ -81,7 +81,7 @@ exports.commands = {
 	},
 	endhunt: function (target, room, user) {
 		if (room.id !== 'gambling') return this.sendReply('This command can only be used in the Gambling room.');
-		if (!this.can('gambling', room)) return false;
+		if (!this.can('scavengers', room)) return false;
 		if (status !== 'on') return this.sendReply('There is no active scavenger hunt.');
 		var winner = finished[0];
 		var second = finished[1];
@@ -102,7 +102,7 @@ exports.commands = {
 	},
 	resethunt: function (target, room, user) {
 		if (room.id !== 'gambling') return this.sendReply('This command can only be used in the Gambling room.');
-		if (!this.can('gambling', room)) return false;
+		if (!this.can('scavengers', room)) return false;
 		if (status !== 'on') return this.sendReply('There is no active scavenger hunt.');
 		status = 'off';
 		if (blitz) clearTimeout(blitz);

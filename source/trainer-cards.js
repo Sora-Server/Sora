@@ -425,8 +425,8 @@ var trainerCards = {
 			  
 	},
 	
-	bug: 'dan',
-	dan: function(target, room, user) {
+	
+	bug: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Dan</b><br />'+
 			  '<i>"???"</i> <br />'+

@@ -174,16 +174,6 @@ var trainerCards = {
 		    '<b>Tiers:</b> OU, OU Monotype or Doubles<br />'+
 	 	    '<b>Requirements:</b> 5 Frontier Symbols<br />');
         },
-        
-        darkus: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Guardian <b>Darkus</b><br />'+
-			    '<i>"You Snooze, You Lose!"</i> <br />'+
-			    '<b>Ace:</b> Klinklang<br />'+
-		 	    '<b>Note:</b> Nemesis of Overlord, him or me? Choose<br />'+
-		 	    '<b>Requirements:</b> 10 Gym Badges<br />'+
-		 	    '<img src="http://sprites.pokecheck.org/i/601.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
-        },
 
         grass: 'asch',
 	asch: function(target, room, user) {
@@ -406,13 +396,13 @@ var trainerCards = {
 			  '<center><img src="http://fc00.deviantart.net/fs71/f/2014/082/f/8/manaphy_gif_by_gloomymyth-d7bakkc.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/tentacruel.gif"><img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/swampert.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/gyarados-mega.gif"></center>');
 	},
 
-        
-	psychic: function(target, room, user) {
+        psychic: 'darkus',
+	darkus: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
+			  '<i>"You gotta go along to get along."</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> ??? <br />');
+			  '<b>Ace:</b> Victini <br />');
 	},
 	ground: 'vroen',
 	vroen: function(target, room, user) {

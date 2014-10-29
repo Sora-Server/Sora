@@ -29,7 +29,7 @@ exports.commands = {
 		}
 		status = 'on';
 		if (cmd === 'startofficialhunt') {
-			if (!this.can('officialscavengers', room) || !this.can('declare', room)) return false;
+			if (!this.can('declare', room)) return false;
 			blitz = setTimeout(function () {
 				blitz = null;
 			}, 60000);

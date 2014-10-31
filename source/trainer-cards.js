@@ -439,7 +439,7 @@ var trainerCards = {
 			  '<b>Ace:</b>  Kyruem-Black<br />');
 	},
 
-       ateam: 'adminteam',
+        ateam: 'adminteam',
 	adminteam: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('<a><font size= 4><center><b>The Admin Team</b></center></a><br />'+
@@ -450,6 +450,8 @@ var trainerCards = {
 		'<b>How does one join the Admin team?</b> The Admin Team usually invites a select few senior members who\'ve to be mature and capable of handling responsibility. <br />'+
 		'<center> All Admin team Members will be identifiable by having this badge on their cards:<center> <br />'+
 		'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
+		
+	},
 		
 
 

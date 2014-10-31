@@ -37,7 +37,8 @@ var trainerCards = {
 	 	      '<center><img src="http://i.imgur.com/pFtOL9I.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/yveltal.gif"></center> <br />'+
 	 	      '<img src="http://sprites.pokecheck.org/i/134.gif"> <br />'+
 	 	      'R.I.P. in piece Liquidbones 2013-2014 <br />'+
-	 	      'Gone, but definitely not forgotten. <br />');
+	 	      'Gone, but definitely not forgotten. <br />'+
+	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	},
 
 	bart: function(target, room, user) {
@@ -51,7 +52,8 @@ var trainerCards = {
 	 	     '-At least 2 must be tiered lower than OU <br/>'+
 	 	     '-No Lowering opponents stats (Unless caused by attack) <br/>'+
 	 	     '-No Pokemon with a base stat over 130<br />'+
-	 	     '<center><img src="http://sprites.pokecheck.org/i/461.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Misc%20sprites/Bart_zps03ad3a7d.png"><img src="http://play.pokemonshowdown.com/sprites/xyani/torterra.gif"></center>');
+	 	     '<center><img src="http://sprites.pokecheck.org/i/461.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Misc%20sprites/Bart_zps03ad3a7d.png"><img src="http://play.pokemonshowdown.com/sprites/xyani/torterra.gif"></center>'+
+	 	     '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         },
 
 	dragon: 'tempest',
@@ -72,7 +74,8 @@ var trainerCards = {
 	 	          '<b>Battle Rules:</b> <br/>'+
 	 	          '-No Hazards <br/>'+
 	 	          '-Ubers Monotype <br/>'+
-	 	          '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/hooh.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/volcarona.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar-mega.gif"> </center>');
+	 	          '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/hooh.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/volcarona.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar-mega.gif"> </center>'+
+	 	          '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	},
         
         zoro: function(target, room, user) {
@@ -133,7 +136,8 @@ var trainerCards = {
 	 	    '-No base stat over 115<br/>'+
 	 	    '-No Hazards <br/>'+
 	 	    '-FUCK OFF KNOCK OFF (No Knock off) <br />'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/unown.gif">');
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/unown.gif">'+
+	 	    '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	 	    
 	},
 	
@@ -361,7 +365,8 @@ var trainerCards = {
 		 	  '-Maximum of 1 Uber <br/>'+
 		 	  '-At least 3 different types of Priomons moves must be used <br/>'+
 		 	  '-No hazards <br />'+
-		 	  '<img src="http://play.pokemonshowdown.com/sprites/xyani/groudon.gif"><img src="http://sprites.pokecheck.org/t/033.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/kyogre.gif"> <br/>');
+		 	  '<img src="http://play.pokemonshowdown.com/sprites/xyani/groudon.gif"><img src="http://sprites.pokecheck.org/t/033.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/kyogre.gif"> <br/>'+
+		 	  '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	
 	
         },
@@ -434,6 +439,20 @@ var trainerCards = {
 			  '<b>Ace:</b>  Kyruem-Black<br />');
 	},
 
+       ateam: 'adminteam',
+	adminteam: function(target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('<a><font size= 4><center><b>The Admin Team</b></center></a><br />'+
+		'FAQ < br/>'+
+		'<b>Who are we?</b> The Admin team are a group of senior members who make most of the major league decisions and organize most major league events. <br />'+
+		'<b>Who\'s in the Admin Team?</b> The Admin Team\'s active members consist of: Champion Noah, Champion Toast, Onyx, Frontier Jeratt, Frontier Ninjarisu, Neith and Frontierhead Bart. <br />'+
+		'<b>What exactly do you guys do?</b> The Admin Team handle or oversee all matters from disputes in the League, to League Challenge Registration <br />'+
+		'<b>How does one join the Admin team?</b> The Admin Team usually invites a select few senior members who\'ve to be mature and capable of handling responsibility. <br />'+
+		'<center> All Admin team Members will be identifiable by having this badge on their cards:<center> <br />'+
+		'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
+		
+
+
 	jeratt: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<a><font size= 4><center><b>∆Artiste Jeratt∆</b></center></a><br />'+
@@ -445,7 +464,8 @@ var trainerCards = {
 		 	'<b>History:</b> Greatest Ice E4, <strike>undefeated</strike> Dragon E4. <br/>'+
 		 	'P.S. I\'m still Dragon you away with my coldness. <br/>'+
 		 	'P.P.S Use Scizor against me, and I\'ll get fired up and blast you! <br/>'+
-		 	'<center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/vanilluxe.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"></center>');
+		 	'<center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/vanilluxe.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"></center>'+
+		 	'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         },
         
         gasp: function(target, room, user) {
@@ -470,7 +490,8 @@ var trainerCards = {
 			'<b>Symbol:</b> Global Symbol<br />'+
 			'<b>Battle rules:</b> <br />'+
 			'-6v6 2014 VGC Doubles <br/>'+
-			'-To observe the 6v6 rule, battles will be fought in the Smogon doubles format, but VGC rules and clauses will apply. <br />');
+			'-To observe the 6v6 rule, battles will be fought in the Smogon doubles format, but VGC rules and clauses will apply. <br />'+
+			'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         	
         },
         

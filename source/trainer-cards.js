@@ -136,7 +136,7 @@ var trainerCards = {
 	 	    '-No base stat over 115<br/>'+
 	 	    '-No Hazards <br/>'+
 	 	    '-FUCK OFF KNOCK OFF (No Knock off) <br />'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/unown.gif">'+
+	 	    '<img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-interrogation.gif">'+
 	 	    '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	 	    
 	},
@@ -445,7 +445,7 @@ var trainerCards = {
 		this.sendReplyBox('<a><font size= 4><center><b><font color = 075ff7>The Admin Team</font></b></center></a><br />'+
 		'FAQ <br />'+
 		'<b>Who are we?</b> The Admin team are a group of senior members who make most of the major league decisions and organize most major league events. <br />'+
-		'<b>Who\'s in the Admin Team?</b> The Admin Team\'s active members consist of: Champion Noah, Champion Toast, Onyx, Frontier Jeratt, Frontier Ninjarisu, Neith and Frontierhead Bart. <br />'+
+		'<b>Who\'s in the Admin Team?</b> The Admin Team\'s active members consist of: Champion Noah, Champion Toast, Onyx, Artiste Jeratt, Frontier Ninjarisu, Neith and Frontierhead Bart. <br />'+
 		'<b>What exactly do you guys do?</b> The Admin Team handle or oversee all matters from disputes in the League, to League Challenge Registration <br />'+
 		'<b>How does one join the Admin team?</b> The Admin Team usually invites a select few senior members who\'ve to be mature and capable of handling responsibility. <br />'+
 		' <br />'+

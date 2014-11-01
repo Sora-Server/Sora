@@ -447,7 +447,7 @@ var trainerCards = {
 		'<b>Who are we?</b> The Admin team are a group of senior members who make most of the major league decisions and organize most major league events. <br />'+
 		'<b>Who\'s in the Admin Team?</b> The Admin Team\'s active members consist of: Champion Noah, Champion Toast, Onyx, Artiste Jeratt, Frontier Ninjarisu, Neith and Frontierhead Bart. <br />'+
 		'<b>What exactly do you guys do?</b> The Admin Team handle or oversee all matters from disputes in the League, to League Challenge Registration <br />'+
-		'<b>How does one join the Admin team?</b> The Admin Team usually invites a select few senior members who\'ve to be mature and capable of handling responsibility. <br />'+
+		'<b>How does one join the Admin team?</b> The Admin Team usually invites a select few senior members who\'ve shown to be mature and capable of handling responsibility. <br />'+
 		' <br />'+
 		'<center> All Admin team Members will be identifiable by having this badge on their cards:<center> <br />'+
 		'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');

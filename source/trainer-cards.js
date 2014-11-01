@@ -179,6 +179,19 @@ var trainerCards = {
 		    '<b>Tiers:</b> OU, OU Monotype or Doubles<br />'+
 	 	    '<b>Requirements:</b> 5 Frontier Symbols<br />');
         },
+        
+        ascher: 'sube4',
+        sube4: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Sub E4 Position:<b><font color = 007700>Active</font></b><br />'+
+		'Sub E4 <b>Ascher</b> <br />'+
+		'<b>Type:</b> <font color = 006b0a>Grass</font><br />'+
+		'<b>Battle Rules:</b> <br />'+
+		'-No Choice items <br />'+
+		'-No Protecting moves (Protect, Detect, etc) <br />');
+        
+        
+        }, 
 
         grass: 'asch',
 	asch: function(target, room, user) {

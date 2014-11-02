@@ -437,8 +437,8 @@ var trainerCards = {
 	
 	bug: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Dan</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Bloods</b><br />'+
+			  '<i>"Fear the big creatures because you can see their size, but fear the small ones because you can\'t see them at all....."</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> Volcarona <br />');
         },

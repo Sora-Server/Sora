@@ -434,8 +434,8 @@ var trainerCards = {
 			  
 	},
 	
-	
-	bug: function(target, room, user) {
+	bug: 'bloods',
+	bloods: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bloods</b><br />'+
 			  '<i>"Fear the big creatures because you can see their size, but fear the small ones because you can\'t see them at all....."</i> <br />'+

@@ -197,7 +197,7 @@ var trainerCards = {
 	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
-			'<b> Leader rank: <font color = FF0000>1st</font></b> <br />'+ 
+			'<b> Leader rank: '+ 
 			'<b>*GRACEFUL CHANTING*</b> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
@@ -226,6 +226,7 @@ var trainerCards = {
         arjun: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Arjun</b><br />'+
+		        'Leader Ranking: <font color = FF0000>1st</font></b> <br />'
 			'<i>"???"</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
 			'<b>Ace:</b> ???<br />');
@@ -650,16 +651,16 @@ var trainerCards = {
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 10 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
-				'-<b>1st <font color = 006b0a>Asch</font></b> (Grass)<br />'+
+				'-<b>1st <font color = 006b0a>Arjun</font></b> (Fighting)<br />'+
 				'-<b>2nd <font color = aa00ff>Srewop</font></b></b> (Poison)<br />'+
-				'-<b>3rd <font color = 00a6c4>Arsh</font></b> (Flying)<br />'+
-				'-<b>4th <font color = 230077>Tempest</font></b> (Dragon) <br />'+
-				'-<b>5th <font color = FF0000>Meows</font></b> (Fire)<br />'+
-				'-<b>6th <font color = ffa5d5>Vanilla</front></b> (Normal)<br />'+
-				'-<b>7th <font color = 0400f9>Floatzel</front></b> (Water)<br />'+
-				'-<b>8th <font color = 5b3a00>Vroen</front></b> (Ground)<br />'+
-				'-<b>9th <font color = 15012b>KingX</front></b> (Dark)<br />'+
-				'-<b>10th <font color = 5e6664>Myth</front></b> (Steel)<br />'+
+				'-<b>3rd <font color = ea610b>Acsh</font></b> (Grass)<br />'+
+				'-<b>4th <font color = 230077>Arsh</font></b> (Flying) <br />'+
+				'-<b>5th <font color = ffe100>Tempest</font></b> (Dragon)<br />'+
+				'-<b>6th <font color = FF0000>Meows</front></b> (Fire)<br />'+
+				'-<b>7th <font color = ffa5d5>Vanilla</front></b> (Normal)<br />'+
+				'-<b>8th <font color = 0400f9>Floatel</front></b> (Water)<br />'+
+				'-<b>9th <font color = 5b3a00>Vroen</front></b> (Ground)<br />'+
+				'-<b>10th <font color = ff007f>Darkus</front></b> (Psychic)<br />'+
 				'</div>');
 	
 	},

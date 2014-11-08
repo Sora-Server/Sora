@@ -110,15 +110,14 @@ var trainerCards = {
 	 	      '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
         },
         
-        ignitor: function(target, room, user) {
+        arjunb: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Igintor</b><br />'+
-		      '<i>"From fire to demons, I welcome you to hell."</i> <br />'+
-		      '<b>Type: <font color = #FF0000>Fire</font></b> <br />'+
-		      '<b>Ace:</b> Victini <br />'+
+		this.sendReplyBox('E4 <b>Arjunb</b><br />'+
+		      '<i>"Even if you fight hard, you\'ve still got no chance of winning."</i> <br />'+
+		      '<b>Type: <font color =  d83c08>Fighting</font></b> <br />'+
+		      '<b>Ace:</b> Tony Stark (Keldeo-Resolute) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No hazards <br/>'+
-	 	      '-No Focus Sash <br />');
+	 	      '-??? <br />');
         
         
         },
@@ -222,14 +221,14 @@ var trainerCards = {
                         '<center>Second time you have been killed, first a creation in minecraft and second by smogon</center><br />');
 	},
      
-        fighting: 'arjun',
-        arjun: function(target, room, user) {
+        fighting: 'm2king',
+        m2king: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Arjun</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>M2King</b><br />'+
 		        'Leader Ranking: <b><font color = FF0000>1st</font></b> <br />'+
-			'<i>"Even if you fight hard, you\'ve still got no chance of winning."</i> <br />'+
+			'<i>"K.O. PUNCH\'D, GET REKT"</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
-			'<b>Ace:</b> Tony Stark (Keldeo-Resolute)<br />');
+			'<b>Ace: Gallade</b> <br />');
         },
         
         fairy: 'ark',
@@ -652,7 +651,7 @@ var trainerCards = {
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 10 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
-				'-<b>1st <font color = ea610b>Arjun</font></b> (Fighting)<br />'+
+				'-<b>1st <font color = ea610b>M2King</font></b> (Fighting)<br />'+
 				'-<b>2nd <font color = aa00ff>Srewop</font></b></b> (Poison)<br />'+
 				'-<b>3rd <font color = 006b0a>Asch</font></b> (Grass)<br />'+
 				'-<b>4th <font color = 00a6c4>Arsh</font></b> (Flying) <br />'+

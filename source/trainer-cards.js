@@ -487,12 +487,11 @@ var trainerCards = {
         
         gasp: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>gasp</b><br />'+
+		this.sendReplyBox('Trainer <b>gasp</b><br />'+
 			'<i>"Lights out."</i> <br />'+
 			'<b>Ace:</b> Mega Gengar<br />'+
 			'<b>Honours:</b> Sora\'s first challenger to reach Hall of Fame.<br />'+
-			'<b>Battle rules:</b>'+
-			'-Balanced Hackmons <br/>'+
+			'<b>Prefered Tier:</b> Balanced Hackmons'+
 		 	'<img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_front/302.gif"> <img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif">');
         
         

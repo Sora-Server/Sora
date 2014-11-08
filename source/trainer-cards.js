@@ -659,7 +659,7 @@ var trainerCards = {
 				'-<b>5th <font color = 230077>Tempest</font></b> (Dragon)<br />'+
 				'-<b>6th <font color = FF0000>Meows</front></b> (Fire)<br />'+
 				'-<b>7th <font color = ffa5d5>Vanilla</front></b> (Normal)<br />'+
-				'-<b>8th <font color = 0400f9>Floatel</front></b> (Water)<br />'+
+				'-<b>8th <font color = 0400f9>Floatzel</front></b> (Water)<br />'+
 				'-<b>9th <font color = 5b3a00>Vroen</front></b> (Ground)<br />'+
 				'-<b>10th <font color = ff007f>Darkus</front></b> (Psychic)<br />'+
 				'</div>');

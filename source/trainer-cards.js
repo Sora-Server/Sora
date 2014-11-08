@@ -228,7 +228,7 @@ var trainerCards = {
 		        'Leader Ranking: <b><font color = FF0000>1st</font></b> <br />'+
 			'<i>"K.O. PUNCH\'D, GET REKT"</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
-			'<b>Ace: Gallade</b> <br />');
+			'<b>Ace:</b> Gallade <br />');
         },
         
         fairy: 'ark',

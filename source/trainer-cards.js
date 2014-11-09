@@ -117,7 +117,8 @@ var trainerCards = {
 		      '<b>Type: <font color =  d83c08>Fighting</font></b> <br />'+
 		      '<b>Ace:</b> Tony Stark (Keldeo-Resolute) <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-??? <br />');
+	 	      '-No Trick Room <br />'+
+	 	      '-No Hazards <br />');
         
         
         },

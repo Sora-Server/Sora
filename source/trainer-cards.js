@@ -299,7 +299,7 @@ var trainerCards = {
         fallen: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>Fallen</b><br />'+
-			  '<i>"Long live the King!"</i> <br />'+
+			  '<i>"The King has Fallen"</i> <br />'+
 			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
 			  '<b>Ace:</b> Sableye<br />');
         },

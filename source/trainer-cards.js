@@ -428,19 +428,18 @@ var trainerCards = {
 	darkus: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
-		          '<b> Leader Ranking:  <font color = 000cff>9th</font></b> <br />'+ 
+		          '<b> Leader Ranking <font color = 0044aa>8th</font></b> <br />'+ 
 			  '<i>"You gotta go along to get along."</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Victini <br />');
 	},
-	ground: 'vroen',
-	vroen: function(target, room, user) {
+	
+	ground: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Vroen</b><br />'+
-		          '<b> Leader Ranking <font color = 0044aa>8th</font></b> <br />'+ 
-			  '<i>"The Earth can be your life, or your destruction."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
-			  '<b>Ace:</b> Hippowdon <br />');
+			  '<b>Ace:</b> ??? <br />');
 			  
 	},
 	
@@ -658,7 +657,7 @@ var trainerCards = {
 	leaderranks: 'ranks',
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Listed here are the Top 9 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
+			this.sendReplyBox('Listed here are the Top 8 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
 				'-<b>1st <font color = ea610b>M2King</font></b> (Fighting)<br />'+
 				'-<b>2nd <font color = aa00ff>Srewop</font></b></b> (Poison)<br />'+
 				'-<b>3rd <font color = 006b0a>Asch</font></b> (Grass)<br />'+
@@ -666,8 +665,7 @@ var trainerCards = {
 				'-<b>5th <font color = 230077>Tempest</font></b> (Dragon)<br />'+
 				'-<b>6th <font color = ffa5d5>Vanilla</front></b> (Normal)<br />'+
 				'-<b>7th <font color = 0400f9>Floatzel</front></b> (Water)<br />'+
-				'-<b>8th <font color = 5b3a00>Vroen</front></b> (Ground)<br />'+
-				'-<b>9th <font color = ff007f>Darkus</front></b> (Psychic)<br />'+
+				'-<b>8th <font color = ff007f>Darkus</front></b> (Psychic)<br />'+
 				'</div>');
 	
 	},

@@ -404,13 +404,13 @@ var trainerCards = {
         },
         
         
-        electric: 'praga',
-	praga: function(target, room, user) {
+        
+	electric: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Praga</b><br />'+
-			 '<i>"Get ready to be electrified."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = d6cc0c>Electric</font></b><br />'+
-			 '<b>Ace:</b> Luxray<br />');
+			 '<b>Ace:</b> ???<br />');
   
         },
 

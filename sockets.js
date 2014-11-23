@@ -426,8 +426,8 @@ var fakeProcess = new (require('./fake-process').FakeProcess)();
 		});
 	});
 	server.installHandlers(app, {});
-	app.listen(Config.port);
-	console.log('Worker ' /*+ cluster.worker.id*/ + ' now listening on port ' + Config.port);
+	app.listen(Config.port, Config.bindAddress || undefined);
+	console.log('Worker ' /*+ cluster.worker.id*/ + ' now listening on ' + (Config.bindAddress || '*') + ':' + Config.port);
 
 	if (appssl) {
 		server.installHandlers(appssl, {});
@@ -435,6 +435,6 @@ var fakeProcess = new (require('./fake-process').FakeProcess)();
 		console.log('Worker ' /*+ cluster.worker.id*/ + ' now listening for SSL on port ' + Config.ssl.port);
 	}
 
-	console.log('Test your server at http://localhost:' + Config.port);
+	console.log('Test your server at http://' + (Config.bindAddress || 'localhost') + ':' + Config.port);
 
 //}

@@ -119,6 +119,7 @@ var fakeProcess = new (require('./fake-process').FakeProcess)();
 	// is worker
 
 	if (process.env.PSPORT) Config.port = +process.env.PSPORT;
+	if (process.env.PSBINDADDR) Config.bindaddress = process.env.PSBINDADDR;
 
 	// ofe is optional
 	// if installed, it will heap dump if the process runs out of memory

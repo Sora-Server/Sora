@@ -644,6 +644,7 @@ reload: function (target, room, user) {
 		Rooms.global.autojoinRooms(user, connection);
 	},
 
+	joim: 'join',
 	join: function (target, room, user, connection) {
 		if (!target) return false;
 		var targetRoom = Rooms.search(target);
@@ -1414,7 +1415,25 @@ reload: function (target, room, user) {
 		}
 
 		this.logEntry(user.name + " used /lockdown");
+	},
 
+	prelockdown: function (target, room, user) {
+		if (!this.can('lockdown')) return false;
+		Rooms.global.lockdown = 'pre';
+		this.sendReply("Tournaments have been disabled in preparation for the server restart.");
+		this.logEntry(user.name + " used /prelockdown");
+	},
+
+	slowlockdown: function (target, room, user) {
+		if (!this.can('lockdown')) return false;
+
+		Rooms.global.lockdown = true;
+		for (var id in Rooms.rooms) {
+			if (id === 'global') continue;
+			var curRoom = Rooms.rooms[id];
+			if (curRoom.battle) continue;
+			curRoom.addRaw("<div class=\"broadcast-red\"><b>The server is restarting soon.</b><br />Please finish your battles quickly. No new battles can be started until the server resets in a few minutes.</div>");
+		}
 	},
 
 	endlockdown: function (target, room, user) {
@@ -1423,10 +1442,14 @@ reload: function (target, room, user) {
 		if (!Rooms.global.lockdown) {
 			return this.sendReply("We're not under lockdown right now.");
 		}
-		Rooms.global.lockdown = false;
-		for (var id in Rooms.rooms) {
-			if (id !== 'global') Rooms.rooms[id].addRaw("<div class=\"broadcast-green\"><b>The server shutdown was canceled.</b></div>");
+		if (Rooms.global.lockdown === true) {
+			for (var id in Rooms.rooms) {
+				if (id !== 'global') Rooms.rooms[id].addRaw("<div class=\"broadcast-green\"><b>The server shutdown was canceled.</b></div>");
+			}
+		} else {
+			this.sendReply("Preparation for the server shutdown was canceled.");
 		}
+		Rooms.global.lockdown = false;
 
 		this.logEntry(user.name + " used /endlockdown");
 
@@ -1463,7 +1486,7 @@ reload: function (target, room, user) {
 	kill: function (target, room, user) {
 		if (!this.can('lockdown')) return false;
 
-		if (!Rooms.global.lockdown) {
+		if (Rooms.global.lockdown !== true) {
 			return this.sendReply("For safety reasons, /kill can only be used during lockdown.");
 		}
 
@@ -1570,7 +1593,7 @@ reload: function (target, room, user) {
 	},
 
 	crashfixed: function (target, room, user) {
-		if (!Rooms.global.lockdown) {
+		if (Rooms.global.lockdown !== true) {
 			return this.sendReply('/crashfixed - There is no active crash.');
 		}
 		if (!this.can('hotpatch')) return false;
@@ -1913,6 +1936,7 @@ reload: function (target, room, user) {
 
 	back: 'allowchallenges',
 	allowchallenges: function (target, room, user) {
+		if (!user.blockChallenges) return this.sendReply("You are already available for challenges!");
 		user.blockChallenges = false;
 		this.sendReply("You are available for challenges from now on.");
 	},

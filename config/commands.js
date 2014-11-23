@@ -907,11 +907,15 @@ var commands = exports.commands = {
 
 		var factor = 0;
 		if (Tools.getImmunity(source.type || source, defender)) {
+			var totalTypeMod = 0;
 			if (source.effectType !== 'Move' || source.basePower || source.basePowerCallback) {
-				factor = Math.pow(2, Tools.getEffectiveness(source, defender));
-			} else {
-				factor = 1;
+				for (var i = 0; i < defender.types.length; i++) {
+					var baseMod = Tools.getEffectiveness(source, defender.types[i]);
+					var moveMod = source.onEffectiveness && source.onEffectiveness.call(Tools, baseMod, defender.types[i], source);
+					totalTypeMod += typeof moveMod === 'number' ? moveMod : baseMod;
+				}
 			}
+			factor = Math.pow(2, totalTypeMod);
 		}
 
 		this.sendReplyBox("" + atkName + " is " + factor + "x effective against " + defName + ".");
@@ -1112,9 +1116,9 @@ var commands = exports.commands = {
 			matched = true;
 			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3495527/\">Averagemons</a><br />";
 		}
-		if (target === 'hackmons' || target === 'purehackmons' || target === 'classichackmons') {
+		if (target === 'classichackmons' || target === 'hackmons') {
 			matched = true;
-			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3500418/\">Hackmons</a><br />";
+			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3521887/\">Classic Hackmons</a><br />";
 		}
 		if (target === 'hiddentype') {
 			matched = true;
@@ -1123,10 +1127,6 @@ var commands = exports.commands = {
 		if (target === 'middlecup' || target === 'mc') {
 			matched = true;
 			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3494887/\">Middle Cup</a><br />";
-		}
-		if (target === 'mashup') {
-			matched = true;
-			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3518763/\">OM Mashup</a><br />";
 		}
 		if (target === 'skybattle') {
 			matched = true;
@@ -1277,6 +1277,10 @@ var commands = exports.commands = {
 			matched = true;
 			buffer += "A user is autoconfirmed when they have won at least one rated battle and have been registered for a week or longer.<br />";
 		}
+		if (target === 'customavatar' || target === 'ca') {
+			matched = true;
+			buffer += "<a href=\"https://www.smogon.com/sim/faq#customavatar\">How can I get a custom avatar?</a><br />";
+		}
 		if (!matched) {
 			return this.sendReply("The FAQ entry '" + target + "' was not found. Try /faq for general help.");
 		}
@@ -1313,8 +1317,9 @@ var commands = exports.commands = {
 			buffer += "- <a href=\"https://www.smogon.com/dex/xy/tags/uu/\">UU Banlist</a><br />";
 			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3516418/\">UU Viability Rankings</a><br />";
 		}
-		if (target === 'all' || target === 'rarelyused' || target === 'ru') {
-			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3515615/\">np: RU Stage 4</a><br />";
+		if (target === 'rarelyused' || target === 'ru') {
+			matched = true;
+			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3522572/\">np: RU Stage 5</a><br />";
 			buffer += "- <a href=\"https://www.smogon.com/dex/xy/tags/ru/\">RU Banlist</a><br />";
 			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3516783/\">RU Viability Rankings</a><br />";
 		}

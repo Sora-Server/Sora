@@ -616,6 +616,7 @@ var customCommands = {
 					return connection.sendTo('lobby','|html|<div class="infobox" style="border-color:blue"><marquee><b><u><font size= 3>Welcome to The Sora League Server!</u></b></marquee><br /><br /> ' +
 					'We are a Pokemon League open for challenges!<br /><br />' +
 					'<a href="http://soraleague.weebly.com/rules.html">IMPORTANT RULE UPDATE FOR ALL CHALLENGERS</a><br /><br />'+
+					'<b><font color = FF0000>IMPORANT:</font></b> Artiste Jeratt, Sora\'s resident Artist and one of the League\'s most respected Frontier/Admin Team Members is leaving due to him realizing there\'s an outside world with stuff to do in it. We will all miss him greatly and wish him all the best in the future. <br /><br />'+  
 					'You are welcomed to challenge us, participate in our tournaments or just chat in the lobby! <br /><br />' +
 					'The most important rule here is to have fun! We hope you will have an enjoyable stay here.<br /><br />' +
 					'You may want to check out <a href="http://soraleague.weebly.com/index.html">The Sora League Website</a> for details about the rules of challenge.<br /><br />' +

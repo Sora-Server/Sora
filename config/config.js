@@ -188,7 +188,7 @@ exports.customAvatars = {
 	  'amtesla': '070.gif',
 	  'gymldrterror': '072.gif',
 	  'gymldrtsuna': '076.gif',
-	  'frontieriggy': '077.jpg',
+	  'frontieriggy': '099.gif',
 	  'frontiergasp': '080.jpg',
 	  'typhozzz': '081.png',
 	  'rubiks456': '084.png',

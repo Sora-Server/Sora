@@ -852,6 +852,7 @@ var customCommands = {
 				'"there can only be one asch, but anyone can be an aschhole" -E4 Cocoa 17/8/14<br /> '+
 				'"Drizzle Damp Rock is broken, but apparently the flying Rabbit Hedgehog from Ubers is okay." -∆Champiön Nöah∆ 1/9/14 <br />' +
 				'"The thing about electric types is you always gotta wear a rubber"-∆E4 Vanilla∆ 6/9/14<br />' +
+				'"Umbreon is dark?"-∆E4 Arjunb∆ 30/11/14<br />'+
 				'</div>');
 	},
 	

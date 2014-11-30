@@ -207,7 +207,7 @@ var trainerCards = {
 	blade: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<a><font size= 4><center><b><font color = FF0000>∆Fröntier∆Blade☯</font></b></center></a><br />'+
-			'<center><i>"Too much Water 7.9/10"-IGN</i></center> <br />'+
+			'<center><i>"Too much Water 7.8/10"-IGN</i></center> <br />'+
 			'<b>Symbol:</b> Yin and Yang <br />'+
 			'<b>Ace:</b> Mybro (Slowbro) <br />'+
 			'<b>Battle Rules:</b> <br />'+

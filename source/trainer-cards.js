@@ -417,6 +417,7 @@ var trainerCards = {
         azh: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('<a><font size= 4><center><b>∆Gym Ldr ArthurZH∆</b></center></a><br />'+
+			  '<body background="http://fc02.deviantart.net/fs70/i/2014/040/1/5/water_type_pokemon_trainers_by_saintnaruto-d75tc5z.png"> <br />'+
 			  '<center><i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY!"</i></center> <br />'+
 			  '<b>Favoured Type:</b> Water<br />'+
 			  '<b>Ace:</b> Kabutops<br />'+

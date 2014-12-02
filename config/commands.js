@@ -1230,9 +1230,9 @@ var commands = exports.commands = {
 				"- <a href=\"https://pokemonshowdown.com/rules\">" + (room.rulesLink ? "Global rules" : "Rules") + "</a>");
 			return;
 		}
-		if (!this.can('declare', room)) return;
-		if (target.length > 80) {
-			return this.sendReply("Error: Room rules link is too long (must be under 80 characters). You can use a URL shortener to shorten the link.");
+		if (!this.can('roommod', null, room)) return;
+		if (target.length > 100) {
+			return this.sendReply("Error: Room rules link is too long (must be under 100 characters). You can use a URL shortener to shorten the link.");
 		}
 
 		room.rulesLink = target.trim();

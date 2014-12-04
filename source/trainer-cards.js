@@ -241,13 +241,13 @@ var trainerCards = {
 	              '<b>Ace:</b> Togekiss<br />');
         },
         
-        
-        fire: function(target, room, user) {
+        fire: 'exzlu',
+        exzlu: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-	              '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Exzlu</b><br />'+
+	              '<i>"Flames will burn you"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> Combusken<br />');
+	              '<b>Ace:</b> Houndoom<br />');
 
 	},
  
@@ -434,12 +434,13 @@ var trainerCards = {
 			  '<b>Ace:</b> Victini <br />');
 	},
 	
-	ground: function(target, room, user) {
+	ground: 'spirit',
+	spirit: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Spirit</b><br />'+
+			  '<i>"The power of the land cannot be destroyed. Take me on if you dare~!"</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
-			  '<b>Ace:</b> ??? <br />');
+			  '<b>Ace:</b> Excadrill <br />');
 			  
 	},
 	

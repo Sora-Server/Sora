@@ -197,7 +197,7 @@ var trainerCards = {
 	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
-			'<b> Leader rank: <b><font color = FF0000>1st</font></b> <br />'+
+			'<b>Leader rank: <b><font color = FF0000>1st</font></b> <br />'+
 			'<b>*GRACEFUL CHANTING*</b> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
@@ -449,7 +449,7 @@ var trainerCards = {
 	bloods: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bloods</b><br />'+
-		          '<b> Leader Ranking: <font color =ff9900>2nd</font></b> <br />'+'
+		          '<b> Leader Ranking: <font color =ff9900>2nd</font></b> <br />'+
 			  '<i>"Fear the big creatures because you can see their size, but fear the small ones because you can\'t see them at all....."</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> Volcarona <br />');

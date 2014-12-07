@@ -397,7 +397,7 @@ var trainerCards = {
 	misery: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Misery</b><br />'+
-		         '<b>Leader Ranking: <font color = ffe100>3rd</font></b> <br />'+ '
+		         '<b>Leader Ranking: <font color = ffe100>3rd</font></b> <br />'+
 			 '<i>"Woah you\'re not scared?"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
 			 '<b>Ace:</b> Aegislash<br />');

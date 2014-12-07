@@ -89,14 +89,6 @@ var trainerCards = {
 	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
 	},
 	
-	bloodfist: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Coach <b>Bloodfist</b><br />'+
-		      '<i>The Master of Many Types</i> <br />'+
-		      '<i>"You listen to me, you go to the top! You don\'t, then your missteps will be noted by everyone!"</i> <br />'+
-		      '<b>Purpose:</b> Will help to train you in your chosen type, or team, and assist in what items are missing.<br />'+
-      	 	      '<b>See me online and need help? Message me.<b>');
-        },
         
 	cocoa: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -110,15 +102,15 @@ var trainerCards = {
 	 	      '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
         },
         
-        gazel: function(target, room, user) {
+        bloodfist function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Gazel</b><br />'+
-		      '<i>"Even if you fight hard, you\'ve still got no chance of winning."</i> <br />'+
-		      '<b>Type: <font color =  d83c08>Fighting</font></b> <br />'+
-		      '<b>Ace:</b> Tony Stark (Keldeo-Resolute) <br />'+
+		this.sendReplyBox('E4 <b>Bloodfist</b><br />'+
+		      '<i>"Fear the big creatures because you can see their size, but fear the small ones because you can\'t see them at all....."</i> <br />'+
+		      '<b>Type: <font color =  65b510>Bug</font></b> <br />'+
+		      '<b>Ace:</b> Vivillon <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No Trick Room <br />'+
-	 	      '-No Hazards <br />');
+	 	      '-No Priority <br />'+
+	 	      '-No Damaging hazards <br />');
         
         
         },
@@ -445,14 +437,14 @@ var trainerCards = {
 			  
 	},
 	
-	bug: 'bloods',
-	bloods: function(target, room, user) {
+	bug: 'gazel',
+	gazel: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Bloods</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Gazel</b><br />'+
 		          '<b> Leader Ranking: <font color =ff9900>2nd</font></b> <br />'+
-			  '<i>"Fear the big creatures because you can see their size, but fear the small ones because you can\'t see them at all....."</i> <br />'+
+			  '<i>"I am now the Bug Leader."</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
-			  '<b>Ace:</b> Volcarona <br />');
+			  '<b>Ace:</b> Pinsir <br />');
         },
 	
 	ice: 'vescy',
@@ -662,7 +654,7 @@ var trainerCards = {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 8 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
 				'-<b>1st <font color = 006b0a>Asch</font></b> (Grass)<br />'+
-				'-<b>2nd <font color = 65b510>Bloods</font></b></b> (Bug)<br />'+
+				'-<b>2nd <font color = 65b510>Gazel</font></b></b> (Bug)<br />'+
 				'-<b>3rd <font color = 7814e2>Misery</font></b> (Ghost)<br />'+
 				'-<b>4th <font color = 0400f9>Floatzel</font></b> (Water) <br />'+
 				'-<b>5th <font color = d83c08>M2King</font></b> (Fighting)<br />'+

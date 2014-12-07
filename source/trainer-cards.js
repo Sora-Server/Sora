@@ -110,9 +110,9 @@ var trainerCards = {
 	 	      '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
         },
         
-        arjunb: function(target, room, user) {
+        gazel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Arjunb</b><br />'+
+		this.sendReplyBox('E4 <b>Gazel</b><br />'+
 		      '<i>"Even if you fight hard, you\'ve still got no chance of winning."</i> <br />'+
 		      '<b>Type: <font color =  d83c08>Fighting</font></b> <br />'+
 		      '<b>Ace:</b> Tony Stark (Keldeo-Resolute) <br />'+

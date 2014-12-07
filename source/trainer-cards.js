@@ -60,7 +60,7 @@ var trainerCards = {
 	tempest: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Tempest</b><br />'+
-		      '<b> Leader Ranking: <font color =00d30a>5th</font></b> <br />'+  
+		      '<b> Leader Ranking:<font color = 00bc8d>6th</font></b> <br />'+
 		      '<i>"Excellent. Mhm, excellent indeed."</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
 		      '<b>Ace:</b> Babylon (Garchomp)<br />');
@@ -197,7 +197,7 @@ var trainerCards = {
 	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
-			'<b> Leader rank: <font color = ffe100>3rd</font></b> <br />'+ 
+			'<b> Leader rank: <b><font color = FF0000>1st</font></b> <br />'+
 			'<b>*GRACEFUL CHANTING*</b> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
@@ -226,7 +226,7 @@ var trainerCards = {
         m2king: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>M2King</b><br />'+
-		        'Leader Ranking: <b><font color = FF0000>1st</font></b> <br />'+
+		        'Leader Ranking: <font color =00d30a>5th</font></b> <br />'+ 
 			'<i>"K.O. PUNCH\'D, GET REKT"</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
 			'<b>Ace:</b> Gallade <br />');
@@ -265,7 +265,7 @@ var trainerCards = {
         floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
-		          '<b> Leader ranking: <font color =007daa>7th</font></b> <br />'+
+		          '<b> Leader ranking: <font color = a1ff00>4th</font></b> <br />'+
 			  '<i>"I will drown you so hard, you will drown to death"</i> <br />'+
 			  '<b>Type: <font color = 0400f9>Water</font></b> <br />'+
 			  '<b>Ace:</b> Keldeo<br />'+
@@ -299,6 +299,7 @@ var trainerCards = {
         fallen: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>Fallen</b><br />'+
+			  '<b> Leader Ranking: <font color =0e00aa>10th</font></b> <br />'+
 			  '<i>"The King has Fallen"</i> <br />'+
 			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
 			  '<b>Ace:</b> Sableye<br />');
@@ -308,7 +309,7 @@ var trainerCards = {
         srewop: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Srewop</b><br />'+
-			 '<b> Leader Ranking: <font color =ff9900>2nd</font></b> <br />'+
+			 '<b> Leader Ranking: <font color =007daa>7th</font></b> <br />'+
 			 '<i>"It\'s going down, I\'m yelling Timburr"</i> <br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
 			 '<b>Ace:</b> Venusaur<br />');
@@ -318,7 +319,7 @@ var trainerCards = {
         arsh: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Arsh</b><br />'+
-		         '<b> Leader Ranking: <font color = a1ff00>4th</font></b> <br />'+
+		         '<b> Leader Ranking <font color = 0015ff>9th</font></b> <br />'+
 		         '<i>"Haters gonna hate, potatoes gonna potate."</i> <br />'+
 	              	 '<b>Type: <font color = 00a6c4>Flying</font></b><br />'+
 			 '<b>Ace:</b> Vivillon<br />');
@@ -329,7 +330,6 @@ var trainerCards = {
         vanilla: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Vanilla</b><br />'+
-		         '<b> Leader Ranking:<font color = 00bc8d>6th</font></b> <br />'+
 		         '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
 			 '<b>Ace:</b> Miltank (Dragonslayer)<br />'+
@@ -397,6 +397,7 @@ var trainerCards = {
 	misery: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Misery</b><br />'+
+		         '<b>Leader Ranking: <font color = ffe100>3rd</font></b> <br />'+ '
 			 '<i>"Woah you\'re not scared?"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
 			 '<b>Ace:</b> Aegislash<br />');
@@ -428,7 +429,6 @@ var trainerCards = {
 	darkus: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
-		          '<b> Leader Ranking <font color = 0044aa>8th</font></b> <br />'+ 
 			  '<i>"You gotta go along to get along."</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Victini <br />');
@@ -438,6 +438,7 @@ var trainerCards = {
 	spirit: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Spirit</b><br />'+
+		          '<b> Leader Ranking <font color = 0044aa>8th</font></b> <br />'+ 
 			  '<i>"The power of the land cannot be destroyed. Take me on if you dare~!"</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
 			  '<b>Ace:</b> Excadrill <br />');
@@ -448,6 +449,7 @@ var trainerCards = {
 	bloods: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bloods</b><br />'+
+		          '<b> Leader Ranking: <font color =ff9900>2nd</font></b> <br />'+'
 			  '<i>"Fear the big creatures because you can see their size, but fear the small ones because you can\'t see them at all....."</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> Volcarona <br />');

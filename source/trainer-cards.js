@@ -233,13 +233,13 @@ var trainerCards = {
 	              '<b>Ace:</b> Togekiss<br />');
         },
         
-        fire: 'exzlu',
-        exzlu: function(target, room, user) {
+        
+        fire: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Exzlu</b><br />'+
-	              '<i>"Flames will burn you"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> Houndoom<br />');
+	              '<b>Ace:</b> ???<br />');
 
 	},
  

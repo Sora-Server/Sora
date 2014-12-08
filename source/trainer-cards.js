@@ -243,14 +243,13 @@ var trainerCards = {
 
 	},
  
-        steel: 'myth',
-        myth: function(target, room, user) {
+        steel: 'arthurzh',
+        arthurzh: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Myth</b><br />'+
-			  '<b> Leader Ranking: <font color = 020089>10th</font></b> <br />'+ 
-			  '<i>"The iron walls of magicness that guards fruits"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Arthurzh</b><br />'+
+			  '<i>" ERROR 404: OPTION WIN FOR CHALLENGER NOT FOUND"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
-			  '<b>Ace:</b>Mega-Scizor (A Robot)<br />');
+			  '<b>Ace:</b>Mega-Mawile <br />');
 	},
 	
         water: 'floatzel',
@@ -447,13 +446,13 @@ var trainerCards = {
 			  '<b>Ace:</b> Pinsir <br />');
         },
 	
-	ice: 'vescy',
-	vescy: function(target, room, user) {
+	
+	ice: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Vescy</b><br />'+
-			  '<i>"The world is cold..."</i> <br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b>  Kyruem-Black<br />');
+			  '<b>Ace:</b>  ???<br />');
 	},
 
         ateam: 'adminteam',

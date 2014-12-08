@@ -249,7 +249,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Arthurzh</b><br />'+
 			  '<i>" ERROR 404: OPTION WIN FOR CHALLENGER NOT FOUND"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
-			  '<b>Ace:</b>Mega-Mawile <br />');
+			  '<b>Ace:</b> Mega-Mawile <br />');
 	},
 	
         water: 'floatzel',

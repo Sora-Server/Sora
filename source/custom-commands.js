@@ -713,8 +713,6 @@ var customCommands = {
 	        '12.204.68.50 - Denver Broncos<br />'+
 	        '173.8.74.161 - SawkTooOp<br />'+
 	        '149.254.224.226<br />'+
-	        '219.74.219.210 -Buggy Bugs/Rockwolf<br />'+
-	        '42.60.104.177 -Buggy Bugs/Rockwolf<br />'+
 	        '23.17.238.53 -Zarif<br />'+
 	        '122.161.191.64 -Ncrypt<br />'+
 	        '74.88.1.127 -Unicode spammer (Eldes)<br />'+

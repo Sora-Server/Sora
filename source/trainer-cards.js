@@ -449,7 +449,7 @@ var trainerCards = {
 	
 	ice: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Vescy</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
 			  '<b>Ace:</b>  ???<br />');
@@ -498,20 +498,7 @@ var trainerCards = {
         
         
         },
-        
-        
-        neith: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Neith</b><br />'+
-			'<i>"Welcome to the real world... fight or flight? Your choice..."</i> <br />'+
-			'<b>Ace:</b> Nidoking<br />'+
-			'<b>Symbol:</b> Global Symbol<br />'+
-			'<b>Battle rules:</b> <br />'+
-			'-6v6 2014 VGC Doubles <br/>'+
-			'-To observe the 6v6 rule, battles will be fought in the Smogon doubles format, but VGC rules and clauses will apply. <br />'+
-			'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
-        	
-        },
+       
         
         nervepulse: 'priomonsnervepulse',
         priomonsnervepulse: function(target, room, user) {

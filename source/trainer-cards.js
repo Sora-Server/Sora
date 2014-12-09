@@ -446,13 +446,13 @@ var trainerCards = {
 			  '<b>Ace:</b> Pinsir <br />');
         },
 	
-	
-	ice: function(target, room, user) {
+	ice: 'zyco',
+	zyco: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Zyco</b><br />'+
+			  '<i>"I tried thinking of a quote, but it didn\'t sound cool enough"</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b>  ???<br />');
+			  '<b>Ace:</b> Kyurem-White<br />');
 	},
 
         ateam: 'adminteam',

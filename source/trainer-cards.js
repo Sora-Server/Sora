@@ -234,7 +234,7 @@ var trainerCards = {
         },
         
         fire: 'noahb',
-        fire: function(target, room, user) {
+        noahb: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>NoahB</b><br />'+
 	              '<i>"Get ready to get roasted."</i> <br />'+

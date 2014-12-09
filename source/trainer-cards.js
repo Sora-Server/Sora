@@ -94,7 +94,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Cocoa</b><br />'+
 		      '<i>"Your defeat shall be nearly as sweet as Chocolate and Vanilla"</i> <br />'+
-		      '<b>Type:<font color = #200644>Dark</font></b><br />'+
+		      '<b>Type: <font color = #200644>Dark</font></b><br />'+
 		      '<b>Ace:</b> Umbreon <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-No direct status. <br/>'+

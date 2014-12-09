@@ -172,15 +172,15 @@ var trainerCards = {
 	 	    '<b>Requirements:</b> 5 Frontier Symbols<br />');
         },
         
-        ascher: 'sube4',
+        
         sube4: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<center>Sub E4 Position: <b><font color = 007700>Active</font></b></center><br />'+
+		this.sendReplyBox('<center>Sub E4 Position: <b><font color = FF0000>Offline</font></b></center><br />'+
 		'Sub E4 <b>Ascher</b> <br />'+
-		'<b>Type:</b> <b><font color = 006b0a>Grass</font></b><br />'+
+		'<b>Type:</b> <b><font color = 006b0a>???</font></b><br />'+
 		'<b>Battle Rules:</b> <br />'+
-		'-No Choice items <br />'+
-		'-No Protecting moves (Protect, Detect, etc) <br />');
+		'-??? <br />'+
+		'-??? <br />');
         
         
         }, 

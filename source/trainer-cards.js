@@ -45,7 +45,6 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<a><font size= 4><center><b><font color = 07e1ed>∆Champion Bart∆</font></b></center></a><br />'+
 		     '<center><i>"My pawn. My bishop. My rook. My knight. And worst of all, I\'ve lost my queen. But I’m still not in checkmate. Not yet anyway."</i></center> <br />'+
-		     '<b>Symbol:</b> Patience<br />'+
 		     '<b>Ace:</b> Weavile<br />'+
 	 	     '<b>Battle Rules:</b> <br/>'+
 	 	     '-Ubers Battle <br/>'+

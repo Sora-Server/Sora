@@ -140,7 +140,7 @@ exports.herokuHack = false;
 exports.customAvatars = {
 	//'userid': 'customavatar.png'
 	  'onyxeagle': '057.gif',
-	  'frntierheadbart': '071.png',
+	  'championbart': '071.png',
 	  'champinnah': '098.jpg',
 	  'frntierajeratt': '045.jpg',
 	  'frontiervader': '005.gif',
@@ -150,7 +150,7 @@ exports.customAvatars = {
 	  'e4toast': '009.gif',
 	  'e4bighug': '010.gif',
 	  'gymtrnrgary': '011.gif',
-	  'frontierninjarisu': '096.gif',
+	  'frontierheadninjarisu': '096.gif',
 	  'gymldrsnowking': '082.gif',
 	  'gymldrkrenon': '017.gif',
 	  'gymldrasch': '018.gif',

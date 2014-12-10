@@ -43,7 +43,7 @@ var trainerCards = {
 
 	bart: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b>∆FrontierHead Bart∆</b></center></a><br />'+
+		this.sendReplyBox('<a><font size= 4><center><b><font color = 07e1ed>∆Champion Bart∆</font></b></center></a><br />'+
 		     '<center><i>"My pawn. My bishop. My rook. My knight. And worst of all, I\'ve lost my queen. But I’m still not in checkmate. Not yet anyway."</i></center> <br />'+
 		     '<b>Symbol:</b> Patience<br />'+
 		     '<b>Ace:</b> Weavile<br />'+
@@ -66,17 +66,6 @@ var trainerCards = {
 		      '<b>Ace:</b> Babylon (Garchomp)<br />');
 	},
 
-	toast: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('<a><font size= 4><center><b><font color = ff4803>∆Champion Toast∆</font></b></center></a><br />'+
-			  '<center><i>"A Day without SunShine is like Night Time."</i></center> <br />'+
-			  '<b>Ace:</b> Charizard<br />'+
-	 	          '<b>Battle Rules:</b> <br/>'+
-	 	          '-No Hazards <br/>'+
-	 	          '-Ubers Monotype <br/>'+
-	 	          '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/hooh.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/charizard.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/volcarona.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar-mega.gif"> </center>'+
-	 	          '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
-	},
         
         zoro: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -119,7 +108,7 @@ var trainerCards = {
 	risu: 'ninjarisu',
 	ninjarisu: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Ninjarisu</b><br />'+
+		this.sendReplyBox('<a><font size= 4><center><b>∆Frontierhead Ninjarisu∆</b></center></a><br />'+
 		    '<i>"I will show you the power of the best of the worst"</i> <br />'+
 		    '<b>Ace:</b> <s>Unown</s><br />'+
 	 	    '<b>Symbol:</b> Powerless Symbol<br />'+
@@ -127,7 +116,7 @@ var trainerCards = {
 	 	    '-No Stat Changing moves <br/>'+
 	 	    '-No base stat over 115<br/>'+
 	 	    '-No Hazards <br/>'+
-	 	    '-FUCK OFF KNOCK OFF (No Knock off) <br />'+
+	 	    '-(No Knock off) <br />'+
 	 	    '<img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-interrogation.gif">'+
 	 	    '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	 	    

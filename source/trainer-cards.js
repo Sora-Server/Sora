@@ -115,7 +115,7 @@ var trainerCards = {
 	 	    '-No Stat Changing moves <br/>'+
 	 	    '-No base stat over 115<br/>'+
 	 	    '-No Hazards <br/>'+
-	 	    '-(No Knock off) <br />'+
+	 	    '-No Knock off <br />'+
 	 	    '<img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-interrogation.gif">'+
 	 	    '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	 	    

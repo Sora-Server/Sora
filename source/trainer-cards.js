@@ -336,7 +336,7 @@ var trainerCards = {
 			'<b>Symbol:</b> Fancy Symbol <br />'+
 			'<b>Ace:</b> Piloswine <br />'+
 			'<b>Battle rules:</b><br />'+
-			'-<a href="http://www.smogon.com/forums/threads/middle-cup.3494887/">Middle cup</a><br />');
+			'-UU Monotype<br />');
 
         },
         

@@ -140,7 +140,7 @@ exports.herokuHack = false;
 exports.customAvatars = {
 	//'userid': 'customavatar.png'
 	  'onyxeagle': '057.gif',
-	  'championbart': '071.png',
+	  'chmpionbart': '071.png',
 	  'champinnah': '098.jpg',
 	  'frntierajeratt': '045.jpg',
 	  'frontiervader': '005.gif',

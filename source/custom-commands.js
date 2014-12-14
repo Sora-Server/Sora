@@ -851,6 +851,7 @@ var customCommands = {
 				'"Drizzle Damp Rock is broken, but apparently the flying Rabbit Hedgehog from Ubers is okay." -∆Champiön Nöah∆ 1/9/14 <br />' +
 				'"The thing about electric types is you always gotta wear a rubber"-∆E4 Vanilla∆ 6/9/14<br />' +
 				'"Umbreon is dark?"-∆E4 Arjunb∆ 30/11/14<br />'+
+				'"Isn\'t Color Change and protean the same thing?" -∆Frontier∆ Nova 15/12/14<br />'+
 				'</div>');
 	},
 	

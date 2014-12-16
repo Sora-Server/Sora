@@ -231,25 +231,16 @@ var trainerCards = {
 
 	},
  
-        steel: 'arthurzh',
-        arthurzh: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Arthurzh</b><br />'+
-			  '<i>" ERROR 404: OPTION WIN FOR CHALLENGER NOT FOUND"</i> <br />'+
-			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
-			  '<b>Ace:</b> Mega-Mawile <br />');
-	},
-	
-        water: 'floatzel',
+        steel: 'floatzel',
         floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
-		          '<b> Leader ranking: <font color = a1ff00>4th</font></b> <br />'+
-			  '<i>"I will drown you so hard, you will drown to death"</i> <br />'+
-			  '<b>Type: <font color = 0400f9>Water</font></b> <br />'+
-			  '<b>Ace:</b> Keldeo<br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/surskit.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gyarados-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/surskit.gif">');
-        },
+			  '<i>"What\'s a resist?"</i> <br />'+
+			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
+			  '<b>Ace:</b> Mega-Metagross <br />'+
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/honedge.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gyarados-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/honedge.gif">');
+	},
+
     
         rock: 'torterra',   
         torterra: function(target, room, user) {
@@ -394,7 +385,7 @@ var trainerCards = {
 			 '<b>Ace:</b> Electivire<br />');
   
         },
-
+        water: 'azh',
         azh: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('<a><font size= 4><center><b>∆Gym Ldr ArthurZH∆</b></center></a><br />'+

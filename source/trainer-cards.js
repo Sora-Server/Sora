@@ -238,7 +238,7 @@ var trainerCards = {
 			  '<i>"What\'s a resist?"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
 			  '<b>Ace:</b> Mega-Metagross <br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/honedge.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gyarados-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/honedge.gif">');
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/honedge.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/honedge.gif">');
 	},
 
     
@@ -391,7 +391,7 @@ var trainerCards = {
 			this.sendReplyBox('<a><font size= 4><center><b>∆Gym Ldr ArthurZH∆</b></center></a><br />'+
 			  '<center><i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY!"</i></center> <br />'+
 			  '<b>Favoured Type:</b> Water<br />'+
-			  '<b>Ace:</b> Kabutops<br />'+
+			  '<b>Ace:</b> Mega-Gyarados<br />'+
 			  '<b>Achievements:</b> <strike>Best</strike> Ex Water Leader of Sora, Ex Roulette/Champion\'s Challenge/Monotype Frontier of Sora. <br />'+
 			  '<center><img src="http://fc00.deviantart.net/fs71/f/2014/082/f/8/manaphy_gif_by_gloomymyth-d7bakkc.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/tentacruel.gif"><img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/swampert.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/gyarados-mega.gif"></center>');
 	},

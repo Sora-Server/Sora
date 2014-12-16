@@ -235,6 +235,7 @@ var trainerCards = {
         floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
+		          '<b>Leader Ranking: <font color =72ff00>4th</font></b> <br />'+ 
 			  '<i>"What\'s a resist?"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
 			  '<b>Ace:</b> Mega-Metagross <br />'+
@@ -392,8 +393,8 @@ var trainerCards = {
 			  '<center><i>"I AM THE MASTER OF THE SEVEN SEAS! FEAR ME, I SHALL DROWN ALL IN MY WAY!"</i></center> <br />'+
 			  '<b>Favoured Type:</b> Water<br />'+
 			  '<b>Ace:</b> Mega-Gyarados<br />'+
-			  '<b>Achievements:</b> <strike>Best</strike> Ex Water Leader of Sora, Ex Roulette/Champion\'s Challenge/Monotype Frontier of Sora. <br />'+
-			  '<center><img src="http://fc00.deviantart.net/fs71/f/2014/082/f/8/manaphy_gif_by_gloomymyth-d7bakkc.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/tentacruel.gif"><img src="http://sprites.pokecheck.org/t/126.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/swampert.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/gyarados-mega.gif"></center>');
+			  '<b>Achievements:</b> <strike>Best</strike> Water Leader of Sora, Ex Roulette/Champion\'s Challenge/Monotype Frontier of Sora. <br />'+
+			  '<center><img src="http://fc00.deviantart.net/fs71/f/2014/082/f/8/manaphy_gif_by_gloomymyth-d7bakkc.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/tentacruel.gif"><img src="http://www.pokemonreborn.com/custom/44203.png?530"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/swampert.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gyarados.gif"></center>');
 	},
 
         psychic: 'darkus',
@@ -622,7 +623,7 @@ var trainerCards = {
 				'-<b>1st <font color = 006b0a>Asch</font></b> (Grass)<br />'+
 				'-<b>2nd <font color = 65b510>Gazel</font></b></b> (Bug)<br />'+
 				'-<b>3rd <font color = 7814e2>Misery</font></b> (Ghost)<br />'+
-				'-<b>4th <font color = 0400f9>Floatzel</font></b> (Water) <br />'+
+				'-<b>4th <font color = 5e6664>Floatzel</font></b> (Steel) <br />'+
 				'-<b>5th <font color = d83c08>M2King</font></b> (Fighting)<br />'+
 				'-<b>6th <font color = 00bc8d>Tempest</front></b> (Dragon)<br />'+
 				'-<b>7th <font color = aa00ff>Srewop</front></b> (Poison)<br />'+

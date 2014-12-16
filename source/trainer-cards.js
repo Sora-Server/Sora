@@ -235,6 +235,7 @@ var trainerCards = {
         floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
+		          '<b>Leader Ranking: <font color =72ff00>4th</font></b> <br />'+ 
 			  '<i>"What\'s a resist?"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
 			  '<b>Ace:</b> Mega-Metagross <br />'+
@@ -622,7 +623,7 @@ var trainerCards = {
 				'-<b>1st <font color = 006b0a>Asch</font></b> (Grass)<br />'+
 				'-<b>2nd <font color = 65b510>Gazel</font></b></b> (Bug)<br />'+
 				'-<b>3rd <font color = 7814e2>Misery</font></b> (Ghost)<br />'+
-				'-<b>4th <font color = 0400f9>Floatzel</font></b> (Water) <br />'+
+				'-<b>4th <font color = 5e6664>Floatzel</font></b> (Steel) <br />'+
 				'-<b>5th <font color = d83c08>M2King</font></b> (Fighting)<br />'+
 				'-<b>6th <font color = 00bc8d>Tempest</front></b> (Dragon)<br />'+
 				'-<b>7th <font color = aa00ff>Srewop</front></b> (Poison)<br />'+

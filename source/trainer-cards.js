@@ -210,7 +210,7 @@ var trainerCards = {
 			'<b>Symbol:</b> Creativity <br />'+
 			'<b>Ace:</b> All <br />'+
 			'<b>Battle Rules:</b> <br />'+
-			'-<a>href="http://soraleague.weebly.com/pokemon-sandbox.html">Pokemon Sandbox</a> <br />');
+			'- <a href=http://soraleague.weebly.com/pokemon-sandbox.html">Pokemon Sandbox</a><br />');
         },
         
        

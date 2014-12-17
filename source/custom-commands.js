@@ -775,6 +775,14 @@ var customCommands = {
 				'</div>');
 	},
 	
+	pokemonsandbox: 'pokemonsandbox',
+		pokemonsandbox: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a detailed explanation of the format Pokemon Sandbox:<br />'+
+			'- <a href=http://soraleague.weebly.com/pokemon-sandbox.html">Pokemon Sandbox</a><br />'+
+				'</div>');
+	},
+	
 	championschallenge: 'championschallenge',
 		championschallenge: function(target, room, user) {
 			if (!this.canBroadcast()) return;

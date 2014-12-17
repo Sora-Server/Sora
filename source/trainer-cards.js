@@ -210,7 +210,7 @@ var trainerCards = {
 			'<b>Symbol:</b> Creativity <br />'+
 			'<b>Ace:</b> All <br />'+
 			'<b>Battle Rules:</b> <br />'+
-			'-<a href="http://soraleague.weebly.com/pokemon-sandbox.html">Pokemon Sandbox</a> <br />');
+			'-<a> href="http://soraleague.weebly.com/pokemon-sandbox.html">Pokemon Sandbox</a> <br />');
         },
         
        
@@ -335,7 +335,7 @@ var trainerCards = {
 
          iggy: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Frontier <b> Meows</b><br />'+
+			this.sendReplyBox('Frontier <b>Iggy</b><br />'+
 			'<i>"I\'m so fancy, you already know."</i><br />'+
 			'<b>Symbol:</b> Fancy Symbol <br />'+
 			'<b>Ace:</b> Piloswine <br />'+
@@ -379,15 +379,14 @@ var trainerCards = {
         
 	ghost: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Misery</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
 			 '<b>Ace:</b> ???<br />');
 			 
         },
         
-        
-        
+       
 	despair: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Despair</b><br />'+

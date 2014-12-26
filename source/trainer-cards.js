@@ -429,14 +429,14 @@ var trainerCards = {
 			  '<b>Ace:</b> Victini <br />');
 	},
 	
-	ground: 'spirit',
-	spirit: function(target, room, user) {
+	ground: 'meows',
+	meows: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Spirit</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
 		          '<b> Leader Ranking:<font color = 00bc8d>6th</font></b> <br />'+
-			  '<i>"The power of the land cannot be destroyed. Take me on if you dare~!"</i> <br />'+
+			  '<i>"I\'m still fancy, now say my name in bold."</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
-			  '<b>Ace:</b> Excadrill <br />');
+			  '<b>Ace:</b> Mamoswine <br />');
 			  
 	},
 	

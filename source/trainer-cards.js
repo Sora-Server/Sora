@@ -395,7 +395,8 @@ var trainerCards = {
 			 '<b>Ace:</b> My Mom (Gyarados)<br />'+
 			 '<b>Battle rules:</b> <br />'+
 			 '-OU <br />'+
-			 '-Only Pokemon which can Mega Evolve may be used. <br />');
+			 '-Only Pokemon which can Mega Evolve may be used. <br />'+
+			 '<img src="http://modkore.weebly.com/uploads/2/6/6/5/26651119/790148.gif"><br />');
 			 
         },
         
@@ -449,13 +450,13 @@ var trainerCards = {
 			  '<b>Ace:</b> Pinsir <br />');
         },
 	
-	ice: 'zyco',
-	zyco: function(target, room, user) {
+	ice: 'poppy',
+	poppy: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Zyco</b><br />'+
-			  '<i>"I tried thinking of a quote, but it didn\'t sound cool enough"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
+			  '<i>"I dream for a living."</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b> Kyurem-White<br />');
+			  '<b>Ace:</b> Frigid Bitch (Froslass)<br />');
 	},
 
         ateam: 'adminteam',

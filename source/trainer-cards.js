@@ -93,12 +93,12 @@ var trainerCards = {
         bloodfist: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Bloodfist</b><br />'+
-		      '<i>"Fear the big creatures because you can see their size, but fear the small ones because you can\'t see them at all....."</i> <br />'+
-		      '<b>Type: <font color =  65b510>Bug</font></b> <br />'+
-		      '<b>Ace:</b> Vivillon <br />'+
+		      '<i>"The night may be dark, but my blades are darker!"</i> <br />'+
+		      '<b>Type: <font color =  ffe100>Steel</font></b> <br />'+
+		      '<b>Ace:</b> Metagross <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No Priority <br />'+
-	 	      '-No Damaging hazards <br />');
+	 	      '-No item duplication <br />'+
+	 	      '-No direct status <br />');
         
         
         },

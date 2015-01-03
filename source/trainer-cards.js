@@ -344,19 +344,7 @@ var trainerCards = {
 
         },
         
-        night: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Elite Frontier <b>Night</b><br />'+
-			  '<i>"Slow and Steady wins the race."</i> <br />'+
-			  '<b>Symbol:</b> Limit<br />'+
-			  '<b>Ace:</b> FUCKING ESCA<br />'+
-			  '<b>Battle Rules:</b> <br/>'+
-		 	  '-No Pokemon above 40 Base Speed <br/>'+
-		 	  '-No hazards <br/>'+
-		 	  '-Speed Stat can\'t be changed. <br/>'+
-		 	  '<img src="http://play.pokemonshowdown.com/sprites/xyani/rhydon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/escavalier.gif"> <br/>');
-
-	},
+       
 	
 	
 	ajeratt: function(target, room, user) {

@@ -94,8 +94,6 @@ var Room = (function () {
 		}
 		this.update();
 	};
-		
-	};
 
 	return Room;
 })();

@@ -84,12 +84,11 @@ var Room = (function () {
 		message = CommandParser.parse(message, this, user, connection);
 
 		if (message) {
-			if (Spamroom.isSpamroomed(user)) {
-				Spamroom.room.add('|c|' + user.getIdentity() + "|__(To " + this.id + ")__ " + message);
-				Spamroom.room.update();
+			if (Users.ShadowBan.checkBanned(user)) {
+				Users.ShadowBan.addMessage(user, "To " + this.id, message);
 				connection.sendTo(this, '|c|' + user.getIdentity(this.id) + '|' + message);
 			} else {
-				this.add('|c|' + user.getIdentity(this.id) + '|' + message, true);
+				this.add('|c|' + user.getIdentity(this.id) + '|' + message);
 			}
 		}
 		this.update();
@@ -485,9 +484,18 @@ var GlobalRoom = (function () {
 		}
 	};
 	GlobalRoom.prototype.checkAutojoin = function (user, connection) {
-		if (user.can('staff')) {
-			for (var i = 0; i < this.staffAutojoin.length; i++) {
-				user.joinRoom(this.staffAutojoin[i], connection);
+		for (var i = 0; i < this.staffAutojoin.length; i++) {
+			var room = Rooms.get(this.staffAutojoin[i]);
+			if (!room) {
+				this.staffAutojoin.splice(i, 1);
+				i--;
+				continue;
+			}
+			if (room.staffAutojoin === true && user.can('staff') ||
+					typeof room.staffAutojoin === 'string' && room.staffAutojoin.indexOf(user.group) >= 0) {
+				// if staffAutojoin is true: autojoin if isStaff
+				// if staffAutojoin is String: autojoin if user.group in staffAutojoin
+				user.joinRoom(room.id, connection);
 			}
 		}
 	};
@@ -587,7 +595,7 @@ var GlobalRoom = (function () {
 		if (rooms.lobby) return rooms.lobby.chat(user, message, connection);
 		message = CommandParser.parse(message, this, user, connection);
 		if (message) {
-			connection.popup("You can't send messages directly to the server.");
+			connection.sendPopup("You can't send messages directly to the server.");
 		}
 	};
 	return GlobalRoom;
@@ -748,7 +756,7 @@ var BattleRoom = (function () {
 					}
 				});
 			}
-		} else if (Config.logchallenges) {
+		} else if (Config.logChallenges) {
 			// Log challenges if the challenge logging config is enabled.
 			if (winnerid === this.p1.userid) {
 				p1score = 1;
@@ -1071,7 +1079,7 @@ var BattleRoom = (function () {
 
 		this.sendUser(connection, '|init|battle\n|title|' + this.title + '\n' + this.getLogForUser(user).join('\n'));
 		if (user.named) {
-			if (Config.reportbattlejoins) {
+			if (Config.reportBattleJoins) {
 				this.add('|join|' + user.name);
 			} else {
 				this.add('|J|' + user.name);
@@ -1083,7 +1091,7 @@ var BattleRoom = (function () {
 	};
 	BattleRoom.prototype.onRename = function (user, oldid, joining) {
 		if (joining) {
-			if (Config.reportbattlejoins) {
+			if (Config.reportBattleJoins) {
 				this.add('|join|' + user.name);
 			} else {
 				this.add('|J|' + user.name);
@@ -1123,7 +1131,7 @@ var BattleRoom = (function () {
 		}
 		delete this.users[user.userid];
 		this.userCount--;
-		if (Config.reportbattlejoins) {
+		if (Config.reportBattleJoins) {
 			this.add('|leave|' + user.name);
 		} else {
 			this.add('|L|' + user.name);
@@ -1410,7 +1418,6 @@ var ChatRoom = (function () {
 			Tournaments.get(this.id).updateFor(user, connection);
 		}
 		if (this.reminders && this.reminders.length > 0)
-			CommandParser.parse('/reminder', this, user, connection);
 	};
 	ChatRoom.prototype.onJoin = function (user, connection, merging) {
 		if (!user) return false; // ???
@@ -1423,9 +1430,8 @@ var ChatRoom = (function () {
 			var userList = this.userList ? this.userList : this.getUserList();
 			this.sendUser(connection, '|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.getLogSlice(-100).join('\n') + this.getIntroMessage());
 			if (this.reminders && this.reminders.length > 0)
-				CommandParser.parse('/reminder', this, user, connection);
 		}
-		if (user.named && Config.reportjoins) {
+		if (user.named && Config.reportJoins) {
 			this.add('|j|' + user.getIdentity(this.id));
 			this.update();
 		} else if (user.named) {
@@ -1488,6 +1494,8 @@ var ChatRoom = (function () {
 		if (!user) return; // ...
 
 		delete this.users[user.userid];
+		this.userCount--;
+
 		if (user.named && Config.reportJoins) {
 			this.add('|l|' + user.getIdentity(this.id));
 		} else if (user.named) {

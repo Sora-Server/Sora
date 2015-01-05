@@ -567,7 +567,7 @@ User = (function () {
 			if (room.auth[this.userid]) {
 				return room.auth[this.userid] + this.name;
 			}
-			if (room.isPrivate) {
+			if (room.isPrivate === true) {
 				return Config.groups.default[room.type + 'Room'] + this.name;
 			}
 		}
@@ -594,13 +594,15 @@ User = (function () {
 		if (room && room.auth) {
 			if (room.auth[this.userid]) {
 				group = room.auth[this.userid];
-			} else if (room.isPrivate) {
+			} else if (room.isPrivate === true) {
 				group = Config.groups.default[room.type + 'Room'];
 			}
 
 			if (target) {
 				if (room.auth[target.userid]) {
 					targetGroup = room.auth[target.userid];
+					} else if (room.isPrivate === true) {
+ 					targetGroup = Config.groups.default[room.type + 'Room'];
 				}
 			}
 		}

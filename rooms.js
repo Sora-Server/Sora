@@ -1428,8 +1428,8 @@ var ChatRoom = (function () {
 		if (!merging) {
 			var userList = this.userList ? this.userList : this.getUserList();
 			this.sendUser(connection, '|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.getLogSlice(-100).join('\n') + this.getIntroMessage());
-			if (this.reminders && this.reminders.length > 0)
-		}
+			
+		};
 		if (user.named && Config.reportJoins) {
 			this.add('|j|' + user.getIdentity(this.id));
 			this.update();

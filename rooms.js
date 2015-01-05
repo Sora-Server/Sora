@@ -86,7 +86,7 @@ var Room = (function () {
 		if (message) {
 				this.add('|c|' + user.getIdentity(this.id) + '|' + message);
 			}
-		}
+		
 	};
 
 	return Room;

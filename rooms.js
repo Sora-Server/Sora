@@ -1417,8 +1417,7 @@ var ChatRoom = (function () {
 		if (global.Tournaments && Tournaments.get(this.id)) {
 			Tournaments.get(this.id).updateFor(user, connection);
 		}
-		if (this.reminders && this.reminders.length > 0)
-	},
+	};
 	ChatRoom.prototype.onJoin = function (user, connection, merging) {
 		if (!user) return false; // ???
 		if (this.users[user.userid]) return user;

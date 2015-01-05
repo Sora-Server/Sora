@@ -214,7 +214,6 @@ var commands = exports.commands = {
 			break;
 		}
 
->>>>>>> upstream/master
 		if (target === 'off') {
 			delete room.isPrivate;
 			this.addModCommand("" + user.name + " made this room public.");

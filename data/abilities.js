@@ -275,7 +275,7 @@ exports.BattleAbilities = {
 		desc: "This Pokemon is protected from some Ball and Bomb moves.",
 		shortDesc: "This Pokemon is protected from ball and bomb moves.",
 		onTryHit: function (pokemon, target, move) {
-			if (move.isBullet) {
+			if (move.flags && move.flags['bullet']) {
 				this.add('-immune', pokemon, '[msg]', '[from] Bulletproof');
 				return null;
 			}
@@ -527,6 +527,20 @@ exports.BattleAbilities = {
 		onStart: function (source) {
 			this.setWeather('deltastream');
 		},
+		onEnd: function (pokemon) {
+			if (this.weatherData.source !== pokemon) return;
+			for (var i = 0; i < this.sides.length; i++) {
+				for (var j = 0; j < this.sides[i].active.length; j++) {
+					var target = this.sides[i].active[j];
+					if (target === pokemon) continue;
+					if (target && target.hp && target.ability === 'deltastream' && target.ignore['Ability'] !== true) {
+						this.weatherData.source = target;
+						return;
+					}
+				}
+			}
+			this.clearWeather();
+		},
 		id: "deltastream",
 		name: "Delta Stream",
 		rating: 5,
@@ -537,6 +551,20 @@ exports.BattleAbilities = {
 		shortDesc: "The weather becomes harsh sun until this Pokemon leaves battle.",
 		onStart: function (source) {
 			this.setWeather('desolateland');
+		},
+		onEnd: function (pokemon) {
+			if (this.weatherData.source !== pokemon) return;
+			for (var i = 0; i < this.sides.length; i++) {
+				for (var j = 0; j < this.sides[i].active.length; j++) {
+					var target = this.sides[i].active[j];
+					if (target === pokemon) continue;
+					if (target && target.hp && target.ability === 'desolateland' && target.ignore['Ability'] !== true) {
+						this.weatherData.source = target;
+						return;
+					}
+				}
+			}
+			this.clearWeather();
 		},
 		id: "desolateland",
 		name: "Desolate Land",
@@ -1464,9 +1492,9 @@ exports.BattleAbilities = {
 	"magician": {
 		desc: "If this Pokemon is not holding an item, it steals the held item of a target it hits with a move.",
 		shortDesc: "This Pokemon steals the held item of a target it hits with a move.",
-		onHit: function (target, source, move) {
-			// We need to hard check if the ability is Magician since the event will be run both ways.
-			if (target && target !== source && source.ability === 'magician' && move && move.category !== 'Status') {
+		onSourceHit: function (target, source, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status') {
 				if (source.item) return;
 				var yourItem = target.takeItem(source);
 				if (!yourItem) return;
@@ -1536,7 +1564,7 @@ exports.BattleAbilities = {
 		shortDesc: "Boosts the power of Aura/Pulse moves by 50%.",
 		onBasePowerPriority: 8,
 		onBasePower: function (basePower, attacker, defender, move) {
-			if (move.isPulseMove) {
+			if (move.flags && move.flags['pulse']) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -2004,6 +2032,20 @@ exports.BattleAbilities = {
 		shortDesc: "The weather becomes heavy rain until this Pokemon leaves battle.",
 		onStart: function (source) {
 			this.setWeather('primordialsea');
+		},
+		onEnd: function (pokemon) {
+			if (this.weatherData.source !== pokemon) return;
+			for (var i = 0; i < this.sides.length; i++) {
+				for (var j = 0; j < this.sides[i].active.length; j++) {
+					var target = this.sides[i].active[j];
+					if (target === pokemon) continue;
+					if (target && target.hp && target.ability === 'primordialsea' && target.ignore['Ability'] !== true) {
+						this.weatherData.source = target;
+						return;
+					}
+				}
+			}
+			this.clearWeather();
 		},
 		id: "primordialsea",
 		name: "Primordial Sea",
@@ -2662,7 +2704,7 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon's bite-based attacks do 1.5x damage.",
 		onBasePowerPriority: 8,
 		onBasePower: function (basePower, attacker, defender, move) {
-			if (move.isBiteAttack) {
+			if (move.flags && move.flags['bite']) {
 				return this.chainModify(1.5);
 			}
 		},

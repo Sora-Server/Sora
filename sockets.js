@@ -435,6 +435,7 @@ var fakeProcess = new (require('./fake-process').FakeProcess)();
 		console.log('Worker ' /*+ cluster.worker.id*/ + ' now listening for SSL on port ' + Config.ssl.port);
 	}
 
-	console.log('Test your server at http://' + (Config.bindAddress || 'localhost') + ':' + Config.port);
+	console.log('Test your server at http://' + (Config.bindaddress || 'localhost') + ':' + Config.port);
 
+	require('./repl.js').start('sockets-', cluster.worker.id + '-' + process.pid, function (cmd) { return eval(cmd); });
 //}

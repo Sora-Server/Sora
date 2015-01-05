@@ -19,16 +19,9 @@ exports.BattleStatuses = {
 		},
 		onSwitchIn: function (pokemon) {
 			pokemon.addVolatile('brnattackdrop');
-			if (pokemon.side.foe.active[0] && pokemon.speed <= pokemon.side.foe.active[0].speed) {
-				this.damage(pokemon.maxhp / 16);
-			}
-		}
-	},
-	brnattackdrop: {
-		onBasePower: function (basePower, attacker, defender, move) {
-			if (move && move.category === 'Physical' && attacker) {
-				return basePower / 2;
-			}
+		},
+		onAfterSwitchInSelf: function (pokemon) {
+			this.damage(pokemon.maxhp / 16);
 		}
 	},
 	par: {
@@ -39,18 +32,21 @@ exports.BattleStatuses = {
 		},
 		onBeforeMovePriority: 2,
 		onBeforeMove: function (pokemon) {
-			if (this.random(4) === 0) {
+			if (this.random(256) < 64) {
 				this.add('cant', pokemon, 'par');
+				pokemon.removeVolatile('bide');
+				pokemon.removeVolatile('lockedmovee');
+				pokemon.removeVolatile('twoturnmove');
+				pokemon.removeVolatile('fly');
+				pokemon.removeVolatile('dig');
+				pokemon.removeVolatile('solarbeam');
+				pokemon.removeVolatile('skullbash');
+				pokemon.removeVolatile('partialtrappinglock');
 				return false;
 			}
 		},
 		onSwitchIn: function (pokemon) {
 			pokemon.addVolatile('parspeeddrop');
-		}
-	},
-	parspeeddrop: {
-		onModifySpe: function (spe, pokemon) {
-			return spe / 4;
 		}
 	},
 	slp: {
@@ -65,6 +61,7 @@ exports.BattleStatuses = {
 		onBeforeMove: function (pokemon, target, move) {
 			pokemon.statusData.time--;
 			this.add('cant', pokemon, 'slp');
+			pokemon.lastMove = '';
 			return false;
 		},
 		onAfterMoveSelf: function (pokemon) {
@@ -79,6 +76,7 @@ exports.BattleStatuses = {
 		onBeforeMovePriority: 2,
 		onBeforeMove: function (pokemon, target, move) {
 			this.add('cant', pokemon, 'frz');
+			pokemon.lastMove = '';
 			return false;
 		},
 		onHit: function (target, source, move) {
@@ -95,10 +93,8 @@ exports.BattleStatuses = {
 		onAfterMoveSelf: function (pokemon) {
 			this.damage(pokemon.maxhp / 16);
 		},
-		onSwitchIn: function (pokemon) {
-			if (pokemon.side.foe.active[0] && pokemon.speed <= pokemon.side.foe.active[0].speed) {
-				this.damage(pokemon.maxhp / 16);
-			}
+		onAfterSwitchInSelf: function (pokemon) {
+			this.damage(pokemon.maxhp / 16);
 		}
 	},
 	tox: {
@@ -113,7 +109,7 @@ exports.BattleStatuses = {
 			}
 			this.damage(this.clampIntRange(pokemon.maxhp / 16, 1) * this.effectData.stage);
 		},
-		onSwitchIn: function (pokemon) {
+		onAfterSwitchInSelf: function (pokemon) {
 			this.effectData.stage = 0; // probably unnecessary...
 			pokemon.setStatus('psn');
 			// normal poison damage...
@@ -133,18 +129,37 @@ exports.BattleStatuses = {
 		onEnd: function (target) {
 			this.add('-end', target, 'confusion');
 		},
-		onBeforeMove: function (pokemon) {
+		onBeforeMove: function (pokemon, target) {
 			pokemon.volatiles.confusion.time--;
 			if (!pokemon.volatiles.confusion.time) {
 				pokemon.removeVolatile('confusion');
 				return;
 			}
 			this.add('-activate', pokemon, 'confusion');
-			if (this.random(2) === 0) {
-				return;
+			if (this.random(256) >= 128) {
+				// We check here to implement the substitute bug since otherwise we need to change directDamage to take target.
+				var damage = Math.floor(Math.floor(((Math.floor(2 * pokemon.level / 5) + 2) * pokemon.getStat('atk') * 40) / pokemon.getStat('def', false, false, true)) / 50) + 2;
+				if (pokemon.volatiles['substitute']) {
+					// If there is Substitute, we check for opposing substitute.
+					if (target.volatiles['substitute']) {
+						// Damage that one instead.
+						this.directDamage(damage, target);
+					}
+				} else {
+					// No substitute, direct damage to itself.
+					this.directDamage(damage);
+				}
+				pokemon.removeVolatile('bide');
+				pokemon.removeVolatile('lockedmovee');
+				pokemon.removeVolatile('twoturnmove');
+				pokemon.removeVolatile('fly');
+				pokemon.removeVolatile('dig');
+				pokemon.removeVolatile('solarbeam');
+				pokemon.removeVolatile('skullbash');
+				pokemon.removeVolatile('partialtrappinglock');
+				return false;
 			}
-			this.directDamage(this.getDamage(pokemon, pokemon, 40));
-			return false;
+			return;
 		}
 	},
 	flinch: {
@@ -184,8 +199,7 @@ exports.BattleStatuses = {
 	},
 	partialtrappinglock: {
 		durationCallback: function () {
-			var roll = this.random(6);
-			var duration = [2, 2, 3, 3, 4, 5][roll];
+			var duration = [2, 2, 2, 3, 3, 3, 4, 5][this.random(8)];
 			return duration;
 		},
 		onResidual: function (target) {
@@ -205,24 +219,6 @@ exports.BattleStatuses = {
 				if (moves[i].id !== this.effectData.move) {
 					moves[i].disabled = true;
 				}
-			}
-		}
-	},
-	rage: {
-		// Rage lock
-		duration: 255,
-		onStart: function (target, source, effect) {
-			this.effectData.move = 'rage';
-		},
-		onLockMove: 'rage',
-		onTryHit: function (target, source, move) {
-			if (target.boosts.atk < 6 && move.id === 'disable') {
-				this.boost({atk:1});
-			}
-		},
-		onHit: function (target, source, move) {
-			if (target.boosts.atk < 6 && move.category !== 'Status') {
-				this.boost({atk:1});
 			}
 		}
 	},
@@ -335,6 +331,11 @@ exports.BattleStatuses = {
 				this.effectData.counter *= 2;
 			}
 			this.effectData.duration = 2;
+		}
+	},
+	ragemiss: {
+		onModifyMove: function (move) {
+			if (move.id === 'rage') move.accuracy = 1 / 255 * 100;
 		}
 	}
 };

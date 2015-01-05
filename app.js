@@ -465,3 +465,8 @@ global.hangman = require('./source/hangman.js').hangman();
 global.SysopAccess = require('./source/core.js').sysopAccess();
 
 global.Core = require('./source/core.js').core;
+/*********************************************************
+ * Start up the REPL server
+ *********************************************************/
+
+require('./repl.js').start('app', function (cmd) { return eval(cmd); });

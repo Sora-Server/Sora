@@ -22,6 +22,8 @@ exports.BattleScripts = {
 			return;
 		}
 		if (!this.runEvent('BeforeMove', pokemon, target, move)) {
+			// Prevent invulnerability from persisting until the turn ends
+			pokemon.removeVolatile('twoturnmove');
 			this.clearActiveMove(true);
 			return;
 		}
@@ -44,7 +46,6 @@ exports.BattleScripts = {
 		pokemon.moveUsed(move);
 		this.useMove(move, pokemon, target, sourceEffect);
 		this.singleEvent('AfterMove', move, null, pokemon, target, move);
-		if (this.gen <= 2) this.runEvent('AfterMoveSelf', pokemon, target, move);
 	},
 	useMove: function (move, pokemon, target, sourceEffect) {
 		if (!sourceEffect && this.effect.id) sourceEffect = this.effect;
@@ -486,8 +487,6 @@ exports.BattleScripts = {
 				if (moveData.onHitSide) hitResult = this.singleEvent('HitSide', moveData, {}, target.side, pokemon, move);
 			} else {
 				if (moveData.onHit) hitResult = this.singleEvent('Hit', moveData, {}, target, pokemon, move);
-				var ability = pokemon.battle.getAbility(pokemon.ability);
-				if (ability.onHit) hitResult = this.singleEvent('Hit', ability, {}, target, pokemon, move);
 				if (!isSelf && !isSecondary) {
 					this.runEvent('Hit', target, pokemon, move);
 				}
@@ -519,7 +518,7 @@ exports.BattleScripts = {
 				}
 			}
 		}
-		if (target && target.hp > 0 && pokemon.hp > 0 && moveData.forceSwitch) {
+		if (target && target.hp > 0 && pokemon.hp > 0 && moveData.forceSwitch && this.canSwitch(target.side)) {
 			hitResult = this.runEvent('DragOut', target, pokemon, move);
 			if (hitResult) {
 				target.forceSwitchFlag = true;
@@ -538,12 +537,13 @@ exports.BattleScripts = {
 
 		var otherForme;
 		var template;
+		var item;
 		if (pokemon.baseTemplate.otherFormes) otherForme = this.getTemplate(pokemon.baseTemplate.otherFormes[0]);
 		if (otherForme && otherForme.isMega && otherForme.requiredMove) {
 			if (pokemon.moves.indexOf(toId(otherForme.requiredMove)) < 0) return false;
 			template = otherForme;
 		} else {
-			var item = this.getItem(pokemon.item);
+			item = this.getItem(pokemon.item);
 			if (!item.megaStone) return false;
 			template = this.getTemplate(item.megaStone);
 			if (pokemon.baseTemplate.baseSpecies !== template.baseSpecies) return false;
@@ -563,11 +563,10 @@ exports.BattleScripts = {
 		pokemon.baseTemplate = template; // mega evolution is permanent :o
 		pokemon.details = template.species + (pokemon.level === 100 ? '' : ', L' + pokemon.level) + (pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 		this.add('detailschange', pokemon, pokemon.details);
-		this.add('message', template.baseSpecies + " has Mega Evolved into Mega " + template.baseSpecies + "!");
+		this.add('-mega', pokemon, template.baseSpecies, item);
 		var oldAbility = pokemon.ability;
 		pokemon.setAbility(template.abilities['0']);
 		pokemon.baseAbility = pokemon.ability;
-		this.runEvent('EndAbility', pokemon, oldAbility);
 
 		for (var i = 0; i < side.pokemon.length; i++) side.pokemon[i].canMegaEvo = false;
 		return true;
@@ -1020,7 +1019,7 @@ exports.BattleScripts = {
 				case 'fireblast':
 					if (hasMove['lavaplume']) rejected = true;
 					break;
-				case 'overheat':
+				case 'overheat': case 'flareblitz':
 					if (setupType === 'Special' || hasMove['fireblast']) rejected = true;
 					break;
 				case 'flamecharge':
@@ -1029,19 +1028,22 @@ exports.BattleScripts = {
 				case 'icebeam':
 					if (hasMove['blizzard']) rejected = true;
 					break;
+				case 'naturepower':
+					if (hasMove['hypervoice']) rejected = true;
+					break;
 				case 'surf':
 					if (hasMove['scald'] || hasMove['hydropump']) rejected = true;
 					break;
-				case 'hydropump':
+				case 'hydropump': case 'originpulse':
 					if (hasMove['razorshell'] || hasMove['scald']) rejected = true;
 					break;
 				case 'waterfall':
-					if (hasMove['aquatail']) rejected = true;
+					if (hasMove['aquatail'] || hasMove['scald']) rejected = true;
 					break;
 				case 'shadowforce': case 'phantomforce': case 'shadowsneak':
 					if (hasMove['shadowclaw']) rejected = true;
 					break;
-				case 'airslash':
+				case 'airslash': case 'oblivionwing':
 					if (hasMove['hurricane']) rejected = true;
 					break;
 				case 'acrobatics': case 'pluck': case 'drillpeck':
@@ -1156,7 +1158,7 @@ exports.BattleScripts = {
 					if (hasMove['rest'] && hasMove['sleeptalk']) rejected = true;
 					if (hasMove['whirlwind'] || hasMove['dragontail'] || hasMove['roar'] || hasMove['circlethrow']) rejected = true;
 					break;
-				case 'suckerpunch':
+				case 'suckerpunch': case 'lunardance':
 					if (hasMove['rest'] && hasMove['sleeptalk']) rejected = true;
 					break;
 				case 'cottonguard':
@@ -1279,12 +1281,12 @@ exports.BattleScripts = {
 		//moves[0] = 'Safeguard';
 		if (template.requiredItem && template.requiredItem.slice(-5) === 'Drive' && !hasMove['technoblast']) {
 			delete hasMove[toId(moves[3])];
-			moves[3] = 'Techno Blast';
+			moves[3] = 'technoblast';
 			hasMove['technoblast'] = true;
 		}
 		if (template.requiredMove && !hasMove[toId(template.requiredMove)]) {
 			delete hasMove[toId(moves[3])];
-			moves[3] = template.requiredMove;
+			moves[3] = toId(template.requiredMove);
 			hasMove[toId(template.requiredMove)] = true;
 		}
 
@@ -1306,6 +1308,8 @@ exports.BattleScripts = {
 				rejectAbility = !counter[toId(ability)];
 			} else if (ability === 'Rock Head' || ability === 'Reckless') {
 				rejectAbility = !counter['recoil'];
+			} else if (ability === 'Sturdy') {
+				rejectAbility = !!counter['recoil'] && !hasMove['recover'] && !hasMove['roost'];
 			} else if (ability === 'No Guard' || ability === 'Compoundeyes') {
 				rejectAbility = !counter['inaccurate'];
 			} else if ((ability === 'Sheer Force' || ability === 'Serene Grace')) {
@@ -1450,10 +1454,10 @@ exports.BattleScripts = {
 			item = 'Life Orb';
 		} else if (ability === 'Unburden') {
 			item = 'Red Card';
-			// Give Unburden mons a Normal Gem if they have a Normal-type attacking move (except Explosion)
+			// Give Unburden mons a Normal Gem if they have a Normal-type attacking move (except Explosion or Rapid Spin)
 			for (var m in moves) {
 				var move = this.getMove(moves[m]);
-				if (move.type === 'Normal' && (move.basePower || move.basePowerCallback) && move.id !== 'explosion') {
+				if (move.type === 'Normal' && (move.basePower || move.basePowerCallback) && move.id !== 'explosion' && move.id !== 'rapidspin') {
 					item = 'Normal Gem';
 					break;
 				}
@@ -1465,8 +1469,8 @@ exports.BattleScripts = {
 			if ((hasMove['return'] || hasMove['hyperfang']) && !hasMove['facade']) {
 				// lol no
 				for (var j = 0; j < moves.length; j++) {
-					if (moves[j] === 'Return' || moves[j] === 'Hyper Fang') {
-						moves[j] = 'Facade';
+					if (moves[j] === 'return' || moves[j] === 'hyperfang') {
+						moves[j] = 'facade';
 						break;
 					}
 				}
@@ -1525,12 +1529,12 @@ exports.BattleScripts = {
 			item = 'Black Sludge';
 		}
 
-		// 95-86-82-78-74-70
 		var levelScale = {
-			LC: 94,
+			LC: 92,
 			'LC Uber': 92,
 			NFE: 90,
 			PU: 88,
+			BL4: 88,
 			NU: 86,
 			BL3: 84,
 			RU: 82,
@@ -1556,10 +1560,13 @@ exports.BattleScripts = {
 			Dusclops: 84, Porygon2: 82, Chansey: 78,
 
 			// Banned Mega
-			"Kangaskhan-Mega": 72, "Lucario-Mega": 72, "Mawile-Mega": 72,
+			"Kangaskhan-Mega": 72, "Lucario-Mega": 72, "Mawile-Mega": 72, "Rayquaza-Mega": 68, "Salamence-Mega": 72,
+
+			// Not holding mega stone
+			Banette: 86, Beedrill: 86, Charizard: 82, Gardevoir: 78, Heracross: 78, Manectric: 78, Medicham: 78, Metagross: 78, Pinsir: 82, Sableye: 78, Venusaur: 78,
 
 			// Holistic judgment
-			Articuno: 86, Genesect: 72, "Gengar-Mega": 68, "Rayquaza-Mega": 68, Sigilyph: 76, Xerneas: 66
+			Articuno: 82, Genesect: 72, "Gengar-Mega": 68, "Rotom-Fan": 88, Sigilyph: 80, Xerneas: 66
 		};
 		var level = levelScale[template.tier] || 90;
 		if (customScale[template.name]) level = customScale[template.name];
@@ -1674,7 +1681,9 @@ exports.BattleScripts = {
 			if (typeCombo in typeComboCount) continue;
 
 			// Limit the number of Megas to one, just like in-game
-			if (this.getItem(set.item).megaStone && megaCount > 0) continue;
+			var forme = template.otherFormes ? this.getTemplate(template.otherFormes[0]) : 0;
+			var isMegaSet = this.getItem(set.item).megaStone || (forme && forme.isMega && forme.requiredMove && set.moves.indexOf(toId(forme.requiredMove)) >= 0);
+			if (isMegaSet && megaCount > 0) continue;
 
 			// Limit to one of each species (Species Clause)
 			if (baseFormes[template.baseSpecies]) continue;
@@ -1700,7 +1709,7 @@ exports.BattleScripts = {
 			} else if (tier === 'NU' || tier === 'NFE' || tier === 'LC') {
 				nuCount++;
 			}
-			if (this.getItem(set.item).megaStone) megaCount++;
+			if (isMegaSet) megaCount++;
 		}
 		return pokemon;
 	},
@@ -1837,7 +1846,9 @@ exports.BattleScripts = {
 			if (typeCombo in typeComboCount) continue;
 
 			// Limit the number of Megas to one, just like in-game
-			if (this.getItem(set.item).megaStone && megaCount > 0) continue;
+			var forme = template.otherFormes ? this.getTemplate(template.otherFormes[0]) : 0;
+			var isMegaSet = this.getItem(set.item).megaStone || (forme && forme.isMega && forme.requiredMove && set.moves.indexOf(toId(forme.requiredMove)) >= 0);
+			if (isMegaSet && megaCount > 0) continue;
 
 			// Limit to one of each species (Species Clause)
 			if (baseFormes[template.baseSpecies]) continue;
@@ -1858,7 +1869,7 @@ exports.BattleScripts = {
 			typeComboCount[typeCombo] = 1;
 
 			// Increment mega counter
-			if (this.getItem(set.item).megaStone) megaCount++;
+			if (isMegaSet) megaCount++;
 		}
 		return pokemon;
 	},
@@ -1871,7 +1882,7 @@ exports.BattleScripts = {
 
 			var stack = 'Template incompatible with random battles: ' + name;
 			var fakeErr = {stack: stack};
-			require('../crashlogger.js')(fakeErr, 'The randbat set generator');
+			require('../crashlogger.js')(fakeErr, 'The doubles randbat set generator');
 		}
 
 		// Decide if the Pokemon can mega evolve early, so viable moves for the mega can be generated
@@ -2368,6 +2379,8 @@ exports.BattleScripts = {
 				rejectAbility = template.id !== 'bidoof';
 			} else if (ability === 'Lightning Rod') {
 				rejectAbility = template.types.indexOf('Ground') >= 0;
+			} else if (ability === 'Chlorophyll') {
+				rejectAbility = !hasMove['sunnyday'];
 			}
 
 			if (rejectAbility) {
@@ -2591,44 +2604,46 @@ exports.BattleScripts = {
 			shiny: (Math.random() * (template.id === 'missingno' ? 4 : 1024) <= 1)
 		};
 	},
-	randomSeasonalSBTeam: function (side) {
-		var crypto = require('crypto');
-		var date = new Date();
-		var hash = parseInt(crypto.createHash('md5').update(toId(side.name)).digest('hex').substr(0, 8), 16) + date.getDate();
-		var randNums = [
-			(13 * hash + 6) % 721,
-			(18 * hash + 12) % 721,
-			(25 * hash + 24) % 721,
-			(1 * hash + 48) % 721,
-			(23 * hash + 96) % 721,
-			(5 * hash + 192) % 721
-		];
-		var randoms = {};
-		for (var i = 0; i < 6; i++) {
-			if (randNums[i] < 1) randNums[i] = 1;
-			randoms[randNums[i]] = true;
-		}
+	randomSeasonalSSTeam: function (side) {
+		// All Pokémon in this Seasonal. They are meant to pull the sleigh.
+		var seasonalPokemonList = [
+			'abomasnow', 'accelgor', 'aggron', 'arbok', 'arcanine', 'arceus', 'ariados', 'armaldo', 'audino', 'aurorus', 'avalugg',
+			'barbaracle', 'bastiodon', 'beartic', 'bellossom', 'bibarel', 'bisharp', 'blastoise', 'blaziken', 'bouffalant', 'cacturne',
+			'camerupt', 'carracosta', 'cherrim', 'cobalion', 'conkeldurr', 'crawdaunt', 'crustle', 'darmanitan', 'dedenne', 'delcatty',
+			'delibird', 'dialga', 'dodrio', 'donphan', 'drapion', 'druddigon', 'dunsparce', 'durant', 'eevee', 'electivire', 'electrode',
+			'emboar', 'entei', 'espeon', 'exeggutor', 'exploud', 'feraligatr', 'flareon', 'furfrou', 'furret', 'gallade', 'galvantula',
+			'garbodor', 'garchomp', 'gastrodon', 'genesect', 'gigalith', 'girafarig', 'glaceon', 'glaceon', 'glalie', 'gogoat', 'golem',
+			'golurk', 'granbull', 'groudon', 'grumpig', 'hariyama', 'haxorus', 'heatmor', 'heatran', 'heliolisk', 'hippowdon', 'hitmonchan',
+			'hitmonlee', 'hitmontop', 'houndoom', 'hypno', 'infernape', 'jolteon', 'jynx', 'kabutops', 'kangaskhan', 'kecleon', 'keldeo',
+			'kingler', 'krookodile', 'kyurem', 'kyuremblack', 'kyuremwhite', 'lapras', 'leafeon', 'leavanny', 'lickilicky', 'liepard',
+			'lilligant', 'linoone', 'lopunny', 'lucario', 'ludicolo', 'luxray', 'machamp', 'magcargo', 'magmortar', 'malamar', 'mamoswine',
+			'manectric', 'marowak', 'meganium', 'meowstic', 'metagross', 'mewtwo', 'mightyena', 'miltank', 'nidoking', 'nidoqueen',
+			'ninetales', 'octillery', 'omastar', 'pachirisu', 'palkia', 'pangoro', 'parasect', 'persian', 'poliwrath', 'primeape', 'purugly',
+			'pyroar', 'raichu', 'raikou', 'rampardos', 'rapidash', 'raticate', 'regice', 'regigigas', 'regirock', 'registeel', 'reshiram',
+			'rhydon', 'rhyperior', 'samurott', 'sandslash', 'sawk', 'sawsbuck', 'sceptile', 'scolipede', 'seismitoad', 'shaymin', 'shiftry',
+			'simipour', 'simisage', 'simisear', 'skuntank', 'slaking', 'slowbro', 'slowking', 'slurpuff', 'spinda', 'stantler', 'steelix',
+			'stoutland', 'sudowoodo', 'suicune', 'sunflora', 'swampert', 'sylveon', 'tangrowth', 'tauros', 'terrakion', 'throh', 'torkoal',
+			'torterra', 'typhlosion', 'tyrantrum', 'umbreon', 'ursaring', 'ursaring', 'vaporeon', 'venusaur', 'vileplume', 'virizion',
+			'whimsicott', 'wobbuffet', 'xerneas', 'zangoose', 'zebstrika', 'zekrom', 'zoroark'
+		].randomize();
+
+		// We create the team now
 		var team = [];
-		var mons = 0;
-		for (var p in this.data.Pokedex) {
-			if (this.data.Pokedex[p].num in randoms) {
-				var set = this.randomSet(this.getTemplate(p), mons);
+		for (var i = 0; i < 6; i++) {
+			var pokemon = seasonalPokemonList[i];
+			var template = this.getTemplate(pokemon);
+			var set = this.randomSet(template, i);
+			// We presserve top priority moves over the rest.
+			if ((toId(set.item) === 'heatrock' && toId(set.moves[3]) === 'sunnyday') || toId(set.moves[3]) === 'geomancy' || (toId(set.moves[3]) === 'rest' && toId(set.item) === 'chestoberry') || (pokemon === 'haxorus' && toId(set.moves[3]) === 'dragondance') || (toId(set.ability) === 'guts' && toId(set.moves[3]) === 'facade')) {
+				set.moves[2] = 'Present';
+			} else {
 				set.moves[3] = 'Present';
-				team.push(set);
-				delete randoms[this.data.Pokedex[p].num];
-				mons++;
 			}
-		}
-
-		// There is a very improbable chance in which two hashes collide, leaving the player with five Pokémon. Fix that.
-		var defaults = ['zapdos', 'venusaur', 'aegislash', 'heatran', 'unown', 'liepard'].randomize();
-		while (mons < 6) {
-			var set = this.randomSet(this.getTemplate(defaults[mons]), mons);
-			set.moves[3] = 'Present';
+			if (this.getItem(set.item).megaStone) set.item = 'Life Orb';
 			team.push(set);
-			mons++;
 		}
 
+		// Done, return the result.
 		return team;
 	}
 };

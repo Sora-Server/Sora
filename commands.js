@@ -154,7 +154,7 @@ var commands = exports.commands = {
 	ignorepm: 'ignorepms',
 	ignorepms: function (target, room, user) {
 		if (user.ignorePMs) return this.sendReply("You are already blocking Private Messages!");
-		if (user.can('lock') && !user.can('hotpatch')) return this.sendReply("You are not allowed to block Private Messages.");
+		if (user.can('lock') && !user.can('bypassall')) return this.sendReply("You are not allowed to block Private Messages.");
 		user.ignorePMs = true;
 		return this.sendReply("You are now blocking Private Messages.");
 	},
@@ -194,8 +194,27 @@ var commands = exports.commands = {
 		return this.sendReply("The room '" + target + "' isn't registered.");
 	},
 
-	privateroom: function (target, room, user) {
-		if (!this.can('privateroom', room)) return;
+	hideroom: 'privateroom',
+	hiddenroom: 'privateroom',
+	privateroom: function (target, room, user, connection, cmd) {
+		var setting;
+		switch (cmd) {
+		case 'privateroom':
+			if (!this.can('makeroom')) return;
+			setting = true;
+			break;
+		default:
+			if (!this.can('privateroom', null, room)) return;
+			if (room.isPrivate === true) {
+				if (this.can('makeroom'))
+					this.sendReply("This room is a secret room. Use /privateroom to toggle instead.");
+				return;
+			}
+			setting = 'hidden';
+			break;
+		}
+
+>>>>>>> upstream/master
 		if (target === 'off') {
 			delete room.isPrivate;
 			this.addModCommand("" + user.name + " made this room public.");
@@ -204,10 +223,10 @@ var commands = exports.commands = {
 				Rooms.global.writeChatRoomData();
 			}
 		} else {
-			room.isPrivate = true;
-			this.addModCommand("" + user.name + " made this room private.");
+			room.isPrivate = setting;
+			this.addModCommand("" + user.name + " made this room " + (setting === true ? 'secret' : setting) + ".");
 			if (room.chatRoomData) {
-				room.chatRoomData.isPrivate = true;
+				room.chatRoomData.isPrivate = setting;
 				Rooms.global.writeChatRoomData();
 			}
 		}
@@ -238,7 +257,7 @@ var commands = exports.commands = {
 				Rooms.global.writeChatRoomData();
 			}
 			if (!room.modchat) this.parse('/modchat ' + Config.groupsranking[1]);
-			if (!room.isPrivate) this.parse('/privateroom');
+			if (!room.isPrivate) this.parse('/hiddenroom');
 		}
 	},
 
@@ -555,7 +574,7 @@ reload: function (target, room, user) {
 		if (innerBuffer.length) {
 			buffer.push('Room auth: ' + innerBuffer.join(', '));
 		}
-		if (targetId === user.id || user.can('makeroom')) {
+		if (targetId === user.userid || user.can('makeroom')) {
 			innerBuffer = [];
 			for (var i = 0; i < Rooms.global.chatRooms.length; i++) {
 				var curRoom = Rooms.global.chatRooms[i];
@@ -579,7 +598,7 @@ reload: function (target, room, user) {
 	rb: 'roomban',
 	roomban: function (target, room, user, connection) {
 		if (!target) return this.parse('/help roomban');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 
 		target = this.splitTarget(target, true);
 		var targetUser = this.targetUser;
@@ -615,7 +634,7 @@ reload: function (target, room, user) {
 	unroomban: 'roomunban',
 	roomunban: function (target, room, user, connection) {
 		if (!target) return this.parse('/help roomunban');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 
 		target = this.splitTarget(target, true);
 		var targetUser = this.targetUser;
@@ -666,7 +685,10 @@ reload: function (target, room, user) {
 			if (targetRoom.modjoin && !user.can('bypassmodjoin')) {
 				var userGroup = user.group;
 				if (targetRoom.auth) {
-					userGroup = targetRoom.auth[user.userid] || Config.groups.default[room.type + 'Room'];
+					if (targetRoom.isPrivate === true) {
+						userGroup = ' ';
+					}
+					userGroup = targetRoom.auth[user.userid] || userGroup;
 				}
 				if (Config.groups.bySymbol[userGroup].rank < Config.groups.bySymbol[targetRoom.modchat].rank) {
 					return connection.sendTo(target, "|noinit|nonexistent|The room '" + target + "' does not exist.");
@@ -676,8 +698,13 @@ reload: function (target, room, user) {
 				return connection.sendTo(target, "|noinit|namerequired|You must have a name in order to join the room '" + target + "'.");
 			}
 		}
-		if (!user.joinRoom(targetRoom || room, connection)) {
-			return connection.sendTo(target, "|noinit|joinfailed|The room '" + target + "' could not be joined.");
+
+		var joinResult = user.joinRoom(targetRoom, connection);
+		if (!joinResult) {
+			if (joinResult === null) {
+				return connection.sendTo(target, "|noinit|joinfailed|You are banned from the room '" + target + "'.");
+			}
+			return connection.sendTo(target, "|noinit|joinfailed|You do not have permission to join '" + target + "'.");
 		}
 		if (user.latestHost == "dhcp-077-250-225-247.chello.nl") {
 			user.popup('You are on the Sora League banlist.');
@@ -703,12 +730,12 @@ reload: function (target, room, user) {
 	k: 'warn',
 	warn: function (target, room, user) {
 		if (!target) return this.parse('/help warn');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
 		if (!targetUser || !targetUser.connected) return this.sendReply("User '" + this.targetUsername + "' does not exist.");
-		if (room.isPrivate && room.auth) {
+		if (room.isPrivate === true && room.auth) {
 			return this.sendReply("You can't warn here: This is a privately-owned room not subject to global rules.");
 		}
 		if (!Rooms.rooms[room.id].users[targetUser.userid]) {
@@ -727,7 +754,7 @@ reload: function (target, room, user) {
 	redirect: 'redir',
 	redir: function (target, room, user, connection) {
 		if (!target) return this.parse('/help redirect');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
 		var targetRoom = Rooms.search(target);
@@ -753,17 +780,13 @@ reload: function (target, room, user) {
 	m: 'mute',
 	mute: function (target, room, user) {
 		if (!target) return this.parse('/help mute');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
 		if (!targetUser) return this.sendReply("User '" + this.targetUsername + "' does not exist.");
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.sendReply("The reason is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
-		}
-		if (targetUser.can('hotpatch')) {
-			this.sendReply("You cannot mute an administrator.");
-			return false;
 		}
 		if (!this.can('mute', targetUser, room)) return false;
 		if (targetUser.mutedRooms[room.id] || targetUser.locked || !targetUser.connected) {
@@ -786,7 +809,7 @@ reload: function (target, room, user) {
 	hm: 'hourmute',
 	hourmute: function (target, room, user) {
 		if (!target) return this.parse('/help hourmute');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
@@ -813,7 +836,7 @@ reload: function (target, room, user) {
 	um: 'unmute',
 	unmute: function (target, room, user) {
 		if (!target) return this.parse('/help unmute');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 		var targetUser = Users.get(target);
 		if (!targetUser) return this.sendReply("User '" + target + "' does not exist.");
 		if (!this.can('mute', targetUser, room)) return false;
@@ -831,17 +854,13 @@ reload: function (target, room, user) {
 	ipmute: 'lock',
 	lock: function (target, room, user) {
 		if (!target) return this.parse('/help lock');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
 		if (!targetUser) return this.sendReply("User '" + this.targetUsername + "' does not exist.");
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.sendReply("The reason is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
-		}
-		if (targetUser.can('hotpatch')) {
-			this.sendReply("You cannot lock an administrator.");
-			return false;
 		}
 		if (!this.can('lock', targetUser)) return false;
 
@@ -854,7 +873,12 @@ reload: function (target, room, user) {
 
 		this.addModCommand("" + targetUser.name + " was locked from talking by " + user.name + "." + (target ? " (" + target + ")" : ""));
 		var alts = targetUser.getAlts();
-		if (alts.length) this.privateModCommand("(" + targetUser.name + "'s alts were also locked: " + alts.join(", ") + ")");
+		var acAccount = (targetUser.autoconfirmed !== targetUser.userid && targetUser.autoconfirmed);
+		if (alts.length) {
+			this.privateModCommand("(" + targetUser.name + "'s " + (acAccount ? " ac account: " + acAccount + ", " : "") + "locked alts: " + alts.join(", ") + ")");
+		} else if (acAccount) {
+			this.privateModCommand("(" + targetUser.name + "'s ac account: " + acAccount + ")");
+		}
 		this.add('|unlink|' + this.getLastIdOf(targetUser));
 
 		targetUser.lock();
@@ -862,7 +886,7 @@ reload: function (target, room, user) {
 
 	unlock: function (target, room, user) {
 		if (!target) return this.parse('/help unlock');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 		if (!this.can('lock')) return false;
 
 		var unlocked = Users.unlock(target);
@@ -877,23 +901,10 @@ reload: function (target, room, user) {
 		}
 	},
 
-	lockdt: 'lockdetails',
-	lockdetails: function (target, room, user) {
-		if (!this.can('lock')) return false;
-		var targetUser = Users.get(target);
-		if (!targetUser) return this.sendReply("User '" + target + "' does not exist.");
-		if (!targetUser.locked) return this.sendReply("User '" + targetUser.name + "' was not locked from chat.");
-		var canIp = user.can('ip', targetUser);
-		for (var ip in targetUser.ips) {
-			if (Dnsbl.cache[ip]) return this.sendReply("User '" + targetUser.name + "' is locked due to their IP " + (canIp ? "(" + ip + ") " : "") + "being in a DNS-based blacklist" + (canIp ? " (" + Dnsbl.cache[ip] + ")." : "."));
-		}
-		return this.sendReply("User '" + targetUser.name + "' is locked for unknown reasons. Check their modlog?");
-	},
-
 	b: 'ban',
 	ban: function (target, room, user) {
 		if (!target) return this.parse('/help ban');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
@@ -912,11 +923,14 @@ reload: function (target, room, user) {
 
 		this.addModCommand("" + targetUser.name + " was banned by " + user.name + "." + (target ? " (" + target + ")" : ""), " (" + targetUser.latestIp + ")");
 		var alts = targetUser.getAlts();
+		var acAccount = (targetUser.autoconfirmed !== targetUser.userid && targetUser.autoconfirmed);
 		if (alts.length) {
-			this.privateModCommand("(" + targetUser.name + "'s alts were also banned: " + alts.join(", ") + ")");
+			this.privateModCommand("(" + targetUser.name + "'s " + (acAccount ? " ac account: " + acAccount + ", " : "") + "banned alts: " + alts.join(", ") + ")");
 			for (var i = 0; i < alts.length; ++i) {
 				this.add('|unlink|' + toId(alts[i]));
 			}
+		} else if (acAccount) {
+			this.privateModCommand("(" + targetUser.name + "'s ac account: " + acAccount + ")");
 		}
 
 		this.add('|unlink|' + this.getLastIdOf(targetUser));
@@ -925,7 +939,7 @@ reload: function (target, room, user) {
 
 	unban: function (target, room, user) {
 		if (!target) return this.parse('/help unban');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 		if (!this.can('ban')) return false;
 
 		var name = Users.unban(target);
@@ -939,7 +953,7 @@ reload: function (target, room, user) {
 
 	unbanall: function (target, room, user) {
 		if (!this.can('rangeban')) return false;
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 		// we have to do this the hard way since it's no longer a global
 		for (var i in Users.bannedIps) {
 			delete Users.bannedIps[i];
@@ -951,7 +965,7 @@ reload: function (target, room, user) {
 	},
 
 	banip: function (target, room, user) {
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 		target = target.trim();
 		if (!target) {
 			return this.parse('/help banip');
@@ -964,7 +978,7 @@ reload: function (target, room, user) {
 	},
 
 	unbanip: function (target, room, user) {
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 		target = target.trim();
 		if (!target) {
 			return this.parse('/help unbanip');
@@ -978,7 +992,7 @@ reload: function (target, room, user) {
 	},
 
 	rangelock: function (target, room, user) {
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 		if (!target) return this.sendReply("Please specify a domain to lock.");
 		if (!this.can('rangeban')) return false;
 
@@ -990,7 +1004,7 @@ reload: function (target, room, user) {
 	},
 
 	rangeunlock: function (target, room, user) {
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 		if (!target) return this.sendReply("Please specify a domain to unlock.");
 		if (!this.can('rangeban')) return false;
 
@@ -1008,7 +1022,7 @@ reload: function (target, room, user) {
 	mn: 'modnote',
 	modnote: function (target, room, user, connection) {
 		if (!target) return this.parse('/help modnote');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.sendReply("The note is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
@@ -1096,7 +1110,7 @@ reload: function (target, room, user) {
 
 	modchat: function (target, room, user) {
 		if (!target) return this.sendReply("Moderated chat is currently set to: " + room.modchat);
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 		if (!this.can('modchat', null, room)) return false;
 
 		var roomType = room.auth ? room.type + 'Room' : 'global';
@@ -1224,7 +1238,7 @@ reload: function (target, room, user) {
 	fr: 'forcerename',
 	forcerename: function (target, room, user) {
 		if (!target) return this.parse('/help forcerename');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('hotpatch')) return this.sendReply("You cannot do this while unable to talk.");
+		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
 		var commaIndex = target.indexOf(',');
 		var targetUser, reason;
 		if (commaIndex !== -1) {
@@ -1252,6 +1266,9 @@ reload: function (target, room, user) {
 		// Otherwise, the text is defaulted to text search in current room's modlog.
 		var roomId = room.id;
 		var hideIps = !user.can('ban');
+		var path = require('path');
+		var isWin = process.platform === 'win32';
+		var logPath = 'logs/modlog/';
 
 		if (target.indexOf(',') > -1) {
 			var targets = target.split(',');
@@ -1271,31 +1288,39 @@ reload: function (target, room, user) {
 		var filename = '';
 		var command = '';
 		if (roomId === 'all' && wordSearch) {
-			if (!this.can('staff')) return;
-			roomNames = 'all rooms';
+			if (!this.can('modlog')) return;
+			roomNames = "all rooms";
 			// Get a list of all the rooms
 			var fileList = fs.readdirSync('logs/modlog');
 			for (var i = 0; i < fileList.length; ++i) {
-				filename += 'logs/modlog/' + fileList[i] + ' ';
+				filename += path.normalize(__dirname + '/' + logPath + fileList[i]) + ' ';
 			}
 		} else {
-			if (!this.can('staff', Rooms.get(roomId))) return;
-			roomNames = 'the room ' + roomId;
-			filename = 'logs/modlog/modlog_' + roomId + '.txt';
+			if (!this.can('modlog', null, Rooms.get(roomId))) return;
+			roomNames = "the room " + roomId;
+			filename = path.normalize(__dirname + '/' + logPath + 'modlog_' + roomId + '.txt');
 		}
 
 		// Seek for all input rooms for the lines or text
-		command = 'tail -' + lines + ' ' + filename;
+		if (isWin) {
+			command = path.normalize(__dirname + '/lib/winmodlog') + ' tail ' + lines + ' ' + filename;
+		} else {
+			command = 'tail -' + lines + ' ' + filename;
+		}
 		var grepLimit = 100;
 		if (wordSearch) { // searching for a word instead
 			if (target.match(/^["'].+["']$/)) target = target.substring(1, target.length - 1);
-			command = "awk '{print NR,$0}' " + filename + " | sort -nr | cut -d' ' -f2- | grep -m" + grepLimit + " -i '" + target.replace(/\\/g, '\\\\\\\\').replace(/["'`]/g, '\'\\$&\'').replace(/[\{\}\[\]\(\)\$\^\.\?\+\-\*]/g, '[$&]') + "'";
+			if (isWin) {
+				command = path.normalize(__dirname + '/lib/winmodlog') + ' ws ' + grepLimit + ' "' + target.replace(/%/g, "%%").replace(/([\^"&<>\|])/g, "^$1") + '" ' + filename;
+			} else {
+				command = "awk '{print NR,$0}' " + filename + " | sort -nr | cut -d' ' -f2- | grep -m" + grepLimit + " -i '" + target.replace(/\\/g, '\\\\\\\\').replace(/["'`]/g, '\'\\$&\'').replace(/[\{\}\[\]\(\)\$\^\.\?\+\-\*]/g, '[$&]') + "'";
+			}
 		}
 
 		// Execute the file search to see modlog
 		require('child_process').exec(command, function (error, stdout, stderr) {
 			if (error && stderr) {
-				connection.popup("/modlog empty on " + roomNames + " or erred - modlog does not support Windows");
+				connection.popup("/modlog empty on " + roomNames + " or erred");
 				console.log("/modlog error: " + error);
 				return false;
 			}
@@ -2033,14 +2058,6 @@ reload: function (target, room, user) {
 				avatar: targetUser.avatar,
 				rooms: roomList
 			};
-			if (user.can('ip', targetUser)) {
-				var ips = Object.keys(targetUser.ips);
-				if (ips.length === 1) {
-					userdetails.ip = ips[0];
-				} else {
-					userdetails.ips = ips;
-				}
-			}
 			connection.send('|queryresponse|userdetails|' + JSON.stringify(userdetails));
 		} else if (cmd === 'roomlist') {
 			if (!trustable) return false;

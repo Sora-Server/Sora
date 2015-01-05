@@ -87,7 +87,6 @@ var Room = (function () {
 				this.add('|c|' + user.getIdentity(this.id) + '|' + message);
 			}
 		}
-		this.update();
 	};
 
 	return Room;

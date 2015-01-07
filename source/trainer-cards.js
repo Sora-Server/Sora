@@ -297,7 +297,7 @@ var trainerCards = {
 			 '<b>Leader Ranking: <font color = 000a6d>9th</font></b> <br />'+ 
 			 '<i>"It\'s going down, I\'m yelling Timburr"</i> <br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
-			 '<b>Ace:</b> Venusaur<br />');
+			 '<b>Ace:</b> Golbat<br />');
 	},
         
         flying: 'arsh',

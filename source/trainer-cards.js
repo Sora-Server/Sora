@@ -110,13 +110,11 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<a><font size= 4><center><b>∆Frontierhead Ninjarisu∆</b></center></a><br />'+
 		    '<i>"I will show you the power of the best of the worst"</i> <br />'+
-		    '<b>Ace:</b> <s>Unown</s><br />'+
-	 	    '<b>Symbol:</b> Powerless Symbol<br />'+
+		    '<b>Ace:</b> Pachirisu<br />'+
+	 	    '<b>Symbol:</b> Puny Symbol<br />'+
 	 	    '<b>Rules:</b> PU <br />'+
-	 	    '-No Stat Changing moves <br/>'+
-	 	    '-No base stat over 115<br/>'+
 	 	    '-No Hazards <br/>'+
-	 	    '-No Knock off <br />'+
+	 	    '-No Mega Evolution <br />'+
 	 	    '<img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-romeo.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-india.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-sierra.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-uniform.gif">'+
 	 	    '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	 	    

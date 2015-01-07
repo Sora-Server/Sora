@@ -391,6 +391,22 @@ var trainerCards = {
 			 
         },
         
+        zachary: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Frontier <b>Zachary</b><br />'+
+			 '<i>"The power of the seas, storms and rivers are mine to hold....and here you dare to stand before me?"</i> <br />'+
+		         '<b>Symbol:</b> Underrated <br />'+
+			 '<b>Ace:</b> Tentacruel<br />'+
+			 '<b>Battle rules:</b> <br />'+
+			 '-Tiershift Monotype <br />'+
+			 '-No Mega Evolution <br />'+
+			 '-No Abilities which nullify and attack or its effects (Magic Guard, Flash Fire, Volt Absorb, etc) <br />'+
+			 '-No using Electric or Grass Monotypes. Sora\'s rules don\'t allow a challenger to use a type strong against a Member in official League matches. Give your self a challenge. <br />'+
+			 '<img src="http://modkore.weebly.com/uploads/2/6/6/5/26651119/790148.gif"><br />');
+			 
+        },
+        
+        
         electric: 'anrin',
 	anrin: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -400,10 +416,19 @@ var trainerCards = {
 			 '<b>Ace:</b> Electivire<br />');
   
         },
-        water: 'azh',
+        
+	water: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			 '<i>"???"</i> <br />'+
+		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
+			 '<b>Ace:</b> ???<br />');
+			 
+	},
+        
         azh: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b>∆Gym Ldr ArthurZH∆</b></center></a><br />'+
+		this.sendReplyBox('<a><font size= 4><center><b>∆ArthurZH∆</b></center></a><br />'+
 			 '<center><i>"The power of the seas, storms and rivers are mine to hold....and here you dare to stand before me?"</i></center> <br />'+
 			 '<b>Favoured Type:</b> Water<br />'+
 			 '<b>Ace:</b> Mega-Gyarados<br />'+

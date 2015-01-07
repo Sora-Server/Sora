@@ -401,8 +401,7 @@ var trainerCards = {
 			 '-Tiershift Monotype <br />'+
 			 '-No Mega Evolution <br />'+
 			 '-No Abilities which nullify and attack or its effects (Magic Guard, Flash Fire, Volt Absorb, etc) <br />'+
-			 '-No using Electric or Grass Monotypes. Sora\'s rules don\'t allow a challenger to use a type strong against a Member in official League matches. Give your self a challenge. <br />'+
-			 '<img src="http://modkore.weebly.com/uploads/2/6/6/5/26651119/790148.gif"><br />');
+			 '-No using Electric or Grass Monotypes. Sora\'s rules don\'t allow a challenger to use a type strong against a Member in official League matches. Give your self a challenge.');
 			 
         },
         

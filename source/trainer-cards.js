@@ -98,7 +98,8 @@ var trainerCards = {
 		      '<b>Ace:</b> Metagross <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-No item duplication <br />'+
-	 	      '-No direct status <br />');
+	 	      '-No direct status <br />'+
+	 	      ''<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         
         
         },
@@ -456,7 +457,7 @@ var trainerCards = {
 		this.sendReplyBox('<a><font size= 4><center><b><font color = 075ff7>The Admin Team</font></b></center></a><br />'+
 		'FAQ <br />'+
 		'<b>Who are we?</b> The Admin team are a group of senior members who make most of the major league decisions and organize most major league events. <br />'+
-		'<b>Who\'s in the Admin Team?</b> The Admin Team\'s active members consist of: Champion Noah, Champion Toast, Onyx, Artiste Jeratt, Frontier Ninjarisu, Neith and Frontierhead Bart. <br />'+
+		'<b>Who\'s in the Admin Team?</b> The Admin Team\'s active members consist of: Champion Noah, Champion Bart, Onyx, Artiste Jeratt, Frontierhead Ninjarisu, Neith and Elite Four Bloodfist. <br />'+
 		'<b>What exactly do you guys do?</b> The Admin Team handle or oversee all matters from disputes in the League, to League Challenge Registration <br />'+
 		'<b>How does one join the Admin team?</b> The Admin Team usually invites a select few senior members who\'ve shown to be mature and capable of handling responsibility. <br />'+
 		' <br />'+

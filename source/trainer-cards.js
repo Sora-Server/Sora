@@ -99,7 +99,7 @@ var trainerCards = {
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-No item duplication <br />'+
 	 	      '-No direct status <br />'+
-	 	      ''<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
+	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         
         
         },

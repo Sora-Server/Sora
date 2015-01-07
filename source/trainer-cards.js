@@ -283,7 +283,6 @@ var trainerCards = {
         fallen: function(target, room, user) {
 		    if (!this.canBroadcast()) return;
 			this.sendReplyBox('Gym Ldr <b>Fallen</b><br />'+
-			  '<b> Leader Ranking 
 			  '<i>"The King has Fallen"</i> <br />'+
 			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
 			  '<b>Ace:</b> Sableye<br />');
@@ -303,7 +302,6 @@ var trainerCards = {
         arsh: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Arsh</b><br />'+
-		         '<b> Leader Ranking: 
 		         '<i>"Haters gonna hate, potatoes gonna potate."</i> <br />'+
 	              	 '<b>Type: <font color = 00a6c4>Flying</font></b><br />'+
 			 '<b>Ace:</b> Vivillon<br />');
@@ -437,7 +435,6 @@ var trainerCards = {
 	gazel: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Gazel</b><br />'+
-		          '<b> Leader Ranking: 
 			  '<i>"I am now the Bug Leader."</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> Pinsir <br />');

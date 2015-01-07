@@ -414,7 +414,8 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
 			  '<i>"You gotta go along to get along."</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> Victini <br />');
+			  '<b>Ace:</b> Victini <br />'+
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
 	},
 	
 	ground: 'meows',

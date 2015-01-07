@@ -82,7 +82,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Cocoa</b><br />'+
 		      '<i>"Your defeat shall be nearly as sweet as Chocolate and Vanilla"</i> <br />'+
-		      '<b>Type: <font color = #200644>Dark</font></b><br />'+
+		      '<b>Type: <font color = 200644>Dark</font></b><br />'+
 		      '<b>Ace:</b> Umbreon <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-No direct status. <br/>'+
@@ -94,7 +94,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Bloodfist</b><br />'+
 		      '<i>"The night may be dark, but my blades are darker!"</i> <br />'+
-		      '<b>Type: <font color =  ffe100>Steel</font></b> <br />'+
+		      '<b>Type: <font color = 86c3f4>Steel</font></b> <br />'+
 		      '<b>Ace:</b> Metagross <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-No item duplication <br />'+

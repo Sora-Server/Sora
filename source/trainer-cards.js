@@ -460,7 +460,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
-			  '<b>Ace:</b> ???r <br />');
+			  '<b>Ace:</b> ??? <br />');
         },
 	
 	ice: 'poppy',

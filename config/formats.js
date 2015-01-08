@@ -97,7 +97,7 @@ exports.Formats = [
 		section: "Sora Exclusive",
 
 		mod: 'tiershift',
-		ruleset: ['HP Percentage Mod'],
+		ruleset: ['HP Percentage Mod', 'Team Preview'],
 		validateSet: function (set) {
 			var template = this.getTemplate(set.species);
 			var item = this.getItem(set.item);

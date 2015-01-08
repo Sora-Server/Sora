@@ -454,13 +454,13 @@ var trainerCards = {
 			  
 	},
 	
-	bug: 'gazel',
-	gazel: function(target, room, user) {
+	
+	bug: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Gazel</b><br />'+
-			  '<i>"I am now the Bug Leader."</i> <br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
-			  '<b>Ace:</b> Pinsir <br />');
+			  '<b>Ace:</b> ???r <br />');
         },
 	
 	ice: 'poppy',

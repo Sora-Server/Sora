@@ -393,14 +393,13 @@ var trainerCards = {
         zachary: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Zachary</b><br />'+
-			 '<i>"The power of the seas, storms and rivers are mine to hold....and here you dare to stand before me?"</i> <br />'+
-		         '<b>Symbol:</b> Underrated <br />'+
-			 '<b>Ace:</b> Tentacruel<br />'+
+			 '<i>"3RR0R 3RR0R 3RR0R B4TT13 1N1T1AT3 F1L3 C0RRUPT ASasdfgihjtrshrdshawfcvzfrbrynrsh 3RR0R 3RR0R 3RR0R"</i> <br />'+
+		         '<b>Symbol:</b> 3RR0R Symbol <br />'+
+			 '<b>Ace:</b> Blissey<br />'+
 			 '<b>Battle rules:</b> <br />'+
-			 '-Tiershift Monotype <br />'+
-			 '-No Mega Evolution <br />'+
-			 '-No Abilities which nullify and attack or its effects (Magic Guard, Flash Fire, Volt Absorb, etc) <br />'+
-			 '-No using Electric or Grass Monotypes. Sora\'s rules don\'t allow a challenger to use a type strong against a Member in official League matches. Give your self a challenge.');
+			 '-Balanced Hackmons <br />'+
+			 '-No Baton Pass <br />'+
+			 '-Ability Clause (Can\'t use the same ability on two Pokemon) <br />');
 			 
         },
         

@@ -70,7 +70,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Darkus</b><br />'+
 		      '<i>"You gotta go along to get along."</i> <br />'+
-		      '<b>Type:<font color = #ff007f>Psychic</font></b><br />'+
+		      '<b>Type:<font color = #ff007f> Psychic</font></b><br />'+
 		      '<b>Ace:</b> Victini <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br/>'+

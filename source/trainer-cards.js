@@ -66,15 +66,16 @@ var trainerCards = {
 	},
 
         
-        zoro: function(target, room, user) {
+        darkus: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Zoro</b><br />'+
-		      '<i>"I am everywhere you are not."</i> <br />'+
+		this.sendReplyBox('E4 <b>Darkus</b><br />'+
+		      '<i>"You gotta go along to get along."</i> <br />'+
 		      '<b>Type:<font color = #ff007f>Psychic</font></b><br />'+
-		      '<b>Ace:</b> Gardevoir <br />'+
+		      '<b>Ace:</b> Victini <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br/>'+
-	 	      '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
+	              '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
+	 	      
 	},
 	
         
@@ -433,15 +434,16 @@ var trainerCards = {
 			 '<center><img src="http://fc00.deviantart.net/fs71/f/2014/082/f/8/manaphy_gif_by_gloomymyth-d7bakkc.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/tentacruel.gif"><img src="http://www.pokemonreborn.com/custom/44203.png?530"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/swampert.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gyarados.gif"></center>');
 	},
 
-        psychic: 'darkus',
-	darkus: function(target, room, user) {
+        psychic: 'zoro',
+	zoro: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
-		          'Leader Ranking: <font color = ffe100>3rd</font></b> <br />'+
-			  '<i>"You gotta go along to get along."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Zoro</b><br />'+
+		          'Leader Ranking: <font color = ffe100><b>3rd</font></b> <br />'+
+			  '<i>"I am everywhere you are not."</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> Victini <br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
+			  '<b>Ace:</b> Gardevoir <br />'+
+			  '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
+			  
 	},
 	
 	ground: 'meows',
@@ -467,7 +469,7 @@ var trainerCards = {
 	poppy: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
-		          'Leader Ranking: font color =72ff00>4th</font></b> <br />'+
+		          'Leader Ranking: <font color = 72ff00><b>4th</font></b> <br />'+
 			  '<i>"I dream for a living."</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
 			  '<b>Ace:</b> Frigid Bitch (Froslass)<br />');
@@ -659,7 +661,7 @@ var trainerCards = {
 			this.sendReplyBox('Listed here are the Top 10 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
 				'-<b>1st <font color = 230077>Tempest</font></b> (Dragon)<br />'+
 				'-<b>2nd <font color = 006b0a>Asch</font></b></b> (Grass)<br />'+
-				'-<b>3rd <font color = ff00b6>Darkus</font></b> (Psychic)<br />'+
+				'-<b>3rd <font color = ff00b6>Zoro</font></b> (Psychic)<br />'+
 				'-<b>4th <font color = 00e0ac>Poppy</font></b> (Ice) <br />'+
 				'-<b>5th <font color = 5e6664>Floatzel</font></b> (Steel)<br />'+
 				'-<b>6th <font color = d83c08>Lou</front></b> (Fighting)<br />'+

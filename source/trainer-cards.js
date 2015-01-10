@@ -399,7 +399,7 @@ var trainerCards = {
 			 '<b>Battle rules:</b> <br />'+
 			 '-Balanced Hackmons <br />'+
 			 '-No Baton Pass <br />'+
-			 '-Ability Clause (Can\'t use the same ability on two Pokemon) <br />');
+			 '-Only 1 Mega per team <br />');
 			 
         },
         

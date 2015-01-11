@@ -217,7 +217,7 @@ var trainerCards = {
         lou: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Lou</b><br />'+
-		        'Leader Ranking: <font color =00bc8d>6th</font></b> <br />'+
+		        'Leader Ranking: <font color =00bc8d><b>6th</font></b> <br />'+
 			'<i>"???"</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
 			'<b>Ace:</b> ??? <br />');

@@ -228,7 +228,7 @@ var trainerCards = {
         ark: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Ark</b><br />'+
-		      'Leader Ranking: <font color = 040a3d>10th</font></b> <br />'+
+		      'Leader Ranking: <font color = 040a3d><b>10th</font></b> <br />'+
 	              '<i>*Rubs hands*</i> <br />'+
 	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
 	              '<b>Ace:</b> Togekiss<br />');
@@ -238,7 +238,7 @@ var trainerCards = {
         floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
-		      'Leader Ranking: <font color =00d30a>5th</font></b> <br />'+ 
+		      'Leader Ranking: <font color =00d30a><b>5th</font></b> <br />'+ 
 	              '<i>"Irony."</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> Darmanitan<br />'+

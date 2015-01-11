@@ -414,13 +414,13 @@ var trainerCards = {
 			 '<b>Ace:</b> Electivire<br />');
   
         },
-        
-	water: function(target, room, user) {
+        water: 'waffles',
+	waffles: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Waffles</b><br />'+
 			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> Lord Helix (Omastar)<br />');
 			 
 	},
         

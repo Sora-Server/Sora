@@ -234,26 +234,27 @@ var trainerCards = {
 	              '<b>Ace:</b> Togekiss<br />');
         },
         
-        fire: 'noahb',
-        noahb: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>NoahB</b><br />'+
-		      'Leader Ranking: <font color = 0044aa>8th</font></b> <br />'+ 
-	              '<i>"Get ready to get roasted."</i> <br />'+
-	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> Charizard<br />');
-
-	},
- 
-        steel: 'floatzel',
+        fire: 'floatzel',
         floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
+		      'Leader Ranking: 
+	              '<i>"Irony."</i> <br />'+
+	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
+	              '<b>Ace:</b> Darmanitan<br />'+
+	              '<img src="http://play.pokemonshowdown.com/sprites/xyani/darumaka.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/groudon-primal.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/darumaka.gif">');
+
+	},
+ 
+        steel: 'noahb',
+        noahb: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Noahb</b><br />'+
 		          '<b>Leader Ranking: <font color =00d30a>5th</font></b> <br />'+ 
-			  '<i>"What\'s a resist?"</i> <br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
-			  '<b>Ace:</b> Mega-Metagross <br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/honedge.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/honedge.gif">');
+			  '<b>Ace:</b> ??? <br />');
+			  
 	},
 
     

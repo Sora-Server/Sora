@@ -69,7 +69,7 @@ var trainerCards = {
         darkus: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Darkus</b><br />'+
-		      '<i>"You gotta go along to get along."</i> <br />'+
+		      '<i>"You would think I\'m Dark, but you can\'t think."</i> <br />'+
 		      '<b>Type:<font color = #ff007f> Psychic</font></b><br />'+
 		      '<b>Ace:</b> Victini <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+

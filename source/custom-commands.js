@@ -660,7 +660,7 @@ var customCommands = {
 		rules: function(target, room, user) {
 				if (!this.canBroadcast()) return;
 				this.sendReplyBox('Please follow the rules:<br />' +
-					'- <a href="http://soraleague.weebly.com/rules.html">Sora League Elite Four</a><br />' +
+					'- <a href="http://soraleague.weebly.com/rules.html">Sora League rules</a><br />' +
 					'</div>');
 	},
 

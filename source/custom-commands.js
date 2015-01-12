@@ -861,6 +861,7 @@ var customCommands = {
 				'"The thing about electric types is you always gotta wear a rubber"-∆E4 Vanilla∆ 6/9/14<br />' +
 				'"Umbreon is dark?"-∆E4 Arjunb∆ 30/11/14<br />'+
 				'"Isn\'t Color Change and protean the same thing?" -∆Frontier∆ Nova 15/12/14<br />'+
+				'"Smogon pretty much did the Treaty of Versailles to Water" -∆Champiön Nöah∆ 12/1/15<br />'+
 				'</div>');
 	},
 	

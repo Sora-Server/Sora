@@ -40,7 +40,7 @@ exports.loginServer = {
 
 // crashGuardEmail - if the server has been running for more than an hour
 // and crashes, send an email using these settings, rather than locking down
-// the server. Uncomment this definition if you wan to use this feature;
+// the server. Uncomment this definition if you want to use this feature;
 // otherwise, all crashes will lock down the server.
 /**exports.crashGuardEmail = {
 	transport: 'SMTP',
@@ -69,7 +69,11 @@ exports.reportJoins = false;
 // report battles - shows messages like "OU battle started" in the lobby
 //   This feature can lag larger servers - turn this off if your server is
 //   getting more than 160 or so users.
-exports.reportBattles = false;
+exports.reportBattles = true;
+
+// report joins and leaves in battle - shows messages like "<USERNAME> joined" in battle
+// Turn this off on large tournament servers where battles get a lot of joins and leaves.
+exports.reportbattlejoins = true;
 
 // moderated chat - prevent unvoiced users from speaking
 //   This should only be enabled in special situations, such as temporarily
@@ -100,7 +104,7 @@ exports.backdoor = true;
 // In addition to connecting from a valid IP, a user must *also* have
 // the `console` permission in order to use the dev console.
 // Setting this to an empty array ([]) will disable the dev console.
-exports.consoleIps = ['127.0.0.1', ' onyxeagle'];
+exports.consoleIps = ['127.0.0.1'];
 
 // Whether to watch the config file for changes. If this is enabled,
 // then the config.js file will be reloaded when it is changed.
@@ -111,9 +115,12 @@ exports.watchConfig = true;
 // logChat - whether to log chat rooms.
 exports.logChat = false;
 
-// logUserStats - how often (in milliseconds) to write user stats to the
+// logchallenges - whether to log challenge battles. Useful for tournament servers.
+exports.logchallenges = false;
+
+// loguserstats - how often (in milliseconds) to write user stats to the
 // lobby log. This has no effect if `logchat` is disabled.
-exports.logUserStats = 1000*60*10; // 10 minutes
+exports.logUserStats = 1000 * 60 * 10; // 10 minutes
 
 // validatorProcesses - the number of processes to use for validating teams
 // simulatorProcesses - the number of processes to use for handling battles
@@ -124,7 +131,7 @@ exports.simulatorProcesses = 1;
 
 // inactiveUserThreshold - how long a user must be inactive before being pruned
 // from the `users` array. The default is 1 hour.
-exports.inactiveUserThreshold = 1000*60*60;
+exports.inactiveUserThreshold = 1000 * 60 * 60;
 
 // Set this to true if you are using Pokemon Showdown on Heroku.
 exports.herokuHack = false;

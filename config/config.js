@@ -69,7 +69,7 @@ exports.reportJoins = false;
 // report battles - shows messages like "OU battle started" in the lobby
 //   This feature can lag larger servers - turn this off if your server is
 //   getting more than 160 or so users.
-exports.reportBattles = true;
+exports.reportBattles = false;
 
 // report joins and leaves in battle - shows messages like "<USERNAME> joined" in battle
 // Turn this off on large tournament servers where battles get a lot of joins and leaves.

@@ -656,6 +656,15 @@ var customCommands = {
 		});
 	},
 	
+	rules: 'rule',
+		rules: function(target, room, user) {
+				if (!this.canBroadcast()) return;
+				this.sendReplyBox('Please follow the rules:<br />' +
+					'- <a href="http://soraleague.weebly.com/rules.html">Sora League Elite Four</a><br />' +
+					'</div>');
+	},
+
+	
 	/*********************************************************
 	 * Misc Commands
 	 *********************************************************/

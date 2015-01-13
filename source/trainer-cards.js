@@ -251,9 +251,9 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Noahb</b><br />'+
 		          '<b>Leader Ranking: <font color = 0044aa>8th</font></b> <br />'+ 
-			  '<i>"???"</i> <br />'+
+			  '<i>"Win? No I just want u to lose."</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
-			  '<b>Ace:</b> ??? <br />');
+			  '<b>Ace:</b> Empoleon <br />');
 			  
 	},
 

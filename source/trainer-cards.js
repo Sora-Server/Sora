@@ -170,8 +170,8 @@ var trainerCards = {
         
         
         }, 
-        wong: 'subfrontier'
-        subfrontier: function(target, room, user) {
+        subfrontier: 'wong',
+        wong: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<center>Sub Frontier Position: <b><font color = 006b0a>G>Active</font></b></center><br />'+
 		'Sub Frontier <b>Wong</b> <br />'+

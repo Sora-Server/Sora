@@ -175,7 +175,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<center>Sub Frontier Position: <b><font color = 006b0a>G>Active</font></b></center><br />'+
 		'Sub Frontier <b>Wong</b> <br />'+
-		'<b>Symbol:</b> SumTingWong Symbol</font></b><br />'+
+		'<b>Symbol:</b> SumTingWong Symbol <br />'+
 		'<b>Battle Rules:</b> <br />'+
 		'-RU Monotype <br />'+
 		'-No Knock off <br />'+

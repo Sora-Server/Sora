@@ -94,12 +94,12 @@ var trainerCards = {
         bloodfist: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Bloodfist</b><br />'+
-		      '<i>"The night may be dark, but my blades are darker!"</i> <br />'+
-		      '<b>Type: <font color = 86c3f4>Steel</font></b> <br />'+
-		      '<b>Ace:</b> Metagross <br />'+
+		      '<i>"The Ancients will bring you a blue dawn."</i> <br />'+
+		      '<b>Type: <font color = 066baa>Dragon</font></b> <br />'+
+		      '<b>Ace:</b> Goodra<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No item duplication <br />'+
-	 	      '-No direct status <br />'+
+	 	      '-Monotype <br />'+
+	 	      '-No Priority <br />'+
 	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         
         

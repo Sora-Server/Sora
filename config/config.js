@@ -193,7 +193,7 @@ exports.customAvatars = {
 	  'stephan4ubers': '068.gif',
 	  'datslapzme': '069.gif',
 	  'amtesla': '070.gif',
-	  'gymldrterror': '072.gif',
+	  'frntierterror': '104.gif',
 	  'gymldrtsuna': '076.gif',
 	  'frontieriggy': '099.gif',
 	  'frontiergasp': '080.jpg',

@@ -64,7 +64,17 @@ var trainerCards = {
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
 		      '<b>Ace:</b> Babylon (Garchomp)<br />');
 	},
-
+	
+	ascher: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<center><b><font size="4" color="2558db">Ascher</font></b></center><br />'+
+                '<center><i>"*SEAL NOISES*"</i> </center><br /><br />'+
+                '<b>Aces: </b>Venusaur and Whimsicott<br />'+
+                '<b>Favorite Pokémon: </b>Shroomish, Venusaur, Whimsicott, Lotad, And Ludicolo<br />'+
+                '<b>Achievements: </b>Getting in the top 80s of the main OU Monotype Ladder, Winning the E4 Promo tours 4 times<br />'+
+                '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/shroomish.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/venusaur.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/shroomish.gif"></center> <br />');
+                
+	},
         
         darkus: function(target, room, user) {
 		if (!this.canBroadcast()) return;

@@ -159,6 +159,20 @@ var trainerCards = {
 	
         },
         
+        terror: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox( '<center><b><font size="4" color="82127a">Terror</font></b></center><br>'+
+		'<center><i>"Laughing at Dinite\'s videos"</i> </center><br /><br />'+
+		'<b>Ace: </b>Mega Sharpedo/Garchomp<br />'+
+		'<b>Skilled at: </b>Being incredibly annoying, Balanced Hackmons, Certain Monotypes.<br />'+
+		'<b>Achievements: </b> Best electric leader sora ever had, ex sora ground leader, and the best frontier of another league. Top 10 on the Balanced Hackmons Ladder.<br />'+
+		'<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/greninja.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/ferrothorn.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/sharpedo.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/garchomp.gif">');
+        
+        
+        
+        
+        },
+        
         silth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Centurion <b>Silth</b><br />'+

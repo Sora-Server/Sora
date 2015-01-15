@@ -81,7 +81,7 @@ exports.Formats = [
 		name: "Champion's Challenge",
 		section: "Sora Exclusive",
 
-		ruleset: ['Pokemon', 'Team Preview', 'Champion Challenge, HP Percentage Mod'],
+		ruleset: ['Pokemon', 'Team Preview', 'Champion Challenge', 'HP Percentage Mod'],
 		banlist: ['Kangaskhanite', 'Swagger']
 	},
 	{
@@ -89,7 +89,7 @@ exports.Formats = [
 		section: "Sora Exclusive",
 
 		mod: 'priomon',
-		ruleset: ['Pokemon', 'Champion Challenge', 'Team Preview', 'Standard, HP Percentage Mod'],
+		ruleset: ['Pokemon', 'Champion Challenge', 'Team Preview', 'Standard', 'HP Percentage Mod'],
 		banlist: ['Kangaskhanite', 'Swagger']
 	},
 	{

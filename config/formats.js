@@ -103,6 +103,24 @@ exports.Formats = [
 	       
 	},
 	{
+		name: "Champion's Challenge Inverse",
+		section: "Sora Exclusive",
+		
+		ruleset: ['Pokemon', 'Team Preview', 'Champion Challenge', 'HP Percentage Mod'],
+		banlist: ['Articuno', 'Zapdos', 'Moltres', 'Mewtwo', 'Mega Mewtwo Y', 'Mega Mewtwo X', 'Mew', 'Raikou', 'Entei', 'Suicune', 'Lugia', 'Ho-oh', 'Celebi', 'Regirock', 'Registeel', 'Regice', 'Latias', 'Mega Latias', 'Latios', 'Mega Latios', 'Kyogre', 'Primal Kyogre', 'Groudon', 'Primal Groudon', 'Rayquaza', 'Mega Rayquaza', 'Deoxys', 'Deoxys-Defense', 'Deoxys-Speed', 'Deoxys-Attack', 'Jirachi', 'Uxie', 'Mesprit', 'Azelf', 'Dialga', 'Palkia', 'Giratina', 'Giratina-Origin', 'Heatran', 'Regigigas', 'Cresselia', 'Manaphy', 'Phione', 'Darkrai', 'Shaymin', 'Shaymin-Sky', 'Arceus', 'Victini', 'Cobalion', 'Terrakion', 'Virizion', 'Tornadus', 'Thundurus', 'Landorus', 'Tornadus-Therian', 'Thundurus-Therian', 'Landorus-Therian', 'Reshiram', 'Zekrom', 'Kyurem', 'Kyurem-White', 'Kyurem-Black', 'Keldeo', 'Keldeo-Resolute', 'Meloetta', 'Genesect', 'Genesect-Burn', 'Genesect-Chill', 'Genesect-Douse', 'Genesect-Shock', 'Xerneas', 'Yveltal', 'Zygarde', 'Diancie', 'Mega Diancie', 'Hoopa', 'Hoopa Unbound', 'Volcanion', 'Kangaskhanite', 'Swagger','Allow CAP'
+	        ],
+	        onModifyPokemon: function (pokemon) {
+			pokemon.negateImmunity['Type'] = true;
+		},
+		onEffectiveness: function (typeMod, target, type, move) {
+			// The effectiveness of Freeze Dry on Water isn't reverted
+			if (move && move.id === 'freezedry' && type === 'Water') return;
+			if (move && !this.getImmunity(move, type)) return 1;
+			return -typeMod;
+		}
+		
+	},
+	{
 	name: "Priomons Champion's Challenge",
 		section: "Sora Exclusive",
 

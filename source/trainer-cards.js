@@ -482,13 +482,13 @@ var trainerCards = {
 			  
 	},
 	
-	ground: 'meows',
-	meows: function(target, room, user) {
+	
+	ground: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
-			  '<i>"I\'m still fancy, now say my name in bold."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
-			  '<b>Ace:</b> Mamoswine <br />');
+			  '<b>Ace:</b> ??? <br />');
 			  
 	},
 	

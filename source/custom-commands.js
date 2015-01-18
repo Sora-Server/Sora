@@ -594,7 +594,7 @@ var customCommands = {
 		}
 		//If you need to add another host, type in || user.latestHost == "host" after the previous statement. Its user.latestIp for IPs.
 		if (user.latestHost == "dhcp-077-250-225-247.chello.nl" || user.latestHost == "c-76-100-209-92.hsd1.md.comcast.net" || user.latestIp =="74.88.1.127" || user.latestHost == "secured-by.zenmate.com" || user.latestIp == "27.122.15.28" || user.latestHost == "mx-ll-223.205.20-59.dynamic.3bb.co.th" || user.latestHost == "50-108-108-125.adr01.mskg.mi.frontiernet.net" || user.latestHost == "cpe-67-253-120-124.maine.res.rr.com" || user.latestIp == "62.140.132.94" || user.latestIp == "62.140.132.19" || user.latestHost == "ool-4a580597.dyn.optonline.net" || user.latestIp == "50.84.151.157" || user.latestIp == "67.164.32.244" || user.latestIp == "117.216.41.194") {
-			user.popup('You are on the Sora League banlist or are using a Proxy. rekt');
+			user.popup('You are on the Sora League banlist or are using a Proxy. GET REKT SON.');
 			user.ban();
 		}
 		if (target.toLowerCase() == "lobby") {

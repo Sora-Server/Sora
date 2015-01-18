@@ -195,7 +195,7 @@ var commands = exports.commands = {
 					this.sendReply("Locked: IP is in a DNS-based blacklist. ");
 					break;
 				case '#range':
-					this.sendReply("Locked: host is in a temporary range-lock.");
+					this.sendReply("Locked: IP or host is in a temporary range-lock.");
 					break;
 				case '#hostfilter':
 					this.sendReply("Locked: host is permanently locked for being a proxy.");
@@ -244,18 +244,38 @@ var commands = exports.commands = {
 		}
 	},
 
-	ipsearch: function (target, room, user) {
+	ipsearchall: 'ipsearch',
+	ipsearch: function (target, room, user, connection, cmd) {
 		if (!this.can('rangeban')) return;
-		var atLeastOne = false;
+		var results = [];
 		this.sendReply("Users with IP " + target + ":");
-		for (var userid in Users.users) {
-			var curUser = Users.users[userid];
-			if (curUser.latestIp === target) {
-				this.sendReply((curUser.connected ? " + " : "-") + " " + curUser.name);
-				atLeastOne = true;
+
+		var isRange;
+		if (target.slice(-1) === '*') {
+			isRange = true;
+			target = target.slice(0, -1);
+		}
+		var isAll = (cmd === 'ipsearchall');
+
+		if (isRange) {
+			for (var userid in Users.users) {
+				var curUser = Users.users[userid];
+				if (curUser.group === '~') continue;
+				if (!curUser.latestIp.startsWith(target)) continue;
+				if (results.push((curUser.connected ? " + " : "-") + " " + curUser.name) > 100 && !isAll) {
+					return this.sendReply("More than 100 users match the specified IP range. Use /ipsearchall to retrieve the full list.");
+				}
+			}
+		} else {
+			for (var userid in Users.users) {
+				var curUser = Users.users[userid];
+				if (curUser.latestIp === target) {
+					results.push((curUser.connected ? " + " : "-") + " " + curUser.name);
+				}
 			}
 		}
-		if (!atLeastOne) this.sendReply("No results found.");
+		if (!results.length) return this.sendReply("No results found.");
+		return this.sendReply(results.join('; '));
 	},
 
 	spam: 'spamroom',
@@ -1115,7 +1135,8 @@ var commands = exports.commands = {
 		}
 		if (target === 'all' || target === 'omofthemonth' || target === 'omotm' || target === 'month') {
 			matched = true;
-			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3481155/\">OM of the Month</a><br />";
+			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3481155/\">Other Metagame of the Month</a><br />";
+			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3519286/\">Current OMotM: FU</a><br />";
 		}
 		if (target === 'all' || target === 'seasonal') {
 			matched = true;
@@ -1151,8 +1172,8 @@ var commands = exports.commands = {
 		}
 		if (target === 'all' || target === 'almostanyability' || target === 'aaa') {
 			matched = true;
-			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3517022/\">Almost Any Ability</a><br />";
-			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3508794/\">Almost Any Ability Viability Rankings</a><br />";
+			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3527128/\">Almost Any Ability</a><br />";
+			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3517258/\">Almost Any Ability Viability Rankings</a><br />";
 		}
 		if (target === 'all' || target === 'stabmons') {
 			matched = true;
@@ -1169,7 +1190,7 @@ var commands = exports.commands = {
 		}
 		if (target === 'all' || target === 'averagemons') {
 			matched = true;
-			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3495527/\">Averagemons</a><br />";
+			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3526481/\">Averagemons</a><br />";
 		}
 		if (target === 'all' || target === 'classichackmons' || target === 'hackmons') {
 			matched = true;
@@ -1394,7 +1415,7 @@ var commands = exports.commands = {
 		}
 		if (target === 'all' || target === 'rarelyused' || target === 'ru') {
 			matched = true;
-			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3522572/\">np: RU Stage 5</a><br />";
+			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3527140/\">np: RU Stage 6</a><br />";
 			buffer += "- <a href=\"https://www.smogon.com/dex/xy/tags/ru/\">RU Banlist</a><br />";
 			buffer += "- <a href=\"https://www.smogon.com/forums/threads/3523627/\">RU Viability Rankings</a><br />";
 		}
@@ -1438,7 +1459,7 @@ var commands = exports.commands = {
 		var genNumber = 6;
 		// var doublesFormats = {'vgc2012':1, 'vgc2013':1, 'vgc2014':1, 'doubles':1};
 		var doublesFormats = {};
-		var doublesFormat = (!targets[2] && generation in doublesFormats)? generation : (targets[2] || '').trim().toLowerCase();
+		var doublesFormat = (!targets[2] && generation in doublesFormats) ? generation : (targets[2] || '').trim().toLowerCase();
 		var doublesText = '';
 		if (generation === 'xy' || generation === 'xy' || generation === '6' || generation === 'six') {
 			generation = 'xy';
@@ -1552,7 +1573,7 @@ var commands = exports.commands = {
 			return this.sendReplyBox("Random number " + num + "x(1 - " + faces + "): " + rolls.join(", ") + "<br />Total: " + total);
 		}
 		if (target && isNaN(target) || target.length > 21) return this.sendReply("The max roll must be a number under 21 digits.");
-		var maxRoll = (target)? target : 6;
+		var maxRoll = (target) ? target : 6;
 		var rand = Math.floor(maxRoll * Math.random()) + 1;
 		return this.sendReplyBox("Random number (1 - " + maxRoll + "): " + rand);
 	},

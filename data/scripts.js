@@ -1310,7 +1310,7 @@ exports.BattleScripts = {
 				rejectAbility = !counter['recoil'];
 			} else if (ability === 'Sturdy') {
 				rejectAbility = !!counter['recoil'] && !hasMove['recover'] && !hasMove['roost'];
-			} else if (ability === 'No Guard' || ability === 'Compoundeyes') {
+			} else if (ability === 'No Guard' || ability === 'Compound Eyes') {
 				rejectAbility = !counter['inaccurate'];
 			} else if ((ability === 'Sheer Force' || ability === 'Serene Grace')) {
 				rejectAbility = !counter['sheerforce'];
@@ -1383,7 +1383,6 @@ exports.BattleScripts = {
 			item = template.requiredItem;
 		} else if (template.species === 'Rotom-Fan') {
 			// this is just to amuse myself
-			// do we really have to keep this
 			item = 'Air Balloon';
 		} else if (template.species === 'Delibird') {
 			// to go along with the Christmas Delibird set
@@ -1426,13 +1425,17 @@ exports.BattleScripts = {
 			item = 'Sitrus Berry';
 		} else if (template.species === 'Cubone' || template.species === 'Marowak') {
 			item = 'Thick Club';
-		} else if (template.species === 'Pikachu') {
+		} else if (template.baseSpecies === 'Pikachu') {
 			item = 'Light Ball';
 		} else if (template.species === 'Clamperl') {
 			item = 'DeepSeaTooth';
 		} else if (template.species === 'Spiritomb') {
 			item = 'Leftovers';
-		} else if (template.species === 'Dusclops') {
+		} else if (template.species === 'Farfetch\'d') {
+			item = 'Stick';
+		} else if (template.species === 'Dedenne') {
+			item = 'Petaya Berry';
+		} else if (template.evos.length) {
 			item = 'Eviolite';
 		} else if (hasMove['reflect'] && hasMove['lightscreen']) {
 			item = 'Light Clay';
@@ -1452,6 +1455,8 @@ exports.BattleScripts = {
 			item = 'Flame Orb';
 		} else if (ability === 'Sheer Force' || ability === 'Magic Guard') {
 			item = 'Life Orb';
+		} else if (hasMove['acrobatics']) {
+			item = 'Flying Gem';
 		} else if (ability === 'Unburden') {
 			item = 'Red Card';
 			// Give Unburden mons a Normal Gem if they have a Normal-type attacking move (except Explosion or Rapid Spin)
@@ -1547,26 +1552,14 @@ exports.BattleScripts = {
 			Uber: 70
 		};
 		var customScale = {
-			// Really bad Pokemon and jokemons
-			Azurill: 99, Burmy: 99, Cascoon: 99, Caterpie: 99, Cleffa: 99, Combee: 99, Feebas: 99, Igglybuff: 99, Happiny: 99, Hoppip: 99,
-			Kakuna: 99, Kricketot: 99, Ledyba: 99, Magikarp: 99, Metapod: 99, Pichu: 99, Ralts: 99, Sentret: 99, Shedinja: 99, Silcoon: 99,
-			Slakoth: 99, Sunkern: 99, Tynamo: 99, Tyrogue: 99, Unown: 99, Weedle: 99, Wurmple: 99, Zigzagoon: 99,
-			Clefairy: 95, Delibird: 95, "Farfetch'd": 95, Jigglypuff: 95, Kirlia: 95, Ledian: 95, Luvdisc: 95, Marill: 95, Skiploom: 95,
-			Pachirisu: 90,
-
-			// Eviolite
-			Ferroseed: 95, Misdreavus: 95, Munchlax: 95, Murkrow: 95, Natu: 95,
-			Gligar: 90, Metang: 90, Monferno: 90, Roselia: 90, Seadra: 90, Togetic: 90, Wartortle: 90, Whirlipede: 90,
-			Dusclops: 84, Porygon2: 82, Chansey: 78,
-
 			// Banned Mega
-			"Kangaskhan-Mega": 72, "Lucario-Mega": 72, "Mawile-Mega": 72, "Rayquaza-Mega": 68, "Salamence-Mega": 72,
+			"Gengar-Mega": 68, "Kangaskhan-Mega": 72, "Lucario-Mega": 72, "Mawile-Mega": 72, "Rayquaza-Mega": 68, "Salamence-Mega": 72,
 
 			// Not holding mega stone
 			Banette: 86, Beedrill: 86, Charizard: 82, Gardevoir: 78, Heracross: 78, Manectric: 78, Medicham: 78, Metagross: 78, Pinsir: 82, Sableye: 78, Venusaur: 78,
 
 			// Holistic judgment
-			Articuno: 82, Genesect: 72, "Gengar-Mega": 68, "Rotom-Fan": 88, Sigilyph: 80, Xerneas: 66
+			Articuno: 82, Genesect: 72, Greninja: 72, "Rotom-Fan": 88, Sigilyph: 80, Unown: 90, Xerneas: 66
 		};
 		var level = levelScale[template.tier] || 90;
 		if (customScale[template.name]) level = customScale[template.name];
@@ -1626,7 +1619,7 @@ exports.BattleScripts = {
 		var pokemon = [];
 		for (var i in this.data.FormatsData) {
 			var template = this.getTemplate(i);
-			if (this.data.FormatsData[i].randomBattleMoves && !this.data.FormatsData[i].isNonstandard && !template.evos.length && (template.forme.substr(0, 4) !== 'Mega') && template.forme !== 'Primal') {
+			if (this.data.FormatsData[i].randomBattleMoves && !this.data.FormatsData[i].isNonstandard && !(template.tier in {'LC':1, 'LC Uber':1, 'NFE':1}) && (template.forme.substr(0, 4) !== 'Mega') && template.forme !== 'Primal') {
 				keys.push(i);
 			}
 		}
@@ -1642,18 +1635,15 @@ exports.BattleScripts = {
 		var typeComboCount = {};
 		var baseFormes = {};
 		var uberCount = 0;
-		var nuCount = 0;
+		var puCount = 0;
 		var megaCount = 0;
 
 		for (var i = 0; i < keys.length && pokemonLeft < 6; i++) {
 			var template = this.getTemplate(keys[i]);
 			if (!template || !template.name || !template.types) continue;
 			var tier = template.tier;
-			// This tries to limit the amount of Ubers and NUs on one team to promote "fun":
-			// LC Pokemon have a hard limit in place at 2; NFEs/NUs/Ubers are also limited to 2 but have a 20% chance of being added anyway.
-			// LC/NFE/NU Pokemon all share a counter (so having one of each would make the counter 3), while Ubers have a counter of their own.
-			if (tier === 'LC' && nuCount > 1) continue;
-			if ((tier === 'NFE' || tier === 'NU') && nuCount > 1 && Math.random() * 5 > 1) continue;
+			// PUs/Ubers are limited to 2 but have a 20% chance of being added anyway.
+			if (tier === 'PU' && puCount > 1 && Math.random() * 5 > 1) continue;
 			if (tier === 'Uber' && uberCount > 1 && Math.random() * 5 > 1) continue;
 
 			// CAPs have 20% the normal rate
@@ -1666,8 +1656,14 @@ exports.BattleScripts = {
 			if (keys[i].substr(0, 8) === 'genesect' && Math.random() * 5 > 1) continue;
 			// Gourgeist formes have 1/4 the normal rate each (so Gourgeist as a whole has a normal rate)
 			if (keys[i].substr(0, 9) === 'gourgeist' && Math.random() * 4 > 1) continue;
+			// Cosplay Pikachu formes have 20% the normal rate (1/30 the normal rate each)
+			if (keys[i].substr(0, 7) === 'pikachu' && template.species !== 'Pikachu' && Math.random() * 30 > 1) continue;
+			// Regular Pikachu has 80% the normal rate (so Pikachu as a whole has a normal rate)
+			if (template.species === 'Pikachu' && Math.random() * 5 <= 1) continue;
 			// Not available on XY
 			if (template.species === 'Pichu-Spiky-eared') continue;
+			// Only certain NFE Pokemon are allowed
+			if (template.evos.length && !(template.species in {'Chansey':1, 'Doublade':1, 'Pikachu':1, 'Porygon2':1, 'Scyther':1})) continue;
 
 			// Limit 2 of any type
 			var types = template.types;
@@ -1733,8 +1729,8 @@ exports.BattleScripts = {
 			// Increment Uber/NU and mega counter
 			if (tier === 'Uber') {
 				uberCount++;
-			} else if (tier === 'NU' || tier === 'NFE' || tier === 'LC') {
-				nuCount++;
+			} else if (tier === 'PU') {
+				puCount++;
 			}
 			if (isMegaSet) megaCount++;
 		}
@@ -1811,7 +1807,7 @@ exports.BattleScripts = {
 		var pokemon = [];
 		for (var i in this.data.FormatsData) {
 			var template = this.getTemplate(i);
-			if (this.data.FormatsData[i].randomBattleMoves && !this.data.FormatsData[i].isNonstandard && !template.evos.length && (template.forme.substr(0, 4) !== 'Mega') && template.forme !== 'Primal') {
+			if (this.data.FormatsData[i].randomBattleMoves && !this.data.FormatsData[i].isNonstandard && !(template.tier in {'LC':1, 'LC Uber':1, 'NFE':1}) && (template.forme.substr(0, 4) !== 'Mega') && template.forme !== 'Primal') {
 				keys.push(i);
 			}
 		}
@@ -1838,8 +1834,16 @@ exports.BattleScripts = {
 			if (keys[i].substr(0, 8) === 'basculin' && Math.random() * 2 > 1) continue;
 			// Genesect formes have 1/5 the normal rate each (so Genesect as a whole has a normal rate)
 			if (keys[i].substr(0, 8) === 'genesect' && Math.random() * 5 > 1) continue;
+			// Gourgeist formes have 1/4 the normal rate each (so Gourgeist as a whole has a normal rate)
+			if (keys[i].substr(0, 9) === 'gourgeist' && Math.random() * 4 > 1) continue;
+			// Cosplay Pikachu formes have 20% the normal rate (1/30 the normal rate each)
+			if (keys[i].substr(0, 7) === 'pikachu' && template.species !== 'Pikachu' && Math.random() * 30 > 1) continue;
+			// Regular Pikachu has 80% the normal rate (so Pikachu as a whole has a normal rate)
+			if (template.species === 'Pikachu' && Math.random() * 5 <= 1) continue;
 			// Not available on XY
 			if (template.species === 'Pichu-Spiky-eared') continue;
+			// Only certain NFE Pokemon are allowed
+			if (template.evos.length && !(template.species in {'Chansey':1, 'Doublade':1, 'Pikachu':1, 'Porygon2':1, 'Scyther':1})) continue;
 
 			// Limit 2 of any type
 			var types = template.types;
@@ -2392,7 +2396,7 @@ exports.BattleScripts = {
 				rejectAbility = !counter[toId(ability)];
 			} else if (ability === 'Rock Head' || ability === 'Reckless') {
 				rejectAbility = !counter['recoil'];
-			} else if (ability === 'No Guard' || ability === 'Compoundeyes') {
+			} else if (ability === 'No Guard' || ability === 'Compound Eyes') {
 				rejectAbility = !counter['inaccurate'];
 			} else if ((ability === 'Sheer Force' || ability === 'Serene Grace')) {
 				rejectAbility = !counter['sheerforce'];
@@ -2502,18 +2506,22 @@ exports.BattleScripts = {
 			item = 'Sitrus Berry';
 		} else if (template.species === 'Cubone' || template.species === 'Marowak') {
 			item = 'Thick Club';
-		} else if (template.species === 'Pikachu') {
+		} else if (template.baseSpecies === 'Pikachu') {
 			item = 'Light Ball';
 		} else if (template.species === 'Clamperl') {
 			item = 'DeepSeaTooth';
 		} else if (template.species === 'Spiritomb') {
 			item = 'Leftovers';
-		} else if (template.species === 'Dusclops') {
-			item = 'Eviolite';
 		} else if (template.species === 'Scrafty' && counter['Status'] === 0) {
 			item = 'Assault Vest';
+		} else if (template.species === 'Farfetch\'d') {
+			item = 'Stick';
 		} else if (template.species === 'Amoonguss') {
 			item = 'Black Sludge';
+		} else if (template.species === 'Dedenne') {
+			item = 'Petaya Berry';
+		} else if (template.evos.length) {
+			item = 'Eviolite';
 		} else if (hasMove['reflect'] && hasMove['lightscreen']) {
 			item = 'Light Clay';
 		} else if (hasMove['shellsmash']) {
@@ -2532,20 +2540,13 @@ exports.BattleScripts = {
 			item = 'Flame Orb';
 		} else if (ability === 'Sheer Force' || ability === 'Magic Guard') {
 			item = 'Life Orb';
+		} else if (hasMove['acrobatics']) {
+			item = 'Flying Gem';
 		} else if (ability === 'Unburden') {
 			item = 'Red Card';
 			// Give Unburden mons a Normal Gem if they have Fake Out
-			for (var m in moves) {
-				var move = this.getMove(moves[m]);
-				if (hasMove['fakeout']) {
-					item = 'Normal Gem';
-					break;
-				}
-				// Give power herb to hawlucha if it has sky attack and unburden
-				if (template.species === 'Hawlucha' && hasMove['skyattack']) {
-					item = 'Power Herb';
-					break;
-				}
+			if (hasMove['fakeout']) {
+				item = 'Normal Gem';
 			}
 
 		// medium priority
@@ -2919,7 +2920,7 @@ exports.BattleScripts = {
 						break;
 					}
 				}
-				if (!hasOrcKilling) set.moves[3] = (template.baseStats.atk > template.baseStats.spa)? 'closecombat' : 'aurasphere';
+				if (!hasOrcKilling) set.moves[3] = (template.baseStats.atk > template.baseStats.spa) ? 'closecombat' : 'aurasphere';
 				if (p !== 'hoopa') {
 					set.item = 'Eviolite';
 					set.level = 90;
@@ -3066,7 +3067,7 @@ exports.BattleScripts = {
 					}
 				}
 				if (!hasBotKilling) {
-					set.moves[3] = (template.baseStats.atk > template.baseStats.spa)? ['flareblitz', 'closecombat'][this.random(2)] : ['flamethrower', 'aurasphere'][this.random(2)];
+					set.moves[3] = (template.baseStats.atk > template.baseStats.spa) ? ['flareblitz', 'closecombat'][this.random(2)] : ['flamethrower', 'aurasphere'][this.random(2)];
 					set.level += 5;
 				}
 				if (toId(set.ability) === 'unburden') set.ability = 'Reckless';

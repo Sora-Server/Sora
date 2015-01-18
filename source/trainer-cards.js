@@ -436,7 +436,7 @@ var trainerCards = {
 			 '<b>Battle rules:</b> <br />'+
 			 '-Balanced Hackmons <br />'+
 			 '-No Baton Pass <br />'+
-			 '-Only 1 Mega per team <br />');
+			 '-Only 1 Mega/Primal Reversion per team <br />');
 			 
         },
         

@@ -176,7 +176,7 @@ exports.customAvatars = {
 	  'frontierlou': '047.gif',
 	  'appletree64': '067.gif',
 	  'chamintst': '044.jpg',
-	  'gymldrsrewop': '048.jpg',
+	  'subfrontierwong': '048.jpg',
 	  'theone2500': '049.gif',
 	  'e4cocoa': '094.png',
 	  'gymtrnrsteve': '051.gif',

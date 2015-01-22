@@ -296,7 +296,7 @@ var trainerCards = {
         rock: 'bush',
         bush: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Torterra</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Bush</b><br />'+
 			  '<i>"It only takes one move for Checkmate."</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
 			  '<b>Ace:</b> Magcargo<br />');

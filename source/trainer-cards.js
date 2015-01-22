@@ -260,14 +260,13 @@ var trainerCards = {
         },
         
         
-        fairy: 'ark',
-        ark: function(target, room, user) {
+        
+        fairy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Ark</b><br />'+
-		      'Leader Ranking: <font color = 040a3d><b>10th</font></b> <br />'+
-	              '<i>*Rubs hands*</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
-	              '<b>Ace:</b> Togekiss<br />');
+	              '<b>Ace:</b> ???<br />');
         },
         
         fire: 'floatzel',
@@ -294,13 +293,13 @@ var trainerCards = {
 	},
 
     
-        rock: 'torterra',   
-        torterra: function(target, room, user) {
+        rock: 'bush',
+        bush: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Torterra</b><br />'+
-			  '<i>"I am rock hard and solid."</i> <br />'+
+			  '<i>"It only takes one move for Checkmate."</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
-			  '<b>Ace:</b> Aerodactyl<br />');
+			  '<b>Ace:</b> Magcargo<br />');
 			  
         },
         

@@ -368,7 +368,8 @@ var trainerCards = {
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-RU Monotype <br/>'+
 		 	  '-No Stealth Rock <br/>'+
-		 	  '-No Knock off<br />');
+		 	  '-No Knock off<br />'+
+		 	  '<img src="http://play.pokemonshowdown.com/sprites/xyani/golbat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gengar.gif"> <br />');
 	},
 	
 	

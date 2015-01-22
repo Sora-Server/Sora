@@ -326,14 +326,13 @@ var trainerCards = {
 			  '<b>Ace:</b> Sableye<br />');
         },
         
-        poison: 'srewop',
-        srewop: function(target, room, user) {
+        
+        poison: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Srewop</b><br />'+
-			 '<b>Leader Ranking: <font color = 000a6d>9th</font></b> <br />'+ 
-			 '<i>"It\'s going down, I\'m yelling Timburr"</i> <br />'+
+			 '<i>"???"</i> <br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
-			 '<b>Ace:</b> Golbat<br />');
+			 '<b>Ace:</b> ???<br />');
 	},
         
         flying: 'arsh',

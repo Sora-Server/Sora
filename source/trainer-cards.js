@@ -369,7 +369,7 @@ var trainerCards = {
 		 	  '-RU Monotype <br/>'+
 		 	  '-No Stealth Rock <br/>'+
 		 	  '-No Knock off<br />'+
-		 	  '<img src="http://play.pokemonshowdown.com/sprites/xyani/golbat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gengar.gif"> <br />');
+		 	  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/zubat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/golbat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/zubat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gengar.gif"></center> <br />');
 	},
 	
 	

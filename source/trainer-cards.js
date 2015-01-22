@@ -173,15 +173,6 @@ var trainerCards = {
         
         },
         
-        silth: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Centurion <b>Silth</b><br />'+
-		    '<i>"???"</i> <br />'+
-		    '<b>Ace:</b> ???<br />'+
-		    '<b>Tiers:</b> OU, OU Monotype or Doubles<br />'+
-	 	    '<b>Requirements:</b> 5 Frontier Symbols<br />');
-        },
-        
         
         sube4: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -194,16 +185,14 @@ var trainerCards = {
         
         
         }, 
-        subfrontier: 'wong',
-        wong: function(target, room, user) {
+        
+        
+        subfrontier: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<center>Sub Frontier Position: <b><font color = 006b0a>Active</font></b></center><br />'+
-		'Sub Frontier <b>Wong</b> <br />'+
-		'<b>Symbol:</b> SumTingWong Symbol <br />'+
-		'<b>Battle Rules:</b> <br />'+
-		'-RU Monotype <br />'+
-		'-No Knock off <br />'+
-		'-No Stealth Rock <br />');
+		this.sendReplyBox('<center>Sub Frontier Position: <b><font color = FF0000>Offline</font></b></center><br />'+
+		'Sub Frontier <b>???</b> <br />'+
+		'<b>Symbol:</b> ???<br />'+
+		'<b>Battle Rules:</b> <br />');
         
         
         }, 
@@ -361,7 +350,7 @@ var trainerCards = {
 			this.sendReplyBox('Frontier <b>Nova</b><br />'+
 			  '<i>"If you have given it your all, then you have already won"</i> <br />'+
 			  '<b>Symbol:</b> Will of Steel<br />'+
-			  '<b>Ace:</b> Two Blades of Fury (Doublade))<br />'+
+			  '<b>Ace:</b> Two Blades of Fury (Doublade)<br />'+
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-Ubers tier <br/>'+
 		 	  '-2 Uber, 2 OU and 2 RU Pokemon must be used <br/>'+
@@ -369,6 +358,20 @@ var trainerCards = {
 		 	  '-No Hazards <br/>'+
 		 	  '-Only 1 Primal Reversion OR Mega Evolution can be used <br />');
 	},
+	
+	srewop: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Frontier <b>Srewop</b><br />'+
+			  '<i>"You came to the wong place if you wanted a win."</i> <br />'+
+			  '<b>Symbol:</b> SumTingWong<br />'+
+			  '<b>Ace:</b> Golbat <br />'+
+			  '<b>Battle Rules:</b> <br/>'+
+		 	  '-RU Monotype <br/>'+
+		 	  '-No Stealth Rock <br/>'+
+		 	  '-No Knock off<br />');
+	},
+	
+	
 
          iggy: function(target, room, user) {
 			if (!this.canBroadcast()) return;

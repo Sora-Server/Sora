@@ -328,7 +328,7 @@ var trainerCards = {
         
         poison: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Srewop</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			 '<i>"???"</i> <br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
 			 '<b>Ace:</b> ???<br />');
@@ -692,7 +692,7 @@ var trainerCards = {
 	leaderranks: 'ranks',
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Listed here are the Top 10 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
+			this.sendReplyBox('Listed here are the Top 8 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
 				'-<b>1st <font color = 230077>Tempest</font></b> (Dragon)<br />'+
 				'-<b>2nd <font color = 006b0a>Asch</font></b></b> (Grass)<br />'+
 				'-<b>3rd <font color = ff00b6>Zoro</font></b> (Psychic)<br />'+
@@ -701,8 +701,6 @@ var trainerCards = {
 				'-<b>6th <font color = d83c08>Lou</front></b> (Fighting)<br />'+
 				'-<b>7th <font color = ffa5d5>Vanilla</front></b> (Normal)<br />'+
 				'-<b>8th <font color = FF0000>NoahB</front></b> (Fire)<br />'+
-				'-<b>9th <font color = aa00ff>Srewop</front></b> (Poison)<br />'+
-				'-<b>10th <font color = ff42a0>Ark</front></b> (Fairy)<br />'+
 				'</div>');
 	
 	},

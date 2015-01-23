@@ -432,14 +432,12 @@ var trainerCards = {
         zachary: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Zachary</b><br />'+
-			 '<i>"3RR0R 3RR0R 3RR0R B4TT13 1N1T1AT3 F1L3 C0RRUPT ASasdfgihjtrshrdshawfcvzfrbrynrsh 3RR0R 3RR0R 3RR0R"</i> <br />'+
-		         '<b>Symbol:</b> 3RR0R Symbol <br />'+
-			 '<b>Ace:</b> Blissey<br />'+
+			 '<i>"Arthur: Oh no, not another challenger"</i> <br />'+
+			 '<i>"Zachary: Nah I think we got this tho"</i> <br />'+
+		         '<b>Symbol:</b> Twin Symbol <br />'+
+			 '<b>Ace:</b> Zapdos<br />'+
 			 '<b>Battle rules:</b> <br />'+
-			 '-Balanced Hackmons <br />'+
-			 '-No Baton Pass <br />'+
-			 '-Only 1 Mega/Primal Reversion per team <br />');
-			 
+			 '-Smogon Doubles <br />');
         },
         
         

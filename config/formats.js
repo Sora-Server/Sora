@@ -1038,7 +1038,7 @@ exports.Formats = [
 		name: "Ubers Monotype",
 		section: "Monotype",
 
-		ruleset: ['Pokemon', 'Standard Ubers', 'Same Type Clause'],
+		ruleset: ['Pokemon', 'Standard Ubers', 'Same Type Clause', 'Team Preview'],
 		banlist: []
 	},
 	{

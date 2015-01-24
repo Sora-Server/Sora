@@ -460,7 +460,7 @@ global.trainerCards = require('./source/trainer-cards.js');
 
 global.Poll = require('./source/core.js').core.poll();
 
-global.hangman = require('./source/hangman.js');
+global.hangman = require('./source/hangman.js').hangman();
 
 global.SysopAccess = require('./source/core.js').sysopAccess();
 

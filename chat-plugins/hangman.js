@@ -141,6 +141,7 @@ var commands = {
 		hangman[room.id] = new Hangman(room, user.userid, toId(word), hint);
 	},
 
+	guessword: 'guess',
 	guess: function (target, room, user) {
 		if (!hangman[room.id]) return this.sendReply('There is no game of hangman going on in this room.');
 		if (Users.get(hangman[room.id].starter).userid === user.userid || Users.get(hangman[room.id].starter).getAlts().map(toId).indexOf(user.userid) > -1) return this.sendReply('You cannot guess if you\'re the one who started the game.');
@@ -195,6 +196,6 @@ exports.commands = {
 	starthangman: commands.start,
 	guessletter: commands.guess,
 	guessword: commands.guessword,
-	viewhangman: commands.view,
+	viewhangman: commands.details,
 	endhangman: commands.end
 };

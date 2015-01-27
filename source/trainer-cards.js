@@ -97,7 +97,6 @@ var trainerCards = {
 		      '<b>Ace:</b> Umbreon <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-No direct status. <br/>'+
-	 	      '-No protecting moves. <br/>'+
 	 	      '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
         },
         
@@ -108,7 +107,6 @@ var trainerCards = {
 		      '<b>Type: <font color = 066baa>Dragon</font></b> <br />'+
 		      '<b>Ace:</b> Goodra<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-Monotype <br />'+
 	 	      '-No Priority <br />'+
 	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         

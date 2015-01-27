@@ -1054,7 +1054,6 @@ var customCommands = {
 
     def: 'define',
     define: function (target, room, user) {
-        if (!this.canBroadcast()) return;
         if (!target) return this.parse('/help define');
         target = toId(target);
         if (target > 50) return this.sendReply('Word can not be longer than 50 characters.');

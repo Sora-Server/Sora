@@ -138,7 +138,7 @@ var commands = exports.commands = {
 				if (!targetRoom) return connection.send('|pm|' + user.getIdentity() + '|' + targetUser.getIdentity() + '|/text The room "' + targetRoomid + '" does not exist.');
 				if (targetRoom.staffRoom && !targetUser.isStaff) return connection.send('|pm|' + user.getIdentity() + '|' + targetUser.getIdentity() + '|/text User "' + this.targetUsername + '" requires global auth to join room "' + targetRoom.id + '".');
 				if (targetRoom.isPrivate === true && targetRoom.modjoin && targetRoom.auth) {
-					if (Config.groupsranking.indexOf(targetRoom.auth[targetUser.userid] || ' ') < Config.groupsranking.indexOf(targetRoom.modjoin) && !targetUser.can('bypassall')) {
+					if (Config.groups.bySymbol[targetRoom.auth[targetUser.userid] || Config.groups.default[targetRoom.type + 'Room']].rank < Config.groups.bySymbol[targetRoom.modjoin].rank || !targetUser.can('bypassall')) {
 						return connection.send('|pm|' + user.getIdentity() + '|' + targetUser.getIdentity() + '|/text The room "' + targetRoomid + '" does not exist.');
 					}
 				}
@@ -269,7 +269,7 @@ var commands = exports.commands = {
 				room.chatRoomData.modjoin = true;
 				Rooms.global.writeChatRoomData();
 			}
-			if (!room.modchat) this.parse('/modchat ' + Config.groupsranking[1]);
+			if (!room.modchat) this.parse('/modchat ' + Config.groups.default[room.type + 'Room']);
 			if (!room.isPrivate) this.parse('/hiddenroom');
 		}
 	},

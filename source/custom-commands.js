@@ -1017,7 +1017,7 @@ var customCommands = {
     urbandefine: function (target, room, user) {
     	if (!this.canBroadcast()) return;
     	if(room.id === 'lobby') {
-				return this.sendReply('|html|This can only be broadcasted in the pub.');
+				return this.sendReply('|html|This command can only be used in the pub.');
 		}
         if (!target) return this.parse('/help urbandefine')
         if (target > 50) return this.sendReply('Phrase can not be longer than 50 characters.');
@@ -1058,6 +1058,10 @@ var customCommands = {
 
     def: 'define',
     define: function (target, room, user) {
+    	if (!this.canBroadcast()) return;
+    	if(room.id === 'lobby') {
+				return this.sendReply('|html|This command can only be used in the pub.');
+		}
         if (!target) return this.parse('/help define');
         target = toId(target);
         if (target > 50) return this.sendReply('Word can not be longer than 50 characters.');

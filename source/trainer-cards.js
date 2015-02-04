@@ -350,11 +350,9 @@ var trainerCards = {
 			  '<b>Symbol:</b> Will of Steel<br />'+
 			  '<b>Ace:</b> Two Blades of Fury (Doublade)<br />'+
 			  '<b>Battle Rules:</b> <br/>'+
-		 	  '-Ubers tier <br/>'+
-		 	  '-2 Uber, 2 OU and 2 RU Pokemon must be used <br/>'+
-		 	  '-No Focus Sash/Band<br />'+
+		 	  '-UU <br/>'+
 		 	  '-No Hazards <br/>'+
-		 	  '-Only 1 Primal Reversion OR Mega Evolution can be used <br />');
+		 	  '-Item Clause <br />');
 	},
 	
 	srewop: function(target, room, user) {

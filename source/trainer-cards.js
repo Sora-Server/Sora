@@ -433,9 +433,7 @@ var trainerCards = {
 		         '<b>Symbol:</b> Twin Symbol <br />'+
 			 '<b>Ace:</b> Zapdos<br />'+
 			 '<b>Battle rules:</b> <br />'+
-			 '-Smogon Doubles <br />'+
-			 '-No Redirecting attacks from their original targets <br />'+
-			 '-No Multi Target Protection moves <br />');
+			 '-Smogon Doubles <br />');
         },
         
         

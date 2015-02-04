@@ -346,9 +346,9 @@ var trainerCards = {
         nova: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Frontier <b>Nova</b><br />'+
-			  '<i>"If you have given it your all, then you have already won"</i> <br />'+
+			  '<i>"The finest steel has to go through the hottest fire."</i> <br />'+
 			  '<b>Symbol:</b> Will of Steel<br />'+
-			  '<b>Ace:</b> Two Blades of Fury (Doublade)<br />'+
+			  '<b>Ace:</b> MechRex (Aggron)<br />'+
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-UU <br/>'+
 		 	  '-No Hazards <br/>'+
@@ -433,7 +433,9 @@ var trainerCards = {
 		         '<b>Symbol:</b> Twin Symbol <br />'+
 			 '<b>Ace:</b> Zapdos<br />'+
 			 '<b>Battle rules:</b> <br />'+
-			 '-Smogon Doubles <br />');
+			 '-Smogon Doubles <br />'+
+			 '-No Redirecting attacks from their original targets <br />'+
+			 '-No Multi Target Protection moves <br />');
         },
         
         

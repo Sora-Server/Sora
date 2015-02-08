@@ -103,7 +103,7 @@ var trainerCards = {
         hantu: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Hantu</b><br />'+
-		      '<i>"Terror is what has made me cruel."</i> <br />'+
+		      '<i>"Aku hantu yang menghantui Anda selama sisa hidup Anda, senang bertemu Anda."</i> <br />'+
 		      '<b>Type: <font color = 066baa>Ghost</font></b> <br />'+
 		      '<b>Ace:</b> Gengar<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+

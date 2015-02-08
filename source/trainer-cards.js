@@ -271,7 +271,7 @@ var trainerCards = {
         noahb: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Noahb</b><br />'+
-		          'Leader Ranking: <font color =007daa>7th</font></b> <br />'+
+		          'Leader Ranking: <font color =007daa><b>7th</font></b> <br />'+
 			  '<i>"Win? No I just want u to lose."</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
 			  '<b>Ace:</b> Empoleon <br />');
@@ -404,7 +404,7 @@ var trainerCards = {
 	hantu: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Hantu</b><br />'+
-		         'Leader Ranking: <font color = FF0000>1st</font></b> <br />'+
+		         'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
 			 '<i>"Terror is what has made me cruel."</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
 			 '<b>Ace:</b> Gengar<br />');
@@ -450,7 +450,7 @@ var trainerCards = {
 	waffles: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Waffles</b><br />'+
-		         'Leader Ranking: <font color =ff9900>2nd</font></b> <br />'+
+		         'Leader Ranking: <font color =ff9900<b>>2nd</font></b> <br />'+
 			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
 			 '<b>Ace:</b> Lord Helix (Omastar)<br />');

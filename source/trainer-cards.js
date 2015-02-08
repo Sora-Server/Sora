@@ -100,15 +100,15 @@ var trainerCards = {
 	 	      '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
         },
         
-        bloodfist: function(target, room, user) {
+        hantu: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Bloodfist</b><br />'+
-		      '<i>"The Ancients will bring you a blue dawn."</i> <br />'+
-		      '<b>Type: <font color = 066baa>Dragon</font></b> <br />'+
-		      '<b>Ace:</b> Goodra<br />'+
+		this.sendReplyBox('E4 <b>Hantu</b><br />'+
+		      '<i>"Terror is what has made me cruel."</i> <br />'+
+		      '<b>Type: <font color = 066baa>Ghost</font></b> <br />'+
+		      '<b>Ace:</b> Gengar<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No Priority <br />'+
-	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
+	 	      '-None <br />');
+	 	      
         
         
         },
@@ -400,14 +400,14 @@ var trainerCards = {
 	
         },
 
-        ghost: 'hantu',
-	hantu: function(target, room, user) {
+        ghost: 'bloods',
+	bloods: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Hantu</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Bloods</b><br />'+
 		         'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
-			 '<i>"Terror is what has made me cruel."</i> <br />'+
+			 '<i>"Are you prepared to see into your mortality to find that which isn\'t mortal?"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
-			 '<b>Ace:</b> Gengar<br />');
+			 '<b>Ace:</b> Sableye<br />');
 			 
         },
         

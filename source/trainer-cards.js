@@ -450,7 +450,7 @@ var trainerCards = {
 	waffles: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Waffles</b><br />'+
-		         'Leader Ranking: <font color =ff9900<b>2nd</font></b> <br />'+
+		         'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
 			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
 			 '<b>Ace:</b> Lord Helix (Omastar)<br />');

@@ -450,7 +450,7 @@ var trainerCards = {
 	waffles: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Waffles</b><br />'+
-		         'Leader Ranking: <font color =ff9900>2nd</font></b> <br />'+'
+		         'Leader Ranking: <font color =ff9900>2nd</font></b> <br />'+
 			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
 			 '<b>Ace:</b> Lord Helix (Omastar)<br />');
@@ -471,7 +471,6 @@ var trainerCards = {
 	zoro: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Zoro</b><br />'+
-		          'Leader Ranking: 
 			  '<i>"I am everywhere you are not."</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Gardevoir <br />'+

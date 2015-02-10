@@ -73,7 +73,7 @@ exports.reportBattles = false;
 
 // report joins and leaves in battle - shows messages like "<USERNAME> joined" in battle
 // Turn this off on large tournament servers where battles get a lot of joins and leaves.
-exports.reportbattlejoins = true;
+exports.reportBattleJoins = true;
 
 // moderated chat - prevent unvoiced users from speaking
 //   This should only be enabled in special situations, such as temporarily

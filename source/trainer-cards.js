@@ -55,14 +55,24 @@ var trainerCards = {
 	 	     '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         },
 
-	dragon: 'tempest',
 	tempest: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Tempest</b><br />'+
-		      '<b>Leader Ranking: <font color =00d30a><b>5th</font></b> <br />'+ 
-		      '<i>"Excellent. Mhm, excellent indeed."</i> <br />'+
-		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> Babylon (Garchomp)<br />');
+		this.sendReplyBox('Frontier <b>Tempest</b><br />'+
+		      '<i>"D=<{[(2*lv+10)/250]*Atk/Def*BP+2}*STAB*Eff*Crit*Itm*Abl*Wt*Spr>*x, 0.85<x<1"</i> <br />'+
+                      '<b>Symbol:</b> World Symbol <br />'+
+		      '<b>Ace:</b> Kangaskhan <br />'+
+                      '<b>Battle Rules:</b> <br />'+
+                      '-VGC 2015 <br />');
+	},
+
+
+        dragon: function(target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
+			  '<b>Type: <font color = 230077>Dragon</font></b><br />'+
+			  '<b>Ace:</b> ??? <br />');
+			  
 	},
 	
 	ascher: function(target, room, user) {

@@ -601,7 +601,6 @@ var customCommands = {
 					return connection.sendTo('lobby','|html|<div class="infobox" style="border-color:blue"><marquee><b><u><font size= 3>Welcome to The Sora League Server!</u></b></marquee><br /><br /> ' +
 					'We are a Pokemon League open for challenges!<br /><br />' +
 					'<a href="http://soraleague.weebly.com/rules.html">IMPORTANT RULE UPDATE FOR ALL CHALLENGERS</a><br /><br />'+
-					'<b><font color = FF0000>VERY IMPORANT:</font></b> Due to what can only be described as bad activity in comparrison to her Position, Champion Toast has been kicked from her Position as Champion. As such, Noah has appointed Bart to take over from Toast as Sora\'s new Co-Champion. Replacing Bart as Frontierhead is Ninjarisu. <br /><br />'+  
 					'You are welcomed to challenge us, participate in our tournaments or just chat in the lobby! <br /><br />' +
 					'The most important rule here is to have fun! We hope you will have an enjoyable stay here.<br /><br />' +
 					'You may want to check out <a href="http://soraleague.weebly.com/index.html">The Sora League Website</a> for details about the rules of challenge.<br /><br />' +

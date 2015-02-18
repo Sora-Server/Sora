@@ -55,14 +55,13 @@ var trainerCards = {
 	 	     '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         },
 
-	dragon: 'tempest',
-	tempest: function(target, room, user) {
+	
+	dragon: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Tempest</b><br />'+
-		      '<b>Leader Ranking: <font color =00d30a><b>5th</font></b> <br />'+ 
-		      '<i>"Excellent. Mhm, excellent indeed."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		      '<i>"???"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> Babylon (Garchomp)<br />');
+		      '<b>Ace:</b> ???<br />');
 	},
 	
 	ascher: function(target, room, user) {
@@ -200,7 +199,7 @@ var trainerCards = {
 	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
-			'<b>Leader Ranking: <font color = 0044aa>8th</font></b> <br />'+ 
+			'Leader Ranking: <font color =00bc8d><b>6th</font></b> <br />'+
 			'<b>*GRACEFUL CHANTING*</b> <br />'+
 			'<b>Type:<font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
@@ -267,14 +266,13 @@ var trainerCards = {
 
 	},
  
-        steel: 'noahb',
-        noahb: function(target, room, user) {
+       
+        steel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Noahb</b><br />'+
-		          'Leader Ranking: <font color =007daa><b>7th</font></b> <br />'+
-			  '<i>"Win? No I just want u to lose."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
-			  '<b>Ace:</b> Empoleon <br />');
+			  '<b>Ace:</b> ??? <br />');
 			  
 	},
 
@@ -366,19 +364,6 @@ var trainerCards = {
 		 	  '-No Knock off<br />'+
 		 	  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/zubat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/golbat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/zubat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gengar.gif"></center> <br />');
 	},
-	
-	
-
-         iggy: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Frontier <b>Iggy</b><br />'+
-			'<i>"I\'m so fancy, you already know."</i><br />'+
-			'<b>Symbol:</b> Fancy Symbol <br />'+
-			'<b>Ace:</b> Piloswine <br />'+
-			'<b>Battle rules:</b><br />'+
-			'-UU Monotype<br />');
-
-        },
         
        
 	
@@ -412,17 +397,14 @@ var trainerCards = {
         },
         
        
-	despair: function(target, room, user) {
+	tempest: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Despair</b><br />'+
-			 '<i>"Can you see through the Dark? Good, \'cos I can\'t."</i> <br />'+
-		         '<b>Symbol:</b> Confined <br />'+
-			 '<b>Ace:</b> My Mom (Gyarados)<br />'+
+		this.sendReplyBox('Frontier <b>Tempest</b><br />'+
+			 '<i>"D=<{[(2*lv+10)/250]*Atk/Def*BP+2}*STAB*Eff*Crit*Itm*Abl*Wt*Spr>*x, 0.85<x<1"</i> <br />'+
+		         '<b>Symbol:</b> World <br />'+
+			 '<b>Ace:</b> Kangaskhan<br />'+
 			 '<b>Battle rules:</b> <br />'+
-			 '-OU <br />'+
-			 '-Only Pokemon which can Mega Evolve may be used. <br />'+
-			 '<img src="http://modkore.weebly.com/uploads/2/6/6/5/26651119/790148.gif"><br />');
-			 
+			 '-VGC \'15 <br />');
         },
         
         zachary: function(target, room, user) {
@@ -492,7 +474,7 @@ var trainerCards = {
 	leaf: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		          'Leader Ranking: <font color =00bc8d><b>6th</font></b> <br />'+
+		          '<b>Leader Ranking: <font color =00d30a><b>5th</font></b> <br />'
 			  '<i>"Bugs are legion, what can be crushed can be reborn; watch your step or you might be the one trodden on"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> Scarab (Heracross) <br />');
@@ -695,10 +677,8 @@ var trainerCards = {
 				'-<b>2nd <font color = 0745ff>Waffles</font></b></b> (Water)<br />'+
 				'-<b>3rd <font color = FF0000>Floatzel</font></b> (Fire)<br />'+
 				'-<b>4th <font color = 472e10>Bush</font></b> (Rock) <br />'+
-				'-<b>5th <font color = 230077>Tempest</font></b> (Dragon)<br />'+
-				'-<b>6th <font color = 65b510>Leaf</front></b> (Bug)<br />'+
-				'-<b>7th <font color = 5e6664>NoahB</front></b> (Steel)<br />'+
-				'-<b>8th <font color = 006b0a>Asch</front></b> (Grass)<br />'+
+				'-<b>5th <font color = 65b510>Leaf</front></b> (Bug)<br />'+
+				'-<b>6th <font color = 006b0a>Asch</front></b> (Grass)<br />'+
 				'</div>');
 	
 	},

@@ -474,7 +474,7 @@ var trainerCards = {
 	leaf: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		          '<b>Leader Ranking: <font color =00d30a><b>5th</font></b> <br />'
+		          '<b>Leader Ranking: <font color =00d30a><b>5th</font></b> <br />'+
 			  '<i>"Bugs are legion, what can be crushed can be reborn; watch your step or you might be the one trodden on"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> Scarab (Heracross) <br />');

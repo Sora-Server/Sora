@@ -254,25 +254,26 @@ var trainerCards = {
 	              '<b>Ace:</b> ???<br />');
         },
         
-        fire: 'floatzel',
-        floatzel: function(target, room, user) {
+        
+        fire: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
-		      'Leader Ranking: <font color = ffe100><b>3rd</font></b> <br />'+
-	              '<i>"Irony."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> Darmanitan<br />'+
-	              '<img src="http://play.pokemonshowdown.com/sprites/xyani/darumaka.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/groudon-primal.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/darumaka.gif">');
+	              '<b>Ace:</b> ???<br />');
+	              
 
 	},
  
-       
-        steel: function(target, room, user) {
+        steel: 'floatzel',
+        floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
+		          'Leader Ranking: <font color = ffe100><b>3rd</font></b> <br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
-			  '<b>Ace:</b> ??? <br />');
+			  '<b>Ace:</b> Jirachi <br />'+
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/steelix-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif">');
 			  
 	},
 

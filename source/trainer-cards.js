@@ -235,10 +235,10 @@ var trainerCards = {
 			'- <a href=http://soraleague.weebly.com/pokemon-sandbox.html">Pokemon Sandbox</a><br />');
         },
         
-        fighting: 'lou',
-        lou: function(target, room, user) {
+        
+        fighting: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Lou</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			'<i>"???"</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
 			'<b>Ace:</b> ??? <br />');

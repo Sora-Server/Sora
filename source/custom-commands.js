@@ -79,8 +79,8 @@ var customCommands = {
     ncalc: 'nuggetcalc',
     nuggetcalc: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('VGC 2015 Damage Calculator (Curtesy of Nugget Bridge)'+
-		'<a href="http://nuggetbridge.com/damagecalc/">VGC \'15 Calc</a>');
+		this.sendReplyBox('VGC 2015 Damage Calculator (Curtesy of Nugget Bridge) <br />'+
+		'<a href="http://nuggetbridge.com/damagecalc/">VGC \'15 Calc</a> <br />');
 		
     },
     

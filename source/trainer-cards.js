@@ -55,13 +55,13 @@ var trainerCards = {
 	 	     '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         },
 
-	
-	dragon: function(target, room, user) {
+	dragon: 'meows',
+	meows: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-		      '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
+		      '<i>"Roar"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> ???<br />');
+		      '<b>Ace:</b> Dragalge<br />');
 	},
 	
 	ascher: function(target, room, user) {

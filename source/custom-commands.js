@@ -84,6 +84,15 @@ var customCommands = {
 		
     },
     
+    scalc: 'sweepercalc',
+    sweepercalc: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Competitive team breaking/walling calculator (Curtesy of migetno1 and veeveearnh) <br />'+
+		'-<a href="http://sweepercalc.com/rmt/">Sweeper Calculator</a> <br />');
+		
+    },
+    
+    
     panagramhelp: 'panagramrules',
     panagramrules: function(target, room, user) {
         if (!this.canBroadcast()) return;

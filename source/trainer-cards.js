@@ -389,8 +389,7 @@ var trainerCards = {
         
 	ghost: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Bloods</b><br />'+
-		         'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
 			 '<b>Ace:</b> ???<br />');
@@ -465,6 +464,7 @@ var trainerCards = {
 	ground: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bloods</b><br />'+
+		          'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
 			  '<b>Ace:</b> ??? <br />');

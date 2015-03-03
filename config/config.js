@@ -302,6 +302,7 @@ exports.groups = {
 			name: "Administrator",
 			description: "Supreme Rulers of this server. They can do anything.",
 			root: true,
+			globalonly: true,
 			rank: 7
 		},
 		'&': {

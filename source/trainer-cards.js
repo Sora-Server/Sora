@@ -477,7 +477,7 @@ var trainerCards = {
 	leaf: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		          'Leader Ranking: <font color =0d01ad><b>7th</font></b> <br />'+
+		          'Leader Ranking: <font color =1000ff><b>7th</font></b> <br />'+
 			  '<i>"Bugs are legion, what can be crushed can be reborn; watch your step or you might be the one trodden on"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> Scarab (Heracross) <br />');
@@ -487,7 +487,7 @@ var trainerCards = {
 	poppy: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
-		          'Leader Ranking: <font color =1000ff><b>8th</font></b> <br />'+
+		          'Leader Ranking: <font color =0d01ad><b>8th</font></b> <br />'+
 			  '<i>"I dream for a living."</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
 			  '<b>Ace:</b> Frigid Bitch (Froslass)<br />');

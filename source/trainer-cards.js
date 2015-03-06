@@ -678,7 +678,7 @@ var trainerCards = {
 			this.sendReplyBox('Listed here are the Top 8 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
 				'-<b>1st <font color = ff00b6>Zoro</font></b> (Psychic)<br />'+
 				'-<b>2nd <font color = 472e10>Bush</font></b></b> (Rock)<br />'+
-				'-<b>3rd <font color = FF0000>Floatzel</font></b> (Fire)<br />'+
+				'-<b>3rd <font color = 5e6664>Floatzel</font></b> (Steel)<br />'+
 				'-<b>4th <font color = 230077>Meows</font></b> (Dragon) <br />'+
 				'-<b>5th <font color = 00d30a>Waffles</font></b> (Water)<br />'+
 				'-<b>6th <font color = 5b3a00>Bloods</font></b> (Ground)<br />'+

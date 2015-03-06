@@ -200,7 +200,7 @@ var trainerCards = {
 	asch: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
-		        'Leader Ranking: <font color =0037ff><b>6th</font></b> <br />'+
+		        'Leader Ranking: <font color =1000ff><b>7th</font></b> <br />'+
 			'<b>*GRACEFUL CHANTING*</b> <br />'+
 			'<b>Type:<font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
@@ -477,7 +477,7 @@ var trainerCards = {
 	leaf: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		          'Leader Ranking: <font color =1000ff><b>7th</font></b> <br />'+
+		          'Leader Ranking: <font color =0d01ad><b>8th</font></b> <br />'+
 			  '<i>"Bugs are legion, what can be crushed can be reborn; watch your step or you might be the one trodden on"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> Scarab (Heracross) <br />');
@@ -487,7 +487,6 @@ var trainerCards = {
 	poppy: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
-		          'Leader Ranking: <font color =0d01ad><b>8th</font></b> <br />'+
 			  '<i>"I dream for a living."</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
 			  '<b>Ace:</b> Frigid Bitch (Froslass)<br />');
@@ -682,9 +681,9 @@ var trainerCards = {
 				'-<b>3rd <font color = FF0000>Floatzel</font></b> (Fire)<br />'+
 				'-<b>4th <font color = 230077>Meows</font></b> (Dragon) <br />'+
 				'-<b>5th <font color = 00d30a>Waffles</font></b> (Water)<br />'+
-				'-<b>6th <font color = 006b0a>Asch</font></b> (Grass)<br />'+
-				'-<b>7th <font color = 65b510>Leaf</font></b> (Bug)<br />'+
-				'-<b>8th <font color =00e0ac>Poppy</font></b> (Ice)<br />'+
+				'-<b>6th <font color = 00bc8d>Bloods</font></b> (Ground)<br />'+
+				'-<b>7th <font color = 006b0a>Asch</font></b> (Grass)<br />'+
+				'-<b>8th <font color = 65b510>Leaf</font></b> (Bug)<br />'+
 				'</div>');
 	
 	},

@@ -78,13 +78,13 @@ var trainerCards = {
         
         zoro: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Darkus</b><br />'+
+		this.sendReplyBox('E4 <b>Zoro</b><br />'+
 		      '<i>"I am everywhere you are not."</i> <br />'+
 		      '<b>Type:<font color = #ff007f> Psychic</font></b><br />'+
 		      '<b>Ace:</b> Victini <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br/>'+
-	              '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
+	              '<img src="http://sprites.pokecheck.org/i/645.gif"><img src="http://sprites.pokecheck.org/t/187.gif">');
 	 	      
 	},
 	
@@ -454,7 +454,7 @@ var trainerCards = {
 	darkus: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
-			  '<i>"You would think I\'m Dark, but you can't think."</i> <br />'+
+			  '<i>"You would think I\'m Dark, but you can\'t think."</i> <br />'+
 			  'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Victini <br />'+

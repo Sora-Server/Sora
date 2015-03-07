@@ -283,7 +283,7 @@ var trainerCards = {
         bush: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bush</b><br />'+
-		          'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
+		          'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
 			  '<i>"It only takes one move for Checkmate."</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
 			  '<b>Ace:</b> Magcargo<br />');
@@ -455,7 +455,7 @@ var trainerCards = {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Zoro</b><br />'+
 			  '<i>"I am everywhere you are not."</i> <br />'+
-			  'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
+			  'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Gardevoir <br />'+
 			  '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
@@ -676,8 +676,8 @@ var trainerCards = {
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 8 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
-				'-<b>1st <font color = ff00b6>Zoro</font></b> (Psychic)<br />'+
-				'-<b>2nd <font color = 472e10>Bush</font></b></b> (Rock)<br />'+
+				'-<b>1st <font color = 472e10>Bush</font></b> (Rock)<br />'+
+				'-<b>2nd <font color = ff00b6>Zoro</font></b></b> (Psychic)<br />'+
 				'-<b>3rd <font color = 5e6664>Floatzel</font></b> (Steel)<br />'+
 				'-<b>4th <font color = 230077>Meows</font></b> (Dragon) <br />'+
 				'-<b>5th <font color = 00d30a>Waffles</font></b> (Water)<br />'+

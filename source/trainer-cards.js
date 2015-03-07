@@ -81,7 +81,7 @@ var trainerCards = {
 		this.sendReplyBox('E4 <b>Zoro</b><br />'+
 		      '<i>"I am everywhere you are not."</i> <br />'+
 		      '<b>Type:<font color = #ff007f> Psychic</font></b><br />'+
-		      '<b>Ace:</b> Victini <br />'+
+		      '<b>Ace:</b> Gallade <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br/>'+
 	              '<img src="http://sprites.pokecheck.org/i/645.gif"><img src="http://sprites.pokecheck.org/t/187.gif">');

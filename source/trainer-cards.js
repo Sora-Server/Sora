@@ -76,15 +76,15 @@ var trainerCards = {
                 
 	},
         
-        darkus: function(target, room, user) {
+        zoro: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Darkus</b><br />'+
-		      '<i>"You would think I\'m Dark, but you can\'t think."</i> <br />'+
+		      '<i>"I am everywhere you are not."</i> <br />'+
 		      '<b>Type:<font color = #ff007f> Psychic</font></b><br />'+
 		      '<b>Ace:</b> Victini <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br/>'+
-	              '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
+	              '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
 	 	      
 	},
 	
@@ -450,15 +450,16 @@ var trainerCards = {
 			 '<center><img src="http://fc00.deviantart.net/fs71/f/2014/082/f/8/manaphy_gif_by_gloomymyth-d7bakkc.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/tentacruel.gif"><img src="http://www.pokemonreborn.com/custom/44203.png?530"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/swampert.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gyarados.gif"></center>');
 	},
 
-        psychic: 'zoro',
-	zoro: function(target, room, user) {
+        psychic: 'darkus',
+	darkus: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Zoro</b><br />'+
-			  '<i>"I am everywhere you are not."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
+			  '<i>"You would think I\'m Dark, but you can't think."</i> <br />'+
 			  'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> Gardevoir <br />'+
-			  '<img src="http://sprites.pokecheck.org/i/645.gif"> <img src="http://sprites.pokecheck.org/t/187.gif">');
+			  '<b>Ace:</b> Victini <br />'+
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
+			  
 			  
 	},
 	
@@ -677,7 +678,7 @@ var trainerCards = {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 8 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
 				'-<b>1st <font color = 472e10>Bush</font></b> (Rock)<br />'+
-				'-<b>2nd <font color = ff00b6>Zoro</font></b></b> (Psychic)<br />'+
+				'-<b>2nd <font color = ff00b6>Darkus</font></b></b> (Psychic)<br />'+
 				'-<b>3rd <font color = 5e6664>Floatzel</font></b> (Steel)<br />'+
 				'-<b>4th <font color = 230077>Meows</font></b> (Dragon) <br />'+
 				'-<b>5th <font color = 00d30a>Waffles</font></b> (Water)<br />'+

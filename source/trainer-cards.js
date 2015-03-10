@@ -357,7 +357,7 @@ var trainerCards = {
 	
 	srewop: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Frontier <b>Srewop</b><br />'+
+			this.sendReplyBox('Elite Frontier <b>Srewop</b><br />'+
 			  '<i>"You came to the wong place if you wanted a win."</i> <br />'+
 			  '<b>Symbol:</b> SumTingWong<br />'+
 			  '<b>Ace:</b> Golbat <br />'+

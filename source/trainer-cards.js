@@ -89,15 +89,15 @@ var trainerCards = {
 	},
 	
         
-	cocoa: function(target, room, user) {
+	bush: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Cocoa</b><br />'+
-		      '<i>"Your defeat shall be nearly as sweet as Chocolate and Vanilla"</i> <br />'+
+		      '<i>"It only takes one move for Checkmate.""</i> <br />'+
 		      '<b>Type: <font color = 200644>Dark</font></b><br />'+
-		      '<b>Ace:</b> Umbreon <br />'+
+		      '<b>Ace:</b> Lunatone <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-No direct status. <br/>'+
-	 	      '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
+	 	      '-None <br/>'+
+	 	      
         },
         
         hantu: function(target, room, user) {
@@ -279,14 +279,15 @@ var trainerCards = {
 	},
 
     
-        rock: 'bush',
-        bush: function(target, room, user) {
+        rock: 'akkie',
+        akkie: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Bush</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Akkie</b><br />'+
 		          'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
-			  '<i>"It only takes one move for Checkmate."</i> <br />'+
+			  '<i>"Ready or not, I\'ll rock your world."</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
-			  '<b>Ace:</b> Magcargo<br />');
+			  '<b>Ace:</b> Mega-Diancie<br />'+
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
 			  
         },
         
@@ -679,7 +680,7 @@ var trainerCards = {
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 8 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
-				'-<b>1st <font color = 472e10>Bush</font></b> (Rock)<br />'+
+				'-<b>1st <font color = 472e10>Akkie</font></b> (Rock)<br />'+
 				'-<b>2nd <font color = ff00b6>Darkus</font></b></b> (Psychic)<br />'+
 				'-<b>3rd <font color = 5e6664>Floatzel</font></b> (Steel)<br />'+
 				'-<b>4th <font color = 230077>Meows</font></b> (Dragon) <br />'+

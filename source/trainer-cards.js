@@ -92,7 +92,7 @@ var trainerCards = {
 	bush: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Bush</b><br />'+
-		      '<i>"It only takes one move for Checkmate.""</i> <br />'+
+		      '<i>"It only takes one move for Checkmate."</i> <br />'+
 		      '<b>Type: <font color =472e10>Rock</font></b><br />'+
 		      '<b>Ace:</b> Lunatone <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+

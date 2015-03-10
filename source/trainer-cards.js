@@ -96,7 +96,7 @@ var trainerCards = {
 		      '<b>Type: <font color = 200644>Dark</font></b><br />'+
 		      '<b>Ace:</b> Lunatone <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-None <br/>'+
+	 	      '-None <br/>');
 	 	      
         },
         

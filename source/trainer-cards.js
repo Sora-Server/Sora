@@ -287,7 +287,7 @@ var trainerCards = {
 			  '<i>"Ready or not, I\'ll rock your world."</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
 			  '<b>Ace:</b> Mega-Diancie<br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
 			  
         },
         

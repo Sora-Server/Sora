@@ -437,7 +437,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Waffles</b><br />'+
 		         '<b>Leader Ranking: <font color =00d30a><b>5th</font></b> <br />'+
-			 '<i>"Save Water, shower together!"</i> <br />'+
+			 '<i>"Save water, shower together!"</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
 			 '<b>Ace:</b> Mega Sharpedo<br />');
 			 

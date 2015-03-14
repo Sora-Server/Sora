@@ -871,6 +871,7 @@ var customCommands = {
 				'"Umbreon is dark?"-∆E4 Arjunb∆ 30/11/14<br />'+
 				'"Isn\'t Color Change and protean the same thing?" -∆Frontier∆ Nova 15/12/14<br />'+
 				'"Smogon pretty much did the Treaty of Versailles to Water" -∆Champiön Nöah∆ 12/1/15<br />'+
+				'"Chief Akkie, head of the meme police, serving for 38 years; no meme slips through her cracks." -Eska and Desna 14/3/15<br />'+
 				'</div>');
 	},
 	

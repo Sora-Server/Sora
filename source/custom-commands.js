@@ -223,6 +223,7 @@ var customCommands = {
 			"is jealous of Risu's VGC crown!",
 			"has been drowned by Arthur\'s suspicious white fluids!",
 			"IS REALLY FEELING IT",
+			"saw asch with Skymin!",
 		];
 
 		return function(target, room, user) {

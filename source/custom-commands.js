@@ -224,6 +224,7 @@ var customCommands = {
 			"has been drowned by Arthur\'s suspicious white fluids!",
 			"IS REALLY FEELING IT",
 			"saw asch with Skymin!",
+			"slipped through Akkie\'s cracks!",
 		];
 
 		return function(target, room, user) {

@@ -196,15 +196,15 @@ var trainerCards = {
         }, 
         
 
-        grass: 'asch',
-	asch: function(target, room, user) {
+        grass: 'arthurzh',
+	arthurzh: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Asch</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Arthurzh</b><br />'+
 		        'Leader Ranking: <font color =1000ff><b>7th</font></b> <br />'+
-			'<b>*GRACEFUL CHANTING*</b> <br />'+
+			'<i>"I\'m literally the background"</i> <br />'+
 			'<b>Type:<font color = 006b0a>Grass</font></b> <br />'+ 
-			'<b>Ace:</b> Brother Nature (Mega-Venusaur)<br />'+
-			'<img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif">');
+			'<b>Ace:</b> Mega Sceptile<br />'+
+			
 	},
 
 	blade: function(target, room, user) {
@@ -354,6 +354,18 @@ var trainerCards = {
 		 	  '-No Hazards <br/>'+
 		 	  '-Item Clause <br />');
 	},
+	
+	asch: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Frontier <b>Asch</b><br />'+
+			  '<i>"???"</i> <br />'+
+			  '<b>Symbol:</b> ???<br />'+
+			  '<b>Ace:</b> ???<br />'+
+			  '<b>Battle Rules:</b> <br/>'+
+		 	  '-?? <br />'+
+		 	  '<img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif">');
+	},
+	
 	
 	srewop: function(target, room, user) {
 			if (!this.canBroadcast()) return;

@@ -203,7 +203,7 @@ var trainerCards = {
 		        'Leader Ranking: <font color =1000ff><b>7th</font></b> <br />'+
 			'<i>"I\'m literally the background"</i> <br />'+
 			'<b>Type:<font color = 006b0a>Grass</font></b> <br />'+ 
-			'<b>Ace:</b> Mega Sceptile<br />'+
+			'<b>Ace:</b> Mega Sceptile<br />');
 			
 	},
 
@@ -419,17 +419,6 @@ var trainerCards = {
 			 '<b>Ace:</b> Kangaskhan<br />'+
 			 '<b>Battle rules:</b> <br />'+
 			 '-VGC \'15 <br />');
-        },
-        
-        zachary: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Zachary</b><br />'+
-			 '<i>"Arthur: Oh no, not another challenger"</i> <br />'+
-			 '<i>"Zachary: Nah I think we got this tho"</i> <br />'+
-		         '<b>Symbol:</b> Twin Symbol <br />'+
-			 '<b>Ace:</b> Zapdos<br />'+
-			 '<b>Battle rules:</b> <br />'+
-			 '-Smogon Doubles <br />');
         },
         
         
@@ -698,7 +687,7 @@ var trainerCards = {
 				'-<b>4th <font color = 230077>Meows</font></b> (Dragon) <br />'+
 				'-<b>5th <font color = 00d30a>Waffles</font></b> (Water)<br />'+
 				'-<b>6th <font color = 5b3a00>Bloods</font></b> (Ground)<br />'+
-				'-<b>7th <font color = 006b0a>Asch</font></b> (Grass)<br />'+
+				'-<b>7th <font color = 006b0a>ArthurZH</font></b> (Grass)<br />'+
 				'-<b>8th <font color = 65b510>Leaf</font></b> (Bug)<br />'+
 				'</div>');
 	

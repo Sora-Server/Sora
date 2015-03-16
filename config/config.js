@@ -160,7 +160,7 @@ exports.customAvatars = {
 	  'frontierheadrisu': '096.gif',
 	  'gymldrsnowking': '082.gif',
 	  'gymldrkrenon': '017.gif',
-	  'gymldrasch': '018.gif',
+	  'frontierasch': '108.gif',
 	  'kingarani': '019.png',
 	  'gymldrlynne': '020.png',
 	  'trollfacejpg': '021.png',

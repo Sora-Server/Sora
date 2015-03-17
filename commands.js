@@ -118,6 +118,9 @@ var commands = exports.commands = {
 				return this.popupReply("This admin is too busy to answer private messages right now. Please contact a different staff member.");
 			}
 		}
+		if (user.ignorePMs && user.ignorePMs !== targetUser.group && !targetUser.can('lock')) {
+			return this.popupReply("You are blocking private messages right now.");
+		}
 
 		target = this.canTalk(target, null);
 		if (!target) return false;
@@ -162,8 +165,6 @@ var commands = exports.commands = {
 		user.lastPM = targetUser.userid;
 	},
 
-	away: 'ignorepms',
-	idle: 'ignorepms',
 	blockpm: 'ignorepms',
 	blockpms: 'ignorepms',
 	ignorepm: 'ignorepms',
@@ -173,12 +174,11 @@ var commands = exports.commands = {
 		user.ignorePMs = true;
 		if (target in Config.groups) {
 			user.ignorePMs = target;
-			return this.sendReply("You are now blocking private messages, except from staff and " + target + ".");
+			return this.sendReply("You are now blocking private messages (including challenges), except from staff and " + target + ".");
 		}
-		return this.sendReply("You are now blocking private messages, except from staff.");
+		return this.sendReply("You are now blocking private messages (including challenges), except from staff.");
 	},
 
-	back: 'unignorepms',
 	unblockpm: 'unignorepms',
 	unblockpms: 'unignorepms',
 	unignorepm: 'unignorepms',
@@ -186,6 +186,17 @@ var commands = exports.commands = {
 		if (!user.ignorePMs) return this.sendReply("You are not blocking private messages!");
 		user.ignorePMs = false;
 		return this.sendReply("You are no longer blocking private messages.");
+	},
+
+	idle: 'away',
+	away: function (target, room, user) {
+		this.parse('/blockchallenges');
+		this.parse('/blockpms ' + target);
+	},
+
+	back: function () {
+		this.parse('/unblockpms');
+		this.parse('/unblockchallenges');
 	},
 
 	makechatroom: function (target, room, user) {
@@ -785,6 +796,7 @@ reload: function (target, room, user) {
 		if (!targetUser || !targetUser.connected) {
 			return this.sendReply("User " + this.targetUsername + " not found.");
 		}
+		if (targetRoom.id === "global") return this.sendReply("Users cannot be redirected to the global room.");
 		if (Rooms.rooms[targetRoom.id].users[targetUser.userid]) {
 			return this.sendReply("User " + targetUser.name + " is already in the room " + targetRoom.title + "!");
 		}
@@ -1264,10 +1276,10 @@ reload: function (target, room, user) {
 		var targetUser, reason;
 		if (commaIndex !== -1) {
 			reason = target.substr(commaIndex + 1).trim();
-			target = target.substr(0, commaIndex);
+			target = target.substr(0, commaIndex).trim();
 		}
 		targetUser = Users.get(target);
-		if (!targetUser) return this.sendReply("User '" + this.targetUsername + "' not found.");
+		if (!targetUser) return this.sendReply("User '" + target + "' not found.");
 		if (!this.can('forcerename', targetUser)) return false;
 
 		if (targetUser.userid !== toId(target)) {
@@ -1854,17 +1866,7 @@ reload: function (target, room, user) {
 	addplayer: function (target, room, user) {
 		if (!target) return this.parse('/help addplayer');
 
-		target = this.splitTarget(target);
-		var targetUser = this.targetUser;
-
-		if (!targetUser) {
-			return this.sendReply("User " + this.targetUsername + " not found.");
-		}
-
-		if (!room.joinBattle) return this.sendReply("You can only do this in battle rooms.");
-		if (!this.can('roomvoice', this.targetUser, room)) return;
-
-		room.auth[targetUser.userid] = '\u2605';
+		return this.parse('/roomplayer ' + target);
 	},
 
 	joinbattle: function (target, room, user) {
@@ -2099,7 +2101,7 @@ reload: function (target, room, user) {
 		} else if (cmd === 'rooms') {
 			if (!trustable) return false;
 			connection.send('|queryresponse|rooms|' + JSON.stringify(
-				Rooms.global.getRooms()
+				Rooms.global.getRooms(user)
 			));
 		}
 	},

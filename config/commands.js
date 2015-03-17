@@ -1023,6 +1023,8 @@ var commands = exports.commands = {
 		}, ""));
 	},
 
+	repo: 'opensource',
+	repository: 'opensource',
 	git: 'opensource',
 	opensource: function (target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -1111,6 +1113,7 @@ var commands = exports.commands = {
 		);
 	},
 
+	capintro: 'cap',
 	cap: function (target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox(
@@ -1778,13 +1781,29 @@ var commands = exports.commands = {
 			this.sendReply("/calc - Provides a link to a damage calculator");
 			this.sendReply("!calc - Shows everyone a link to a damage calculator. Requires: + % @ & ~");
 		}
-		if (target === 'all' || target === 'blockchallenges' || target === 'idle') {
+		if (target === 'away' || target === 'idle') {
 			matched = true;
-			this.sendReply("/blockchallenges - Blocks challenges so no one can challenge you. Deactivate it with /back.");
+			this.sendReply("/away - Blocks challenges and private messages separately. Different from /blockpms in that it will still block challenges if you're staff. Unblock them with /back.");
 		}
-		if (target === 'all' || target === 'allowchallenges' || target === 'back') {
+		if (target === 'blockchallenges') {
 			matched = true;
-			this.sendReply("/back - Unlocks challenges so you can be challenged again. Deactivate it with /away.");
+			this.sendReply("/blockchallenges - Blocks challenges so no one can challenge you. Unblock them with /unblockchallenges.");
+		}
+		if (target === 'blockpms' || target === 'ignorepms') {
+			matched = true;
+			this.sendReply("/blockpms - Blocks private messages (including challenges). Unblock them with /unignorepms.");
+		}
+		if (target === 'back') {
+			matched = true;
+			this.sendReply("/back - Unblocks challenges and/or private messages, if either are blocked.");
+		}
+		if (target === 'unblockchallenges' || target === 'allowchallenges') {
+			matched = true;
+			this.sendReply("/unblockchallenges - Unblocks challenges so you can be challenged again. Block them with /blockchallenges.");
+		}
+		if (target === 'unblockpms' || target === 'unignorepms') {
+			matched = true;
+			this.sendReply("/unblockpms - Unblocks private messages. Block them with /blockpms.");
 		}
 		if (target === 'all' || target === 'faq') {
 			matched = true;

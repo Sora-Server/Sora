@@ -297,7 +297,6 @@ var trainerCards = {
 			  '<b>Type: <font color = #9b8f95>Normal</font></b><br />'+
 			  '<b>Ace:</b> Miltank<br />'+
 			  '<b>Battle Rules:</b><br />'+
-			  '-No Substitute<br />'+
 			  '-No Trick/Switcheroo<br />');
        
         },

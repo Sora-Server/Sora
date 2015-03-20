@@ -420,13 +420,13 @@ var trainerCards = {
         },
         
         
-        electric: 'doge',
-	doge: function(target, room, user) {
+        
+	electric: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Doge</b><br />'+
-			 '<i>"Electricity is our energy. Even when were out we generate more."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = d6cc0c>Electric</font></b><br />'+
-			 '<b>Ace:</b> Rotom-Fan<br />');
+			 '<b>Ace:</b> ???<br />');
   
         },
         

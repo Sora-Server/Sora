@@ -449,7 +449,7 @@ var trainerCards = {
 			 '<b>Favoured Type:</b> Water<br />'+
 			 '<b>Favoured Metagame:</b> Smogon Doubles <br />'+
 			 '<b>Ace:</b> Mega Swampert/Mega-Gyarados for monotype<br />'+
-			 '<b>Achievements:Ex Water Leader of Sora, Ex Roulette/Champion\'s Challenge/Monotype/Smogon Doubles Frontier of Sora<br />'+
+			 '<b>Achievements:</b> Ex Water Leader of Sora, Ex Roulette/Champion\'s Challenge/Monotype/Smogon Doubles Frontier of Sora<br />'+
 			 '<center><img src="http://fc00.deviantart.net/fs71/f/2014/082/f/8/manaphy_gif_by_gloomymyth-d7bakkc.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo-resolute.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/tentacruel.gif"><img src="http://www.pokemonreborn.com/custom/44203.png?530"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/swampert.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gyarados.gif"></center>');
 	},
 

@@ -308,7 +308,7 @@ var trainerCards = {
 			this.sendReplyBox('Gym Ldr <b>Fallen</b><br />'+
 			  '<i>"The King has Fallen"</i> <br />'+
 			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
-			  '<b>Ace:</b> Cursed Shadow (Umbreon)<br />');
+			  '<b>Ace:</b> King of the Sea (Mega-Sharpedo)<br />');
         },
         
         
@@ -435,7 +435,7 @@ var trainerCards = {
 	arthurzh: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>ArthurZh</b><br />'+
-		         'Leader Ranking: <font color =1000ff><b>6th</font></b> <br />'+
+		         '<b>Leader Ranking: <font color =00d30a><b>5th</font></b> <br />'+
 			 '<i>"The power of the seas, storms and rivers are mine to hold....and here you dare to stand before me?"</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
 			 '<b>Ace:</b> Mega Swampert<br />');
@@ -466,14 +466,13 @@ var trainerCards = {
 			  
 	},
 	
-	ground: 'bloods',
-	bloods: function(target, room, user) {
+	
+	ground: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Bloods</b><br />'+
-		          '<b>Leader Ranking: <font color =00d30a><b>5th</font></b> <br />'+
-			  '<i>"7.8/10 too much land"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
-			  '<b>Ace:</b> Steelix <br />');
+			  '<b>Ace:</b> ???<br />');
 			  
 	},
 	
@@ -481,7 +480,7 @@ var trainerCards = {
 	leaf: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		          'Leader Ranking: <font color =0d01ad><b>7th</font></b> <br />'+
+		          'Leader Ranking: <font color =1000ff><b>6th</font></b> <br />'+
 			  '<i>"Bugs are legion, what can be crushed can be reborn; watch your step or you might be the one trodden on"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> Scarab (Heracross) <br />');
@@ -502,7 +501,7 @@ var trainerCards = {
 		this.sendReplyBox('<a><font size= 4><center><b><font color = 075ff7>The Admin Team</font></b></center></a><br />'+
 		'FAQ <br />'+
 		'<b>Who are we?</b> The Admin team are a group of senior members who make most of the major league decisions and organize most major league events. <br />'+
-		'<b>Who\'s in the Admin Team?</b> The Admin Team\'s active members consist of: Champion Noah, Champion Bart, Onyx, Artiste Jeratt, Frontierhead Ninjarisu, Neith and Elite Four Bloodfist. <br />'+
+		'<b>Who\'s in the Admin Team?</b> The Admin Team\'s active members consist of: Champion Noah, Champion Bart, Onyx, Artiste Jeratt, Frontierhead Ninjarisu, Neith and Coach Bloodfist. <br />'+
 		'<b>What exactly do you guys do?</b> The Admin Team handle or oversee all matters from disputes in the League, to League Challenge Registration <br />'+
 		'<b>How does one join the Admin team?</b> The Admin Team usually invites a select few senior members who\'ve shown to be mature and capable of handling responsibility. <br />'+
 		' <br />'+
@@ -679,14 +678,13 @@ var trainerCards = {
 	leaderranks: 'ranks',
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Listed here are the Top 7 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
+			this.sendReplyBox('Listed here are the Top 6 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
 				'-<b>1st <font color = 472e10>Akkie</font></b> (Rock)<br />'+
 				'-<b>2nd <font color = ff00b6>Darkus</font></b></b> (Psychic)<br />'+
 				'-<b>3rd <font color = 5e6664>Floatzel</font></b> (Steel)<br />'+
 				'-<b>4th <font color = 230077>Meows</font></b> (Dragon) <br />'+
-				'-<b>5th <font color = 5b3a00>Bloods</font></b> (Ground)<br />'+
-				'-<b>6th <font color = 0745ff>ArthurZH</font></b> (Water)<br />'+
-				'-<b>7th <font color = 65b510>Leaf</font></b> (Bug)<br />'+
+				'-<b>5th <font color = 0745ff>Arthur</font></b> (Water)<br />'+
+				'-<b>6th <font color = 65b510>Leaf</font></b> (Bug)<br />'+
 				'</div>');
 	
 	},

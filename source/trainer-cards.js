@@ -208,7 +208,7 @@ var trainerCards = {
 
 	blade: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b><font color = FF0000>∆EliteFröntier∆Blade☯</font></b></center></a><br />'+
+		this.sendReplyBox('<a><font size= 4><center><img src="http://sprites.pokecheck.org/i/494.gif"><b><font color = FF0000>∆EliteFröntier∆Blade☯</font></b><img src="http://sprites.pokecheck.org/i/080.gif"></center></a><br />'+
 			'<center><i>"Too much Water 7.8/10"-IGN</i></center> <br />'+
 			'<b>Symbol:</b> Yin and Yang <br />'+
 			'<b>Ace:</b> Mybro (Slowbro) <br />'+
@@ -218,7 +218,7 @@ var trainerCards = {
 			'-No Hazards <br />'+
 		        '<a href="http://www.smogon.com/forums/threads/ability-shift.3503100/">How Ability Shift works</a> <br />'+
                         '<a href="http://www.psypokes.com/lab/abilities.php">Pokemon Ability List</a> <br />'+
-			'<img src="http://sprites.pokecheck.org/i/494.gif"><center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/torkoal.gif"></center><img src="http://sprites.pokecheck.org/i/080.gif" align = "right">'+
+			'<center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/torkoal.gif"></center>'+
                         '<center><b>R.I.P. War Turtle</b></center> <br />'+
                         '<center>1st Apostle of the All Mighty Lord Parasect</center><br />');
 	},

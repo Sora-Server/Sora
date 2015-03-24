@@ -354,7 +354,7 @@ var trainerCards = {
 	asch: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Frontier <b>Asch</b><br />'+
-			  '<i>"well i saw this cute boy like omfg, he\'s grade 6 tho ;-;"</i> <br />'+
+			  '<i>"Chief Akkie, head of the meme police, serving for 38 years; no meme slips through her cracks."</i> <br />'+
 			  '<b>Symbol:</b> ????<br />'+
 			  '<b>Ace:</b> ???<br />'+
 			  '<b>Battle Rules:</b> <br/>'+

@@ -330,14 +330,13 @@ var trainerCards = {
 			 
         },
         
-        normal: 'vanilla',
-        vanilla: function(target, room, user) {
+
+        normal: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Vanilla</b><br />'+
-		         '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		         '<i>"???"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
-			 '<b>Ace:</b> Miltank (Dragonslayer)<br />'+
-			 '<img src="http://sprites.pokecheck.org/i/241.gif"><img src="http://sprites.pokecheck.org/t/111.gif">');
+			 '<b>Ace:</b> ???<br />');
        
         },
        

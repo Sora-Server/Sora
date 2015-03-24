@@ -354,11 +354,15 @@ var trainerCards = {
 	asch: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Frontier <b>Asch</b><br />'+
-			  '<i>"???"</i> <br />'+
-			  '<b>Symbol:</b> ???<br />'+
+			  '<i>"well i saw this cute boy like omfg, he\'s grade 6 tho ;-;"</i> <br />'+
+			  '<b>Symbol:</b> ????<br />'+
 			  '<b>Ace:</b> ???<br />'+
 			  '<b>Battle Rules:</b> <br/>'+
-		 	  '-?? <br />'+
+		 	  '-Pokemon Chess<br />'+
+		 	  '-Ubers<br/>'+
+		 	  '-1 Uber, 1 OU, 2 UU, 1 RU and 1 NU Pokemon<br />'+
+		 	  '-If the King (Uber) faints, you lose <br />'+
+		 	  '-No Mega Evolution <br />'+
 		 	  '<img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif">');
 	},
 	

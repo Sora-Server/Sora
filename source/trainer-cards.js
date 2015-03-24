@@ -218,10 +218,9 @@ var trainerCards = {
 			'-No Hazards <br />'+
 		        '<a href="http://www.smogon.com/forums/threads/ability-shift.3503100/">How Ability Shift works</a> <br />'+
                         '<a href="http://www.psypokes.com/lab/abilities.php">Pokemon Ability List</a> <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/blaziken.gif" align = "right">'+
-                        '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/torkoal.gif"></center>'+
+			'<img src="http://sprites.pokecheck.org/i/494.gif"><center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/torkoal.gif"></center><img src="http://sprites.pokecheck.org/i/080.gif" align = "right">'+
                         '<center><b>R.I.P. War Turtle</b></center> <br />'+
-                        '<center>Second time you have been killed, first a creation in minecraft and second by smogon</center><br />');
+                        '<center>1st Apostle of the All Mighty Lord Parasect</center><br />');
 	},
      
         

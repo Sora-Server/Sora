@@ -355,8 +355,8 @@ var trainerCards = {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Frontier <b>Asch</b><br />'+
 			  '<i>"Chief Akkie, head of the meme police, serving for 38 years; no meme slips through her cracks."</i> <br />'+
-			  '<b>Symbol:</b> ????<br />'+
-			  '<b>Ace:</b> ???<br />'+
+			  '<b>Symbol:</b> White Knight Symbol<br />'+
+			  '<b>Ace:</b> Lugia: Waluigia (WAH) <br />'+
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-Pokemon Chess<br />'+
 		 	  '-Ubers<br/>'+

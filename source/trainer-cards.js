@@ -331,13 +331,13 @@ var trainerCards = {
 			 
         },
         
-
-        normal: function(target, room, user) {
+        normal: 'vanilla',
+        vanilla: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-		         '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Vanilla</b><br />'+
+		         '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> Dragonslayer (Miltank)<br />');
 			 
        
         },

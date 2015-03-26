@@ -200,7 +200,7 @@ var trainerCards = {
 	grass: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Risu</b><br />'+
-		        'This Member is a Frontier <a href="http://soraleague.weebly.com/rules.html">Inactivity Clause</a> substitute. If you\'re interested in testing for this position, please PM an Administrator <br />'+'
+		        'This Member is a Frontier <a href="http://soraleague.weebly.com/rules.html">Inactivity Clause</a> substitute. If you\'re interested in testing for this position, please PM an Administrator <br />'+
 			'<i>"I\'ll show you the power of the best of the worst."</i> <br />'+
 			'<b>Type:<font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Breloom<br />');

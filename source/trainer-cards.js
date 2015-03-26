@@ -278,15 +278,14 @@ var trainerCards = {
 	},
 
     
-        rock: 'akkie',
-        akkie: function(target, room, user) {
+        
+        rock: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Akkie</b><br />'+
-		          'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
-			  '<i>"Ready or not, I\'ll rock your world."</i> <br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
-			  '<b>Ace:</b> Mega-Diancie<br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
+			  '<b>Ace:</b> ???<br />');
+			  
 			  
         },
         
@@ -320,14 +319,15 @@ var trainerCards = {
 			 '<b>Ace:</b> ???<br />');
 	},
         
-       
-        flying: function(target, room, user) {
+        flying: 'akkie',
+        akkie: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Srewop</b><br />'+
-		         '<i>"You came to the wong place if you wanted a win."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Akkie</b><br />'+
+		         'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
+		         '<i>"Ready or not, I\'ll rock your world."</i> <br />'+
 	              	 '<b>Type: <font color = 00a6c4>Flying</font></b><br />'+
-			 '<b>Ace:</b> Golbat<br />'+
-			 'This Member is a Frontier <a href="http://soraleague.weebly.com/rules.html">Inactivity Clause</a> substitute. If you\'re interested in testing for this position, please PM an Administrator <br />');
+			 '<b>Ace:</b> Xatu<br />'+
+			 '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
 			 
         },
         
@@ -685,7 +685,7 @@ var trainerCards = {
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 6 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
-				'-<b>1st <font color = 472e10>Akkie</font></b> (Rock)<br />'+
+				'-<b>1st <font color = 00a6c4>Akkie</font></b> (Flying)<br />'+
 				'-<b>2nd <font color = ff00b6>Darkus</font></b></b> (Psychic)<br />'+
 				'-<b>3rd <font color = 5e6664>Floatzel</font></b> (Steel)<br />'+
 				'-<b>4th <font color = 230077>Meows</font></b> (Dragon) <br />'+

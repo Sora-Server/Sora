@@ -200,10 +200,10 @@ var trainerCards = {
 	grass: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Risu</b><br />'+
-		        'This Member is a Frontier <a href="http://soraleague.weebly.com/rules.html">Inactivity Clause</a> substitute. If you\'re interested in testing for this position, please PM an Administrator <br />'+
 			'<i>"I\'ll show you the power of the best of the worst."</i> <br />'+
 			'<b>Type:<font color = 006b0a>Grass</font></b> <br />'+ 
-			'<b>Ace:</b> Breloom<br />');
+			'<b>Ace:</b> Breloom<br />'+
+			'This Member is a Frontier <a href="http://soraleague.weebly.com/rules.html">Inactivity Clause</a> substitute. If you\'re interested in testing for this position, please PM an Administrator <br />');
 			
 	},
 
@@ -334,10 +334,10 @@ var trainerCards = {
         normal: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Tempest</b><br />'+
-		         'This Member is a Frontier <a href="http://soraleague.weebly.com/rules.html">Inactivity Clause</a> substitute. If you\'re interested in testing for this position, please PM an Administrator <br />'+
 		         '<i>"D=<{[(2*lv+10)/250]*Atk/Def*BP+2}*STAB*Eff*Crit*Itm*Abl*Wt*Spr>*x, 0.85"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
-			 '<b>Ace:</b> Meloetta<br />');
+			 '<b>Ace:</b> Meloetta<br />'+
+			 'This Member is a Frontier <a href="http://soraleague.weebly.com/rules.html">Inactivity Clause</a> substitute. If you\'re interested in testing for this position, please PM an Administrator <br />');
        
         },
        

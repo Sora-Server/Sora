@@ -323,10 +323,11 @@ var trainerCards = {
        
         flying: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-		         '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Srewop</b><br />'+
+		         '<i>"You came to the wong place if you wanted a win."</i> <br />'+
 	              	 '<b>Type: <font color = 00a6c4>Flying</font></b><br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> Golbat<br />'+
+			 'This Member is a Frontier <a href="http://soraleague.weebly.com/rules.html">Inactivity Clause</a> substitute. If you\'re interested in testing for this position, please PM an Administrator <br />');
 			 
         },
         

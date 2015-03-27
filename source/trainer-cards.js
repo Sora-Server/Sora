@@ -426,14 +426,13 @@ var trainerCards = {
         },
         
         
-        
-	electric: function(target, room, user) {
+        electric: 'poppy',
+	poppy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Risu</b><br />'+
-			 '<i>"I will show you the power of the best of the worst."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
+			 '<i>"It\'s too late for that!"</i> <br />'+
 		         '<b>Type: <font color = d6cc0c>Electric</font></b><br />'+
-			 '<b>Ace:</b> Pachirisu<br />'+
-			 'This Member is a Frontier <a href="http://soraleague.weebly.com/rules.html">Inactivity Clause</a> substitute. If you\'re interested in testing for this position, please PM an Administrator <br />');
+			 '<b>Ace:</b> Dangerzone (Magnezone)<br />');
   
         },
         
@@ -493,13 +492,12 @@ var trainerCards = {
 			  '<b>Ace:</b> Scarab (Heracross) <br />');
         },
 	
-	ice: 'poppy',
-	poppy: function(target, room, user) {
+	ice: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
-			  '<i>"I dream for a living."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b> Frigid Bitch (Froslass)<br />');
+			  '<b>Ace:</b> ???<br />');
 	},
 
         ateam: 'adminteam',

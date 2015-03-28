@@ -366,7 +366,6 @@ var trainerCards = {
 		 	  '-Smogon Doubles Ubers<br/>'+
 		 	  '-1 Uber, 1 OU, 2 UU, 1 RU and 1 NU Pokemon<br />'+
 		 	  '-If the King (Uber) faints, you lose <br />'+
-		 	  '-No Mega Evolution <br />'+
 		 	  '<img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif">');
 	},
 	

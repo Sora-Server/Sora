@@ -363,7 +363,7 @@ var trainerCards = {
 			  '<b>Ace:</b> Lugia: Waluigia (WAH) <br />'+
 			  '<b>Battle Rules:</b> <br/>'+
 		 	  '-Pokemon Chess<br />'+
-		 	  '-Ubers<br/>'+
+		 	  '-Smogon Doubles Ubers<br/>'+
 		 	  '-1 Uber, 1 OU, 2 UU, 1 RU and 1 NU Pokemon<br />'+
 		 	  '-If the King (Uber) faints, you lose <br />'+
 		 	  '-No Mega Evolution <br />'+

@@ -417,7 +417,7 @@ var trainerCards = {
 	tempest: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Tempest</b><br />'+
-			 '<i>"D=<{[(2*lv+10)/250]*Atk/Def*BP+2}*STAB*Eff*Crit*Itm*Abl*Wt*Spr>*x, 0.85<x<1"</i> <br />'+
+			 '<i>"D=<{[(2*lv+10)/250]*Atk/Def*BP+2}*STAB*Eff*Crit*Itm*Abl*Wt*Spr>*x"</i> <br />'+
 		         '<b>Symbol:</b> World <br />'+
 			 '<b>Ace:</b> Kangaskhan<br />'+
 			 '<b>Battle rules:</b> <br />'+

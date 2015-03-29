@@ -55,14 +55,14 @@ var trainerCards = {
 	 	     '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         },
 
-	dragon: 'meows',
-	meows: function(target, room, user) {
+	dragon: 'leaf',
+	leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
-		      'Leader Ranking: <font color = 72ff00><b>4th</font></b> <br />'+
-		      '<i>"Roar"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
+		      'Leader Ranking: <font color =1000ff><b>6th</font></b> <br />'+
+		      '<i>"???"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> Dragalge<br />');
+		      '<b>Ace:</b> ???<br />');
 	},
 	
 	ascher: function(target, room, user) {
@@ -481,14 +481,14 @@ var trainerCards = {
 			  
 	},
 	
-	bug: 'leaf',
-	leaf: function(target, room, user) {
+	bug: 'meows',
+	meows: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		          'Leader Ranking: <font color =1000ff><b>6th</font></b> <br />'+
-			  '<i>"Bugs are legion, what can be crushed can be reborn; watch your step or you might be the one trodden on"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Moews</b><br />'+
+		          'Leader Ranking: <font color = 72ff00><b>4th</font></b> <br />'+ 
+			  '<i>"Expect the unexpected."</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
-			  '<b>Ace:</b> Scarab (Heracross) <br />');
+			  '<b>Ace:</b> Galvantula <br />');
         },
 	
 	ice: function(target, room, user) {
@@ -686,9 +686,9 @@ var trainerCards = {
 				'-<b>1st <font color = 00a6c4>Akkie</font></b> (Flying)<br />'+
 				'-<b>2nd <font color = ff00b6>Darkus</font></b></b> (Psychic)<br />'+
 				'-<b>3rd <font color = 5e6664>Floatzel</font></b> (Steel)<br />'+
-				'-<b>4th <font color = 230077>Meows</font></b> (Dragon) <br />'+
+				'-<b>4th <font color = 65b510>Meows</font></b> (Bug) <br />'+
 				'-<b>5th <font color = 0745ff>Arthur</font></b> (Water)<br />'+
-				'-<b>6th <font color = 65b510>Leaf</font></b> (Bug)<br />'+
+				'-<b>6th <font color = 230077>Leaf</font></b> (Dragon)<br />'+
 				'</div>');
 	
 	},

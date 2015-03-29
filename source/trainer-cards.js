@@ -471,13 +471,13 @@ var trainerCards = {
 			  
 	},
 	
-	
-	ground: function(target, room, user) {
+	ground: 'noahb',
+	noahb: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>NoahB</b><br />'+
+			  '<i>"Be sure you be at sky or else you have lost"</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Mamoswine<br />');
 			  
 	},
 	

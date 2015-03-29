@@ -196,7 +196,7 @@ exports.customAvatars = {
 	  'frntierterror': '104.gif',
 	  'gymldrtsuna': '076.gif',
 	  'gymldrmeows': '099.gif',
-	  'frontiergasp': '080.jpg',
+	  'gasp': '080.jpg',
 	  'typhozzz': '081.png',
 	  'rubiks456': '084.png',
 	  'gymldrarshrs': 'blakjack.png',

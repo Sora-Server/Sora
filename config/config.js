@@ -149,7 +149,7 @@ exports.customAvatars = {
 	  'onyxeagle': '057.gif',
 	  'chmpionbart': '100.gif',
 	  'champinnah': '105.png',
-	  'frntierajeratt': '045.jpg',
+	  'artistejeratt': '045.jpg',
 	  'frontiervader': '005.gif',
 	  'frontierryu': '006.gif',
 	  'gymldrleaf': '065.gif',

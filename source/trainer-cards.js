@@ -60,9 +60,9 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
 		      'Leader Ranking: <font color =1000ff><b>6th</font></b> <br />'+
-		      '<i>"???"</i> <br />'+
+		      '<i>"hear that roar, that is my true power-uh scratch that its my stomach, either way your screwed though"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> ???<br />');
+		      '<b>Ace:</b> Frigid (Kyurem)<br />');
 	},
 	
 	ascher: function(target, room, user) {

@@ -406,10 +406,10 @@ var trainerCards = {
         
 	ghost: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			 '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Blazer</b><br />'+
+			 '<i>""Too much Water 7.8/10"-IGN"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> Gengar<br />');
 			 
         },
         

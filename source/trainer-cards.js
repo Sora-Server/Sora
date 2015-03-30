@@ -484,7 +484,7 @@ var trainerCards = {
 	bug: 'meows',
 	meows: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Moews</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
 		          'Leader Ranking: <font color = 72ff00><b>4th</font></b> <br />'+ 
 			  '<i>"Expect the unexpected."</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+

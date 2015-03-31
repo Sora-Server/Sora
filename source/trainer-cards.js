@@ -261,8 +261,8 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Neith</b><br />'+
 	              '<i>"Hotter than \'Straya in Summer"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> Maddie (Typhlosion)<br />');
-	              '<a href="http://i.imgur.com/4zYUBSz.png"><img src="http://i.imgur.com/SMZR9GX.png" title="Founder of the Sora League"></a>
+	              '<b>Ace:</b> Maddie (Typhlosion)<br />'+
+	              '<a href="http://i.imgur.com/4zYUBSz.png"><img src="http://i.imgur.com/SMZR9GX.png" title="Founder of the Sora League"></a>');
 	              
 
 	},

@@ -255,7 +255,7 @@ var trainerCards = {
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> Maddie (Typhlosion)<br />'+
 	              '<b>Badges:</b><br />'+
-	              '<a href="http://i.imgur.com/4zYUBSz.png"><img src="http://i.imgur.com/SMZR9GX.png" title="Founder of the Sora League"></a><br />'+
+	              '<a href="http://oi61.tinypic.com/f5ufo.jpg"><img src="http://oi61.tinypic.com/2nkoyyu.jpg" title="Founder of the Sora League"></a><br />'+
 	              '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 
 	},

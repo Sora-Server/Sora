@@ -258,11 +258,12 @@ var trainerCards = {
         fire: 'neith',
         neith: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b><font color = FF9900>∆Gym Ldr. Neith∆</font></b></center></a><br />'+
-	              '<center><i>"Hotter than \'Straya in Summer"</i></center> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Neith</b><br />'+
+	              '<i>"Hotter than \'Straya in Summer"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> Maddie (Typhlosion)<br />'+
-	              '<b>Badges:</b><a href="http://i.imgur.com/4zYUBSz.png"><img src="http://i.imgur.com/SMZR9GX.png" title="Founder of the Sora League"></a><br />'+
+	              '<b>Badges:</b><br />'+
+	              '<a href="http://i.imgur.com/4zYUBSz.png"><img src="http://i.imgur.com/SMZR9GX.png" title="Founder of the Sora League"></a><br />'+
 	              '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 
 	},

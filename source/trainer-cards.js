@@ -225,15 +225,7 @@ var trainerCards = {
 	},
      
         
-        core: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Core</b><br />'+
-			'<i>"Everything is always fun and easy, it\'s just how you look at it is what makes it boring and difficult."</i> <br />'+
-			'<b>Symbol:</b> Creativity <br />'+
-			'<b>Ace:</b> All <br />'+
-			'<b>Battle Rules:</b> <br />'+
-			'- <a href=http://soraleague.weebly.com/pokemon-sandbox.html">Pokemon Sandbox</a><br />');
-        },
+      
         
         
         fighting: function(target, room, user) {
@@ -411,7 +403,8 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Blazer</b><br />'+
 			 '<i>""Too much Water 7.8/10"-IGN"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
-			 '<b>Ace:</b> Gengar<br />');
+			 '<b>Ace:</b> Gengar<br />'+
+			  'This Member is a Frontier <a href="http://soraleague.weebly.com/rules.html">Inactivity Clause</a> substitute. If you\'re interested in testing for this position, please PM an Administrator <br />');
 			 
         },
         

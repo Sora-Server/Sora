@@ -1005,7 +1005,7 @@ var customCommands = {
 			var awayName = user.name + ' -ⒷⓊⓈⓎ';
 			delete Users.get(awayName);
 			user.forceRename(awayName, undefined, true);
-			this.add('|raw|-- <b><font color="#000000">' + originalName +'</font color></b> is busy. '+ (target ? " (" + target + ")" : ""));
+			this.add('|raw|-- <b><font color="#000000">' + originalName +'</font color></b> busy. '+ (target ? " (" + target + ")" : ""));
 			user.isAway = true;
 		}
 		else {
@@ -1020,7 +1020,7 @@ var customCommands = {
 		if (!this.can('lock')) return false;
 		if (!user.isAway) {
 			var originalName = user.name;
-			var awayName = user.name + ' Ⓓⓘⓝ ⓓⓘⓝⓢ';
+			var awayName = user.name + ' -Ⓓⓘⓝ ⓓⓘⓝⓢ';
 			delete Users.get(awayName);
 			user.forceRename(awayName, undefined, true);
 			this.add('|raw|-- <b><font color="#000000">' + originalName +'</font color></b> is now eating din dins. '+ (target ? " (" + target + ")" : ""));

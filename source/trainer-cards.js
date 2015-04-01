@@ -277,7 +277,7 @@ var trainerCards = {
         matt99: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-			  '<i>"???"</i> <br />'+
+			  '<i>"My Pokémon are all rock hard, and have true-grit determination." -Brock 2004</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
 			  '<b>Ace:</b> Terrakion<br />');
 			  

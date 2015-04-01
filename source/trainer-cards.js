@@ -409,7 +409,7 @@ var trainerCards = {
 	
         },
 
-        faithless: 'ghost',
+        ghost: 'faithless',
 	faithless: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Faithless</b><br />'+

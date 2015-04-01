@@ -273,13 +273,13 @@ var trainerCards = {
 	},
 
     
-        
-        rock: function(target, room, user) {
+        rock: 'matt99',
+        matt99: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Terrakion<br />');
 			  
 			  
         },

@@ -1015,6 +1015,29 @@ var customCommands = {
 	
 	
         },
+        
+        dindins: function(target, room, user, connection) {
+		if (!this.can('lock')) return false;
+		if (!user.isAway) {
+			var originalName = user.name;
+			var awayName = user.name + ' Ⓓⓘⓝ ⓓⓘⓝⓢ';
+			delete Users.get(awayName);
+			user.forceRename(awayName, undefined, true);
+			this.add('|raw|-- <b><font color="#000000">' + originalName +'</font color></b> is now eating din dins. '+ (target ? " (" + target + ")" : ""));
+			user.isAway = true;
+		}
+		else {
+			return this.sendReply('You are already set as at din dins, type /back if you are now back');
+		}
+		user.updateIdentity();
+	
+	
+        },
+        
+        
+        
+        
+        },
 	
 	nt: 'newtour',
 	  newtour: function(target, room, user) {

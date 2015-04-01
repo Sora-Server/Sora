@@ -409,14 +409,13 @@ var trainerCards = {
 	
         },
 
-        
-	ghost: function(target, room, user) {
+        faithless: 'ghost',
+	faithless: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Blazer</b><br />'+
-			 '<i>""Too much Water 7.8/10"-IGN"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Faithless</b><br />'+
+			 '<i>"Whoever said you needed something to cling to?"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
-			 '<b>Ace:</b> Gengar<br />'+
-			  'This Member is a Frontier <a href="http://soraleague.weebly.com/rules.html">Inactivity Clause</a> substitute. If you\'re interested in testing for this position, please PM an Administrator <br />');
+			 '<b>Ace:</b> Trevenant<br />');
 			 
         },
         

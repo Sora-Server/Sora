@@ -349,6 +349,18 @@ var trainerCards = {
 		 	  '-Item Clause <br />');
 	},
 	
+	anna: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Frontier <b>Anna</b><br />'+
+			  '<i>"Believe in your dreams."</i> <br />'+
+			  '<b>Symbol:</b> The Sparkle Symbol<br />'+
+			  '<b>Ace:</b> Xerneas<br />'+
+			  '<b>Battle Rules:</b> <br/>'+
+		 	  '-Ubers <br/>');
+	
+	
+        },
+	
 	asch: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Frontier <b>Asch</b><br />'+

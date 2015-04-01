@@ -967,7 +967,7 @@ var customCommands = {
 		if (!this.can('lock')) return false;
 		if (!user.isAway) {
 			var originalName = user.name;
-			var awayName = user.name + ' - ⒶⒻⓀ';
+			var awayName = user.name + ' - ⒶⒻⓀ   ';
 			delete Users.get(awayName);
 			user.forceRename(awayName, undefined, true);
 			this.add('|raw|-- <b><font color="#000000">' + originalName +'</font color></b> is now away. '+ (target ? " (" + target + ")" : ""));
@@ -984,7 +984,7 @@ var customCommands = {
 		if (!this.can('lock')) return false;
 		if (user.isAway) {
 			var name = user.name;
-			var newName = name.substr(0, name.length - 6);
+			var newName = name.substr(0, name.length - 9);
 			delete Users.get(newName);
 			user.forceRename(newName, undefined, true);
 			user.authenticated = true;
@@ -1002,7 +1002,7 @@ var customCommands = {
 		if (!this.can('lock')) return false;
 		if (!user.isAway) {
 			var originalName = user.name;
-			var awayName = user.name + ' -ⒷⓊⓈⓎ';
+			var awayName = user.name + ' - ⒷⓊⓈⓎ  ';
 			delete Users.get(awayName);
 			user.forceRename(awayName, undefined, true);
 			this.add('|raw|-- <b><font color="#000000">' + originalName +'</font color></b> is now busy. '+ (target ? " (" + target + ")" : ""));
@@ -1017,6 +1017,24 @@ var customCommands = {
         },
        
 	
+	dindins: function(target, room, user, connection) {
+		if (!this.can('lock')) return false;
+		if (!user.isAway) {
+			var originalName = user.name;
+			var awayName = user.name + ' -ⒹⓘⓝⒹⓘⓝⓢ';
+			delete Users.get(awayName);
+			user.forceRename(awayName, undefined, true);
+			this.add('|raw|-- <b><font color="#000000">' + originalName +'</font color></b> is now having din dins. '+ (target ? " (" + target + ")" : ""));
+			user.isAway = true;
+		}
+		else {
+			return this.sendReply('You are already set as  at din dins, type /back if you are now back');
+		}
+		user.updateIdentity();
+        
+        },
+        
+        
 	nt: 'newtour',
 	  newtour: function(target, room, user) {
 	  this.parse('/tour new ' + target);

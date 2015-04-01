@@ -304,13 +304,13 @@ var trainerCards = {
 			  '<b>Ace:</b> King of the Sea (Mega-Sharpedo)<br />');
         },
         
-        
-        poison: function(target, room, user) {
+        poison: 'arjunb',
+        arjunb: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			 '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Arjunb</b><br />'+
+			 'No Quote <br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> None<br />');
 	},
         
         flying: 'akkie',

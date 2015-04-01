@@ -403,6 +403,8 @@ var trainerCards = {
 		 	  '-At least 3 different types of Priomons moves must be used <br/>'+
 		 	  '-No hazards <br />'+
 		 	  '<img src="http://play.pokemonshowdown.com/sprites/xyani/groudon.gif"><img src="http://sprites.pokecheck.org/t/033.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/kyogre.gif"> <br/>'+
+		 	  '<b>Badges:</b><br />'+
+	                  '<a href="http://oi57.tinypic.com/2lijzwp.jpg"><img src="http://oi60.tinypic.com/21liree.jpg" title="Sora\'s Breadmin Team"></a><br />'+
 		 	  '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	
 	

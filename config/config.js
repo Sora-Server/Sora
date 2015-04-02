@@ -170,7 +170,7 @@ exports.customAvatars = {
 	  'gymldrarthurzh': '101.png',
 	  'akashpaul': '027.gif',
 	  'gymldriris': '028.png',
-	  'frontiertempest': '110.png',
+	  'frontiertempest': '111.png',
 	  'gymldrbm': '040.png',
 	  'acetrainerstark': '041.png',
 	  'frontierlou': '047.gif',

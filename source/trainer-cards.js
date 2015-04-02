@@ -240,7 +240,7 @@ var trainerCards = {
         matt99: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-	              '<i>"he elusive Fairy types may appear frail as a breeze and delicate as a bloom, but they are strong."</i> <br />'+
+	              '<i>"The elusive Fairy types may appear frail as a breeze and delicate as a bloom, but they are strong."</i> <br />'+
 	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
 	              '<b>Ace:</b> Gardevoir<br />');
 	              

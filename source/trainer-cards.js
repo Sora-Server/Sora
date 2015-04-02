@@ -199,10 +199,10 @@ var trainerCards = {
         
 	grass: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Tempest</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			'<i>"???"</i> <br />'+
 			'<b>Type:<font color = 006b0a>Grass</font></b> <br />'+ 
-			'<b>Ace:</b> ???r />');
+			'<b>Ace:</b> ???<br />');
 			
 	},
 
@@ -236,13 +236,13 @@ var trainerCards = {
         },
         
         
-        
-        fairy: function(target, room, user) {
+        fairy: 'matt99',
+        matt99: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-	              '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
+	              '<i>"he elusive Fairy types may appear frail as a breeze and delicate as a bloom, but they are strong."</i> <br />'+
 	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
-	              '<b>Ace:</b> ???<br />');
+	              '<b>Ace:</b> Gardevoir<br />');
 	              
         },
         
@@ -272,13 +272,13 @@ var trainerCards = {
 	},
 
     
-        rock: 'matt99',
-        matt99: function(target, room, user) {
+        
+        rock: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-			  '<i>"My Pokémon are all rock hard, and have true-grit determination." -Brock 2004</i> <br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
-			  '<b>Ace:</b> Terrakion<br />');
+			  '<b>Ace:</b> ???<br />');
 			  
 			  
         },

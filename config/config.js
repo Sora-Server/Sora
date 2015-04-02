@@ -206,7 +206,8 @@ exports.customAvatars = {
 	  'e4ignitor': '093.png',
 	  'gymldrfloatzel': '102.gif',
 	  'e4hantu': '107.jpg',
-	  'arjunb': '109.png'
+	  'arjunb': '109.png',
+	  'gymldrmatt99': '112.jpg'
 	
 };
 

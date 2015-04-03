@@ -201,7 +201,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Edge</b><br />'+
 			'<i>"Dashing through the grass cus I\'m coming to tap your Ass"</i> <br />'+
-			'<b>Type:<font color = 006b0a>Grass</font></b> <br />'+ 
+			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Mega Venusaur<br />');
 			
 	},

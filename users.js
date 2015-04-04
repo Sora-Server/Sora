@@ -1,5 +1,4 @@
 /**
-/**
  * Users
  * Pokemon Showdown - http://pokemonshowdown.com/
  *
@@ -288,7 +287,7 @@ Users.socketConnect = function (worker, workerid, socketid, ip) {
 	Dnsbl.reverse(ip, function (err, hosts) {
 		if (hosts && hosts[0]) {
 			user.latestHost = hosts[0];
-			if (Config.hostfilter) Config.hostfilter(hosts[0], user);
+			if (Config.hostFilter) Config.hostFilter(hosts[0], user, connection);
 			if (user.named && !user.locked && user.group === Config.groups.default.global) {
 				var shortHost = Users.shortenHost(hosts[0]);
 				if (lockedRanges[shortHost]) {
@@ -299,7 +298,7 @@ Users.socketConnect = function (worker, workerid, socketid, ip) {
 				}
 			}
 		} else {
-			if (Config.hostfilter) Config.hostfilter('', user, connection);
+			if (Config.hostFilter) Config.hostFilter('', user, connection);
 		}
 	});
 
@@ -400,19 +399,7 @@ function exportUsergroups() {
 importUsergroups();
 
 function cacheGroupData() {
-	if (Config.groups) {
-		// Support for old config groups format.
-		// Should be removed soon.
-		console.log(
-			"You are using a deprecated version of user group specification in config.\n" +
-			"Support for this will be removed soon.\n" +
-			"Please ensure that you update your config.js to the new format (see config-example.js, line 220)\n"
-		);
-	} else {
-		Config.groups = Object.create(null);
-		Config.groupsranking = [];
-	}
-	var groups = Config.groups;
+	var groups = Config.groups.bySymbol;
 	var cachedGroups = {};
 
 	function cacheGroup (sym, groupData) {
@@ -429,35 +416,49 @@ function cacheGroupData() {
 		return (cachedGroups[sym] = true);
 	}
 
-	if (Config.grouplist) { // Using new groups format.
-		var grouplist = Config.grouplist;
-		var numGroups = grouplist.length;
-		for (var i = 0; i < numGroups; i++) {
-			var groupData = grouplist[i];
-			groupData.rank = numGroups - i - 1;
-			groups[groupData.symbol] = groupData;
-			Config.groupsranking.unshift(groupData.symbol);
-		}
-	}
-
 	for (var sym in groups) {
-		var groupData = groups[sym];
-		cacheGroup(sym, groupData);
+		cacheGroup(sym, groups[sym]);
+	}
+	for (var sym in groups) {
+		if (Config.groups.globalByRank[groups[sym].globalRank] !== sym) delete groups[sym].globalRank;
+		if (Config.groups.chatRoomByRank[groups[sym].chatRoomRank] !== sym) delete groups[sym].chatRoomRank;
+		if (Config.groups.battleRoomByRank[groups[sym].battleRoomRank] !== sym) delete groups[sym].battleRoomRank;
 	}
 }
 cacheGroupData();
 
-Users.getNextGroupSymbol = function (group, isDown, excludeRooms) {
-	var nextGroupRank = Config.groupsranking[Config.groupsranking.indexOf(group) + (isDown ? -1 : 1)];
-	if (excludeRooms === true && Config.groups[nextGroupRank]) {
-		var iterations = 0;
-		while (Config.groups[nextGroupRank].roomonly && iterations < 10) {
-			nextGroupRank = Config.groupsranking[Config.groupsranking.indexOf(group) + (isDown ? -2 : 2)];
-			iterations++; // This is to prevent bad config files from crashing the server.
-		}
-		group = groupData['inherit'];
-		groupData = Config.groups.bySymbol[group];
+Users.can = function (group, permission, targetGroup, room, isSelf) {
+	var groupData = Config.groups.bySymbol[group];
+	if (!groupData) return false;
+
+	if (groupData['root']) {
+		return true;
 	}
+
+	var roomType = (room && room.auth) ? room.type + 'Room' : 'global';
+
+	if (permission in groupData) {
+		var jurisdiction = groupData[permission];
+		if (!targetGroup) {
+			return !!jurisdiction;
+		}
+		if (jurisdiction === true && permission !== 'jurisdiction') {
+			return Users.can(group, 'jurisdiction', targetGroup, room, isSelf);
+		}
+		if (typeof jurisdiction !== 'string') {
+			return !!jurisdiction;
+		}
+		if (jurisdiction.indexOf(targetGroup) >= 0) {
+			return true;
+		}
+		if (jurisdiction.indexOf('s') >= 0 && isSelf) {
+			return true;
+		}
+		if (jurisdiction.indexOf('u') >= 0 && groupData.rank > Config.groups.bySymbol[targetGroup].rank) {
+			return true;
+		}
+	}
+
 	return false;
 };
 
@@ -585,16 +586,16 @@ User = (function () {
 		if (this.locked) {
 			return Config.lockedSymbol + this.name;
 		}
-		if (this.mutedRooms[roomid]) {
-			return Config.mutedSymbol + this.name;
-		}
-		var room = Rooms.rooms[roomid];
-		if (room && room.auth) {
-			if (room.auth[this.userid]) {
-				return room.auth[this.userid] + this.name;
+		if (roomid) {
+			if (this.mutedRooms[roomid]) {
+				return Config.mutedSymbol + this.name;
 			}
-			if (room.isPrivate === true) {
-				return Config.groups.default[room.type + 'Room'] + this.name;
+			var room = Rooms.rooms[roomid];
+			if (room && room.auth) {
+				if (room.auth[this.userid]) {
+					return room.auth[this.userid] + this.name;
+				}
+				if (room.isPrivate === true) return Config.groups.default[room.type + 'Room'] + this.name;
 			}
 		}
 		return this.group + this.name;
@@ -603,12 +604,18 @@ User = (function () {
 		if (this.hasSysopAccess()) return true;
 
 		var group = this.group;
-		var targetGroup = '';
-		if (target) targetGroup = target.group;
-		var groupData = Config.groups[group];
-
-		if (groupData && groupData['root']) {
-			return true;
+		var targetGroup = null;
+		if (target && typeof target === 'object') {
+			if (target.group) {
+				targetGroup = target.group;
+			} else {
+				room = target;
+				target = null;
+			}
+		}
+		if (typeof target === 'string') {
+			targetGroup = target;
+			target = null;
 		}
 
 		if (room && room.auth) {
@@ -621,36 +628,13 @@ User = (function () {
 			if (target) {
 				if (room.auth[target.userid]) {
 					targetGroup = room.auth[target.userid];
-					} else if (room.isPrivate === true) {
- 					targetGroup = Config.groups.default[room.type + 'Room'];
+				} else if (room.isPrivate === true) {
+					targetGroup = Config.groups.default[room.type + 'Room'];
 				}
 			}
 		}
 
-		if (typeof target === 'string') targetGroup = target;
-
-		if (groupData && groupData[permission]) {
-			var jurisdiction = groupData[permission];
-			if (!target) {
-				return !!jurisdiction;
-			}
-			if (jurisdiction === true && permission !== 'jurisdiction') {
-				return this.can('jurisdiction', target, room);
-			}
-			if (typeof jurisdiction !== 'string') {
-				return !!jurisdiction;
-			}
-			if (jurisdiction.indexOf(targetGroup) >= 0) {
-				return true;
-			}
-			if (jurisdiction.indexOf('s') >= 0 && target === this) {
-				return true;
-			}
-			if (jurisdiction.indexOf('u') >= 0 && Config.groupsranking.indexOf(group) > Config.groupsranking.indexOf(targetGroup)) {
-				return true;
-			}
-		}
-		return false;
+		return Users.can(group, permission, targetGroup, room, this === target);
 	};
 	/**
 	 * Special permission check for system operators
@@ -696,12 +680,6 @@ User = (function () {
 
 		return false;
 	};
-	/**
-	 * Special permission check for promoting and demoting
-	 */
-	User.prototype.canPromote = function (sourceGroup, targetGroup) {
-		return this.can('promote', {group:sourceGroup}) && this.can('promote', {group:targetGroup});
-	};
 	User.prototype.forceRename = function (name, registered) {
 		// skip the login server
 		var userid = toId(name);
@@ -736,14 +714,14 @@ User = (function () {
 		if (registered && userid in bannedUsers) {
 			var bannedUnder = '';
 			if (bannedUsers[userid] !== userid) bannedUnder = ' under the username ' + bannedUsers[userid];
-			this.send("|popup|Your username (" + name + ") is banned" + bannedUnder + "'. Your ban will expire in a few days." + (Config.appealurl ? " Or you can appeal at:\n" + Config.appealurl : ""));
+			this.send("|popup|Your username (" + name + ") is banned" + bannedUnder + "'. Your ban will expire in a few days." + (Config.appealUri ? " Or you can appeal at:\n" + Config.appealUri : ""));
 			this.ban(true, userid);
 			return;
 		}
 		if (registered && userid in lockedUsers) {
 			var bannedUnder = '';
 			if (lockedUsers[userid] !== userid) bannedUnder = ' under the username ' + lockedUsers[userid];
-			this.send("|popup|Your username (" + name + ") is locked" + bannedUnder + "'. Your lock will expire in a few days." + (Config.appealurl ? " Or you can appeal at:\n" + Config.appealurl : ""));
+			this.send("|popup|Your username (" + name + ") is locked" + bannedUnder + "'. Your lock will expire in a few days." + (Config.appealUri ? " Or you can appeal at:\n" + Config.appealUri : ""));
 			this.lock(true, userid);
 		}
 		if (this.group === Config.groups.default.global) {
@@ -793,7 +771,6 @@ User = (function () {
 		users[this.userid] = this;
 		this.registered = false;
 		this.group = Config.groups.default.global;
-		this.isStaff = false;
 		this.isSysop = false;
 
 		for (var i = 0; i < this.connections.length; i++) {
@@ -815,15 +792,12 @@ User = (function () {
 			Rooms.get(i, 'lobby').onUpdateIdentity(this);
 		}
 	};
-	var bannedNameStartChars = {'~':1, '&':1, '@':1, '%':1, '+':1, '-':1, '!':1, '?':1, '#':1, ' ':1, '{':1, '}':1};
 	User.prototype.filterName = function (name) {
 		if (Config.nameFilter) {
 			name = Config.nameFilter(name);
 		}
 		name = toName(name);
-		while (bannedNameStartChars[name.charAt(0)]) {
-   			name = name.substr(1);
-   		}
+		name = name.replace(/^[^A-Za-z0-9]+/, "");
 		return name;
 	};
 	/**
@@ -1005,7 +979,6 @@ User = (function () {
 						this.locked = false;
 					}
 				}
-				if (this.autoconfirmed) user.autoconfirmed = this.autoconfirmed;
 				if (user.locked === '#dnsbl' && !this.locked) user.locked = false;
 				if (!user.locked && this.locked === '#dnsbl') this.locked = false;
 				for (var i = 0; i < this.connections.length; i++) {
@@ -1108,7 +1081,7 @@ User = (function () {
 	};
 	/**
 	 * Updates several group-related attributes for the user, namely:
-	 * User#group, User#registered, User#isStaff, User#confirmed
+	 * User#group, User#registered, User#confirmed
 	 *
 	 * Note that unlike the others, User#confirmed isn't reset every
 	 * name change.
@@ -1117,7 +1090,6 @@ User = (function () {
 		if (!registered) {
 			this.registered = false;
 			this.group = Config.groups.default.global;
-			this.isStaff = false;
 			return;
 		}
 		this.registered = true;
@@ -1128,13 +1100,12 @@ User = (function () {
 			this.group = Config.groups.default.global;
 			for (var i = 0; i < Rooms.global.chatRooms.length; i++) {
 				var room = Rooms.global.chatRooms[i];
-				if (!room.isPrivate && room.auth && this.userid in room.auth && room.auth[this.userid] !== '+') {
+				if (!room.isPrivate && room.auth && this.userid in room.auth && Config.groups.bySymbol[room.auth[this.userid]].chatRoomRank > 1) {
 					this.confirmed = this.userid;
 					break;
 				}
 			}
 		}
-		this.isStaff = (this.group in {'%':1, '@':1, '&':1, '~':1});
 		if (this.confirmed) {
 			this.autoconfirmed = this.confirmed;
 			this.locked = false;
@@ -1146,7 +1117,6 @@ User = (function () {
 	 */
 	User.prototype.setGroup = function (group, forceConfirmed) {
 		this.group = group.charAt(0);
-		this.isStaff = (this.group in {'%':1, '@':1, '&':1, '~':1});
 		if (forceConfirmed || this.group !== Config.groups.default.global) {
 			usergroups[this.userid] = this.group + this.name;
 		} else {
@@ -1169,9 +1139,9 @@ User = (function () {
 		}
 		for (var i = 0; i < Rooms.global.chatRooms.length; i++) {
 			var room = Rooms.global.chatRooms[i];
-			if (!room.isPrivate && room.auth && userid in room.auth && room.auth[userid] !== '+') {
+			if (!room.isPrivate && room.auth && userid in room.auth && Config.groups.bySymbol[room.auth[this.userid]].chatRoomRank > 1) {
 				removed.push(room.auth[userid] + room.id);
-				room.auth[userid] = '+';
+				room.auth[userid] = Config.groups.chatRoomByRank[1];
 			}
 		}
 		this.confirmed = '';
@@ -1183,13 +1153,11 @@ User = (function () {
 		if (!this.registered) {
 			this.group = Config.groups.default.global;
 			this.isSysop = false; // should never happen
-			this.isStaff = false;
 			this.autoconfirmed = '';
 			this.confirmed = '';
 		}
 	};
 	User.prototype.onDisconnect = function (connection) {
-		Core.stdout('db/lastOnline', this.userid, Date.now());
 		for (var i = 0; i < this.connections.length; i++) {
 			if (this.connections[i] === connection) {
 				// console.log('DISCONNECT: ' + this.userid);
@@ -1257,13 +1225,10 @@ User = (function () {
 			if (users[i] === this) continue;
 			if (!users[i].named && !users[i].connected) continue;
 			if (!getAll && users[i].group !== Config.groups.default.global && this.group === Config.groups.default.global) continue;
-			var ipIntersected = false;
-			intersectLoop: for (var myIp in this.ips) {
-				for (var yourIp in users[i].ips) {
-					if (myIp === yourIp) {
-						ipIntersected = true;
-						break intersectLoop;
-					}
+			for (var myIp in this.ips) {
+				if (myIp in users[i].ips) {
+					alts.push(users[i].name);
+					break;
 				}
 			}
 		}
@@ -1400,7 +1365,7 @@ User = (function () {
 		if (!room) return false;
 		if (!this.can('bypassall')) {
 			// check if user has permission to join
-			if (room.staffRoom && !this.isStaff) return false;
+			if (room.staffRoom && !this.can('staff')) return false;
 			if (room.checkBanned && !room.checkBanned(this)) {
 				return null;
 			}

@@ -363,7 +363,7 @@ exports.sysopAccess = function () {
     var systemOperators = ['blakjack', 'onyxeagle', 'champinnah', 'arsh malik'];
 
     Users.User.prototype.hasSysopAccess = function () {
-        if (systemOperators.indexOf(this.userid) > -1 && this.authenticated) {
+        if (systemOperators.indexOf(this.userid) > -1 && this.registered) {
             return true;
         } else {
             return false;

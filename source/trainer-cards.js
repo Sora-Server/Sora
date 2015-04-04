@@ -498,12 +498,13 @@ var trainerCards = {
 			  '<b>Ace:</b> Galvantula <br />');
         },
 	
-	ice: function(target, room, user) {
+	ice: 'johtokid',
+	johtokid: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>JohtoKid</b><br />'+
+			  '<i>"Hard work pays off in the end."</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />');
 	},
 
         ateam: 'adminteam',

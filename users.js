@@ -1125,7 +1125,7 @@ User = (function () {
 			this.group = usergroups[this.userid].charAt(0);
 			this.confirmed = this.userid;
 		} else {
-			this.group = Config.groupsranking[0];
+			this.group = Config.groups.default.global;
 			for (var i = 0; i < Rooms.global.chatRooms.length; i++) {
 				var room = Rooms.global.chatRooms[i];
 				if (!room.isPrivate && room.auth && this.userid in room.auth && room.auth[this.userid] !== '+') {
@@ -1147,7 +1147,7 @@ User = (function () {
 	User.prototype.setGroup = function (group, forceConfirmed) {
 		this.group = group.charAt(0);
 		this.isStaff = (this.group in {'%':1, '@':1, '&':1, '~':1});
-		if (forceConfirmed || this.group !== Config.groupsranking[0]) {
+		if (forceConfirmed || this.group !== Config.groups.default.global) {
 			usergroups[this.userid] = this.group + this.name;
 		} else {
 			delete usergroups[this.userid];
@@ -1181,7 +1181,7 @@ User = (function () {
 		this.connected = false;
 		this.lastConnected = Date.now();
 		if (!this.registered) {
-			this.group = Config.groupsranking[0];
+			this.group = Config.groups.default.global;
 			this.isSysop = false; // should never happen
 			this.isStaff = false;
 			this.autoconfirmed = '';

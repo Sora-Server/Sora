@@ -160,7 +160,14 @@ exports.customAvatars = {
 	//'userid': 'customavatar.png'
 };
 
-// appealUri - specify a URI containing information on how users can appeal
+// Tournament announcements
+// When tournaments are created in rooms listed below, they will be announced in
+// the server's main tournament room (either the specified tourroom or by default
+// the room 'tournaments')
+exports.tourroom = '';
+exports.tourannouncements = [/* roomids */];
+
+// appealurl - specify a URL containing information on how users can appeal
 // disciplinary actions on your section. You can also leave this blank, in
 // which case users won't be given any information on how to appeal.
 exports.appealUri = '';
@@ -171,10 +178,11 @@ exports.replsocketprefix = './logs/repl/';
 exports.replsocketmode = 0600;
 
 // permissions and groups:
-//   Each entry in `groupsranking' specifies the ranking of the groups.
-//   Each entry in `groups' is a seperate group. Some of the members are "special"
+//   Each entry in `grouplist' is a seperate group. Some of the members are "special"
 //     while the rest is just a normal permission.
+//   The order of the groups determines their ranking.
 //   The special members are as follows:
+//     - symbol: Specifies the symbol of the group (as shown in front of the username)
 //     - id: Specifies an id for the group.
 //     - name: Specifies the human-readable name for the group.
 //     - description: Specifies a description for the group.
@@ -188,11 +196,25 @@ exports.replsocketmode = 0600;
 //                       's' is a special group where it means the user itself only
 //                       and 'u' is another special group where it means all groups
 //                       lower in rank than the current group.
+//     - roomonly: forces the group to be a per-room moderation rank only.
+//     - globalonly: forces the group to be a global rank only.
 //   All the possible permissions are as follows:
-//     - alts: Ability to check alts.
-//     - announce: /announce command.
+//     - console: Developer console (>>).
+//     - lockdown: /lockdown and /endlockdown commands.
+//     - hotpatch: /hotpatch, /crashfixed and /savelearnsets commands.
+//     - ignorelimits: Ignore limits such as chat message length.
+//     - promote: Promoting and demoting. Will only work if the target user's current
+//                  group and target group are both in jurisdiction.
+//     - room<rank>: /roompromote to <rank> (eg. roomvoice)
 //     - ban: Banning and unbanning.
-//     - banword: Banning and unbanning words to be used in usernames.
+//     - mute: Muting and unmuting.
+//     - lock: locking (ipmute) and unlocking.
+//     - receivemutedpms: Receive PMs from muted users.
+//     - forcerename: /fr command.
+//     - redirect: /redir command.
+//     - ip: IP checking.
+//     - alts: Alt checking.
+//     - modlog: view the moderator logs.
 //     - broadcast: Broadcast informational commands.
 //     - bypassblocks: Bypass blocks such as your challenge being blocked.
 //     - console: Developer console (also requires IP or userid in the `consoleIps` array).

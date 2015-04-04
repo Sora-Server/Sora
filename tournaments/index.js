@@ -257,6 +257,7 @@ Tournament = (function () {
 		user.sendTo(this.room, '|tournament|update|{"isJoined":true}');
 		this.isBracketInvalidated = true;
 		this.update();
+		if (this.playerCap === (users.length + 1)) this.room.add("The tournament is now full.");
 	};
 	Tournament.prototype.removeUser = function (user, output) {
 		var error = this.generator.removeUser(user);
@@ -937,8 +938,14 @@ CommandParser.commands.tournament = function (paramString, room, user) {
 			return this.sendReply("Usage: " + cmd + " <format>, <type> [, <comma-separated arguments>]");
 		}
 
-		var tour = createTournament(room, params.shift(), params.shift(), Config.isTournamentsRated, params, this);
-		if (tour) this.privateModCommand("(" + user.name + " created a tournament in " + tour.format + " format.)");
+		var tour = createTournament(room, params.shift(), params.shift(), params.shift(), Config.istournamentsrated, params, this);
+		if (tour) {
+			this.privateModCommand("(" + user.name + " created a tournament in " + tour.format + " format.)");
+			if (Config.tourannouncements && Config.tourannouncements.indexOf(room.id) >= 0) {
+				var tourRoom = Rooms.search(Config.tourroom || 'tournaments');
+				if (tourRoom) tourRoom.addRaw('<div class="infobox"><a href="/' + room.id + '" class="ilink"><b>' + Tools.getFormat(tour.format).name + '</b> tournament created in <b>' + room.title + '</b>.</a></div>');
+			}
+		}
 	} else {
 		var tournament = getTournament(room.title);
 		if (!tournament) {

@@ -9,7 +9,7 @@ exports.BattleStatuses = {
 			this.add('-status', target, 'brn');
 		},
 		onBasePower: function (basePower, attacker, defender, move) {
-			if (move && move.category === 'Physical' && attacker && attacker.ability !== 'guts' && move.id !== 'facade') {
+			if (move && move.category === 'Physical' && attacker && !attacker.hasAbility('guts') && move.id !== 'facade') {
 				return this.chainModify(0.5); // This should really take place directly in the damage function but it's here for now
 			}
 		},
@@ -24,7 +24,7 @@ exports.BattleStatuses = {
 			this.add('-status', target, 'par');
 		},
 		onModifySpe: function (speMod, pokemon) {
-			if (pokemon.ability !== 'quickfeet') {
+			if (!pokemon.hasAbility('quickfeet')) {
 				return this.chain(speMod, 0.25);
 			}
 		},
@@ -46,7 +46,7 @@ exports.BattleStatuses = {
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove: function (pokemon, target, move) {
-			if (pokemon.getAbility().isHalfSleep) {
+			if (pokemon.hasAbility('earlybird')) {
 				pokemon.statusData.time--;
 			}
 			pokemon.statusData.time--;
@@ -78,12 +78,19 @@ exports.BattleStatuses = {
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove: function (pokemon, target, move) {
-			if (move.thawsUser || this.random(5) === 0) {
+			if (move.flags['defrost']) return;
+			if (this.random(5) === 0) {
 				pokemon.cureStatus();
 				return;
 			}
 			this.add('cant', pokemon, 'frz');
 			return false;
+		},
+		onModifyMove: function (move, pokemon) {
+			if (move.flags['defrost']) {
+				this.add('-curestatus', pokemon, 'frz', '[from] move: ' + move);
+				pokemon.setStatus('');
+			}
 		},
 		onHit: function (target, source, move) {
 			if (move.thawsTarget || move.type === 'Fire' && move.category !== 'Status') {
@@ -386,8 +393,6 @@ exports.BattleStatuses = {
 			return this.chainModify([modifier, 0x1000]);
 		}
 	},
-
-		// weather
 
 	// weather is implemented here since it's so important to the game
 

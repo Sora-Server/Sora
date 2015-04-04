@@ -102,8 +102,10 @@ exports.BattleAbilities = {
 	},
 	"simple": {
 		shortDesc: "If this Pokemon's stat stages are raised or lowered, the effect is doubled instead.",
-		onModifyBoost: function () {
-			return this.chainModify(2);
+		onModifyBoost: function (boosts) {
+			for (var key in boosts) {
+				boosts[key] *= 2;
+			}
 		},
 		id: "simple",
 		name: "Simple",
@@ -142,8 +144,9 @@ exports.BattleAbilities = {
 	},
 	"synchronize": {
 		inherit: true,
-		onAfterSetStatus: function (status, target, source) {
+		onAfterSetStatus: function (status, target, source, effect) {
 			if (!source || source === target) return;
+			if (effect && effect.id === 'toxicspikes') return;
 			var id = status.id;
 			if (id === 'slp' || id === 'frz') return;
 			if (id === 'tox') id = 'psn';

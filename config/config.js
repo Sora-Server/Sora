@@ -416,7 +416,7 @@ exports.groups = {
 			tournamentsmoderation: true,
 			warn: true
 		}, {
-			symbol; '$'
+			symbol: '$'
 		        id: "operator",
 		        name: "Operator",
 		        description: "Loyal Gym Trainers in training. They can warn users.",

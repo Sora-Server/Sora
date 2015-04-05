@@ -311,7 +311,7 @@ exports.replSocketMode = 0600;
 exports.mutedSymbol = '!';
 exports.lockedSymbol = '\u203d';
 exports.groups = {
-	global: {' ': 1, '+': 1, '%': 1, '@': 1, '&': 1, '~': 1},
+	global: {' ': 1, '+': 1, '$': 1, '%': 1, '@': 1, '&': 1, '~': 1},
 	chatRoom: {' ': 1, '+': 1, '%': 1, '@': 1, '#': 1},
 	battleRoom: {' ': 1, '+': 1, '\u2605': 1},
 
@@ -326,13 +326,13 @@ exports.groups = {
 			symbol: '~',
 			id: 'admin',
 			name: "Administrator",
-			description: "They can do anything, like change what this message says",
+			description: "Supreme Rulers of this server. They can do anything.",
 			root: true
 		}, {
 			symbol: '&',
 			id: 'leader',
 			name: "Leader",
-			description: "They can promote to moderator and force ties",
+			description: "Elite Four, the best of the best in the battlefield. They can force ties and promote users.",
 			inherit: '@',
 			jurisdiction: '@u',
 			banword: true,
@@ -371,12 +371,15 @@ exports.groups = {
 			symbol: '@',
 			id: 'mod',
 			name: "Moderator",
-			description: "They can ban users and set modchat",
+			description: "Frontier Brains, a twist in every game. They can ban users.",
 			inherit: '%',
 			jurisdiction: 'u',
 			alts: '@u',
 			ban: true,
 			forcerename: true,
+			announce: true,
+			hallofshame: true,
+			tell: false,
 			ip: true,
 			modchat: true,
 			roompromote: '+ ',
@@ -386,13 +389,17 @@ exports.groups = {
 			symbol: '%',
 			id: 'driver',
 			name: "Driver",
-			description: "They can mute. Global % can also lock and check users for alts",
+			description: "Gym Leaders, expert in their respective types. They can mute users and check alts.",
 			inherit: '+',
 			jurisdiction: 'u',
 			alts: '%u',
 			announce: true,
 			bypassblocks: 'u%@&~',
 			forcerename: true,
+			hallofshame: false,
+			tell: false,
+			warn: true,
+			tournaments: true,
 			jeopardy: true,
 			joinbattle: true,
 			kick: true,
@@ -403,11 +410,23 @@ exports.groups = {
 			timer: true,
 			tournamentsmoderation: true,
 			warn: true
-		}, {
+		},
+-		'$': {
+-		        id: "operator",
+-		        name: "Operator",
+-		        description: "Loyal Gym Trainers in training. They can warn users.",
+-		        inherit: '+ ',
+-		        jurisdiction: 'u',
+-		        broadcast: true,
+-		        tell: false,
+-		        warn: true,
+-		        rank: 2
+-	        },
+		{
 			symbol: '+',
 			id: 'voice',
 			name: "Voice",
-			description: "They can use ! commands like !groups, and talk during moderated chat",
+			description: "League friends and respected users. They can use ! commands.",
 			inherit: ' ',
 			broadcast: true
 		}, {

@@ -410,18 +410,18 @@ exports.groups = {
 			timer: true,
 			tournamentsmoderation: true,
 			warn: true
-		},
--		'$': {
--		        id: "operator",
--		        name: "Operator",
--		        description: "Loyal Gym Trainers in training. They can warn users.",
--		        inherit: '+ ',
--		        jurisdiction: 'u',
--		        broadcast: true,
--		        tell: false,
--		        warn: true,
--		        rank: 2
--	        },
+		}, {
+			symbol; '$'
+		        id: "operator",
+		        name: "Operator",
+		        description: "Loyal Gym Trainers in training. They can warn users.",
+		        inherit: '+ ',
+		        jurisdiction: 'u',
+		        broadcast: true,
+		        tell: false,
+		        warn: true,
+		        rank: 2
+	        },
 		{
 			symbol: '+',
 			id: 'voice',

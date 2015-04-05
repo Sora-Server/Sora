@@ -716,44 +716,7 @@ Tournament = (function () {
 			generator: this.generator.name,
 			bracketData: this.getBracketData()
 		}));
-		var from = Users.get(room.p1),
-            to = Users.get(room.p2),
-            fromElo = Number(Core.stdin('db/elo', toId(from))),
-            toElo = Number(Core.stdin('db/elo', toId(to))), arr;
-
-        var result = 'draw';
-        if (from === winner) {
-            result = 'win';
-            if (this.room.isOfficial && this.generator.users.size >= Core.tournaments.tourSize) {
-                arr = Core.calculateElo(fromElo, toElo);
-                Core.stdout('db/elo', toId(from), arr[0], function () {
-                    Core.stdout('db/elo', toId(to), arr[1]);
-                });
-            }
-        } else if (to === winner) {
-            result = 'loss';
-            if (this.room.isOfficial && this.generator.users.size >= Core.tournaments.tourSize) {
-                arr = Core.calculateElo(toElo, fromElo);
-                Core.stdout('db/elo', toId(to), arr[0], function () {
-                    Core.stdout('db/elo', toId(from), arr[1]);
-                });
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var data = {
+		var data = {
             results: this.generator.getResults().map(usersToNames),
             bracketData: this.getBracketData()
         }, runnerUp = false, winner;

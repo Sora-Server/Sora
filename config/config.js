@@ -417,7 +417,7 @@ exports.groups = {
 			warn: true
 		}, {
 			symbol: '$',
-		        id: "operator",
+		        id: 'operator',
 		        name: "Operator",
 		        description: "Loyal Gym Trainers in training. They can warn users.",
 		        inherit: '+ ',
@@ -425,7 +425,6 @@ exports.groups = {
 		        broadcast: true,
 		        tell: false,
 		        warn: true,
-		        rank: 2
 	        },
 		{
 			symbol: '+',

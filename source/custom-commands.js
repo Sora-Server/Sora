@@ -625,6 +625,7 @@ var customCommands = {
 					'You may want to check out <a href="http://soraleague.weebly.com/index.html">The Sora League Website</a> for details about the rules of challenge.<br /><br />' +
 					'<b>IMPORTANT:</b> Make sure you read our rules page <a href="http://soraleague.weebly.com/rules.html">here</a>, especially if you\'re challenging the league.<br /><br />' +
 					'<b>Warning:</b> Champion Noah and Champion Bart or any of our league members are not responsible for any damaged caused by hitting yourself after being confused by reading all this randomness.<br />'+
+					'Click <a href="http://thesoraleague.psim.us/tempeststradehub">here</a> for the Pokemon trading hub! <br /><br />'+ 
 					'<blink>P.S. <i>Do not feed the Ascher, you will regret it~</i></blink><br />'+
 					'<center><a href="http://plug.dj/sky-tree/"><img src="http://i1171.photobucket.com/albums/r545/Brahak/button_zpse0650635.png"></a></center><br /><br />'+
 					'<a href="https://www.facebook.com/TheSoraLeague?ref_type=bookmark"><img src="http://www.farmmachineryshow.org/images/FacebookIcon25X25.png"></a> Like us on Facebook!</div>');

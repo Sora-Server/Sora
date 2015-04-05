@@ -84,12 +84,11 @@ var Room = (function () {
 		message = CommandParser.parse(message, this, user, connection);
 
 		if (message) {
-			if (Spamroom.isSpamroomed(user)) {
-				Spamroom.room.add('|c|' + user.getIdentity() + "|__(To " + this.id + ")__ " + message);
-				Spamroom.room.update();
+			if (Users.ShadowBan.checkBanned(user)) {
+				Users.ShadowBan.addMessage(user, "To " + this.id, message);
 				connection.sendTo(this, '|c|' + user.getIdentity(this.id) + '|' + message);
 			} else {
-				this.add('|c|' + user.getIdentity(this.id) + '|' + message, true);
+				this.add('|c|' + user.getIdentity(this.id) + '|' + message);
 			}
 		}
 		this.update();
@@ -207,6 +206,8 @@ var GlobalRoom = (function () {
 			}];
 		}
 
+		// cached list of chat rooms for the room list
+		// usually does not contain private rooms, but no guarantees
 		this.chatRooms = [];
 
 		this.autojoin = []; // rooms that users autojoin upon connecting
@@ -224,7 +225,7 @@ var GlobalRoom = (function () {
 					aliases[room.aliases[a]] = room;
 				}
 			}
-			this.chatRooms.push(room);
+			if (!room.isPrivate || room.isPrivate === 'voice') this.chatRooms.push(room);
 			if (room.autojoin) this.autojoin.push(id);
 			if (room.staffAutojoin) this.staffAutojoin.push(id);
 		}
@@ -374,7 +375,7 @@ var GlobalRoom = (function () {
 		for (var i = 0; i < this.chatRooms.length; i++) {
 			var room = this.chatRooms[i];
 			if (!room) continue;
-			if (room.isPrivate && !(room.isPrivate === 'voice' && user.group !== ' ')) continue;
+			if (room.isPrivate && !(room.isPrivate === 'voice' && user.group !== Config.groups.default.chatRoom)) continue;
 			(room.isOfficial ? roomsData.official : roomsData.chat).push({
 				title: room.title,
 				desc: room.desc,
@@ -654,7 +655,7 @@ var GlobalRoom = (function () {
 		if (Config.reportBattles && rooms.lobby) {
 			rooms.lobby.add('|b|' + newRoom.id + '|' + p1.getIdentity() + '|' + p2.getIdentity());
 		}
-		if (Config.logladderip && options.rated) {
+		if (Config.logLadderIp && options.rated) {
 			if (!this.ladderIpLog) {
 				this.ladderIpLog = fs.createWriteStream('logs/ladderip/ladderip.txt', {flags: 'a'});
 			}
@@ -671,7 +672,7 @@ var GlobalRoom = (function () {
 		if (rooms.lobby) return rooms.lobby.chat(user, message, connection);
 		message = CommandParser.parse(message, this, user, connection);
 		if (message) {
-			connection.sendPopup("You can't send messages directly to the server.");
+			connection.popup("You can't send messages directly to the server.");
 		}
 	};
 	return GlobalRoom;
@@ -1499,6 +1500,9 @@ var ChatRoom = (function () {
 		if (global.Tournaments && Tournaments.get(this.id)) {
 			Tournaments.get(this.id).updateFor(user, connection);
 		}
+		if (this.reminders && this.reminders.length > 0)
+			CommandParser.parse('/reminder', this, user, connection);
+		CommandParser.parse('/donate', this, user, connection);
 	};
 	ChatRoom.prototype.onJoin = function (user, connection, merging) {
 		if (!user) return false; // ???
@@ -1510,8 +1514,10 @@ var ChatRoom = (function () {
 		if (!merging) {
 			var userList = this.userList ? this.userList : this.getUserList();
 			this.sendUser(connection, '|init|chat\n|title|' + this.title + '\n' + userList + '\n' + this.getLogSlice(-100).join('\n') + this.getIntroMessage());
-			
-		};
+			if (this.reminders && this.reminders.length > 0)
+				CommandParser.parse('/reminder', this, user, connection);
+			CommandParser.parse('/donate', this, user, connection);
+		}
 		if (user.named && Config.reportJoins) {
 			this.add('|j|' + user.getIdentity(this.id));
 			this.update();

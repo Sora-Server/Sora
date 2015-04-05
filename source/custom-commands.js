@@ -986,7 +986,7 @@ var customCommands = {
 			var newName = name.substr(0, name.length - 9);
 			delete Users.get(newName);
 			user.forceRename(newName, undefined, true);
-			user.authenticated = true;
+			user.registered = true;
 			this.add('|raw|-- <b><font color="#000000">' + newName + '</font color></b> is back');
 			user.isAway = false;
 		}

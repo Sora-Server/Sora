@@ -254,7 +254,7 @@ var trainerCards = {
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> Maddie (Typhlosion)<br />'+
 	              '<b>Badges:</b><br />'+
-	              '<a href="http://oi61.tinypic.com/f5ufo.jpg"><img src="http://oi61.tinypic.com/2nkoyyu.jpg" title="Founder of the Sora League"></a><br />'+
+	              '<a href="http://oi61.tinypic.com/f5ufo.jpg"><img src="http://oi61.tinypic.com/2nkoyyu.jpg" title="Parasect Badge: Founder of the Sora League"></a><br />'+
 	              '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 
 	},
@@ -536,6 +536,8 @@ var trainerCards = {
 		 	'P.S. I\'m still Dragon you away with my coldness. <br/>'+
 		 	'P.P.S Use Scizor against me, and I\'ll get fired up and blast you! <br/>'+
 		 	'<center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/vanilluxe.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"></center>'+
+		 	'<b>Badges:</b><br />'+
+		 	'<a href="http://oi57.tinypic.com/2ldx1lu.jpg"><img src="http://oi58.tinypic.com/2i6cilg.jpg" title="Smeargle the Creator: Resident Artist of Sora, Metagame Creator: CC, Priomons, Incl Weather, PokeSandbox"></a><br />'+
 		 	'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         },
         
@@ -546,7 +548,9 @@ var trainerCards = {
 			'<b>Ace:</b> Mega Gengar<br />'+
 			'<b>Honours:</b> Sora\'s first challenger to reach Hall of Fame.<br />'+
 			'<b>Prefered Tier:</b> Balanced Hackmons'+
-		 	'<img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_front/302.gif"> <img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif">');
+		 	'<img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_front/302.gif"> <img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif">'+
+		 	'<b>Badges:</b><br />'+
+		 	'<a href="http://oi60.tinypic.com/2itps9k.jpg"><img src="http://oi62.tinypic.com/xgmjhc.jpg" title="Golduck the Meta Breaker: Defeated the League"></a><br />');
         
         
         },
@@ -699,6 +703,22 @@ var trainerCards = {
 				'-<b>6th <font color = 230077>Leaf</font></b> (Dragon)<br />'+
 				'</div>');
 	
+	},
+	
+	badges: 'badge',
+	        badge: function(target, room, user) {
+	        	if (!this.canBroadcast()) return;
+	        	this.sendReplyBox('<a><marquee><b>Badges</b></marquee></a><br />'+
+	        	        '<b>What are Badges:</b><br />'+
+	        	        'Badges are prestigious achievements awarded on the user\'s trainer card and usually come with varying bucks award.<br />'+
+	        	        'They are awarded for league activity and vary in difficulty. <u>Difficulty levels</u>: (Bronze, Silver, Gold) and (Blue, Yellow and Red).<br />'+
+	        	        'A full list of badges can be found <a href="http://soraleague.weebly.com/badges">HERE</a> <br />'+
+	        	        '<center><a href="http://oi61.tinypic.com/f5ufo.jpg"><img src="http://oi61.tinypic.com/2nkoyyu.jpg" title="Parasect the God Above All"></a><br /></center>'+
+	        	        '<blink><b>Notes:</b></blink><br />'+
+	        	        '- You MUST have a trainer card<br />'+
+	        	        '- Hover over a badge for details<br />'+
+	        	        '- Click on a badge for an enlarged image<br />');
+	        	  
 	},
 	
 	ourevamped: function(target, room, user) {

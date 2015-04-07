@@ -83,7 +83,6 @@ var trainerCards = {
                         '<b>Ace:</b> Wobbuffet<br/>' +
                         '<b>Tiers Played:</b> OU, Monotype, Tier Shift<br/>' +
                         '<center><img src = "http://i196.photobucket.com/albums/aa279/loganknightphotos/wobbuffet-2.gif"><img src = "http://sprites.pokecheck.org/t/140.gif"><img src = "http://i196.photobucket.com/albums/aa279/loganknightphotos/wobbuffet-2.gif"> <br />');
-        },
 	
 	
 	

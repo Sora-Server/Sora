@@ -699,7 +699,7 @@ var trainerCards = {
 				'-<b>2nd <font color = ff00b6>Darkus</font></b></b> (Psychic)<br />'+
 				'-<b>3rd <font color = d6cc0c>Poppy</font></b> (Electric)<br />'+
 				'-<b>4th <font color = 230077>Leaf</font></b> (Dragon) <br />'+
-				'-<b>5th <font color = 0745ff>Arthur</font></b> (Water)<br />'+
+				'-<b>5th <font color = 0745ff>ArthurZH</font></b> (Water)<br />'+
 				'-<b>6th <font color = FF0000>Neith</font></b> (Fire)<br />'+
 				'</div>');
 	

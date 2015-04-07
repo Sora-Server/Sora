@@ -75,6 +75,19 @@ var trainerCards = {
                 '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/shroomish.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/venusaur.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/shroomish.gif"></center> <br />');
                 
 	},
+	
+	meowsie: function (target, room, user) {
+                this.sendReplyBox('<center><b><font size = 3 color = 10929E>MeowsOfSora</font></b><br/>' +
+                        '<font size = 1><i>"I might be a bitch, but I\'m definitely not a pussy."</i></font></center><br/>' +
+                        '<b>Type Speciality: <font color = "green">Bug</b></font><br/>' +
+                        '<b>Ace:</b> Wobbuffet<br/>' +
+                        '<b>Tiers Played:</b> OU, Monotype, Tier Shift<br/>' +
+                        '<center><img src = "http://i196.photobucket.com/albums/aa279/loganknightphotos/wobbuffet-2.gif"><img src = "http://sprites.pokecheck.org/t/140.gif"><img src = "http://i196.photobucket.com/albums/aa279/loganknightphotos/wobbuffet-2.gif"> <br />');
+        },
+	
+	
+	
+        },
         
         zoro: function(target, room, user) {
 		if (!this.canBroadcast()) return;

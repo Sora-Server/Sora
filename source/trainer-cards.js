@@ -317,7 +317,6 @@ var trainerCards = {
         akkie: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Akkie</b><br />'+
-		         'Leader Ranking: 
 		         '<i>"Ready or not, I\'ll rock your world."</i> <br />'+
 	              	 '<b>Type: <font color = 00a6c4>Flying</font></b><br />'+
 			 '<b>Ace:</b> Xatu<br />'+

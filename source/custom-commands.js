@@ -17,64 +17,48 @@ var customCommands = {
 	
 		
 
-    model: 'sprite',
-    sprite: function(target, room, user) {
-        if (!this.canBroadcast()) return;
-        var targets = target.split(',');
-        target = targets[0].trim();
-        target1 = targets[1];
-        if (!toId(target)) return this.sendReply("/sprite [Pokémon], [shiny/back] - Shows the animated model of the specified Pokémon.");
-        var clean = target.toLowerCase();
-        if (target.toLowerCase().indexOf(' ') !== -1) {
-            target = target.toLowerCase().replace(/ /g, '-');
-        }
-        //this won't interfere with the generation of yanmega's sprite, since it doesn't have any alternate animations.
-        //It however DOES somewhat interfere with porygon2. So we're gonna make that one an exception.
-        if (target.indexOf('mega') == -1 && toId(target) != 'porygon2') {
-            if (target.lastIndexOf('-') > -1) {
-                for (var i = 0; i <= target.lastIndexOf('-'); i++) {
-                    var a = target.substring(0, target.lastIndexOf('-')).replace(/-/g, ' ');
-                    break;
-                }
-            }
-        }
-
-        var correction = a ? Tools.dataSearch(a) : Tools.dataSearch(target);
-        if (correction && correction.length) {
-            for (var i = 0; i < correction.length; ++i) {
-                if (correction[i].id !== target && !i) {
-                    target = a ? target.replace(a, correction[0].id) : correction[0].name.toLowerCase();
-                }
-            }
-        } else {
-            return this.sendReply((a || clean) + ' is not a valid Pokémon.');
-        }
-
-        if (!target1) {
-            var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-            for (var x = 0; x < numbers.length; x++) {
-                if (target.indexOf('-' + numbers[x]) > -1) {
-                    return this.sendReply('|html|<img src = "http://www.pkparaiso.com/imagenes/xy/sprites/animados/' + target + '.gif">');
-                }
-            }
-            return this.sendReply('|html|<img src = "http://play.pokemonshowdown.com/sprites/xyani/' + target + '.gif">');
-        } else {
-            if (toId(target1) === 'back') {
-                return this.sendReply('|html|<img src = "http://play.pokemonshowdown.com/sprites/xyani-back/' + target.toLowerCase().trim().replace(/ /g, '-') + '.gif">');
-            } else if (toId(target1) === 'shiny') {
-                return this.sendReply('|html|<img src = "http://play.pokemonshowdown.com/sprites/xyani-shiny/' + target.toLowerCase().trim().replace(/ /g, '-') + '.gif">');
-            } else {
-                this.sendReply(target1 + ' is not a valid parameter.');
-                var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-                for (var x = 0; x < numbers.length; x++) {
-                    if (target.indexOf('-' + numbers[x]) > -1) {
-                        return this.sendReply('|html|<img src = "http://www.pkparaiso.com/imagenes/xy/sprites/animados/' + target + '.gif">');
-                    }
-                }
-                return this.sendReply('|html|<img src = "http://play.pokemonshowdown.com/sprites/xyani/' + target + '.gif">');
-            }
-        }
-    },
+    	sprite: function (target, room, user, connection, cmd) {
+		if (!toId(target)) return this.sendReply('/sprite [Pokémon] - Allows you to view the sprite of a Pokémon');
+		target = target.toLowerCase().split(',');
+		var alt = '';
+		var type = toId(target[1]);
+		var sprite = target[0].trim();
+		var url;
+		if (type === 'shiny') url = 'http://play.pokemonshowdown.com/sprites/xyani-shiny/';
+		else if (type === 'back') url = 'http://play.pokemonshowdown.com/sprites/xyani-back/';
+		else if (type === 'backshiny' || type === 'shinyback') url = 'http://play.pokemonshowdown.com/sprites/xyani-back-shiny/';
+		else url = 'http://play.pokemonshowdown.com/sprites/xyani/';
+		
+		if (Number(sprite[sprite.length - 1]) && !toId(sprite[sprite.length - 2])) {
+			alt = '-' + sprite[sprite.length - 1];
+			sprite = sprite.substr(0, sprite.length - 1);
+			url = 'http://www.pkparaiso.com/imagenes/xy/sprites/animados/';
+		}
+		var main = target[0].split(',');
+		if (Tools.data.Pokedex[toId(sprite)]) {
+			sprite = Tools.data.Pokedex[toId(sprite)].species.toLowerCase();
+		} else {
+			var correction = Tools.dataSearch(toId(sprite));
+			if (correction && correction.length) {
+				for (var i = 0; i < correction.length; i++) {
+					if (correction[i].id !== toId(sprite) && !Tools.data.Aliases[toId(correction[i].id)] && !i) {
+						if (!Tools.data.Pokedex[toId(correction[i])]) continue;
+						if (!Tools.data.Aliases[toId(sprite)]) this.sendReply("There isn't any Pokémon called '" + sprite + "'... Did you mean '" + correction[0].name + "'?\n");
+						sprite = Tools.data.Pokedex[correction[0].id].species.toLowerCase();
+					}
+				}
+			} else {
+				return this.sendReply("There isn\'t any Pokémon called '" + sprite + "'...");
+			}
+		}
+		var self = this;
+		require('request').get(url + sprite + alt + '.gif').on('error', function () {
+			self.sendReply('The sprite for ' + sprite + alt + ' is unavailable.');
+		}).on('response', function (response) {
+			if (response.statusCode == 404) return self.sendReply('The sprite for ' + sprite + alt + ' is currently unavailable.');
+			self.sendReply('|html|<img src = "' + url + sprite + alt + '.gif">');
+		});
+	},
     
     ncalc: 'nuggetcalc',
     nuggetcalc: function(target, room, user) {

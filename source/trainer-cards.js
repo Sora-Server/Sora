@@ -548,9 +548,9 @@ var trainerCards = {
 		 	'P.S. I\'m still Dragon you away with my coldness. <br/>'+
 		 	'P.P.S Use Scizor against me, and I\'ll get fired up and blast you! <br/>'+
 		 	'<center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/vanilluxe.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"></center>'+
-		 	'<b>Badges:</b><br />'+
+		 	'<details><summary><b>Badges:</b></summary><br />'+
 		 	'<a href="http://oi57.tinypic.com/2ldx1lu.jpg"><img src="http://oi58.tinypic.com/2i6cilg.jpg" title="Smeargle the Creator: Resident Artist of Sora, Metagame Creator: CC, Priomons, Incl Weather, PokeSandbox"></a><br />'+
-		 	'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
+		 	'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center></details> <br />');
         },
         
         gasp: function(target, room, user) {
@@ -560,7 +560,7 @@ var trainerCards = {
 			'<b>Ace:</b> Mega Gengar<br />'+
 			'<b>Honours:</b> Sora\'s first challenger to reach Hall of Fame.<br />'+
 			'<b>Prefered Tier:</b> Balanced Hackmons'+
-		 	'<img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_front/302.gif"> <img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif">'+
+		 	'<img src="http://pldh.net/media/pokemon/gen5/blackwhite_animated_front/302.gif"> <img src="http://media.tumblr.com/tumblr_m6ci5tQsEv1qf6fp2.gif"><br />'+
 		 	'<b>Badges:</b><br />'+
 		 	'<a href="http://oi60.tinypic.com/2itps9k.jpg"><img src="http://oi62.tinypic.com/xgmjhc.jpg" title="Golduck the Meta Breaker: Defeated the League"></a><br />');
         

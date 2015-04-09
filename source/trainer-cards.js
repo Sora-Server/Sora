@@ -224,12 +224,17 @@ var trainerCards = {
 			'<center><i>"Too much Water 7.8/10"-IGN</i></center> <br />'+
 			'<b>Symbol:</b> Yin and Yang <br />'+
 			'<b>Ace:</b> Mybro (Slowbro) <br />'+
-			'<b>Battle Rules:</b> <br />'+
+			'<details><summary><b>Battle Rules:</b></summary> <br />'+
 			'-Ability Shift Tier<br />'+
-			'-No focus Sash/Band<br />'+
+			'-No Focus Sash/Band<br />'+
 			'-No Hazards <br />'+
 		        '<a href="http://www.smogon.com/forums/threads/ability-shift.3503100/">How Ability Shift works</a> <br />'+
-                        '<a href="http://www.psypokes.com/lab/abilities.php">Pokemon Ability List</a> <br />'+
+                        '<a href="http://www.psypokes.com/lab/abilities.php">Pokemon Ability List</a></details> <br />'+
+                        '<details><summary><b>Champion\'s Challenge Rules:</b></summary> <br />'+
+                        '-NU Monotype<br />'+
+                        '-No Focus Sash</details><br />'+
+                        '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
+                        '<a href="http://oi57.tinypic.com/2ldx1lu.jpg"><img src="http://oi58.tinypic.com/2i6cilg.jpg" title="Smeargle the Creator: Creator of the Badge System"></a></details> <br />'+
 			'<center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/torkoal.gif"></center>'+
                         '<center><b>R.I.P. War Turtle</b></center> <br />'+
                         '<center>1st Apostle of the All Mighty Lord Parasect</center><br />');

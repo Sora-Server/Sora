@@ -352,29 +352,6 @@ var trainerCards = {
        
         },
        
-        nova: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Frontier <b>Nova</b><br />'+
-			  '<i>"The finest steel has to go through the hottest fire."</i> <br />'+
-			  '<b>Symbol:</b> Will of Steel<br />'+
-			  '<b>Ace:</b> MechRex (Aggron)<br />'+
-			  '<b>Battle Rules:</b> <br/>'+
-		 	  '-UU <br/>'+
-		 	  '-No Hazards <br/>'+
-		 	  '-Item Clause <br />');
-	},
-	
-	anna: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Frontier <b>Anna</b><br />'+
-			  '<i>"Believe in your dreams."</i> <br />'+
-			  '<b>Symbol:</b> The Sparkle Symbol<br />'+
-			  '<b>Ace:</b> Xerneas<br />'+
-			  '<b>Battle Rules:</b> <br/>'+
-		 	  '-Ubers <br/>');
-	
-	
-        },
 	
 	asch: function(target, room, user) {
 			if (!this.canBroadcast()) return;

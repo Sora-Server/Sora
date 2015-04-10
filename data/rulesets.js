@@ -675,6 +675,49 @@ exports.BattleFormats = {
                         }
                 }
         },
+        noahsarkclause: {
+        effectType: 'Rule',
+        onStart: function() {
+            this.add('rule', 'Noah\'s Ark Clause: All Pokémon must be animal based, and each team must contain a Wailord.');
+        },
+	validateTeam: function(team, format, teamHas) {
+		    if (!teamHas['wailord']) return ["You must have a Wailord on your team."];
+			var notanimals = ['bulbasaur', 'ivysaur', 'venusaur', 'charizard', 'nidoran', 'nidorina', 'nidoqueen', 'nidorina', 'nidoking', 'cleffa', 
+			'clefairy', 'clefable', 'igglybuff', 'jugglypuff', 'wigglytuff', 'oddish', 'gloom', 'vileplume', 'bellossom', 'paras', 'parasect', 'abra', 
+			'kadabra', 'alakazam', 'bellsprout', 'weepinbell', 'victreebel', 'geodude', 'graveler', 'golem', 'magnemite', 'magneton', 'slowpoke', 'slowbro',
+			'slowking', 'magnezone', 'porygon', 'porygon2', 'porygonz', 'doduo', 'dodrio', 'grimer', 'muk', 'gastly', 'haunter', 'gengar', 'onyx', 'hypno', 
+			'voltorb', 'electrode', 'exeggutor', 'exeggcute', 'cubone', 'marowak', 'hitmonlee', 'lickitung', 'koffing', 'weezing', 'lickilicky', 'tangela', 
+			'tangrowth', 'kangaskhan', 'mrmime', 'mimejr', 'smoochum', 'jynx', 'elekid', 'electabuzz', 'electivire', 'magby', 'magmar', 'magmortar', 'gyarados',
+			'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'glaceon', 'umbreon', 'leafeon', 'sylveon', 'omanyte', 'omastar', 'kabuto', 'kabutops', 
+			'snorlax', 'mew', 'mewtwo', 'chikorita', 'bayleef', 'meganium', 'togepi', 'togetic', 'sudowoodo', 'hoppip', 'skiploom', 'jumpluff', 'sunkern', 'sunflora', 
+			'wooper', 'quagsire', 'misdreavus', 'unown', 'wobbuffet', 'pineco', 'forretress', 'dunsparce', 'gligar', 'scizor', 'shuckle', 'sneasel', 'weavile', 'slugma', 
+			'macargo', 'swinub', 'piloswine', 'corsola', 'phanpy', 'donphan', 'smeargle', 'tyrogue', 'hitmontop', 'blissey', 'larvitar', 'pupitar', 'tyranitar',
+			'celebi', 'mudkip', 'marshtomp', 'swampert', 'lotad', 'lombre', 'ludicolo', 'seedot', 'nuzleaf', 'shiftry', 'ralts', 'kirlia', 'gardevoir', 
+			'surskit', 'masquerain', 'shroomish', 'breloom', 'shedninja', 'whismur', 'loudred', 'exploud', 'makuhita', 'hariyama', 
+			'nosepass', 'sableye', 'aron', 'lairon', 'aggron', 'medtite', 'medicham', 'roselia', 'roserade', 'gulpin', 'swalot', 'spinda', 'trapinch', 
+			'vibrava', 'cacnea', 'cacturne', 'zangoose', 'lunatone', 'solrock', 'baltoy', 'claydol', 'lileep', 'cradily', 
+			'castform', 'shuppet', 'banette', 'duskull', 'dusclops', 'dusknoir', 'tropius', 'chimecho', 'absol', 'wynaut', 'snorunt', 'glaie', 
+			'huntail', 'gorebyss', 'beldum', 'metang', 'metagross', 'regirock', 'regice', 'registeel', 'groudon', 'latias', 'latios', 'jirachi', 
+			'deoxys', 'turtwig', 'grotle', 'torterra', 'shinx', 'luxio', 'luxray', 'budew', 'cranidos', 'rampardos', 'sheildon', 'bastidon', 'burmy', 
+			'wormadam', 'cherubi', 'cherrim', 'shellos', 'gastrodon', 'drifloon', 'drifblim', 'mismagius', 'chingling', 'bronzor', 'bronzong', 'bonsly', 
+			'happiny', 'spiritomb', 'munchlax', 'skorupi', 'drapion', 'croagunk', 'toxicroak', 'carnivine', 'snover', 'abomasnow', 'rhyperior', 'tangrowth', 
+			'gliscor', 'gallade', 'probopass', 'froslass', 'rotom', 'rotom-wash', 'rotom-fan', 'rotom-frost', 'rotom-heat', 'rotom-mow', 'uxie', 'mespirit', 
+			'azelf', 'dialga', 'palkia', 'giratina', 'regigigas', 'cresslia', 'manaphy', 'phione', 'darkrai', 'shaymin', 'shaymin-sky', 'arceus', 'victini', 
+			'snivy', 'servine', 'pansage', 'simisage', 'simisear', 'simipour', 'panpour', 'pansear', 'munna', 'musharna', 'roggenrola', 'boldore', 'gigalith',
+			'audino', 'timburr', 'gurdurr', 'conkeldurr', 'throh', 'sawk', 'cottonee', 'whimiscott', 'petilil', 'lilligant', 'darumaka', 'darmanitan',
+			'maractus', 'scraggy', 'scrafty', 'sigilyph', 'yamask', 'cofagrigus', 'trubbish', 'garbodor', 'gothia', 'gothorita', 'gothitelle', 'solosis',
+			'duosion', 'reuniclus', 'vanillite', 'vanillish', 'vanilliuxe', 'karrablast', 'escavalier', 'foongus', 'amoongus', 'ferroseed', 'ferrothorn', 
+			'klink', 'klang', 'klinklang', 'tynamo', 'elgyem', 'beheeyem', 'litwick', 'chandelure', 'lampent', 'axew', 'fraxure', 'haxorus', 'shelmet', 
+			'accelgor', 'stunfisk', 'mienfoo', 'mienshao', 'druddigon', 'golett', 'golurk', 'pawniard', 'bisharp', 'heatmor', 'deino', 'zweilous', 
+			'hyderigon', 'larvesta', 'coballion', 'terrakion', 'virizion', 'tornadus', 'thundurus', 'landorus', 'reshiram', 'zekrom', 'kyurem', 'meloetta', 
+			'genesect', 'diancie', 'zygarde', 'yveltal', 'avalugg', 'bergmite', 'gourgeist', 'pumpkaboo', 'phantump', 'trevenant', 'klekfi', 'carbink', 
+			'aurorus', 'amaura', 'helioptile', 'helioisk', 'clawitzer', 'clauncher', 'dragalge', 'barbacle', 'binacle', 'slurpuff', 'swirlix', 'aromatisse', 
+			'spritzee', 'aegislash', 'doublade', 'honedge', 'florgess', 'floette', 'flabebe', 'chespinn', 'quilladin', 'chesnaught']; 
+			//Now that's one HUUUUUGE array!
+			for (var i = 0; i < notanimals.length; i++) 
+			    if (teamHas[notanimals[i]]) return [this.data.Pokedex[notanimals[i]].name + ' is not an animal based Pokémon.'];
+	    }
+	},
 	megarayquazabanmod: {
 		effectType: 'Rule',
 		onStart: function () {

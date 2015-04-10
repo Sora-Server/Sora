@@ -224,12 +224,12 @@ var trainerCards = {
 			'<center><i>"Too much Water 7.8/10"-IGN</i></center> <br />'+
 			'<b>Symbol:</b> Yin and Yang <br />'+
 			'<b>Ace:</b> Mybro (Slowbro) <br />'+
-			'<details><summary><b>Battle Rules:</b></summary> <br />'+
+			'<b>Battle Rules:</b> <br />'+
 			'-Ability Shift Tier<br />'+
 			'-No Focus Sash/Band<br />'+
 			'-No Hazards <br />'+
 		        '<a href="http://www.smogon.com/forums/threads/ability-shift.3503100/">How Ability Shift works</a> <br />'+
-                        '<a href="http://www.psypokes.com/lab/abilities.php">Pokemon Ability List</a></details> <br />'+
+                        '<a href="http://www.psypokes.com/lab/abilities.php">Pokemon Ability List</a> <br />'+
                         '<details><summary><b>Champion\'s Challenge Rules:</b></summary> <br />'+
                         '-NU Monotype<br />'+
                         '-No Focus Sash</details><br />'+
@@ -531,8 +531,8 @@ var trainerCards = {
 		 	'P.P.S Use Scizor against me, and I\'ll get fired up and blast you! <br/>'+
 		 	'<center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/vanilluxe.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"></center>'+
 		 	'<details><summary><b>Badges:</b></summary><br />'+
-		 	'<a href="http://oi57.tinypic.com/2ldx1lu.jpg"><img src="http://oi58.tinypic.com/2i6cilg.jpg" title="Smeargle the Creator: Resident Artist of Sora, Metagame Creator: CC, Priomons, Incl Weather, PokeSandbox"></a><br />'+
-		 	'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center></details> <br />');
+		 	'<a href="http://oi57.tinypic.com/2ldx1lu.jpg"><img src="http://oi58.tinypic.com/2i6cilg.jpg" title="Smeargle the Creator: Resident Artist of Sora, Metagame Creator: CC, Priomons, Incl Weather, PokeSandbox"></a></details><br />'+
+		 	'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         },
         
         gasp: function(target, room, user) {
@@ -705,13 +705,14 @@ var trainerCards = {
 	        	this.sendReplyBox('<a><marquee><b>Badges</b></marquee></a><br />'+
 	        	        '<b>What are Badges:</b><br />'+
 	        	        'Badges are prestigious achievements awarded on the user\'s trainer card and usually come with varying bucks award.<br />'+
-	        	        'They are awarded for league activity and vary in difficulty. <u>Difficulty levels</u>: (Bronze, Silver, Gold) and (Blue, Yellow and Red).<br />'+
+	        	        'They are awarded for league activity and vary in difficulty. <u>Difficulty levels</u>: (Bronze, Silver, Gold) and (Blue, Orange and Red).<br />'+
 	        	        'A full list of badges can be found <a href="http://soraleague.weebly.com/badges">HERE</a> <br />'+
-	        	        '<center><a href="http://oi61.tinypic.com/f5ufo.jpg"><img src="http://oi61.tinypic.com/2nkoyyu.jpg" title="Parasect the God Above All"></a><br /></center>'+
-	        	        '<blink><b>Notes:</b></blink><br />'+
-	        	        '- You MUST have a trainer card<br />'+
-	        	        '- Hover over a badge for details<br />'+
-	        	        '- Click on a badge for an enlarged image<br />');
+	        	        '<details><summary>Test your skills here</summary><center><a href="http://oi61.tinypic.com/f5ufo.jpg"><img src="http://oi61.tinypic.com/2nkoyyu.jpg" title="Parasect the God Above All"></a><br /></center></details>'+
+	        	        '<blink><font color=#FF0000><b>Notes:</b></font></blink><br />'+
+	        	        '<font color=#006600>- You MUST have a trainer card<br />'+
+	        	        '- <b>Hover over a badge for details<br />'+
+	        	        '- Click on a badge for an enlarged image</b><br />'+
+	        	        '- Test your skills above</font>');
 	        	  
 	},
 	

@@ -431,6 +431,9 @@ var customCommands = {
                     this.sendReply('You have purchased a custom symbol. You will have this until you log off for more than an hour. You may now use /customsymbol now.');
                     this.parse('/help customsymbol');
                     this.sendReply('If you do not want your custom symbol anymore, you may use /resetsymbol to go back to your old symbol.');
+                } else if (target.toLowerCase() === 'avatar') {
+                    user.canAvatar = true;
+                    this.sendReply('You have purchased a custom avatar. Use /setavatar [URL] to set it.');
                 } else {
                     this.sendReply('You have purchased ' + target + '. Please contact an admin to get ' + target + '.');
                     for (var u in Users.users) {

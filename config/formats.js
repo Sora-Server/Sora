@@ -169,6 +169,28 @@ exports.Formats = [
 		}
 	},
 	
+	{
+                name: "Noah's Ark",
+                section: "Sora Exclusive",
+                ruleset: ['OU', 'Noahs Ark Clause'],
+                banlist: ['Uber', 'Soul Dew', 'Lucarionite', 'Gengarite', 'Swagger', 'Kangakhanite'],
+                onFaint: function(pokemon) {
+                        var p1 = this.p1.name;
+                        var p2 = this.p2.name;
+                        if (pokemon.side.id === 'p1') {
+                                if (this.p1.pokemon[0].name === 'Wailord') {
+                                        this.add('message', p1 + '\'s Wailord has been defeated!');
+                                        pokemon.battle.win('p2');
+                                }
+                        } else {
+                                if (this.p2.pokemon[0].name === 'Wailord') {
+                                        this.add('message', p2 + '\'s Wailord has been defeated!');
+                                        pokemon.battle.win('p1');
+                                }
+                        }
+                }
+        },
+	
 	// XY Singles
 	///////////////////////////////////////////////////////////////////
 

@@ -88,6 +88,21 @@ var trainerCards = {
 	
         },
         
+        arjun: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<center><input type="image" src="http://i.imgur.com/bnCFCm5.png"><div align="center"><br />'+
+		'<div align="center">"<i>Fall seven times, stand up eight. That\'s what I do</i>"</div><br />'+
+		'<b>Favorite Types:</b> Fighting, Dark and Poison(with crobat)<br />'+
+		'<b>Note:</b> He is probably the craziest member of the league.<br />'+
+		'<b> Achievements:</b> Former Elite, got the elite position in his first promo tournaments.<br />'+
+		'<b>Favorite Pokemon:</b><br />'+
+		'<img src="http://play.pokemonshowdown.com/sprites/xyani/terrakion.gif" height="90" width="110"> <img src="http://play.pokemonshowdown.com/sprites/xyani/weavile.gif" height="90" width="100"> <img src="http://play.pokemonshowdown.com/sprites/xyani/medicham-mega.gif" height="100" width="120"> <img src="http://play.pokemonshowdown.com/sprites/xyani/crobat.gif" height=100"" width="120"><div align="center"><br />'+
+	        'Remember, victory or defeat always depends on how you play. But,  It doesnt if you\'re up against me. <br />');
+        
+        
+        
+        },
+        
         zoro: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Zoro</b><br />'+

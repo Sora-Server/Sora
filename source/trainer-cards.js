@@ -164,7 +164,8 @@ var trainerCards = {
 		'<b>Preferred tiers: </b>VGC, Ubers, OU <br />'+
 		'<b>Known for: </b>VoltTurn and Whimsistall shenanigans<br />'+
 		'<b>Achievements: </b>Ex-Elite Frontier, ex-Elite Four<br /><br />'+
-		'<center><img src="http://sprites.pokecheck.org/i/157.gif"><img src="http://sprites.pokecheck.org/i/530.gif"><img src="http://sprites.pokecheck.org/i/547.gif"><img src="http://sprites.pokecheck.org/t/144.gif"><img src="http://sprites.pokecheck.org/i/205.gif"><img src="http://sprites.pokecheck.org/i/310.gif"><img src="http://sprites.pokecheck.org/i/212.gif"></center> <br />');
+		'<center><img src="http://sprites.pokecheck.org/i/157.gif"><img src="http://sprites.pokecheck.org/i/530.gif"><img src="http://sprites.pokecheck.org/i/547.gif"><img src="http://sprites.pokecheck.org/t/144.gif"><img src="http://sprites.pokecheck.org/i/205.gif"><img src="http://sprites.pokecheck.org/i/310.gif"><img src="http://sprites.pokecheck.org/i/212.gif"></center> <br />'+
+		'<center><img src="http://havearandom.cu.cc/files/iero.png"; width="250" height="350"><br>Yellow is bae <3</center>');
 	
 	
         },

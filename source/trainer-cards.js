@@ -260,13 +260,13 @@ var trainerCards = {
         
       
         
-        fighting: 'bulk',
-        bulk: function(target, room, user) {
+        
+       fighting: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bulk</b><br />'+
-			'<i>"Turn back or get a kick on your back."</i> <br />'+
+			'<i>"???"</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
-			'<b>Ace:</b> Mega Gallade <br />');
+			'<b>Ace:</b> ??? <br />');
         },
         
         

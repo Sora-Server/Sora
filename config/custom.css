@@ -5,6 +5,9 @@
 .header .logo {
 	display:none
 }
+.highlighted {
+  background: #97d5fc
+}
 em.group.staffgroup, em.group {
   color: #FFFFFF
 }
@@ -29,7 +32,7 @@ button.userbutton.username {
   	text-shadow: 1px 1px #000000
 }
 ul.userlist {
-  background: url("http://i1171.photobucket.com/albums/r545/Brahak/thing_zpshzc5tm3u.png");
+  background: url("http://i1171.photobucket.com/albums/r545/Brahak/thing_zpsmw833qiy.png");
 
 }
 body {

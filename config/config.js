@@ -355,6 +355,7 @@ exports.groups = {
 			jurisdiction: 'u',
 			declare: true,
 			modchatall: true,
+			roomintro: true,
 			privateroom: true,
 			roomdesc: true,
 			roompromote: 'u',

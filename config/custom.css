@@ -1,79 +1,170 @@
-.header{background-image:url("http://i59.tinypic.com/w19xfk.jpg");background-repeat:no-repeat}.header .logo{display:none}
-
-body{background-image:url("http://oi62.tinypic.com/28in6ms.jpg");background-repeat:no-repeat;background-position:center}
-
-.chat-log{font-size:8pt; font-family: 'Arial'; background: url("http://i61.tinypic.com/2i0cj08.jpg") no-repeat scroll center;background:#a5ffa5;color:#000;overflow:auto;}
-
+.header {
+	background-image:url("http://i59.tinypic.com/w19xfk.jpg");
+	background-repeat:no-repeat
+}
+.header .logo {
+	display:none
+}
+em.group.staffgroup {
+  color: #FFFFFF
+}
+a.closebutton, a.minimizebutton {
+  color: #007fff;
+  background: none;
+}
+li#lobby-userlist-users {
+  color: #FFFFFF
+}
+button {
+  	background: linear-gradient(-45deg, black, #444444, black);
+  	color: #007fff;
+  	border: 1px solid;
+}
+button:hover {
+  	background: #444444;
+  	color: #007fff;
+  	border: 1px solid;
+}
+button.userbutton.username {
+  	text-shadow: 1px 1px #000000
+}
+ul.userlist {
+  background: linear-gradient(black, #007fff);
+  border: 1px solid;
+  border-color: #007fff
+}
+body {
+	background-image:url("http://oi62.tinypic.com/28in6ms.jpg");
+	background-repeat:no-repeat;
+	background-position:center
+}
+a.button.cur, .maintabbarbottom {
+  background: #000000;
+  border: 1px solid;
+  border-color: #007fff
+}
+.chat-log {
+	font-size:8pt;
+	font-family:Arial;
+	background:url("http://i61.tinypic.com/2i0cj08.jpg") no-repeat scroll center;
+	color:#000;
+	overflow:auto
+}
+.tabbar a.button, .tabbar a.button.cur, a.button.cur.closable, a.button.cur.closable:hover {
+  background: linear-gradient(#666666, black);
+  color: #007fff;
+  border: 1px solid;
+  border-color: #007fff;
+  text-shadow: 2px 2px #000000
+}
+.tabbar a.button.cur:hover {
+  	background: #000000;
+     color: #007fff;
+  border: 1px solid;
+  border-color: #007fff
+        }
+.tabbar a.button:hover {
+  background: #333333;
+  color: #007fff;
+  border: 1px solid;
+  border-color: #007fff
+}
+i.icon-home, i.icon-cog, i.icon-volumeup {
+  color: #007fff;
+  background: none
+}
 .userlist {
-border-left: 1px solid #c8e3e0;
-background: #cccccc;
+	border-left:1px solid #c8e3e0;
+	background:#ccc
+}
+.userlist li {
+	border-bottom:1px solid #c8e3e0;
+	height:19px;
+	font:10pt Verdana,sans-serif;
+	white-space:nowrap
+}
+.userlist li em.group {
+	font-style:normal;
+	font-size:8pt;
+	color:#000;
+	display:block;
+	float:left;
+	text-align:center;
+	padding:1px 0 0 1px;
+	width:14px
 }
 
-.userlist li
-{
-        border-bottom:1px solid #c8e3e0;
-        height:19px;
-        font:10pt Verdana,sans-serif;
-        white-space:nowrap
+/*button.icon {
+  	background: #000;
+  	color: #007fff;
+  border: 1px solid
+}*/
+
+.menugroup .formatselect, .menugroup .teamselect {
+  	border-radius: 0px;
+    border: 1px solid;
+    color: #007fff;
+    border-color: #007fff;
+    background: #000000;
+    }
+.menugroup .preselected {
+  	border-radius: 0px;
+    color: #FFFFFF;
+    background: #c40000;
+    opacity: .8
+    }
+.menugroup .button {
+	background: #000000;
+    opacity: 1;
+  	color: #007fff;
+  	border-color: #007fff;
+  	border-radius: 0px;
+    padding: 2px;
+  	border: 1px solid;
+}
+.menugroup .button:hover {
+	background:linear-gradient(45deg, black, #333333, black);
+  	color: #007fff;
+  opacity: 1;
+  	border-color: #007fff;
+  	border-radius: 0px;
+  	border: 1px solid
 }
 
-.userlist li em.group
-{
-        font-style:normal;
-        font-size:8pt;
-        color:#000000;
-        display:block;
-        float:left;
-        text-align:center;
-        padding:1px 0 0 1px;
-        width:14px
+button.big.button.disabled {
+	background:#333333;
+  	color: #007fff;
+  	border-color: #007fff;
+  	border-radius: 0px;
+  	border: 1px solid;
 }
-
-.menugroup .button:hover{
-    background:#000000  none repeat scroll 0 0;
-    opacity:.7;
+.sunnydayweather {
+	background:#FEB url("//play.pokemonshowdown.com/fx/weather-sunnyday.jpg") no-repeat scroll left top;
+	color:#641;
+	text-shadow:1px 1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,-1px -1px 0 #fff
 }
-
-.menugroup .button{
-    background:#000000  none repeat scroll 0 0;
-    opacity:.9;
+.rainweather,.raindanceweather {
+	background:#9BF url("//play.pokemonshowdown.com/fx/weather-raindance.jpg") no-repeat scroll left top;
+	color:#04B;
+	text-shadow:1px 1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,-1px -1px 0 #fff
 }
-
-.sunnydayweather
-{
-        background: #FFEEBB url(//play.pokemonshowdown.com/fx/weather-sunnyday.jpg) no-repeat scroll left top;
-        color: #664411;
-        text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
+.sandstormweather {
+	background:#E6E0AC url("//play.pokemonshowdown.com/fx/weather-sandstorm.png") no-repeat scroll left top;
+	color:#543;
+	text-shadow:1px 1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,-1px -1px 0 #fff
 }
-.rainweather,
-.raindanceweather
-{
-        background: #99BBFF url(//play.pokemonshowdown.com/fx/weather-raindance.jpg) no-repeat scroll left top;
-        color: #0044BB;
-        text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
+.hailweather {
+	background:#ADE url("//play.pokemonshowdown.com/fx/weather-hail.png") no-repeat scroll left top;
+	color:#145;
+	text-shadow:1px 1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,-1px -1px 0 #fff
 }
-.sandstormweather
-{
-        background: #E6E0AC url(//play.pokemonshowdown.com/fx/weather-sandstorm.png) no-repeat scroll left top;
-        color: #554433;
-        text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
+.acidrainweather,.contaminateweather {
+	background:#a64ca6 url("http://i44.tinypic.com/2w71ziv.jpg") no-repeat scroll left top;
+	color:#400040;
+	text-shadow:1px 1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,-1px -1px 0 #fff
 }
-.hailweather
-{
-        background: #AADDEE url(//play.pokemonshowdown.com/fx/weather-hail.png) no-repeat scroll left top;
-        color: #114455;
-        text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
-}
-.acidrainweather,
-.contaminateweather
-{
-        background:  #a64ca6 url(http://i44.tinypic.com/2w71ziv.jpg) no-repeat scroll left top;
-        color: #400040;
-        text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
-}
-.pseudoweather
-{
-        background: #DDAAEE url(//play.pokemonshowdown.com/fx/weather-trickroom.png) no-repeat scroll left top;
-        color: #661155;
-        text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
+.pseudoweather {
+	background:#DAE url("//play.pokemonshowdown.com/fx/weather-trickroom.png") no-repeat scroll left top;
+	color:#615;
+	text-shadow: 1px 1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,-1px -1px 0 #fff
 }

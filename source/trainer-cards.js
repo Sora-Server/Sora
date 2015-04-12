@@ -96,7 +96,7 @@ var trainerCards = {
 		'<b>Note:</b> He is probably the craziest member of the league.<br />'+
 		'<b> Achievements:</b> Former Elite, got the elite position in his first promo tournaments.<br />'+
 		'<b>Favorite Pokemon:</b><br />'+
-		'<img src="http://play.pokemonshowdown.com/sprites/xyani/terrakion.gif" height="90" width="110"> <img src="http://play.pokemonshowdown.com/sprites/xyani/weavile.gif" height="90" width="100"> <img src="http://play.pokemonshowdown.com/sprites/xyani/medicham-mega.gif" height="100" width="120"> <img src="http://play.pokemonshowdown.com/sprites/xyani/crobat.gif" height=100"" width="120"><div align="center"><br />'+
+		'<img src="http://play.pokemonshowdown.com/sprites/xyani/terrakion.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/weavile.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/medicham-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/crobat.gif"><div align="center"><br />'+
 	        'Remember, victory or defeat always depends on how you play. But,  It doesnt if you\'re up against me. <br />');
         
         
@@ -251,9 +251,9 @@ var trainerCards = {
                         '-No Focus Sash</details><br />'+
                         '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
                         '<a href="http://oi57.tinypic.com/2ldx1lu.jpg"><img src="http://oi58.tinypic.com/2i6cilg.jpg" title="Smeargle the Creator: Creator of the Badge System"></a></details> <br />'+
-			'<center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/torkoal.gif"></center>'+
+			'<details><summary><font color = 009900><center><b>Torkoal Shrine</b></center></font></summary><center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/torkoal.gif"></center>'+
                         '<center><b>R.I.P. War Turtle</b></center> <br />'+
-                        '<center>1st Apostle of the All Mighty Lord Parasect</center><br />'+
+                        '<center>1st Apostle of the All Mighty Lord Parasect</center></details><br />'+
                          '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	},
      
@@ -398,27 +398,6 @@ var trainerCards = {
 		 	  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/zubat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/golbat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/zubat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gengar.gif"></center> <br />');
 	},
         
-       
-	
-	
-	ajeratt: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Frontier <b>AJeratt</b><br />'+
-			  '<i>"Can you keep up though?"</i> <br />'+
-			  '<b>Symbol:</b> Priority<br />'+
-			  '<b>Ace:</b> Trap Card (Gigalith) and Soraptor (Staraptor)<br />'+
-			  '<b>Battle Rules:</b> <br/>'+
-		 	  '-<a href="http://soraleague.weebly.com/priomons.html">Priomons</a> Uber <br/>'+
-		 	  '-Maximum of 1 Uber <br/>'+
-		 	  '-At least 3 different types of Priomons moves must be used <br/>'+
-		 	  '-No hazards <br />'+
-		 	  '<img src="http://play.pokemonshowdown.com/sprites/xyani/groudon.gif"><img src="http://sprites.pokecheck.org/t/033.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/kyogre.gif"> <br/>'+
-		 	  '<b>Badges:</b><br />'+
-	                  '<a href="http://oi57.tinypic.com/2lijzwp.jpg"><img src="http://oi60.tinypic.com/21liree.jpg" title="Sora\'s Breadmin Team"></a><br />'+
-		 	  '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
-	
-	
-        },
 
         ghost: 'faithless',
 	faithless: function(target, room, user) {
@@ -680,7 +659,7 @@ var trainerCards = {
 		ipl: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Here is a link to the International Pokemon League Tournament (IPL):<br />' +
-				'- <a href="http://internationpokemonleague.weebly.com/">IPL Tournament Web Site</a><br />' +
+				'- <a href="http://sorapremierleague.weebly.com/">IPL Tournament Web Site</a><br />' +
 				'</div>');
 	},
 
@@ -724,12 +703,14 @@ var trainerCards = {
 	        	        'Badges are prestigious achievements awarded on the user\'s trainer card and usually come with varying bucks award.<br />'+
 	        	        'They are awarded for league activity and vary in difficulty. <u>Difficulty levels</u>: (Bronze, Silver, Gold) and (Blue, Orange and Red).<br />'+
 	        	        'A full list of badges can be found <a href="http://soraleague.weebly.com/badges">HERE</a> <br />'+
-	        	        '<details><summary>Test your skills here</summary><center><a href="http://oi61.tinypic.com/f5ufo.jpg"><img src="http://oi61.tinypic.com/2nkoyyu.jpg" title="Parasect the God Above All"></a><br /></center></details>'+
+	        	        '<br />'+
+	        	        '<details><summary><center><b>Test your skills here</b></center></summary><center><a href="http://oi61.tinypic.com/f5ufo.jpg"><img src="http://oi61.tinypic.com/2nkoyyu.jpg" title="Parasect the God Above All"></a><br /></center></details>'+
+	        	        '<br />'+
 	        	        '<blink><font color=#FF0000><b>Notes:</b></font></blink><br />'+
-	        	        '<font color=#006600>- You MUST have a trainer card<br />'+
-	        	        '- <b>Hover over a badge for details<br />'+
-	        	        '- Click on a badge for an enlarged image</b><br />'+
-	        	        '- Test your skills above</font>');
+	        	        '- You MUST have a trainer card<br />'+
+	        	        '<font color=#006600>- <b>Hover over a badge for details<br />'+
+	        	        '- Click on a badge for an enlarged image</b></font><br />'+
+	        	        '- Test your skills above');
 	        	  
 	},
 	

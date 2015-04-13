@@ -5,18 +5,26 @@
 .header .logo {
 	display:none
 }
-.highlighted {
+.ps-popup {
+  background: #b2e1ff url("http://i1171.photobucket.com/albums/r545/Brahak/checks_zpsry5renpb.png");
+  border-radius: 0px;
+  border: 2px solid;
+  border-color: #003972
+}
+.pm-log-add, .highlighted {
+  background: #b2e1ff
+ }
+.pm-log {
   background: #97d5fc
 }
-.userlist li em.group {
-	font-style: normal;
-	font-size: 8pt;
-	color: #FFFFFF;
-	display: block;
-	float: left;
-	text-align: center;
-	padding: 1px 0 0 1px;
-	width: 14px;
+.ps-room.ps-room-light.scrollable {
+  	background: #000000 url("http://i1171.photobucket.com/albums/r545/Brahak/checks_zpsry5renpb.png");
+}
+.roomlist {
+  color: #b2e1ff
+  }
+.highlighted {
+  background: #97d5fc
 }
 a.closebutton, a.minimizebutton {
   color: #007fff;
@@ -81,23 +89,6 @@ i.icon-home, i.icon-cog, i.icon-volumeup {
   color: #007fff;
   background: none
 }
-.userlist li em.group {
-	font-style:normal;
-	font-size:8pt;
-	color:#000;
-	display:block;
-	float:left;
-	text-align:center;
-	padding:1px 0 0 1px;
-	width:14px
-}
-
-/*button.icon {
-  	background: #000;
-  	color: #007fff;
-  border: 1px solid
-}*/
-
 .menugroup .formatselect, .menugroup .teamselect {
   	border-radius: 0px;
     border: 1px solid;

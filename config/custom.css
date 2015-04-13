@@ -5,6 +5,21 @@
 .header .logo {
 	display:none
 }
+.tournament-bracket {
+  background: #333333 url("http://i1171.photobucket.com/albums/r545/Brahak/checks_zpsry5renpb.png");
+    color: #FFFFFF
+  }
+.tournament-wrapper {
+  background: #000;
+      color: #b2e1ff
+  }
+.tournament-status, .tournament-toggle {
+  color: #FFFFFF;
+  background: #003972
+}
+.teambuilder-results  {
+ 	background: #a1c2e0 url("http://i1171.photobucket.com/albums/r545/Brahak/checks_zpsry5renpb.png")
+}
 .ps-popup {
   background: #b2e1ff url("http://i1171.photobucket.com/albums/r545/Brahak/checks_zpsry5renpb.png");
   border-radius: 0px;

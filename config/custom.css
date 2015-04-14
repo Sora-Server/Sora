@@ -1,3 +1,4 @@
+/*Light blue- #b2e1ff,#97d5fc Normal blue- #007fff Dark Blue:#003972*/
 .header {
 	background-image:url("http://i59.tinypic.com/w19xfk.jpg");
 	background-repeat:no-repeat
@@ -48,9 +49,6 @@
 .tournament-status, .tournament-toggle {
   color: #FFFFFF;
   background: #003972
-}
-.teambuilder-results  {
- 	background: #a1c2e0 url("http://i1171.photobucket.com/albums/r545/Brahak/checks_zpsry5renpb.png")
 }
 .ps-popup {
   background: #b2e1ff url("http://i1171.photobucket.com/albums/r545/Brahak/checks_zpsry5renpb.png");

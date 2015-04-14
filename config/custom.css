@@ -5,6 +5,38 @@
 .header .logo {
 	display:none
 }
+.roomlist a.ilink {
+  color: #b2e1ff;
+  text-shadow: 1px 1px #000;
+  background: #007fff
+}
+.roomlist a.ilink:hover {
+  color: #ffffff;
+  padding: 4px;
+  text-shadow: 1px 1px #000;
+  background: #007fff
+}
+.pm-window h3 {
+      color: #FFFFFF;
+        background: #003972;
+      border-color: #007fff
+    }
+.pm-window h3:hover {
+      color: #b2e1ff;
+        background: #003972;
+      border-color: #007fff
+    }
+      
+.pm-window.focused h3 {
+      color: #FFFFFF;
+        background: #000;
+      border-color: #007fff
+    }
+.pm-window.focused h3:hover {
+      color: #b2e1ff;
+        background: #000;
+      border-color: #007fff
+    }
 .tournament-bracket {
   background: #333333 url("http://i1171.photobucket.com/albums/r545/Brahak/checks_zpsry5renpb.png");
     color: #FFFFFF

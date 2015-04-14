@@ -77,6 +77,7 @@ var trainerCards = {
 	},
 	
 	meowsie: function (target, room, user) {
+		if (!this.canBroadcast()) return;
                 this.sendReplyBox('<center><b><font size = 3 color = 10929E>MeowsOfSora</font></b><br/>' +
                         '<font size = 1><i>"I might be a bitch, but I\'m definitely not a pussy."</i></font></center><br/>' +
                         '<b>Type Speciality: <font color = "green">Bug</b></font><br/>' +
@@ -420,6 +421,15 @@ var trainerCards = {
 			 '-VGC \'15 <br />');
         },
         
+        zachary: function (target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Frontier <b>Zachary</b><br/>' +
+			'<i>"Can you do a few things at the same time?"</i><br/>' +
+			'<b>Symbol:</b> Multitasking<br/>' +
+			'<b>Ace:</b> All<br/>' +
+			'<b>Battle Rules:</b><br/>' +
+			'-Smogon Doubles');
+	},
         
         electric: 'poppy',
 	poppy: function(target, room, user) {

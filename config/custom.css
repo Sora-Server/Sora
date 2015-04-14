@@ -65,7 +65,15 @@
   background: #97d5fc
 }
 .ps-room.ps-room-light.scrollable {
-  	background: #000000 url("http://i1171.photobucket.com/albums/r545/Brahak/checks_zpsry5renpb.png");
+		color: #b2e1ff;
+		background:#000 url("http://i1171.photobucket.com/albums/r545/Brahak/checks_zpsry5renpb.png")
+}
+.teamchartbox {
+  	color: #b2e1ff;
+	background:#003972
+}
+li.result span.col {
+  color: #007fff;
 }
 .roomlist {
   color: #b2e1ff

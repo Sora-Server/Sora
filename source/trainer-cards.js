@@ -225,13 +225,15 @@ var trainerCards = {
         }, 
         
 
-        grass: 'edge',
-	edge: function(target, room, user) {
+        grass: 'darkus',
+	darkus: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Edge</b><br />'+
-			'<i>"Dashing through the grass cus I\'m coming to tap your Ass"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
+			'<i>"You would think I\'m Dark, but you can't think"</i> <br />'+
+			'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
-			'<b>Ace:</b> Mega Venusaur<br />');
+			'<b>Ace:</b> Breloom<br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
 			
 	},
 
@@ -464,15 +466,14 @@ var trainerCards = {
 			 '<center><img src="http://fc00.deviantart.net/fs71/f/2014/082/f/8/manaphy_gif_by_gloomymyth-d7bakkc.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo-resolute.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/tentacruel.gif"><img src="http://www.pokemonreborn.com/custom/44203.png?530"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/swampert.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gyarados.gif"></center>');
 	},
 
-        psychic: 'darkus',
-	darkus: function(target, room, user) {
+        psychic: 'edge',
+	edge: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
-			  '<i>"You would think I\'m Dark, but you can\'t think."</i> <br />'+
-			  'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Edge</b><br />'+
+			  '<i>"How can Mirrors be Real, if our Eyes Aren\'t Real?"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> Victini <br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
+			  '<b>Ace:</b> Victini <br />');
+			  
 			  
 			  
 	},
@@ -695,7 +696,7 @@ var trainerCards = {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 5 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
 				'-<b>1st <font color = 65b510>Meows</font></b> (Bug)<br />'+
-				'-<b>2nd <font color = ff00b6>Darkus</font></b></b> (Psychic)<br />'+
+				'-<b>2nd <font color = 006b0a>Darkus</font></b></b> (Grass)<br />'+
 				'-<b>3rd <font color = d6cc0c>Poppy</font></b> (Electric)<br />'+
 				'-<b>4th <font color = 230077>Leaf</font></b> (Dragon) <br />'+
 				'-<b>5th <font color = FF0000>Neith</font></b> (Fire)<br />'+

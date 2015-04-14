@@ -229,7 +229,7 @@ var trainerCards = {
 	darkus: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
-			'<i>"You would think I\'m Dark, but you can't think"</i> <br />'+
+			'<i>"You would think I\'m Dark, but you can\'t think"</i> <br />'+
 			'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Breloom<br />'+
@@ -473,9 +473,7 @@ var trainerCards = {
 			  '<i>"How can Mirrors be Real, if our Eyes Aren\'t Real?"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Victini <br />');
-			  
-			  
-			  
+
 	},
 	
 	ground: 'noahb',

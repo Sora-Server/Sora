@@ -5,7 +5,7 @@
 }
 .header .logo {
 	display:none
-}
+}/*
 .roomlist a.ilink {
   color: #b2e1ff;
   text-shadow: 1px 1px #000;
@@ -114,14 +114,14 @@ a.button.cur, .maintabbarbottom {
   background: #000000;
   border: 1px solid;
   border-color: #007fff
-}
+}*/
 .chat-log {
 	font-size:8pt;
 	font-family:Arial;
 	background:url("http://i61.tinypic.com/2i0cj08.jpg") no-repeat scroll center;
 	color:#000;
 	overflow:auto
-}
+}/*
 .tabbar a.button, .tabbar a.button.cur, a.button.cur.closable, a.button.cur.closable:hover {
   background: url("http://i1171.photobucket.com/albums/r545/Brahak/thing2_zpsrt7nw9no.png");
   color: #007fff;
@@ -173,7 +173,7 @@ button.big.button.disabled, button.big.button.disabled:hover, .menugroup .button
   	border-color: #007fff;
   	border-radius: 0px;
   	border: 1px solid;
-}
+}*/
 .sunnydayweather {
 	background:#FEB url("//play.pokemonshowdown.com/fx/weather-sunnyday.jpg") no-repeat scroll left top;
 	color:#641;

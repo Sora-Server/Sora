@@ -286,7 +286,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Neith</b><br />'+
 	              '<i>"Hotter than \'Straya in Summer"</i> <br />'+
-	              'Leader Ranking: <font color =1000ff><b>6th</font></b> <br />'+
+	              '<b>Leader Ranking: <font color =00d30a><b>5th</font></b> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> Maddie (Typhlosion)<br />'+
 	              '<b>Badges:</b><br />'+
@@ -443,11 +443,10 @@ var trainerCards = {
         },
         
         
-        water: 'arthurzh',
-	arthurzh: function(target, room, user) {
+        
+	water: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>ArthurZh</b><br />'+
-		         '<b>Leader Ranking: <font color =00d30a><b>5th</font></b> <br />'+
 			 '<i>"The power of the seas, storms and rivers are mine to hold....and here you dare to stand before me?"</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
 			 '<b>Ace:</b> Mega Swampert<br />');
@@ -694,13 +693,12 @@ var trainerCards = {
 	leaderranks: 'ranks',
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Listed here are the Top 6 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
+			this.sendReplyBox('Listed here are the Top 5 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
 				'-<b>1st <font color = 65b510>Meows</font></b> (Bug)<br />'+
 				'-<b>2nd <font color = ff00b6>Darkus</font></b></b> (Psychic)<br />'+
 				'-<b>3rd <font color = d6cc0c>Poppy</font></b> (Electric)<br />'+
 				'-<b>4th <font color = 230077>Leaf</font></b> (Dragon) <br />'+
-				'-<b>5th <font color = 0745ff>ArthurZH</font></b> (Water)<br />'+
-				'-<b>6th <font color = FF0000>Neith</font></b> (Fire)<br />'+
+				'-<b>5th <font color = FF0000>Neith</font></b> (Fire)<br />'+
 				'</div>');
 	
 	},

@@ -59,7 +59,7 @@ var trainerCards = {
 	leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		      '<b>Leader Ranking: <font color = 72ff00><b>4th</font></b> <br />'+
+		      'Leader Ranking: <font color = ffe100><b>3rd</font></b> <br />'+
 		      '<i>"hear that roar, that is my true power-uh scratch that its my stomach, either way your screwed though"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
 		      '<b>Ace:</b> Frigid (Kyurem)<br />');
@@ -288,7 +288,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Neith</b><br />'+
 	              '<i>"Hotter than \'Straya in Summer"</i> <br />'+
-	              '<b>Leader Ranking: <font color =00d30a><b>5th</font></b> <br />'+
+	              '<b>Leader Ranking: <font color = 72ff00><b>4th</font></b> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> Maddie (Typhlosion)<br />'+
 	              '<b>Badges:</b><br />'+
@@ -423,6 +423,21 @@ var trainerCards = {
 			 '-VGC \'15 <br />');
         },
         
+        
+        poppy: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Frontier <b>Poppy</b><br />'+
+			 '<i>"You are about to experience the high fidelity steam known as the Spectral Transmission.""</i> <br />'+
+		         '<b>Symbol:</b> The Awesome Symbol <br />'+
+			 '<b>Ace:</b> Casteration Anxiety (Scizor)<br />'+
+			 '<b>Battle rules:</b> <br />'+
+			 '-OU <br />'+
+			 '-Only Pokemon capable of Mega Evolution may be used <br />'+
+			 '-No items <br />');
+        },
+       
+        
+        
         zachary: function (target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Zachary</b><br/>' +
@@ -433,14 +448,13 @@ var trainerCards = {
 			'-Smogon Doubles');
 	},
         
-        electric: 'poppy',
-	poppy: function(target, room, user) {
+      
+	electric: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
-		         'Leader Ranking: <font color = ffe100><b>3rd</font></b> <br />'+
-			 '<i>"It\'s too late for that!"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = d6cc0c>Electric</font></b><br />'+
-			 '<b>Ace:</b> Dangerzone (Magnezone)<br />');
+			 '<b>Ace:</b> ???<br />');
   
         },
         
@@ -695,9 +709,8 @@ var trainerCards = {
 			this.sendReplyBox('Listed here are the Top 5 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
 				'-<b>1st <font color = 65b510>Meows</font></b> (Bug)<br />'+
 				'-<b>2nd <font color = 006b0a>Darkus</font></b></b> (Grass)<br />'+
-				'-<b>3rd <font color = d6cc0c>Poppy</font></b> (Electric)<br />'+
-				'-<b>4th <font color = 230077>Leaf</font></b> (Dragon) <br />'+
-				'-<b>5th <font color = FF0000>Neith</font></b> (Fire)<br />'+
+				'-<b>3rd <font color = 230077>Leaf</font></b> (Dragon)<br />'+
+				'-<b>4th <font color = FF0000>Neith</font></b> (Fire) <br />'+
 				'</div>');
 	
 	},

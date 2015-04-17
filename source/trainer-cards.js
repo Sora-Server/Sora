@@ -484,7 +484,7 @@ var trainerCards = {
 	edge: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Edge</b><br />'+
-			  '<i>"How can Mirrors be Real, if our Eyes Aren\'t Real?"</i> <br />'+
+			  '<i>"How can you Face your Problem, if the Problem is your Face?"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Victini <br />');
 

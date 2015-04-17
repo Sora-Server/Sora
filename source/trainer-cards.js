@@ -263,13 +263,13 @@ var trainerCards = {
         
       
         
-        
-       fighting: function(target, room, user) {
+       rock: 'corea',
+       corea: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Bulk</b><br />'+
-			'<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Corea</b><br />'+
+			'<i>"Dicking on Mac is essential."</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
-			'<b>Ace:</b> ??? <br />');
+			'<b>Ace:</b> Chesnaught <br />');
         },
         
         

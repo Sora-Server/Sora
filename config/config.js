@@ -341,7 +341,7 @@ exports.groups = {
 		        staff: true,
 		        kick: true,
 	        	declare: true,
-	        	modchatall: true,
+	        	modchat: true,
 		        rangeban: true,
 	        	potd: true,
 	        	disableladder: true,

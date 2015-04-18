@@ -1241,49 +1241,20 @@ var customCommands = {
         this.sendReply('You have hidden your staff symbol.');
     },
 
-    k: 'kick',
-    spank: 'kick',
-    kick: function(target, room, user, connection, cmd) {
-            if (!this.can('lock')) return false;
-            if (!target) return this.parse('/help kick');
-            if (!this.canTalk()) return false;
-
-            target = this.splitTarget(target);
-            var targetUser = this.targetUser;
-            
-            if (!targetUser || !targetUser.connected) {
-                    return this.sendReply('User '+this.targetUsername+' not found.');
-            }
-            if (!this.can('warn', targetUser, room)) return false;
-            
-            if (cmd === 'spank') {
-            	if (!room.auth) {
-                    this.addModCommand(targetUser.name+' was spanked out of the room by '+user.name+'.');
-                    targetUser.popup('You were spanked out of room '+room.id+' by '+user.name+'.');
-                    this.logModCommand(user.name+' kicked '+targetUser.name+' from the room '+room.id);
-                    targetUser.leaveRoom(room.id);
-                }
-                if (room.auth) {
-                    this.addModCommand(targetUser.name+' was spanked out of the room by '+user.name+'.');
-                    targetUser.popup('You were spanked out of room '+room.id+' by '+user.name+'.');
-                    this.logRoomCommand(user.name+' kicked '+targetUser.name+' from the room '+room.id, room.id);
-                    targetUser.leaveRoom(room.id);
-                }
-            } else {
-            	if (!room.auth) {
-                    this.addModCommand(targetUser.name+' was kicked from the room by '+user.name+'.');
-                    targetUser.popup('You were kicked from '+room.id+' by '+user.name+'.');
-                    this.logModCommand(user.name+' kicked '+targetUser.name+' from the room '+room.id);
-                    targetUser.leaveRoom(room.id);
-                }
-                if (room.auth) {
-                    this.addRoomCommand(targetUser.name+' was kicked from the room by '+user.name+'.', room.id);
-                    targetUser.popup('You were kicked from '+room.id+' by '+user.name+'.');
-                    this.logRoomCommand(user.name+' kicked '+targetUser.name+' from the room '+room.id, room.id);
-                    targetUser.leaveRoom(room.id);
-            }
-        }
-    },
+   k: 'kick',
+	kick: function (target, room, user) {
+		if (!target) return;
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+		if (!targetUser || !targetUser.connected) {
+			return this.sendReply("User " + this.targetUsername + " not found.");
+		}
+		if (!this.can('kick', targetUser, room)) return false;
+		var msg = "kicked by " + user.name + (target ? " (" + target + ")" : "") + ".";
+		this.addModCommand("" + targetUser.name + " was " + msg);
+		targetUser.popup("You have been " + msg);
+		targetUser.leaveRoom(room);
+	}
 
     masspm: 'pmall',
     pmall: function (target, room, user) {

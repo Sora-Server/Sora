@@ -737,7 +737,7 @@ reload: function (target, room, user) {
 		user.leaveRoom(targetRoom || room, connection);
 	},
 
-	/*********************************************************
+/*********************************************************
 	 * Moderating: Punishments
 	 *********************************************************/
 
@@ -776,7 +776,7 @@ reload: function (target, room, user) {
 		if (!targetRoom) {
 			return this.sendReply("The room '" + target + "' does not exist.");
 		}
-		if (!this.can('warn', targetUser, room) || !this.can('warn', targetUser, targetRoom)) return false;
+		if (!this.can('redirect', targetUser, room) || !this.can('redirect', targetUser, targetRoom)) return false;
 		if (!targetUser || !targetUser.connected) {
 			return this.sendReply("User " + this.targetUsername + " not found.");
 		}
@@ -890,7 +890,7 @@ reload: function (target, room, user) {
 			ResourceMonitor.log("[CrisisMonitor] " + targetUser.name + " was locked by " + user.name + " and demoted from " + from.join(", ") + ".");
 		}
 
-		targetUser.popup("" + user.name + " has locked you from talking in chats, battles, and PMing regular users." + (target ? "\n\nReason: " + target : "") + "\n\nIf you feel that your lock was unjustified, you can still PM staff members (%, @, &, and ~) to discuss it" + (Config.appealurl ? " or you can appeal:\n" + Config.appealurl : ".") + "\n\nYour lock will expire in a few days.");
+		targetUser.popup("" + user.name + " has locked you from talking in chats, battles, and PMing regular users." + (target ? "\n\nReason: " + target : "") + "\n\nIf you feel that your lock was unjustified, you can still PM staff members (" + Users.getGroupsThatCan('lock', user).join(", ") + ") to discuss it" + (Config.appealUri ? " or you can appeal:\n" + Config.appealUri : ".") + "\n\nYour lock will expire in a few days.");
 
 		this.addModCommand("" + targetUser.name + " was locked from talking by " + user.name + "." + (target ? " (" + target + ")" : ""));
 		var alts = targetUser.getAlts();
@@ -922,7 +922,7 @@ reload: function (target, room, user) {
 		}
 	},
 
-b: 'ban',
+	b: 'ban',
 	ban: function (target, room, user) {
 		if (!target) return this.parse('/help ban');
 		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
@@ -1118,6 +1118,12 @@ b: 'ban',
 
 		var nextGroupRank = Config.groups.bySymbol[Config.groups.default.global].globalRank + 1;
 		var nextGroup = target || Config.groups.globalByRank[nextGroupRank] || Config.groups.globalByRank.slice(-1)[0];
+		if (!Config.groups.bySymbol[nextGroup]) {
+			return this.sendReply("Group '" + nextGroup + "' does not exist.");
+		}
+		if (!Config.groups.global[nextGroup]) {
+			return this.sendReply("Group '" + nextGroup + "' does not exist as a global rank.");
+		}
 
 		if (!Users.setOfflineGroup(name, nextGroup, true)) {
 			return this.sendReply("/forcepromote - Don't forcepromote unless you have to.");
@@ -1138,7 +1144,7 @@ b: 'ban',
 	modchat: function (target, room, user) {
 		if (!target) return this.sendReply("Moderated chat is currently set to: " + room.modchat);
 		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
-		if (!this.can('modchat', null, room)) return false;
+		if (!this.can('modchat', room)) return false;
 
 		var roomType = room.auth ? room.type + 'Room' : 'global';
 		if (room.modchat && Config.groups[roomType][room.modchat] && Config.groups.bySymbol[room.modchat][roomType + 'Rank'] > 1 && !user.can('modchatall', room)) {
@@ -1184,26 +1190,19 @@ b: 'ban',
 		}
 	},
 
-	declarered: 'declare',
-	declaregreen: 'declare',
-	declare: function(target, room, user, connection, cmd) {
-  		if (!target) return this.parse('/help declare');
-		if (!this.can('declare', null, room)) return false;
- 		if (cmd === 'declare'){
- 			this.add('|raw|<div class="broadcast-blue"><b>'+target+'</b></div>');
- 		}
-         	if (cmd === 'declarered'){
- 			this.add('|raw|<div class="broadcast-red"><b>'+target+'</b></div>');
- 		}
- 		if (cmd === 'declaregreen'){
- 			this.add('|raw|<div class="broadcast-green"><b>'+target+'</b></div>');
- 		}
- 		this.logModCommand(user.name+' declared '+target);
-  	},
+	declare: function (target, room, user) {
+		if (!target) return this.parse('/help declare');
+		if (!this.can('declare', room)) return false;
+
+		if (!this.canTalk()) return;
+
+		this.add('|raw|<div class="broadcast-blue"><b>' + Tools.escapeHTML(target) + '</b></div>');
+		this.logModCommand(user.name + " declared " + target);
+	},
 
 	htmldeclare: function (target, room, user) {
 		if (!target) return this.parse('/help htmldeclare');
-		if (!this.can('declare', null, room)) return false;
+		if (!this.can('gdeclare', room)) return false;
 
 		if (!this.canTalk()) return;
 
@@ -1211,57 +1210,40 @@ b: 'ban',
 		this.logModCommand(user.name + " declared " + target);
 	},
 
-	gdeclarered: 'gdeclare',
- 	gdeclaregreen: 'gdeclare',
- 	gdeclare: function(target, room, user, connection, cmd) {
- 		if (!target) return this.parse('/help '+cmd);
-  		if (!this.can('declare')) return false;
- 		var staff = '';
- 		staff = 'a ' + config.groups[user.group].name;
- 		if (user.group == '~') staff = 'an Administrator';
- 		//var roomName = (room.isPrivate)? 'a private room' : room.id;
- 
- 		if (cmd === 'gdeclare'){
- 			for (var id in Rooms.rooms) {
- 				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b><font size=1><i>Global declare by '+staff+'<br /></i></font size>'+target+'</b></div>');
- 			}
- 		}
- 		if (cmd === 'gdeclarered'){
- 			for (var id in Rooms.rooms) {
- 				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-red"><b><font size=1><i>Global declare by '+staff+'<br /></i></font size>'+target+'</b></div>');
- 			}
- 		}
- 		else if (cmd === 'gdeclaregreen'){
- 			for (var id in Rooms.rooms) {
- 				if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-green"><b><font size=1><i>Global declare by '+staff+'<br /></i></font size>'+target+'</b></div>');
- 			}
-  		}
- 		this.logModCommand(user.name+' globally declared '+target);
-  	},
-	announcered: 'announce',
-	announcegreen: 'announce',
+	gdeclare: 'globaldeclare',
+	globaldeclare: function (target, room, user) {
+		if (!target) return this.parse('/help globaldeclare');
+		if (!this.can('gdeclare')) return false;
+
+		for (var id in Rooms.rooms) {
+			if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b>' + target + '</b></div>');
+		}
+		this.logModCommand(user.name + " globally declared " + target);
+	},
+
+	cdeclare: 'chatdeclare',
+	chatdeclare: function (target, room, user) {
+		if (!target) return this.parse('/help chatdeclare');
+		if (!this.can('gdeclare')) return false;
+
+		for (var id in Rooms.rooms) {
+			if (id !== 'global') if (Rooms.rooms[id].type !== 'battle') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b>' + target + '</b></div>');
+		}
+		this.logModCommand(user.name + " globally declared (chat level) " + target);
+	},
+
 	wall: 'announce',
-	announce: function (target, room, user, cmd) {
+	announce: function (target, room, user) {
 		if (!target) return this.parse('/help announce');
 
 		if (!this.can('announce', room)) return false;
-		if (cmd === 'announce'){
- 			this.add('|raw|<div class="broadcast-blue"><b>'+target+'</b></div>');
- 		}
-         	if (cmd === 'announcered'){
- 			this.add('|raw|<div class="broadcast-red"><b>'+target+'</b></div>');
- 		}
- 		if (cmd === 'announcegreen'){
- 			this.add('|raw|<div class="broadcast-green"><b>'+target+'</b></div>');
- 		}
- 		this.logModCommand(user.name+' declared '+target);
 
 		target = this.canTalk(target);
 		if (!target) return;
 
 		return '/announce ' + target;
 	},
-	
+
 	fr: 'forcerename',
 	forcerename: function (target, room, user) {
 		if (!target) return this.parse('/help forcerename');
@@ -1315,7 +1297,7 @@ b: 'ban',
 		var filename = '';
 		var command = '';
 		if (roomId === 'all' && wordSearch) {
-			if (!this.can('modlog')) return;
+			if (!this.can('staff')) return;
 			roomNames = "all rooms";
 			// Get a list of all the rooms
 			var fileList = fs.readdirSync('logs/modlog');
@@ -1323,7 +1305,7 @@ b: 'ban',
 				filename += path.normalize(__dirname + '/' + logPath + fileList[i]) + ' ';
 			}
 		} else {
-			if (!this.can('modlog', null, Rooms.get(roomId))) return;
+			if (!this.can('staff', Rooms.get(roomId))) return;
 			roomNames = "the room " + roomId;
 			filename = path.normalize(__dirname + '/' + logPath + 'modlog_' + roomId + '.txt');
 		}
@@ -1369,6 +1351,7 @@ b: 'ban',
 			}
 		});
 	},
+
 
 	/*********************************************************
 	 * Server management commands

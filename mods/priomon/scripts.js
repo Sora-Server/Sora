@@ -316,9 +316,89 @@ exports.BattleScripts = {
                 this.modData('Learnsets', 'groudon').learnset.tremorshock = ['5M'];
                 
                 //Pokemon that can learn Corrosion
-                this.modData('Learnsets', 'drapion').learnset.corrosion = ['5M'];
+                this.modData('Learnsets', 'drapion').learnset.corrosion = ['6M'];
+                this.modData('Learnsets', 'nidoking').learnset.corrosion = ['6M'];
+                this.modData('Learnsets', 'nidoqueen').learnset.corrosion = ['6M'];
+                this.modData('Learnsets', 'skuntank').learnset.corrosion = ['6M'];
+                this.modData('Learnsets', 'swalot').learnset.corrosion = ['6M'];
+                this.modData('Learnsets', 'crobat').learnset.corrosion = ['6M'];
+                this.modData('Learnsets', 'roserade').learnset.corrosion = ['6M'];
+                this.modData('Learnsets', 'tentacruel').learnset.corrosion = ['6M'];
+                this.modData('Learnsets', 'toxicroak').learnset.corrosion = ['6M'];
+                this.modData('Learnsets', 'dragalge').learnset.corrosion = ['6M'];
+                this.modData('Learnsets', 'muk').learnset.corrosion = ['6M'];
+                this.modData('Learnsets', 'garbodor').learnset.corrosion = ['6M'];
+                this.modData('Learnsets', 'weezing').learnset.corrosion = ['6M'];
                 
                 //Pokemon that can learn Frost Bite
-                this.modData('Learnsets', 'rotomfrost').learnset.frostbite = ['5M'];
-        }        
+                this.modData('Learnsets', 'rotomfrost').learnset.frostbite = ['6M'];
+                this.modData('Learnsets', 'abomasnow').learnset.frostbite = ['6M'];
+                this.modData('Learnsets', 'mamoswine').learnset.frostbite = ['6M'];
+                this.modData('Learnsets', 'articuno').learnset.frostbite = ['6M'];
+                this.modData('Learnsets', 'aurorus').learnset.frostbite = ['6M'];
+                this.modData('Learnsets', 'beartic').learnset.frostbite = ['6M'];
+                this.modData('Learnsets', 'abomasnow').learnset.frostbite = ['6M'];
+                this.modData('Learnsets', 'glaceon').learnset.frostbite = ['6M'];
+                this.modData('Learnsets', 'glalie').learnset.frostbite = ['6M'];
+                this.modData('Learnsets', 'jynx').learnset.frostbite = ['6M'];
+                this.modData('Learnsets', 'walrein').learnset.frostbite = ['6M'];
+                this.modData('Learnsets', 'vanilluxe').learnset.frostbite = ['6M'];
+                
+                //Pokémon that can learn Stand Guard
+                this.modData('Learnsets', 'rattata').learnset.standguard = ['6M'];
+                this.modData('Learnsets', 'raticate').learnset.standguard = ['6M'];
+                this.modData('Learnsets', 'machamp').learnset.standguard = ['6M'];
+                this.modData('Learnsets', 'golurk').learnset.standguard = ['6M'];
+                this.modData('Learnsets', 'regigigas').learnset.standguard = ['6M'];
+                
+                //Pokémon that can learn Quicksand
+                this.modData('Learnsets', 'hippowdon').learnset.quicksand = ['6M'];
+                this.modData('Learnsets', 'dugtrio').learnset.quicksand = ['6M'];
+                this.modData('Learnsets', 'swampert').learnset.quicksand = ['6M'];
+                this.modData('Learnsets', 'flygon').learnset.quicksand = ['6M'];
+                this.modData('Learnsets', 'sandslash').learnset.quicksand = ['6M'];
+                this.modData('Learnsets', 'garchomp').learnset.quicksand = ['6M'];
+                this.modData('Learnsets', 'krookodile').learnset.quicksand = ['6M'];
+                
+                //Pokémon that can learn Hamper
+                this.modData('Learnsets', 'delibird').learnset.hamper = ['6M'];
+                this.modData('Learnsets', 'granbull').learnset.hamper = ['6M'];
+                this.modData('Learnsets', 'wigglytuff').learnset.hamper = ['6M'];
+                this.modData('Learnsets', 'azumarill').learnset.hamper = ['6M'];
+                this.modData('Learnsets', 'audino').learnset.hamper = ['6M'];
+                
+                //Pokémon that can learn Ghostly Wail
+                this.modData('Learnsets', 'cofagrigus').learnset.ghostlywail = ['6M'];
+                this.modData('Learnsets', 'spiritomb').learnset.ghostlywail = ['6M'];
+                this.modData('Learnsets', 'mismagius').learnset.ghostlywail = ['6M'];
+                this.modData('Learnsets', 'gourgeist').learnset.ghostlywail = ['6M'];
+                this.modData('Learnsets', 'dusknoir').learnset.ghostlywail = ['6M'];
+                
+                this.modData('Learnsets', 'pachirisu').learnset.laststand = ['6M'];
+                this.modData('Learnsets', 'arcanine').learnset.originroar = ['6M'];
+                this.modData('Learnsets', 'aurorus').learnset.defrost = ['6M'];
+                this.modData('Learnsets', 'aegislash').learnset.queenswrath = ['6M'];
+                this.modData('Learnsets', 'hooh').learnset.pyrogenesis = ['6M'];
+                this.modData('Learnsets', 'moltres').learnset.pyrogenesis = ['6M'];
+                
+                //Pokemon with Snow Skates
+                this.modData('Pokedex', 'weavile').abilities = {1: 'Snow Skates'};
+                this.modData('Pokedex', 'walrein').abilities = {'H': 'Snow Skates'};
+                this.modData('Pokedex', 'beartic').abilities = {1: 'Snow Skates'};
+                this.modData('Pokedex', 'glalie').abilities = {1: 'Snow Skates'};
+                this.modData('Pokedex', 'delibird').abilities = {0: 'Snow Skates'};
+                this.modData('Pokedex', 'mamoswine').abilities = {0: 'Snow Skates'};
+                this.modData('Pokedex', 'vanilluxe').abilities = {1: 'Snow Skates'};
+                this.modData('Pokedex', 'regice').abilities = {1: 'Snow Skates'};
+                
+                //Pokemon with Turbo Charged
+                this.modData('Pokedex', 'empoleon').abilities = {1: 'Turbo Charged'};
+                this.modData('Pokedex', 'registeel').abilities = {1: 'Turbo Charged'};
+                this.modData('Pokedex', 'klinklang').abilities = {1: 'Turbo Charged'};
+                this.modData('Pokedex', 'bastiodon').abilities = {1: 'Turbo Charged'};
+                
+                //Pokemon with Amplify
+                //adding soon
+                
+        }
 };              

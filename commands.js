@@ -1244,30 +1244,7 @@ reload: function (target, room, user) {
 		return '/announce ' + target;
 	},
 
-	fr: 'forcerename',
-	forcerename: function (target, room, user) {
-		if (!target) return this.parse('/help forcerename');
-		if ((user.locked || user.mutedRooms[room.id]) && !user.can('bypassall')) return this.sendReply("You cannot do this while unable to talk.");
-		var commaIndex = target.indexOf(',');
-		var targetUser, reason;
-		if (commaIndex !== -1) {
-			reason = target.substr(commaIndex + 1).trim();
-			target = target.substr(0, commaIndex).trim();
-		}
-		targetUser = Users.get(target);
-		if (!targetUser) return this.sendReply("User '" + target + "' not found.");
-		if (!this.can('forcerename', targetUser)) return false;
 
-		if (targetUser.userid !== toId(target)) {
-			return this.sendReply("User '" + target + "' had already changed its name to '" + targetUser.name + "'.");
-		}
-
-		var entry = targetUser.name + " was forced to choose a new name by " + user.name + (reason ? ": " + reason : "");
-		this.privateModCommand("(" + entry + ")");
-		Rooms.global.cancelSearch(targetUser);
-		targetUser.resetName();
-		targetUser.send("|nametaken||" + user.name + " considers your name inappropriate" + (reason ? ": " + reason : "."));
-	},
 
 	modlog: function (target, room, user, connection) {
 		var lines = 0;

@@ -257,7 +257,7 @@ exports.BattleMovedex = {
 		secondary: false,
 		target: "normal",
 		type: "Psychic"
-	      }
+	      },
 	      "frostbite": {
 		num: 248,
 		accuracy: 100,

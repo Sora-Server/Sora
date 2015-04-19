@@ -382,64 +382,64 @@ exports.BattleScripts = {
                 this.modData('Learnsets', 'moltres').learnset.pyrogenesis = ['6M'];
                 
                 //Pokemon with Snow Skates
-                this.modData('Pokedex', 'weavile').abilities = {1: 'Snow Skates'};
-                this.modData('Pokedex', 'walrein').abilities = {'H': 'Snow Skates'};
-                this.modData('Pokedex', 'beartic').abilities = {1: 'Snow Skates'};
-                this.modData('Pokedex', 'glalie').abilities = {1: 'Snow Skates'};
-                this.modData('Pokedex', 'delibird').abilities = {0: 'Snow Skates'};
-                this.modData('Pokedex', 'mamoswine').abilities = {0: 'Snow Skates'};
-                this.modData('Pokedex', 'vanilluxe').abilities = {1: 'Snow Skates'};
-                this.modData('Pokedex', 'regice').abilities = {1: 'Snow Skates'};
+                this.modData('Pokedex', 'weavile').abilities[1] = 'Snow Skates';
+                this.modData('Pokedex', 'walrein').abilities['H'] = 'Snow Skates';
+                this.modData('Pokedex', 'beartic').abilities[1] = 'Snow Skates';
+                this.modData('Pokedex', 'glalie').abilities[1] = 'Snow Skates';
+                this.modData('Pokedex', 'delibird').abilities[0] = 'Snow Skates';
+                this.modData('Pokedex', 'mamoswine').abilities[0] = 'Snow Skates';
+                this.modData('Pokedex', 'vanilluxe').abilities[1] = 'Snow Skates';
+                this.modData('Pokedex', 'regice').abilities[1] = 'Snow Skates';
                 
                 //Pokemon with Turbo Charged
-                this.modData('Pokedex', 'empoleon').abilities = {1: 'Turbo Charged'};
-                this.modData('Pokedex', 'registeel').abilities = {1: 'Turbo Charged'};
-                this.modData('Pokedex', 'klinklang').abilities = {1: 'Turbo Charged'};
-                this.modData('Pokedex', 'bastiodon').abilities = {1: 'Turbo Charged'};
+                this.modData('Pokedex', 'empoleon').abilities[1] = 'Turbo Charged';
+                this.modData('Pokedex', 'registeel').abilities[1] = 'Turbo Charged';
+                this.modData('Pokedex', 'klinklang').abilities[1] = 'Turbo Charged';
+                this.modData('Pokedex', 'bastiodon').abilities[1] = 'Turbo Charged';
                 
                 //Pokemon with God's Will
-                this.modData('Pokedex', 'magcargo').abilities = {0: 'God\'s Will'};
-                this.modData('Pokedex', 'parasect').abilities = {'H': 'God\'s Will'};
-                this.modData('Pokedex', 'sunkern').abilities = {'H': 'God\'s Will'};
-                this.modData('Pokedex', 'sunflora').abilities = {'H': 'God\'s Will'};
-                this.modData('Pokedex', 'combee').abilities = {1: 'God\'s Will'};
-                this.modData('Pokedex', 'aurorus').abilities = {1: 'God\'s Will'};
-                this.modData('Pokedex', 'quagsire').abilities = {0: 'God\'s Will'};
+                this.modData('Pokedex', 'magcargo').abilities[0] = 'God\'s Will';
+                this.modData('Pokedex', 'parasect').abilities['H'] = 'God\'s Will';
+                this.modData('Pokedex', 'sunkern').abilities['H'] = 'God\'s Will';
+                this.modData('Pokedex', 'sunflora').abilities['H'] = 'God\'s Will';
+                this.modData('Pokedex', 'combee').abilities[1] = 'God\'s Will';
+                this.modData('Pokedex', 'aurorus').abilities[1] = 'God\'s Will';
+                this.modData('Pokedex', 'quagsire').abilities[0] = 'God\'s Will';
                 
                 //Pokemon with Amplify
-                this.modData('Pokedex', 'ampharos').abilities = {1: 'Amplify'};
-                this.modData('Pokedex', 'ampharosmega').abilities = {0: 'Amplify'};
-                this.modData('Pokedex', 'pikachu').abilities = {1: 'Amplify'};
-                this.modData('Pokedex', 'raichu').abilities = {1: 'Amplify'};
-                this.modData('Pokedex', 'zekrom').abilities = {1: 'Amplify'};
-                this.modData('Pokedex', 'heliolisk').abilities = {1: 'Amplify'};
-                this.modData('Pokedex', 'ampharos').abilities = {0: 'Amplify'};
-                this.modData('Pokedex', 'stunfisk').abilities = {1: 'Amplify'};
+                this.modData('Pokedex', 'ampharos').abilities[1] = 'Amplify';
+                this.modData('Pokedex', 'ampharosmega').abilities[0] = 'Amplify';
+                this.modData('Pokedex', 'pikachu').abilities[1] = 'Amplify';
+                this.modData('Pokedex', 'raichu').abilities[1] = 'Amplify';
+                this.modData('Pokedex', 'zekrom').abilities[1] = 'Amplify';
+                this.modData('Pokedex', 'heliolisk').abilities[1] = 'Amplify';
+                this.modData('Pokedex', 'ampharos').abilities[0] = 'Amplify';
+                this.modData('Pokedex', 'stunfisk').abilities[1] = 'Amplify';
                 
                 //Pokemon with Lightning Channel
-                this.modData('Pokedex', 'lanturn').abilities = {1: 'Lightning Channel'};
-                this.modData('Pokedex', 'zebstrika').abilities = {'H': 'Lightning Channel'};
-                this.modData('Pokedex', 'luxray').abilities = {0: 'Lightning Channel'};
-                this.modData('Pokedex', 'plusle').abilities = {1: 'Lightning Channel'};
-                this.modData('Pokedex', 'minun').abilities = {1: 'Lightning Channel'};
+                this.modData('Pokedex', 'lanturn').abilities[1] = 'Lightning Channel';
+                this.modData('Pokedex', 'zebstrika').abilities['H'] = 'Lightning Channel';
+                this.modData('Pokedex', 'luxray').abilities[0] = 'Lightning Channel';
+                this.modData('Pokedex', 'plusle').abilities[1] = 'Lightning Channel';
+                this.modData('Pokedex', 'minun').abilities[1] = 'Lightning Channel';
                 
                 //Pokemon with Adrenaline
-                this.modData('Pokedex', 'heracross').abilities = {0: 'Adrenaline'};
-                this.modData('Pokedex', 'regigigas').abilities = {1: 'Adrenaline'};
-                this.modData('Pokedex', 'machoke').abilities = {'H': 'Adrenaline'};
-                this.modData('Pokedex', 'lucario').abilities = {0: 'Adrenaline'};
+                this.modData('Pokedex', 'heracross').abilities[0] = 'Adrenaline';
+                this.modData('Pokedex', 'regigigas').abilities[1] = 'Adrenaline';
+                this.modData('Pokedex', 'machoke').abilities['H'] = 'Adrenaline';
+                this.modData('Pokedex', 'lucario').abilities[0] = 'Adrenaline';
                 
                 //Pokemon with Steady Aim
-                this.modData('Pokedex', 'regirock').abilities = {1: 'Steady Aim'};
-                this.modData('Pokedex', 'solrock').abilities = {1: 'Steady Aim'};
-                this.modData('Pokedex', 'cradily').abilities = {1: 'Steady Aim'};
-                this.modData('Pokedex', 'crustle').abilities = {1: 'Steady Aim'};
-                this.modData('Pokedex', 'barbaracle').abilities = {'H': 'Steady Aim'};
-                this.modData('Pokedex', 'magcargo').abilities = {1: 'Steady Aim'};
-                this.modData('Pokedex', 'rampardos').abilities = {1: 'Steady Aim'};
-                this.modData('Pokedex', 'relicanth').abilities = {0: 'Steady Aim'};
-                this.modData('Pokedex', 'sudowoodo').abilities = {'H': 'Steady Aim'};
-                this.modData('Pokedex', 'rhyperior').abilities = {0: 'Steady Aim'};
+                this.modData('Pokedex', 'regirock').abilities[1] = 'Steady Aim';
+                this.modData('Pokedex', 'solrock').abilities[1] = 'Steady Aim';
+                this.modData('Pokedex', 'cradily').abilities[1] = 'Steady Aim';
+                this.modData('Pokedex', 'crustle').abilities[1] = 'Steady Aim';
+                this.modData('Pokedex', 'barbaracle').abilities['H'] = 'Steady Aim';
+                this.modData('Pokedex', 'magcargo').abilities[1] = 'Steady Aim';
+                this.modData('Pokedex', 'rampardos').abilities[1] = 'Steady Aim';
+                this.modData('Pokedex', 'relicanth').abilities[0] = 'Steady Aim';
+                this.modData('Pokedex', 'sudowoodo').abilities['H'] = 'Steady Aim';
+                this.modData('Pokedex', 'rhyperior').abilities[0] = 'Steady Aim';
                 
         }
 };              

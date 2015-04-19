@@ -273,13 +273,13 @@ var trainerCards = {
         },
         
         
-        fairy: 'matt99',
-        matt99: function(target, room, user) {
+        
+        fairy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-	              '<i>"The elusive Fairy types may appear frail as a breeze and delicate as a bloom, but they are strong."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
-	              '<b>Ace:</b> Gardevoir<br />');
+	              '<b>Ace:</b> ???<br />');
 	              
         },
         
@@ -463,13 +463,13 @@ var trainerCards = {
         },
         
         
-        
-	water: function(target, room, user) {
+        water: 'matt99',
+	matt99: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			 '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
+			 '<i>"That\'s not the ocean\'s pressure crushing you"</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> Greninja<br />');
 			 
 	},
         

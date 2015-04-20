@@ -427,13 +427,14 @@ var trainerCards = {
         poppy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Poppy</b><br />'+
-			 '<i>"You are about to experience the high fidelity steam known as the Spectral Transmission.""</i> <br />'+
+			 '<i>"You are about to experience the high fidelity steam known as the Spectral Transmission."</i> <br />'+
 		         '<b>Symbol:</b> The Awesome Symbol <br />'+
 			 '<b>Ace:</b> Casteration Anxiety (Scizor)<br />'+
 			 '<b>Battle rules:</b> <br />'+
-			 '-OU <br />'+
-			 '-Only Pokemon capable of Mega Evolution may be used <br />'+
-			 '-No items <br />');
+			 '-Only OU Pokemon and bellow may be used <br />'+
+			 '-All Pokemon used must be in their Mega Evolved forme selected from the Team Builder <br />'+
+			 '-No items <br />'+
+			 '-Challenge in Balanced Hackmons, but use only moves and abilities which are legal <br />');
         },
        
         

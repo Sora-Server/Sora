@@ -543,7 +543,7 @@ var trainerCards = {
 	jeratt: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<a><font size= 4><center><b>∆Artiste Jeratt∆</b></center></a><br />'+
-			'<center><i>"Let the storm rage on. The cold never bothered me anyways."</i></center><br />'+
+			'<center><i>"No one out-predicts me, but me."</i></center><br />'+
 			'<img src="http://sprites.pokecheck.org/i/235.gif"> <img src="http://sprites.pokecheck.org/t/033.gif"><br />'+
 			'<b>Highly skilled in:</b> Dragon & Ice<br />'+
 			'<b>Skilled in:</b> Making quotes, backgrounds for Sora and many Pokemon types.<br />'+ 

@@ -470,7 +470,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
 			 '<i>"That\'s not the ocean\'s pressure crushing you"</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
-			 '<b>Ace:</b> Greninja<br />');
+			 '<b>Ace:</b> Swampert<br />');
 			 
 	},
         

@@ -4227,7 +4227,7 @@ exports.Formats = [
 		section: "Monotype",
 		column: 2,
 
-		team: 'randommonotype',
+		team: 'randomMonotype',
 		ruleset: ['Pokemon', 'Sleep Clause Mod', 'HP Percentage Mod']
 	},	
 	{

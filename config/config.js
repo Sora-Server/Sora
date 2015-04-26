@@ -311,7 +311,7 @@ exports.replSocketMode = 0600;
 exports.mutedSymbol = '!';
 exports.lockedSymbol = '\u203d';
 exports.groups = {
-	global: {' ': 1, '+': 1, '%': 1, '@': 1, '&': 1, '~': 1},
+	global: {' ': 1, '+': 1, '$': 1, '%': 1, '@': 1, '&': 1, '~': 1},
 	chatRoom: {' ': 1, '+': 1, '%': 1, '@': 1, '#': 1},
 	battleRoom: {' ': 1, '+': 1, '\u2605': 1},
 
@@ -399,7 +399,7 @@ exports.groups = {
 			id: 'driver',
 			name: "Driver",
 			description: "Gym Leaders, expert in their respective types. They can mute users and check alts.",
-			inherit: '+',
+			inherit: '%',
 			jurisdiction: 'u',
 			alts: '%u',
 			announce: true,
@@ -420,6 +420,27 @@ exports.groups = {
 			timer: true,
 			tournamentsmoderation: true,
 			warn: true
+		}, {
+			symbol: '$',
+			id: 'operator',
+			name: "Operator",
+			description: "Gym Trainers. They can warn users.",
+			inherit: '+',
+			jurisdiction: 'u',
+			alts: '%u',
+			announce: true,
+			broadcast: true,
+			bypassblocks: 'u%@&~',
+			hallofshame: false,
+			tell: false,
+			warn: true,
+			tournaments: true,
+			jeopardy: true,
+			joinbattle: true,
+			kick: true,
+			staff: true,
+			timer: true,
+			tournamentsmoderation: true,
 		},{
 			symbol: '+',
 			id: 'voice',

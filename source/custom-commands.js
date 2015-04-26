@@ -18,6 +18,7 @@ var customCommands = {
 		
 
     	sprite: function (target, room, user, connection, cmd) {
+    		if (!this.canBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/sprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -287,46 +288,27 @@ var customCommands = {
         this.popupReply('Administrators:\n--------------------\n' + buffer.admins + '\n\nLeaders:\n-------------------- \n' + buffer.leaders + '\n\nModerators:\n-------------------- \n' + buffer.mods + '\n\nDrivers:\n--------------------\n' + buffer.drivers + '\n\nVoices:\n-------------------- \n' + buffer.voices + '\n\n\t\t\t\tTotal Staff Members: ' + numStaff);
     },
 
-    regdate: function (target, room, user, connection) {
-        if (!this.canBroadcast()) return;
-        if (!target || target == "." || target == "," || target == "'") return this.parse('/help regdate');
-        var username = target;
-        target = target.replace(/\s+/g, '');
-
-        var options = {
-            host: "www.pokemonshowdown.com",
-            port: 80,
-            path: "/forum/~" + target
-        };
-
-        var content = "";
-        var self = this;
-        var req = http.request(options, function (res) {
-
-            res.setEncoding("utf8");
-            res.on("data", function (chunk) {
-                content += chunk;
-            });
-            res.on("end", function () {
-                content = content.split("<em");
-                if (content[1]) {
-                    content = content[1].split("</p>");
-                    if (content[0]) {
-                        content = content[0].split("</em>");
-                        if (content[1]) {
-                            regdate = content[1];
-                            data = username + ' was registered on' + regdate + '.';
-                        }
-                    }
-                } else {
-                    data = username + ' is not registered.';
-                }
-                self.sendReplyBox(data);
-                room.update();
-            });
-        });
-        req.end();
-    },
+    	registered: 'regdate',
+	regdate: function (target, room, user, connection, cmd) {
+		if (!toId(target)) return this.sendReply("'" + target + "' is not a valid username.");
+		if (!toId(target).length > 18) return this.sendReply('Usernames can only contain 18 characters at the max.');
+		if (!this.canBroadcast()) return;
+		
+		var path = "http://pokemonshowdown.com/users/" + toId(target);
+		var self = this;
+		
+		request(path, function (error, response, body) {
+			if (error || response.statusCode === 404) {
+				self.sendReplyBox(target + ' is not registered.');
+				room.update();
+				return;
+			}
+			var date = body.split('<small>')[1].split('</small>')[0].substr(17);
+			if (!date) self.sendReplyBox(target + ' is not registered.');
+			else self.sendReplyBox(target + ' was registered on ' + date);
+			room.update();
+		});
+	},
 
     atm: 'profile',
     profile: function (target, room, user, connection, cmd) {
@@ -1054,13 +1036,12 @@ var customCommands = {
 	  endtour: function(target, room, user) {
 	  this.parse('/tour end');
 	  },
-	      u: 'urbandefine',
+	  
+	u: 'urbandefine',
     ud: 'urbandefine',
     urbandefine: function (target, room, user) {
     	if (!this.canBroadcast()) return;
-    	if(room.id === 'lobby') {
-				return this.sendReply('|html|This command can only be used in the pub.');
-		}
+    	if (this.broadcasting && room.id === 'Lobby') return this.sendReply('This command cannot be broadcasted in the lobby.')
         if (!target) return this.parse('/help urbandefine')
         if (target > 50) return this.sendReply('Phrase can not be longer than 50 characters.');
 
@@ -1101,9 +1082,6 @@ var customCommands = {
     def: 'define',
     define: function (target, room, user) {
     	if (!this.canBroadcast()) return;
-    	if(room.id === 'lobby') {
-				return this.sendReply('|html|This command can only be used in the pub.');
-		}
         if (!target) return this.parse('/help define');
         target = toId(target);
         if (target > 50) return this.sendReply('Word can not be longer than 50 characters.');

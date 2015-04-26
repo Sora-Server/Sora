@@ -428,7 +428,7 @@ exports.groups = {
 			inherit: '+',
 			jurisdiction: 'u',
 			alts: '%u',
-			announce: true,
+			announce: false,
 			broadcast: true,
 			bypassblocks: 'u%@&~',
 			hallofshame: false,

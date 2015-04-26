@@ -311,8 +311,8 @@ exports.replSocketMode = 0600;
 exports.mutedSymbol = '!';
 exports.lockedSymbol = '\u203d';
 exports.groups = {
-	global: {' ': 1, '+': 1, '$': 1, '%': 1, '@': 1, '&': 1, '~': 1},
-	chatRoom: {' ': 1, '+': 1, '$': 1, '%': 1, '@': 1, '#': 1},
+	global: {' ': 1, '+': 1, '%': 1, '@': 1, '&': 1, '~': 1},
+	chatRoom: {' ': 1, '+': 1, '%': 1, '@': 1, '#': 1},
 	battleRoom: {' ': 1, '+': 1, '\u2605': 1},
 
 	default: {

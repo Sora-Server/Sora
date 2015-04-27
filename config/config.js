@@ -310,18 +310,7 @@ exports.replSocketMode = 0600;
 //     - warn: /warn command.
 exports.mutedSymbol = '!';
 exports.lockedSymbol = '\u203d';
-exports.groups = {
-	global: {' ': 1, '+': 1, '%': 1, '@': 1, '&': 1, '~': 1},
-	chatRoom: {' ': 1, '+': 1, '%': 1, '@': 1, '#': 1},
-	battleRoom: {' ': 1, '+': 1, '\u2605': 1},
-
-	default: {
-		global: ' ',
-		chatRoom: ' ',
-		battleRoom: ' '
-	},
-
-	list: [
+exports.grouplist = [
 		{
 			symbol: '~',
 			id: 'admin',
@@ -406,8 +395,8 @@ exports.groups = {
 			broadcast: true,
 			bypassblocks: 'u%@&~',
 			forcerename: true,
-			hallofshame: false,
-			tell: false,
+			hallofshame: true,
+			tell: true,
 			warn: true,
 			tournaments: true,
 			jeopardy: true,

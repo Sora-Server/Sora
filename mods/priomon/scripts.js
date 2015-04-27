@@ -350,6 +350,7 @@ exports.BattleScripts = {
                 this.modData('Learnsets', 'machamp').learnset.standguard = ['6M'];
                 this.modData('Learnsets', 'golurk').learnset.standguard = ['6M'];
                 this.modData('Learnsets', 'regigigas').learnset.standguard = ['6M'];
+                this.modData('Learnsets', 'ursaring').learnset.standguard = ['6M'];
                 
                 //Pokémon that can learn Quicksand
                 this.modData('Learnsets', 'hippowdon').learnset.quicksand = ['6M'];
@@ -413,7 +414,6 @@ exports.BattleScripts = {
                 this.modData('Pokedex', 'raichu').abilities[1] = 'Amplify';
                 this.modData('Pokedex', 'zekrom').abilities[1] = 'Amplify';
                 this.modData('Pokedex', 'heliolisk').abilities[1] = 'Amplify';
-                this.modData('Pokedex', 'ampharos').abilities[0] = 'Amplify';
                 this.modData('Pokedex', 'stunfisk').abilities[1] = 'Amplify';
                 
                 //Pokemon with Lightning Channel

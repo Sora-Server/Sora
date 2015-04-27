@@ -38,8 +38,8 @@ exports.BattleAbilities = {
 	"steadyaim": {
 		desc: "This Pokemon's STAB moves will not miss, but all moves will have their priority decreased by 1.",
 		shortDesc: "Reduces priority, but STAB moves will not miss.",
-		onModifyMove: function (move) {
-			if (move.hasSTAB) {
+		onModifyMove: function (move, pokemon) {
+			if (pokemon,hasType(move.type)) {
 				move.priority -= 1;
 				move.accuracy = true;
 			}

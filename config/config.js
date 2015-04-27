@@ -328,12 +328,13 @@ exports.groups = {
 			name: "Administrator",
 			description: "Supreme Rulers of this server. They can do anything.",
 			root: true
-		}, {
+		},
+		{
 			symbol: '&',
 			id: 'leader',
 			name: "Leader",
+			inherit: '@',
 			description: "Elite Four, the best of the best in the battlefield. They can force ties and promote users.",
-		        inherit: '@',
 		        jurisdiction: '@u',
 	         	promote: 'u',
 		        forcewin: true,
@@ -350,12 +351,13 @@ exports.groups = {
 	        	disableladder: true,
 	        	globalonly: true,
 		        tournamentsmanagement: true
-		}, {
+		},
+		{
 			symbol: '#',
 			id: 'owner',
 			name: "Room Owner",
-			description: "They are administrators of the room and can almost totally control it",
 			inherit: '@',
+			description: "They are administrators of the room and can almost totally control it",
 			jurisdiction: 'u',
 			declare: true,
 			modchatall: true,
@@ -364,22 +366,24 @@ exports.groups = {
 			roomdesc: true,
 			roompromote: 'u',
 			tournamentsmanagement: true
-		}, {
+		},
+		{
 			symbol: '\u2605',
 			id: 'player',
 			name: "Player",
-			description: "Only in battles, they are the players that are battling",
 			inherit: '+',
+			description: "Only in battles, they are the players that are battling",
 			joinbattle: true,
 			modchat: true,
 			privateroom: true,
 			roompromote: '\u2605u'
-		}, {
+		},
+		{
 			symbol: '@',
 			id: 'mod',
 			name: "Moderator",
-			description: "Frontier Brains, a twist in every game. They can ban users.",
 			inherit: '%',
+			description: "Frontier Brains, a twist in every game. They can ban users.",
 			jurisdiction: 'u',
 			alts: '@u',
 			ban: true,
@@ -394,20 +398,21 @@ exports.groups = {
 			roompromote: '+ ',
 			scavengers: true,
 			tournaments: true
-		}, {
+		},
+		{
 			symbol: '%',
 			id: 'driver',
 			name: "Driver",
-			description: "Gym Leaders, expert in their respective types. They can mute users and check alts.",
 			inherit: '+',
+			description: "Gym Leaders, expert in their respective types. They can mute users and check alts.",
 			jurisdiction: 'u',
 			alts: '%u',
 			announce: true,
 			broadcast: true,
 			bypassblocks: 'u%@&~',
 			forcerename: true,
-			hallofshame: false,
-			tell: false,
+			hallofshame: true,
+			tell: true,
 			warn: true,
 			tournaments: true,
 			jeopardy: true,
@@ -420,14 +425,16 @@ exports.groups = {
 			timer: true,
 			tournamentsmoderation: true,
 			warn: true
-		},{
+		},
+		{
 			symbol: '+',
 			id: 'voice',
 			name: "Voice",
-			description: "League friends and respected users. They can use ! commands.",
 			inherit: ' ',
+			description: "League friends and respected users. They can use ! commands.",
 			broadcast: true
-		}, {
+		},
+		{
 			symbol: ' ',
 			alts: 's',
 			ip: 's'

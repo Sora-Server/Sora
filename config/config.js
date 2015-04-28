@@ -389,6 +389,7 @@ exports.groups = {
 			hallofshame: true,
 			tell: false,
 			ip: true,
+			lock: true,
 			staff: true,
 			modchat: true,
 			roompromote: '+ ',

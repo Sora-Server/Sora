@@ -1210,7 +1210,7 @@ reload: function (target, room, user) {
 
 	htmldeclare: function (target, room, user) {
 		if (!target) return this.parse('/help htmldeclare');
-		if (!this.can('gdeclare', room)) return false;
+		if (!this.can('hotpatch')) return false;
 
 		if (!this.canTalk()) return;
 

@@ -384,6 +384,7 @@ exports.groups = {
 			alts: '@u',
 			ban: true,
 			forcerename: true,
+			lock: true,
 			announce: true,
 			broadcast: true,
 			hallofshame: true,

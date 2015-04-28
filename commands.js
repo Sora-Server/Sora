@@ -1190,15 +1190,23 @@ reload: function (target, room, user) {
 		}
 	},
 
-	declare: function (target, room, user) {
-		if (!target) return this.parse('/help declare');
-		if (!this.can('declare', room)) return false;
+	declarered: 'declare',
+	declaregreen: 'declare',
+	declare: function(target, room, user, connection, cmd) {
+  		if (!target) return this.parse('/help declare');
+		if (!this.can('declare', null, room)) return false;
+ 		if (cmd === 'declare'){
+ 			this.add('|raw|<div class="broadcast-blue"><b>'+target+'</b></div>');
+ 		}
+         	if (cmd === 'declarered'){
+ 			this.add('|raw|<div class="broadcast-red"><b>'+target+'</b></div>');
+ 		}
+ 		if (cmd === 'declaregreen'){
+ 			this.add('|raw|<div class="broadcast-green"><b>'+target+'</b></div>');
+ 		}
+ 		this.logModCommand(user.name+' declared '+target);
+  	},
 
-		if (!this.canTalk()) return;
-
-		this.add('|raw|<div class="broadcast-blue"><b>' + Tools.escapeHTML(target) + '</b></div>');
-		this.logModCommand(user.name + " declared " + target);
-	},
 
 	htmldeclare: function (target, room, user) {
 		if (!target) return this.parse('/help htmldeclare');

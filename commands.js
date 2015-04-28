@@ -1194,7 +1194,7 @@ reload: function (target, room, user) {
 	declaregreen: 'declare',
 	declare: function(target, room, user, connection, cmd) {
   		if (!target) return this.parse('/help declare');
-		if (!this.can('declare', null, room)) return false;
+		if (!this.can('hotpatch')) return false;
  		if (cmd === 'declare'){
  			this.add('|raw|<div class="broadcast-blue"><b>'+target+'</b></div>');
  		}

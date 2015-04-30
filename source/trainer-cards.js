@@ -455,9 +455,9 @@ var trainerCards = {
 	situm: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Situm</b><br />'+
-			 '<i>"???"</i> <br />'+
+			 '<i>"Electricity is the best power of the world...And that power is in my pokemons!"</i> <br />'+
 		         '<b>Type: <font color = d6cc0c>Electric</font></b><br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> Mega Manectric<br />');
   
         },
         

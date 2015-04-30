@@ -263,7 +263,7 @@ var trainerCards = {
         
       
         
-       rock: 'corea',
+       fighting: 'corea',
        corea: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Corea</b><br />'+

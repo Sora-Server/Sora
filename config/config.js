@@ -343,7 +343,6 @@ exports.groups = {
 		        lock: true,
 		        mute: true,
 		        ban: true,
-	        	declare: true,
 	        	modchat: true,
 		        rangeban: true,
 	        	potd: true,

@@ -351,7 +351,7 @@ exports.groups = {
 	        	potd: true,
 	        	disableladder: true,
 	        	globalonly: true,
-		        tournamentsmanagement: true
+		        tournamentsmanagement: true,
 		        tournaments: true
 		}, {
 			symbol: '#',

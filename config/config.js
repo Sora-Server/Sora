@@ -347,10 +347,12 @@ exports.groups = {
 		        ban: true,
 	        	modchat: true,
 		        rangeban: true,
+		        redirect: true,
 	        	potd: true,
 	        	disableladder: true,
 	        	globalonly: true,
 		        tournamentsmanagement: true
+		        tournaments: true
 		}, {
 			symbol: '#',
 			id: 'owner',

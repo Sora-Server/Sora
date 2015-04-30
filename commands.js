@@ -1194,7 +1194,7 @@ reload: function (target, room, user) {
 	declaregreen: 'declare',
 	declare: function(target, room, user, connection, cmd) {
   		if (!target) return this.parse('/help declare');
-		if (!this.can('hotpatch')) return false;
+		if (!this.can('declare')) return false;
  		if (cmd === 'declare'){
  			this.add('|raw|<div class="broadcast-blue"><b>'+target+'</b></div>');
  		}
@@ -1210,7 +1210,7 @@ reload: function (target, room, user) {
 
 	htmldeclare: function (target, room, user) {
 		if (!target) return this.parse('/help htmldeclare');
-		if (!this.can('hotpatch')) return false;
+		if (!this.can('declare')) return false;
 
 		if (!this.canTalk()) return;
 
@@ -1221,7 +1221,7 @@ reload: function (target, room, user) {
 	gdeclare: 'globaldeclare',
 	globaldeclare: function (target, room, user) {
 		if (!target) return this.parse('/help globaldeclare');
-		if (!this.can('gdeclare')) return false;
+		if (!this.can('hotpatch')) return false;
 
 		for (var id in Rooms.rooms) {
 			if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b>' + target + '</b></div>');

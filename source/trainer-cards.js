@@ -378,12 +378,10 @@ var trainerCards = {
 			this.sendReplyBox('Frontier <b>Asch</b><br />'+
 			  '<i>"Chief Akkie, head of the meme police, serving for 38 years; no meme slips through her cracks."</i> <br />'+
 			  '<b>Symbol:</b> White Knight Symbol<br />'+
-			  '<b>Ace:</b> Lugia: Waluigia (WAH) <br />'+
+			  '<b>Ace:</b> Crawdaunt <br />'+
 			  '<b>Battle Rules:</b> <br/>'+
-		 	  '-Pokemon Chess<br />'+
-		 	  '-Smogon Doubles Ubers<br/>'+
-		 	  '-1 Uber, 1 OU, 2 UU, 1 RU and 1 NU Pokemon<br />'+
-		 	  '-If the King (Uber) faints, you lose <br />'+
+		 	  '-Only BL, BL2, BL3 and BL4 Pokemon may be used.<br/>'+
+		 	  '-No Mega Evolution<br />'+
 		 	  '<img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif">');
 	},
 	

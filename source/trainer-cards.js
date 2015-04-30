@@ -451,10 +451,10 @@ var trainerCards = {
 			
 	},
         
-      
-	electric: function(target, room, user) {
+        electric: 'situm',
+	situm: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Situm</b><br />'+
 			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = d6cc0c>Electric</font></b><br />'+
 			 '<b>Ace:</b> ???<br />');

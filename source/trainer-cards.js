@@ -131,7 +131,7 @@ var trainerCards = {
         abadon: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Hantu</b><br />'+
-		      '<i>"SWIGGITY SWOOTY, I'M COMING FOR THAT BOOTY"</i> <br />'+
+		      '<i>"SWIGGITY SWOOTY, I\'M COMING FOR THAT BOOTY"</i> <br />'+
 		      '<b>Type: <font color = 066baa>Ghost</font></b> <br />'+
 		      '<b>Ace:</b> Gengar<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+

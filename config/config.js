@@ -352,7 +352,8 @@ exports.groups = {
 	        	disableladder: true,
 	        	globalonly: true,
 		        tournamentsmanagement: true,
-		        tournaments: true
+		        tournaments: true,
+		        warn: true
 		}, {
 			symbol: '#',
 			id: 'owner',
@@ -366,6 +367,7 @@ exports.groups = {
 			privateroom: true,
 			roomdesc: true,
 			roompromote: 'u',
+			warn: true,
 			tournamentsmanagement: true
 		}, {
 			symbol: '\u2605',
@@ -387,6 +389,7 @@ exports.groups = {
 			alts: '@u',
 			ban: true,
 			forcerename: true,
+			kick: true,
 			lock: true,
 			announce: true,
 			broadcast: true,
@@ -397,6 +400,7 @@ exports.groups = {
 			modchat: true,
 			roompromote: '+ ',
 			scavengers: true,
+			warn: true,
 			tournaments: true
 		}, {
 			symbol: '%',

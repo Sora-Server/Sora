@@ -160,7 +160,7 @@ exports.customAvatars = {
 	//'userid': 'customavatar.png'
 	 'onyxeagle': '057.gif',
 	  'chmpionbart': '100.gif',
-	  'champinnah': '115.png',
+	  'champinnah': '113.png',
 	  'artistejeratt': '045.jpg',
 	  'frontiervader': '005.gif',
 	  'frontierryu': '006.gif',

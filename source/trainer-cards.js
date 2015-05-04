@@ -400,13 +400,13 @@ var trainerCards = {
 	},
         
 
-        ghost: 'faithless',
-	faithless: function(target, room, user) {
+        
+	ghost: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Faithless</b><br />'+
-			 '<i>"Whoever said you needed something to cling to?"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
-			 '<b>Ace:</b> Trevenant<br />');
+			 '<b>Ace:</b> ???<br />');
 			 
         },
         

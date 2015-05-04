@@ -717,7 +717,6 @@ var customCommands = {
 	        '173.8.74.161 - SawkTooOp<br />'+
 	        '149.254.224.226<br />'+
 	        '23.17.238.53 -Zarif<br />'+
-	        '122.161.191.64 -Ncrypt<br />'+
 	        '74.88.1.127 -Unicode spammer (Eldes)<br />'+
 	        '23.30.142.86 -Carl Jones<br />'+
 	        '94.79.237.137 -Champiön Greninja<br />'+

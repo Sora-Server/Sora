@@ -356,7 +356,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 		         '<i>"???"</i> <br />'+
 	              	 '<b>Type: <font color = 00a6c4>Flying</font></b><br />'+
-			 '<b>Ace:</b> Xatu<br />');
+			 '<b>Ace:</b> <br />');
 			 
 			 
         },

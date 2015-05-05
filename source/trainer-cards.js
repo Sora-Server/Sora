@@ -503,6 +503,16 @@ var trainerCards = {
 			  
 	},
 	
+	flying: 'indeter',
+	indeter: function (target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Indeter</b><br />'+
+			  '<i>"And - I\'m off."</i> <br />'+
+			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
+			  '<b>Ace:</b> Gliscor<br />');
+			  
+	},
+	
 	bug: 'meows',
 	meows: function(target, room, user) {
 	        if (!this.canBroadcast()) return;

@@ -350,14 +350,14 @@ var trainerCards = {
 			 '<b>Ace:</b> None<br />');
 	},
         
-        flying: 'akkie',
-        akkie: function(target, room, user) {
+        
+        flying: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Akkie</b><br />'+
-		         '<i>"Ready or not, I\'ll rock your world."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		         '<i>"???"</i> <br />'+
 	              	 '<b>Type: <font color = 00a6c4>Flying</font></b><br />'+
-			 '<b>Ace:</b> Xatu<br />'+
-			 '<img src="http://play.pokemonshowdown.com/sprites/xyani/umbreon.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/froslass.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/roserade.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/typhlosion.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/krookodile.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/bisharp.gif">');
+			 '<b>Ace:</b> Xatu<br />');
+			 
 			 
         },
         

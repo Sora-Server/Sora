@@ -296,12 +296,14 @@ var trainerCards = {
         steel: 'floatzel',
         floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		var lastSeen = Core.profile.lastSeen((Users.get('gymldrfloatzel') ? !!Users.get('gymldrfloatzel').connected : false, 'gymldrfloatzel')).split('&nbsp;')[1];
+		var lastSeen;
+		if (Users.get('gymldrfloatzel')) lastSeen = Core.profile.lastSeen(Users.get('gymldrfloatzel').connected, 'gymldrfloatzel');
+		else lastSeen = Core.profile.lastSeen(false, 'gymldrfloatzel');
 		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
 			  '<i>"I\'ve been at this 3 times"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
 			  '<b>Ace:</b> Jirachi <br />'+
-			  '<b>Last Seen:</b>' + lastSeen + '<br />' +
+			  '<b>Last Seen:</b>' + lastSeen.split('&nbsp;')[2]; + '<br />' +
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/beldum.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/steelix-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/beldum.gif">');
 			  
 	},

@@ -303,7 +303,7 @@ var trainerCards = {
 			  '<i>"I\'ve been at this 3 times"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
 			  '<b>Ace:</b> Jirachi <br />'+
-			  '<b>Last Seen:</b>' + lastSeen.split('&nbsp;')[2]; + '<br />' +
+			  '<b>Last Seen:</b>' + lastSeen.split('&nbsp;')[2] + '<br />' +
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/beldum.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/steelix-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/beldum.gif">');
 			  
 	},

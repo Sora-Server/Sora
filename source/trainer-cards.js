@@ -283,17 +283,13 @@ var trainerCards = {
 	              
         },
         
-        fire: 'neith',
-        neith: function(target, room, user) {
+        
+        fire: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Neith</b><br />'+
-	              '<i>"Hotter than \'Straya in Summer"</i> <br />'+
-	              '<b>Leader Ranking: <font color = 72ff00><b>4th</font></b> <br />'+
+	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> Maddie (Typhlosion)<br />'+
-	              '<b>Badges:</b><br />'+
-	              '<a href="http://oi61.tinypic.com/f5ufo.jpg"><img src="http://oi61.tinypic.com/2nkoyyu.jpg" title="Parasect Badge: Founder of the Sora League"></a><br />'+
-	              '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
+	              '<b>Ace:</b> ???<br />');
 
 	},
  
@@ -709,11 +705,10 @@ var trainerCards = {
 	leaderranks: 'ranks',
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Listed here are the Top 5 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
+			this.sendReplyBox('Listed here are the Top 3 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
 				'-<b>1st <font color = 65b510>Meows</font></b> (Bug)<br />'+
 				'-<b>2nd <font color = 006b0a>Darkus</font></b></b> (Grass)<br />'+
 				'-<b>3rd <font color = 230077>Leaf</font></b> (Dragon)<br />'+
-				'-<b>4th <font color = FF0000>Neith</font></b> (Fire) <br />'+
 				'</div>');
 	
 	},

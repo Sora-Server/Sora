@@ -213,7 +213,7 @@ exports.customAvatars = {
 	  'rubiks456': '084.png',
 	  'gymldrarshrs': 'blakjack.png',
 	  'e4bamdee': '103.gif',
-	  'gymldrarjun': '091.gif',
+	  'gymldrarjunb': '091.gif',
 	  'arifeen': '051.gif',
 	  'e4ignitor': '093.png',
 	  'gymldrfloatzel': '102.gif',

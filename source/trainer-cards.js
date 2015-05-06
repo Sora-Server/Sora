@@ -286,7 +286,7 @@ var trainerCards = {
         
         fire: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Neith</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> ???<br />');

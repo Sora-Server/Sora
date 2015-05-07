@@ -5,7 +5,15 @@
  * are located.
  *
  */
-
+ 
+ function lastSeen (user) {
+ 	user = toId(user);
+ 	var result;
+ 	if (Users.get(user)) result = Core.profile.lastSeen(Users.get('gymldrarjunb').connected, Users.get(user));
+	else result = Core.profile.lastSeen(false, user);
+	return result.split('&nbsp;')[2];
+ }
+ 
 var trainerCards = {
 	battlefrontier: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -240,53 +248,41 @@ var trainerCards = {
 	dragon: 'matt99',
 	matt99: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		var lastSeen;
-		if (Users.get('gymldrmatt99')) lastSeen = Core.profile.lastSeen(Users.get('gymldrmatt99').connected, 'gymldrmatt99');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrmatt99');
 		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
 		      '<i>"Feel the Wrath of my Dragons"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
 		      '<b>Ace:</b> Goodra<br />' +
-		      '<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />');
+		      '<b>Last Seen:</b> ' + lastSeen('gymldrmatt99') + '<br />');
 	},
 	
 	poison: 'arjunb',
         arjunb: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		var lastSeen;
-		if (Users.get('gymldrarjunb')) lastSeen = Core.profile.lastSeen(Users.get('gymldrarjunb').connected, 'gymldrarjunb');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrarjunb');
 		this.sendReplyBox('Gym Ldr <b>Arjunb</b><br />'+
 			 'No Quote <br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
 			 '<b>Ace:</b> None<br />' +
-			 '<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />');
+			 '<b>Last Seen:</b> ' + lastSeen('gymldrarjunb') + '<br />');
 	},
         
         normal: 'vanilla',
         vanilla: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		var lastSeen;
-		if (Users.get('gymldrvanilla')) lastSeen = Core.profile.lastSeen(Users.get('gymldrvanilla').connected, 'gymldrvanilla');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrvanilla');
 		this.sendReplyBox('Gym Ldr <b>Vanilla</b><br />'+
 		         '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
 			 '<b>Ace:</b> Dragonslayer (Miltank)<br />' +
-			 '<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />');
+			 '<b>Last Seen:</b> ' + lastSeen('gymldrvanilla') + '<br />');
         },
         
         electric: 'situm',
 	situm: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		var lastSeen;
-		if (Users.get('gymldrsitum')) lastSeen = Core.profile.lastSeen(Users.get('gymldrsitum').connected, 'gymldrsitum');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrsitum');
 		this.sendReplyBox('Gym Ldr <b>Situm</b><br />'+
 			 '<i>"Electricity is the best power of the world...And that power is in my pokemons!"</i> <br />'+
 		         '<b>Type: <font color = d6cc0c>Electric</font></b><br />'+
 			 '<b>Ace:</b> Mega Manectric<br />' +
-			 '<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />');
+			 '<b>Last Seen:</b> ' + lastSeen('gymldrsitum') + '<br />');
   
         },
         
@@ -302,15 +298,12 @@ var trainerCards = {
 	grass: 'darkus',
 	darkus: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		var lastSeen;
-		if (Users.get('gymldrdrks')) lastSeen = Core.profile.lastSeen(Users.get('gymldrdrks').connected, 'gymldrdrks');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrdrks');
 		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
 			'<i>"You would think I\'m Dark, but you can\'t think"</i> <br />'+
 			'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Breloom<br />'+
-			'<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />' +
+			'<b>Last Seen:</b> ' + lastSeen('gymldrdrks') + '<br />' +
 			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
 			
 	},
@@ -318,14 +311,11 @@ var trainerCards = {
        fighting: 'corea',
        corea: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		var lastSeen;
-		if (Users.get('gymldrcorea')) lastSeen = Core.profile.lastSeen(Users.get('gymldrcorea').connected, 'gymldrcorea');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrcorea');
 		this.sendReplyBox('Gym Ldr <b>Corea</b><br />'+
 			'<i>"Dicking on Mac is essential."</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
 			'<b>Ace:</b> Chesnaught <br />' +
-			'<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />');
+			'<b>Last Seen:</b> ' + lastSeen('gymldrcorea') + '<br />');
         },
         
         psychic: 'edge',
@@ -338,73 +328,60 @@ var trainerCards = {
 			  '<i>"How can you Face your Problem, if the Problem is your Face?"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Victini <br />' +
-			  '<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />');
+			  '<b>Last Seen:</b> ' + lastSeen('gymldredge') + '<br />');
 	},
 	
 	ground: 'noahb',
 	noahb: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-	        var lastSeen;
-		if (Users.get('gymldrnoahb')) lastSeen = Core.profile.lastSeen(Users.get('gymldrnoahb').connected, 'gymldrnoahb');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrnoahb');
 		this.sendReplyBox('Gym Ldr <b>NoahB</b><br />'+
 			  '<i>"Be sure you be at sky or else you have lost"</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
 			  '<b>Ace:</b> Mamoswine<br />' +
-			  '<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />');
+			  '<b>Last Seen:</b> ' + lastSeen('gymldrnoahb') + '<br />');
 			  
 	},
 	
 	flying: 'indeter',
 	indeter: function (target, room, user) {
 	        if (!this.canBroadcast()) return;
-	        var lastSeen;
-		if (Users.get('gymldrindeter')) lastSeen = Core.profile.lastSeen(Users.get('gymldrindeter').connected, 'gymldrindeter');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrindeter');
 		this.sendReplyBox('Gym Ldr <b>Indeter</b><br />'+
 			  '<i>"And - I\'m off."</i> <br />'+
 			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
 			  '<b>Ace:</b> Gliscor<br />' +
-			  '<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />');
+			  '<b>Last Seen:</b> ' + lastSeen('gymldrindeter') + '<br />');
 			  
 	},
 	
 	bug: 'meows',
 	meows: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-	        var lastSeen;
-		if (Users.get('gymldrmeows')) lastSeen = Core.profile.lastSeen(Users.get('gymldrmeows').connected, 'gymldrmeows');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrmeows');
 		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
 		          'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
 			  '<i>"Expect the unexpected."</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> Galvantula <br />' +
-			  '<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />');
+			  '<b>Last Seen:</b> ' + lastSeen('gymldrmeows') + '<br />');
         },
 	
 	ice: 'johtokid',
 	johtokid: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-	        var lastSeen;
-		if (Users.get('gymldrjohtokid')) lastSeen = Core.profile.lastSeen(Users.get('gymldrjohtokid').connected, 'gymldrjohtokid');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrjohtokid');
 		this.sendReplyBox('Gym Ldr <b>JohtoKid</b><br />'+
 			  '<i>"Hard work pays off in the end."</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />');
+			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />' +
+			  '<b>Last Seen:</b> ' + lastSeen('gymldrjohtokid'));
 	},
         
         dark: 'fallen',
         fallen: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		if (Users.get('gymldrfallen')) lastSeen = Core.profile.lastSeen(Users.get('gymldrfallen').connected, 'gymldrfallen');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrfallen');    
 		this.sendReplyBox('Gym Ldr <b>Fallen</b><br />'+
 			  '<i>"The King has Fallen"</i> <br />'+
 			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
 			  '<b>Ace:</b> King of the Sea (Mega-Sharpedo)<br />' +
-			  '<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />');
+			  '<b>Last Seen:</b> ' + lastSeen('gymldrfallen') + '<br />');
         },
         
         fairy: function(target, room, user) {
@@ -415,7 +392,6 @@ var trainerCards = {
 	              '<b>Ace:</b> ???<br />');
 	              
         },
-        
         
         fire: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -429,14 +405,11 @@ var trainerCards = {
         steel: 'floatzel',
         floatzel: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		var lastSeen;
-		if (Users.get('gymldrfloatzel')) lastSeen = Core.profile.lastSeen(Users.get('gymldrfloatzel').connected, 'gymldrfloatzel');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrfloatzel');
 		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
 			  '<i>"I\'ve been at this 3 times"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
 			  '<b>Ace:</b> Jirachi <br />'+
-			  '<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />' +
+			  '<b>Last Seen:</b> ' + lastSeen('gymldrfloatzel') + '<br />' +
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/beldum.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/steelix-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/beldum.gif">');
 			  
 	},
@@ -447,8 +420,6 @@ var trainerCards = {
 			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
 			  '<b>Ace:</b> ???<br />');
-			  
-			  
         },
         
         bamdee: function(target, room, user) {

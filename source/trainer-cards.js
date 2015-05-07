@@ -9,9 +9,11 @@
  function lastSeen (user) {
  	user = toId(user);
  	var result;
- 	if (Users.get(user)) result = Core.profile.lastSeen(Users.get('gymldrarjunb').connected, Users.get(user));
-	else result = Core.profile.lastSeen(false, user);
-	return result.split('&nbsp;')[2];
+ 	if (Users.get(user)) {
+ 		if (Users.get(user).connected) return '';
+ 		return '<b>Last Seen: </b>' + Core.profile.lastSeen(false, Users.get(user)).split('&nbsp;')[2];
+ 	}
+	return '<b>Last Seen: </b>' + Core.profile.lastSeen(false, user).split('&nbsp;')[2];
  }
  
 var trainerCards = {
@@ -252,8 +254,7 @@ var trainerCards = {
 		      'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
 		      '<i>"Feel the Wrath of my Dragons"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> Goodra<br />' +
-		      '<b>Last Seen:</b> ' + lastSeen('gymldrmatt99') + '<br />');
+		      '<b>Ace:</b> Goodra<br />' + lastSeen('gymldrmatt99') + '<br />');
 	},
 	
 	poison: 'arjunb',
@@ -263,8 +264,7 @@ var trainerCards = {
 		         'Leader Ranking: <font color = 00ce7f><b>6th</font></b> <br />'+
 			 'No Quote <br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
-			 '<b>Ace:</b> None<br />' +
-			 '<b>Last Seen:</b> ' + lastSeen('gymldrarjunb') + '<br />');
+			 '<b>Ace:</b> None<br />' + lastSeen('gymldrarjunb') + '<br />');
 	},
         
         normal: 'vanilla',
@@ -274,8 +274,7 @@ var trainerCards = {
 		         'Leader Ranking: <font color = 00acce><b>7th</font></b> <br />'+
 		         '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
-			 '<b>Ace:</b> Dragonslayer (Miltank)<br />' +
-			 '<b>Last Seen:</b> ' + lastSeen('gymldrvanilla') + '<br />');
+			 '<b>Ace:</b> Dragonslayer (Miltank)<br />' + lastSeen('gymldrvanilla') + '<br />');
         },
         
         electric: 'situm',
@@ -284,8 +283,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Situm</b><br />'+
 			 '<i>"Electricity is the best power of the world...And that power is in my pokemons!"</i> <br />'+
 		         '<b>Type: <font color = d6cc0c>Electric</font></b><br />'+
-			 '<b>Ace:</b> Mega Manectric<br />' +
-			 '<b>Last Seen:</b> ' + lastSeen('gymldrsitum') + '<br />');
+			 '<b>Ace:</b> Mega Manectric<br />' + lastSeen('gymldrsitum') + '<br />');
   
         },
         
@@ -306,8 +304,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
 			'<i>"You would think I\'m Dark, but you can\'t think"</i> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
-			'<b>Ace:</b> Breloom<br />'+
-			'<b>Last Seen:</b> ' + lastSeen('gymldrdrks') + '<br />' +
+			'<b>Ace:</b> Breloom<br />' + lastSeen('gymldrdrks') + '<br />' +
 			'<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
 			
 	},
@@ -319,8 +316,7 @@ var trainerCards = {
 		        'Leader Ranking: <font color = d8ff00><b>3rd</font></b> <br />'+
 			'<i>"Dicking on Mac is essential."</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
-			'<b>Ace:</b> Chesnaught <br />' +
-			'<b>Last Seen:</b> ' + lastSeen('gymldrcorea') + '<br />');
+			'<b>Ace:</b> Chesnaught <br />' + lastSeen('gymldrcorea') + '<br />');
         },
         
         psychic: 'edge',
@@ -333,8 +329,7 @@ var trainerCards = {
 		          'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
 			  '<i>"How can you Face your Problem, if the Problem is your Face?"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> Victini <br />' +
-			  '<b>Last Seen:</b> ' + lastSeen('gymldredge') + '<br />');
+			  '<b>Ace:</b> Victini <br />' + lastSeen('gymldredge') + '<br />');
 	},
 	
 	ground: 'noahb',
@@ -343,8 +338,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>NoahB</b><br />'+
 			  '<i>"Be sure you be at sky or else you have lost"</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
-			  '<b>Ace:</b> Mamoswine<br />' +
-			  '<b>Last Seen:</b> ' + lastSeen('gymldrnoahb') + '<br />');
+			  '<b>Ace:</b> Mamoswine<br />' + lastSeen('gymldrnoahb') + '<br />');
 			  
 	},
 	
@@ -354,8 +348,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Indeter</b><br />'+
 			  '<i>"And - I\'m off."</i> <br />'+
 			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
-			  '<b>Ace:</b> Gliscor<br />' +
-			  '<b>Last Seen:</b> ' + lastSeen('gymldrindeter') + '<br />');
+			  '<b>Ace:</b> Gliscor<br />' + lastSeen('gymldrindeter') + '<br />');
 			  
 	},
 	
@@ -366,8 +359,7 @@ var trainerCards = {
 		          'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
 			  '<i>"Expect the unexpected."</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
-			  '<b>Ace:</b> Galvantula <br />' +
-			  '<b>Last Seen:</b> ' + lastSeen('gymldrmeows') + '<br />');
+			  '<b>Ace:</b> Galvantula <br />' + lastSeen('gymldrmeows') + '<br />');
         },
 	
 	ice: 'johtokid',
@@ -376,8 +368,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>JohtoKid</b><br />'+
 			  '<i>"Hard work pays off in the end."</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />' +
-			  '<b>Last Seen:</b> ' + lastSeen('gymldrjohtokid'));
+			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />' + lastSeen('gymldrjohtokid'));
 	},
         
         dark: 'fallen',
@@ -386,8 +377,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Fallen</b><br />'+
 			  '<i>"The King has Fallen"</i> <br />'+
 			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
-			  '<b>Ace:</b> King of the Sea (Mega-Sharpedo)<br />' +
-			  '<b>Last Seen:</b> ' + lastSeen('gymldrfallen') + '<br />');
+			  '<b>Ace:</b> King of the Sea (Mega-Sharpedo)<br />' + lastSeen('gymldrfallen') + '<br />');
         },
         
         fairy: function(target, room, user) {
@@ -414,8 +404,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
 			  '<i>"I\'ve been at this 3 times"</i> <br />'+
 			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
-			  '<b>Ace:</b> Jirachi <br />'+
-			  '<b>Last Seen:</b> ' + lastSeen('gymldrfloatzel') + '<br />' +
+			  '<b>Ace:</b> Jirachi <br />' + lastSeen('gymldrfloatzel') + '<br />' +
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/beldum.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/steelix-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/beldum.gif">');
 			  
 	},

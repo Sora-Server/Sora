@@ -106,7 +106,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Zoro</b><br />'+
 		      '<i>"I am everywhere you are not."</i> <br />'+
-		      '<b>Type:<font color = #ff007f> Psychic</font></b><br />'+
+		      '<b>Type:<font color = ff007f> Psychic</font></b><br />'+
 		      '<b>Ace:</b> Gallade <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br/>'+
@@ -249,6 +249,7 @@ var trainerCards = {
 	matt99: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
+		      'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
 		      '<i>"Feel the Wrath of my Dragons"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
 		      '<b>Ace:</b> Goodra<br />' +
@@ -259,6 +260,7 @@ var trainerCards = {
         arjunb: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Arjunb</b><br />'+
+		         'Leader Ranking: <font color = 00ce7f><b>6th</font></b> <br />'+
 			 'No Quote <br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
 			 '<b>Ace:</b> None<br />' +
@@ -269,6 +271,7 @@ var trainerCards = {
         vanilla: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Vanilla</b><br />'+
+		         'Leader Ranking: <font color = 00acce><b>7th</font></b> <br />'+
 		         '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
 			 '<b>Ace:</b> Dragonslayer (Miltank)<br />' +
@@ -286,13 +289,15 @@ var trainerCards = {
   
         },
         
-        
-	water: function(target, room, user) {
+        water: 'leaf',
+	leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			 '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
+		         'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
+			 '<i>"Water flows in the most unlikely places, the tide returns with familiar faces~"</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
-			 '<b>Ace:</b> ???<br />');
+			 '<b>Ace:</b> Blastoise<br />'+
+			 '<b<Last Seen:</b> ' +lastSeen('gymldrleaf') + '<br />');
 	},
 	
 	grass: 'darkus',
@@ -300,7 +305,6 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
 			'<i>"You would think I\'m Dark, but you can\'t think"</i> <br />'+
-			'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
 			'<b>Ace:</b> Breloom<br />'+
 			'<b>Last Seen:</b> ' + lastSeen('gymldrdrks') + '<br />' +
@@ -312,6 +316,7 @@ var trainerCards = {
        corea: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Corea</b><br />'+
+		        'Leader Ranking: <font color = d8ff00><b>3rd</font></b> <br />'+
 			'<i>"Dicking on Mac is essential."</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
 			'<b>Ace:</b> Chesnaught <br />' +
@@ -325,6 +330,7 @@ var trainerCards = {
 		if (Users.get('gymldredge')) lastSeen = Core.profile.lastSeen(Users.get('gymldredge').connected, 'gymldredge');
 		else lastSeen = Core.profile.lastSeen(false, 'gymldredge');
 		this.sendReplyBox('Gym Ldr <b>Edge</b><br />'+
+		          'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
 			  '<i>"How can you Face your Problem, if the Problem is your Face?"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Victini <br />' +
@@ -357,7 +363,7 @@ var trainerCards = {
 	meows: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
-		          'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
+		          'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
 			  '<i>"Expect the unexpected."</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> Galvantula <br />' +
@@ -714,10 +720,14 @@ var trainerCards = {
 	leaderranks: 'ranks',
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Listed here are the Top 3 Leaders in The Sora League based on performance in our Monthly Promotional Tournament with a direct addition from how many badge defends each Leader has achieved! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future. Please also note that the badge defend system isn\'t total career badge defends, but badge defends for each month. <br />' +
-				'-<b>1st <font color = 65b510>Meows</font></b> (Bug)<br />'+
-				'-<b>2nd <font color = 006b0a>Darkus</font></b></b> (Grass)<br />'+
-				'-<b>3rd <font color = 230077>Leaf</font></b> (Dragon)<br />'+
+			this.sendReplyBox('Listed here are the Top 3 Leaders in The Sora League based on performance in our Monthly Promotional Tournament! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future.<br />'+
+				'-<b>1st <font color = ff007f>Edge</font></b> (Psychic)<br />'+
+				'-<b>2nd <font color = 65b510>Meows</font></b></b> (Bug)<br />'+
+				'-<b>3rd <font color = d83c08>Corea/font></b> (Fighting)<br />'+
+				'-<b>4th <font color=  0745ff>Leaf</font></b> (Water)<br />'+
+				'-<b>5th <font color=  230077>Matt99</font></b> (Dragon)<br />'+
+				'-<b>6th <font color=  aa00ff>ArjunB</font></b> (Poison)<br />'+
+				'-<b>7th <font color=  ffa5d5>Vanilla</font></b> (Normal)<br />'+
 				'</div>');
 	
 	},

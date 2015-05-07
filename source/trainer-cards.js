@@ -321,10 +321,7 @@ var trainerCards = {
         
         psychic: 'edge',
 	edge: function(target, room, user) {
-	        if (!this.canBroadcast()) return;
-	        var lastSeen;
-		if (Users.get('gymldredge')) lastSeen = Core.profile.lastSeen(Users.get('gymldredge').connected, 'gymldredge');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldredge');
+		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Edge</b><br />'+
 		          'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
 			  '<i>"How can you Face your Problem, if the Problem is your Face?"</i> <br />'+

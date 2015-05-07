@@ -706,7 +706,7 @@ var trainerCards = {
 	leaderranks: 'ranks',
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Listed here are the Top 8 Leaders in The Sora League based on performance in our Monthly Promotional Tournament! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future.<br />'+
+			this.sendReplyBox('Listed here are the Top 7 Leaders in The Sora League based on performance in our Monthly Promotional Tournament! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future.<br />'+
 				'-<b>1st <font color= ff007f>Edge</font></b> (Psychic)<br />'+
 				'-<b>2nd <font color= 65b510>Meows</font></b></b> (Bug)<br />'+
 				'-<b>3rd <font color= d83c08>Corea</font></b> (Fighting)<br />'+

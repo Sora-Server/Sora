@@ -9,7 +9,7 @@
  function lastSeen (user) {
  	user = toId(user);
  	var result;
- 	if (Users.get(user)) result = Core.profile.lastSeen(Users.get('gymldrarjunb').connected, Users.get(user));
+ 	if (Users.get(user)) result = Core.profile.lastSeen(Users.get(user).connected, Users.get(user));
 	else result = Core.profile.lastSeen(false, user);
 	return result.split('&nbsp;')[2];
  }

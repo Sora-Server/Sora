@@ -237,17 +237,16 @@ var trainerCards = {
                          '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	},
 	
-	dragon: 'leaf',
-	leaf: function(target, room, user) {
+	dragon: 'matt99',
+	matt99: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		var lastSeen;
-		if (Users.get('gymldrleaf')) lastSeen = Core.profile.lastSeen(Users.get('gymldrleaf').connected, 'gymldrleaf');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrleaf');
+		if (Users.get('gymldrleaf')) lastSeen = Core.profile.lastSeen(Users.get('gymldrmatt99').connected, 'gymldrmatt99');
+		else lastSeen = Core.profile.lastSeen(false, 'gymldrmatt99');
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		      'Leader Ranking: <font color = ffe100><b>3rd</font></b> <br />'+
-		      '<i>"hear that roar, that is my true power-uh scratch that its my stomach, either way your screwed though"</i> <br />'+
+		      '<i>"Feel the Wrath of my Dragons"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> Frigid (Kyurem)<br />' +
+		      '<b>Ace:</b> Goodra<br />' +
 		      '<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />');
 	},
 	
@@ -291,17 +290,13 @@ var trainerCards = {
   
         },
         
-        water: 'matt99',
-	matt99: function(target, room, user) {
+        
+	water: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		var lastSeen;
-		if (Users.get('gymldrmatt99')) lastSeen = Core.profile.lastSeen(Users.get('gymldrmatt99').connected, 'gymldrmatt99');
-		else lastSeen = Core.profile.lastSeen(false, 'gymldrmatt99');
-		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-			 '<i>"That\'s not the ocean\'s pressure crushing you"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
-			 '<b>Ace:</b> Swampert<br />' +
-			 '<b>Last Seen:</b> ' + lastSeen.split('&nbsp;')[2] + '<br />');
+			 '<b>Ace:</b> ???<br />');
 	},
 	
 	grass: 'darkus',

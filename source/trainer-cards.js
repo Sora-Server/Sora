@@ -241,9 +241,9 @@ var trainerCards = {
 	matt99: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		var lastSeen;
-		if (Users.get('gymldrleaf')) lastSeen = Core.profile.lastSeen(Users.get('gymldrmatt99').connected, 'gymldrmatt99');
+		if (Users.get('gymldrmatt99')) lastSeen = Core.profile.lastSeen(Users.get('gymldrmatt99').connected, 'gymldrmatt99');
 		else lastSeen = Core.profile.lastSeen(false, 'gymldrmatt99');
-		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
 		      '<i>"Feel the Wrath of my Dragons"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
 		      '<b>Ace:</b> Goodra<br />' +

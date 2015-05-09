@@ -219,7 +219,8 @@ exports.customAvatars = {
 	  'gymldrfloatzel': '102.gif',
 	  'e4abadon': '107.jpg',
 	  'arjunb': '109.png',
-	  'gymldrmatt99': '112.jpg'
+	  'gymldrmatt99': '112.jpg',
+	  'akkie': '114.png'
 	
 };
 

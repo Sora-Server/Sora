@@ -135,7 +135,8 @@ var trainerCards = {
 		      '<b>Type: <font color = 066baa>Ghost</font></b> <br />'+
 		      '<b>Ace:</b> Gengar<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-None <br />');
+	 	      '-None <br />'+
+	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	 	      
         
         
@@ -319,14 +320,13 @@ var trainerCards = {
 			'<b>Ace:</b> Chesnaught <br />' + lastSeen('gymldrcorea') + '<br />');
         },
         
-        psychic: 'edge',
-	edge: function(target, room, user) {
+        
+	psychic: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Edge</b><br />'+
-		          'Leader Ranking: <font color = FF0000><b>1st</font></b> <br />'+
-			  '<i>"How can you Face your Problem, if the Problem is your Face?"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> Victini <br />' + lastSeen('gymldredge') + '<br />');
+			  '<b>Ace:</b> Victini <br />' + lastSeen('') + '<br />');
 	},
 	
 	ground: 'noahb',
@@ -414,14 +414,14 @@ var trainerCards = {
 			  '<b>Ace:</b> ???<br />');
         },
         
-        bamdee: function(target, room, user) {
+        edge: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-	        this.sendReplyBox('E4 <b>Bamdee</b><br />'+
-			  '<i>"Send me your memes"</i> <br />'+
-			  '<b>Type: <font color = #9b8f95>Normal</font></b><br />'+
-			  '<b>Ace:</b> Miltank<br />'+
+	        this.sendReplyBox('E4 <b>Edge</b><br />'+
+			  '<i>"How can you face your problem when your problem is your face?"</i> <br />'+
+			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
+			  '<b>Ace:</b> Mega Charizard-X<br />'+
 			  '<b>Battle Rules:</b><br />'+
-			  '-No Trick/Switcheroo<br />');
+			  '-No Hazards<br />');
        
         },
        
@@ -701,19 +701,18 @@ var trainerCards = {
 				'</div>');
 				
 
-	},
+	}, 
 
 	leaderranks: 'ranks',
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Listed here are the Top 7 Leaders in The Sora League based on performance in our Monthly Promotional Tournament! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in future.<br />'+
-				'-<b>1st <font color= ff007f>Edge</font></b> (Psychic)<br />'+
-				'-<b>2nd <font color= 65b510>Meows</font></b></b> (Bug)<br />'+
-				'-<b>3rd <font color= d83c08>Corea</font></b> (Fighting)<br />'+
-				'-<b>4th <font color=  0745ff>Leaf</font></b> (Water)<br />'+
-				'-<b>5th <font color=  230077>Matt99</font></b> (Dragon)<br />'+
-				'-<b>6th <font color=  aa00ff>ArjunB</font></b> (Poison)<br />'+
-				'-<b>7th <font color=  ffa5d5>Vanilla</font></b> (Normal)<br />'+
+			this.sendReplyBox('Listed here are the Top 6 Leaders in The Sora League based on performance in our Monthly Promotional Tournament! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in the future.<br />'+
+				'-<b>1st <font color= 65b510>Meows</font></b> (Bug)<br />'+
+				'-<b>2nd <font color= d83c08>Corea</font></b></b> (Fighting)<br />'+
+				'-<b>3rd <font color= 0745ff>Leaf</font></b> (Water)<br />'+
+				'-<b>4th <font color= 230077>Matt99</font></b> (Dragon)<br />'+
+				'-<b>5th <font color=  aa00ff>ArjunB</font></b> (Poison)<br />'+
+				'-<b>6th <font color=  ffa5d5>Vanilla</font></b> (Normal)<br />'+
 				'</div>');
 	
 	},

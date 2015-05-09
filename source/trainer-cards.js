@@ -388,7 +388,7 @@ var trainerCards = {
         fire: 'leaf',
         leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
 		       'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
 	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+

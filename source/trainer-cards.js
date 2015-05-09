@@ -291,7 +291,7 @@ var trainerCards = {
         water: 'saken',
 	saken: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Saken</b>'+
+		this.sendReplyBox('Gym Ldr <b>Saken</b> <br />'+
 		         '<i>"People lie, numbers don\'t."</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
 			 '<b>Ace:</b> Gyarados<br />'+

@@ -288,15 +288,14 @@ var trainerCards = {
   
         },
         
-        water: 'leaf',
-	leaf: function(target, room, user) {
+        water: 'saken',
+	saken: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		         'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
-			 '<i>"Water flows in the most unlikely places, the tide returns with familiar faces~"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Saken</b>'+
+		         '<i>"People lie, numbers don\'t."</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
-			 '<b>Ace:</b> Blastoise<br />'+
-			 '<b<Last Seen:</b> ' +lastSeen('gymldrleaf') + '<br />');
+			 '<b>Ace:</b> Gyarados<br />'+
+			 '<b<Last Seen:</b> ' +lastSeen('gymldrsaken') + '<br />');
 	},
 	
 	grass: 'darkus',
@@ -386,12 +385,15 @@ var trainerCards = {
 	              
         },
         
-        fire: function(target, room, user) {
+        fire: 'leaf',
+        leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		       'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
 	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> ???<br />');
+	              '<b>Ace:</b> ???<br />'+
+	              '<b>Ace:</b> Jirachi <br />' + lastSeen('gymldreaf') + '<br />' +
 
 	},
  
@@ -709,7 +711,7 @@ var trainerCards = {
 			this.sendReplyBox('Listed here are the Top 6 Leaders in The Sora League based on performance in our Monthly Promotional Tournament! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in the future.<br />'+
 				'-<b>1st <font color= 65b510>Meows</font></b> (Bug)<br />'+
 				'-<b>2nd <font color= d83c08>Corea</font></b></b> (Fighting)<br />'+
-				'-<b>3rd <font color= 0745ff>Leaf</font></b> (Water)<br />'+
+				'-<b>3rd <font color= FF0000>Leaf</font></b> (Fire)<br />'+
 				'-<b>4th <font color= 230077>Matt99</font></b> (Dragon)<br />'+
 				'-<b>5th <font color=  aa00ff>ArjunB</font></b> (Poison)<br />'+
 				'-<b>6th <font color=  ffa5d5>Vanilla</font></b> (Normal)<br />'+

@@ -392,8 +392,8 @@ var trainerCards = {
 		       'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
 	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> ???<br />'+
-	              '<b>Ace:</b> Jirachi <br />' + lastSeen('gymldreaf') + '<br />');
+	              '<b>Ace:</b> ???<br />'  + lastSeen('gymldreaf') + '<br />');
+	             
 
 	},
  

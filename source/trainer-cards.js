@@ -348,8 +348,8 @@ var trainerCards = {
 			  
 	},
 	
-	bug: 'H',
-	H: function(target, room, user) {
+	bug: 'glh',
+	glh: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>H</b><br />'+
 		          'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+

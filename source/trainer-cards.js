@@ -352,7 +352,6 @@ var trainerCards = {
 	glh: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>H</b><br />'+
-		          'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
 			  '<i>"H4Hentai, H4Harem, H4Harassment, H4Hugs. Done checking out those sexy curves? Now it\'s time to check out my bugs. :3"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> None <br />' + lastSeen('gymldrh') + '<br />');

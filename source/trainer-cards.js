@@ -370,7 +370,7 @@ var trainerCards = {
         darkus: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
-			  '<i>"But I don\t like Bakugan."</i> <br />'+
+			  '<i>"But I don\'t like Bakugan."</i> <br />'+
 			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
 			  '<b>Ace:</b> Bisharp<br />' + lastSeen('gymldrdarks') + '<br />'+
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');

@@ -190,7 +190,6 @@ exports.customAvatars = {
 	  'chamintst': '044.jpg',
 	  'subfrontierwong': '048.jpg',
 	  'theone2500': '049.gif',
-	  'gymldrakkie': '094.png',
 	  'gymtrnrsteve': '051.gif',
 	  'reirdkrmory': '052.gif',
 	  'prophetabraham': '056.gif',
@@ -213,14 +212,15 @@ exports.customAvatars = {
 	  'rubiks456': '084.png',
 	  'gymldrarshrs': 'blakjack.png',
 	  'e4bamdee': '103.gif',
-	  'gymldrarjunb': '091.gif',
+	  'gymldrarjunb': '115.png',
 	  'arifeen': '051.gif',
 	  'e4ignitor': '093.png',
 	  'gymldrfloatzel': '102.gif',
 	  'e4abadon': '107.jpg',
 	  'arjunb': '109.png',
 	  'gymldrmatt99': '112.jpg',
-	  'akkie': '114.png'
+	  'akkie': '114.png',
+	  'gymldrh': '116.png'
 	
 };
 

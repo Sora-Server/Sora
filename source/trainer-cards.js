@@ -228,18 +228,17 @@ var trainerCards = {
 	blade: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<a><font size= 4><center><img src="http://sprites.pokecheck.org/i/494.gif"><b><font color = FF0000>∆EliteFröntier∆Blade☯</font></b><img src="http://sprites.pokecheck.org/i/080.gif"></center></a><br />'+
-			'<center><i>"Too much Water 7.8/10"-IGN</i></center> <br />'+
+			'<center><i>"I\'m a double edged sword, so which blade is sharper?"</i></center> <br />'+
 			'<b>Symbol:</b> Yin and Yang <br />'+
 			'<b>Ace:</b> Mybro (Slowbro) <br />'+
 			'<b>Battle Rules:</b> <br />'+
 			'-Ability Shift Tier<br />'+
-			'-No Focus Sash/Band<br />'+
-			'-No Hazards <br />'+
+			'-No Johns<br />'+
 		        '<a href="http://www.smogon.com/forums/threads/ability-shift.3503100/">How Ability Shift works</a> <br />'+
                         '<a href="http://www.psypokes.com/lab/abilities.php">Pokemon Ability List</a> <br />'+
                         '<details><summary><b>Champion\'s Challenge Rules:</b></summary> <br />'+
                         '-NU Monotype<br />'+
-                        '-No Focus Sash</details><br />'+
+                        '-R U Too Strong?</details><br />'+
                         '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
                         '<a href="http://oi57.tinypic.com/2ldx1lu.jpg"><img src="http://oi58.tinypic.com/2i6cilg.jpg" title="Smeargle the Creator: Creator of the Badge System"></a></details> <br />'+
 			'<details><summary><font color = 009900><center><b>Torkoal Shrine</b></center></font></summary><center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/torkoal.gif"></center>'+

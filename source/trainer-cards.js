@@ -475,7 +475,10 @@ var trainerCards = {
 		         '<b>Symbol:</b> World <br />'+
 			 '<b>Ace:</b> Kangaskhan<br />'+
 			 '<b>Battle rules:</b> <br />'+
-			 '-VGC \'15 <br />');
+			 '-VGC \'15 <br />'+
+			 '-Teams must have the same species and forms as a fictional character in the Pokemon games, anime, or manga e.g. a team based on Red\'s with Pikachu, Lapras, Snorlax, Venusaur, Charizard, and Blastoise <br />'+
+			 '-EV spreads, movesets, gender, and items (including Mega Stones) can be changed <br />'+
+			 '-Ash teams are not allowed <br />');
         },
         
         

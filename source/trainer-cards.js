@@ -357,13 +357,13 @@ var trainerCards = {
 			  '<b>Ace:</b> None <br />' + lastSeen('gymldrh') + '<br />');
         },
 	
-	ice: 'johtokid',
-	johtokid: function(target, room, user) {
+	ice: 'mark',
+        mark: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>JohtoKid</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Mark</b><br />'+
 			  '<i>"Hard work pays off in the end."</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />' + lastSeen('gymldrjohtokid'));
+			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />' + lastSeen('gymldrmark'));
 	},
         
         dark: 'darkus',

@@ -473,9 +473,9 @@ var trainerCards = {
 		this.sendReplyBox('Frontier <b>Tempest</b><br />'+
 			 '<i>"D=<{[(2*lv+10)/250]*Atk/Def*BP+2}*STAB*Eff*Crit*Itm*Abl*Wt*Spr>*x"</i> <br />'+
 		         '<b>Symbol:</b> World <br />'+
-			 '<b>Ace:</b> Kangaskhan<br />'+
+			 '<b>Ace:</b> Pikachu<br />'+
 			 '<b>Battle rules:</b> <br />'+
-			 '-VGC \'15 <br />'+
+			 '-Cosplay VGC \'15 <br />'+
 			 '-Teams must have the same species and forms as a fictional character in the Pokemon games, anime, or manga e.g. a team based on Red\'s with Pikachu, Lapras, Snorlax, Venusaur, Charizard, and Blastoise <br />'+
 			 '-EV spreads, movesets, gender, and items (including Mega Stones) can be changed <br />'+
 			 '-Ash teams are not allowed <br />');

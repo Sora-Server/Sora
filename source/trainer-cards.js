@@ -318,13 +318,13 @@ var trainerCards = {
 			'<b>Ace:</b> Chesnaught <br />' + lastSeen('gymldrcorea') + '<br />');
         },
         
-        
-	psychic: function(target, room, user) {
+        psychic: 'jay',
+	jay: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Jay</b><br />'+
+			  '<i>"I already know the outcome."</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> Victini <br />' + lastSeen('') + '<br />');
+			  '<b>Ace:</b> Gardevoir <br />' + lastSeen('gymldrjay') + '<br />');
 	},
 	
 	ground: 'noahb',

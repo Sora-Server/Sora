@@ -264,7 +264,7 @@ var trainerCards = {
 		         'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
 			 '<i>"It\'s you and me against the world, you\'ll see!" - Xeniathan! Destroyer of Worlds</i><br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
-			 '<b>Ace:</b> Box Ghost (Gengar)<br />' + lastSeen('gymldrarjunb') + '<br />');
+			 '<b>Ace:</b> Box Ghost (Gengar)<br />' + lastSeen('gymldrpoppy') + '<br />');
 	},
         
         normal: 'vanilla',
@@ -714,8 +714,8 @@ var trainerCards = {
 				'-<b>2nd <font color= d83c08>Corea</font></b></b> (Fighting)<br />'+
 				'-<b>3rd <font color= FF0000>Leaf</font></b> (Fire)<br />'+
 				'-<b>4th <font color= 230077>Matt99</font></b> (Dragon)<br />'+
-				'-<b>5th <font color=  aa00ff>Poppy</font></b> (Poison)<br />'+
-				'-<b>6th <font color=  ffa5d5>Vanilla</font></b> (Normal)<br />'+
+				'-<b>5th <font color= aa00ff>Poppy</font></b> (Poison)<br />'+
+				'-<b>6th <font color= ffa5d5>Vanilla</font></b> (Normal)<br />'+
 				'</div>');
 	
 	},

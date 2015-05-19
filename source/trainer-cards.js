@@ -487,7 +487,7 @@ var trainerCards = {
 			 '<i>"???"</i> <br />'+
 		         '<b>Symbol:</b>??? <br />'+
 			 '<b>Ace:</b> ????<br />'+
-			 '<b>Battle rules:</b> <br />')+
+			 '<b>Battle rules:</b> <br />'+
 			 '-??? <br />');
         },
        

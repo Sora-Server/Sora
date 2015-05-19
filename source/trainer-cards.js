@@ -257,14 +257,14 @@ var trainerCards = {
 		      '<b>Ace:</b> Goodra<br />' + lastSeen('gymldrmatt99') + '<br />');
 	},
 	
-	poison: 'arjunb',
-        arjunb: function(target, room, user) {
+	poison: 'poppy',
+        poppy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Arjunb</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
 		         'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
-			 'No Quote <br />'+
+			 '<i>"It\'s you and me against the world, you\'ll see!" - Xeniathan! Destroyer of Worlds</i><br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
-			 '<b>Ace:</b> None<br />' + lastSeen('gymldrarjunb') + '<br />');
+			 '<b>Ace:</b> Box Ghost (Gengar)<br />' + lastSeen('gymldrarjunb') + '<br />');
 	},
         
         normal: 'vanilla',
@@ -481,17 +481,14 @@ var trainerCards = {
         },
         
         
-        poppy: function(target, room, user) {
+        arjunb: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Poppy</b><br />'+
-			 '<i>"You are about to experience the high fidelity steam known as the Spectral Transmission."</i> <br />'+
-		         '<b>Symbol:</b> The Awesome Symbol <br />'+
-			 '<b>Ace:</b> Casteration Anxiety (Scizor)<br />'+
-			 '<b>Battle rules:</b> <br />'+
-			 '-Only OU Pokemon and bellow may be used <br />'+
-			 '-All Pokemon used must be in their Mega Evolved forme selected from the Team Builder <br />'+
-			 '-No items <br />'+
-			 '-Challenge in Balanced Hackmons, but use only moves and abilities which are legal <br />');
+		this.sendReplyBox('Frontier <b>Arjunb</b><br />'+
+			 '<i>"???"</i> <br />'+
+		         '<b>Symbol:</b>??? <br />'+
+			 '<b>Ace:</b> ????<br />'+
+			 '<b>Battle rules:</b> <br />')+
+			 '-??? <br />');
         },
        
         

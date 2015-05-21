@@ -717,7 +717,7 @@ var trainerCards = {
 	badges: 'badge',
 	        badge: function(target, room, user) {
 	        	if (!this.canBroadcast()) return;
-	        	this.sendReplyBox('<a><font size='4'><marquee><b>Badges</b></marquee></font></a><br />'+
+	        	this.sendReplyBox('<a><font size= 4><marquee><b>Badges</b></marquee></font></a><br />'+
 	        	        '<b>What are Badges:</b><br />'+
 	        	        'Badges are prestigious achievements awarded on the user\'s trainer card and usually come with varying bucks award.<br />'+
 	        	        'They are awarded for league activity and vary in difficulty.<br />'+

@@ -3,7 +3,7 @@
  *
  * This is where the trainer cards commands
  * are located.
- *
+ * Please order the cards in alphabetical order in the correct segment 
  */
  
  function lastSeen (user) {
@@ -24,17 +24,22 @@ var trainerCards = {
 		    '<b>Requirements:</b> 8 Badges<br />'+
 	 	    '<b>Rules:</b> The battle frontier may be challenged after collecting 8 gym badges and is needed to enter the Hall of Fame. You must beat 7 frontiers (Frontier Head needs to be the last Frontier battle and teams may be changed after each game to fit the next Battle Frontiers set of rules). You can not use Super Effective type pokemon against Mono-Type frontier brains. The same frontier may be challenged once every 24 hours.The Challenger must choose a partner Pokemon that must be present in all Frontier challenges.<br/>');
         },
-
-	onyx: 'onyxeagle',
-	onyxeagle: function(target, room, user) {
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('<a><font face = forte><font color =  b27300><font size= 5><center>∆OnyxEagle∆</center></font></a><br />'+
-	 	    '<center><i>"Heads or Tails? Heads, I Win; Tails, you Lose"</i></center> <br />'+
-		    '<b>Skilled in:</b> Rock types/ Ubers, Random Battle and OU to a certain degree.<br />'+
-		    '<b>History:</b> 2nd Champion of New Sora. One of the 2 people who resurrected Sora from the rubbles. <br/>'+
-		    '<b>Notes:</b> Resident coder of Sora, still conducts tests and registrations, offers advice. <br/>'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/landorus.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/heracross-mega.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyrantrum.gif">'+
-	 	    '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
+/**
+ * ~ Rank aka people who had infite bucks to buy admin
+ * 
+ */
+	bart: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<a><font size= 4><center><b><font color = 07e1ed>∆Champion Bart∆</font></b></center></a><br />'+
+		     '<center><i>"My pawn. My bishop. My rook. My knight. And worst of all, I\'ve lost my queen. But I’m still not in checkmate. Not yet anyway."</i></center> <br />'+
+		     '<b>Ace:</b> Weavile<br />'+
+	 	     '<b>Battle Rules:</b> <br/>'+
+	 	     '-Ubers Battle <br/>'+
+	 	     '-At least 2 must be tiered lower than OU <br/>'+
+	 	     '-No Lowering opponents stats (Unless caused by attack) <br/>'+
+	 	     '-No Pokemon with a base stat over 130<br />'+
+	 	     '<center><img src="http://sprites.pokecheck.org/i/461.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Misc%20sprites/Bart_zps03ad3a7d.png"><img src="http://play.pokemonshowdown.com/sprites/xyani/torterra.gif"></center>'+
+	 	     '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         },
         
         noah: function(target, room, user) {
@@ -50,21 +55,362 @@ var trainerCards = {
 	 	      'Gone, but definitely not forgotten. <br />'+
 	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	},
-
-	bart: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b><font color = 07e1ed>∆Champion Bart∆</font></b></center></a><br />'+
-		     '<center><i>"My pawn. My bishop. My rook. My knight. And worst of all, I\'ve lost my queen. But I’m still not in checkmate. Not yet anyway."</i></center> <br />'+
-		     '<b>Ace:</b> Weavile<br />'+
-	 	     '<b>Battle Rules:</b> <br/>'+
-	 	     '-Ubers Battle <br/>'+
-	 	     '-At least 2 must be tiered lower than OU <br/>'+
-	 	     '-No Lowering opponents stats (Unless caused by attack) <br/>'+
-	 	     '-No Pokemon with a base stat over 130<br />'+
-	 	     '<center><img src="http://sprites.pokecheck.org/i/461.gif"> <img src="http://i1280.photobucket.com/albums/a482/Skarmory11/Misc%20sprites/Bart_zps03ad3a7d.png"><img src="http://play.pokemonshowdown.com/sprites/xyani/torterra.gif"></center>'+
-	 	     '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
-        },
 	
+	onyx: 'onyxeagle',
+	onyxeagle: function(target, room, user) {
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('<a><font face = forte><font color =  b27300><font size= 5><center>∆OnyxEagle∆</center></font></a><br />'+
+	 	    '<center><i>"Heads or Tails? Heads, I Win; Tails, you Lose"</i></center> <br />'+
+		    '<b>Skilled in:</b> Rock types/ Ubers, Random Battle and OU to a certain degree.<br />'+
+		    '<b>History:</b> 2nd Champion of New Sora. One of the 2 people who resurrected Sora from the rubbles. <br/>'+
+		    '<b>Notes:</b> Resident coder of Sora, still conducts tests and registrations, offers advice. <br/>'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/landorus.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/heracross-mega.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyranitar.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/tyrantrum.gif">'+
+	 	    '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
+        },
+        
+        risu: 'ninjarisu',
+	ninjarisu: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<a><font size= 4><center><b>∆Frontierhead Ninjarisu∆</b></center></a><br />'+
+		    '<i>"I will show you the power of the best of the worst"</i> <br />'+
+		    '<b>Ace:</b> Pachirisu<br />'+
+	 	    '<b>Symbol:</b> Puny Symbol<br />'+
+	 	    '<b>Rules:</b> <a href="http://www.smogon.com/forums/threads/oras-fu-winner-of-omotm-machoke-sticky-web-banned.3519286/">FU</a> <br />'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-romeo.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-india.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-sierra.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-uniform.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif">'+
+	 	    '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
+	 	    
+	},
+/**
+ * Elite Four
+ * 
+ */        
+        abadon: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('E4 <b>Abadon</b><br />'+
+		      '<i>"SWIGGITY SWOOTY, I\'M COMING FOR THAT BOOTY"</i> <br />'+
+		      '<b>Type: <font color = 066baa>Ghost</font></b> <br />'+
+		      '<b>Ace:</b> Gengar<br />'+
+	 	      '<b>Battle Rules:</b> <br/>'+
+	 	      '-None <br />'+
+	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
+	 	
+        },
+        
+        bush: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('E4 <b>Bush</b><br />'+
+		      '<i>"Storms make the oak grow deeper roots."</i> <br />'+
+		      '<b>Type: <font color =006b0a>Grass</font></b><br />'+
+		      '<b>Ace:</b> Ludicolo <br />'+
+	 	      '<b>Battle Rules:</b> <br/>'+
+	 	      '-None <br/>');
+	 	      
+        },
+        
+        edge: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+	        this.sendReplyBox('E4 <b>Edge</b><br />'+
+			  '<i>"How can you face your problem when your problem is your face?"</i> <br />'+
+			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
+			  '<b>Ace:</b> Mega Charizard-X<br />'+
+			  '<b>Battle Rules:</b><br />'+
+			  '-No Hazards<br />');
+       
+        },
+        
+        zoro: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('E4 <b>Zoro</b><br />'+
+		      '<i>"I am everywhere you are not."</i> <br />'+
+		      '<b>Type:<font color = ff007f> Psychic</font></b><br />'+
+		      '<b>Ace:</b> Gallade <br />'+
+	 	      '<b>Battle Rules:</b> <br/>'+
+	 	      '-None <br/>'+
+	              '<img src="http://sprites.pokecheck.org/i/645.gif"><img src="http://sprites.pokecheck.org/t/187.gif">');
+	 	      
+	},
+	
+	sube4: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<center>Sub E4 Position: <b><font color = FF0000>Offline</font></b></center><br />'+
+		'Sub E4 <b>???</b> <br />'+
+		'<b>Type:</b> <b><font color = 006b0a>???</font></b><br />'+
+		'<b>Battle Rules:</b> <br />'+
+		'-??? <br />'+
+		'-??? <br />');
+        
+        },
+/**
+ * Battle Frontier
+ * 
+ */
+        arjunb: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Frontier <b>Arjunb</b><br />'+
+			 '<i>"???"</i> <br />'+
+		         '<b>Symbol:</b>??? <br />'+
+			 '<b>Ace:</b> ????<br />'+
+			 '<b>Battle rules:</b> <br />'+
+			 '-??? <br />');
+        },
+        
+        asch: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Frontier <b>Asch</b><br />'+
+			  '<i>"Chief Akkie, head of the meme police, serving for 38 years; no meme slips through her cracks."</i> <br />'+
+			  '<b>Symbol:</b> White Knight Symbol<br />'+
+			  '<b>Ace:</b> Crawdaunt <br />'+
+			  '<b>Battle Rules:</b> <br/>'+
+		 	  '-Only BL, BL2, BL3 and BL4 Pokemon may be used.<br/>'+
+		 	  '-No Mega Evolution<br />'+
+		 	  '<img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif">');
+	},
+	
+        blade: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<a><font size= 4><center><img src="http://sprites.pokecheck.org/i/494.gif"><b><font color = FF0000>∆EliteFröntier∆Blade☯</font></b><img src="http://sprites.pokecheck.org/i/080.gif"></center></a><br />'+
+			'<center><i>"I\'m a double edged sword, so which blade is sharper?"</i></center> <br />'+
+			'<b>Symbol:</b> Yin and Yang <br />'+
+			'<b>Ace:</b> Mybro (Slowbro) <br />'+
+			'<b>Battle Rules:</b> <br />'+
+			'-Ability Shift Tier<br />'+
+			'-No Johns<br />'+
+		        '<a href="http://www.smogon.com/forums/threads/ability-shift.3503100/">How Ability Shift works</a> <br />'+
+                        '<a href="http://www.psypokes.com/lab/abilities.php">Pokemon Ability List</a> <br />'+
+                        '<details><summary><b>Champion\'s Challenge Rules:</b></summary> <br />'+
+                        '-NU Monotype<br />'+
+                        '-R U Too Strong?</details><br />'+
+                        '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
+                        '<a href="http://oi57.tinypic.com/2ldx1lu.jpg"><img src="http://oi58.tinypic.com/2i6cilg.jpg" title="Smeargle the Creator: Creator of the Badge System"></a></details> <br />'+
+			'<details><summary><font color = 009900><center><b>Torkoal Shrine</b></center></font></summary><center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/torkoal.gif"></center>'+
+                        '<center><b>R.I.P. War Turtle</b></center> <br />'+
+                        '<center>1st Apostle of the All Mighty Lord Parasect</center></details><br />'+
+                         '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
+	},
+	
+	srewop: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Elite Frontier <b>Srewop</b><br />'+
+			  '<i>"You came to the wong place if you wanted a win."</i> <br />'+
+			  '<b>Symbol:</b> SumTingWong<br />'+
+			  '<b>Ace:</b> Golbat <br />'+
+			  '<b>Battle Rules:</b> <br/>'+
+		 	  '-RU Monotype <br/>'+
+		 	  '-No Stealth Rock <br/>'+
+		 	  '-No Knock off<br />'+
+		 	  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/zubat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/golbat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/zubat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gengar.gif"></center> <br />');
+	},
+	
+	tempest: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Frontier <b>Tempest</b><br />'+
+			 '<i>"D=<{[(2*lv+10)/250]*Atk/Def*BP+2}*STAB*Eff*Crit*Itm*Abl*Wt*Spr>*x"</i> <br />'+
+		         '<b>Symbol:</b> World <br />'+
+			 '<b>Ace:</b> Pikachu<br />'+
+			 '<b>Battle rules:</b> <br />'+
+			 '-Cosplay VGC \'15 <br />'+
+			 '-Teams must have the same species and forms as a fictional character in the Pokemon games, anime, or manga e.g. a team based on Red\'s with Pikachu, Lapras, Snorlax, Venusaur, Charizard, and Blastoise <br />'+
+			 '-EV spreads, movesets, gender, and items (including Mega Stones) can be changed <br />'+
+			 '-Ash teams are not allowed <br />');
+        },
+        
+        zachary: function (target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Frontier <b>Zachary</b><br/>' +
+			'<i>"Can you do a few things at the same time?"</i><br/>' +
+			'<b>Symbol:</b> Multitasking<br/>' +
+			'<b>Ace:</b> All<br/>' +
+			'<b>Battle Rules:</b><br/>' +
+			'-Smogon Doubles'+
+			'<details><summary><b>Champion\'s Challenge Rules:</b></summary> <br />'+
+			'-Pikachu Tournamentchu <br />'+
+			'-No CAP Pokemon</details> <br />');
+			
+	},
+	
+        subfrontier: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<center>Sub Frontier Position: <b><font color = FF0000>Offline</font></b></center><br />'+
+		'Sub Frontier <b>???</b> <br />'+
+		'<b>Symbol:</b> ???<br />'+
+		'<b>Battle Rules:</b> <br />');
+        
+        },
+ /**
+ * Gym Leaders
+ * 
+ */
+        bug: 'glh',
+	glh: function(target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>H</b><br />'+
+			  '<i>"H4Hentai, H4Harem, H4Harassment, H4Hugs. Done checking out those sexy curves? Now it\'s time to check out my bugs. :3"</i> <br />'+
+			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
+			  '<b>Ace:</b> None <br />' + lastSeen('gymldrh') + '<br />');
+        },
+        
+        dark: 'darkus',
+        darkus: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
+			  '<i>"But I don\'t like Bakugan."</i> <br />'+
+			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
+			  '<b>Ace:</b> Bisharp<br />' + lastSeen('gymldrdarks') + '<br />'+
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
+        },
+        
+        dragon: 'matt99',
+	matt99: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
+		      'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
+		      '<i>"Feel the Wrath of my Dragons"</i> <br />'+
+		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
+		      '<b>Ace:</b> Goodra<br />' + lastSeen('gymldrmatt99') + '<br />');
+	},
+	
+	electric: 'situm',
+	situm: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Situm</b><br />'+
+			 '<i>"Electricity is the best power of the world...And that power is in my pokemons!"</i> <br />'+
+		         '<b>Type: <font color = d6cc0c>Electric</font></b><br />'+
+			 '<b>Ace:</b> Mega Manectric<br />' + lastSeen('gymldrsitum') + '<br />');
+        },
+        
+        fairy: 'meows',
+        meows: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
+		      'Leader Ranking: <font color =FF0000><b>1st</font></b> <br />'+
+	              '<i>"Too pwetty for you"</i> <br />'+
+	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
+	              '<b>Ace:</b> Waifu (Gardevoir)<br />');
+        },
+        
+        fighting: 'corea',
+        corea: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Corea</b><br />'+
+		        'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
+			'<i>"Dicking on Mac is essential."</i> <br />'+
+			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
+			'<b>Ace:</b> Chesnaught <br />' + lastSeen('gymldrcorea') + '<br />');
+        },
+        
+        fire: 'leaf',
+        leaf: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
+		       'Leader Ranking: <font color = d8ff00><b>3rd</font></b> <br />'+
+	              '<i>"Flamethrower can\'t melt steel types"</i> <br />'+
+	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
+	              '<b>Ace:</b> Entei<br />'  + lastSeen('gymldreaf') + '<br />');
+	},
+	
+	flying: 'indeter',
+	indeter: function (target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Indeter</b><br />'+
+			  '<i>"And - I\'m off."</i> <br />'+
+			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
+			  '<b>Ace:</b> Gliscor<br />' + lastSeen('gymldrindeter') + '<br />');
+	},
+	
+	ghost: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			 '<i>"???"</i> <br />'+
+		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
+			 '<b>Ace:</b> ???<br />');
+        },
+        
+        grass: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			'<i>"???"</i> <br />'+
+			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
+			'<b>Ace:</b> ???<br />' + lastSeen('') + '<br />' );
+	},
+	
+	ground: 'noahb',
+	noahb: function(target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>NoahB</b><br />'+
+			  '<i>"Be sure you be at sky or else you have lost"</i> <br />'+
+			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
+			  '<b>Ace:</b> Mamoswine<br />' + lastSeen('gymldrnoahb') + '<br />');
+	},
+	
+	ice: 'mark',
+        mark: function(target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Mark</b><br />'+
+			  '<i>"Hard work pays off in the end."</i> <br />'+
+			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
+			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />' + lastSeen('gymldrmark'));
+	},
+	
+	normal: 'vanilla',
+        vanilla: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Vanilla</b><br />'+
+		         'Leader Ranking: <font color = 00ce7f><b>6th</font></b> <br />'+
+		         '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
+	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
+			 '<b>Ace:</b> Dragonslayer (Miltank)<br />' + lastSeen('gymldrvanilla') + '<br />');
+        },
+        
+	poison: 'poppy',
+        poppy: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
+		         'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
+			 '<i>"It\'s you and me against the world, you\'ll see!" - Xeniathan! Destroyer of Worlds</i><br />'+
+			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
+			 '<b>Ace:</b> Box Ghost (Gengar)<br />' + lastSeen('gymldrpoppy') + '<br />');
+	},
+        
+	psychic: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
+			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
+			  '<b>Ace:</b> ??? <br />' + lastSeen('') + '<br />');
+	},
+        
+        rock: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
+			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
+			  '<b>Ace:</b> ???<br />');
+        },
+        
+        steel: 'floatzel',
+        floatzel: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
+			  '<i>"I\'ve been at this 3 times"</i> <br />'+
+			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
+			  '<b>Ace:</b> Jirachi <br />' + lastSeen('gymldrfloatzel') + '<br />' +
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/beldum.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/steelix-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/beldum.gif">');
+			  
+	},
+	
+        water: 'saken',
+	saken: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Gym Ldr <b>Saken</b> <br />'+
+		         '<i>"People lie, numbers don\'t."</i> <br />'+
+		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
+			 '<b>Ace:</b> Gyarados<br />'+
+			 '<b<Last Seen:</b> ' +lastSeen('gymldrsaken') + '<br />');
+	},
+ /**
+ * Other Trainer Cards
+ * 
+ */
 	ascher: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<center><b><font size="4" color="2558db">Ascher</font></b></center><br />'+
@@ -104,59 +450,7 @@ var trainerCards = {
         
         },
         
-        zoro: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Zoro</b><br />'+
-		      '<i>"I am everywhere you are not."</i> <br />'+
-		      '<b>Type:<font color = ff007f> Psychic</font></b><br />'+
-		      '<b>Ace:</b> Gallade <br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-None <br/>'+
-	              '<img src="http://sprites.pokecheck.org/i/645.gif"><img src="http://sprites.pokecheck.org/t/187.gif">');
-	 	      
-	},
-	
         
-	bush: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Bush</b><br />'+
-		      '<i>"Storms make the oak grow deeper roots."</i> <br />'+
-		      '<b>Type: <font color =006b0a>Grass</font></b><br />'+
-		      '<b>Ace:</b> Ludicolo <br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-None <br/>');
-	 	      
-        },
-        
-        abadon: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Abadon</b><br />'+
-		      '<i>"SWIGGITY SWOOTY, I\'M COMING FOR THAT BOOTY"</i> <br />'+
-		      '<b>Type: <font color = 066baa>Ghost</font></b> <br />'+
-		      '<b>Ace:</b> Gengar<br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-None <br />'+
-	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
-	 	      
-        
-        
-        },
-        
-
-	risu: 'ninjarisu',
-	ninjarisu: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b>∆Frontierhead Ninjarisu∆</b></center></a><br />'+
-		    '<i>"I will show you the power of the best of the worst"</i> <br />'+
-		    '<b>Ace:</b> Pachirisu<br />'+
-	 	    '<b>Symbol:</b> Puny Symbol<br />'+
-	 	    '<b>Rules:</b> <a href="http://www.smogon.com/forums/threads/oras-fu-winner-of-omotm-machoke-sticky-web-banned.3519286/">FU</a> <br />'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-romeo.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-india.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-sierra.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-uniform.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif">'+
-	 	    '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
-	 	    
-	},
-	
-	
 	
 	ignatius: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -200,313 +494,6 @@ var trainerCards = {
         
         
         },
-        
-        
-        sube4: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<center>Sub E4 Position: <b><font color = FF0000>Offline</font></b></center><br />'+
-		'Sub E4 <b>???</b> <br />'+
-		'<b>Type:</b> <b><font color = 006b0a>???</font></b><br />'+
-		'<b>Battle Rules:</b> <br />'+
-		'-??? <br />'+
-		'-??? <br />');
-        
-        
-        }, 
-        
-        
-        subfrontier: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<center>Sub Frontier Position: <b><font color = FF0000>Offline</font></b></center><br />'+
-		'Sub Frontier <b>???</b> <br />'+
-		'<b>Symbol:</b> ???<br />'+
-		'<b>Battle Rules:</b> <br />');
-        
-        
-        },
-
-	blade: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><img src="http://sprites.pokecheck.org/i/494.gif"><b><font color = FF0000>∆EliteFröntier∆Blade☯</font></b><img src="http://sprites.pokecheck.org/i/080.gif"></center></a><br />'+
-			'<center><i>"I\'m a double edged sword, so which blade is sharper?"</i></center> <br />'+
-			'<b>Symbol:</b> Yin and Yang <br />'+
-			'<b>Ace:</b> Mybro (Slowbro) <br />'+
-			'<b>Battle Rules:</b> <br />'+
-			'-Ability Shift Tier<br />'+
-			'-No Johns<br />'+
-		        '<a href="http://www.smogon.com/forums/threads/ability-shift.3503100/">How Ability Shift works</a> <br />'+
-                        '<a href="http://www.psypokes.com/lab/abilities.php">Pokemon Ability List</a> <br />'+
-                        '<details><summary><b>Champion\'s Challenge Rules:</b></summary> <br />'+
-                        '-NU Monotype<br />'+
-                        '-R U Too Strong?</details><br />'+
-                        '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
-                        '<a href="http://oi57.tinypic.com/2ldx1lu.jpg"><img src="http://oi58.tinypic.com/2i6cilg.jpg" title="Smeargle the Creator: Creator of the Badge System"></a></details> <br />'+
-			'<details><summary><font color = 009900><center><b>Torkoal Shrine</b></center></font></summary><center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/torkoal.gif"></center>'+
-                        '<center><b>R.I.P. War Turtle</b></center> <br />'+
-                        '<center>1st Apostle of the All Mighty Lord Parasect</center></details><br />'+
-                         '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
-	},
-	
-	dragon: 'matt99',
-	matt99: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-		      'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
-		      '<i>"Feel the Wrath of my Dragons"</i> <br />'+
-		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> Goodra<br />' + lastSeen('gymldrmatt99') + '<br />');
-	},
-	
-	poison: 'poppy',
-        poppy: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
-		         'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
-			 '<i>"It\'s you and me against the world, you\'ll see!" - Xeniathan! Destroyer of Worlds</i><br />'+
-			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
-			 '<b>Ace:</b> Box Ghost (Gengar)<br />' + lastSeen('gymldrpoppy') + '<br />');
-	},
-        
-        normal: 'vanilla',
-        vanilla: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Vanilla</b><br />'+
-		         'Leader Ranking: <font color = 00ce7f><b>6th</font></b> <br />'+
-		         '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
-	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
-			 '<b>Ace:</b> Dragonslayer (Miltank)<br />' + lastSeen('gymldrvanilla') + '<br />');
-        },
-        
-        electric: 'situm',
-	situm: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Situm</b><br />'+
-			 '<i>"Electricity is the best power of the world...And that power is in my pokemons!"</i> <br />'+
-		         '<b>Type: <font color = d6cc0c>Electric</font></b><br />'+
-			 '<b>Ace:</b> Mega Manectric<br />' + lastSeen('gymldrsitum') + '<br />');
-  
-        },
-        
-        water: 'saken',
-	saken: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Saken</b> <br />'+
-		         '<i>"People lie, numbers don\'t."</i> <br />'+
-		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
-			 '<b>Ace:</b> Gyarados<br />'+
-			 '<b<Last Seen:</b> ' +lastSeen('gymldrsaken') + '<br />');
-	},
-	
-	
-	grass: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			'<i>"???"</i> <br />'+
-			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
-			'<b>Ace:</b> ???<br />' + lastSeen('') + '<br />' );
-			
-			
-	},
-        
-       fighting: 'corea',
-       corea: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Corea</b><br />'+
-		        'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
-			'<i>"Dicking on Mac is essential."</i> <br />'+
-			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
-			'<b>Ace:</b> Chesnaught <br />' + lastSeen('gymldrcorea') + '<br />');
-        },
-        
-        psychic: 'jay',
-	jay: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Jay</b><br />'+
-			  '<i>"I already know the outcome."</i> <br />'+
-			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> Gardevoir <br />' + lastSeen('gymldrjay') + '<br />');
-	},
-	
-	ground: 'noahb',
-	noahb: function(target, room, user) {
-	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>NoahB</b><br />'+
-			  '<i>"Be sure you be at sky or else you have lost"</i> <br />'+
-			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
-			  '<b>Ace:</b> Mamoswine<br />' + lastSeen('gymldrnoahb') + '<br />');
-			  
-	},
-	
-	flying: 'indeter',
-	indeter: function (target, room, user) {
-	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Indeter</b><br />'+
-			  '<i>"And - I\'m off."</i> <br />'+
-			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
-			  '<b>Ace:</b> Gliscor<br />' + lastSeen('gymldrindeter') + '<br />');
-			  
-	},
-	
-	bug: 'glh',
-	glh: function(target, room, user) {
-	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>H</b><br />'+
-			  '<i>"H4Hentai, H4Harem, H4Harassment, H4Hugs. Done checking out those sexy curves? Now it\'s time to check out my bugs. :3"</i> <br />'+
-			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
-			  '<b>Ace:</b> None <br />' + lastSeen('gymldrh') + '<br />');
-        },
-	
-	ice: 'mark',
-        mark: function(target, room, user) {
-	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Mark</b><br />'+
-			  '<i>"Hard work pays off in the end."</i> <br />'+
-			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />' + lastSeen('gymldrmark'));
-	},
-        
-        dark: 'darkus',
-        darkus: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
-			  '<i>"But I don\'t like Bakugan."</i> <br />'+
-			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
-			  '<b>Ace:</b> Bisharp<br />' + lastSeen('gymldrdarks') + '<br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
-        },
-        
-        fairy: 'meows',
-        meows: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
-		      'Leader Ranking: <font color =FF0000><b>1st</font></b> <br />'+
-	              '<i>"Too pwetty for you"</i> <br />'+
-	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
-	              '<b>Ace:</b> Waifu (Gardevoir)<br />');
-	              
-        },
-        
-        fire: 'leaf',
-        leaf: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		       'Leader Ranking: <font color = d8ff00><b>3rd</font></b> <br />'+
-	              '<i>"Flamethrower can\'t melt steel types"</i> <br />'+
-	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> Entei<br />'  + lastSeen('gymldreaf') + '<br />');
-	             
-
-	},
- 
-        steel: 'floatzel',
-        floatzel: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Floatzel</b><br />'+
-			  '<i>"I\'ve been at this 3 times"</i> <br />'+
-			  '<b>Type: <font color = 5e6664>Steel</font></b> <br />'+
-			  '<b>Ace:</b> Jirachi <br />' + lastSeen('gymldrfloatzel') + '<br />' +
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/beldum.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/steelix-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-back/klink.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/beldum.gif">');
-			  
-	},
-
-        rock: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
-			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
-			  '<b>Ace:</b> ???<br />');
-        },
-        
-        edge: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-	        this.sendReplyBox('E4 <b>Edge</b><br />'+
-			  '<i>"How can you face your problem when your problem is your face?"</i> <br />'+
-			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
-			  '<b>Ace:</b> Mega Charizard-X<br />'+
-			  '<b>Battle Rules:</b><br />'+
-			  '-No Hazards<br />');
-       
-        },
-       
-	
-	asch: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Frontier <b>Asch</b><br />'+
-			  '<i>"Chief Akkie, head of the meme police, serving for 38 years; no meme slips through her cracks."</i> <br />'+
-			  '<b>Symbol:</b> White Knight Symbol<br />'+
-			  '<b>Ace:</b> Crawdaunt <br />'+
-			  '<b>Battle Rules:</b> <br/>'+
-		 	  '-Only BL, BL2, BL3 and BL4 Pokemon may be used.<br/>'+
-		 	  '-No Mega Evolution<br />'+
-		 	  '<img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/bulbasaur-3.gif">');
-	},
-	
-	
-	srewop: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Elite Frontier <b>Srewop</b><br />'+
-			  '<i>"You came to the wong place if you wanted a win."</i> <br />'+
-			  '<b>Symbol:</b> SumTingWong<br />'+
-			  '<b>Ace:</b> Golbat <br />'+
-			  '<b>Battle Rules:</b> <br/>'+
-		 	  '-RU Monotype <br/>'+
-		 	  '-No Stealth Rock <br/>'+
-		 	  '-No Knock off<br />'+
-		 	  '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/zubat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/golbat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/zubat.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gengar.gif"></center> <br />');
-	},
-        
-
-        
-	ghost: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			 '<i>"???"</i> <br />'+
-		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
-			 '<b>Ace:</b> ???<br />');
-			 
-        },
-        
-       
-	tempest: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Tempest</b><br />'+
-			 '<i>"D=<{[(2*lv+10)/250]*Atk/Def*BP+2}*STAB*Eff*Crit*Itm*Abl*Wt*Spr>*x"</i> <br />'+
-		         '<b>Symbol:</b> World <br />'+
-			 '<b>Ace:</b> Pikachu<br />'+
-			 '<b>Battle rules:</b> <br />'+
-			 '-Cosplay VGC \'15 <br />'+
-			 '-Teams must have the same species and forms as a fictional character in the Pokemon games, anime, or manga e.g. a team based on Red\'s with Pikachu, Lapras, Snorlax, Venusaur, Charizard, and Blastoise <br />'+
-			 '-EV spreads, movesets, gender, and items (including Mega Stones) can be changed <br />'+
-			 '-Ash teams are not allowed <br />');
-        },
-        
-        
-        arjunb: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Arjunb</b><br />'+
-			 '<i>"???"</i> <br />'+
-		         '<b>Symbol:</b>??? <br />'+
-			 '<b>Ace:</b> ????<br />'+
-			 '<b>Battle rules:</b> <br />'+
-			 '-??? <br />');
-        },
-       
-        
-        
-        zachary: function (target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Zachary</b><br/>' +
-			'<i>"Can you do a few things at the same time?"</i><br/>' +
-			'<b>Symbol:</b> Multitasking<br/>' +
-			'<b>Ace:</b> All<br/>' +
-			'<b>Battle Rules:</b><br/>' +
-			'-Smogon Doubles'+
-			'<details><summary><b>Champion\'s Challenge Rules:</b></summary> <br />'+
-			'-Pikachu Tournamentchu <br />'+
-			'-No CAP Pokemon</details> <br />');
-			
-	},
-        
         
         
         azh: function(target, room, user) {

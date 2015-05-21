@@ -17,13 +17,6 @@
  }
  
 var trainerCards = {
-	battlefrontier: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<b>Sora Battle Frontier</b><br />'+
-		    '<i>"Welcome to the Sora Battle Frontier! Challenge us if you Dare."</i> <br />'+
-		    '<b>Requirements:</b> 8 Badges<br />'+
-	 	    '<b>Rules:</b> The battle frontier may be challenged after collecting 8 gym badges and is needed to enter the Hall of Fame. You must beat 7 frontiers (Frontier Head needs to be the last Frontier battle and teams may be changed after each game to fit the next Battle Frontiers set of rules). You can not use Super Effective type pokemon against Mono-Type frontier brains. The same frontier may be challenged once every 24 hours.The Challenger must choose a partner Pokemon that must be present in all Frontier challenges.<br/>');
-        },
 /**
  * ~ Rank aka people who had infite bucks to buy admin
  * 
@@ -84,6 +77,14 @@ var trainerCards = {
  * Elite Four
  * 
  */        
+        elitefour: 'e4',
+		elitefour: function(target, room, user) {
+				if (!this.canBroadcast()) return;
+				this.sendReplyBox('Here is a list of Sora League Elite Four:<br />' +
+					'- <a href="http://soraleague.weebly.com/elite-four.html">Sora League Elite Four</a><br />' +
+					'</div>');
+	},
+	
         abadon: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Abadon</b><br />'+
@@ -144,6 +145,23 @@ var trainerCards = {
  * Battle Frontier
  * 
  */
+        frontier: 'battlefrontier',
+	battlefrontier: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<b>Sora Battle Frontier</b><br />'+
+		    '<i>"Welcome to the Sora Battle Frontier! Challenge us if you Dare."</i> <br />'+
+		    '<b>Requirements:</b> 8 Badges<br />'+
+	 	    '<b>Rules:</b> The Battle Frontier must be challenged after collecting 8 gym badges and 2 normal Frontiers must be defeated to gain access to the Elite 4.<br />'+
+                    '- The Elite Frontiers can only be challenged once a challenger has 4 different symbols.<br />'+
+                    '- The Frontier Head can be challenged after deafeating all other Frontier members.<br />'+
+                    '- If a challenger loses to an Elite Frontier or the Frontier Head, they will randomly lose one Elite symbol and one normal symbol.
+                    '<blink><b>Notes:</b></blink><br />'+
+                    '- The same frontier may be challenged once every 24 hours.<br />'+
+                    '- You cannot use a super-effective team when challenging a Monotype Tier Frontier<br />'+
+                    '- <a href="http://soraleague.weebly.com/rules.html">Challenging Rules</a><br />'+
+                    '- <a href="http://soraleague.weebly.com/frontier.html">Battle Frontier Members</a><br />');
+        },
+	
         arjunb: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Arjunb</b><br />'+
@@ -240,6 +258,15 @@ var trainerCards = {
  * Gym Leaders
  * 
  */
+        
+        leaders: 'gym leaders',
+	gymleaders: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Here is a list of Sora League Gym Leaders:<br />' +
+				'- <a href="http://soraleague.weebly.com/gym-leaders.html">Sora League Gym Leaders</a><br />' +
+				'</div>');
+	},
+	
         bug: 'glh',
 	glh: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
@@ -430,9 +457,6 @@ var trainerCards = {
                         '<b>Ace:</b> Wobbuffet<br/>' +
                         '<b>Tiers Played:</b> OU, Monotype, Tier Shift<br/>' +
                         '<center><img src = "http://i196.photobucket.com/albums/aa279/loganknightphotos/wobbuffet-2.gif"><img src = "http://sprites.pokecheck.org/t/140.gif"><img src = "http://i196.photobucket.com/albums/aa279/loganknightphotos/wobbuffet-2.gif"> <br />');
-	
-	
-	
         },
         
         arjun: function(target, room, user) {
@@ -445,13 +469,8 @@ var trainerCards = {
 		'<b>Favorite Pokemon:</b><br />'+
 		'<img src="http://play.pokemonshowdown.com/sprites/xyani/terrakion.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/weavile.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/medicham-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/crobat.gif"><div align="center"><br />'+
 	        'Remember, victory or defeat always depends on how you play. But,  It doesnt if you\'re up against me. <br />');
-        
-        
-        
         },
         
-        
-	
 	ignatius: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<b><font color = 55dbe8><a><font size= 4><center>∆Gym Ldr Meows∆</font></center></b><br />'+
@@ -461,10 +480,7 @@ var trainerCards = {
 		'<b>Favorite type:</b> Ice <br />'+
 		'<b>Ace:</b> Gurdurr <br />'+
 		'<center><img src="http://play.pokemonshowdown.com/sprites/xyani/gurdurr.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/doublade.gif"></center><br />');
-        
 	},
-        
-        
         
         abtth: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -477,8 +493,6 @@ var trainerCards = {
 		'<b>Achievements: </b>Ex-Elite Frontier, ex-Elite Four<br /><br />'+
 		'<center><img src="http://sprites.pokecheck.org/i/157.gif"><img src="http://sprites.pokecheck.org/i/530.gif"><img src="http://sprites.pokecheck.org/i/547.gif"><img src="http://sprites.pokecheck.org/t/144.gif"><img src="http://sprites.pokecheck.org/i/205.gif"><img src="http://sprites.pokecheck.org/i/310.gif"><img src="http://sprites.pokecheck.org/i/212.gif"></center> <br />'+
 		'<center><img src="http://havearandom.cu.cc/files/iero.png"; width="200" height="300"></center><br />');
-	
-	
         },
         
         terror: function(target, room, user) {
@@ -489,12 +503,7 @@ var trainerCards = {
 		'<b>Skilled at: </b>Being incredibly annoying, Balanced Hackmons, Certain Monotypes.<br />'+
 		'<b>Achievements: </b> Best electric leader sora ever had, ex sora ground leader, and the best frontier of another league. Top 10 on the Balanced Hackmons Ladder.<br />'+
 		'<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/greninja.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/ferrothorn.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/sharpedo.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/garchomp.gif">');
-        
-        
-        
-        
         },
-        
         
         azh: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -507,22 +516,19 @@ var trainerCards = {
 			 '<center><img src="http://fc00.deviantart.net/fs71/f/2014/082/f/8/manaphy_gif_by_gloomymyth-d7bakkc.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/keldeo-resolute.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/tentacruel.gif"><img src="http://www.pokemonreborn.com/custom/44203.png?530"> <img src="http://play.pokemonshowdown.com/sprites/xyani/kabutops.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/swampert.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gyarados.gif"></center>');
 	},
 
-        
+        jaddu: function (target, room, user) {
+                if (!this.canBroadcast()) return;
+                this.sendReplyBox('<center><img src="http://i.imgur.com/GHnqgjH.png"></center><br />'+
+                '<i><font color="blue"><b>Quote:Who am I? Well,I am your Worst Nightmare<br>'+
+                'Ace=Infernape(CR Ace:Rhydon)<br />'+
+                'Custom Rules:<br />'+
+                '- No poke above the base speed of 40<br />'+
+                '- No Hazards<br />'+
+                '-Speed should not be increased or decreased<br />'+
+                '</b></i><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/infernape.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/rhydon.gif">');
+        },
 
-        ateam: 'adminteam',
-	adminteam: function(target, room, user) {
-	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b><font color = 075ff7>The Admin Team</font></b></center></a><br />'+
-		'FAQ <br />'+
-		'<b>Who are we?</b> The Admin team are a group of senior members who make most of the major league decisions and organize most major league events. <br />'+
-		'<b>Who\'s in the Admin Team?</b> The Admin Team\'s active members consist of: Champion Noah, Champion Bart, OnyxEagle, Artiste Jeratt, Frontierhead Ninjarisu, Neith, Coach Bloodfist, E4 Abadon, Bamdee and Elite Frontier Blade. <br />'+
-		'<b>What exactly do you guys do?</b> The Admin Team handle or oversee all matters from disputes in the League, to League Challenge Registration <br />'+
-		'<b>How does one join the Admin team?</b> The Admin Team usually invites a select few senior members who\'ve shown to be mature and capable of handling responsibility. <br />'+
-		' <br />'+
-		'<center> All Admin team Members will be identifiable by having this badge on their cards:<center> <br />'+
-		'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
-		
-	},
+        
 		
 
 
@@ -557,7 +563,31 @@ var trainerCards = {
         
         },
        
+/**
+ * Other Meta Games
+ * 
+ */        
+        ourevamped: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Welcome to OU Revamped! Displayed here are the details on how OU Revamped works! <br />'+
+			'After seeing the direction that the Smogon OU meta was taking, we decided we\'d like to have a different way to play Smogon\'s OU. <br />'+
+			'Unbanned Pokemon from Uber are as follows: <br />'+
+			'Mega-Mawile <img src="http://play.pokemonshowdown.com/sprites/xyani/mawile-mega.gif"> <br />'+
+			'Aegislash <img src="http://play.pokemonshowdown.com/sprites/xyani/aegislash.gif"> <br />'+
+			'Deoxys-Defense <img src="http://play.pokemonshowdown.com/sprites/xyani/deoxys-defense.gif"> <br />'+
+			'Deoxys-Speed <img src="http://play.pokemonshowdown.com/sprites/xyani/deoxys-speed.gif"> <br />'+
+			'</div>');
+			
+        },
         
+        incweather: 'incweather',
+		incweather: function(target, room, user) {
+			if (!this.canBroadcast()) return;
+			this.sendReplyBox('Here is a detailed explanation of the format Inclement Weather:<br />' +
+				'- <a href="http://soraleague.weebly.com/inclement-weather.html">Inclement Weather</a><br />' +
+				'</div>');
+	},
+	
         nervepulse: 'priomonsnervepulse',
         priomonsnervepulse: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -579,8 +609,8 @@ var trainerCards = {
 		
         },
         
-         twineedle: 'priomonstwineedle',
-         priomonstwineedle: function(target, room, user) {
+        twineedle: 'priomonstwineedle',
+        priomonstwineedle: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<img src="http://oi58.tinypic.com/9h6i5z.jpg"> <br />');
 		
@@ -634,21 +664,10 @@ var trainerCards = {
 		this.sendReplyBox( '<img src="http://oi60.tinypic.com/1ptn36.jpg"> <br />');
 		
         },
-        
-        
-        jaddu: function (target, room, user) {
-                if (!this.canBroadcast()) return;
-                this.sendReplyBox('<center><img src="http://i.imgur.com/GHnqgjH.png"></center><br />'+
-                '<i><font color="blue"><b>Quote:Who am I? Well,I am your Worst Nightmare<br>'+
-                'Ace=Infernape(CR Ace:Rhydon)<br />'+
-                'Custom Rules:<br />'+
-                '- No poke above the base speed of 40<br />'+
-                '- No Hazards<br />'+
-                '-Speed should not be increased or decreased<br />'+
-                '</b></i><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/infernape.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/rhydon.gif">');
-        },
-        
-        
+/**
+ * Informative Cards
+ * 
+ */
         getbucks: 'getbucks',
 		getbucks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
@@ -656,8 +675,6 @@ var trainerCards = {
 				'- <a href="http://soraleague.weebly.com/shop.html">Shop</a><br />' +
 				'</div>');
 	},
-	
-	
 
 	site: 'site',
 		site: function(target, room, user) {
@@ -675,22 +692,12 @@ var trainerCards = {
 				'</div>');
 	},
 
-	incweather: 'incweather',
-		incweather: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Here is a detailed explanation of the format Inclement Weather:<br />' +
-				'- <a href="http://soraleague.weebly.com/inclement-weather.html">Inclement Weather</a><br />' +
-				'</div>');
-	},
-
 	events: 'events',
 		events: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Here is a list of events held in The Sora League:<br />' +
 				'- <a href="http://soraleague.weebly.com/events.html">Sora League Events</a><br />' +
 				'</div>');
-				
-
 	}, 
 
 	leaderranks: 'ranks',
@@ -710,34 +717,34 @@ var trainerCards = {
 	badges: 'badge',
 	        badge: function(target, room, user) {
 	        	if (!this.canBroadcast()) return;
-	        	this.sendReplyBox('<a><marquee><b>Badges</b></marquee></a><br />'+
+	        	this.sendReplyBox('<a><font size='4'><marquee><b>Badges</b></marquee></font></a><br />'+
 	        	        '<b>What are Badges:</b><br />'+
 	        	        'Badges are prestigious achievements awarded on the user\'s trainer card and usually come with varying bucks award.<br />'+
-	        	        'They are awarded for league activity and vary in difficulty. <u>Difficulty levels</u>: (Bronze, Silver, Gold) and (Blue, Orange and Red).<br />'+
+	        	        'They are awarded for league activity and vary in difficulty.<br />'+
 	        	        'A full list of badges can be found <a href="http://soraleague.weebly.com/badges">HERE</a> <br />'+
 	        	        '<br />'+
-	        	        '<details><summary><center><b>Test your skills here</b></center></summary><center><a href="http://oi61.tinypic.com/f5ufo.jpg"><img src="http://oi61.tinypic.com/2nkoyyu.jpg" title="Parasect the God Above All"></a><br /></center></details>'+
+	        	        '<details><summary><center><b>Test your skills here</b></center></summary><center><a href="http://soraleague.weebly.com/badges.html#parasect"><img src="http://oi61.tinypic.com/2nkoyyu.jpg" title="Parasect the God Above All"></a><br /></center></details>'+
 	        	        '<br />'+
 	        	        '<blink><font color=#FF0000><b>Notes:</b></font></blink><br />'+
 	        	        '- You MUST have a trainer card<br />'+
 	        	        '<font color=#006600>- <b>Hover over a badge for details<br />'+
-	        	        '- Click on a badge for an enlarged image</b></font><br />'+
+	        	        '- Click on a badge for an enlarged image and further information</b></font><br />'+
 	        	        '- Test your skills above');
-	        	  
 	},
 	
-	ourevamped: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Welcome to OU Revamped! Displayed here are the details on how OU Revamped works! <br />'+
-			'After seeing the direction that the Smogon OU meta was taking, we decided we\'d like to have a different way to play Smogon\'s OU. <br />'+
-			'Unbanned Pokemon from Uber are as follows: <br />'+
-			'Mega-Mawile <img src="http://play.pokemonshowdown.com/sprites/xyani/mawile-mega.gif"> <br />'+
-			'Aegislash <img src="http://play.pokemonshowdown.com/sprites/xyani/aegislash.gif"> <br />'+
-			'Deoxys-Defense <img src="http://play.pokemonshowdown.com/sprites/xyani/deoxys-defense.gif"> <br />'+
-			'Deoxys-Speed <img src="http://play.pokemonshowdown.com/sprites/xyani/deoxys-speed.gif"> <br />'+
-			'</div>');
-			
-        },
+	ateam: 'adminteam',
+	adminteam: function(target, room, user) {
+	        if (!this.canBroadcast()) return;
+		this.sendReplyBox('<a><font size= 4><center><b><font color = 075ff7>The Admin Team</font></b></center></a><br />'+
+		'FAQ <br />'+
+		'<b>Who are we?</b> The Admin team are a group of senior members who make most of the major league decisions and organize most major league events. <br />'+
+		'<b>Who\'s in the Admin Team?</b> The Admin Team\'s active members consist of: Champion Noah, Champion Bart, OnyxEagle, Artiste Jeratt, Frontierhead Ninjarisu, Neith, Coach Bloodfist, E4 Abadon, Bamdee and Elite Frontier Blade. <br />'+
+		'<b>What exactly do you guys do?</b> The Admin Team handle or oversee all matters from disputes in the League, to League Challenge Registration <br />'+
+		'<b>How does one join the Admin team?</b> The Admin Team usually invites a select few senior members who\'ve shown to be mature and capable of handling responsibility. <br />'+
+		' <br />'+
+		'<center> All Admin team Members will be identifiable by having this badge on their cards:<center> <br />'+
+		'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
+	},
 
         gymtrainers: 'gym trainers',
 		gymtrainers: function(target, room, user) {
@@ -747,43 +754,11 @@ var trainerCards = {
 				'</div>');
 	},
 
-        gymleaders: 'gym leaders',
-		gymleaders: function(target, room, user) {
-			if (!this.canBroadcast()) return;
-			this.sendReplyBox('Here is a list of Sora League Gym Leaders:<br />' +
-				'- <a href="http://soraleague.weebly.com/gym-leaders.html">Sora League Gym Leaders</a><br />' +
-				'</div>');
-	},
-
-	elitefour: 'e4',
-		elitefour: function(target, room, user) {
-				if (!this.canBroadcast()) return;
-				this.sendReplyBox('Here is a list of Sora League Elite Four:<br />' +
-					'- <a href="http://soraleague.weebly.com/elite-four.html">Sora League Elite Four</a><br />' +
-					'</div>');
-	},
-
-	champions: 'champions',
-		champions: function(target, room, user) {
+	champion: 'champions',
+	champions: function(target, room, user) {
 				if (!this.canBroadcast()) return;
 				this.sendReplyBox('Here is a list of Sora League Champions:<br />' +
 					'- <a href="http://soraleague.weebly.com/champions.html">Sora League Champions</a><br />' +
-					'</div>');
-	},
-
-	frontiers: 'frontiers',
-		frontiers: function(target, room, user) {
-				if (!this.canBroadcast()) return;
-				this.sendReplyBox('Here is a list of Sora League Frontier Brains:<br />' +
-			        	'- <a href="http://soraleague.weebly.com/frontier.html">Sora League Frontier Brains</a><br />' +
-			        	'</div>');
-	},
-
-	sidemissions: 'sidemissions',
-		sidemissions: function(target, room, user) {
-				if (!this.canBroadcast()) return;
-				this.sendReplyBox('Here is a list of Sora League Side Missions:<br />' +
-					'- <a href="http://soraleague.weebly.com/side-missions.html">Sora League Side Missions</a><br />' +
 					'</div>');
 	},
 };

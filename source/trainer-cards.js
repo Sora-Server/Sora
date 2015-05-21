@@ -154,7 +154,7 @@ var trainerCards = {
 	 	    '<b>Rules:</b> The Battle Frontier must be challenged after collecting 8 gym badges and 2 normal Frontiers must be defeated to gain access to the Elite 4.<br />'+
                     '- The Elite Frontiers can only be challenged once a challenger has 4 different symbols.<br />'+
                     '- The Frontier Head can be challenged after deafeating all other Frontier members.<br />'+
-                    '- If a challenger loses to an Elite Frontier or the Frontier Head, they will randomly lose one Elite symbol and one normal symbol.
+                    '- If a challenger loses to an Elite Frontier or the Frontier Head, they will randomly lose one Elite symbol and one normal symbol.<br />'+
                     '<blink><b>Notes:</b></blink><br />'+
                     '- The same frontier may be challenged once every 24 hours.<br />'+
                     '- You cannot use a super-effective team when challenging a Monotype Tier Frontier<br />'+

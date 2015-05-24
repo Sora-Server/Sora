@@ -5,7 +5,7 @@
  * These are commands. For instance, you can define the command 'whois'
  * here, then use it by typing /whois into Pokemon Showdown.
  *
- * A command can be in the form:
+ * A command can be in the form:help
  *   ip: 'whois',
  * This is called an alias: it makes it so /ip does the same thing as
  * /whois.
@@ -2061,7 +2061,6 @@ var commands = exports.commands = {
 	 *********************************************************/
 
 	commands: 'help',
-	h: 'help',
 	'?': 'help',
 	help: function (target, room, user) {
 		target = target.toLowerCase();
@@ -2475,11 +2474,10 @@ var commands = exports.commands = {
 		if (!target) {
 			this.sendReply("COMMANDS: /nick, /avatar, /rating, /whois, /msg, /reply, /ignore, /away, /back, /timestamps, /highlight");
 			this.sendReply("INFORMATIONAL COMMANDS: /data, /dexsearch, /movesearch, /groups, /opensource, /avatars, /faq, /rules, /intro, /tiers, /othermetas, /learn, /analysis, /calc (replace / with ! to broadcast. Broadcasting requires: + % @ & ~)");
-			if (user.group !== Config.groupsranking[0]) {
-				this.sendReply("DRIVER COMMANDS: /warn, /mute, /unmute, /alts, /forcerename, /modlog, /lock, /unlock, /announce, /redirect");
-				this.sendReply("MODERATOR COMMANDS: /ban, /unban, /ip");
-				this.sendReply("LEADER COMMANDS: /declare, /forcetie, /forcewin, /promote, /demote, /banip, /unbanall");
-				this.sendReply("For details on all moderator commands, use /help @");
+			this.sendReply("DRIVER COMMANDS: /warn, /mute, /unmute, /alts, /forcerename, /modlog, /lock, /unlock, /announce, /redirect");
+			this.sendReply("MODERATOR COMMANDS: /ban, /unban, /ip");
+			this.sendReply("LEADER COMMANDS: /declare, /forcetie, /forcewin, /promote, /demote, /banip, /unbanall");
+			this.sendReply("For details on all moderator commands, use /help @");
 			}
 			this.sendReply("For details of a specific command, use something like: /help data");
 		} else if (!matched) {

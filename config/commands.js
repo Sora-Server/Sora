@@ -2478,7 +2478,6 @@ var commands = exports.commands = {
 			this.sendReply("MODERATOR COMMANDS: /ban, /unban, /ip");
 			this.sendReply("LEADER COMMANDS: /declare, /forcetie, /forcewin, /promote, /demote, /banip, /unbanall");
 			this.sendReply("For details on all moderator commands, use /help @");
-			}
 			this.sendReply("For details of a specific command, use something like: /help data");
 		} else if (!matched) {
 			this.sendReply("The command '" + target + "' was not found. Try /help for general help");

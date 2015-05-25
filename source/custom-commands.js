@@ -689,7 +689,7 @@ var customCommands = {
 	    if (this.broadcasting) return;
 	    this.sendReplyBox('<b>The Sora League Server Hall of Shame (Banlist):</b><br />' +
 	        'The following users are to be banned on sight, no exceptions. Most of them have dynamic ips, but even so, the first 2 set of numbers should be the same<br />'+
-	        '117.193.61.37 - Adipravar/lingam/China Guy<br />' +
+	        '117.193.61.37/115.250.65.134 - Adipravar/lingam/China Guy<br />' +
 	        '79.216.58.98 - MegaschoolGirl/Jessica albas ass/Gym Leader Beer<br />' +
 	        '110.143.22.35 - Whelplo/Lord Noxot<br />' +
 	        '81.204.176.142<br />' +

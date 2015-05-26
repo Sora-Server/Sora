@@ -569,6 +569,16 @@ var trainerCards = {
         
         
         },
+        
+        
+        bamdee: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<a><font size= 4><center><b><font color = ff00b6>Bamdee</font></b></center></a><br />'+
+		'<img src="http://play.pokemonshowdown.com/sprites/xyani/ditto.gif"> <br />');
+			
+        
+        
+        },
        
 /**
  * Other Meta Games

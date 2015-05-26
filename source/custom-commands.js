@@ -726,6 +726,7 @@ var customCommands = {
 	        '222.127.85.53 -Galactic Azir<br />'+
                 '76.100.209.92 -OgreLordVagina<br />'+
                 '31.7.62.170 -Dan <br />'+
+                '71.41.165.94 -yDante <br />'+
 	        'Shame on them!');
         },
       addsymbols: 'symbols',

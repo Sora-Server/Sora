@@ -601,6 +601,7 @@ var GlobalRoom = (function () {
 		return user;
 	};
 	GlobalRoom.prototype.onRename = function (user, oldid, joining) {
+		if (user.named && toId(oldid) != toId(user)) Core.stdout('db/lastOnline', user.userid, Date.now());
 		delete this.users[oldid];
 		this.users[user.userid] = user;
 		return user;

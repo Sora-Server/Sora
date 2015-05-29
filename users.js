@@ -1161,6 +1161,7 @@ User = (function () {
 		}
 	};
 	User.prototype.onDisconnect = function (connection) {
+		if (this.named) Core.stdout('db/lastOnline', this.userid, Date.now());
 		for (var i = 0; i < this.connections.length; i++) {
 			if (this.connections[i] === connection) {
 				// console.log('DISCONNECT: ' + this.userid);
@@ -1195,6 +1196,7 @@ User = (function () {
 	};
 	User.prototype.disconnectAll = function () {
 		// Disconnects a user from the server
+		if (this.named) Core.stdout('db/lastOnline', this.userid, Date.now());
 		for (var roomid in this.mutedRooms) {
 			clearTimeout(this.mutedRooms[roomid]);
 			delete this.mutedRooms[roomid];

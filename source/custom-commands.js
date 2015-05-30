@@ -344,7 +344,7 @@ var customCommands = {
 		if (format(mins % 60, 'minute')) total.push(format(mins % 60, 'minute'));
 		if (!format(days, 'day')) total.push(format(seconds % 60, 'second')); //We shouldn't have to display seconds if the user's been away for more than a day
 		
-		if (Users.getExact(target)) return this.sendReplyBox(target + ' is currently <font color = "green">online</font>. This user has stayed online for ' + total.join(', ') + '.');
+		if (Users.getExact(target) && Users.getExact(target).connected) return this.sendReplyBox(target + ' is currently <font color = "green">online</font>. This user has stayed online for ' + total.join(', ') + '.');
 		return this.sendReplyBox(target + ' was last seen ' + total.join(', ') + ' ago.');
 	},
 

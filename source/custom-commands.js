@@ -649,7 +649,7 @@ var customCommands = {
 			"117.216.41.194", "CPE-155-143-4-109.vic.bigpond.net.au", "94.254.0.55", "108.61.179.200.vultr.com",
 			"ool-4573a317.dyn.optonline.net", "69.115.163.23", "173.30.53.93", "71.41.165.94", 
 			"bb116-15-8-217.singnet.com.sg"];
-			for (var i = 0; i < blacklist.length, i++) {
+			for (var i = 0; i < blacklist.length; i++) {
 				if (user.latestHost.indexOf(blacklist[i]) > -1 || user.latestIp.indexOf(blacklist[i]) > -1) {
 					user.popup('You are on the Sora League banlist or are using a Proxy. GET REKT SON.');
 					user.ban();

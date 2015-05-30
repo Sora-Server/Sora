@@ -654,7 +654,6 @@ var customCommands = {
 					user.popup('You are on the Sora League banlist or are using a Proxy. GET REKT SON.');
 					user.ban();
 				}
-			}
 		}
 		if (target.toLowerCase() == "lobby") {
 					return connection.sendTo('lobby','|html|<div class="infobox" style="border-color:blue"><marquee><b><u><font size= 3>Welcome to The Sora League Server!</u></b></marquee><br /><br /> ' +

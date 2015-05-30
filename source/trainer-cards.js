@@ -162,7 +162,7 @@ var trainerCards = {
                     '- <a href="http://soraleague.weebly.com/frontier.html">Battle Frontier Members</a><br />');
         },
 	
-        arjunb: function(target, room, user) {
+        arjun: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Arjunb</b><br />'+
 			 '<i>"???"</i> <br />'+
@@ -464,7 +464,7 @@ var trainerCards = {
                         '<center><img src = "http://i196.photobucket.com/albums/aa279/loganknightphotos/wobbuffet-2.gif"><img src = "http://sprites.pokecheck.org/t/140.gif"><img src = "http://i196.photobucket.com/albums/aa279/loganknightphotos/wobbuffet-2.gif"> <br />');
         },
         
-        arjun: function(target, room, user) {
+        arjunb: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<center><input type="image" src="http://i.imgur.com/bnCFCm5.png"><div align="center"><br />'+
 		'<div align="center">"<i>Fall seven times, stand up eight. That\'s what I do</i>"</div><br />'+

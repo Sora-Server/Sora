@@ -307,11 +307,49 @@ var customCommands = {
 			room.update();
 		});
 	},
+	
+	atm: 'money',
+	cash: 'money', 
+	wallet: 'money',
+	money: function (target, room, user, connection, cmd) {
+		if (!this.canBroadcast()) return;
+		target = Users.getExact(target) ? Users.getExact(target).name : target;
+		if (!toId(target) || toId(target) === user.userid) target = user.name;
+		var money = Core.profile.money(toId(target) || user.userid);
+		return this.sendReplyBox(target + ' has ' + money + ' bucks.');
+	},
+	
+	seen: 'lastseen',
+	lastseen: function (target, room, user, connection, cmd) {
+		if (!this.canBroadcast()) return;
+		target = Users.getExact(target) ? Users.getExact(target).name : target;
+		if (!toId(target) || toId(target) === user.userid) target = user.name;
+		
+		var format = function (date, word) {
+			if (Math.floor(date) === 0) return '';
+            		if (Math.floor(date) !== 1) return date + ' ' + word + "s";
+            		return date + ' ' + word;
+        	}
+		var lastSeenTime = Number(Core.stdin('db/lastOnline', toId(target)));
+		if (!lastSeenTime) return this.sendReplyBox(target + ' has <font color = "red">never</font> been seen online.');
+		
+		var rawDate = Date.now() - lastSeenTime;
+		var seconds = Math.floor(rawDate / 1000);
+		var mins = Math.floor(seconds / 60);
+		var hours = Math.floor(mins / 60);
+		var days = Math.floor(hours / 24);
+		var total = [];
+		if (format(days, 'day')) total.push(format(days, 'day'));
+		if (format(hours % 24, 'hour')) total.push(format(hours % 24, 'hour'));
+		if (format(mins % 60, 'minute')) total.push(format(mins % 60, 'minute'));
+		if (!format(days, 'day')) total.push(format(seconds % 60, 'second')); //We shouldn't have to display seconds if the user's been away for more than a day
+		
+		if (Users.getExact(target)) return this.sendReplyBox(target + ' is currently <font color = "green">online</font>. This user has stayed online for ' + total.join(', ') + '.');
+		return this.sendReplyBox(target + ' was last seen ' + total.join(', ') + ' ago.');
+	},
 
-    atm: 'profile',
     profile: function (target, room, user, connection, cmd) {
         if (!this.canBroadcast()) return;
-        if (cmd === 'atm') return this.sendReply('Use /profile instead.');
         if (target.length >= 19) return this.sendReply('Usernames are required to be less than 19 characters long.');
 
         var targetUser = this.targetUserOrSelf(target);
@@ -601,11 +639,23 @@ var customCommands = {
 		if (!user.joinRoom(targetRoom || room, connection)) {
 			return connection.sendTo(target, "|noinit|joinfailed|The room '" + target + "' could not be joined.");
 		}
-		//If you need to add another host, type in || user.latestHost == "host" after the previous statement. Its user.latestIp for IPs.
-		if (user.latestHost == "dhcp-077-250-225-247.chello.nl" || user.latestHost == "c-76-100-209-92.hsd1.md.comcast.net" || user.latestIp =="74.88.1.127" || user.latestHost == "secured-by.zenmate.com" || user.latestIp == "27.122.15.28" || user.latestHost == "mx-ll-223.205.20-59.dynamic.3bb.co.th" || user.latestHost == "50-108-108-125.adr01.mskg.mi.frontiernet.net" || user.latestHost == "cpe-67-253-120-124.maine.res.rr.com" || user.latestIp == "62.140.132.94" || user.latestIp == "62.140.132.19" || user.latestHost == "ool-4a580597.dyn.optonline.net" || user.latestIp == "50.84.151.157" || user.latestIp == "67.164.32.244" || user.latestIp == "117.216.41.194" || user.latestHost == "CPE-155-143-4-109.vic.bigpond.net.au" || user.latestIp == "94.254.0.55" || user.latestHost == "108.61.179.200.vultr.com" || user.latestHost == "ool-4573a317.dyn.optonline.net" || user.latestIp == "69.115.163.23" || user.latestIp == "173.30.53.93" || user.latestIp == "71.41.165.94" || user.latestHost == " bb116-15-8-217.singnet.com.sg") {
-			user.popup('You are on the Sora League banlist or are using a Proxy. GET REKT SON.');
-			user.ban();
-		}
+		//If you need to add another IP or host, add a comma after the last element of the array below, and enter
+		//the IP/Host in single or double quotes. Adding a portion of an IP would be acceptable too, since this
+		//filter checks if a user's IP or host contains any of the blacklisted IPs or hosts, rather than
+		//looking for an exact match
+		var blacklist = ["dhcp-077-250-225-247.chello.nl", "c-76-100-209-92.hsd1.md.comcast.net", "zenmate", 
+			"74.88.1.127", "27.122.15.28", "mx-ll-223.205.20-59.dynamic.3bb.co.th", "50-108-108-125.adr01.mskg.mi.frontiernet.net",
+			"cpe-67-253-120-124.maine.res.rr.com", "62.140.132.94", "62.140.132.19", "50.84.151.157", "67.164.32.244",
+			"117.216.41.194", "CPE-155-143-4-109.vic.bigpond.net.au", "94.254.0.55", "108.61.179.200.vultr.com",
+			"ool-4573a317.dyn.optonline.net", "69.115.163.23", "173.30.53.93", "71.41.165.94", 
+			"bb116-15-8-217.singnet.com.sg"];
+			for (var i = 0; i < blacklist.length, i++) {
+				if (user.latestHost.indexOf(blacklist[i]) > -1 || user.latestIp.indexOf(blacklist[i]) > -1) {
+					user.popup('You are on the Sora League banlist or are using a Proxy. GET REKT SON.');
+					user.ban();
+				}
+			}
+		},
 		if (target.toLowerCase() == "lobby") {
 					return connection.sendTo('lobby','|html|<div class="infobox" style="border-color:blue"><marquee><b><u><font size= 3>Welcome to The Sora League Server!</u></b></marquee><br /><br /> ' +
 					'We are a Pokemon League open for challenges!<br /><br />' +

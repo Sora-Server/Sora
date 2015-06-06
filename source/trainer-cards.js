@@ -97,14 +97,15 @@ var trainerCards = {
 	 	
         },
         
-        bush: function(target, room, user) {
+        corea: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Bush</b><br />'+
-		      '<i>"Storms make the oak grow deeper roots."</i> <br />'+
-		      '<b>Type: <font color =006b0a>Grass</font></b><br />'+
-		      '<b>Ace:</b> Ludicolo <br />'+
+		this.sendReplyBox('E4 <b>Corea</b><br />'+
+		      '<i>"Dicking on Mac is essential."</i> <br />'+
+		      '<b>Type: <font color =ff9900>Fighting</font></b><br />'+
+		      '<b>Ace:</b> Chesnaught <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-None <br/>');
+	 	      '-UU  <br/>'+
+	 	      '-No Mega evolution<br />');
 	 	      
         },
         
@@ -318,14 +319,14 @@ var trainerCards = {
 	              '<b>Ace:</b> Waifu (Gardevoir)<br />');
         },
         
-        fighting: 'corea',
-        corea: function(target, room, user) {
+        fighting: 'bush',
+        bush: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Corea</b><br />'+
+		this.sendReplyBox('Gym Ldr <b>Bush</b><br />'+
 		        'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
-			'<i>"Dicking on Mac is essential."</i> <br />'+
+			'<i>"???"</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
-			'<b>Ace:</b> Chesnaught <br />' + lastSeen('gymldrcorea') + '<br />');
+			'<b>Ace:</b> ??? <br />' + lastSeen('gymldrbush') + '<br />');
         },
         
         fire: 'leaf',
@@ -722,7 +723,7 @@ var trainerCards = {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 6 Leaders in The Sora League based on performance in our Monthly Promotional Tournament! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in the future.<br />'+
 				'-<b>1st <font color= 65b510>Meows</font></b> (Bug)<br />'+
-				'-<b>2nd <font color= d83c08>Corea</font></b></b> (Fighting)<br />'+
+				'-<b>2nd <font color= d83c08>Bush</font></b></b> (Fighting)<br />'+
 				'-<b>3rd <font color= FF0000>Leaf</font></b> (Fire)<br />'+
 				'-<b>4th <font color= 230077>Matt99</font></b> (Dragon)<br />'+
 				'-<b>5th <font color= aa00ff>Poppy</font></b> (Poison)<br />'+

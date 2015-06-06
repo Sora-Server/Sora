@@ -101,7 +101,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Corea</b><br />'+
 		      '<i>"0% Luck 10% Skill 90% HOO HAH"</i> <br />'+
-		      '<b>Type: <font color =ff9900>Fighting</font></b><br />'+
+		      '<b>Type: <font color =d83c08>Fighting</font></b><br />'+
 		      '<b>Ace:</b> Chesnaught <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-UU  <br/>'+

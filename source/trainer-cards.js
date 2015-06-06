@@ -299,13 +299,13 @@ var trainerCards = {
 		      '<b>Ace:</b> Goodra<br />' + lastSeen('gymldrmatt99') + '<br />');
 	},
 	
-	electric: 'situm',
-	situm: function(target, room, user) {
+	
+	electric: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Situm</b><br />'+
-			 '<i>"Electricity is the best power of the world...And that power is in my pokemons!"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			 '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = d6cc0c>Electric</font></b><br />'+
-			 '<b>Ace:</b> Mega Manectric<br />' + lastSeen('gymldrsitum') + '<br />');
+			 '<b>Ace:</b> ???<br />' + lastSeen('') + '<br />');
         },
         
         fairy: 'meows',
@@ -430,14 +430,14 @@ var trainerCards = {
 			  
 	},
 	
-        water: 'saken',
-	saken: function(target, room, user) {
+        
+	water: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Saken</b> <br />'+
-		         '<i>"People lie, numbers don\'t."</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b> <br />'+
+		         '<i>"???"</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
-			 '<b>Ace:</b> Gyarados<br />'+
-			 '<b<Last Seen:</b> ' +lastSeen('gymldrsaken') + '<br />');
+			 '<b>Ace:</b> ???<br />'+
+			 '<b<Last Seen:</b> ' +lastSeen('???') + '<br />');
 	},
  /**
  * Other Trainer Cards

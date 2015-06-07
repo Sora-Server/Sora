@@ -760,6 +760,7 @@ User = (function () {
 			if (i > 1000) return false;
 		}
 
+		if (this.named) Core.stdout('db/lastOnline', this.userid, Date.now());
 		if (this.named) this.prevNames[this.userid] = this.name;
 		delete prevUsers[userid];
 		prevUsers[this.userid] = userid;
@@ -1592,6 +1593,16 @@ User = (function () {
 				this.processChatQueue.bind(this), THROTTLE_DELAY);
 		} else {
 			this.lastChatMessage = now;
+			if (this.logoutCountdown) clearTimeout(this.logoutCountdown);
+			var user = this;
+			this.logoutCountdown = setTimeout(function () {
+				if (user.named && !user.isAway) {
+					user.popup("You have been forcibly logged out for being inactive.");
+					Rooms.rooms.staff.add(user.name + " has been forcibly logged out for being inactive.");
+					Rooms.rooms.staff.update();
+					user.resetName();
+				}
+			}, 1000 * 30);
 			ResourceMonitor.activeIp = connection.ip;
 			room.chat(this, message, connection);
 			ResourceMonitor.activeIp = null;

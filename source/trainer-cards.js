@@ -272,6 +272,7 @@ var trainerCards = {
 	h: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>H</b><br />'+
+		          'Leader Ranking: <font color = d8ff00><b>3rd</font></b> <br />'+
 			  '<i>"H4Hentai, H4Harem, H4Harassment, H4Hugs. Done checking out those sexy curves? Now it\'s time to check out my bugs. :3"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
 			  '<b>Ace:</b> None <br />' + lastSeen('gymldrh') + '<br />'+
@@ -290,14 +291,13 @@ var trainerCards = {
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
         },
         
-        dragon: 'matt99',
-	matt99: function(target, room, user) {
+        
+	dragon: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-		      'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
-		      '<i>"Feel the Wrath of my Dragons"</i> <br />'+
+		      '<i>"???"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> Goodra<br />' + lastSeen('gymldrmatt99') + '<br />');
+		      '<b>Ace:</b> ???<br />' + lastSeen('') + '<br />');
 	},
 	
 	
@@ -313,7 +313,7 @@ var trainerCards = {
         meows: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
-		      'Leader Ranking: <font color =FF0000><b>1st</font></b> <br />'+
+		      'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
 	              '<i>"Too pwetty for you"</i> <br />'+
 	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
 	              '<b>Ace:</b> Waifu (Gardevoir)<br />');
@@ -323,7 +323,7 @@ var trainerCards = {
         bush: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Bush</b><br />'+
-		        'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
+		         'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
 			'<i>"???"</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
 			'<b>Ace:</b> ??? <br />' + lastSeen('gymldrbush') + '<br />');
@@ -333,8 +333,8 @@ var trainerCards = {
         leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		       'Leader Ranking: <font color = d8ff00><b>3rd</font></b> <br />'+
 	              '<i>"Flamethrower can\'t melt steel types"</i> <br />'+
+	              'Leader Ranking: <font color = 00ce7f><b>6th</font></b> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
 	              '<b>Ace:</b> Entei<br />'  + lastSeen('gymldreaf') + '<br />'+
 	              '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
@@ -345,6 +345,7 @@ var trainerCards = {
 	indeter: function (target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Indeter</b><br />'+
+		          'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
 			  '<i>"And - I\'m off."</i> <br />'+
 			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
 			  '<b>Ace:</b> Gliscor<br />' + lastSeen('gymldrindeter') + '<br />');
@@ -388,7 +389,6 @@ var trainerCards = {
         vanilla: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Vanilla</b><br />'+
-		         'Leader Ranking: <font color = 00ce7f><b>6th</font></b> <br />'+
 		         '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
 			 '<b>Ace:</b> Dragonslayer (Miltank)<br />' + lastSeen('gymldrvanilla') + '<br />');
@@ -398,7 +398,7 @@ var trainerCards = {
         poppy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
-		         'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
+		         'Leader Ranking: <font color =FF0000><b>1st</font></b> <br />'+
 			 '<i>"It\'s you and me against the world, you\'ll see!" - Xeniathan! Destroyer of Worlds</i><br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
 			 '<b>Ace:</b> Box Ghost (Gengar)<br />' + lastSeen('gymldrpoppy') + '<br />');
@@ -722,12 +722,12 @@ var trainerCards = {
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 6 Leaders in The Sora League based on performance in our Monthly Promotional Tournament! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in the future.<br />'+
-				'-<b>1st <font color= 65b510>Meows</font></b> (Bug)<br />'+
+				'-<b>1st <font color= aa00ff>Poppy</font></b> (Poison)<br />'+
 				'-<b>2nd <font color= d83c08>Bush</font></b></b> (Fighting)<br />'+
-				'-<b>3rd <font color= FF0000>Leaf</font></b> (Fire)<br />'+
-				'-<b>4th <font color= 230077>Matt99</font></b> (Dragon)<br />'+
-				'-<b>5th <font color= aa00ff>Poppy</font></b> (Poison)<br />'+
-				'-<b>6th <font color= ffa5d5>Vanilla</font></b> (Normal)<br />'+
+				'-<b>3rd <font color= 65b510>H</font></b> (Bug)<br />'+
+				'-<b>4th <font color= 5dff00>Indeter</font></b> (Flying)<br />'+
+				'-<b>5th <font color= ff42a0>Meows</font></b> (Fairy)<br />'+
+				'-<b>6th <font color= FF0000>Leaf</font></b> (Fire)<br />'+
 				'</div>');
 	
 	},

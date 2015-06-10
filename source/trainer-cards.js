@@ -359,7 +359,8 @@ var trainerCards = {
 			 '<b>Ace:</b> ???<br />');
         },
         
-        grass: function(target, room, user) {
+        grass: 'connor',
+        connor: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Connor</b><br />'+
 			'<i>"It\'s just a job. Grass grows, birds fly, waves pound the sand."</i> <br />'+

@@ -361,19 +361,19 @@ var trainerCards = {
         
         grass: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			'<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Connor</b><br />'+
+			'<i>"It\'s just a job. Grass grows, birds fly, waves pound the sand."</i> <br />'+
 			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
-			'<b>Ace:</b> ???<br />' + lastSeen('') + '<br />' );
+			'<b>Ace:</b> Serperior<br />' + lastSeen('gymldrconnor') + '<br />' );
 	},
 	
-	ground: 'noahb',
-	noahb: function(target, room, user) {
+	
+	ground: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>NoahB</b><br />'+
-			  '<i>"Be sure you be at sky or else you have lost"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 5b3a00>Ground</font></b><br />'+
-			  '<b>Ace:</b> Mamoswine<br />' + lastSeen('gymldrnoahb') + '<br />');
+			  '<b>Ace:</b> <br />' + lastSeen('') + '<br />');
 	},
 	
 	ice: 'mark',

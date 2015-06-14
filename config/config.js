@@ -196,7 +196,7 @@ exports.customAvatars = {
 	  'gymldranna': '055.png',
 	  'frntierblade': '058.gif',
 	  'siiilver': '059.png',
-	  'gymldrwaffles': '078.gif',
+	  'gymtrnrwaffles': '078.gif',
 	  'e4zoro': '062.gif',
 	  'gymldreska': '063.png',
 	  'pkkaiser': '064.gif',
@@ -221,7 +221,8 @@ exports.customAvatars = {
 	  'gymldrmatt99': '112.jpg',
 	  'akkie': '114.png',
 	  'gymldrh': '116.png',
-	  'gymldrmark': '117.png'
+	  'gymldrmark': '117.png',
+	  'gymldrleo': '118.gif'
 	
 };
 

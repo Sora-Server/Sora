@@ -163,14 +163,16 @@ var trainerCards = {
                     '- <a href="http://soraleague.weebly.com/frontier.html">Battle Frontier Members</a><br />');
         },
 	
-        arjun: function(target, room, user) {
+        meows: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Arjunb</b><br />'+
-			 '<i>"???"</i> <br />'+
-		         '<b>Symbol:</b>??? <br />'+
-			 '<b>Ace:</b> ????<br />'+
+		this.sendReplyBox('Frontier <b>Meows</b><br />'+
+			 '<i>"You\'re a pussy."</i> <br />'+
+		         '<b>Symbol:</b>Patience <br />'+
+			 '<b>Ace:</b> Quagsire<br />'+
 			 '<b>Battle rules:</b> <br />'+
-			 '-??? <br />');
+			 '-OU No Mega <br />'+
+			 '-No Hazards <br />'+
+			 '-No Trick/Switcheroo <br />');
         },
         
         asch: function(target, room, user) {
@@ -309,14 +311,13 @@ var trainerCards = {
 			 '<b>Ace:</b> ???<br />' + lastSeen('') + '<br />');
         },
         
-        fairy: 'meows',
-        meows: function(target, room, user) {
+        
+        fairy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
-		      'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
-	              '<i>"Too pwetty for you"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
-	              '<b>Ace:</b> Waifu (Gardevoir)<br />');
+	              '<b>Ace:</b>???<br />');
         },
         
         fighting: 'bush',
@@ -406,7 +407,7 @@ var trainerCards = {
 	leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		           'Leader Ranking: <font color = 00ce7f><b>6th</font></b> <br />'+
+		           'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
 			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> ??? <br />' + lastSeen('gymldrleaf') + '<br />'+

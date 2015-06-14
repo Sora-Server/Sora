@@ -167,7 +167,7 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Meows</b><br />'+
 			 '<i>"You\'re a pussy."</i> <br />'+
-		         '<b>Symbol:</b>Patience <br />'+
+		         '<b>Symbol: </b>Patience <br />'+
 			 '<b>Ace:</b> Quagsire<br />'+
 			 '<b>Battle rules:</b> <br />'+
 			 '-OU No Mega <br />'+

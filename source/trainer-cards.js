@@ -293,13 +293,13 @@ var trainerCards = {
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
         },
         
-        
-	dragon: function(target, room, user) {
+        dragon: 'lou',
+	lou: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-		      '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Lou</b><br />'+
+		      '<i>"Dragon mono + Outrage = win"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> ???<br />' + lastSeen('') + '<br />');
+		      '<b>Ace:</b> Latias<br />' + lastSeen('gymldrlou') + '<br />');
 	},
 	
 	

@@ -655,20 +655,6 @@ var customCommands = {
 					user.ban();
 				}
 		}
-		if (target.toLowerCase() == "lobby") {
-					return connection.sendTo('lobby','|html|<div class="infobox" style="border-color:blue"><marquee><b><u><font size= 3>Welcome to The Sora League Server!</u></b></marquee><br /><br /> ' +
-					'We are a Pokemon League open for challenges!<br /><br />' +
-					'<a href="http://soraleague.weebly.com/rules.html">IMPORTANT RULE UPDATE FOR ALL CHALLENGERS</a><br /><br />'+
-					'You are welcomed to challenge us, participate in our tournaments or just chat in the lobby! <br /><br />' +
-					'The most important rule here is to have fun! We hope you will have an enjoyable stay here.<br /><br />' +
-					'You may want to check out <a href="http://soraleague.weebly.com/index.html">The Sora League Website</a> for details about the rules of challenge.<br /><br />' +
-					'<b>IMPORTANT:</b> Make sure you read our rules page <a href="http://soraleague.weebly.com/rules.html">here</a>, especially if you\'re challenging the league.<br /><br />' +
-					'<b>Warning:</b> Champion Noah and Champion Bart or any of our league members are not responsible for any damaged caused by hitting yourself after being confused by reading all this randomness.<br /><br />'+
-					'Click <button name = "send" value = "/join tempeststradehub">here</button> for the Pokemon trading hub! <br /><br />'+ 
-					'<blink>P.S. <i>Do not feed the Ascher, you will regret it~</i></blink><br />'+
-					'<center><a href="http://plug.dj/sky-tree/"><img src="http://i1171.photobucket.com/albums/r545/Brahak/button_zpse0650635.png"></a></center><br /><br />'+
-					'<a href="https://www.facebook.com/TheSoraLeague?ref_type=bookmark"><img src="http://www.farmmachineryshow.org/images/FacebookIcon25X25.png"></a> Like us on Facebook!</div>');
-		}
 	},
 	
 	chall: 'challenge',

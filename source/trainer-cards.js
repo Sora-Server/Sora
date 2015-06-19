@@ -416,9 +416,9 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
 		           'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
-			  '<i>"???"</i> <br />'+
+			  '<i>"The pattern repeats, will your flaws also?"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> ??? <br />' + lastSeen('gymldrleaf') + '<br />'+
+			  '<b>Ace:</b> Medicham <br />' + lastSeen('gymldrleaf') + '<br />'+
 			  '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
 	                  '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a></details> <br />');
 	},

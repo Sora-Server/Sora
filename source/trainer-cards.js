@@ -172,11 +172,11 @@ var trainerCards = {
         meows: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Meows</b><br />'+
-			 '<i>"You\'re a pussy."</i> <br />'+
+			 '<i>"Abs=Win"</i> <br />'+
 		         '<b>Symbol: </b>Patience <br />'+
 			 '<b>Ace:</b> Quagsire<br />'+
 			 '<b>Battle rules:</b> <br />'+
-			 '-OU No Mega <br />'+
+			 '-OU<br />'+
 			 '-No Hazards <br />'+
 			 '-No Trick/Switcheroo <br />');
         },
@@ -442,14 +442,14 @@ var trainerCards = {
 			  
 	},
 	
-        
-	water: function(target, room, user) {
+        water: 'terror',
+	terror: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b> <br />'+
-		         '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Terror</b> <br />'+
+		         '<i>"Better get out of the water because the waves are coming for you."</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
-			 '<b>Ace:</b> ???<br />'+
-			 '<b<Last Seen:</b> ' +lastSeen('???') + '<br />');
+			 '<b>Ace:</b> Sharpedo<br />'+
+			 '<b<Last Seen:</b> ' +lastSeen('gymldrterror') + '<br />');
 	},
  /**
  * Other Trainer Cards
@@ -513,7 +513,7 @@ var trainerCards = {
 		'<a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#bertha"><img src="http://i.imgur.com/MDcdCka.png" title="5 E4 Defends"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="1 Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#efrontier"><img src="http://i.imgur.com/2iZp7Mi.png" title="Achieved Elite Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Acieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#smeargle"><img src="http://i.imgur.com/A8h3FJN.png" title="Smeargle the Creator: Admin Team Artworks, Personilised Birthday Artwork for Champion Noah"></a></details> <br />');
         },
         
-        terror: function(target, room, user) {
+        terror2: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<center><b><font size="4" color="82127a">Terror</font></b></center><br>'+
 		'<center><i>"Laughing at Dinite\'s videos"</i> </center><br /><br />'+

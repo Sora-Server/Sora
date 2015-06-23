@@ -380,6 +380,7 @@ exports.groups = {
 			inherit: '+',
 			joinbattle: true,
 			modchat: true,
+			broadcast: true,
 			privateroom: true,
 			roompromote: '\u2605u'
 		}, {
@@ -399,10 +400,13 @@ exports.groups = {
 			hallofshame: true,
 			tell: false,
 			ip: true,
+			redirect: true,
 			staff: true,
 			modchat: true,
+			mute: true,
 			roompromote: '+ ',
 			scavengers: true,
+			tournamentsmoderation: true,
 			warn: true,
 			tournaments: true
 		}, {

@@ -69,6 +69,8 @@ var trainerCards = {
 		    '<b>Ace:</b> Pachirisu<br />'+
 	 	    '<b>Symbol:</b> Puny Symbol<br />'+
 	 	    '<b>Rules:</b> <a href="http://www.smogon.com/forums/threads/oras-fu-winner-of-omotm-machoke-sticky-web-banned.3519286/">FU</a> <br />'+
+	 	    '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
+	 	    '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Acieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#staravia"><img src="http://i.imgur.com/2UmjiLt.png" title="Staravia Badge: Two Years on Sora"></a><a href="http://soraleague.weebly.com/badges.html#smeargle"><img src="http://i.imgur.com/A8h3FJN.png" title="Smeargle the Creator: Helped develop Champion\'s Challenge and Inclement Weather Metagames"></a></details><br />'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-romeo.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-india.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-sierra.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-uniform.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif">'+
 	 	    '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	 	    
@@ -93,6 +95,8 @@ var trainerCards = {
 		      '<b>Ace:</b> Gengar<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br />'+
+	 	      '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
+	 	      '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Acieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a></details><br />'+
 	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	 	
         },
@@ -116,7 +120,9 @@ var trainerCards = {
 			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
 			  '<b>Ace:</b> Mega Charizard-X<br />'+
 			  '<b>Battle Rules:</b><br />'+
-			  '-No Hazards<br />');
+			  '-No Hazards<br />'+
+			  '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
+			  '<a href="http://soraleague.weebly.com/badges.html#aegislash"><img src="http://i.imgur.com/aJY3eKg.png" title="Winner of Sora\'s first major Monotype Round Robin Tour"></a></details><br />');
        
         },
         
@@ -163,14 +169,16 @@ var trainerCards = {
                     '- <a href="http://soraleague.weebly.com/frontier.html">Battle Frontier Members</a><br />');
         },
 	
-        arjun: function(target, room, user) {
+        meows: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Frontier <b>Arjunb</b><br />'+
-			 '<i>"???"</i> <br />'+
-		         '<b>Symbol:</b>??? <br />'+
-			 '<b>Ace:</b> ????<br />'+
+		this.sendReplyBox('Frontier <b>Meows</b><br />'+
+			 '<i>"Abs=Win"</i> <br />'+
+		         '<b>Symbol: </b>Patience <br />'+
+			 '<b>Ace:</b> Quagsire<br />'+
 			 '<b>Battle rules:</b> <br />'+
-			 '-??? <br />');
+			 '-OU<br />'+
+			 '-No Hazards <br />'+
+			 '-No Trick/Switcheroo <br />');
         },
         
         asch: function(target, room, user) {
@@ -223,7 +231,7 @@ var trainerCards = {
 	tempest: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Frontier <b>Tempest</b><br />'+
-			 '<i>"D=<{[(2*lv+10)/250]*Atk/Def*BP+2}*STAB*Eff*Crit*Itm*Abl*Wt*Spr>*x"</i> <br />'+
+			 '<i>"Winning comes first. Caring about other people\'s opinions of your strategies comes never." ~ Amarillo</i> <br />'+
 		         '<b>Symbol:</b> World <br />'+
 			 '<b>Ace:</b> Pikachu<br />'+
 			 '<b>Battle rules:</b> <br />'+
@@ -291,13 +299,13 @@ var trainerCards = {
 			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
         },
         
-        
-	dragon: function(target, room, user) {
+        dragon: 'lou',
+	lou: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Matt99</b><br />'+
-		      '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Lou</b><br />'+
+		      '<i>"Dragon mono + Outrage = win"</i> <br />'+
 		      '<b>Type: <font color = 230077>Dragon</font> </b><br />'+
-		      '<b>Ace:</b> ???<br />' + lastSeen('') + '<br />');
+		      '<b>Ace:</b> Latias<br />' + lastSeen('gymldrlou') + '<br />');
 	},
 	
 	
@@ -309,14 +317,13 @@ var trainerCards = {
 			 '<b>Ace:</b> ???<br />' + lastSeen('') + '<br />');
         },
         
-        fairy: 'meows',
-        meows: function(target, room, user) {
+        
+        fairy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Meows</b><br />'+
-		      'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
-	              '<i>"Too pwetty for you"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
-	              '<b>Ace:</b> Waifu (Gardevoir)<br />');
+	              '<b>Ace:</b>???<br />');
         },
         
         fighting: 'bush',
@@ -329,13 +336,13 @@ var trainerCards = {
 			'<b>Ace:</b> ??? <br />' + lastSeen('gymldrbush') + '<br />');
         },
         
-        fire: 'leo',
-        leo: function(target, room, user) {
+        
+        fire: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Leo</b><br />'+
-	              '<i>"Get ready to be burned down!"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> Volcarona<br />'  + lastSeen('gymldrleo') + '<br />');
+	              '<b>Ace:</b> <br />'  + lastSeen('') + '<br />');
 	},
 	
 	flying: 'indeter',
@@ -380,16 +387,18 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Mark</b><br />'+
 			  '<i>"Hard work pays off in the end."</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
-			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />' + lastSeen('gymldrmark'));
+			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />' + lastSeen('gymldrmark') + '<br />'+
+			  '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
+			  '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a></details><br />');
 	},
 	
-	normal: 'vanilla',
-        vanilla: function(target, room, user) {
+	normal: 'kezyru1',
+        kezyru1: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Vanilla</b><br />'+
-		         '<i>"Prepare to be pummeled cheerfully, jauntily, and utterly one-sidedly!"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Kezyru1</b><br />'+
+		         '<i>"Hi"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
-			 '<b>Ace:</b> Dragonslayer (Miltank)<br />' + lastSeen('gymldrvanilla') + '<br />');
+			 '<b>Ace:</b> Staraptor<br />' + lastSeen('') + '<br />');
         },
         
 	poison: 'poppy',
@@ -406,12 +415,12 @@ var trainerCards = {
 	leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		           'Leader Ranking: <font color = 00ce7f><b>6th</font></b> <br />'+
-			  '<i>"???"</i> <br />'+
+		           'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
+			  '<i>"The pattern repeats, will your flaws also?"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
-			  '<b>Ace:</b> ??? <br />' + lastSeen('gymldrleaf') + '<br />'+
+			  '<b>Ace:</b> Medicham <br />' + lastSeen('gymldrleaf') + '<br />'+
 			  '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
-	                  '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a></details> <br />');
+	                  '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#skyla"><img src="http://i.imgur.com/HMGmJ2d.png" title="Skyla Badge: 20 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a></details> <br />');
 	},
         
         rock: function(target, room, user) {
@@ -433,14 +442,14 @@ var trainerCards = {
 			  
 	},
 	
-        
-	water: function(target, room, user) {
+        water: 'terror',
+	terror: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b> <br />'+
-		         '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Terror</b> <br />'+
+		         '<i>"Better get out of the water because the waves are coming for you."</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
-			 '<b>Ace:</b> ???<br />'+
-			 '<b<Last Seen:</b> ' +lastSeen('???') + '<br />');
+			 '<b>Ace:</b> Sharpedo<br />'+
+			 '<b<Last Seen:</b> ' +lastSeen('gymldrterror') + '<br />');
 	},
  /**
  * Other Trainer Cards
@@ -448,12 +457,10 @@ var trainerCards = {
  */
 	ascher: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox( '<center><b><font size="4" color="2558db">Ascher</font></b></center><br />'+
-                '<center><i>"*SEAL NOISES*"</i> </center><br /><br />'+
-                '<b>Aces: </b>Venusaur and Whimsicott<br />'+
-                '<b>Favorite Pokémon: </b>Shroomish, Venusaur, Whimsicott, Lotad, And Ludicolo<br />'+
-                '<b>Achievements: </b>Getting in the top 80s of the main OU Monotype Ladder, Winning the E4 Promo tours 4 times<br />'+
-                '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/shroomish.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/venusaur.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/shroomish.gif"></center> <br />');
+		this.sendReplyBox( '<center><b><font size="4" color="86e755">Ascher</font></b></center><br />'+
+                '<center><img src="http://play.pokemonshowdown.com/sprites/xyani/shroomish.gif"></center> <br />'+
+                '<details><summary><font size= 1><b>Badges: (Click here to open)</b></font></summary><br />'+
+                '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#efrontier"><img src="http://i.imgur.com/2iZp7Mi.png" title="Achieved Elite Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#meme"><img src="http://i.imgur.com/XWAudeE.gif" title="Asch pls insert meme here"></a></details><br />');
                 
 	},
 	
@@ -506,7 +513,7 @@ var trainerCards = {
 		'<a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#bertha"><img src="http://i.imgur.com/MDcdCka.png" title="5 E4 Defends"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="1 Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#efrontier"><img src="http://i.imgur.com/2iZp7Mi.png" title="Achieved Elite Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Acieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#smeargle"><img src="http://i.imgur.com/A8h3FJN.png" title="Smeargle the Creator: Admin Team Artworks, Personilised Birthday Artwork for Champion Noah"></a></details> <br />');
         },
         
-        terror: function(target, room, user) {
+        terror2: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<center><b><font size="4" color="82127a">Terror</font></b></center><br>'+
 		'<center><i>"Laughing at Dinite\'s videos"</i> </center><br /><br />'+
@@ -758,7 +765,7 @@ var trainerCards = {
 		this.sendReplyBox('<a><font size= 4><center><b><font color = 075ff7>The Admin Team</font></b></center></a><br />'+
 		'FAQ <br />'+
 		'<b>Who are we?</b> The Admin team are a group of senior members who make most of the major league decisions and organize most major league events. <br />'+
-		'<b>Who\'s in the Admin Team?</b> The Admin Team\'s active members consist of: Champion Noah, Champion Bart, OnyxEagle, Artiste Jeratt, Frontierhead Ninjarisu, Neith, Coach Bloodfist, E4 Abadon, Bamdee and Elite Frontier Blade. <br />'+
+		'<b>Who\'s in the Admin Team?</b> The Admin Team\'s active members consist of: <blink>Champion Noah, Champion Bart, OnyxEagle, Artiste Jeratt, Frontierhead Ninjarisu, Neith, Coach Bloodfist, E4 Abadon, Bamdee and Frontier Blade.</blink> <br />'+
 		'<b>What exactly do you guys do?</b> The Admin Team handle or oversee all matters from disputes in the League, to League Challenge Registration <br />'+
 		'<b>How does one join the Admin team?</b> The Admin Team usually invites a select few senior members who\'ve shown to be mature and capable of handling responsibility. <br />'+
 		' <br />'+

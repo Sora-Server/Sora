@@ -648,26 +648,12 @@ var customCommands = {
 			"cpe-67-253-120-124.maine.res.rr.com", "62.140.132.94", "62.140.132.19", "50.84.151.157", "67.164.32.244",
 			"117.216.41.194", "CPE-155-143-4-109.vic.bigpond.net.au", "94.254.0.55", "108.61.179.200.vultr.com",
 			"ool-4573a317.dyn.optonline.net", "69.115.163.23", "173.30.53.93", "71.41.165.94", 
-			"bb116-15-8-217.singnet.com.sg", "62.140.132.13", "103-10-199-146.pacswitch.com"];
+			"bb116-15-8-217.singnet.com.sg", "62.140.132.13", "103-10-199-146.pacswitch.com", "116.14.185.162"];
 			for (var i = 0; i < blacklist.length; i++) {
 				if (user.latestHost.indexOf(blacklist[i]) > -1 || user.latestIp.indexOf(blacklist[i]) > -1) {
 					user.popup('You are on the Sora League banlist or are using a Proxy. GET REKT SON.');
 					user.ban();
 				}
-		}
-		if (target.toLowerCase() == "lobby") {
-					return connection.sendTo('lobby','|html|<div class="infobox" style="border-color:blue"><marquee><b><u><font size= 3>Welcome to The Sora League Server!</u></b></marquee><br /><br /> ' +
-					'We are a Pokemon League open for challenges!<br /><br />' +
-					'<a href="http://soraleague.weebly.com/rules.html">IMPORTANT RULE UPDATE FOR ALL CHALLENGERS</a><br /><br />'+
-					'You are welcomed to challenge us, participate in our tournaments or just chat in the lobby! <br /><br />' +
-					'The most important rule here is to have fun! We hope you will have an enjoyable stay here.<br /><br />' +
-					'You may want to check out <a href="http://soraleague.weebly.com/index.html">The Sora League Website</a> for details about the rules of challenge.<br /><br />' +
-					'<b>IMPORTANT:</b> Make sure you read our rules page <a href="http://soraleague.weebly.com/rules.html">here</a>, especially if you\'re challenging the league.<br /><br />' +
-					'<b>Warning:</b> Champion Noah and Champion Bart or any of our league members are not responsible for any damaged caused by hitting yourself after being confused by reading all this randomness.<br /><br />'+
-					'Click <button name = "send" value = "/join tempeststradehub">here</button> for the Pokemon trading hub! <br /><br />'+ 
-					'<blink>P.S. <i>Do not feed the Ascher, you will regret it~</i></blink><br />'+
-					'<center><a href="http://plug.dj/sky-tree/"><img src="http://i1171.photobucket.com/albums/r545/Brahak/button_zpse0650635.png"></a></center><br /><br />'+
-					'<a href="https://www.facebook.com/TheSoraLeague?ref_type=bookmark"><img src="http://www.farmmachineryshow.org/images/FacebookIcon25X25.png"></a> Like us on Facebook!</div>');
 		}
 	},
 	

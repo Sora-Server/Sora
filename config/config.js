@@ -222,7 +222,8 @@ exports.customAvatars = {
 	  'akkie': '114.png',
 	  'gymldrh': '116.png',
 	  'gymldrmark': '117.png',
-	  'gymldrleo': '118.gif'
+	  'gymldrleo': '118.gif',
+	  'gymldrterror': '119.gif'
 	
 };
 

@@ -223,7 +223,7 @@ exports.customAvatars = {
 	  'gymldrh': '116.png',
 	  'gymldrmark': '117.png',
 	  'gymldrleo': '118.gif',
-	  'gymldrterror': '119.gif'
+	  
 	
 };
 

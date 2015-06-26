@@ -23,17 +23,16 @@ var trainerCards = {
  */
  	attendance: 'leaguemembers',
  	leaguemembers: function (target, room, user) {
- 		//Put this here so that it can be updated more easily
 		if (!this.canBroadcast()) return;
 		var total = '<table><tr><th>User</th><th>Last Seen</th></tr>';
 		var list = ['∆Champiön Nöah∆', '∆Chаmpion Bart∆', '∆Frontierhead∆ Risu', '∆E4 Zoro∆', '∆E4 Corea∆', '∆E4 Edge∆', '∆E4 Abadon∆', '∆Frontier Asch∆', '∆Frontier∆ Srewop', '∆Fröntier∆Blade☯', '∆Frontier∆ Tempest', '∆Frontier Zachary∆', 
 			'∆Frontier Meows∆', '∆Gym Ldr Lou∆', '∆Gym Ldr Bush∆', '∆Gym Ldr Connor∆', '∆Gym Ldr Terror∆', '∆Gym Ldr Floatzel∆', '∆Gym Ldr Poppy∆', 
 			'∆Gym Ldr Leaf∆', '∆Gym Ldr Mark∆', '∆Gym Ldr Dårküs∆', '∆Gym Ldr H∆', '∆Gym Ldr Kezyru1∆', '∆Gym Ldr Indeter∆'];
 		for (var i = 0; i < list.length; i++) {
-			var lastSeen = Users.get(list[i]) && Users.get(list[i]).connected ? '<font color = "green">Online</font>' : lastSeen(list[i]);
-			if (lastSeen === 'Never') lastSeen = '<font color = "red">Never</font>';
+			var lastseen = Users.get(list[i]) && Users.get(list[i]).connected ? '<font color = "green">Online</font>' : Core.profile.lastSeen(false, toId(list[i])).split('&nbsp;')[2];
+			if (lastseen === 'Never') lastseen = '<font color = "red">Never</font>';
 			
-			total += '<tr><td>' + list[i] + '</td><td><center>' + lastSeen + '</center></td>';
+			total += '<tr><td>' + list[i] + '</td><td><center>' + lastseen + '</center></td>';
 		}
 		this.sendReplyBox('<center>' + total + '</table></center>');
 	},

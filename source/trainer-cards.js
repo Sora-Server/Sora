@@ -44,7 +44,7 @@ var trainerCards = {
 			
 			total += '<tr><td>' + list[i] + '</td><td><center>' + lastseen + '</center></td>';
 		}
-		this.sendReplyBox('<center>' + total + '</table></center>');
+		'<center>' + total + '</table></center>');
 	},
 	
 	bart: function(target, room, user) {

@@ -33,7 +33,7 @@ var trainerCards = {
 			
 			total += '<tr><td>' + list[i] + '</td><td><center>' + lastseen + '</center></td>';
 		}
-		this.sendReplyBox('<center>' + total + '</table></center>'+
+		this.sendReplyBox('<center>' + total + '</table></center>');
 		var total = '<table><tr><th>User</th><th>Last Seen</th></tr>';
 		var list = ['∆E4 Zoro∆', '∆E4 Corea∆', '∆E4 Edge∆', '∆Frontier Asch∆', '∆Frontier∆ Srewop', '∆Frontier∆ Tempest', '∆Frontier Zachary∆', 
 			'∆Frontier Meows∆', '∆Gym Ldr Lou∆', '∆Gym Ldr Connor∆', '∆Gym Ldr Terror∆', '∆Gym Ldr Floatzel∆', '∆Gym Ldr Poppy∆', 
@@ -44,7 +44,7 @@ var trainerCards = {
 			
 			total += '<tr><td>' + list[i] + '</td><td><center>' + lastseen + '</center></td>';
 		}
-		'<center>' + total + '</table></center>');
+		this.sendReplyBox('<center>' + total + '</table></center>');
 	},
 	
 	bart: function(target, room, user) {

@@ -25,15 +25,24 @@ var trainerCards = {
  	attendance: 'leaguemembers',
  	leaguemembers: function (target, room, user) {
 		if (!this.canBroadcast()) return;
-		var total = '<table><tr><th>User</th><th>Last Seen</th><th>User</th><th>Last Seen</th></tr>';
-		var list = ['∆Champiön Nöah∆', '∆Chаmpion Bart∆', '∆Frontierhead∆ Risu', '∆E4 Zoro∆', '∆E4 Corea∆', '∆E4 Edge∆', '∆E4 Abadon∆', '∆Frontier Asch∆', '∆Frontier∆ Srewop', '∆Fröntier∆Blade☯', '∆Frontier∆ Tempest', '∆Frontier Zachary∆', 
-			'∆Frontier Meows∆', '∆Gym Ldr Lou∆', '∆Gym Ldr Bush∆', '∆Gym Ldr Connor∆', '∆Gym Ldr Terror∆', '∆Gym Ldr Floatzel∆', '∆Gym Ldr Poppy∆', 
+		var total = '<table><tr><th>User</th><th>Last Seen</th></tr>';
+		var list = ['∆Champiön Nöah∆', '∆Chаmpion Bart∆', '∆Frontierhead∆ Risu', 'OnyxEagle', '∆Fröntier∆Blade☯', '∆E4 Abadon∆', 'Bamdee', 'ArtisteJeratt', 'NeithCass'];
+		for (var i = 0; i < list.length; i++) {
+			var lastseen = Users.get(list[i]) && Users.get(list[i]).connected ? '<font color = "green">Online</font>' : Core.profile.lastSeen(false, toId(list[i])).split('&nbsp;')[2];
+			if (lastseen === 'Never') lastseen = '<font color = "red">Never</font>';
+			
+			total += '<tr><td>' + list[i] + '</td><td><center>' + lastseen + '</center></td>';
+		}
+		this.sendReplyBox('<center>' + total + '</table></center>'+
+		var total = '<table><tr><th>User</th><th>Last Seen</th></tr>';
+		var list = ['∆E4 Zoro∆', '∆E4 Corea∆', '∆E4 Edge∆', '∆Frontier Asch∆', '∆Frontier∆ Srewop', '∆Frontier∆ Tempest', '∆Frontier Zachary∆', 
+			'∆Frontier Meows∆', '∆Gym Ldr Lou∆', '∆Gym Ldr Connor∆', '∆Gym Ldr Terror∆', '∆Gym Ldr Floatzel∆', '∆Gym Ldr Poppy∆', 
 			'∆Gym Ldr Leaf∆', '∆Gym Ldr Mark∆', '∆Gym Ldr Dårküs∆', '∆Gym Ldr H∆', '∆Gym Ldr Kezyru1∆', '∆Gym Ldr Indeter∆'];
 		for (var i = 0; i < list.length; i++) {
 			var lastseen = Users.get(list[i]) && Users.get(list[i]).connected ? '<font color = "green">Online</font>' : Core.profile.lastSeen(false, toId(list[i])).split('&nbsp;')[2];
 			if (lastseen === 'Never') lastseen = '<font color = "red">Never</font>';
 			
-			total += '<tr><td>' + list[i] + '</td><td><center>' + lastseen + '</center></td><td>' + list[i] + '</td><td><center>' + lastseen + '</center></td>';
+			total += '<tr><td>' + list[i] + '</td><td><center>' + lastseen + '</center></td>';
 		}
 		this.sendReplyBox('<center>' + total + '</table></center>');
 	},
@@ -343,14 +352,12 @@ var trainerCards = {
 	              '<b>Ace:</b>???<br />');
         },
         
-        fighting: 'bush',
-        bush: function(target, room, user) {
+        fighting: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Bush</b><br />'+
-		         'Leader Ranking: <font color =ff9900><b>2nd</font></b> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			'<i>"???"</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
-			'<b>Ace:</b> ??? <br />' + lastSeen('gymldrbush') + '<br />');
+			'<b>Ace:</b> ??? <br />' + lastSeen('???') + '<br />');
         },
         
         
@@ -386,7 +393,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 			'<i>"???""</i> <br />'+
 			'<b>Type: <font color = 006b0a>???</font></b> <br />'+ 
-			'<b>Ace:</b> Serperior<br />' + lastSeen('') + '<br />' );
+			'<b>Ace:</b> <br />' + lastSeen('') + '<br />' );
 	},
 	
 	

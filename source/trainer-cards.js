@@ -33,7 +33,7 @@ var trainerCards = {
 			
 			total += '<tr><td>' + list[i] + '</td><td><center>' + lastseen + '</center></td>';
 		}
-		this.sendReplyBox('<center><b>Administrators</b><br />' + total + '</table></center>');
+		this.sendReplyBox('<center><b>Admin Team</b><br />' + total + '</table></center>');
 		var total = '<table><tr><th>User</th><th>Last Seen</th></tr>';
 		var list = ['∆E4 Zoro∆', '∆E4 Corea∆', '∆E4 Edge∆', '∆E4 Abadon∆', '∆Frontier Asch∆', '∆Frontier∆ Srewop', '∆Fröntier∆Blade☯', '∆Frontier∆ Tempest', '∆Frontier Zachary∆', '∆Frontier Meows∆'];
 		for (var i = 0; i < list.length; i++) {

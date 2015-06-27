@@ -21,7 +21,7 @@ var trainerCards = {
  * ~ Rank aka people who had infite bucks to buy admin
  * 
  */
- 	staff: 'leaguemembers'
+ 	staff: 'leaguemembers',
  	attendance: 'leaguemembers',
  	leaguemembers: function (target, room, user) {
 		if (!this.canBroadcast()) return;

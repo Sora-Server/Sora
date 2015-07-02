@@ -76,7 +76,6 @@ var trainerCards = {
 		      '<b>Ace:</b> All <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-Ubers <br/>'+
-	 	      '<center><img src="http://i.imgur.com/pFtOL9I.png"> <img src="http://play.pokemonshowdown.com/sprites/xyani/yveltal.gif"></center> <br />'+
 	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	},
 	

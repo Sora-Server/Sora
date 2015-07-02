@@ -282,8 +282,8 @@ var trainerCards = {
 			'<b>Symbol:</b> Multitasking<br/>' +
 			'<b>Ace:</b> All<br/>' +
 			'<b>Battle Rules:</b><br/>' +
-			'-Smogon Doubles'+
-			'-No hazards'+
+			'-Smogon Doubles<br />'+
+			'-No hazards<br />'+
 			'<details><summary><b>Champion\'s Challenge Rules:</b></summary> <br />'+
 			'-Pikachu Tournamentchu <br />'+
 			'-No CAP Pokemon</details> <br />');

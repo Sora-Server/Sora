@@ -71,8 +71,9 @@ var trainerCards = {
         
         noah: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('<a><font size= 4><center><b><img src="http://sprites.pokecheck.org/i/134.gif"><font color = 430747>∆Champion Noah∆</font></b><img src="http://i.imgur.com/iu4Njdf.png"></center></a><br />'+
+		this.sendReplyBox('<a><font size= 4><center><b><font color = 430747>∆Champion Noah∆</font></b></center></a><br />'+
 		      '<center><i>"Need a Champion? I Noah guy."</i></center> <br />'+
+		      '<center><img src="http://sprites.pokecheck.org/i/134.gif"><img src="http://i.imgur.com/iu4Njdf.png"></center>'
 		      '<b>Ace:</b> All <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-Ubers <br/>'+

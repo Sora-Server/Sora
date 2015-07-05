@@ -208,6 +208,7 @@ var customCommands = {
 			"IS REALLY FEELING IT",
 			"saw asch with Skymin!",
 			"slipped through Akkie\'s cracks!",
+			"saw the monado\'s power!",
 		];
 
 		return function(target, room, user) {

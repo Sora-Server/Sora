@@ -220,7 +220,7 @@ exports.customAvatars = {
 	  'arjunb': '109.png',
 	  'gymldrmatt99': '112.jpg',
 	  'akkie': '114.png',
-	  'gymldrh': '116.png',
+	  'gymldrh': '120.gif',
 	  'gymldrmark': '117.png',
 	  'gymldrleo': '118.gif',
 	  'gymldrterror': '119.gif'

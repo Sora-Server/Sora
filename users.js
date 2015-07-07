@@ -88,11 +88,11 @@ var getExactUser = Users.getExact = function (name) {
  *********************************************************/
 
 var bannedIps = Users.bannedIps = Object.create(null);
-var bannedUsers = Users.bannedUsers = Object.create(null);
+var bannedUsers = Object.create(null);
 var lockedIps = Users.lockedIps = Object.create(null);
-var lockedUsers = Users.lockedUsers = Object.create(null);
+var lockedUsers = Object.create(null);
 var lockedRanges = Users.lockedRanges = Object.create(null);
-var rangelockedUsers = Users.rangeLockedUsers = Object.create(null);
+var rangelockedUsers = Object.create(null);
 
 /**
  * Searches for IP in table.
@@ -247,13 +247,13 @@ Users.socketConnect = function (worker, workerid, socketid, ip) {
 		checkResult = '#ipban';
 	}
 	if (checkResult) {
-		if (!Config.quietconsole) console.log('CONNECT BLOCKED - IP BANNED: ' + ip + ' (' + checkResult + ')');
+		if (!Config.quietConsole) console.log('CONNECT BLOCKED - IP BANNED: ' + ip + ' (' + checkResult + ')');
 		if (checkResult === '#ipban') {
-			connection.send("|popup||modal|Your IP (" + ip + ") is not allowed to connect to PS, because it has been used to spam, hack, or otherwise attack our server.||Make sure you are not using any proxies to connect to PS.");
+			connection.send("|popup|Your IP (" + ip + ") is not allowed to connect to PS, because it has been used to spam, hack, or otherwise attack our server.||Make sure you are not using any proxies to connect to PS.");
 		} else if (checkResult === '#cflood') {
-			connection.send("|popup||modal|PS is under heavy load and cannot accommodate your connection right now.");
+			connection.send("|popup|PS is under heavy load and cannot accommodate your connection right now.");
 		} else {
-			connection.send("|popup||modal|Your IP (" + ip + ") used was banned while using the username '" + checkResult + "'. Your ban will expire in a few days.||" + (Config.appealurl ? " Or you can appeal at:\n" + Config.appealurl : ""));
+			connection.send("|popup|Your IP (" + ip + ") used was banned while using the username '" + checkResult + "'. Your ban will expire in a few days.||" + (Config.appealUri ? " Or you can appeal at:\n" + Config.appealUri : ""));
 		}
 		return connection.destroy();
 	}
@@ -488,6 +488,7 @@ Users.getGroupsThatCan = function (permission, targetGroup, room, isSelf) {
 		return Users.can(group, permission, targetGroup, room, isSelf);
 	});
 };
+
 Users.setOfflineGroup = function (name, group, force) {
 	var userid = toId(name);
 	var user = getExactUser(userid);
@@ -523,6 +524,7 @@ User = (function () {
 		this.guestNum = numUsers;
 		this.name = 'Guest ' + numUsers;
 		this.named = false;
+		this.renamePending = false;
 		this.registered = false;
 		this.userid = toId(this.name);
 		this.group = Config.groups.default.global;
@@ -548,7 +550,7 @@ User = (function () {
 		this.roomCount = {};
 
 		// searches and challenges
-		this.searching = Object.create(null);
+		this.searching = 0;
 		this.challengesFrom = {};
 		this.challengeTo = null;
 		this.lastChallenge = 0;
@@ -563,9 +565,6 @@ User = (function () {
 	User.prototype.lastMessage = '';
 	User.prototype.lastMessageTime = 0;
 	User.prototype.lastReportTime = 0;
-	User.prototype.s1 = '';
-	User.prototype.s2 = '';
-	User.prototype.s3 = '';
 
 	User.prototype.blockChallenges = false;
 	User.prototype.ignorePMs = false;
@@ -594,7 +593,8 @@ User = (function () {
 			return Config.lockedSymbol + this.name;
 		}
 		if (roomid) {
-			if (this.mutedRooms[roomid]) {
+			var room = Rooms.rooms[roomid];
+			if (room.isMuted(this)) {
 				return Config.mutedSymbol + this.name;
 			}
 			if (room && room.auth) {
@@ -703,9 +703,8 @@ User = (function () {
 			delete prevUsers[userid];
 			prevUsers[this.userid] = userid;
 
-			// also MMR is different for each userid
+			// MMR is different for each userid
 			this.mmrCache = {};
-
 			Rooms.global.cancelSearch(this);
 
 			delete users[oldid];
@@ -719,14 +718,14 @@ User = (function () {
 
 		if (registered && userid in bannedUsers) {
 			var bannedUnder = '';
-			if (bannedUsers[userid] !== userid) bannedUnder = ' under the username ' + bannedUsers[userid];
+			if (bannedUsers[userid] !== userid) bannedUnder = ' because of rule-breaking by your alt account ' + bannedUsers[userid];
 			this.send("|popup|Your username (" + name + ") is banned" + bannedUnder + "'. Your ban will expire in a few days." + (Config.appealUri ? " Or you can appeal at:\n" + Config.appealUri : ""));
 			this.ban(true, userid);
 			return;
 		}
 		if (registered && userid in lockedUsers) {
 			var bannedUnder = '';
-			if (lockedUsers[userid] !== userid) bannedUnder = ' under the username ' + lockedUsers[userid];
+			if (lockedUsers[userid] !== userid) bannedUnder = ' because of rule-breaking by your alt account ' + lockedUsers[userid];
 			this.send("|popup|Your username (" + name + ") is locked" + bannedUnder + "'. Your lock will expire in a few days." + (Config.appealUri ? " Or you can appeal at:\n" + Config.appealUri : ""));
 			this.lock(true, userid);
 		}
@@ -766,8 +765,6 @@ User = (function () {
 			if (i > 1000) return false;
 		}
 
-		if (this.named) Core.stdout('db/lastOnline', this.userid, Date.now());
-
 		// MMR is different for each userid
 		this.mmrCache = {};
 		Rooms.global.cancelSearch(this);
@@ -804,25 +801,22 @@ User = (function () {
 			Rooms.get(i, 'lobby').onUpdateIdentity(this);
 		}
 	};
-	var bannedNameStartChars = {'~':1, '&':1, '@':1, '%':1, '+':1, '-':1, '!':1, '?':1, '#':1, ' ':1, '{':1, '}':1};
 	User.prototype.filterName = function (name) {
 		if (Config.nameFilter) {
-			name = Config.nameFilter(name);
+			name = Config.nameFilter(name, this);
 		}
 		name = toName(name);
-		while (bannedNameStartChars[name.charAt(0)]) {
-   			name = name.substr(1);
-   		}
+		name = name.replace(/^[^A-Za-z0-9]+/, "");
 		return name;
 	};
 	/**
 	 *
-	 * @param name             The name you want
-	 * @param token            Signed assertion returned from login server
-	 * @param newlyRegistered  Make sure this account will identify as registered
-	 * @param connection       The connection asking for the rename
+	 * @param name        The name you want
+	 * @param token       Signed assertion returned from login server
+	 * @param auth        Make sure this account will identify as registered
+	 * @param connection  The connection asking for the rename
 	 */
-	User.prototype.rename = function (name, token, newlyRegistered, connection) {
+	User.prototype.rename = function (name, token, auth, connection) {
 		for (var i in this.roomCount) {
 			var room = Rooms.get(i);
 			if (room && room.rated && (this.userid === room.rated.p1 || this.userid === room.rated.p2)) {
@@ -834,10 +828,6 @@ User = (function () {
 		var challenge = '';
 		if (connection) {
 			challenge = connection.challenge;
-		}
-		if (!challenge) {
-			console.log('verification failed; no challenge');
-			return false;
 		}
 
 		if (!name) name = '';
@@ -851,17 +841,17 @@ User = (function () {
 
 		name = this.filterName(name);
 		var userid = toId(name);
-		if (this.registered) newlyRegistered = false;
+		if (this.registered) auth = false;
 
 		if (!userid) {
 			this.send('|nametaken|' + "|Your name contains a banned word.");
 			return false;
 		} else {
-			if (userid === this.userid && !newlyRegistered) {
+			if (userid === this.userid && !auth) {
 				return this.forceRename(name, this.registered);
 			}
 		}
-		if (users[userid] && !users[userid].registered && users[userid].connected && !newlyRegistered) {
+		if (users[userid] && !users[userid].registered && users[userid].connected && !auth) {
 			this.send('|nametaken|' + name + "|Someone is already using the name \"" + users[userid].name + "\".");
 			return false;
 		}
@@ -871,14 +861,10 @@ User = (function () {
 			var tokenData = token.substr(0, tokenSemicolonPos);
 			var tokenSig = token.substr(tokenSemicolonPos + 1);
 
+			this.renamePending = name;
 			var self = this;
 			Verifier.verify(tokenData, tokenSig, function (success, tokenData) {
-				if (!success) {
-					console.log('verify failed: ' + token);
-					console.log('challenge was: ' + challenge);
-					return;
-				}
-				self.validateRename(name, tokenData, newlyRegistered, challenge);
+				self.finishRename(success, tokenData, token, auth, challenge);
 			});
 		} else {
 			this.send('|nametaken|' + name + "|Your authentication token was invalid.");
@@ -886,7 +872,8 @@ User = (function () {
 
 		return false;
 	};
-	User.prototype.validateRename = function (name, tokenData, newlyRegistered, challenge) {
+	User.prototype.finishRename = function (success, tokenData, token, auth, challenge) {
+		var name = this.renamePending;
 		var userid = toId(name);
 		var expired = false;
 		var invalidHost = false;
@@ -912,7 +899,7 @@ User = (function () {
 							Config.tokenHosts.push(address);
 							console.log('Added ' + address + ' to valid tokenhosts');
 						});
-					} else if (Config.tokenHosts.indexOf(host) === -1) {
+					} else if (Config.tokenHosts.indexOf(host) < 0) {
 						invalidHost = true;
 					}
 				}
@@ -933,34 +920,30 @@ User = (function () {
 			if (!challenge) {
 				console.log('verification failed; no challenge');
 			} else {
-				console.log('verify token mismatch: ' + tokenData);
+				console.log('verify failed: ' + token);
+				console.log('challenge was: ' + challenge);
 			}
-			return;
 		}
 
-		var expiry = Config.tokenexpiry || 25 * 60 * 60;
-		if (Math.abs(parseInt(tokenDataSplit[3], 10) - Date.now() / 1000) > expiry) {
-			console.log('stale assertion: ' + tokenData);
+		if (invalidHost) {
+			console.log('invalid hostname in token: ' + tokenData);
+			body = '';
+			this.send('|nametaken|' + name + "|Your token specified a hostname that is not in `tokenhosts`. If this is your server, please read the documentation in config/config.js for help. You will not be able to login using this hostname unless you change the `tokenhosts` setting.");
+		} else if (expired) {
+			console.log('verify failed: ' + tokenData);
+			body = '';
 			this.send('|nametaken|' + name + "|Your assertion is stale. This usually means that the clock on the server computer is incorrect. If this is your server, please set the clock to the correct time.");
-			return;
-		}
+		} else if (body) {
+			// console.log('BODY: "' + body + '"');
 
-		if (Config.tokenhosts) {
-			var host = tokenDataSplit[4];
-			if (Config.tokenhosts.length === 0) {
-				Config.tokenhosts.push(host);
-				console.log('Added ' + host + ' to valid tokenhosts');
-				require('dns').lookup(host, function (err, address) {
-					if (err || (address === host)) return;
-					Config.tokenhosts.push(address);
-					console.log('Added ' + address + ' to valid tokenhosts');
-				});
-			} else if (Config.tokenhosts.indexOf(host) < 0) {
-				console.log('invalid hostname in token: ' + tokenData);
-				this.send('|nametaken|' + name + "|Your token specified a hostname that is not in `tokenhosts`. If this is your server, please read the documentation in config/config.js for help. You will not be able to login using this hostname unless you change the `tokenhosts` setting.");
-				return;
+			if (users[userid] && !users[userid].registered && users[userid].connected) {
+				if (auth) {
+					if (users[userid] !== this) users[userid].resetName();
+				} else {
+					this.send('|nametaken|' + name + "|Someone is already using the name \"" + users[userid].name + "\".");
+					return this;
+				}
 			}
-		}
 
 			// if (!this.named) {
 			// 	console.log('IDENTIFY: ' + name + ' [' + this.name + '] [' + challenge.substr(0, 15) + ']');
@@ -979,15 +962,17 @@ User = (function () {
 				if (Config.customAvatars && Config.customAvatars[userid]) {
 					avatar = Config.customAvatars[userid];
 				}
-		this.handleRename(name, userid, newlyRegistered, tokenDataSplit[2]);
-	};
-	User.prototype.handleRename = function (name, userid, newlyRegistered, userType) {
-		if (users[userid] && !users[userid].registered && users[userid].connected) {
-			if (newlyRegistered) {
-				if (users[userid] !== this) users[userid].resetName();
-			} else {
-				this.send('|nametaken|' + name + "|Someone is already using the name \"" + users[userid].name + "\".");
-				return this;
+
+				if (body === '3') {
+					isSysop = true;
+					this.autoconfirmed = userid;
+				} else if (body === '4') {
+					this.autoconfirmed = userid;
+				} else if (body === '5') {
+					this.lock(false, userid);
+				} else if (body === '6') {
+					this.ban(false, userid);
+				}
 			}
 			if (users[userid] && users[userid] !== this) {
 				// This user already exists; let's merge
@@ -1001,14 +986,11 @@ User = (function () {
 				}
 				if (!user.registered) {
 					if (Object.isEmpty(Object.select(this.ips, user.ips))) {
-						user.mutedRooms = Object.merge(user.mutedRooms, this.mutedRooms);
-						user.muteDuration = Object.merge(user.muteDuration, this.muteDuration);
 						if (this.locked) user.locked = this.locked;
-						this.mutedRooms = {};
-						this.muteDuration = {};
 						this.locked = false;
 					}
 				}
+				if (this.autoconfirmed) user.autoconfirmed = this.autoconfirmed;
 				if (user.locked === '#dnsbl' && !this.locked) user.locked = false;
 				if (!user.locked && this.locked === '#dnsbl') this.locked = false;
 				for (var i = 0; i < this.connections.length; i++) {
@@ -1019,8 +1001,11 @@ User = (function () {
 				this.connections = [];
 				// merge IPs
 				for (var ip in this.ips) {
-					if (user.ips[ip]) user.ips[ip] += this.ips[ip];
-					else user.ips[ip] = this.ips[ip];
+					if (user.ips[ip]) {
+						user.ips[ip] += this.ips[ip];
+					} else {
+						user.ips[ip] = this.ips[ip];
+					}
 				}
 				this.ips = {};
 				user.latestIp = this.latestIp;
@@ -1045,143 +1030,32 @@ User = (function () {
 				if (this.named) user.prevNames[this.userid] = this.name;
 				this.destroy();
 				Rooms.global.checkAutojoin(user);
+				if (Config.loginFilter) Config.loginFilter(user);
 				return true;
 			}
-			user.merge(this);
 
-			user.updateGroup(registered);
-
-			if (userid !== this.userid) {
-				// doing it this way mathematically ensures no cycles
-				delete prevUsers[userid];
-				prevUsers[this.userid] = userid;
+			// rename success
+			this.isSysop = isSysop;
+			if (avatar) this.avatar = avatar;
+			if (this.forceRename(name, registered)) {
+				if (this.ignorePMs && this.can('lock') && !this.can('bypassall')) this.ignorePMs = false;
+				Rooms.global.checkAutojoin(this);
+				if (Config.loginFilter) Config.loginFilter(this);
+				return true;
 			}
-			for (var i in this.prevNames) {
-				if (!user.prevNames[i]) {
-					user.prevNames[i] = this.prevNames[i];
-				}
-			}
-			if (this.named) user.prevNames[this.userid] = this.name;
-			this.destroy();
-			Rooms.global.checkAutojoin(user);
-			if (Config.loginfilter) Config.loginfilter(user, this);
-			return true;
-		}
-
-		// rename success
-		if (this.forceRename(name, registered)) {
-			Rooms.global.checkAutojoin(this);
-			if (Config.loginfilter) Config.loginfilter(this);
-			return true;
-		}
-		return false;
-	};
-	User.prototype.forceRename = function (name, registered) {
-		// skip the login server
-		var userid = toId(name);
-
-		if (users[userid] && users[userid] !== this) {
 			return false;
+		} else if (tokenData) {
+			console.log('BODY: "" authInvalid');
+			// rename failed, but shouldn't
+			this.send('|nametaken|' + name + "|Your authentication token was invalid.");
+		} else {
+			console.log('BODY: "" nameRegistered');
+			// rename failed
+			this.send('|nametaken|' + name + "|The name you chose is registered");
 		}
-
-		if (this.named) this.prevNames[this.userid] = this.name;
-		this.name = name;
-
-		var oldid = this.userid;
-		if (userid !== this.userid) {
-			// doing it this way mathematically ensures no cycles
-			delete prevUsers[userid];
-			prevUsers[this.userid] = userid;
-
-			// MMR is different for each userid
-			this.mmrCache = {};
-			Rooms.global.cancelSearch(this);
-
-			delete users[oldid];
-			this.userid = userid;
-			users[userid] = this;
-
-			this.updateGroup(registered);
-		} else if (registered) {
-			this.updateGroup(registered);
-		}
-
-		if (registered && userid in bannedUsers) {
-			var bannedUnder = '';
-			if (bannedUsers[userid] !== userid) bannedUnder = ' because of rule-breaking by your alt account ' + bannedUsers[userid];
-			this.send("|popup|Your username (" + name + ") is banned" + bannedUnder + "'. Your ban will expire in a few days." + (Config.appealurl ? " Or you can appeal at:\n" + Config.appealurl : ""));
-			this.ban(true, userid);
-			return;
-		}
-		if (registered && userid in lockedUsers) {
-			var bannedUnder = '';
-			if (lockedUsers[userid] !== userid) bannedUnder = ' because of rule-breaking by your alt account ' + lockedUsers[userid];
-			this.send("|popup|Your username (" + name + ") is locked" + bannedUnder + "'. Your lock will expire in a few days." + (Config.appealurl ? " Or you can appeal at:\n" + Config.appealurl : ""));
-			this.lock(true, userid);
-		}
-		if (this.group === Config.groupsranking[0]) {
-			var range = this.locked || Users.shortenHost(this.latestHost);
-			if (lockedRanges[range]) {
-				this.send("|popup|You are in a range that has been temporarily locked from talking in chats and PMing regular users.");
-				rangelockedUsers[range][this.userid] = 1;
-				this.locked = '#range';
-			}
-		} else if (this.locked && (this.locked === '#range' || lockedRanges[this.locked])) {
-			this.locked = false;
-		}
-
-		for (var i = 0; i < this.connections.length; i++) {
-			//console.log('' + name + ' renaming: socket ' + i + ' of ' + this.connections.length);
-			var initdata = '|updateuser|' + this.name + '|' + (true ? '1' : '0') + '|' + this.avatar;
-			this.connections[i].send(initdata);
-		}
-		var joining = !this.named;
-		this.named = (this.userid.substr(0, 5) !== 'guest');
-		for (var i in this.roomCount) {
-			Rooms.get(i, 'lobby').onRename(this, oldid, joining);
-		}
-		return true;
+		this.renamePending = false;
 	};
-	User.prototype.merge = function (oldUser) {
-		for (var i in oldUser.roomCount) {
-			Rooms.get(i, 'lobby').onLeave(oldUser);
-		}
-
-		if (this.locked === '#dnsbl' && !oldUser.locked) this.locked = false;
-		if (!this.locked && oldUser.locked === '#dnsbl') oldUser.locked = false;
-		if (oldUser.locked) this.locked = oldUser.locked;
-		for (var i = 0; i < oldUser.connections.length; i++) {
-			this.mergeConnection(oldUser.connections[i]);
-		}
-		oldUser.roomCount = {};
-		oldUser.connections = [];
-
-		if (oldUser.autoconfirmed) this.autoconfirmed = oldUser.autoconfirmed;
-		this.s1 = oldUser.s1;
-		this.s2 = oldUser.s2;
-		this.s3 = oldUser.s3;
-
-		// merge IPs
-		for (var ip in oldUser.ips) {
-			if (this.ips[ip]) {
-				this.ips[ip] += oldUser.ips[ip];
-			} else {
-				this.ips[ip] = oldUser.ips[ip];
-			}
-		}
-
-		if (oldUser.isSysop) {
-			this.isSysop = true;
-			oldUser.isSysop = false;
-		}
-
-		oldUser.ips = {};
-		this.latestIp = oldUser.latestIp;
-		this.latestHost = oldUser.latestHost;
-
-		oldUser.markInactive();
-	};
-	User.prototype.mergeConnection = function (connection) {
+	User.prototype.merge = function (connection) {
 		this.connected = true;
 		this.connections.push(connection);
 		//console.log('' + this.name + ' merging: connection ' + connection.socket.id);
@@ -1256,7 +1130,6 @@ User = (function () {
 			this.autoconfirmed = this.confirmed;
 			this.locked = false;
 		}
-		if (this.ignorePMs && this.can('lock') && !this.can('bypassall')) this.ignorePMs = false;
 	};
 	/**
 	 * Set a user's group. Pass (' ', true) to force confirmed
@@ -1271,14 +1144,6 @@ User = (function () {
 		}
 		exportUsergroups();
 		Rooms.global.checkAutojoin(this);
-		if (this.registered) {
-			if (forceConfirmed || this.group !== Config.groupsranking[0]) {
-				usergroups[this.userid] = this.group + this.name;
-			} else {
-				delete usergroups[this.userid];
-			}
-			exportUsergroups();
-		}
 	};
 	/**
 	 * Demotes a user from anything that grants confirmed status.
@@ -1295,7 +1160,7 @@ User = (function () {
 		}
 		for (var i = 0; i < Rooms.global.chatRooms.length; i++) {
 			var room = Rooms.global.chatRooms[i];
-			if (!room.isPrivate && room.auth && userid in room.auth && Config.groups.bySymbol[room.auth[this.userid]].chatRoomRank > 1) {
+			if (!room.isPrivate && room.auth && userid in room.auth && Config.groups.bySymbol[room.auth[userid]].chatRoomRank > 1) {
 				removed.push(room.auth[userid] + room.id);
 				room.auth[userid] = Config.groups.chatRoomByRank[1];
 			}
@@ -1314,7 +1179,6 @@ User = (function () {
 		}
 	};
 	User.prototype.onDisconnect = function (connection) {
-		if (this.named) Core.stdout('db/lastOnline', this.userid, Date.now());
 		for (var i = 0; i < this.connections.length; i++) {
 			if (this.connections[i] === connection) {
 				// console.log('DISCONNECT: ' + this.userid);
@@ -1349,11 +1213,6 @@ User = (function () {
 	};
 	User.prototype.disconnectAll = function () {
 		// Disconnects a user from the server
-		if (this.named) Core.stdout('db/lastOnline', this.userid, Date.now());
-		for (var roomid in this.mutedRooms) {
-			clearTimeout(this.mutedRooms[roomid]);
-			delete this.mutedRooms[roomid];
-		}
 		this.clearChatQueue();
 		var connection = null;
 		this.markInactive();
@@ -1382,7 +1241,7 @@ User = (function () {
 		for (var i in users) {
 			if (users[i] === this) continue;
 			if (!users[i].named && !users[i].connected) continue;
-			if (!getAll && users[i].group !== Config.groups.default.global && this.group === Config.groups.default.global) continue;
+			if (!getAll && users[i].confirmed) continue;
 			for (var myIp in this.ips) {
 				if (myIp in users[i].ips) {
 					alts.push(users[i].name);
@@ -1491,11 +1350,12 @@ User = (function () {
 			var userGroup = this.group;
 			if (room.auth) {
 				if (room.isPrivate === true) {
-					userGroup = ' ';
+					userGroup = Config.groups.default[room.type + 'Room'];
 				}
 				userGroup = room.auth[this.userid] || userGroup;
 			}
-			if (Config.groupsranking.indexOf(userGroup) < Config.groupsranking.indexOf(room.modjoin !== true ? room.modjoin : room.modchat)) {
+			var modjoinLevel = room.modjoin !== true ? room.modjoin : room.modchat;
+			if (modjoinLevel && Config.groups.bySymbol[modjoinLevel] && Config.groups.bySymbol[userGroup].rank < Config.groups.bySymbol[modjoinLevel].rank) {
 				if (!this.named) {
 					return null;
 				} else {
@@ -1617,11 +1477,6 @@ User = (function () {
 		var format = Tools.getFormat(formatid);
 		if (!format['' + type + 'Show']) {
 			connection.popup("That format is not available.");
-			setImmediate(callback.bind(null, false));
-			return;
-		}
-		if (type === 'search' && this.searching[formatid]) {
-			connection.popup("You are already searching a battle in that format.");
 			setImmediate(callback.bind(null, false));
 			return;
 		}
@@ -1758,16 +1613,6 @@ User = (function () {
 				THROTTLE_DELAY - (now - this.lastChatMessage));
 		} else {
 			this.lastChatMessage = now;
-			if (this.logoutCountdown) clearTimeout(this.logoutCountdown);
-			var user = this;
-			this.logoutCountdown = setTimeout(function () {
-				if (user.named && !user.isAway) {
-					user.popup("You have been forcibly logged out for being inactive.");
-					Rooms.rooms.staff.add(user.name + " has been forcibly logged out for being inactive.");
-					Rooms.rooms.staff.update();
-					user.resetName();
-				}
-			}, 1000 * 30);
 			ResourceMonitor.activeIp = connection.ip;
 			room.chat(this, message, connection);
 			ResourceMonitor.activeIp = null;

@@ -801,12 +801,15 @@ User = (function () {
 			Rooms.get(i, 'lobby').onUpdateIdentity(this);
 		}
 	};
+	var bannedNameStartChars = {'~':1, '&':1, '@':1, '%':1, '+':1, '-':1, '!':1, '?':1, '#':1, ' ':1, '{':1, '}':1};
 	User.prototype.filterName = function (name) {
 		if (Config.nameFilter) {
 			name = Config.nameFilter(name, this);
 		}
 		name = toName(name);
-		name = name.replace(/^[^A-Za-z0-9]+/, "");
+		while (bannedNameStartChars[name.charAt(0)]) {
+   			name = name.substr(1);
+   		}
 		return name;
 	};
 	/**
@@ -1179,6 +1182,7 @@ User = (function () {
 		}
 	};
 	User.prototype.onDisconnect = function (connection) {
+	if (this.named) Core.stdout('db/lastOnline', this.userid, Date.now());
 		for (var i = 0; i < this.connections.length; i++) {
 			if (this.connections[i] === connection) {
 				// console.log('DISCONNECT: ' + this.userid);
@@ -1213,6 +1217,7 @@ User = (function () {
 	};
 	User.prototype.disconnectAll = function () {
 		// Disconnects a user from the server
+		if (this.named) Core.stdout('db/lastOnline', this.userid, Date.now());
 		this.clearChatQueue();
 		var connection = null;
 		this.markInactive();

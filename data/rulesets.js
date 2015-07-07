@@ -151,7 +151,7 @@ exports.BattleFormats = {
 
 			// "Undiscovered" egg group Pokemon caught in the wild in gen 6 must have at least 3 perfect IVs
 			if (set.ivs && this.gen >= 6 && ((template.species in {Xerneas:1, Yveltal:1, Zygarde:1}) ||
-				(format.requirePentagon && template.eggGroups.indexOf('Undiscovered') > -1 && !template.evos.length))) {
+				(format.requirePentagon && template.eggGroups.indexOf('Undiscovered') >= 0 && !template.evos.length))) {
 				var perfectIVs = 0;
 				for (var i in set.ivs) {
 					if (set.ivs[i] >= 31) perfectIVs++;
@@ -294,6 +294,7 @@ exports.BattleFormats = {
 		}
 	},
 	teampreviewvgc: {
+		effectType: 'Rule',
 		onStartPriority: -10,
 		onStart: function () {
 			this.add('clearpoke');
@@ -309,6 +310,7 @@ exports.BattleFormats = {
 		}
 	},
 	teampreview1v1: {
+		effectType: 'Rule',
 		onStartPriority: -10,
 		onStart: function () {
 			this.add('clearpoke');
@@ -324,6 +326,7 @@ exports.BattleFormats = {
 		}
 	},
 	teampreview: {
+		effectType: 'Rule',
 		onStartPriority: -10,
 		onStart: function () {
 			this.add('clearpoke');
@@ -339,6 +342,7 @@ exports.BattleFormats = {
 		}
 	},
 	teampreviewgbu: {
+		effectType: 'Rule',
 		onStartPriority: -10,
 		onStart: function () {
 			this.add('clearpoke');
@@ -375,7 +379,7 @@ exports.BattleFormats = {
 			for (var i = 0; i < team.length; i++) {
 				var template = this.getTemplate(team[i].species);
 				if (speciesTable[template.num]) {
-					return ["You are limited to one of each Pokémon by Species Clause.", "(You have more than one " + template.name + ")"];
+					return ["You are limited to one of each Pokémon by Species Clause.", "(You have more than one " + template.baseSpecies + ")"];
 				}
 				speciesTable[template.num] = true;
 			}
@@ -519,7 +523,7 @@ exports.BattleFormats = {
 			var problems = [];
 			var BPcount = 0;
 			for (var i = 0; i < team.length; i++) {
-				if (team[i].moves.indexOf('Baton Pass') > -1) BPcount++;
+				if (team[i].moves.indexOf('Baton Pass') >= 0) BPcount++;
 				if (BPcount > 1) {
 					problems.push("You are limited to one Pokémon with the move Baton Pass by the Baton Pass Clause.");
 					break;
@@ -613,8 +617,8 @@ exports.BattleFormats = {
 				// Very complex bans
 				if (typeTable.length > 1) return;
 				switch (typeTable[0]) {
-				case 'Dragon':
-					if (teamHas['kyuremwhite']) return ["Kyurem-White is banned from Dragon monotype teams."];
+				case 'Flying':
+					if (teamHas['zapdos']) return ["Zapdos is banned from Flying monotype teams."];
 					break;
 				case 'Psychic':
 					if (teamHas['galladite']) return ["Galladite is banned from Psychic monotype teams."];
@@ -629,56 +633,10 @@ exports.BattleFormats = {
 			}
 		}
 	},
-	monotypeexceptionclause: {
-                effectType: 'Rule',
-                onStart: function() {
-                        this.add('rule', 'Monotype Exception Clause: Monotype teams follow their own set of rules, ignoring normal OU rules.');
-                },
-                validateTeam: function(team, format, teamHas) {
-                        if (!team[0]) return;
-                        var isMono = true;
-                        var template = this.getTemplate(team[0].species);
-                        var typeTable = template.types;
-                        if (!typeTable) isMono = false;
-                        for (var i = 1; i < team.length; i++) {
-                                template = this.getTemplate(team[i].species);
-                                if (!template.types) isMono = false;
-
-                                typeTable = typeTable.intersect(template.types);
-                                if (!typeTable.length) isMono = false;
-                        }
-
-                        if (!isMono) {
-                                var oubans = ['kyuremwhite', 'shayminsky', 'aegislash', 'mawilite', 'genesect', 'genesectdouse', 'genesectshock', 'genesectburn', 'genesectchill'];
-                                for (var x = 0; x < oubans.length; x++) {
-                                        var bannedName = this.data.Pokedex[oubans[x]] || this.getItem(oubans[x]);
-                                        if (teamHas[oubans[x]]) return [bannedName.name + " is banned from OU teams."];
-                                }
-                        } else {
-                                // Very complex bans
-                                if (typeTable.length > 1) return;
-                                if (teamHas['talonflame']) return ["Talonflame is banned from Monotype teams."];
-                                switch (typeTable[0]) {
-                                        case 'Dragon':
-                                                if (teamHas['kyuremwhite']) return ["Kyurem-White is banned from Dragon monotype teams."];
-                                                break;
-                                        case 'Flying':
-                                                if (teamHas['shayminsky']) return ["Shaymin-Sky is banned from Flying monotype teams."];
-                                                break;
-                                        case 'Steel':
-                                                if (teamHas['aegislash']) return ["Aegislash is banned from Steel monotype teams."];
-                                                if (teamHas['genesect'] || teamHas['genesectdouse'] || teamHas['genesectshock'] || teamHas['genesectburn'] || teamHas['genesectchill']) return ["Genesect is banned from Steel monotype teams."];
-                                                break;
-                                        case 'Water':
-                                                if (teamHas['damprock']) return ["Damp Rock is banned from Water monotype teams."];
-                                }
-                        }
-                }
-        },
-	megarayquazabanmod: {
+	megarayquazaclause: {
 		effectType: 'Rule',
 		onStart: function () {
-			this.add('rule', 'Mega Rayquaza Ban Mod: You cannot mega evolve Rayquaza');
+			this.add('rule', 'Mega Rayquaza Clause: You cannot mega evolve Rayquaza');
 			for (var i = 0; i < this.sides[0].pokemon.length; i++) {
 				if (this.sides[0].pokemon[i].speciesid === 'rayquaza') this.sides[0].pokemon[i].canMegaEvo = false;
 			}

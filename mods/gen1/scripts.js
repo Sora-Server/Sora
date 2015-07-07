@@ -23,53 +23,46 @@ exports.BattleScripts = {
 	},
 	// BattlePokemon scripts.
 	pokemon: {
-		getStat: function (statName, unboosted, unmodified, noscreens) {
+		getStat: function (statName, unmodified) {
 			statName = toId(statName);
 			if (statName === 'hp') return this.maxhp;
-
-			// base stat
-			var stat = this.stats[statName];
-
-			// stat boosts
-			if (!unboosted) {
-				var boost = this.boosts[statName];
-				if (boost > 6) boost = 6;
-				if (boost < -6) boost = -6;
-				if (boost >= 0) {
-					var boostTable = [1, 1.5, 2, 2.5, 3, 3.5, 4];
-					stat = Math.floor(stat * boostTable[boost]);
-				} else {
-					var numerators = [100, 66, 50, 40, 33, 28, 25];
-					stat = Math.floor(stat * numerators[-boost] / 100);
+			if (unmodified) return this.stats[statName];
+			return this.modifiedStats[statName];
+		},
+		// Gen 1 function to apply a stat modification that is only active until the stat is recalculated or mon switched.
+		// Modified stats are declared in BattlePokemon object in battle-engine.js in about line 303.
+		modifyStat: function (stat, modifier) {
+			if (!(stat in this.stats)) return;
+			this.modifiedStats[stat] = this.battle.clampIntRange(Math.floor(this.modifiedStats[stat] * modifier), 1, 999);
+		},
+		// In generation 1, boosting function increases the stored modified stat and checks for opponent's status.
+		boostBy: function (boost) {
+			var changed = false;
+			for (var i in boost) {
+				this.boosts[i] += boost[i];
+				if (this.boosts[i] > 6) {
+					this.boosts[i] = 6;
+				}
+				if (this.boosts[i] < -6) {
+					this.boosts[i] = -6;
+				}
+				if (this.boosts[i]) {
+					changed = true;
+					// Recalculate the modified stat
+					if (this.stats[i]) {
+						var stat = this.template.baseStats[i];
+						stat = Math.floor(Math.floor(2 * stat + this.set.ivs[i] + Math.floor(this.set.evs[i] / 4)) * this.level / 100 + 5);
+						this.modifiedStats[i] = this.stats[i] = Math.floor(stat);
+						if (this.boosts[i] >= 0) {
+							this.modifyStat(i, [1, 1.5, 2, 2.5, 3, 3.5, 4][this.boosts[i]]);
+						} else {
+							this.modifyStat(i, [100, 66, 50, 40, 33, 28, 25][-this.boosts[i]] / 100);
+						}
+					}
 				}
 			}
-
-			// Stat modifiers: burn, paralyse.
-			if (!unmodified) {
-				// Burn attack drop is checked when you get the attack stat upon switch in and used until switch out.
-				if (this.volatiles['brnattackdrop'] && statName === 'atk') {
-					stat = this.battle.clampIntRange(Math.floor(stat / 2), 1);
-				}
-				if (this.volatiles['parspeeddrop'] && statName === 'spe') {
-					stat = this.battle.clampIntRange(Math.floor(stat / 4), 1);
-				}
-			}
-
-			// Hard coded Reflect and Light Screen boosts
-			if (this.volatiles['reflect'] && statName === 'def' && !unboosted && !noscreens) {
-				this.battle.debug('Reflect doubles Defense');
-				stat *= 2;
-				stat = this.battle.clampIntRange(stat, 1, 1998);
-			} else if (this.volatiles['lightscreen'] && statName === 'spd' && !unboosted && !noscreens) {
-				this.battle.debug('Light Screen doubles Special Defense');
-				stat *= 2;
-				stat = this.battle.clampIntRange(stat, 1, 1998);
-			} else {
-				// Gen 1 normally caps stats at 999 and min is 1.
-				stat = this.battle.clampIntRange(stat, 1, 999);
-			}
-
-			return stat;
+			this.update();
+			return changed;
 		}
 	},
 	// Battle scripts.
@@ -87,6 +80,8 @@ exports.BattleScripts = {
 		if (pokemon.movedThisTurn || !this.runEvent('BeforeMove', pokemon, target, move)) {
 			// Prevent invulnerability from persisting until the turn ends.
 			pokemon.removeVolatile('twoturnmove');
+			// Rampage moves end without causing confusion
+			delete pokemon.volatiles['lockedmove'];
 			this.clearActiveMove(true);
 			// This is only run for sleep.
 			this.runEvent('AfterMoveSelf', pokemon, target, move);
@@ -108,7 +103,7 @@ exports.BattleScripts = {
 			pokemon.lastMove = move.id;
 		}
 		this.useMove(move, pokemon, target, sourceEffect);
-		this.runEvent('AfterMove', target, pokemon, move);
+		this.singleEvent('AfterMove', move, null, pokemon, target, move);
 
 		// If rival fainted
 		if (target.hp <= 0) {
@@ -139,8 +134,7 @@ exports.BattleScripts = {
 						pokemon.volatiles['partialtrappinglock'].locked = target;
 						// Duration reset thus partially trapped at 2 always.
 						target.volatiles['partiallytrapped'].duration = 2;
-						// We deduct an additional PP that was not deducted earlier.
-						// Also get the move position for the PP change.
+						// We get the move position for the PP change.
 						var usedMovePos = -1;
 						for (var m in pokemon.moveset) {
 							if (pokemon.moveset[m].id === move.id) usedMovePos = m;
@@ -148,9 +142,6 @@ exports.BattleScripts = {
 						if (usedMovePos > -1 && pokemon.moveset[usedMovePos].pp === 0) {
 							// If we were on the middle of the 0 PP sequence, the PPs get reset to 63.
 							pokemon.moveset[usedMovePos].pp = 63;
-						} else {
-							// Otherwise, plain reduct.
-							pokemon.deductPP(move, null, target);
 						}
 					}
 				}
@@ -194,7 +185,7 @@ exports.BattleScripts = {
 			return false;
 		}
 
-		if (move.isTwoTurnMove && !pokemon.volatiles[move.id]) {
+		if (move.flags['charge'] && !pokemon.volatiles[move.id]) {
 			attrs = '|[still]'; // Suppress the default move animation
 		}
 
@@ -208,8 +199,8 @@ exports.BattleScripts = {
 			return true;
 		}
 
-		if (typeof move.affectedByImmunities === 'undefined') {
-			move.affectedByImmunities = (move.category !== 'Status');
+		if (move.ignoreImmunity === undefined) {
+			move.ignoreImmunity = (move.category === 'Status');
 		}
 
 		var damage = false;
@@ -247,7 +238,15 @@ exports.BattleScripts = {
 		var doSelfDestruct = true;
 		var damage = 0;
 
-		// First, let's calculate the accuracy.
+		// First, check if the Pokémon is immune to this move.
+		if (move.ignoreImmunity !== true && !move.ignoreImmunity[move.type] && !target.runImmunity(move.type, true)) {
+			if (move.selfdestruct) {
+				this.faint(pokemon, pokemon, move);
+			}
+			return false;
+		}
+
+		// Now, let's calculate the accuracy.
 		var accuracy = move.accuracy;
 
 		// Partial trapping moves: true accuracy while it lasts
@@ -260,9 +259,22 @@ exports.BattleScripts = {
 			accuracy = true;
 		}
 
+		// OHKO moves only have a chance to hit if the user is at least as fast as the target
+		if (move.ohko) {
+			if (target.speed > pokemon.speed) {
+				this.add('-immune', target, '[ohko]');
+				return false;
+			}
+		}
+
 		// Calculate true accuracy for gen 1, which uses 0-255.
 		if (accuracy !== true) {
-			accuracy = Math.floor(accuracy * 255 / 100);
+			// Rage bug
+			if (move.id === 'rage' && pokemon.volatiles['ragemiss']) {
+				accuracy = 1;
+			} else {
+				accuracy = Math.floor(accuracy * 255 / 100);
+			}
 			// Check also for accuracy modifiers.
 			if (!move.ignoreAccuracy) {
 				if (pokemon.boosts.accuracy > 0) {
@@ -287,11 +299,6 @@ exports.BattleScripts = {
 		if (accuracy !== true && this.random(256) >= accuracy) {
 			this.attrLastMove('[miss]');
 			this.add('-miss', pokemon);
-			damage = false;
-		}
-
-		// Check if the Pokémon is immune to this move.
-		if (move.affectedByImmunities && !target.runImmunity(move.type, true)) {
 			damage = false;
 		}
 
@@ -353,6 +360,8 @@ exports.BattleScripts = {
 			return false;
 		}
 
+		if (move.ohko) this.add('-ohko');
+
 		if (!move.negateSecondary) {
 			this.singleEvent('AfterMoveSecondary', move, null, target, pokemon, move);
 			this.runEvent('AfterMoveSecondary', target, pokemon, move);
@@ -371,8 +380,8 @@ exports.BattleScripts = {
 		var hitResult = true;
 		if (!moveData) moveData = move;
 
-		if (typeof move.affectedByImmunities === 'undefined') {
-			move.affectedByImmunities = (move.category !== 'Status');
+		if (move.ignoreImmunity === undefined) {
+			move.ignoreImmunity = (move.category === 'Status');
 		}
 
 		// We get the sub to the target to see if it existed
@@ -453,6 +462,21 @@ exports.BattleScripts = {
 			}
 			if (moveData.boosts && !target.fainted) {
 				this.boost(moveData.boosts, target, pokemon, move);
+
+				// Check the status of the Pokémon whose turn is not.
+				// When a move that affects stat levels is used, if the Pokémon whose turn it is not right now is paralyzed or
+				// burned, the correspoding stat penalties will be applied again to that Pokémon.
+				if (pokemon.side.foe.active[0] && pokemon.side.foe.active[0].status) {
+					// If it's paralysed, quarter its speed.
+					if (pokemon.side.foe.active[0].status === 'par') {
+						pokemon.side.foe.active[0].modifyStat('spe', 0.25);
+					}
+					// If it's burned, halve its attack.
+					if (pokemon.side.foe.active[0].status === 'brn') {
+						pokemon.side.foe.active[0].modifyStat('atk', 0.5);
+					}
+					pokemon.side.foe.active[0].update();
+				}
 			}
 			if (moveData.heal && !target.fainted) {
 				var d = target.heal(Math.floor(target.maxhp * moveData.heal[0] / moveData.heal[1]));
@@ -467,7 +491,11 @@ exports.BattleScripts = {
 				// Gen 1 bug: If the target has just used hyperbeam and must recharge, its status will be ignored and put to sleep.
 				// This does NOT revert the paralyse speed drop or the burn attack drop.
 				if (!target.status || moveData.status === 'slp' && target.volatiles['mustrecharge']) {
-					target.setStatus(moveData.status, pokemon, move);
+					if (target.setStatus(moveData.status, pokemon, move)) {
+						// Gen 1 mechanics: The burn attack drop and the paralyse speed drop are applied here directly on stat modifiers.
+						if (moveData.status === 'brn') target.modifyStat('atk', 0.5);
+						if (moveData.status === 'par') target.modifyStat('spe', 0.25);
+					}
 				} else if (!isSecondary) {
 					if (target.status === moveData.status) {
 						this.add('-fail', target, target.status);
@@ -479,6 +507,8 @@ exports.BattleScripts = {
 			}
 			if (moveData.forceStatus) {
 				if (target.setStatus(moveData.forceStatus, pokemon, move)) {
+					if (moveData.forceStatus === 'brn') target.modifyStat('atk', 0.5);
+					if (moveData.forceStatus === 'par') target.modifyStat('spe', 0.25);
 					didSomething = true;
 				}
 			}
@@ -614,7 +644,7 @@ exports.BattleScripts = {
 			}
 		}
 		if (damage !== 0) damage = this.clampIntRange(damage, 1);
-		if (!(effect.id in {'recoil':1, 'drain':1})) target.battle.lastDamage = damage;
+		if (!(effect.id in {'recoil':1, 'drain':1}) && effect.effectType !== 'Status') target.battle.lastDamage = damage;
 		damage = target.damage(damage, source, effect);
 		if (source) source.lastDamage = damage;
 		var name = effect.fullname;
@@ -704,7 +734,7 @@ exports.BattleScripts = {
 		};
 
 		// Let's see if the target is immune to the move.
-		if (move.affectedByImmunities) {
+		if (!move.ignoreImmunity || (move.ignoreImmunity !== true && !move.ignoreImmunity[move.type])) {
 			if (!target.runImmunity(move.type, true)) {
 				return false;
 			}
@@ -712,11 +742,6 @@ exports.BattleScripts = {
 
 		// Is it an OHKO move?
 		if (move.ohko) {
-			// If it is, move hits if the Pokémon is faster.
-			if (target.speed > pokemon.speed) {
-				this.add('-failed', target);
-				return false;
-			}
 			return target.maxhp;
 		}
 
@@ -818,6 +843,12 @@ exports.BattleScripts = {
 		var defType = (move.defensiveCategory === 'Physical') ? 'def' : 'spd';
 		var attack = attacker.getStat(atkType);
 		var defense = defender.getStat(defType);
+		// In gen 1, screen effect is applied here.
+		if ((defType === 'def' && defender.volatiles['reflect']) || (defType === 'spd' && defender.volatiles['lightscreen'])) {
+			this.debug('Screen doubling (Sp)Def');
+			defense *= 2;
+			defense = this.clampIntRange(defense, 1, 1998);
+		}
 
 		// In the event of a critical hit, the ofense and defense changes are ignored.
 		// This includes both boosts and screens.
@@ -830,10 +861,11 @@ exports.BattleScripts = {
 		}
 		if (move.ignoreOffensive) {
 			this.debug('Negating (sp)atk boost/penalty.');
-			attack = attacker.getStat(atkType, true, true);
+			attack = attacker.getStat(atkType, true);
 		}
 		if (move.ignoreDefensive) {
 			this.debug('Negating (sp)def boost/penalty.');
+			// No screens
 			defense = target.getStat(defType, true);
 		}
 
@@ -914,7 +946,7 @@ exports.BattleScripts = {
 		for (var i = 0; i < 6; i++) {
 			while (true) {
 				var x = Math.floor(Math.random() * 151) + 1;
-				if (teamdexno.indexOf(x) === -1) {
+				if (teamdexno.indexOf(x) < 0) {
 					teamdexno.push(x);
 					break;
 				}
@@ -954,8 +986,7 @@ exports.BattleScripts = {
 				mbst += Math.floor((stats["spd"] * 2 + 30 + 63 + 100) * level / 100 + 5);
 				mbst += Math.floor((stats["spe"] * 2 + 30 + 63 + 100) * level / 100 + 5);
 
-				if (mbst >= mbstmin)
-					break;
+				if (mbst >= mbstmin) break;
 				level++;
 			}
 
@@ -1042,7 +1073,7 @@ exports.BattleScripts = {
 			// If you have a shitmon, you're covered in OUs and Ubers if possible
 			var tier = template.tier;
 			if (tier === 'LC' && (nuCount > 1 || hasShitmon)) continue;
-			if ((tier === 'NFE' || tier === 'UU') && (hasShitmon || (nuCount > 2 && this.random(1)))) continue;
+			if ((tier === 'NFE' || tier === 'UU' || tier === 'NU') && (hasShitmon || (nuCount > 2 && this.random(1)))) continue;
 			// Unless you have one of the worst mons, in that case we allow luck to give you both Mew and Mewtwo.
 			if (tier === 'Uber' && uberCount >= 1 && !hasShitmon) continue;
 
@@ -1088,7 +1119,7 @@ exports.BattleScripts = {
 			// Increment type bias counters.
 			if (tier === 'Uber') {
 				uberCount++;
-			} else if (tier === 'UU' || tier === 'NFE' || tier === 'LC') {
+			} else if (tier === 'UU' || tier === 'NU' || tier === 'NFE' || tier === 'LC') {
 				nuCount++;
 			}
 
@@ -1249,6 +1280,9 @@ exports.BattleScripts = {
 						case 'growth':
 							if (hasMove['amnesia']) rejected = true;
 							break;
+						case 'fissure':
+							if (hasMove['horndrill']) rejected = true;
+							break;
 						case 'supersonic':
 							if (hasMove['confuseray']) rejected = true;
 							break;
@@ -1278,6 +1312,7 @@ exports.BattleScripts = {
 		var levelScale = {
 			LC: 96,
 			NFE: 90,
+			NU: 90,
 			UU: 85,
 			OU: 79,
 			Uber: 74

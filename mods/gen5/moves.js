@@ -86,6 +86,10 @@ exports.BattleMovedex = {
 		inherit: true,
 		basePower: 20
 	},
+	bugbuzz: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, sound: 1}
+	},
 	camouflage: {
 		inherit: true,
 		desc: "The user's type changes based on the battle terrain. Ground-type in Wi-Fi battles. (In-game: Ground-type in puddles, rocky ground, and sand, Water-type on water, Rock-type in caves, Ice-type on snow and ice, and Normal-type everywhere else.) Fails if the user's type cannot be changed or if the user is already purely that type.",
@@ -110,7 +114,8 @@ exports.BattleMovedex = {
 		secondary: {
 			chance: 10,
 			volatileStatus: 'confusion'
-		}
+		},
+		flags: {protect: 1, mirror: 1, sound: 1, distance: 1}
 	},
 	clamp: {
 		inherit: true,
@@ -183,6 +188,10 @@ exports.BattleMovedex = {
 		inherit: true,
 		basePower: 90
 	},
+	echoedvoice: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, sound: 1}
+	},
 	energyball: {
 		inherit: true,
 		basePower: 80
@@ -190,6 +199,18 @@ exports.BattleMovedex = {
 	extrasensory: {
 		inherit: true,
 		pp: 30
+	},
+	feint: {
+		inherit: true,
+		onHit: function (target, source) {
+			var feinted = false;
+			if (target.removeVolatile('protect')) feinted = true;
+			if (target.side !== source.side) {
+				if (target.side.removeSideCondition('quickguard')) feinted = true;
+				if (target.side.removeSideCondition('wideguard')) feinted = true;
+			}
+			if (feinted) this.add('-activate', target, 'move: Feint');
+		}
 	},
 	finalgambit: {
 		inherit: true,
@@ -266,7 +287,7 @@ exports.BattleMovedex = {
 					basePower: 100,
 					category: "Special",
 					flags: {},
-					affectedByImmunities: true,
+					ignoreImmunity: false,
 					type: 'Psychic'
 				}
 			};
@@ -277,6 +298,10 @@ exports.BattleMovedex = {
 	glare: {
 		inherit: true,
 		accuracy: 90
+	},
+	grasswhistle: {
+		inherit: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1}
 	},
 	grasspledge: {
 		inherit: true,
@@ -289,6 +314,10 @@ exports.BattleMovedex = {
 			return 50;
 		}
 	},
+	growl: {
+		inherit: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1}
+	},
 	growth: {
 		inherit: true,
 		pp: 40
@@ -296,6 +325,10 @@ exports.BattleMovedex = {
 	gunkshot: {
 		inherit: true,
 		accuracy: 70
+	},
+	healbell: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, sound: 1}
 	},
 	healblock: {
 		inherit: true,
@@ -310,7 +343,7 @@ exports.BattleMovedex = {
 			onStart: function (pokemon) {
 				this.add('-start', pokemon, 'move: Heal Block');
 			},
-			onModifyPokemon: function (pokemon) {
+			onDisableMove: function (pokemon) {
 				var disabledMoves = {healingwish:1, lunardance:1, rest:1, swallow:1, wish:1};
 				var moves = pokemon.moveset;
 				for (var i = 0; i < moves.length; i++) {
@@ -432,6 +465,10 @@ exports.BattleMovedex = {
 		inherit: true,
 		basePower: 120
 	},
+	hypervoice: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, sound: 1}
+	},
 	icebeam: {
 		inherit: true,
 		basePower: 95
@@ -479,6 +516,10 @@ exports.BattleMovedex = {
 	meanlook: {
 		inherit: true,
 		flags: {protect: 1, reflectable: 1, mirror: 1}
+	},
+	metalsound: {
+		inherit: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1}
 	},
 	meteormash: {
 		inherit: true,
@@ -561,14 +602,19 @@ exports.BattleMovedex = {
 		inherit: true,
 		desc: "This move calls another move for use depending on the battle terrain. Earthquake in Wi-Fi battles.",
 		shortDesc: "Attack changes based on terrain. (Earthquake)",
-		onHit: function (target) {
-			this.useMove('earthquake', target);
+		onTryHit: function () {},
+		onHit: function (pokemon) {
+			this.useMove('earthquake', pokemon);
 		},
 		target: "self"
 	},
 	overheat: {
 		inherit: true,
 		basePower: 140
+	},
+	perishsong: {
+		inherit: true,
+		flags: {sound: 1, distance: 1}
 	},
 	pinmissile: {
 		inherit: true,
@@ -605,7 +651,7 @@ exports.BattleMovedex = {
 	quickguard: {
 		inherit: true,
 		desc: "The user and its party members are protected from attacks with original priority greater than 0 made by other Pokemon, including allies, during this turn. This attack has a 1/X chance of being successful, where X starts at 1 and doubles each time this move is successfully used. X resets to 1 if this attack fails or if the user's last used move is not Detect, Endure, Protect, Quick Guard, or Wide Guard. If X is 256 or more, this move has a 1/(2^32) chance of being successful. Fails if the user moves last this turn or if this move is already in effect for the user's side. Priority +3.",
-		stallingMove: true, // Note: stallingMove is not used anywhere.
+		stallingMove: true,
 		onTryHitSide: function (side, source) {
 			return this.willAct() && this.runEvent('StallMove', source);
 		},
@@ -621,7 +667,7 @@ exports.BattleMovedex = {
 			onTryHit: function (target, source, effect) {
 				// Quick Guard only blocks moves with a natural positive priority
 				// (e.g. it doesn't block 0 priority moves boosted by Prankster)
-				if (effect && (effect.id === 'Feint' || this.getMove(effect.id).priority <= 0)) {
+				if (effect && (effect.id === 'feint' || this.getMove(effect.id).priority <= 0)) {
 					return;
 				}
 				this.add('-activate', target, 'Quick Guard');
@@ -653,6 +699,10 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Bug"
 	},
+	relicsong: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, sound: 1}
+	},
 	roar: {
 		inherit: true,
 		accuracy: 100,
@@ -663,6 +713,10 @@ exports.BattleMovedex = {
 		accuracy: 80,
 		basePower: 50,
 		pp: 10
+	},
+	round: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, sound: 1}
 	},
 	sandtomb: {
 		inherit: true,
@@ -676,6 +730,10 @@ exports.BattleMovedex = {
 		inherit: true,
 		thawsTarget: false
 	},
+	screech: {
+		inherit: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1}
+	},
 	secretpower: {
 		inherit: true,
 		onHit: function () {},
@@ -685,6 +743,10 @@ exports.BattleMovedex = {
 				accuracy: -1
 			}
 		}
+	},
+	sing: {
+		inherit: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1}
 	},
 	skillswap: {
 		inherit: true,
@@ -706,25 +768,25 @@ exports.BattleMovedex = {
 	},
 	skydrop: {
 		inherit: true,
-		onTry: function (attacker, defender, move) {
-			if (defender.fainted) return false;
-			if (attacker.removeVolatile(move.id)) {
-				return;
-			}
-			if (defender.volatiles['substitute'] || defender.side === attacker.side) {
-				return false;
-			}
-			if (defender.volatiles['protect']) {
-				this.add('-activate', defender, 'Protect');
+		onTryHit: function (target, source, move) {
+			if (target.fainted) return false;
+			if (source.removeVolatile(move.id)) {
+				if (target !== source.volatiles['twoturnmove'].source) return false;
+
+				if (target.hasType('Flying')) {
+					this.add('-immune', target, '[msg]');
+					this.add('-end', target, 'Sky Drop');
+					return null;
+				}
+			} else {
+				if (target.volatiles['substitute'] || target.side === source.side) {
+					return false;
+				}
+
+				this.add('-prepare', source, move.name, target);
+				source.addVolatile('twoturnmove', target);
 				return null;
 			}
-			if (defender.volatiles['bounce'] || defender.volatiles['dig'] || defender.volatiles['dive'] || defender.volatiles['fly'] || defender.volatiles['shadowforce']) {
-				this.add('-miss', attacker, defender);
-				return null;
-			}
-			this.add('-prepare', attacker, move.name, defender);
-			attacker.addVolatile('twoturnmove', defender);
-			return null;
 		}
 	},
 	sleeppowder: {
@@ -743,9 +805,14 @@ exports.BattleMovedex = {
 		inherit: true,
 		basePower: 20
 	},
+	snarl: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, sound: 1}
+	},
 	snore: {
 		inherit: true,
-		basePower: 40
+		basePower: 40,
+		flags: {protect: 1, mirror: 1, sound: 1}
 	},
 	spore: {
 		inherit: true,
@@ -785,7 +852,8 @@ exports.BattleMovedex = {
 					return;
 				}
 				var damage = this.getDamage(source, target, move);
-				if (!damage) {
+				if (!damage && damage !== 0) {
+					this.add('-fail', target);
 					return null;
 				}
 				damage = this.runEvent('SubDamage', target, source, move, damage);
@@ -819,6 +887,10 @@ exports.BattleMovedex = {
 	submission: {
 		inherit: true,
 		pp: 25
+	},
+	supersonic: {
+		inherit: true,
+		flags: {protect: 1, reflectable: 1, mirror: 1, sound: 1}
 	},
 	surf: {
 		inherit: true,
@@ -865,6 +937,10 @@ exports.BattleMovedex = {
 	thunderbolt: {
 		inherit: true,
 		basePower: 95
+	},
+	uproar: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, sound: 1}
 	},
 	toxic: {
 		inherit: true,
@@ -932,7 +1008,7 @@ exports.BattleMovedex = {
 	wideguard: {
 		inherit: true,
 		desc: "The user and its party members are protected from damaging attacks made by other Pokemon, including allies, during this turn that target all adjacent foes or all adjacent Pokemon. This attack has a 1/X chance of being successful, where X starts at 1 and doubles each time this move is successfully used. X resets to 1 if this attack fails or if the user's last used move is not Detect, Endure, Protect, Quick Guard, or Wide Guard. If X is 256 or more, this move has a 1/(2^32) chance of being successful. Fails if the user moves last this turn or if this move is already in effect for the user's side. Priority +3.",
-		stallingMove: true, // Note: stallingMove is not used anywhere.
+		stallingMove: true,
 		onTryHitSide: function (side, source) {
 			return this.willAct() && this.runEvent('StallMove', source);
 		},

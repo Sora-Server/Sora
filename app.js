@@ -56,16 +56,17 @@ function runNpm(command) {
 	process.exit(0);
 }
 
-var isLegacyEngine = !global.Map;
+var isLegacyEngine = !(''.includes);
 
 var fs = require('fs');
+var path = require('path');
 try {
 	require('sugar');
 	if (isLegacyEngine) require('es6-shim');
 } catch (e) {
 	runNpm('install --production');
 }
-if (isLegacyEngine && !new Map().set()) {
+if (isLegacyEngine && !(''.includes)) {
 	runNpm('update --production');
 }
 
@@ -80,8 +81,8 @@ try {
 
 	// Copy it over synchronously from config-example.js since it's needed before we can start the server
 	console.log("config.js doesn't exist - creating one with default settings...");
-	fs.writeFileSync('./config/config.js',
-		fs.readFileSync('./config/config-example.js')
+	fs.writeFileSync(path.resolve(__dirname, 'config/config.js'),
+		fs.readFileSync(path.resolve(__dirname, 'config/config-example.js'))
 	);
 	global.Config = require('./config/config.js');
 }
@@ -118,8 +119,8 @@ global.reloadCustomAvatars = function () {
 	Config.customAvatars = newCustomAvatars;
 };
 
-if (Config.watchConfig) {
-	fs.watchFile('./config/config.js', function (curr, prev) {
+if (Config.watchconfig) {
+	fs.watchFile(path.resolve(__dirname, 'config/config.js'), function (curr, prev) {
 		if (curr.mtime <= prev.mtime) return;
 		try {
 			delete require.cache[require.resolve('./config/config.js')];
@@ -159,16 +160,14 @@ global.ResourceMonitor = {
 	 */
 	log: function (text) {
 		console.log(text);
-		if (Rooms.rooms.staff) {
-			Rooms.rooms.staff.add('||' + text);
-			Rooms.rooms.staff.update();
+		if (Rooms.get('staff')) {
+			Rooms.get('staff').add('||' + text).update();
 		}
 	},
 	logHTML: function (text) {
 		console.log(text);
-		if (Rooms.rooms.staff) {
-			Rooms.rooms.staff.add('|html|' + text);
-			Rooms.rooms.staff.update();
+		if (Rooms.get('staff')) {
+			Rooms.get('staff').add('|html|' + text).update();
 		}
 	},
 	countConnection: function (ip, name) {
@@ -177,16 +176,19 @@ global.ResourceMonitor = {
 		name = (name ? ': ' + name : '');
 		if (ip in this.connections && duration < 30 * 60 * 1000) {
 			this.connections[ip]++;
-			if (this.connections[ip] < 500 && duration < 5 * 60 * 1000 && this.connections[ip] % 30 === 0) {
+			if (this.connections[ip] < 500 && duration < 5 * 60 * 1000 && this.connections[ip] % 60 === 0) {
 				this.log('[ResourceMonitor] IP ' + ip + ' has connected ' + this.connections[ip] + ' times in the last ' + duration.duration() + name);
-			} else if (this.connections[ip] < 500 && this.connections[ip] % 90 === 0) {
+			} else if (this.connections[ip] < 500 && this.connections[ip] % 120 === 0) {
 				this.log('[ResourceMonitor] IP ' + ip + ' has connected ' + this.connections[ip] + ' times in the last ' + duration.duration() + name);
 			} else if (this.connections[ip] === 500) {
 				this.log('[ResourceMonitor] IP ' + ip + ' has been banned for connection flooding (' + this.connections[ip] + ' times in the last ' + duration.duration() + name + ')');
 				return true;
 			} else if (this.connections[ip] > 500) {
-				if (this.connections[ip] % 250 === 0) {
-					this.log('[ResourceMonitor] Banned IP ' + ip + ' has connected ' + this.connections[ip] + ' times in the last ' + duration.duration() + name);
+				if (this.connections[ip] % 500 === 0) {
+					var c = this.connections[ip] / 500;
+					if (c < 5 || c % 2 === 0 && c < 10 || c % 5 === 0) {
+						this.log('[ResourceMonitor] Banned IP ' + ip + ' has connected ' + this.connections[ip] + ' times in the last ' + duration.duration() + name);
+					}
 				}
 				return true;
 			}
@@ -247,7 +249,7 @@ global.ResourceMonitor = {
 		for (var i in this.networkUse) {
 			buf += '' + this.networkUse[i] + '\t' + this.networkCount[i] + '\t' + i + '\n';
 		}
-		fs.writeFile('logs/networkuse.tsv', buf);
+		fs.writeFile(path.resolve(__dirname, 'logs/networkuse.tsv'), buf);
 	},
 	clearNetworkUse: function () {
 		this.networkUse = {};
@@ -263,10 +265,13 @@ global.ResourceMonitor = {
 
 		while (stack.length) {
 			var value = stack.pop();
-			if (typeof value === 'boolean') bytes += 4;
-			else if (typeof value === 'string') bytes += value.length * 2;
-			else if (typeof value === 'number') bytes += 8;
-			else if (typeof value === 'object' && objectList.indexOf(value) === -1) {
+			if (typeof value === 'boolean') {
+				bytes += 4;
+			} else if (typeof value === 'string') {
+				bytes += value.length * 2;
+			} else if (typeof value === 'number') {
+				bytes += 8;
+			} else if (typeof value === 'object' && objectList.indexOf(value) < 0) {
 				objectList.push(value);
 				for (var i in value) stack.push(value[i]);
 			}
@@ -434,14 +439,14 @@ Rooms.global.formatListText = Rooms.global.getFormatListText();
 global.TeamValidator = require('./team-validator.js');
 
 // load ipbans at our leisure
-fs.readFile('./config/ipbans.txt', function (err, data) {
+fs.readFile(path.resolve(__dirname, 'config/ipbans.txt'), function (err, data) {
 	if (err) return;
 	data = ('' + data).split("\n");
 	var rangebans = [];
 	for (var i = 0; i < data.length; i++) {
 		data[i] = data[i].split('#')[0].trim();
 		if (!data[i]) continue;
-		if (data[i].indexOf('/') >= 0) {
+		if (data[i].includes('/')) {
 			rangebans.push(data[i]);
 		} else if (!Users.bannedIps[data[i]]) {
 			Users.bannedIps[data[i]] = '#ipban';

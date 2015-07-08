@@ -554,7 +554,10 @@ var trainerCards = {
 		'<center><i>"Looking for dank memes"</i> </center><br /><br />'+
 		'<b>Ace: </b>Mega Sharpedo/Garchomp<br />'+
 		'<b>Skilled at: </b>Being incredibly annoying, Balanced Hackmons, Certain Monotypes.<br />'+
-		'<b>Achievements: </b><br />- Best Ex-Electric & Ground Leader of Sora<br />- Current Water Leader of Sora<br />- Accepted back into the league after being banned<br />- Ex-Balanced Hackmons Frontier of Yagagadrazeel<br />'+
+		'<b>Achievements: </b><br />'+
+		'- Best Ex-Electric & Ground Leader of Sora<br />'+
+		'- Current Water Leader of Sora<br />'+
+		'- Ex-Balanced Hackmons Frontier of Yagagadrazeel<br />'+
 		'<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/greninja.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/ferrothorn.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/sharpedo.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/garchomp.gif">');
         },
         

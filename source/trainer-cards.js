@@ -356,7 +356,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Riolucas</b><br />'+
 	              '<i>" if u win ill let togkiss to kiss u"</i> <br />'+
 	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
-	              '<b>Ace:</b>Togekiss<br />');
+	              '<b>Ace: </b>Togekiss<br />');
         },
         
         fighting: function(target, room, user) {

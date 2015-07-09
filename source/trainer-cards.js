@@ -350,13 +350,13 @@ var trainerCards = {
 			 '<b>Ace:</b> ???<br />' + lastSeen('') + '<br />');
         },
         
-        
-        fairy: function(target, room, user) {
+        fairy: 'riolucas',
+        riolucas: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-	              '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Riolucas</b><br />'+
+	              '<i>" if u win ill let togkiss to kiss u"</i> <br />'+
 	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
-	              '<b>Ace:</b>???<br />');
+	              '<b>Ace:</b>Togekiss<br />');
         },
         
         fighting: function(target, room, user) {

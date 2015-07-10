@@ -785,8 +785,8 @@ var trainerCards = {
 			this.sendReplyBox('Listed here are the Top 6 Leaders in The Sora League based on performance in our Monthly Promotional Tournament! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in the future.<br />'+
 				'-<b>1st <font color= ff00b6>Leaf</font></b> (Psychic)<br />'+
 				'-<b>2nd <font color= 15012b>Darkus</font></b></b> (Dark)<br />'+
-				'-<b>3rd <font color= 9dff00>Core</font></b> (Rock)<br />'+
-				'-<b>4th <font color= 5dff00>Connor</font></b> (Ghost)<br />'+
+				'-<b>3rd <font color= 472e10>Core</font></b> (Rock)<br />'+
+				'-<b>4th <font color= 7814e2>Connor</font></b> (Ghost)<br />'+
 				'-<b>5th <font color= 0745ff>Terror</font></b> (Water)<br />'+
 				'-<b>6th <font color= aa00ff>Poppy</font></b> (Poison)<br />'+
 				'</div>');

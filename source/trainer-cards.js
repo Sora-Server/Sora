@@ -132,15 +132,14 @@ var trainerCards = {
 	 	
         },
         
-        corea: function(target, room, user) {
+        h: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Corea</b><br />'+
-		      '<i>"0% Luck 10% Skill 90% HOO HAH"</i> <br />'+
-		      '<b>Type: <font color =d83c08>Fighting</font></b><br />'+
-		      '<b>Ace:</b> Chesnaught <br />'+
+		this.sendReplyBox('E4 <b>H</b><br />'+
+		      '<i>"H4Hentai, H4Harem, H4Harassment, H4Hugs. Done checking out those sexy curves? Now it's time to check out my bugs. :3"</i> <br />'+
+		      '<b>Type: <font color =d83c08>Bug</font></b><br />'+
+		      '<b>Ace:</b> None <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-UU  <br/>'+
-	 	      '-No Mega evolution<br />');
+	 	      '-None<br />');
 	 	      
         },
         
@@ -307,14 +306,13 @@ var trainerCards = {
 				'</div>');
 	},
 	
-        bug: 'h',
-	h: function(target, room, user) {
+       
+	bug: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>H</b><br />'+
-		          'Leader Ranking: <font color = d8ff00><b>3rd</font></b> <br />'+
-			  '<i>"H4Hentai, H4Harem, H4Harassment, H4Hugs. Done checking out those sexy curves? Now it\'s time to check out my bugs. :3"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
-			  '<b>Ace:</b> None <br />' + lastSeen('gymldrh') + '<br />'+
+			  '<b>Ace:</b> None <br />' + lastSeen('') + '<br />'+
 			  '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
 			  '<a href="http://soraleague.weebly.com/badges.html#badges"><img src="http://i.imgur.com/tnkW9J9.png" title="Badge Collector: Defeat all 18 Gym Leaders"></a><a href="http://soraleague.weebly.com/badges.html#e4win"><img src="http://i.imgur.com/y21ENWF.png" title="E4 Conqueror: Cleared the Elite Four"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#porygon"><img src="http://i.imgur.com/bJrRxB8.png" title="Broke the server while trying to repair it, good job mate"></a><a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a></details> <br />');
 
@@ -324,6 +322,7 @@ var trainerCards = {
         darkus: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
+		          'Leader Ranking: <font color = FFFF00><b>2nd</font></b> <br />'+
 			  '<i>"But I don\'t like Bakugan."</i> <br />'+
 			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
 			  '<b>Ace:</b> Bisharp<br />' + lastSeen('gymldrdarks') + '<br />'+
@@ -380,7 +379,6 @@ var trainerCards = {
 	indeter: function (target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Indeter</b><br />'+
-		          'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
 			  '<i>"And - I\'m off."</i> <br />'+
 			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
 			  '<b>Ace:</b> Gliscor<br />' + lastSeen('gymldrindeter') + '<br />');
@@ -389,6 +387,7 @@ var trainerCards = {
 	connor: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Connor</b><br />'+
+		          'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
 			 '<i>"The Further is a dark realm, filled with the tortured souls of the dead. It is a place not meant for the living."</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
 			 '<b>Ace:</b> Gengar<br />');
@@ -436,7 +435,7 @@ var trainerCards = {
         poppy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
-		         'Leader Ranking: <font color =FF0000><b>1st</font></b> <br />'+
+		         'Leader Ranking: <font color = 00ff87><b>6th</font></b> <br />'+
 			 '<i>"It\'s you and me against the world, you\'ll see!" - Xeniathan! Destroyer of Worlds</i><br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
 			 '<b>Ace:</b> Box Ghost (Gengar)<br />' + lastSeen('gymldrpoppy') + '<br />');
@@ -446,7 +445,7 @@ var trainerCards = {
 	leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		           'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
+		           'Leader Ranking: <font color =FF0000><b>1st</font></b> <br />'+
 			  '<i>"The pattern repeats, will your flaws also?"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Medicham <br />' + lastSeen('gymldrleaf') + '<br />'+
@@ -454,12 +453,14 @@ var trainerCards = {
 	                  '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#skyla"><img src="http://i.imgur.com/HMGmJ2d.png" title="Skyla Badge: 20 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a></details> <br />');
 	},
         
-        rock: function(target, room, user) {
+        rock 'core',
+        core: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Core</b><br />'+
+		          'Leader Ranking: <font color = 9dff00><b>3rd</font></b> <br />'+
+			  '<i>"There\'s always a chance for a comeback if you leave yourself open"</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Archeops<br />');
         },
         
         steel: 'floatzel',
@@ -477,6 +478,7 @@ var trainerCards = {
 	terror: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Terror</b> <br />'+
+		         'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
 		         '<i>"Better get out of the water because the waves are coming for you."</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
 			 '<b>Ace:</b> Sharpedo<br />'+
@@ -779,12 +781,12 @@ var trainerCards = {
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 6 Leaders in The Sora League based on performance in our Monthly Promotional Tournament! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in the future.<br />'+
-				'-<b>1st <font color= aa00ff>Poppy</font></b> (Poison)<br />'+
-				'-<b>2nd <font color= d83c08>Bush</font></b></b> (Fighting)<br />'+
-				'-<b>3rd <font color= 65b510>H</font></b> (Bug)<br />'+
-				'-<b>4th <font color= 7ab6ff>Indeter</font></b> (Flying)<br />'+
-				'-<b>5th <font color= ff42a0>Meows</font></b> (Fairy)<br />'+
-				'-<b>6th <font color= ff00b6>Leaf</font></b> (Psychic)<br />'+
+				'-<b>1st <font color= ff00b6>Leaf</font></b> (Psychic)<br />'+
+				'-<b>2nd <font color= 15012b>Darkus</font></b></b> (Dark)<br />'+
+				'-<b>3rd <font color= 9dff00>Core</font></b> (Rock)<br />'+
+				'-<b>4th <font color= 5dff00>Connor</font></b> (Ghost)<br />'+
+				'-<b>5th <font color= 0745ff>Terror</font></b> (Water)<br />'+
+				'-<b>6th <font color= aa00ff>Poppy</font></b> (Poison)<br />'+
 				'</div>');
 	
 	},

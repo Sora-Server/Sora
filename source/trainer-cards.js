@@ -135,7 +135,7 @@ var trainerCards = {
         h: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>H</b><br />'+
-		      '<i>"H4Hentai, H4Harem, H4Harassment, H4Hugs. Done checking out those sexy curves? Now it's time to check out my bugs. :3"</i> <br />'+
+		      '<i>"H4Hentai, H4Harem, H4Harassment, H4Hugs. Done checking out those sexy curves? Now it\'s time to check out my bugs. :3"</i> <br />'+
 		      '<b>Type: <font color =d83c08>Bug</font></b><br />'+
 		      '<b>Ace:</b> None <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+

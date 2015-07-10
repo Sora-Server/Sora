@@ -86,8 +86,8 @@ exports.reportBattleJoins = true;
 //   This should only be enabled in special situations, such as temporarily
 //   when you're dealing with huge influxes of spammy users.
 exports.modchat = {
-	chat: false,
-	battle: false,
+	chat: true,
+	battle: true,
 	pm: false
 };
 

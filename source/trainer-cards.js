@@ -389,7 +389,7 @@ var trainerCards = {
 	connor: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Connor</b><br />'+
-		          'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
+		         'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
 			 '<i>"The Further is a dark realm, filled with the tortured souls of the dead. It is a place not meant for the living."</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
 			 '<b>Ace:</b> Gengar<br />');

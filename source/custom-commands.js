@@ -741,7 +741,6 @@ var customCommands = {
 	        '77.209.58.47 - Spammer 008/flood of water<br />' +
 	        '107.3.135.54 - ilikewings<br />' +
 	        '24.118.0.134 - Colgate SHIT<br />' +
-	        '89.148.36.189 - gym leader Zaga<br />' +
 	        '204.108.212.233 - gawkypath<br />' +
 	        '95.211.174.70<br />' +
 	        '112.207.89.115<br />' +

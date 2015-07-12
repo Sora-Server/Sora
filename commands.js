@@ -1310,7 +1310,7 @@ var commands = exports.commands = {
 
 		if (!this.canTalk()) return;
 
-		this.add('|raw|<div class="broadcast-yellow"><b>' + Tools.escapeHTML(target) + '</b></div>');
+		this.add('|raw|<div class="boxed"><b>' + Tools.escapeHTML(target) + '</b></div>');
 		this.logModCommand(user.name + " declared " + target);
 	},
 

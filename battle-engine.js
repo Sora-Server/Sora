@@ -11,6 +11,7 @@
  */
 
 //require('sugar');
+//if (!''.includes) require('es6-shim');
 
 //global.Config = require('./config/config.js');
 
@@ -28,8 +29,11 @@
  * Otherwise, an empty string will be returned.
  */
 /*global.toId = function (text) {
-	if (text && text.id) text = text.id;
-	else if (text && text.userid) text = text.userid;
+	if (text && text.id) {
+		text = text.id;
+	} else if (text && text.userid) {
+		text = text.userid;
+	}
 
 	return string(text).toLowerCase().replace(/[^a-z0-9]+/g, '');
 };*/
@@ -59,7 +63,7 @@
 
 var Battle, BattleSide, BattlePokemon;
 
-var Battles = {};
+var Battles = Object.create(null);
 
 require('./repl.js').start('battle-engine-', process.pid, function (cmd) { return eval(cmd); });
 
@@ -93,7 +97,16 @@ battleEngineFakeProcess.client.on('message', function (message) {
 			}
 		}
 	} else if (data[1] === 'dealloc') {
-		if (Battles[data[0]]) Battles[data[0]].destroy();
+		if (Battles[data[0]] && Battles[data[0]].destroy) {
+			Battles[data[0]].destroy();
+		} else {
+			var stack = '\n\n' +
+					'Additional information:\n' +
+					'message = ' + message;
+			var fakeErr = {stack: stack};
+
+			require('./crashlogger.js')(fakeErr, 'A battle');
+		}
 		delete Battles[data[0]];
 	} else {
 		var battle = Battles[data[0]];
@@ -147,8 +160,8 @@ BattlePokemon = (function () {
 		if (typeof set === 'string') set = {name: set};
 
 		// "pre-bound" functions for nicer syntax (avoids repeated use of `bind`)
-		this.getHealth = this.getHealth || BattlePokemon.getHealth.bind(this);
-		this.getDetails = this.getDetails || BattlePokemon.getDetails.bind(this);
+		this.getHealth = (this.getHealth || BattlePokemon.getHealth).bind(this);
+		this.getDetails = (this.getDetails || BattlePokemon.getDetails).bind(this);
 
 		this.set = set;
 
@@ -170,7 +183,7 @@ BattlePokemon = (function () {
 		this.moveset = [];
 		this.baseMoveset = [];
 
-		this.level = this.battle.clampIntRange(set.forcedLevel || set.level || 100, 1, 1000);
+		this.level = this.battle.clampIntRange(set.forcedLevel || set.level || 100, 1, 9999);
 
 		var genders = {M:'M', F:'F'};
 		this.gender = this.template.gender || genders[set.gender] || (Math.random() * 2 < 1 ? 'M' : 'F');
@@ -185,14 +198,11 @@ BattlePokemon = (function () {
 
 		this.statusData = {};
 		this.volatiles = {};
-		this.negateImmunity = {};
 
 		this.height = this.template.height;
 		this.heightm = this.template.heightm;
 		this.weight = this.template.weight;
 		this.weightkg = this.template.weightkg;
-
-		this.ignore = {};
 
 		this.baseAbility = toId(set.ability);
 		this.ability = this.baseAbility;
@@ -234,11 +244,12 @@ BattlePokemon = (function () {
 				this.moves.push(move.id);
 			}
 		}
+		this.disabledMoves = {};
 
 		this.canMegaEvo = this.battle.canMegaEvo(this);
 
 		if (!this.set.evs) {
-			this.set.evs = {hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84};
+			this.set.evs = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0};
 		}
 		if (!this.set.ivs) {
 			this.set.ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
@@ -281,6 +292,9 @@ BattlePokemon = (function () {
 		this.boosts = {atk: 0, def: 0, spa: 0, spd: 0, spe: 0, accuracy: 0, evasion: 0};
 		this.stats = {atk:0, def:0, spa:0, spd:0, spe:0};
 		this.baseStats = {atk:10, def:10, spa:10, spd:10, spe:10};
+		// This is used in gen 1 only, here to avoid code repetition.
+		// Only declared if gen 1 to avoid declaring an object we aren't going to need.
+		if (this.battle.gen === 1) this.modifiedStats = {atk:0, def:0, spa:0, spd:0, spe:0};
 		for (var statName in this.baseStats) {
 			var stat = this.template.baseStats[statName];
 			stat = Math.floor(Math.floor(2 * stat + this.set.ivs[statName] + Math.floor(this.set.evs[statName] / 4)) * this.level / 100 + 5);
@@ -344,13 +358,8 @@ BattlePokemon = (function () {
 		return this.details + '|' + this.getHealth(side);
 	};
 	BattlePokemon.prototype.update = function (init) {
-		// reset for diabled moves
-		this.disabledMoves = {};
-		this.negateImmunity = {};
 		this.trapped = this.maybeTrapped = false;
 		this.maybeDisabled = false;
-		// reset for ignore settings
-		this.ignore = {};
 		for (var i in this.moveset) {
 			if (this.moveset[i]) this.moveset[i].disabled = false;
 		}
@@ -494,6 +503,12 @@ BattlePokemon = (function () {
 		}
 		return null;
 	};
+	BattlePokemon.prototype.ignoringAbility = function () {
+		return !!this.volatiles['gastroacid'];
+	};
+	BattlePokemon.prototype.ignoringItem = function () {
+		return !!(this.hasAbility('klutz') || this.volatiles['embargo'] || this.battle.pseudoWeather['magicroom']);
+	};
 	BattlePokemon.prototype.deductPP = function (move, amount, source) {
 		move = this.battle.getMove(move);
 		var ppData = this.getMoveData(move);
@@ -580,17 +595,15 @@ BattlePokemon = (function () {
 		}
 		if (hasValidMove) return moves;
 
-		return [{
-			move: 'Struggle',
-			id: 'struggle'
-		}];
+		return [];
 	};
 	BattlePokemon.prototype.getRequestData = function () {
 		var lockedMove = this.getLockedMove();
 
 		// Information should be restricted for the last active Pokémon
 		var isLastActive = this.isLastActive();
-		var data = {moves: this.getMoves(lockedMove, isLastActive)};
+		var moves = this.getMoves(lockedMove, isLastActive);
+		var data = {moves: moves.length ? moves : [{move: 'Struggle', id: 'struggle'}]};
 
 		if (isLastActive) {
 			if (this.maybeDisabled) {
@@ -701,7 +714,6 @@ BattlePokemon = (function () {
 		this.hpType = (this.battle.gen >= 5 ? this.hpType : pokemon.hpType);
 		this.hpPower = (this.battle.gen >= 5 ? this.hpPower : pokemon.hpPower);
 		for (var i = 0; i < pokemon.moveset.length; i++) {
-			var move = this.battle.getMove(this.set.moves[i]);
 			var moveData = pokemon.moveset[i];
 			var moveName = moveData.move;
 			if (moveData.id === 'hiddenpower') {
@@ -710,8 +722,8 @@ BattlePokemon = (function () {
 			this.moveset.push({
 				move: moveName,
 				id: moveData.id,
-				pp: move.noPPBoosts ? moveData.maxpp : 5,
-				maxpp: this.battle.gen >= 5 ? (move.noPPBoosts ? moveData.maxpp : 5) : (this.battle.gen <= 2 ? move.pp : moveData.maxpp),
+				pp: moveData.maxpp === 1 ? 1 : 5,
+				maxpp: this.battle.gen >= 5 ? (moveData.maxpp === 1 ? 1 : 5) : moveData.maxpp,
 				target: moveData.target,
 				disabled: false
 			});
@@ -751,6 +763,13 @@ BattlePokemon = (function () {
 				if (statName === nature.plus) stat *= 1.1;
 				if (statName === nature.minus) stat *= 0.9;
 				this.baseStats[statName] = this.stats[statName] = Math.floor(stat);
+				// If gen 1, we reset modified stats.
+				if (this.battle.gen === 1) {
+					this.modifiedStats[statName] = Math.floor(stat);
+					// ...and here is where the gen 1 games re-apply burn and para drops.
+					if (this.status === 'par') this.modifyStat('spe', 0.25);
+					if (this.status === 'brn') this.modifyStat('atk', 0.5);
+				}
 			}
 			this.speed = this.stats.spe;
 		}
@@ -804,7 +823,7 @@ BattlePokemon = (function () {
 				if (this.hasType(type[i])) return true;
 			}
 		} else {
-			if (this.getTypes().indexOf(type) > -1) return true;
+			if (this.getTypes().indexOf(type) >= 0) return true;
 		}
 		return false;
 	};
@@ -855,17 +874,6 @@ BattlePokemon = (function () {
 			}
 		}
 		return false;
-	};
-	BattlePokemon.prototype.getValidMoves = function (lockedMove) {
-		var pMoves = this.getMoves(lockedMove);
-		var moves = [];
-		for (var i = 0; i < pMoves.length; i++) {
-			if (!pMoves[i].disabled) {
-				moves.push(pMoves[i].id);
-			}
-		}
-		if (!moves.length) return ['struggle'];
-		return moves;
 	};
 	BattlePokemon.prototype.disableMove = function (moveid, isHidden, sourceEffect) {
 		if (!sourceEffect && this.battle.event) {
@@ -1065,7 +1073,7 @@ BattlePokemon = (function () {
 		return this.battle.getItem(this.item);
 	};
 	BattlePokemon.prototype.hasItem = function (item) {
-		if (this.ignore['Item']) return false;
+		if (this.ignoringItem()) return false;
 		var ownItem = this.item;
 		if (!Array.isArray(item)) {
 			return ownItem === toId(item);
@@ -1096,7 +1104,8 @@ BattlePokemon = (function () {
 		return this.battle.getAbility(this.ability);
 	};
 	BattlePokemon.prototype.hasAbility = function (ability) {
-		if (this.ignore['Ability']) return false;
+		if (!this.isActive && this.battle.gen >= 5) return false;
+		if (this.ignoringAbility()) return false;
 		var ownAbility = this.ability;
 		if (!Array.isArray(ability)) {
 			return ownAbility === toId(ability);
@@ -1243,6 +1252,21 @@ BattlePokemon = (function () {
 		if (this.battle.gen >= 5) return ['Normal'];
 		return ['???'];
 	};
+	BattlePokemon.prototype.isGrounded = function () {
+		if (!this.hasType('Flying') && this.battle.runEvent('Immunity', this, null, null, 'Ground')) return true;
+		return !!(this.hasItem('ironball') || this.volatiles['ingrain'] || this.volatiles['smackdown'] || this.battle.getPseudoWeather('gravity'));
+	};
+	BattlePokemon.prototype.isSemiInvulnerable = function () {
+		if (this.volatiles['fly'] || this.volatiles['bounce'] || this.volatiles['skydrop'] || this.volatiles['dive'] || this.volatiles['dig'] || this.volatiles['phantomforce'] || this.volatiles['shadowforce']) {
+			return true;
+		}
+		for (var i = 0; i < this.side.foe.active.length; i++) {
+			if (this.side.foe.active[i].volatiles['skydrop'] && this.side.foe.active[i].volatiles['skydrop'].source === this) {
+				return true;
+			}
+		}
+		return false;
+	};
 	BattlePokemon.prototype.runEffectiveness = function (move) {
 		var totalTypeMod = 0;
 		var types = this.getTypes();
@@ -1260,16 +1284,13 @@ BattlePokemon = (function () {
 		if (!type || type === '???') {
 			return true;
 		}
-		if (this.negateImmunity[type]) return true;
-		if (!(this.negateImmunity['Type'] && type in this.battle.data.TypeChart)) {
-			// Ring Target not active
-			if (!this.battle.getImmunity(type, this)) {
-				this.battle.debug('natural immunity');
-				if (message) {
-					this.battle.add('-immune', this, '[msg]');
-				}
-				return false;
+		if (!this.battle.runEvent('NegateImmunity', this, type)) return true;
+		if (!this.battle.getImmunity(type, this)) {
+			this.battle.debug('natural immunity');
+			if (message) {
+				this.battle.add('-immune', this, '[msg]');
 			}
+			return false;
 		}
 		var immunity = this.battle.runEvent('Immunity', this, null, null, type);
 		if (!immunity) {
@@ -1630,6 +1651,7 @@ Battle = (function () {
 	Battle.prototype.lastMoveLine = 0;
 	Battle.prototype.reportPercentages = false;
 	Battle.prototype.supportCancel = false;
+	Battle.prototype.events = null;
 
 	Battle.prototype.toString = function () {
 		return 'Battle: ' + this.format;
@@ -1735,7 +1757,9 @@ Battle = (function () {
 		if (sourceEffect === undefined && this.effect) sourceEffect = this.effect;
 		if (source === undefined && this.event && this.event.target) source = this.event.target;
 
-		if (this.weather === status.id && this.gen > 2) return false;
+		if (this.weather === status.id && (this.gen > 2 || status.id === 'sandstorm')) {
+			return false;
+		}
 		if (status.id) {
 			var result = this.runEvent('SetWeather', source, source, status);
 			if (!result) {
@@ -1889,6 +1913,9 @@ Battle = (function () {
 		this.update();
 		return true;
 	};
+	Battle.prototype.suppressingAttackEvents = function () {
+		return (this.activePokemon && this.activePokemon.isActive && !this.activePokemon.ignoringAbility() && this.activePokemon.getAbility().stopAttackEvents);
+	};
 	Battle.prototype.setActiveMove = function (move, pokemon, target) {
 		if (!move) move = null;
 		if (!pokemon) pokemon = null;
@@ -2022,11 +2049,15 @@ Battle = (function () {
 			// it's changed; call it off
 			return relayVar;
 		}
-		if (target.ignore && target.ignore[effect.effectType] && target.ignore[effect.effectType] !== 'A') {
-			this.debug(eventid + ' handler suppressed by Gastro Acid, Klutz or Magic Room');
+		if (eventid !== 'Start' && effect.effectType === 'Item' && (target instanceof BattlePokemon) && target.ignoringItem()) {
+			this.debug(eventid + ' handler suppressed by Embargo, Klutz or Magic Room');
 			return relayVar;
 		}
-		if (target.ignore && target.ignore[effect.effectType + 'Target']) {
+		if (eventid !== 'End' && effect.effectType === 'Ability' && (target instanceof BattlePokemon) && target.ignoringAbility()) {
+			this.debug(eventid + ' handler suppressed by Gastro Acid');
+			return relayVar;
+		}
+		if (effect.effectType === 'Weather' && eventid !== 'TryWeather' && !this.runEvent('TryWeather', target)) {
 			this.debug(eventid + ' handler suppressed by Air Lock');
 			return relayVar;
 		}
@@ -2195,7 +2226,7 @@ Battle = (function () {
 				// it's changed; call it off
 				continue;
 			}
-			if (thing.ignore && thing.ignore[status.effectType] === 'A') {
+			if (status.effectType === 'Ability' && this.suppressingAttackEvents() && this.activePokemon !== thing) {
 				// ignore attacking events
 				var AttackingEvents = {
 					BeforeMove: 1,
@@ -2203,8 +2234,6 @@ Battle = (function () {
 					Immunity: 1,
 					Accuracy: 1,
 					RedirectTarget: 1,
-					Damage: 1,
-					SubDamage: 1,
 					Heal: 1,
 					TakeItem: 1,
 					SetStatus: 1,
@@ -2226,14 +2255,23 @@ Battle = (function () {
 						this.debug(eventid + ' handler suppressed by Mold Breaker');
 					}
 					continue;
+				} else if (eventid === 'Damage' && effect && effect.effectType === 'Move') {
+					this.debug(eventid + ' handler suppressed by Mold Breaker');
+					continue;
 				}
-			} else if (thing.ignore && thing.ignore[status.effectType]) {
+			}
+			if (eventid !== 'Start' && status.effectType === 'Item' && (thing instanceof BattlePokemon) && thing.ignoringItem()) {
 				if (eventid !== 'ModifyPokemon' && eventid !== 'Update') {
-					this.debug(eventid + ' handler suppressed by Gastro Acid, Klutz or Magic Room');
+					this.debug(eventid + ' handler suppressed by Embargo, Klutz or Magic Room');
+				}
+				continue;
+			} else if (eventid !== 'End' && status.effectType === 'Ability' && (thing instanceof BattlePokemon) && thing.ignoringAbility()) {
+				if (eventid !== 'ModifyPokemon' && eventid !== 'Update') {
+					this.debug(eventid + ' handler suppressed by Gastro Acid');
 				}
 				continue;
 			}
-			if (target.ignore && (target.ignore[status.effectType + 'Target'] || target.ignore[eventid + 'Target'])) {
+			if ((status.effectType === 'Weather' || eventid === 'Weather') && eventid !== 'TryWeather' && !this.runEvent('TryWeather', target)) {
 				this.debug(eventid + ' handler suppressed by Air Lock');
 				continue;
 			}
@@ -2325,6 +2363,17 @@ Battle = (function () {
 				statuses.push({status: status, callback: status[callbackType], statusData: this.formatData, end: function () {}, thing: thing, priority: status[callbackType + 'Priority'] || 0});
 				this.resolveLastPriority(statuses, callbackType);
 			}
+			if (this.events && this.events[callbackType] !== undefined) {
+				var handler, statusData;
+				for (var i = 0; i < this.events[callbackType].length; i++) {
+					handler = this.events[callbackType][i];
+					switch (handler.target.effectType) {
+					case 'Format':
+						statusData = this.formatData;
+					}
+					statuses.push({status: handler.target, callback: handler.callback, statusData: statusData, end: function () {}, thing: thing, priority: handler.priority, order: handler.order, subOrder: handler.subOrder});
+				}
+			}
 			if (bubbleDown) {
 				statuses = statuses.concat(this.getRelevantEffectsInner(this.p1, callbackType, null, null, false, true, getAll));
 				statuses = statuses.concat(this.getRelevantEffectsInner(this.p2, callbackType, null, null, false, true, getAll));
@@ -2360,7 +2409,7 @@ Battle = (function () {
 		}
 
 		if (!thing.getStatus) {
-			this.debug(JSON.stringify(thing));
+			//this.debug(JSON.stringify(thing));
 			return statuses;
 		}
 		var status = thing.getStatus();
@@ -2426,6 +2475,61 @@ Battle = (function () {
 			statuses = statuses.concat(this.getRelevantEffectsInner(thing.side, callbackType, foeCallbackType, null, true, false, getAll));
 		}
 		return statuses;
+	};
+	/**
+	 * Use this function to attach custom event handlers to a battle. See Battle#runEvent for
+	 * more information on how to write callbacks for event handlers.
+	 *
+	 * Try to use this sparingly. Most event handlers can be simply placed in a format instead.
+	 *
+	 *     this.on(eventid, target, callback)
+	 * will set the callback as an event handler for the target when eventid is called with the
+	 * default priority. Currently only valid formats are supported as targets but this will
+	 * eventually be expanded to support other target types.
+	 *
+	 *     this.on(eventid, target, priority, callback)
+	 * will set the callback as an event handler for the target when eventid is called with the
+	 * provided priority. Priority can either be a number or an object that contains the priority,
+	 * order, and subOrder for the evend handler as needed (undefined keys will use default values)
+	 */
+	Battle.prototype.on = function (eventid, target /*[, priority], callback*/) {
+		if (!eventid) throw TypeError("Event handlers must have an event to listen to");
+		if (!target) throw TypeError("Event handlers must have a target");
+		if (arguments.length < 3) throw TypeError("Event handlers must have a callback");
+
+		if (target.effectType !== 'Format') {
+			throw TypeError("" + target.effectType + " targets are not supported at this time");
+		}
+
+		var callback, priority, order, subOrder;
+		if (arguments.length === 3) {
+			callback = arguments[2];
+			priority = 0;
+			order = false;
+			subOrder = 0;
+		} else {
+			callback = arguments[3];
+			var data = arguments[2];
+			if (typeof data === 'object') {
+				priority = data['priority'] || 0;
+				order = data['order'] || false;
+				subOrder = data['subOrder'] || 0;
+			} else {
+				priority = data || 0;
+				order = false;
+				subOrder = 0;
+			}
+		}
+
+		var eventHandler = {callback: callback, target: target, priority: priority, order: order, subOrder: subOrder};
+
+		var callbackType = 'on' + eventid;
+		if (!this.events) this.events = {};
+		if (this.events[callbackType] === undefined) {
+			this.events[callbackType] = [eventHandler];
+		} else {
+			this.events[callbackType].push(eventHandler);
+		}
 	};
 	Battle.prototype.getPokemon = function (id) {
 		if (typeof id !== 'string') id = id.id;
@@ -2667,12 +2771,23 @@ Battle = (function () {
 		side.active[pos] = pokemon;
 		pokemon.isActive = true;
 		pokemon.activeTurns = 0;
+		if (this.gen === 2) pokemon.draggedIn = this.turn;
 		for (var m in pokemon.moveset) {
 			pokemon.moveset[m].used = false;
 		}
 		this.add('drag', pokemon, pokemon.getDetails);
 		pokemon.update();
-		this.addQueue({pokemon: pokemon, choice: 'runSwitch'});
+		if (this.gen >= 5) {
+			this.runEvent('SwitchIn', pokemon);
+			if (!pokemon.hp) return true;
+			pokemon.isStarted = true;
+			if (!pokemon.fainted) {
+				this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityData, pokemon);
+				this.singleEvent('Start', pokemon.getItem(), pokemon.itemData, pokemon);
+			}
+		} else {
+			this.addQueue({pokemon: pokemon, choice: 'runSwitch'});
+		}
 		return true;
 	};
 	Battle.prototype.swapPosition = function (pokemon, slot, attributes) {
@@ -2705,6 +2820,9 @@ Battle = (function () {
 				pokemon.moveThisTurn = '';
 				pokemon.usedItemThisTurn = false;
 				pokemon.newlySwitched = false;
+				pokemon.disabledMoves = {};
+				this.runEvent('DisableMove', pokemon);
+				if (!pokemon.ateBerry) pokemon.disableMove('belch');
 				if (pokemon.lastAttackedBy) {
 					if (pokemon.lastAttackedBy.pokemon.isActive) {
 						pokemon.lastAttackedBy.thisTurn = false;
@@ -2731,7 +2849,7 @@ Battle = (function () {
 					break;
 				}
 			}
-			if (center) this.add('-message', 'Automatic center!');
+			if (center) this.add('-center');
 		}
 		this.makeRequest('move');
 	};
@@ -2807,6 +2925,9 @@ Battle = (function () {
 					boost[i] = -boost[i];
 				}
 				switch (effect.id) {
+				case 'bellydrum':
+					// No message
+					break;
 				case 'intimidate': case 'gooey':
 					this.add(msg, target, i, boost[i]);
 					break;
@@ -2846,7 +2967,7 @@ Battle = (function () {
 				this.debug('damage event failed');
 				return damage;
 			}
-			if (target.illusion && effect && effect.effectType === 'Move') {
+			if (target.illusion && effect && effect.effectType === 'Move' && effect.id !== 'confused') {
 				this.debug('illusion cleared');
 				target.illusion = null;
 				this.add('replace', target, target.getDetails);
@@ -2863,6 +2984,9 @@ Battle = (function () {
 			break;
 		case 'powder':
 			this.add('-damage', target, target.getHealth, '[silent]');
+			break;
+		case 'confused':
+			this.add('-damage', target, target.getHealth, '[from] confusion');
 			break;
 		default:
 			if (effect.effectType === 'Move') {
@@ -2956,10 +3080,17 @@ Battle = (function () {
 	};
 	Battle.prototype.chain = function (previousMod, nextMod) {
 		// previousMod or nextMod can be either a number or an array [numerator, denominator]
-		if (previousMod.length) previousMod = Math.floor(previousMod[0] * 4096 / previousMod[1]);
-		else previousMod = Math.floor(previousMod * 4096);
-		if (nextMod.length) nextMod = Math.floor(nextMod[0] * 4096 / nextMod[1]);
-		else nextMod = Math.floor(nextMod * 4096);
+		if (previousMod.length) {
+			previousMod = Math.floor(previousMod[0] * 4096 / previousMod[1]);
+		} else {
+			previousMod = Math.floor(previousMod * 4096);
+		}
+
+		if (nextMod.length) {
+			nextMod = Math.floor(nextMod[0] * 4096 / nextMod[1]);
+		} else {
+			nextMod = Math.floor(nextMod * 4096);
+		}
 		return ((previousMod * nextMod + 2048) >> 12) / 4096; // M'' = ((M * M') + 0x800) >> 12
 	};
 	Battle.prototype.chainModify = function (numerator, denominator) {
@@ -3004,16 +3135,13 @@ Battle = (function () {
 			flags: {}
 		};
 
-		if (move.affectedByImmunities) {
+		if (!move.ignoreImmunity || (move.ignoreImmunity !== true && !move.ignoreImmunity[move.type])) {
 			if (!target.runImmunity(move.type, !suppressMessages)) {
 				return false;
 			}
 		}
 
 		if (move.ohko) {
-			if (target.level > pokemon.level) {
-				return false;
-			}
 			return target.maxhp;
 		}
 
@@ -3104,11 +3232,17 @@ Battle = (function () {
 			defBoosts = 0;
 		}
 
-		if (move.useTargetOffensive) attack = defender.calculateStat(attackStat, atkBoosts);
-		else attack = attacker.calculateStat(attackStat, atkBoosts);
+		if (move.useTargetOffensive) {
+			attack = defender.calculateStat(attackStat, atkBoosts);
+		} else {
+			attack = attacker.calculateStat(attackStat, atkBoosts);
+		}
 
-		if (move.useSourceDefensive) defense = attacker.calculateStat(defenseStat, defBoosts);
-		else defense = defender.calculateStat(defenseStat, defBoosts);
+		if (move.useSourceDefensive) {
+			defense = attacker.calculateStat(defenseStat, defBoosts);
+		} else {
+			defense = defender.calculateStat(defenseStat, defBoosts);
+		}
 
 		// Apply Stat Modifiers
 		attack = this.runEvent('Modify' + statTable[attackStat], attacker, defender, move, attack);
@@ -3133,11 +3267,7 @@ Battle = (function () {
 
 		// randomizer
 		// this is not a modifier
-		if (this.gen <= 5) {
-			baseDamage = Math.floor(baseDamage * (100 - this.random(16)) / 100);
-		} else {
-			baseDamage = Math.floor(baseDamage * (85 + this.random(16)) / 100);
-		}
+		baseDamage = Math.floor(baseDamage * (100 - this.random(16)) / 100);
 
 		// STAB
 		if (move.hasSTAB || type !== '???' && pokemon.hasType(type)) {
@@ -3148,34 +3278,41 @@ Battle = (function () {
 			baseDamage = this.modify(baseDamage, move.stab || 1.5);
 		}
 		// types
-		var totalTypeMod = 0;
+		move.typeMod = target.runEffectiveness(move);
 
-		if (target.negateImmunity[move.type] !== 'IgnoreEffectiveness' || this.getImmunity(move.type, target)) {
-			totalTypeMod = target.runEffectiveness(move);
-		}
-
-		totalTypeMod = this.clampIntRange(totalTypeMod, -6, 6);
-		if (totalTypeMod > 0) {
+		move.typeMod = this.clampIntRange(move.typeMod, -6, 6);
+		if (move.typeMod > 0) {
 			if (!suppressMessages) this.add('-supereffective', target);
 
-			for (var i = 0; i < totalTypeMod; i++) {
+			for (var i = 0; i < move.typeMod; i++) {
 				baseDamage *= 2;
 			}
 		}
-		if (totalTypeMod < 0) {
+		if (move.typeMod < 0) {
 			if (!suppressMessages) this.add('-resisted', target);
 
-			for (var i = 0; i > totalTypeMod; i--) {
+			for (var i = 0; i > move.typeMod; i--) {
 				baseDamage = Math.floor(baseDamage / 2);
 			}
 		}
 
-		if (basePower && !Math.floor(baseDamage)) {
-			return 1;
+		if (pokemon.status === 'brn' && basePower && move.category === 'Physical' && !pokemon.hasAbility('guts')) {
+			if (this.gen < 6 || move.id !== 'facade') {
+				baseDamage = this.modify(baseDamage, 0.5);
+			}
+		}
+
+		// Generation 5 sets damage to 1 before the final damage modifiers only
+		if (this.gen === 5 && basePower && !Math.floor(baseDamage)) {
+			baseDamage = 1;
 		}
 
 		// Final modifier. Modifiers that modify damage after min damage check, such as Life Orb.
 		baseDamage = this.runEvent('ModifyDamage', pokemon, target, move, baseDamage);
+
+		if (this.gen !== 5 && basePower && !Math.floor(baseDamage)) {
+			return 1;
+		}
 
 		return Math.floor(baseDamage);
 	};
@@ -3572,13 +3709,14 @@ Battle = (function () {
 			break;
 		case 'runSwitch':
 			this.runEvent('SwitchIn', decision.pokemon);
-			if (this.gen === 1 && !decision.pokemon.side.faintedThisTurn) this.runEvent('AfterSwitchInSelf', decision.pokemon);
+			if (this.gen <= 2 && !decision.pokemon.side.faintedThisTurn && decision.pokemon.draggedIn !== this.turn) this.runEvent('AfterSwitchInSelf', decision.pokemon);
 			if (!decision.pokemon.hp) break;
 			decision.pokemon.isStarted = true;
 			if (!decision.pokemon.fainted) {
 				this.singleEvent('Start', decision.pokemon.getAbility(), decision.pokemon.abilityData, decision.pokemon);
 				this.singleEvent('Start', decision.pokemon.getItem(), decision.pokemon.itemData, decision.pokemon);
 			}
+			delete decision.pokemon.draggedIn;
 			break;
 		case 'shift':
 			if (!decision.pokemon.isActive) return false;
@@ -3876,7 +4014,7 @@ Battle = (function () {
 
 				var dataArr = [0, 1, 2, 3, 4, 5].slice(0, pokemonLength);
 				var slotMap = dataArr.slice(); // Inverse of `dataArr` (slotMap[dataArr[x]] === x)
-				var oldSlot, tempSlot;
+				var tempSlot;
 
 				for (var j = 0; j < data.length; j++) {
 					var slot = parseInt(data.charAt(j), 10) - 1;
@@ -3889,10 +4027,8 @@ Battle = (function () {
 					dataArr[slotMap[slot]] = tempSlot;
 
 					// Update its inverse
-					oldSlot = tempSlot;
-					tempSlot = slotMap[slot];
+					slotMap[tempSlot] = slotMap[slot];
 					slotMap[slot] = j;
-					slotMap[oldSlot] = tempSlot;
 				}
 
 				decisions.push({
@@ -4035,13 +4171,13 @@ Battle = (function () {
 				 */
 
 				var moves = pokemon.getMoves();
-				if (!moves.length || moves[0].id === 'struggle') {
-					// override decision and use Struggle if there are no other valid moves
-					side.send('-activate', pokemon, 'move: Struggle');
+				if (!moves.length) {
+					// Override decision and use Struggle if there are no enabled moves with PP
+					if (this.gen <= 4) side.send('-activate', pokemon, 'move: Struggle');
 					moveid = 'struggle';
 				} else {
-					// at least a move is valid (other than Struggle)
-					// check if the chosen one is
+					// At least a move is valid. Check if the chosen one is.
+					// This may include Struggle in Hackmons.
 					var isEnabled = false;
 					for (var j = 0; j < moves.length; j++) {
 						if (moves[j].id !== moveid) continue;
@@ -4273,7 +4409,7 @@ Battle = (function () {
 
 		if (this.log.length > logPos) {
 			if (alreadyEnded !== undefined && this.ended && !alreadyEnded) {
-				if (this.rated || Config.logchallenges) {
+				if (this.rated || Config.logChallenges) {
 					var log = {
 						seed: this.startingSeed,
 						turns: this.turn,

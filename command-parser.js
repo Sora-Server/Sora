@@ -7,9 +7,9 @@
  *
  * Individual commands are put in:
  *   commands.js - "core" commands that shouldn't be modified
- *   config/commands.js - other commands that can be safely modified
+ *   chat-plugins/ - other commands that can be safely modified
  *
- * The command API is (mostly) documented in config/commands.js
+ * The command API is (mostly) documented in chat-plugins/COMMANDS.md
  *
  * @license MIT license
  */
@@ -31,6 +31,7 @@ const MESSAGE_COOLDOWN = 5 * 60 * 1000;
 const MAX_PARSE_RECURSION = 10;
 
 var fs = require('fs');
+var path = require('path');
 
 /*********************************************************
  * Load command files
@@ -38,14 +39,9 @@ var fs = require('fs');
 
 var commands = exports.commands = require('./commands.js').commands;
 
-var customCommands = require('./config/commands.js');
-if (customCommands && customCommands.commands) {
-	Object.merge(commands, customCommands.commands);
-}
-
 // Install plug-in commands
 
-fs.readdirSync('./chat-plugins').forEach(function (file) {
+fs.readdirSync(path.resolve(__dirname, 'chat-plugins')).forEach(function (file) {
 	if (file.substr(-3) === '.js') Object.merge(commands, require('./chat-plugins/' + file).commands);
 });
 
@@ -53,13 +49,13 @@ fs.readdirSync('./chat-plugins').forEach(function (file) {
  * Parser
  *********************************************************/
 
-var modlog = exports.modlog = {lobby: fs.createWriteStream('logs/modlog/modlog_lobby.txt', {flags:'a+'}), battle: fs.createWriteStream('logs/modlog/modlog_battle.txt', {flags:'a+'})};
+var modlog = exports.modlog = {lobby: fs.createWriteStream(path.resolve(__dirname, 'logs/modlog/modlog_lobby.txt'), {flags:'a+'}), battle: fs.createWriteStream(path.resolve(__dirname, 'logs/modlog/modlog_battle.txt'), {flags:'a+'})};
 
 /**
  * Can this user talk?
  * Shows an error message if not.
  */
-function canTalk(user, room, connection, message) {
+function canTalk(user, room, connection, message, targetUser) {
 	if (!user.named) {
 		connection.popup("You must choose a name before you can talk.");
 		return false;
@@ -68,7 +64,7 @@ function canTalk(user, room, connection, message) {
 		connection.sendTo(room, "You are locked from talking in chat.");
 		return false;
 	}
-	if (room && user.mutedRooms[room.id]) {
+	if (room && room.isMuted(user)) {
 		connection.sendTo(room, "You are muted and cannot talk in this room.");
 		return false;
 	}
@@ -85,7 +81,7 @@ function canTalk(user, room, connection, message) {
 				if (room.auth[user.userid]) {
 					userGroup = room.auth[user.userid];
 				} else if (room.isPrivate === true) {
-					userGroup = ' ';
+					userGroup = Config.groups.default[roomType];
 				}
 			}
 			if (room.modchat === 'autoconfirmed') {
@@ -129,8 +125,8 @@ function canTalk(user, room, connection, message) {
 			user.lastMessageTime = Date.now();
 		}
 
-		if (Config.chatfilter) {
-			return Config.chatfilter(message, user, room, connection);
+		if (Config.chatFilter) {
+			return Config.chatFilter(message, user, room, connection);
 		}
 		return message;
 	}
@@ -284,15 +280,16 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
 				this.add(text);
 				this.logModCommand(text + (logOnlyText || ""));
 			},
-			logModCommand: function (result) {
-				if (!modlog[room.id]) {
-					if (room.battle) {
-						modlog[room.id] = modlog['battle'];
+			logModCommand: function (result, targetRoom) {
+				if (!targetRoom) targetRoom = room;
+				if (!modlog[targetRoom.id]) {
+					if (targetRoom.battle) {
+						modlog[targetRoom.id] = modlog['battle'];
 					} else {
-						modlog[room.id] = fs.createWriteStream('logs/modlog/modlog_' + room.id + '.txt', {flags:'a+'});
+						modlog[targetRoom.id] = fs.createWriteStream(path.resolve(__dirname, 'logs/modlog/modlog_' + targetRoom.id + '.txt'), {flags:'a+'});
 					}
 				}
-				modlog[room.id].write('[' + (new Date().toJSON()) + '] (' + room.id + ') ' + result + '\n');
+				modlog[targetRoom.id].write('[' + (new Date().toJSON()) + '] (' + targetRoom.id + ') ' + result + '\n');
 			},
 			can: function (permission, target, room) {
 				if (!user.can(permission, target, room)) {
@@ -332,9 +329,9 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
 				}
 				return parse(message, room, user, connection, levelsDeep + 1);
 			},
-			canTalk: function (message, relevantRoom) {
+			canTalk: function (message, relevantRoom, targetUser) {
 				var innerRoom = (relevantRoom !== undefined) ? relevantRoom : room;
-				return canTalk(user, innerRoom, connection, message);
+				return canTalk(user, innerRoom, connection, message, targetUser);
 			},
 			canHTML: function (html) {
 				html = '' + (html || '');
@@ -346,6 +343,36 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
 						return false;
 					}
 				}
+				if (/>here.?</i.test(html) || /click here/i.test(html)) {
+					this.sendReply('Do not use "click here"');
+					return false;
+				}
+
+				// check for mismatched tags
+				var tags = html.toLowerCase().match(/<\/?(div|a|button|b|i|u|center|font)\b/g);
+				if (tags) {
+					var stack = [];
+					for (var i = 0; i < tags.length; i++) {
+						var tag = tags[i];
+						if (tag.charAt(1) === '/') {
+							if (!stack.length) {
+								this.sendReply("Extraneous </" + tag.substr(2) + "> without an opening tag.");
+								return false;
+							}
+							if (tag.substr(2) !== stack.pop()) {
+								this.sendReply("Missing </" + tag.substr(2) + "> or it's in the wrong place.");
+								return false;
+							}
+						} else {
+							stack.push(tag.substr(1));
+						}
+					}
+					if (stack.length) {
+						this.sendReply("Missing </" + stack.pop() + ">.");
+						return false;
+					}
+				}
+
 				return true;
 			},
 			targetUserOrSelf: function (target, exactName) {
@@ -386,7 +413,7 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
 					'Additional information:\n' +
 					'user = ' + user.name + '\n' +
 					'room = ' + room.id + '\n' +
-					'message = ' + message;
+					'message = ' + originalMessage;
 			var fakeErr = {stack: stack};
 
 			if (!require('./crashlogger.js')(fakeErr, 'A chat command')) {
@@ -403,7 +430,9 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
 		// Check for mod/demod/admin/deadmin/etc depending on the group ids
 		var isRoom = false;
 		var promoteCmd = cmd;
-		if (promoteCmd.substr(0, 4) === 'room') {
+		if (promoteCmd.substr(0, 6) === 'global') {
+			promoteCmd = promoteCmd.slice(6);
+		} else if (promoteCmd.substr(0, 4) === 'room') {
 			isRoom = true;
 			promoteCmd = promoteCmd.slice(4);
 		}
@@ -415,7 +444,7 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
 			}
 		}
 
-		if (message.substr(0, 1) === '/' && fullCmd) {
+		if (message.charAt(0) === '/' && fullCmd) {
 			// To guard against command typos, we now emit an error message
 			return connection.sendTo(room.id, "The command '/" + fullCmd + "' was unrecognized. To send a message starting with '/" + fullCmd + "', type '//" + fullCmd + "'.");
 		}
@@ -430,7 +459,7 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
 		return parse(message, room, user, connection, levelsDeep + 1);
 	}
 
-	if (user.authenticated && global.tells) {
+	if (user.registered && global.tells) {
 		var alts = user.getAlts();
 		alts.push(user.name);
 		alts.map(toId).forEach(function (user) {
@@ -445,7 +474,7 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
 };
 
 exports.package = {};
-fs.readFile('package.json', function (err, data) {
+fs.readFile(path.resolve(__dirname, 'package.json'), function (err, data) {
 	if (err) return;
 	exports.package = JSON.parse(data);
 });

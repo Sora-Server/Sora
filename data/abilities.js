@@ -89,9 +89,6 @@ exports.BattleAbilities = {
 		onStart: function (pokemon) {
 			this.add('-ability', pokemon, 'Air Lock');
 		},
-		onAnyModifyPokemon: function (pokemon) {
-			pokemon.ignore['WeatherTarget'] = true;
-		},
 		onAnyTryWeather: false,
 		id: "airlock",
 		name: "Air Lock",
@@ -150,20 +147,18 @@ exports.BattleAbilities = {
 		num: 107
 	},
 	"arenatrap": {
-		desc: "Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping or have immunity to Ground.",
-		shortDesc: "Prevents adjacent foes from choosing to switch unless they are immune to Ground.",
+		desc: "Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping or are airborne.",
+		shortDesc: "Prevents adjacent foes from choosing to switch unless they are airborne.",
 		onFoeModifyPokemon: function (pokemon) {
 			if (!this.isAdjacent(pokemon, this.effectData.target)) return;
-			if (!pokemon.runImmunity('Ground', false)) return;
-			if (!pokemon.hasType('Flying') || pokemon.hasItem('ironball') || this.getPseudoWeather('gravity') || pokemon.volatiles['ingrain']) {
+			if (pokemon.isGrounded()) {
 				pokemon.tryTrap(true);
 			}
 		},
 		onFoeMaybeTrapPokemon: function (pokemon, source) {
 			if (!source) source = this.effectData.target;
 			if (!this.isAdjacent(pokemon, source)) return;
-			if (!pokemon.runImmunity('Ground', false)) return;
-			if (!pokemon.hasType('Flying') || pokemon.hasItem('ironball') || this.getPseudoWeather('gravity') || pokemon.volatiles['ingrain']) {
+			if (pokemon.isGrounded()) {
 				pokemon.maybeTrapped = true;
 			}
 		},
@@ -326,9 +321,6 @@ exports.BattleAbilities = {
 		onStart: function (pokemon) {
 			this.add('-ability', pokemon, 'Cloud Nine');
 		},
-		onAnyModifyPokemon: function (pokemon) {
-			pokemon.ignore['WeatherTarget'] = true;
-		},
 		onAnyTryWeather: false,
 		id: "cloudnine",
 		name: "Cloud Nine",
@@ -339,12 +331,11 @@ exports.BattleAbilities = {
 		desc: "This Pokemon's type changes to match the type of the last move that hit it, unless that type is already one of its types. This effect applies after all hits from a multi-hit move; Sheer Force prevents it from activating if the move has a secondary effect.",
 		shortDesc: "This Pokemon's type changes to the type of a move it's hit by, unless it has the type.",
 		onAfterMoveSecondary: function (target, source, move) {
-			if (target.isActive && move && move.effectType === 'Move' && move.category !== 'Status') {
-				if (!target.hasType(move.type)) {
-					if (!target.setType(move.type)) return false;
-					this.add('-start', target, 'typechange', move.type, '[from] Color Change');
-					target.update();
-				}
+			var type = move.type;
+			if (target.isActive && move.effectType === 'Move' && move.category !== 'Status' && type !== '???' && !target.hasType(type)) {
+				if (!target.setType(type)) return false;
+				this.add('-start', target, 'typechange', type, '[from] Color Change');
+				target.update();
 			}
 		},
 		id: "colorchange",
@@ -376,7 +367,7 @@ exports.BattleAbilities = {
 	},
 	"compoundeyes": {
 		shortDesc: "This Pokemon's moves have their accuracy multiplied by 1.3.",
-		onSourceAccuracy: function (accuracy) {
+		onSourceModifyAccuracy: function (accuracy) {
 			if (typeof accuracy !== 'number') return;
 			this.debug('compoundeyes - enhancing accuracy');
 			return accuracy * 1.3;
@@ -517,13 +508,16 @@ exports.BattleAbilities = {
 		onStart: function (source) {
 			this.setWeather('deltastream');
 		},
+		onAnySetWeather: function (target, source, weather) {
+			if (this.getWeather().id === 'deltastream' && !(weather.id in {desolateland:1, primordialsea:1, deltastream:1})) return false;
+		},
 		onEnd: function (pokemon) {
 			if (this.weatherData.source !== pokemon) return;
 			for (var i = 0; i < this.sides.length; i++) {
 				for (var j = 0; j < this.sides[i].active.length; j++) {
 					var target = this.sides[i].active[j];
 					if (target === pokemon) continue;
-					if (target && target.hp && target.ability === 'deltastream' && target.ignore['Ability'] !== true) {
+					if (target && target.hp && target.hasAbility('deltastream')) {
 						this.weatherData.source = target;
 						return;
 					}
@@ -542,13 +536,16 @@ exports.BattleAbilities = {
 		onStart: function (source) {
 			this.setWeather('desolateland');
 		},
+		onAnySetWeather: function (target, source, weather) {
+			if (this.getWeather().id === 'desolateland' && !(weather.id in {desolateland:1, primordialsea:1, deltastream:1})) return false;
+		},
 		onEnd: function (pokemon) {
 			if (this.weatherData.source !== pokemon) return;
 			for (var i = 0; i < this.sides.length; i++) {
 				for (var j = 0; j < this.sides[i].active.length; j++) {
 					var target = this.sides[i].active[j];
 					if (target === pokemon) continue;
-					if (target && target.hp && target.ability === 'desolateland' && target.ignore['Ability'] !== true) {
+					if (target && target.hp && target.hasAbility('desolateland')) {
 						this.weatherData.source = target;
 						return;
 					}
@@ -682,7 +679,7 @@ exports.BattleAbilities = {
 	"filter": {
 		shortDesc: "This Pokemon receives 3/4 damage from supereffective attacks.",
 		onSourceModifyDamage: function (damage, source, target, move) {
-			if (target.runEffectiveness(move) > 0) {
+			if (move.typeMod > 0) {
 				this.debug('Filter neutralize');
 				return this.chainModify(0.75);
 			}
@@ -770,15 +767,15 @@ exports.BattleAbilities = {
 			delete this.effectData.forme;
 		},
 		onUpdate: function (pokemon) {
-			if (!pokemon.isActive || pokemon.speciesid !== 'cherrim') return;
+			if (!pokemon.isActive || pokemon.baseTemplate.speciesid !== 'cherrim') return;
 			if (this.isWeather(['sunnyday', 'desolateland'])) {
-				if (this.effectData.forme !== 'Sunshine') {
-					this.effectData.forme = 'Sunshine';
+				if (pokemon.template.speciesid !== 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim-Sunshine');
 					this.add('-formechange', pokemon, 'Cherrim-Sunshine', '[msg]');
 				}
 			} else {
-				if (this.effectData.forme) {
-					delete this.effectData.forme;
+				if (pokemon.template.speciesid === 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim');
 					this.add('-formechange', pokemon, 'Cherrim', '[msg]');
 				}
 			}
@@ -1303,11 +1300,7 @@ exports.BattleAbilities = {
 	"klutz": {
 		desc: "This Pokemon's held item has no effect. This Pokemon cannot use Fling successfully. Macho Brace, Power Anklet, Power Band, Power Belt, Power Bracer, Power Lens, and Power Weight still have their effects.",
 		shortDesc: "This Pokemon's held item has no effect, except Macho Brace. Fling cannot be used.",
-		onModifyPokemonPriority: 1,
-		onModifyPokemon: function (pokemon) {
-			if (pokemon.getItem().megaEvolves) return;
-			pokemon.ignore['Item'] = true;
-		},
+		// Item suppression implemented in BattlePokemon.ignoringItem() within battle-engine.js
 		id: "klutz",
 		name: "Klutz",
 		rating: -1,
@@ -1365,7 +1358,7 @@ exports.BattleAbilities = {
 		},
 		onAnyRedirectTargetPriority: 1,
 		onAnyRedirectTarget: function (target, source, source2, move) {
-			if (move.type !== 'Electric') return;
+			if (move.type !== 'Electric' || move.id in {firepledge:1, grasspledge:1, waterpledge:1}) return;
 			if (this.validTarget(this.effectData.target, source, move.target)) {
 				return this.effectData.target;
 			}
@@ -1556,18 +1549,7 @@ exports.BattleAbilities = {
 		onStart: function (pokemon) {
 			this.add('-ability', pokemon, 'Mold Breaker');
 		},
-		onAllyModifyPokemonPriority: 100,
-		onAllyModifyPokemon: function (pokemon) {
-			if (this.activePokemon === this.effectData.target && pokemon !== this.activePokemon) {
-				pokemon.ignore['Ability'] = 'A';
-			}
-		},
-		onFoeModifyPokemonPriority: 100,
-		onFoeModifyPokemon: function (pokemon) {
-			if (this.activePokemon === this.effectData.target) {
-				pokemon.ignore['Ability'] = 'A';
-			}
-		},
+		stopAttackEvents: true,
 		id: "moldbreaker",
 		name: "Mold Breaker",
 		rating: 3.5,
@@ -1717,7 +1699,7 @@ exports.BattleAbilities = {
 		onUpdate: function (pokemon) {
 			if (pokemon.volatiles['attract']) {
 				pokemon.removeVolatile('attract');
-				this.add('-end', pokemon, 'move: Attract');
+				this.add('-end', pokemon, 'move: Attract', '[from] ability: Oblivious');
 			}
 			if (pokemon.volatiles['taunt']) {
 				pokemon.removeVolatile('taunt');
@@ -1850,9 +1832,9 @@ exports.BattleAbilities = {
 		num: 53
 	},
 	"pickpocket": {
-		desc: "If this Pokemon has no item, it steals the item off a Pokemon that makes contact with it.",
+		desc: "If this Pokemon has no item, it steals the item off a Pokemon that makes contact with it. This effect applies after all hits from a multi-hit move; Sheer Force prevents it from activating if the move has a secondary effect.",
 		shortDesc: "If this Pokemon has no item, it steals the item off a Pokemon making contact with it.",
-		onAfterDamage: function (damage, target, source, move) {
+		onAfterMoveSecondary: function (target, source, move) {
 			if (source && source !== target && move && move.flags['contact']) {
 				if (target.item) {
 					return;
@@ -1865,7 +1847,7 @@ exports.BattleAbilities = {
 					source.item = yourItem.id;
 					return;
 				}
-				this.add('-item', target, yourItem, '[from] ability: Pickpocket');
+				this.add('-item', target, yourItem, '[from] ability: Pickpocket', '[of] ' + source);
 			}
 		},
 		id: "pickpocket",
@@ -1994,13 +1976,16 @@ exports.BattleAbilities = {
 		onStart: function (source) {
 			this.setWeather('primordialsea');
 		},
+		onAnySetWeather: function (target, source, weather) {
+			if (this.getWeather().id === 'primordialsea' && !(weather.id in {desolateland:1, primordialsea:1, deltastream:1})) return false;
+		},
 		onEnd: function (pokemon) {
 			if (this.weatherData.source !== pokemon) return;
 			for (var i = 0; i < this.sides.length; i++) {
 				for (var j = 0; j < this.sides[i].active.length; j++) {
 					var target = this.sides[i].active[j];
 					if (target === pokemon) continue;
-					if (target && target.hp && target.ability === 'primordialsea' && target.ignore['Ability'] !== true) {
+					if (target && target.hp && target.hasAbility('primordialsea')) {
 						this.weatherData.source = target;
 						return;
 					}
@@ -2148,8 +2133,8 @@ exports.BattleAbilities = {
 	"rockhead": {
 		desc: "This Pokemon does not take recoil damage besides Struggle, Life Orb, and crash damage.",
 		shortDesc: "This Pokemon does not take recoil damage besides Struggle/Life Orb/crash damage.",
-		onModifyMove: function (move) {
-			delete move.recoil;
+		onDamage: function (damage, target, source, effect) {
+			if (effect.id === 'recoil' && this.activeMove.id !== 'struggle') return null;
 		},
 		id: "rockhead",
 		name: "Rock Head",
@@ -2229,7 +2214,7 @@ exports.BattleAbilities = {
 		onImmunity: function (type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
-		onAccuracy: function (accuracy) {
+		onModifyAccuracy: function (accuracy) {
 			if (typeof accuracy !== 'number') return;
 			if (this.isWeather('sandstorm')) {
 				this.debug('Sand Veil - decreasing accuracy');
@@ -2253,8 +2238,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onAllyTryHitSide: function (target, source, move) {
-			if (target.side !== source.side) return;
-
+			if (target === this.effectData.target || target.side !== source.side) return;
 			if (move.type === 'Grass') {
 				this.boost({atk:1}, this.effectData.target);
 			}
@@ -2268,8 +2252,10 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon can hit Ghost types with Normal- and Fighting-type moves.",
 		onModifyMovePriority: -5,
 		onModifyMove: function (move) {
-			if (move.type in {'Fighting':1, 'Normal':1}) {
-				move.affectedByImmunities = false;
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
 			}
 		},
 		id: "scrappy",
@@ -2334,7 +2320,7 @@ exports.BattleAbilities = {
 		onModifyMove: function (move, pokemon) {
 			if (move.secondaries) {
 				delete move.secondaries;
-				move.negateSecondary = true;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
 				pokemon.addVolatile('sheerforce');
 			}
 		},
@@ -2442,7 +2428,7 @@ exports.BattleAbilities = {
 		onImmunity: function (type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		onAccuracy: function (accuracy) {
+		onModifyAccuracy: function (accuracy) {
 			if (typeof accuracy !== 'number') return;
 			if (this.isWeather('hail')) {
 				this.debug('Snow Cloak - decreasing accuracy');
@@ -2486,7 +2472,7 @@ exports.BattleAbilities = {
 	"solidrock": {
 		shortDesc: "This Pokemon receives 3/4 damage from supereffective attacks.",
 		onSourceModifyDamage: function (damage, source, target, move) {
-			if (target.runEffectiveness(move) > 0) {
+			if (move.typeMod > 0) {
 				this.debug('Solid Rock neutralize');
 				return this.chainModify(0.75);
 			}
@@ -2598,7 +2584,11 @@ exports.BattleAbilities = {
 	"stickyhold": {
 		shortDesc: "This Pokemon cannot lose its held item due to another Pokemon's attack.",
 		onTakeItem: function (item, pokemon, source) {
-			if (source && source !== pokemon) return false;
+			if (this.suppressingAttackEvents() && pokemon !== this.activePokemon) return;
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Sticky Hold');
+				return false;
+			}
 		},
 		id: "stickyhold",
 		name: "Sticky Hold",
@@ -2618,7 +2608,7 @@ exports.BattleAbilities = {
 		},
 		onAnyRedirectTargetPriority: 1,
 		onAnyRedirectTarget: function (target, source, source2, move) {
-			if (move.type !== 'Water') return;
+			if (move.type !== 'Water' || move.id in {firepledge:1, grasspledge:1, waterpledge:1}) return;
 			if (this.validTarget(this.effectData.target, source, move.target)) {
 				move.accuracy = true;
 				return this.effectData.target;
@@ -2646,12 +2636,14 @@ exports.BattleAbilities = {
 	"sturdy": {
 		desc: "If this Pokemon is at full HP, it survives one hit with at least 1 HP. OHKO moves fail when used against this Pokemon.",
 		shortDesc: "If this Pokemon is at full HP, it survives one hit with at least 1 HP. Immune to OHKO.",
+		onTryHit: function (pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[msg]');
+				return null;
+			}
+		},
 		onDamagePriority: -100,
 		onDamage: function (damage, target, source, effect) {
-			if (effect && effect.ohko) {
-				this.add('-activate', target, 'Sturdy');
-				return 0;
-			}
 			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
 				this.add('-activate', target, 'Sturdy');
 				return target.hp - 1;
@@ -2775,7 +2767,7 @@ exports.BattleAbilities = {
 	},
 	"tangledfeet": {
 		shortDesc: "This Pokemon's evasiveness is doubled as long as it is confused.",
-		onAccuracy: function (accuracy, target) {
+		onModifyAccuracy: function (accuracy, target) {
 			if (typeof accuracy !== 'number') return;
 			if (target && target.volatiles['confusion']) {
 				this.debug('Tangled Feet - decreasing accuracy');
@@ -2820,16 +2812,7 @@ exports.BattleAbilities = {
 		onStart: function (pokemon) {
 			this.add('-ability', pokemon, 'Teravolt');
 		},
-		onAllyModifyPokemon: function (pokemon) {
-			if (this.activePokemon === this.effectData.target && pokemon !== this.activePokemon) {
-				pokemon.ignore['Ability'] = 'A';
-			}
-		},
-		onFoeModifyPokemon: function (pokemon) {
-			if (this.activePokemon === this.effectData.target) {
-				pokemon.ignore['Ability'] = 'A';
-			}
-		},
+		stopAttackEvents: true,
 		id: "teravolt",
 		name: "Teravolt",
 		rating: 3.5,
@@ -2860,7 +2843,7 @@ exports.BattleAbilities = {
 	"tintedlens": {
 		shortDesc: "This Pokemon's attacks that are not very effective on a target deal double damage.",
 		onModifyDamage: function (damage, source, target, move) {
-			if (target.runEffectiveness(move) < 0) {
+			if (move.typeMod < 0) {
 				this.debug('Tinted Lens boost');
 				return this.chainModify(2);
 			}
@@ -2970,16 +2953,7 @@ exports.BattleAbilities = {
 		onStart: function (pokemon) {
 			this.add('-ability', pokemon, 'Turboblaze');
 		},
-		onAllyModifyPokemon: function (pokemon) {
-			if (this.activePokemon === this.effectData.target && pokemon !== this.activePokemon) {
-				pokemon.ignore['Ability'] = 'A';
-			}
-		},
-		onFoeModifyPokemon: function (pokemon) {
-			if (this.activePokemon === this.effectData.target) {
-				pokemon.ignore['Ability'] = 'A';
-			}
-		},
+		stopAttackEvents: true,
 		id: "turboblaze",
 		name: "Turboblaze",
 		rating: 3.5,
@@ -3166,8 +3140,8 @@ exports.BattleAbilities = {
 	"wonderskin": {
 		desc: "All non-damaging moves that check accuracy have their accuracy changed to 50% when used on this Pokemon. This change is done before any other accuracy modifying effects.",
 		shortDesc: "Status moves with accuracy checks are 50% accurate when used on this Pokemon.",
-		onAccuracyPriority: 10,
-		onAccuracy: function (accuracy, target, source, move) {
+		onModifyAccuracyPriority: 10,
+		onModifyAccuracy: function (accuracy, target, source, move) {
 			if (move.category === 'Status' && typeof move.accuracy === 'number') {
 				this.debug('Wonder Skin - setting accuracy to 50');
 				return 50;

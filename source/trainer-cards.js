@@ -35,7 +35,7 @@ var trainerCards = {
 		}
 		this.sendReplyBox('<center><b>Admin Team</b><br />' + total + '</table></center>');
 		var total = '<table><tr><th>User</th><th>Last Seen</th></tr>';
-		var list = ['∆E4 Zoro∆', '∆E4 Corea∆', '∆E4 Edge∆', '∆E4 Abadon∆', '∆Frontier Asch∆', '∆Frontier∆ Srewop', '∆Fröntier∆Blade☯', '∆Frontier∆ Tempest', '∆Frontier Zachary∆', '∆Frontier Meows∆'];
+		var list = ['∆E4 Zoro∆', '∆E4 H∆', '∆E4 Edge∆', '∆E4 Abadon∆', '∆Frontier Asch∆', '∆Frontier∆ Srewop', '∆Fröntier∆Blade☯', '∆Frontier∆ Tempest', '∆Frontier Zachary∆', '∆Frontier Meows∆'];
 		for (var i = 0; i < list.length; i++) {
 			var lastseen = Users.get(list[i]) && Users.get(list[i]).connected ? '<font color = "green">Online</font>' : Core.profile.lastSeen(false, toId(list[i])).split('&nbsp;')[2];
 			if (lastseen === 'Never') lastseen = '<font color = "red">Never</font>';
@@ -45,7 +45,7 @@ var trainerCards = {
 		this.sendReplyBox('<details><summary><b>Elite 4\'s and Frontiers</b></summary><center>' + total + '</table></details></center>');
 		var total = '<table><tr><th>User</th><th>Last Seen</th></tr>';
 		var list = ['∆Gym Ldr Lou∆', '∆Gym Ldr Connor∆', '∆Gym Ldr Terror∆', '∆Gym Ldr Floatzel∆', '∆Gym Ldr Poppy∆', 
-			'∆Gym Ldr Leaf∆', '∆Gym Ldr Mark∆', '∆Gym Ldr Dårküs∆', '∆Gym Ldr H∆', '∆Gym Ldr Kezyru1∆', '∆Gym Ldr Indeter∆'];
+			'∆Gym Ldr Leaf∆', '∆Gym Ldr Mark∆', '∆Gym Ldr Dårküs∆', '∆Gym Ldr Core∆', '∆Gym Ldr Kezyru1∆', '∆Gym Ldr Indeter∆'];
 		for (var i = 0; i < list.length; i++) {
 			var lastseen = Users.get(list[i]) && Users.get(list[i]).connected ? '<font color = "green">Online</font>' : Core.profile.lastSeen(false, toId(list[i])).split('&nbsp;')[2];
 			if (lastseen === 'Never') lastseen = '<font color = "red">Never</font>';
@@ -101,7 +101,7 @@ var trainerCards = {
 	 	    '<b>Symbol:</b> Puny Symbol<br />'+
 	 	    '<b>Rules:</b> <a href="http://www.smogon.com/forums/threads/oras-fu-winner-of-omotm-machoke-sticky-web-banned.3519286/">FU</a> <br />'+
 	 	    '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
-	 	    '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Acieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#staravia"><img src="http://i.imgur.com/2UmjiLt.png" title="Staravia Badge: Two Years on Sora"></a><a href="http://soraleague.weebly.com/badges.html#smeargle"><img src="http://i.imgur.com/A8h3FJN.png" title="Smeargle the Creator: Helped develop Champion\'s Challenge and Inclement Weather Metagames"></a></details><br />'+
+	 	    '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Achieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#staravia"><img src="http://i.imgur.com/2UmjiLt.png" title="Staravia Badge: Two Years on Sora"></a><a href="http://soraleague.weebly.com/badges.html#smeargle"><img src="http://i.imgur.com/A8h3FJN.png" title="Smeargle the Creator: Helped develop Champion\'s Challenge and Inclement Weather Metagames"></a></details><br />'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-romeo.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-india.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-sierra.gif"><img src="http://www.pkparaiso.com/imagenes/xy/sprites/animados/unown-uniform.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/pachirisu.gif">'+
 	 	    '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	 	    
@@ -127,20 +127,21 @@ var trainerCards = {
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br />'+
 	 	      '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
-	 	      '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Acieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a></details><br />'+
+	 	      '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Achieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a></details><br />'+
 	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
 	 	
         },
         
-        corea: function(target, room, user) {
+        h: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Corea</b><br />'+
-		      '<i>"0% Luck 10% Skill 90% HOO HAH"</i> <br />'+
-		      '<b>Type: <font color =d83c08>Fighting</font></b><br />'+
-		      '<b>Ace:</b> Chesnaught <br />'+
+		this.sendReplyBox('E4 <b>H</b><br />'+
+		      '<i>"H4Hentai, H4Harem, H4Harassment, H4Hugs. Done checking out those sexy curves? Now it\'s time to check out my bugs. :3"</i> <br />'+
+		      '<b>Type: <font color =d83c08>Bug</font></b><br />'+
+		      '<b>Ace:</b> None <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-UU  <br/>'+
-	 	      '-No Mega evolution<br />');
+	 	      '-None<br />'+
+	 	      '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
+		      '<a href="http://soraleague.weebly.com/badges.html#badges"><img src="http://i.imgur.com/tnkW9J9.png" title="Badge Collector: Defeat all 18 Gym Leaders"></a><a href="http://soraleague.weebly.com/badges.html#e4win"><img src="http://i.imgur.com/y21ENWF.png" title="E4 Conqueror: Cleared the Elite Four"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#porygon"><img src="http://i.imgur.com/bJrRxB8.png" title="Broke the server while trying to repair it, good job mate"></a><a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a></details> <br />');
 	 	      
         },
         
@@ -151,9 +152,7 @@ var trainerCards = {
 			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
 			  '<b>Ace:</b> Mega Charizard-X<br />'+
 			  '<b>Battle Rules:</b><br />'+
-			  '-No Hazards<br />'+
-			  '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
-			  '<a href="http://soraleague.weebly.com/badges.html#aegislash"><img src="http://i.imgur.com/aJY3eKg.png" title="Winner of Sora\'s first major Monotype Round Robin Tour"></a></details><br />');
+			  '-No Hazards<br />');
        
         },
         
@@ -165,7 +164,9 @@ var trainerCards = {
 		      '<b>Ace:</b> Gallade <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br/>'+
-	              '<img src="http://sprites.pokecheck.org/i/645.gif"><img src="http://sprites.pokecheck.org/t/187.gif">');
+	              '<img src="http://sprites.pokecheck.org/i/645.gif"><img src="http://sprites.pokecheck.org/t/187.gif">'+
+	              '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
+	              '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Achieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#bertha"><img src="http://i.imgur.com/MDcdCka.png" title="Bertha Badge: 5 E4 Defends"></a><a href="http://soraleague.weebly.com/badges.html#koga"><img src="http://i.imgur.com/2eC21HT.png" title="Koga Badge: 10 E4 Defends"></a></details> <br />');
 	 	      
 	},
 	
@@ -208,7 +209,6 @@ var trainerCards = {
 			 '<b>Ace:</b> Quagsire<br />'+
 			 '<b>Battle rules:</b> <br />'+
 			 '-OU<br />'+
-			 '-No Hazards <br />'+
 			 '-No Trick/Switcheroo <br />');
         },
         
@@ -227,7 +227,7 @@ var trainerCards = {
         blade: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<a><font size= 4><center><img src="http://sprites.pokecheck.org/i/494.gif"><b><font color = FF0000>∆Fröntier∆Blade☯</font></b><img src="http://sprites.pokecheck.org/i/080.gif"></center></a><br />'+
-			'<center><i>"I\'m a dual wielder, so which blade will I strike you with?"</i></center> <br />'+
+			'<center><i>"Be Stronger Than Your Strongest Excuse"</i></center> <br />'+
 			'<b>Symbol:</b> Yin and Yang <br />'+
 			'<b>Ace:</b> Mybro (Slowbro) <br />'+
 			'<b>Battle Rules:</b> <br />'+
@@ -308,16 +308,14 @@ var trainerCards = {
 				'</div>');
 	},
 	
-        bug: 'h',
-	h: function(target, room, user) {
+       
+	bug: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>H</b><br />'+
-		          'Leader Ranking: <font color = d8ff00><b>3rd</font></b> <br />'+
-			  '<i>"H4Hentai, H4Harem, H4Harassment, H4Hugs. Done checking out those sexy curves? Now it\'s time to check out my bugs. :3"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+			  '<i>"???"</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
-			  '<b>Ace:</b> None <br />' + lastSeen('gymldrh') + '<br />'+
-			  '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
-			  '<a href="http://soraleague.weebly.com/badges.html#badges"><img src="http://i.imgur.com/tnkW9J9.png" title="Badge Collector: Defeat all 18 Gym Leaders"></a><a href="http://soraleague.weebly.com/badges.html#e4win"><img src="http://i.imgur.com/y21ENWF.png" title="E4 Conqueror: Cleared the Elite Four"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#porygon"><img src="http://i.imgur.com/bJrRxB8.png" title="Broke the server while trying to repair it, good job mate"></a><a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a></details> <br />');
+			  '<b>Ace:</b> None <br />' + lastSeen('') + '<br />');
+			 
 
         },
         
@@ -325,10 +323,13 @@ var trainerCards = {
         darkus: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Darkus</b><br />'+
+		          'Leader Ranking: <font color = FFFF00><b>2nd</font></b> <br />'+
 			  '<i>"But I don\'t like Bakugan."</i> <br />'+
 			  '<b>Type: <font color = 15012b>Dark</font></b><br />'+
 			  '<b>Ace:</b> Bisharp<br />' + lastSeen('gymldrdarks') + '<br />'+
-			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />');
+			  '<img src="http://play.pokemonshowdown.com/sprites/xyani/victini.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/bisharp.gif"><br />'+
+			  '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
+			  '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Achieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#staravia"><img src="http://i.imgur.com/2UmjiLt.png" title="Staravia Badge: Two Years on Sora"></a><a href="http://soraleague.weebly.com/badges.html#bertha"><img src="http://i.imgur.com/MDcdCka.png" title="Bertha Badge: 5 E4 Defends"></a></details> <br />');
         },
         
         dragon: 'lou',
@@ -355,15 +356,16 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
 	              '<i>"???"</i> <br />'+
 	              '<b>Type: <font color = ff42a0>Fairy</font></b><br />'+
-	              '<b>Ace:</b>???<br />');
+	              '<b>Ace: </b>???<br />');
         },
         
-        fighting: function(target, room, user) {
+        fighting: 'banshee',
+        banshee: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			'<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Banshee</b><br />'+
+			'<i>"Fight with fists of steel for your goals."</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
-			'<b>Ace:</b> ??? <br />' + lastSeen('???') + '<br />');
+			'<b>Ace:</b> Lucario <br />' + lastSeen('gymldrbanshee') + '<br />');
         },
         
         
@@ -379,15 +381,16 @@ var trainerCards = {
 	indeter: function (target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Indeter</b><br />'+
-		          'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
 			  '<i>"And - I\'m off."</i> <br />'+
 			  '<b>Type: <font color = 7ab6ff>Flying</font></b><br />'+
 			  '<b>Ace:</b> Gliscor<br />' + lastSeen('gymldrindeter') + '<br />');
 	},
+	
 	ghost: 'connor',
 	connor: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Connor</b><br />'+
+		         'Leader Ranking: <font color = 5dff00><b>4th</font></b> <br />'+
 			 '<i>"The Further is a dark realm, filled with the tortured souls of the dead. It is a place not meant for the living."</i> <br />'+
 		         '<b>Type: <font color = 7814e2>Ghost</font></b><br />'+
 			 '<b>Ace:</b> Gengar<br />');
@@ -415,7 +418,7 @@ var trainerCards = {
         mark: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Mark</b><br />'+
-			  '<i>"Hard work pays off in the end."</i> <br />'+
+			  '<i>"Hard work pays off in the end. Don\'t wreck it with drugs, stay strong fighter."</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
 			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />' + lastSeen('gymldrmark') + '<br />'+
 			  '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
@@ -435,7 +438,7 @@ var trainerCards = {
         poppy: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Poppy</b><br />'+
-		         'Leader Ranking: <font color =FF0000><b>1st</font></b> <br />'+
+		         'Leader Ranking: <font color = 00ff87><b>6th</font></b> <br />'+
 			 '<i>"It\'s you and me against the world, you\'ll see!" - Xeniathan! Destroyer of Worlds</i><br />'+
 			 '<b>Type: <font color = aa00ff>Poison</font></b><br />'+
 			 '<b>Ace:</b> Box Ghost (Gengar)<br />' + lastSeen('gymldrpoppy') + '<br />');
@@ -445,7 +448,7 @@ var trainerCards = {
 	leaf: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Leaf</b><br />'+
-		           'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
+		           'Leader Ranking: <font color =FF0000><b>1st</font></b> <br />'+
 			  '<i>"The pattern repeats, will your flaws also?"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Medicham <br />' + lastSeen('gymldrleaf') + '<br />'+
@@ -453,12 +456,14 @@ var trainerCards = {
 	                  '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#skyla"><img src="http://i.imgur.com/HMGmJ2d.png" title="Skyla Badge: 20 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a></details> <br />');
 	},
         
-        rock: function(target, room, user) {
+        rock: 'core',
+        core: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Core</b><br />'+
+		          'Leader Ranking: <font color = 9dff00><b>3rd</font></b> <br />'+
+			  '<i>"There\'s always a chance for a comeback if you leave yourself open"</i> <br />'+
 			  '<b>Type: <font color = 472e10>Rock</font></b><br />'+
-			  '<b>Ace:</b> ???<br />');
+			  '<b>Ace:</b> Archeops<br />');
         },
         
         steel: 'floatzel',
@@ -476,10 +481,13 @@ var trainerCards = {
 	terror: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Terror</b> <br />'+
+		         'Leader Ranking: <font color = 00ce0d><b>5th</font></b> <br />'+
 		         '<i>"Better get out of the water because the waves are coming for you."</i> <br />'+
 		         '<b>Type: <font color = 0745ff>Water</font></b><br />'+
 			 '<b>Ace:</b> Sharpedo<br />'+
-			 '<b<Last Seen:</b> ' +lastSeen('gymldrterror') + '<br />');
+			 '<b<Last Seen:</b> ' +lastSeen('gymldrterror') + '<br />'+
+			 '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
+			 '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#e4win"><img src="http://i.imgur.com/y21ENWF.png" title="E4 Conqueror: Cleared the Elite Four"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a></details> <br />');
 	},
  /**
  * Other Trainer Cards
@@ -542,16 +550,19 @@ var trainerCards = {
 		'<b>Achievements: </b>Ex-Elite Frontier, ex-Elite Four<br /><br />'+
 		'<center><img src="http://sprites.pokecheck.org/i/157.gif"><img src="http://sprites.pokecheck.org/i/530.gif"><img src="http://sprites.pokecheck.org/i/547.gif"><img src="http://sprites.pokecheck.org/t/144.gif"><img src="http://sprites.pokecheck.org/i/205.gif"><img src="http://sprites.pokecheck.org/i/310.gif"><img src="http://sprites.pokecheck.org/i/212.gif"></center> <br />'+
 		'<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
-		'<a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#bertha"><img src="http://i.imgur.com/MDcdCka.png" title="Bertha Badge: 5 E4 Defends"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="1 Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#efrontier"><img src="http://i.imgur.com/2iZp7Mi.png" title="Achieved Elite Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Acieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#smeargle"><img src="http://i.imgur.com/A8h3FJN.png" title="Smeargle the Creator: Admin Team Artworks, Personilised Birthday Artwork for Champion Noah, and a Server Background"></a></details> <br />');
+		'<a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#bertha"><img src="http://i.imgur.com/MDcdCka.png" title="Bertha Badge: 5 E4 Defends"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="1 Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#efrontier"><img src="http://i.imgur.com/2iZp7Mi.png" title="Achieved Elite Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Achieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#smeargle"><img src="http://i.imgur.com/A8h3FJN.png" title="Smeargle the Creator: Admin Team Artworks, Personilised Birthday Artwork for Champion Noah, and a Server Background"></a></details> <br />');
         },
         
         terror2: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox( '<center><b><font size="4" color="82127a">Terror</font></b></center><br>'+
-		'<center><i>"Laughing at Dinite\'s videos"</i> </center><br /><br />'+
+		'<center><i>"Looking for dank memes"</i> </center><br /><br />'+
 		'<b>Ace: </b>Mega Sharpedo/Garchomp<br />'+
 		'<b>Skilled at: </b>Being incredibly annoying, Balanced Hackmons, Certain Monotypes.<br />'+
-		'<b>Achievements: </b> Best electric leader sora ever had, ex sora ground leader, and the best frontier of another league. Top 10 on the Balanced Hackmons Ladder.<br />'+
+		'<b>Achievements: </b><br />'+
+		'- Best Ex-Electric & Ground Leader of Sora<br />'+
+		'- Current Water Leader of Sora<br />'+
+		'- Ex-Balanced Hackmons Frontier of Yagagadrazeel<br />'+
 		'<img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/greninja.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/ferrothorn.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/sharpedo.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/garchomp.gif">');
         },
         
@@ -594,7 +605,7 @@ var trainerCards = {
 		 	'P.P.S Use Scizor against me, and I\'ll get fired up and blast you! <br/>'+
 		 	'<center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/rattata.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/mamoswine.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/vanilluxe.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/dialga.gif"> <img src="http://play.pokemonshowdown.com/sprites/xyani/zoroark.gif"></center>'+
 		 	'<details><summary><b>Badges:</b></summary><br />'+
-		 	'<a href="http://soraleague.weebly.com/badges.html#smeargle"><img src="http://i.imgur.com/A8h3FJN.png" title="Smeargle the Creator: Resident Artist of Sora, Metagame Creator: CC, Priomons, Incl Weather, PokeSandbox"></a><a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Acieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#badges"><img src="http://i.imgur.com/tnkW9J9.png" title="Badge Collector: Defeat all 18 Gym Leaders"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#porygon"><img src="http://i.imgur.com/bJrRxB8.png" title="Broke the server while trying to repair it, good job mate"></a> </details><br />'+
+		 	'<a href="http://soraleague.weebly.com/badges.html#smeargle"><img src="http://i.imgur.com/A8h3FJN.png" title="Smeargle the Creator: Resident Artist of Sora, Metagame Creator: CC, Priomons, Incl Weather, PokeSandbox"></a><a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Achieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#badges"><img src="http://i.imgur.com/tnkW9J9.png" title="Badge Collector: Defeat all 18 Gym Leaders"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#porygon"><img src="http://i.imgur.com/bJrRxB8.png" title="Broke the server while trying to repair it, good job mate"></a> </details><br />'+
 		 	'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
         },
         
@@ -618,8 +629,18 @@ var trainerCards = {
 		this.sendReplyBox('<a><font size= 4><center><b><font color = ff00b6>Bamdee</font></b></center></a><br />'+
 		'<center><img src="http://play.pokemonshowdown.com/sprites/xyani/ditto.gif"></center> <br />'+
 		'<details><summary><font size= 1><b>Badges: (Click here to open)</b></font></summary><br />'+
-		'<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Acieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#meme"><img src="http://i.imgur.com/XWAudeE.gif" title="Yee"></a><a href="http://soraleague.weebly.com/badges.html#smeargle"><img src="http://i.imgur.com/A8h3FJN.png" title="Created the Official breAdminTeam Background"></a><br />'+
+		'<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Achieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#meme"><img src="http://i.imgur.com/XWAudeE.gif" title="Yee"></a><a href="http://soraleague.weebly.com/badges.html#smeargle"><img src="http://i.imgur.com/A8h3FJN.png" title="Created the Official breAdminTeam Background"></a><a href="http://soraleague.weebly.com/badges.html#bertha"><img src="http://i.imgur.com/MDcdCka.png" title="Bertha Badge: 5 E4 Defends"></a><a href="http://soraleague.weebly.com/badges.html#koga"><img src="http://i.imgur.com/2eC21HT.png" title="Koga Badge: 10 E4 Defends"></a><br />'+
 		'<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center></details> <br />');
+        },
+        
+        edgy: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('<a><font size= 4><center><b><font color = 00CCFF>Edgy</font></b></center></a><br />'+
+		'<center><img src="http://play.pokemonshowdown.com/sprites/xyani/gardevoir-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/lopunny-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/charizard-mega-x.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/lopunny-mega.gif"><img src="http://play.pokemonshowdown.com/sprites/xyani/gardevoir-mega.gif"></center> <br />'+
+		'<center><i>"How can you face your problem, if the problem is your face?"</i></center><br />'+
+		'<details><summary><font size= 1><b>Badges: (Click here to open)</b></font></summary><br />'+
+		'<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Achieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#aegislash"><img src="http://i.imgur.com/aJY3eKg.png" title="Winner of Sora\'s first major Monotype Round Robin Tour"></a></details> <br />');
+		
         },
        
 /**
@@ -763,12 +784,12 @@ var trainerCards = {
 		ranks: function(target, room, user) {
 			if (!this.canBroadcast()) return;
 			this.sendReplyBox('Listed here are the Top 6 Leaders in The Sora League based on performance in our Monthly Promotional Tournament! Please keep in mind, the number of ranked Leaders may change month to month and the ranking methodology may be changed in the future.<br />'+
-				'-<b>1st <font color= aa00ff>Poppy</font></b> (Poison)<br />'+
-				'-<b>2nd <font color= d83c08>Bush</font></b></b> (Fighting)<br />'+
-				'-<b>3rd <font color= 65b510>H</font></b> (Bug)<br />'+
-				'-<b>4th <font color= 7ab6ff>Indeter</font></b> (Flying)<br />'+
-				'-<b>5th <font color= ff42a0>Meows</font></b> (Fairy)<br />'+
-				'-<b>6th <font color= ff00b6>Leaf</font></b> (Psychic)<br />'+
+				'-<b>1st <font color= ff00b6>Leaf</font></b> (Psychic)<br />'+
+				'-<b>2nd <font color= 15012b>Darkus</font></b></b> (Dark)<br />'+
+				'-<b>3rd <font color= 472e10>Core</font></b> (Rock)<br />'+
+				'-<b>4th <font color= 7814e2>Connor</font></b> (Ghost)<br />'+
+				'-<b>5th <font color= 0745ff>Terror</font></b> (Water)<br />'+
+				'-<b>6th <font color= aa00ff>Poppy</font></b> (Poison)<br />'+
 				'</div>');
 	
 	},

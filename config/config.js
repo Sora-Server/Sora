@@ -86,8 +86,8 @@ exports.reportBattleJoins = true;
 //   This should only be enabled in special situations, such as temporarily
 //   when you're dealing with huge influxes of spammy users.
 exports.modchat = {
-	chat: false,
-	battle: false,
+	chat: true,
+	battle: true,
 	pm: false
 };
 
@@ -211,7 +211,7 @@ exports.customAvatars = {
 	  'typhozzz': '081.png',
 	  'rubiks456': '084.png',
 	  'gymldrarshrs': 'blakjack.png',
-	  'e4bamdee': '103.gif',
+	  'bamdee': '103.gif',
 	  'gymldrarjunb': '115.png',
 	  'arifeen': '051.gif',
 	  'e4ignitor': '093.png',

@@ -11,19 +11,19 @@
  *
  * @license MIT license
  */
+/* jscs:disable validateIndentation */
 
 // Because I don't want two files, we're going to fork ourselves.
 
 var fakeProcess = new (require('./fake-process').FakeProcess)();
 //if (!process.send) {
-
 	// This is the parent
 
 	var guid = 1;
 	var callbacks = {};
 	var callbackData = {};
 
-	//var child = require('child_process').fork('verifier.js');
+	//var child = require('child_process').fork('verifier.js', {cwd: __dirname});
 	exports.verify = function (data, signature, callback) {
 		var localGuid = guid++;
 		callbacks[localGuid] = callback;
@@ -37,9 +37,7 @@ var fakeProcess = new (require('./fake-process').FakeProcess)();
 			delete callbackData[response.guid];
 		}
 	});
-
 //} else {
-
 	// This is the child
 
 	global.Config = require('./config/config.js');

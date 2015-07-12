@@ -89,7 +89,7 @@ exports.BattleMovedex = {
 				this.add('-activate', pokemon, 'Bide');
 				return false;
 			},
-			onModifyPokemon: function (pokemon) {
+			onDisableMove: function (pokemon) {
 				if (!pokemon.hasMove('bide')) {
 					return;
 				}
@@ -105,7 +105,7 @@ exports.BattleMovedex = {
 	},
 	bind: {
 		inherit: true,
-		affectedByImmunities: false,
+		ignoreImmunity: true,
 		volatileStatus: 'partiallytrapped',
 		self: {
 			volatileStatus: 'partialtrappinglock'
@@ -199,7 +199,7 @@ exports.BattleMovedex = {
 	},
 	counter: {
 		inherit: true,
-		affectedByImmunities: false,
+		ignoreImmunity: true,
 		willCrit: false,
 		damageCallback: function (pokemon, target) {
 			// Counter mechanics on gen 1 might be hard to understand.
@@ -213,6 +213,10 @@ exports.BattleMovedex = {
 			this.add('-fail', pokemon);
 			return false;
 		}
+	},
+	crabhammer: {
+		inherit: true,
+		critRatio: 2
 	},
 	dig: {
 		inherit: true,
@@ -265,7 +269,7 @@ exports.BattleMovedex = {
 					return false;
 				}
 			},
-			onModifyPokemon: function (pokemon) {
+			onDisableMove: function (pokemon) {
 				var moves = pokemon.moveset;
 				for (var i = 0; i < moves.length; i++) {
 					if (moves[i].id === this.effectData.move) {
@@ -368,7 +372,7 @@ exports.BattleMovedex = {
 	},
 	glare: {
 		inherit: true,
-		affectedByImmunities: false
+		ignoreImmunity: true
 	},
 	growth: {
 		inherit: true,
@@ -391,21 +395,27 @@ exports.BattleMovedex = {
 			this.add('-clearallboost');
 			for (var i = 0; i < this.sides.length; i++) {
 				for (var j = 0; j < this.sides[i].active.length; j++) {
-					var hasTox = (this.sides[i].active[j].status === 'tox');
-					this.sides[i].active[j].clearBoosts();
-					if (this.sides[i].active[j].id !== source.id) {
+					var pokemon = this.sides[i].active[j];
+					pokemon.clearBoosts();
+
+					if (pokemon !== source) {
 						// Clears the status from the opponent
-						this.sides[i].active[j].clearStatus();
+						pokemon.clearStatus();
+						continue;
 					}
-					this.sides[i].removeSideCondition('lightscreen');
-					this.sides[i].removeSideCondition('reflect');
-					// Turns toxic to poison for user
-					if (hasTox && this.sides[i].active[j].id === source.id) {
-						this.sides[i].active[j].setStatus('psn');
+					// Only for user: Toxic becomes normal Poison; clear volatiles.
+					if (pokemon.status === 'tox') {
+						pokemon.setStatus('psn');
 					}
-					// Clears volatile only from user
-					if (this.sides[i].active[j].id === source.id) {
-						this.sides[i].active[j].clearVolatile();
+					var volatiles = Object.keys(pokemon.volatiles);
+					for (var n = 0; n < volatiles.length; n++) {
+						var id = volatiles[n];
+						if (id === 'residualdmg') {
+							pokemon.volatiles[id].counter = 0;
+						} else {
+							pokemon.removeVolatile(id);
+							this.add('-end', pokemon, id);
+						}
 					}
 				}
 			}
@@ -437,6 +447,7 @@ exports.BattleMovedex = {
 	},
 	karatechop: {
 		inherit: true,
+		critRatio: 2,
 		type: "Normal"
 	},
 	leechseed: {
@@ -495,16 +506,6 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Psychic"
 	},
-	lowkick: {
-		inherit: true,
-		accuracy: 90,
-		basePower: 50,
-		basePowerCallback: undefined,
-		secondary: {
-			chance: 30,
-			volatileStatus: 'flinch'
-		}
-	},
 	metronome: {
 		inherit: true,
 		onHit: function (target) {
@@ -534,10 +535,10 @@ exports.BattleMovedex = {
 		desc: "This move is replaced by a random move on target's moveset. The copied move has the maximum PP for that move. Ignores a target's Substitute.",
 		shortDesc: "A random target's move replaces this one.",
 		onHit: function (target, source) {
-			var disallowedMoves = {mimic:1, struggle:1, transform:1};
+			var disallowedMoves = {mimic:1, struggle:1};
 			if (source.transformed) return false;
 			var moveslot = source.moves.indexOf('mimic');
-			if (moveslot === -1) return false;
+			if (moveslot < 0) return false;
 			var moves = target.moves;
 			moves = moves.randomize();
 			var move = false;
@@ -574,7 +575,7 @@ exports.BattleMovedex = {
 	},
 	nightshade: {
 		inherit: true,
-		affectedByImmunities: false,
+		ignoreImmunity: true,
 		basePower: 1
 	},
 	poisonsting: {
@@ -629,11 +630,11 @@ exports.BattleMovedex = {
 	},
 	razorleaf: {
 		inherit: true,
+		critRatio: 2,
 		target: "normal"
 	},
 	razorwind: {
 		inherit: true,
-		accuracy: 75,
 		critRatio: 1,
 		target: "normal"
 	},
@@ -713,12 +714,12 @@ exports.BattleMovedex = {
 	},
 	sandattack: {
 		inherit: true,
-		affectedByImmunities: false,
+		ignoreImmunity: true,
 		type: "Normal"
 	},
 	seismictoss: {
 		inherit: true,
-		affectedByImmunities: false,
+		ignoreImmunity: true,
 		basePower: 1
 	},
 	selfdestruct: {
@@ -742,10 +743,9 @@ exports.BattleMovedex = {
 			return null;
 		}
 	},
-	skyattack: {
+	slash: {
 		inherit: true,
-		critRatio: 1,
-		secondary: {}
+		critRatio: 2
 	},
 	softboiled: {
 		inherit: true,
@@ -759,25 +759,8 @@ exports.BattleMovedex = {
 		}
 	},
 	struggle: {
-		num: 165,
-		accuracy: 100,
-		basePower: 50,
-		category: "Physical",
-		desc: "Deals typeless damage to one adjacent foe at random. If this move was successful, the user loses 1/2 of the damage dealt, rounded half up; the Ability Rock Head does not prevent this. This move can only be used if none of the user's known moves can be selected. Makes contact.",
-		shortDesc: "User loses half of the damage dealt as recoil.",
-		id: "struggle",
-		name: "Struggle",
-		pp: 1,
-		noPPBoosts: true,
-		priority: 0,
-		flags: {contact: 1, protect: 1},
-		beforeMoveCallback: function (pokemon) {
-			this.add('-activate', pokemon, 'move: Struggle');
-		},
-		recoil: [1, 2],
-		secondary: false,
-		target: "normal",
-		type: "Normal"
+		inherit: true,
+		onModifyMove: function () {}
 	},
 	substitute: {
 		num: 164,
@@ -867,7 +850,7 @@ exports.BattleMovedex = {
 	},
 	superfang: {
 		inherit: true,
-		affectedByImmunities: false,
+		ignoreImmunity: true,
 		basePower: 1
 	},
 	thunder: {
@@ -908,7 +891,7 @@ exports.BattleMovedex = {
 	wrap: {
 		inherit: true,
 		accuracy: 85,
-		affectedByImmunities: false,
+		ignoreImmunity: true,
 		volatileStatus: 'partiallytrapped',
 		self: {
 			volatileStatus: 'partialtrappinglock'

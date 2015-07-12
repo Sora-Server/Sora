@@ -122,7 +122,7 @@ var Battle = (function () {
 	Battle.prototype.sendFor = function (user, action) {
 		var player = this.playerTable[toId(user)];
 		if (!player) {
-			console.log('SENDFOR FAILED: Player doesn\'t exist: ' + user.name);
+			console.log('SENDFOR FAILED in ' + this.id + ': Player doesn\'t exist: ' + user.name);
 			return;
 		}
 
@@ -270,7 +270,7 @@ var Battle = (function () {
 	};
 	Battle.prototype.getPlayer = function (slot) {
 		if (typeof slot === 'string') {
-			if (slot.substr(0, 1) === 'p') {
+			if (slot.charAt(0) === 'p') {
 				slot = parseInt(slot.substr(1), 10) - 1;
 			} else {
 				slot = parseInt(slot, 10);

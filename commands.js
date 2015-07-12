@@ -1313,7 +1313,7 @@ var commands = exports.commands = {
 
 		if (!this.canTalk()) return;
 
-		this.add('|raw|<div class="yellowboxed"><b>' + Tools.escapeHTML(target) + '</b></div>');
+		this.add('|raw|<div class="yellowboxed"><font color= white><b>' + Tools.escapeHTML(target) + '</font></b></div>');
 		this.logModCommand(user.name + " declared " + target);
 	},
 

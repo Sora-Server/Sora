@@ -178,7 +178,7 @@ exports.customAvatars = {
 	  'trollfacejpg': '021.png',
 	  'hooh': '022.gif',
 	  'gymldrzoro': '036.gif',
-	  'frntiernight': '024.png',
+	  'nightanglet': '024.png',
 	  'frontierzachary': '101.png',
 	  'akashpaul': '027.gif',
 	  'gymldriris': '028.png',
@@ -223,7 +223,8 @@ exports.customAvatars = {
 	  'gymldrh': '120.gif',
 	  'gymldrmark': '117.png',
 	  'gymldrleo': '118.gif',
-	  'gymldrterror': '119.gif'
+	  'gymldrterror': '119.gif',
+	  'drianmalcolm': '121.jpg'
 	  
 	
 };

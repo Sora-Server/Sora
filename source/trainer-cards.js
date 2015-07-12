@@ -418,7 +418,7 @@ var trainerCards = {
         mark: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Mark</b><br />'+
-			  '<i>"Hard work pays off in the end."</i> <br />'+
+			  '<i>"Hard work pays off in the end. Don\'t wreck it with drugs, stay strong fighter."</i> <br />'+
 			  '<b>Type: <font color = 00e0ac>Ice</font></b><br />'+
 			  '<b>Ace:</b> Don\'t Do Drugs (Mega Glalie)<br />' + lastSeen('gymldrmark') + '<br />'+
 			  '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+

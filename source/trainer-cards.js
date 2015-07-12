@@ -122,8 +122,8 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('E4 <b>Abadon</b><br />'+
 		      '<i>"SWIGGITY SWOOTY, I\'M COMING FOR THAT BOOTY"</i> <br />'+
-		      '<b>Type: <font color = 066baa>Ghost</font></b> <br />'+
-		      '<b>Ace:</b> Gengar<br />'+
+		      '<b>Type: <font color = 5b3a00>Ground</font></b> <br />'+
+		      '<b>Ace:</b> Excadrill<br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
 	 	      '-None <br />'+
 	 	      '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+

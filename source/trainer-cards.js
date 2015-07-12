@@ -365,7 +365,7 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Banshee</b><br />'+
 			'<i>"Fight with fists of steel for your goals."</i> <br />'+
 			'<b>Type: <font color = d83c08>Fighting</font></b><br />'+
-			'<b>Ace:</b> Lucario <br />' + lastSeen('???') + '<br />');
+			'<b>Ace:</b> Lucario <br />' + lastSeen('gymldrbanshee') + '<br />');
         },
         
         

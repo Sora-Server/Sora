@@ -763,6 +763,7 @@ var customCommands = {
                 '31.7.62.170 -Dan <br />'+
                 '71.41.165.94 -yDante <br />'+
                 '62.140.132.13 -Aidan <br />'+
+                '113.172.46.203-Riolucas <br />'+
 	        'Shame on them!');
         },
       addsymbols: 'symbols',

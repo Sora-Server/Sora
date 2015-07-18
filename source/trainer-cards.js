@@ -308,13 +308,13 @@ var trainerCards = {
 				'</div>');
 	},
 	
-       
-	bug: function(target, room, user) {
+        bug: 'dexter',
+	dexter: function(target, room, user) {
 	        if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			  '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Dexter</b><br />'+
+			  '<i>"One can conquer impossible odds with determination and zeal."</i> <br />'+
 			  '<b>Type: <font color = 65b510>Bug</font></b><br />'+
-			  '<b>Ace:</b> None <br />' + lastSeen('') + '<br />');
+			  '<b>Ace:</b> Yanmega <br />' + lastSeen('gymldrdexter') + '<br />');
 			 
 
         },

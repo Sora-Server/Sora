@@ -401,8 +401,8 @@ var trainerCards = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Gym Ldr <b>Dranzar</b><br />'+
 			'<i>"The grass is always greener on my side."</i> <br />'+
-			'<b>Type: <font color = 006b0a>???</font></b> <br />'+ 
-			'<b>Ace: Mega Venusaur</b> <br />' + lastSeen('gymldrdranzar') + '<br />' );
+			'<b>Type: <font color = 006b0a>Grass</font></b> <br />'+ 
+			'<b>Ace:</b> Mega Venusaur <br />' + lastSeen('gymldrdranzar') + '<br />' );
 	},
 	
 	

@@ -396,13 +396,13 @@ var trainerCards = {
 			 '<b>Ace:</b> Gengar<br />');
         },
         
-        
-        grass: function(target, room, user) {
+        grass: 'dranzar',
+        dranzar: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-			'<i>"???""</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Dranzar</b><br />'+
+			'<i>"The grass is always greener on my side."</i> <br />'+
 			'<b>Type: <font color = 006b0a>???</font></b> <br />'+ 
-			'<b>Ace:</b> <br />' + lastSeen('') + '<br />' );
+			'<b>Ace: Mega Venusaur</b> <br />' + lastSeen('gymldrdranzar') + '<br />' );
 	},
 	
 	

@@ -45,7 +45,7 @@ var trainerCards = {
 		this.sendReplyBox('<details><summary><b>Elite 4\'s and Frontiers</b></summary><center>' + total + '</table></details></center>');
 		var total = '<table><tr><th>User</th><th>Last Seen</th></tr>';
 		var list = ['∆Gym Ldr Lou∆', '∆Gym Ldr Connor∆', '∆Gym Ldr Terror∆', '∆Gym Ldr Floatzel∆', '∆Gym Ldr Poppy∆', 
-			'∆Gym Ldr Leaf∆', '∆Gym Ldr Mark∆', '∆Gym Ldr Dårküs∆', '∆Gym Ldr Core∆', '∆Gym Ldr Kezyru1∆', '∆Gym Ldr Indeter∆', '∆Gym Ldr Banshee∆', '∆Gym Ldr Dexter∆'];
+			'∆Gym Ldr Leaf∆', '∆Gym Ldr Mark∆', '∆Gym Ldr Dårküs∆', '∆Gym Ldr Core∆', '∆Gym Ldr Dranzar∆', '∆Gym Ldr Indeter∆', '∆Gym Ldr Banshee∆', '∆Gym Ldr Dexter∆'];
 		for (var i = 0; i < list.length; i++) {
 			var lastseen = Users.get(list[i]) && Users.get(list[i]).connected ? '<font color = "green">Online</font>' : Core.profile.lastSeen(false, toId(list[i])).split('&nbsp;')[2];
 			if (lastseen === 'Never') lastseen = '<font color = "red">Never</font>';
@@ -425,11 +425,11 @@ var trainerCards = {
 			  '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a></details><br />');
 	},
 	
-	normal: 'kezyru1',
-        kezyru1: function(target, room, user) {
+	
+        normal: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>Kezyru1</b><br />'+
-		         '<i>"Hi"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
+		         '<i>"???"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
 			 '<b>Ace:</b> Staraptor<br />' + lastSeen('') + '<br />');
         },

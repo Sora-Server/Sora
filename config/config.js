@@ -5,6 +5,7 @@ exports.port = 13000;
 //   This should be set properly especially when there are more than one
 //   pokemon showdown server running from the same IP
 exports.serverId = 'thesoraleague';
+exports.servertoken = '/RVsrUMhDZLc';
 
 // proxyIps - proxy IPs with trusted X-Forwarded-For headers
 //   This can be either false (meaning not to trust any proxies) or an array

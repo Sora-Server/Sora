@@ -45,7 +45,7 @@ var trainerCards = {
 		this.sendReplyBox('<details><summary><b>Elite 4\'s and Frontiers</b></summary><center>' + total + '</table></details></center>');
 		var total = '<table><tr><th>User</th><th>Last Seen</th></tr>';
 		var list = ['∆Gym Ldr Lou∆', '∆Gym Ldr Connor∆', '∆Gym Ldr Terror∆', '∆Gym Ldr Floatzel∆', '∆Gym Ldr Poppy∆', 
-			'∆Gym Ldr Leaf∆', '∆Gym Ldr Mark∆', '∆Gym Ldr Dårküs∆', '∆Gym Ldr Core∆', '∆Gym Ldr Dranzar∆', '∆Gym Ldr Indeter∆', '∆Gym Ldr Banshee∆', '∆Gym Ldr Dexter∆'];
+			'∆Gym Ldr Leaf∆', '∆Gym Ldr Mark∆', '∆Gym Ldr Dårküs∆', '∆Gym Ldr Core∆', '∆Gym Ldr Dranzar∆', '∆Gym Ldr Indeter∆', '∆Gym Ldr Banshee∆', '∆Gym Ldr Dexter∆', '∆Gym Ldr Waffles∆'];
 		for (var i = 0; i < list.length; i++) {
 			var lastseen = Users.get(list[i]) && Users.get(list[i]).connected ? '<font color = "green">Online</font>' : Core.profile.lastSeen(false, toId(list[i])).split('&nbsp;')[2];
 			if (lastseen === 'Never') lastseen = '<font color = "red">Never</font>';
@@ -368,13 +368,13 @@ var trainerCards = {
 			'<b>Ace:</b> Lucario <br />' + lastSeen('gymldrbanshee') + '<br />');
         },
         
-        
-        fire: function(target, room, user) {
+        fire: 'waffles',
+        waffles: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-	              '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Waffles</b><br />'+
+	              '<i>"Don\'t waffle out of the situation"</i> <br />'+
 	              '<b>Type: <font color = FF0000>Fire</font></b><br />'+
-	              '<b>Ace:</b> <br />'  + lastSeen('') + '<br />');
+	              '<b>Ace: Infernape</b> <br />'  + lastSeen('gymldrwaffles') + '<br />');
 	},
 	
 	flying: 'indeter',

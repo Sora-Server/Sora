@@ -425,13 +425,13 @@ var trainerCards = {
 			  '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a></details><br />');
 	},
 	
-	
-        normal: function(target, room, user) {
+	normal: 'taco',
+        taco: function(target, room, user) {
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Gym Ldr <b>???</b><br />'+
-		         '<i>"???"</i> <br />'+
+		this.sendReplyBox('Gym Ldr <b>Taco</b><br />'+
+		         '<i>"Dont underestimate normals"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
-			 '<b>Ace:</b> Staraptor<br />' + lastSeen('') + '<br />');
+			 '<b>Ace:</b> Lopunny<br />' + lastSeen('gymldrtaco') + '<br />');
         },
         
 	poison: 'poppy',

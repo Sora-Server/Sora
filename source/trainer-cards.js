@@ -431,8 +431,8 @@ var trainerCards = {
 		this.sendReplyBox('Gym Ldr <b>Taco</b><br />'+
 		         '<i>"Dont underestimate normals"</i> <br />'+
 	              	 '<b>Type: <font color = ffa5d5>Normal</font></b><br />'+
-	              	 '<a><img src="http://play.pokemonshowdown.com/sprites/xyani/lopunny-mega.gif"></a> <br />'+
-			 '<b>Ace:</b> Lopunny<br />' + lastSeen('gymldrtaco') + '<br />');
+			 '<b>Ace:</b> Lopunny<br />' + lastSeen('gymldrtaco') + '<br />'+
+			 '<a><img src="http://play.pokemonshowdown.com/sprites/xyani/lopunny-mega.gif"></a> <br />');
         },
         
 	poison: 'poppy',

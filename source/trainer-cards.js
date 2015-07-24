@@ -453,7 +453,7 @@ var trainerCards = {
 			  '<i>"The pattern repeats, will your flaws also?"</i> <br />'+
 			  '<b>Type: <font color = ff00b6>Psychic</font></b><br />'+
 			  '<b>Ace:</b> Medicham <br />' + lastSeen('gymldrleaf') + '<br />'+
-			  '<audio src="http://www.mediafire.com/listen/0ugzfb41u3qfiu0/Last+Decision+%28+Remastered+And+Extended+%29.mp3" controls="" style="width: 100% ; border: 2px solid #700000 ; background-color: #000000" target="_blank"></audio>'+
+			  '<audio src="https://dl.pushbulletusercontent.com/nfP9iY95TAbBnLzJf1cAbLG7qegceAan/Last%20Decision%20%28%20Remastered%20And%20Extended%20%29.mp3" controls="" style="width: 100% ; border: 2px solid #700000 ; background-color: #000000" target="_blank"></audio>'+
 			  '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
 	                  '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#skyla"><img src="http://i.imgur.com/HMGmJ2d.png" title="Skyla Badge: 20 Badge Defends"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a></details> <br />');
 	},

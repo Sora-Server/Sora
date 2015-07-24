@@ -279,6 +279,8 @@ var core = exports.core = {
             ['Who', 'Buys a custom whois bot message for your name.', 25],
             ['Avatar', 'Buys an custom avatar to be applied to your name (You supply. Images larger than 80x80 may not show correctly)', 30],
             ['Trainer', 'Buys a trainer card which shows information through a command.', 50],
+            ['Customise', 'Allows you to add an MP3 File or a styled background to your Trainer Card. (You must own a trainer card, or else do not buy this. You must supply the song as a RAW MP3 URL)', 15],
+            ['Song', 'Buys a song that can be shown and played on a declarable card. (You must supply the song as a RAW MP3 URL, You may customise the colours of the card)', 20],
             ['Room', 'Buys a chatroom for you to own. (within reason, can be refused)', 100],
             ['Administrator', 'Buys the administrator rank on the server.', 4e+999]
         ];

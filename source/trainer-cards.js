@@ -842,6 +842,18 @@ var trainerCards = {
 					'- <a href="http://soraleague.weebly.com/champions.html">Sora League Champions</a><br />' +
 					'</div>');
 	},
+	
+/**
+ * MP3/OGG Cards
+ * 
+ */
+ 
+        feelingit: function (target, room, user) {
+        	if (!this.canBroadcast()) return;
+        	this.sendReplyBox('<div class="infobox" style="cursor: url(&quot;http://i.imgur.com/c4qM0iM.gif&quot;) , auto" target="_blank"><table width="100%" border="0" style="border: 0px ; background-image: url(&quot;http://files.gamebanana.com/img/ss/wips/4ffc9f6bed5e2.jpg&quot;) ; background-size: cover" target="_blank"><tbody><tr target="_blank"><td target="_blank"><br \>' +
+        	                  '<br \><center><font size=3 color=#FF9900><b>You Will Know Our Names</b> - <i>Xenoblade Chronicles</i></font><br \>' +
+        	                  '<audio src="http://www.ssbwiki.com/images/f/f5/Victory%21_%28Shulk%29.ogg" controls="" style="width: 100% ; border: 2px solid #00CC00 ; background-color: #00000a" target="_blank"></audio></center><br \><br \>');
+        },
 };
 
 Object.merge(CommandParser.commands, trainerCards);

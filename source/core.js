@@ -279,8 +279,8 @@ var core = exports.core = {
             ['Who', 'Buys a custom whois bot message for your name.', 25],
             ['Avatar', 'Buys an custom avatar to be applied to your name (You supply. Images larger than 80x80 may not show correctly)', 30],
             ['Trainer', 'Buys a trainer card which shows information through a command.', 50],
-            ['Customise', 'Allows you to add an MP3 File or a styled background to your Trainer Card. (You must own a trainer card, or else do not buy this. You must supply the song as a RAW MP3 URL)', 15],
-            ['Song', 'Buys a song that can be shown and played on a declarable card. (You must supply the song as a RAW MP3 URL, You may customise the colours of the card)', 20],
+            ['Customise', 'Allows you to add an MP3/OGG File or a styled background to your Trainer Card. (You must own a trainer card, or else do not buy this. You must supply the song as a RAW MP3/OGG URL)', 15],
+            ['Song', 'Buys a song that can be shown and played on a declarable card. (You must supply the song as a RAW MP3/OGG URL, You may customise the colours of the card)', 20],
             ['Room', 'Buys a chatroom for you to own. (within reason, can be refused)', 100],
             ['Administrator', 'Buys the administrator rank on the server.', 4e+999]
         ];
@@ -292,7 +292,7 @@ var core = exports.core = {
         var s = '<table border="1" cellspacing="0" cellpadding="5" width="100%"><tbody><tr><th>Command</th><th>Description</th><th>Cost</th></tr>';
         var start = 0;
         while (start < shop.length) {
-            s = s + '<tr><td>' + shop[start][0] + '</td><td>' + shop[start][1] + '</td><td>' + shop[start][2] + '</td></tr>';
+            s = s + '<tr><td><button name="send" value="/buy "' + shop[start][0] + '><b>' + shop[start][0] + '</b></button></td><td>' + shop[start][1] + '</td><td>' + shop[start][2] + '</td></tr>';
             start++;
         }
         s += '</tbody></table><center>To buy an item from the shop, use /buy <em>command</em>.</center>';

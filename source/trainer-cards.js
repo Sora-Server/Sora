@@ -283,7 +283,8 @@ var trainerCards = {
 			'-No hazards<br />'+
 			'<details><summary><b>Champion\'s Challenge Rules:</b></summary> <br />'+
 			'-Pikachu Tournamentchu <br />'+
-			'-No CAP Pokemon</details> <br />');
+			'-No CAP Pokemon</details> <br />'+
+			'<audio src="http://www.ssbwiki.com/images/f/f5/Victory%21_%28Shulk%29.ogg" controls="" style="width: 100% ; border: 2px solid #00CC00 ; background-color: #00000a" target="_blank"></audio></center><br \><br \>');
 			
 	},
 	

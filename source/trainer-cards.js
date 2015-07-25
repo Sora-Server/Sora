@@ -849,6 +849,13 @@ var trainerCards = {
         	                  '<br \><center><font size=3 color=#FF9900><b>You Will Know Our Names</b> - <i>Xenoblade Chronicles</i></font><br \>' +
         	                  '<audio src="http://www.ssbwiki.com/images/f/f5/Victory%21_%28Shulk%29.ogg" controls="" style="width: 100% ; border: 2px solid #00CC00 ; background-color: #00000a" target="_blank"></audio></center><br \><br \>');
         },
+        
+        easymoney: function (target, room, user) {
+        	if (!this.canBroadcast()) return;
+        	this.sendReplyBox('<div class="infobox" target="_blank"><table width="100%" border="0" style="border: 0px ; background-image: url(&quot;http://i.imgur.com/orlVvMg.jpg&quot;) ; background-size: cover" target="_blank"><tbody><tr target="_blank"><td target="_blank"><br \>' +
+        	                  '<br \><center><font size=3 color=#FF9900><b>Easy Money</b> - <i>Bizzaro Flame</i></font><br \>' +
+        	                  '<audio src="https://dl.pushbulletusercontent.com/qrAveUFTyNQlmvq3HEtlqSmBiuQeUaaQ/Easy%20Money.mp3" controls="" loop style="width: 100% ; border: 2px solid #00CC00 ; background-color: #00000a" target="_blank"></audio></center><br \><br \><br /><br /><br /><br /><br /><br /><br /><br />');
+        },
 };
 
 Object.merge(CommandParser.commands, trainerCards);

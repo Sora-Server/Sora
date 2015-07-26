@@ -139,7 +139,7 @@ var trainerCards = {
 		      '<b>Type: <font color =d83c08>Bug</font></b><br />'+
 		      '<b>Ace:</b> None <br />'+
 	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-None<br />'+
+	 	      '-No Hazards<br />'+
 	 	      '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
 		      '<a href="http://soraleague.weebly.com/badges.html#badges"><img src="http://i.imgur.com/tnkW9J9.png" title="Badge Collector: Defeat all 18 Gym Leaders"></a><a href="http://soraleague.weebly.com/badges.html#e4win"><img src="http://i.imgur.com/y21ENWF.png" title="E4 Conqueror: Cleared the Elite Four"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#porygon"><img src="http://i.imgur.com/bJrRxB8.png" title="Broke the server while trying to repair it, good job mate"></a><a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#flannery"><img src="http://i.imgur.com/0ScjBhf.png" title="Flannery Badge: 10 Badge Defends"></a></details> <br />');
 	 	      

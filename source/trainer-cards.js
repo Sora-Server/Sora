@@ -117,20 +117,7 @@ var trainerCards = {
 					'- <a href="http://soraleague.weebly.com/elite-four.html">Sora League Elite Four</a><br />' +
 					'</div>');
 	},
-	
-        abadon: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Abadon</b><br />'+
-		      '<i>"SWIGGITY SWOOTY, I\'M COMING FOR THAT BOOTY"</i> <br />'+
-		      '<b>Type: <font color = 5b3a00>Ground</font></b> <br />'+
-		      '<b>Ace:</b> Excadrill<br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-None <br />'+
-	 	      '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
-	 	      '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#frontier"><img src="http://i.imgur.com/7jbhEJC.png" title="Achieved Frontier Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Achieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a></details><br />'+
-	 	      '<center><img src="http://oi62.tinypic.com/14cfyh0.jpg"></center> <br />');
-	 	
-        },
+
         
         h: function(target, room, user) {
 		if (!this.canBroadcast()) return;

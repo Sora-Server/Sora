@@ -9,15 +9,16 @@ body {
 	background-position:center
 }
 .header .logo {
-	display:none
+	opacity: 0;
 }
-li[id *= "champinnah"] button.userbutton.username:hover, li[id *= "frntierblade"] button.userbutton.username:hover, li[id *= "chmpionbart"] button.userbutton.username:hover, li[id *= "femalegallade"] button.userbutton.username:hover, li[id *= "onyxeagle"] button.userbutton.username:hover, li[id *= "artistejeratt"] button.userbutton.username:hover, li[id *= "coachabadon"] button.userbutton.username:hover, li[id *= "coachbloodfist"] button.userbutton.username:hover, li[id *= "neithcass"] button.userbutton.username:hover, li[id *= "bamdee"] button.userbutton.username:hover {
+/*li[id *= "champinnah"] button.userbutton.username:hover, li[id *= "frntierblade"] button.userbutton.username:hover, li[id *= "chmpionbart"] button.userbutton.username:hover, li[id *= "femalegallade"] button.userbutton.username:hover, li[id *= "onyxeagle"] button.userbutton.username:hover, li[id *= "artistejeratt"] button.userbutton.username:hover, li[id *= "coachabadon"] button.userbutton.username:hover, li[id *= "coachbloodfist"] button.userbutton.username:hover, li[id *= "neithcass"] button.userbutton.username:hover, li[id *= "bamdee"] button.userbutton.username:hover {
     background: rgb(252,183,63);
-}
+}*/
 
 li[id *= "champinnah"], li[id *= "frntierblade"], li[id *= "chmpionbart"], li[id *= "femalegallade"], li[id *= "onyxeagle"], li[id *= "artistejeratt"], li[id *= "coachabadon"], li[id *= "coachbloodfist"], li[id *= "neithcass"], li[id *= "bamdee"] {
-    background: rgba(252,183,63, .5);
-}/*
+    background: url("http://i1171.photobucket.com/albums/r545/Brahak/adminteamthing_zpspbese1su.png");
+}
+/*
 .roomlist a.ilink {
   color: #b2e1ff;
   text-shadow: 1px 1px #000;

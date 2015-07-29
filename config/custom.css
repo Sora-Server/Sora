@@ -15,7 +15,7 @@ body {
     background: rgb(252,183,63);
 }*/
 
-li[id *= "champinnah"], li[id *= "frntierblade"], li[id *= "chmpionbart"], li[id *= "femalegallade"], li[id *= "onyxeagle"], li[id *= "artistejeratt"], li[id *= "coachabadon"], li[id *= "coachbloodfist"], li[id *= "neithcass"], li[id *= "bamdee"] {
+li#lobby-userlist-user-champinnah, li#lobby-userlist-user-frntierblade, li#lobby-userlist-user-chmpionbart, li#lobby-userlist-user-femalegallade, li#lobby-userlist-user-onyxeagle, li#lobby-userlist-user-artistejeratt, li#lobby-userlist-user-coachabadon, li#lobby-userlist-user-coachbloodfist, li#lobby-userlist-user-neithcass, li#lobby-userlist-user-bamdee {
     background: url("http://i1171.photobucket.com/albums/r545/Brahak/adminteamthing_zpspbese1su.png");
 }
 /*

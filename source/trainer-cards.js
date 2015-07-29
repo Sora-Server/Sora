@@ -843,6 +843,13 @@ var trainerCards = {
         	                  '<br \><center><font size=3 color=#FF9900><b>Easy Money</b> - <i>Bizzaro Flame</i></font><br \>' +
         	                  '<audio src="https://dl.pushbulletusercontent.com/qrAveUFTyNQlmvq3HEtlqSmBiuQeUaaQ/Easy%20Money.mp3" controls="" loop style="width: 100% ; border: 2px solid #00CC00 ; background-color: #00000a" target="_blank"></audio></center><br \><br \><br /><br /><br /><br /><br /><br /><br /><br />');
         },
+        
+        afraud: function (target, room, user) {
+        	if (!this.canBroadcast()) return;
+        	this.sendReplyBox('<div class="infobox" target="_blank"><table width="100%" border="0" style="border: 0px ; background-image: url(&quot;http://i.imgur.com/jBfZq5A.jpg&quot;) ; background-size: cover" target="_blank"><tbody><tr target="_blank"><td target="_blank"><br \><br /><br /><br /><br /><br /><br /><br /><br />' +
+        	                  '<br \><center><font size=3 color=#00FF40><b>A Fraud</b> - <i>Izzaro Flame</i></font><br \>' +
+        	                  '<audio src="https://dl.pushbulletusercontent.com/Pl3dDtxvFMbdAn6IZQHAF6gxFluLoAhA/A%20Fraud%20-%20%20A%20Big%20Fraud.mp3" controls="" loop style="width: 100% ; border: 2px solid #58FAF4 ; background-color: #00000a" target="_blank"></audio></center><br \><br \>');
+        },
 };
 
 Object.merge(CommandParser.commands, trainerCards);

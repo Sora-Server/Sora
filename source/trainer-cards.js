@@ -142,21 +142,7 @@ var trainerCards = {
 			  '-No Hazards<br />');
        
         },
-        
-        zoro: function(target, room, user) {
-		if (!this.canBroadcast()) return;
-		this.sendReplyBox('E4 <b>Zoro</b><br />'+
-		      '<i>"I am everywhere you are not."</i> <br />'+
-		      '<b>Type:<font color = ff007f> Psychic</font></b><br />'+
-		      '<b>Ace:</b> Gallade <br />'+
-	 	      '<b>Battle Rules:</b> <br/>'+
-	 	      '-None <br/>'+
-	              '<img src="http://sprites.pokecheck.org/i/645.gif"><img src="http://sprites.pokecheck.org/t/187.gif">'+
-	              '<details><summary><b>Badges: (Click here to open)</b></summary><br />'+
-	              '<a href="http://soraleague.weebly.com/badges.html#ldr"><img src="http://i.imgur.com/ELFPzW8.png" title="Achieved Gym Leader Status"></a><a href="http://soraleague.weebly.com/badges.html#e4"><img src="http://i.imgur.com/QtECCD9.png" title="Achieved Elite 4 Status"></a><a href="http://soraleague.weebly.com/badges.html#starly"><img src="http://i.imgur.com/zaLhq1k.png" title="Starly Badge: One  Year on Sora"></a><a href="http://soraleague.weebly.com/badges.html#bertha"><img src="http://i.imgur.com/MDcdCka.png" title="Bertha Badge: 5 E4 Defends"></a><a href="http://soraleague.weebly.com/badges.html#koga"><img src="http://i.imgur.com/2eC21HT.png" title="Koga Badge: 10 E4 Defends"></a></details> <br />');
-	 	      
-	},
-	
+       
 	sube4: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<center>Sub E4 Position: <b><font color = FF0000>Offline</font></b></center><br />'+

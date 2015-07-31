@@ -435,7 +435,7 @@ var customCommands = {
         return this.sendReply('|raw|' + Core.shop(true));
     },
 
-    buy: function (target, room, user) {
+    shopclosedhopenoonewilleverusethiscommandeversothattheycantbuysomething: function (target, room, user) {
         if (!target) this.parse('/help buy');
         var userMoney = Number(Core.stdin('money', user.userid));
         var shop = Core.shop(false);
